@@ -113,6 +113,16 @@ namespace RegistroPacientes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap virus_medical_records_diagnosis_document_icon_142190 {
+            get {
+                object obj = ResourceManager.GetObject("virus_medical_records_diagnosis_document_icon_142190", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap virus_medical_records_diagnosis_document_icon_142217 {
             get {
                 object obj = ResourceManager.GetObject("virus_medical_records_diagnosis_document_icon_142217", resourceCulture);

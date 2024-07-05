@@ -138,5 +138,8 @@
   <ItemGroup>
     <None Include="Resources\virus_medical_records_diagnosis_document_icon_142217.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\virus_medical_records_diagnosis_document_icon_142190.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
