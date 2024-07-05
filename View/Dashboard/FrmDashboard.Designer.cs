@@ -263,7 +263,6 @@
             // 
             this.BtnPicPaciente.BackColor = System.Drawing.Color.White;
             this.BtnPicPaciente.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicPaciente.BackgroundImage = global::RegistroPacientes.Properties.Resources.virus_medical_records_diagnosis_document_icon_142190;
             this.BtnPicPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicPaciente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicPaciente.BorderRadius = 40;
