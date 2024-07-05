@@ -120,12 +120,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\home-alt-2-regular-36.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu-regular-24.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu-regular-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacientes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacientes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\virus_medical_records_diagnosis_document_icon_142217.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

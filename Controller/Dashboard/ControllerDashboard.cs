@@ -14,8 +14,12 @@ namespace RegistroPacientes.Controller.Dashboard
         FrmDashboard ObjDashboard;
         Form currentForm;
         bool SiderBarExpand = true;
+        int ComputerHeight = Screen.PrimaryScreen.Bounds.Height;
+        int computerWidth = Screen.PrimaryScreen.Bounds.Width;
+      
         public ControllerDashboard(FrmDashboard View)
         {
+            
             ObjDashboard = View;
             ObjDashboard.StpRegistroPacientes.Click += new EventHandler(AbrirFormularioAdminPacientes);
             ObjDashboard.BtnPatience.Click += new EventHandler(AbrirFormularioAdminPacientes);
@@ -89,20 +93,21 @@ namespace RegistroPacientes.Controller.Dashboard
 
         private void buttonExpandCollapse_Click(object sender, EventArgs e)
         {
+            ObjDashboard.sidebar.Width = (ObjDashboard.MaximumSize.Width + ComputerHeight);
+           
+
             SiderBarExpand = !SiderBarExpand;
+            ObjDashboard.flowButtons.Width = ObjDashboard.sidebar.Width;
 
             if (SiderBarExpand)
             {
                 ObjDashboard.sidebar.Width = ObjDashboard.sidebar.MinimumSize.Width;
                 ObjDashboard.sidebarTimer.Stop();
-                ObjDashboard.PanelContenedor.Visible = false;
             }
             else
             {
                 ObjDashboard.sidebar.Width = ObjDashboard.sidebar.MaximumSize.Width;
                 ObjDashboard.sidebarTimer.Start();
-                ObjDashboard.PanelContenedor.Visible = true;
-
             }
         }
 

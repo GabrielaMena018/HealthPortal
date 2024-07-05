@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminPatience));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -78,6 +78,7 @@
             this.CmbGrado = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.CmbCategoria = new System.Windows.Forms.ComboBox();
+            this.panel9 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -94,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -124,7 +126,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(20, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(325, 594);
+            this.panel1.Size = new System.Drawing.Size(319, 594);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -133,7 +135,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 147);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(325, 447);
+            this.panel3.Size = new System.Drawing.Size(319, 447);
             this.panel3.TabIndex = 1;
             // 
             // panelCustom2
@@ -151,7 +153,7 @@
             this.panelCustom2.GradientTopColor = System.Drawing.Color.White;
             this.panelCustom2.Location = new System.Drawing.Point(0, 0);
             this.panelCustom2.Name = "panelCustom2";
-            this.panelCustom2.Size = new System.Drawing.Size(325, 447);
+            this.panelCustom2.Size = new System.Drawing.Size(319, 447);
             this.panelCustom2.TabIndex = 1;
             // 
             // panel6
@@ -160,24 +162,24 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 157);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(325, 165);
+            this.panel6.Size = new System.Drawing.Size(319, 165);
             this.panel6.TabIndex = 15;
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(325, 165);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(319, 165);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
             // 
@@ -191,7 +193,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 322);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(325, 125);
+            this.panel5.Size = new System.Drawing.Size(319, 125);
             this.panel5.TabIndex = 14;
             // 
             // label4
@@ -282,7 +284,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(325, 157);
+            this.panel4.Size = new System.Drawing.Size(319, 157);
             this.panel4.TabIndex = 13;
             // 
             // label2
@@ -336,7 +338,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(325, 147);
+            this.panel2.Size = new System.Drawing.Size(319, 147);
             this.panel2.TabIndex = 0;
             // 
             // borderRadiusTXT1
@@ -366,15 +368,15 @@
             this.panelCustom1.BorderRadius = 20;
             this.panelCustom1.Controls.Add(this.panel8);
             this.panelCustom1.Controls.Add(this.panel7);
-            this.panelCustom1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelCustom1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCustom1.ForeColor = System.Drawing.Color.Black;
             this.panelCustom1.GradientAngle = 90F;
             this.panelCustom1.GradientBottomColor = System.Drawing.Color.White;
             this.panelCustom1.GradientTopColor = System.Drawing.Color.White;
-            this.panelCustom1.Location = new System.Drawing.Point(422, 20);
+            this.panelCustom1.Location = new System.Drawing.Point(0, 0);
             this.panelCustom1.Name = "panelCustom1";
             this.panelCustom1.Padding = new System.Windows.Forms.Padding(0, 4, 4, 15);
-            this.panelCustom1.Size = new System.Drawing.Size(926, 594);
+            this.panelCustom1.Size = new System.Drawing.Size(985, 594);
             this.panelCustom1.TabIndex = 0;
             // 
             // panel8
@@ -383,7 +385,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 104);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(922, 475);
+            this.panel8.Size = new System.Drawing.Size(981, 475);
             this.panel8.TabIndex = 15;
             // 
             // dataGridView1
@@ -396,14 +398,14 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeight = 40;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdPaciente,
@@ -414,14 +416,14 @@
             this.FechaVisita,
             this.HoraVisita,
             this.Opciones});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -433,7 +435,7 @@
             this.dataGridView1.RowHeadersWidth = 25;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(922, 475);
+            this.dataGridView1.Size = new System.Drawing.Size(981, 475);
             this.dataGridView1.TabIndex = 0;
             // 
             // IdPaciente
@@ -525,7 +527,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(922, 100);
+            this.panel7.Size = new System.Drawing.Size(981, 100);
             this.panel7.TabIndex = 14;
             // 
             // label9
@@ -663,13 +665,22 @@
             this.CmbCategoria.Size = new System.Drawing.Size(169, 33);
             this.CmbCategoria.TabIndex = 5;
             // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.panelCustom1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel9.Location = new System.Drawing.Point(363, 20);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(985, 594);
+            this.panel9.TabIndex = 2;
+            // 
             // FrmAdminPatience
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1368, 634);
+            this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelCustom1);
             this.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -697,6 +708,7 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -747,6 +759,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.ComboBox CmbGrado;
+        private System.Windows.Forms.Panel panel9;
     }
 }
 

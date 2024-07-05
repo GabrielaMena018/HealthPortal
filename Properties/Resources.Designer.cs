@@ -63,6 +63,16 @@ namespace RegistroPacientes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap home_alt_2_regular_36 {
+            get {
+                object obj = ResourceManager.GetObject("home-alt-2-regular-36", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu_regular_24 {
             get {
                 object obj = ResourceManager.GetObject("menu-regular-24", resourceCulture);
@@ -76,6 +86,36 @@ namespace RegistroPacientes.Properties {
         internal static System.Drawing.Bitmap menu_regular_241 {
             get {
                 object obj = ResourceManager.GetObject("menu-regular-241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pacientes {
+            get {
+                object obj = ResourceManager.GetObject("pacientes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pacientes1 {
+            get {
+                object obj = ResourceManager.GetObject("pacientes1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap virus_medical_records_diagnosis_document_icon_142217 {
+            get {
+                object obj = ResourceManager.GetObject("virus_medical_records_diagnosis_document_icon_142217", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

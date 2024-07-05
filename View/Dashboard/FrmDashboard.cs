@@ -20,9 +20,6 @@ namespace RegistroPacientes.View.Dashboard
 
         }
 
-        private void flowButtons_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+     
     }
 }
