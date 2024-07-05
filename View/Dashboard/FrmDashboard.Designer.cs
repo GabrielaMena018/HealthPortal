@@ -38,14 +38,6 @@
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirReporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
-            this.sidebar = new System.Windows.Forms.Panel();
-            this.PanelContenedor = new System.Windows.Forms.Panel();
-            this.btnMenu = new CustomPanel.RJButton();
             this.BtnPicHome = new CustomPanel.RJButton();
             this.BtnInicio = new CustomPanel.RJButton();
             this.BtnPicPaciente = new CustomPanel.RJButton();
@@ -54,11 +46,23 @@
             this.BtnInventario = new CustomPanel.RJButton();
             this.BtnPicEstadistica = new CustomPanel.RJButton();
             this.BtnEstadistica = new CustomPanel.RJButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnMenu = new CustomPanel.RJButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.sidebar = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.rjButton2 = new CustomPanel.RJButton();
+            this.BtnCerarSesion = new CustomPanel.RJButton();
+            this.PanelContenedor = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.flowButtons.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.sidebar.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -140,89 +144,11 @@
             this.flowButtons.Size = new System.Drawing.Size(282, 464);
             this.flowButtons.TabIndex = 1;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(284, 192);
-            this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.btnMenu);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(284, 92);
-            this.panel2.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(74, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 28);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Menu";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 949);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1900, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // sidebar
-            // 
-            this.sidebar.BackColor = System.Drawing.Color.White;
-            this.sidebar.Controls.Add(this.panel1);
-            this.sidebar.Controls.Add(this.flowButtons);
-            this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sidebar.Location = new System.Drawing.Point(0, 31);
-            this.sidebar.MaximumSize = new System.Drawing.Size(284, 0);
-            this.sidebar.MinimumSize = new System.Drawing.Size(72, 0);
-            this.sidebar.Name = "sidebar";
-            this.sidebar.Size = new System.Drawing.Size(284, 918);
-            this.sidebar.TabIndex = 4;
-            // 
-            // PanelContenedor
-            // 
-            this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContenedor.Location = new System.Drawing.Point(284, 31);
-            this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1616, 918);
-            this.PanelContenedor.TabIndex = 5;
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.BackColor = System.Drawing.Color.White;
-            this.btnMenu.BackGroundColor = System.Drawing.Color.White;
-            this.btnMenu.BackgroundImage = global::RegistroPacientes.Properties.Resources.menu_regular_24;
-            this.btnMenu.BorderColor = System.Drawing.Color.White;
-            this.btnMenu.BorderRadius = 0;
-            this.btnMenu.BorderSize = 1;
-            this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Location = new System.Drawing.Point(14, 31);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(40, 33);
-            this.btnMenu.TabIndex = 4;
-            this.btnMenu.Text = " ";
-            this.btnMenu.TextColor = System.Drawing.Color.White;
-            this.btnMenu.UseVisualStyleBackColor = false;
-            // 
             // BtnPicHome
             // 
             this.BtnPicHome.BackColor = System.Drawing.Color.White;
             this.BtnPicHome.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicHome.BackgroundImage = global::RegistroPacientes.Properties.Resources.home_alt_2_regular_36;
+            this.BtnPicHome.BackgroundImage = global::RegistroPacientes.Properties.Resources.hogar1;
             this.BtnPicHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicHome.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicHome.BorderRadius = 40;
@@ -263,6 +189,7 @@
             // 
             this.BtnPicPaciente.BackColor = System.Drawing.Color.White;
             this.BtnPicPaciente.BackGroundColor = System.Drawing.Color.White;
+            this.BtnPicPaciente.BackgroundImage = global::RegistroPacientes.Properties.Resources.lista_del_portapapeles;
             this.BtnPicPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicPaciente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicPaciente.BorderRadius = 40;
@@ -303,7 +230,7 @@
             // 
             this.BtnPicInventario.BackColor = System.Drawing.Color.White;
             this.BtnPicInventario.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicInventario.BackgroundImage = global::RegistroPacientes.Properties.Resources.home_alt_2_regular_36;
+            this.BtnPicInventario.BackgroundImage = global::RegistroPacientes.Properties.Resources.pastillas;
             this.BtnPicInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicInventario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicInventario.BorderRadius = 40;
@@ -344,7 +271,7 @@
             // 
             this.BtnPicEstadistica.BackColor = System.Drawing.Color.White;
             this.BtnPicEstadistica.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicEstadistica.BackgroundImage = global::RegistroPacientes.Properties.Resources.home_alt_2_regular_36;
+            this.BtnPicEstadistica.BackgroundImage = global::RegistroPacientes.Properties.Resources.grafico_histograma;
             this.BtnPicEstadistica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicEstadistica.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicEstadistica.BorderRadius = 40;
@@ -381,6 +308,136 @@
             this.BtnEstadistica.TextColor = System.Drawing.Color.Black;
             this.BtnEstadistica.UseVisualStyleBackColor = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(284, 192);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnMenu);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(284, 92);
+            this.panel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(74, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 28);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Menu";
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.White;
+            this.btnMenu.BackGroundColor = System.Drawing.Color.White;
+            this.btnMenu.BackgroundImage = global::RegistroPacientes.Properties.Resources.menu_regular_24;
+            this.btnMenu.BorderColor = System.Drawing.Color.White;
+            this.btnMenu.BorderRadius = 0;
+            this.btnMenu.BorderSize = 1;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.ForeColor = System.Drawing.Color.White;
+            this.btnMenu.Location = new System.Drawing.Point(14, 31);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(40, 33);
+            this.btnMenu.TabIndex = 4;
+            this.btnMenu.Text = " ";
+            this.btnMenu.TextColor = System.Drawing.Color.White;
+            this.btnMenu.UseVisualStyleBackColor = false;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 949);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1900, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // sidebar
+            // 
+            this.sidebar.BackColor = System.Drawing.Color.White;
+            this.sidebar.Controls.Add(this.flowLayoutPanel1);
+            this.sidebar.Controls.Add(this.panel1);
+            this.sidebar.Controls.Add(this.flowButtons);
+            this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebar.Location = new System.Drawing.Point(0, 31);
+            this.sidebar.MaximumSize = new System.Drawing.Size(284, 0);
+            this.sidebar.MinimumSize = new System.Drawing.Size(72, 0);
+            this.sidebar.Name = "sidebar";
+            this.sidebar.Size = new System.Drawing.Size(284, 918);
+            this.sidebar.TabIndex = 4;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.rjButton2);
+            this.flowLayoutPanel1.Controls.Add(this.BtnCerarSesion);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 818);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(284, 100);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.Color.White;
+            this.rjButton2.BackGroundColor = System.Drawing.Color.White;
+            this.rjButton2.BackgroundImage = global::RegistroPacientes.Properties.Resources.salida;
+            this.rjButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.rjButton2.BorderRadius = 40;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton2.ForeColor = System.Drawing.Color.Black;
+            this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton2.Location = new System.Drawing.Point(3, 3);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(64, 62);
+            this.rjButton2.TabIndex = 8;
+            this.rjButton2.Text = " ";
+            this.rjButton2.TextColor = System.Drawing.Color.Black;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            // 
+            // BtnCerarSesion
+            // 
+            this.BtnCerarSesion.BackColor = System.Drawing.Color.White;
+            this.BtnCerarSesion.BackGroundColor = System.Drawing.Color.White;
+            this.BtnCerarSesion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnCerarSesion.BorderRadius = 40;
+            this.BtnCerarSesion.BorderSize = 2;
+            this.BtnCerarSesion.FlatAppearance.BorderSize = 0;
+            this.BtnCerarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerarSesion.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCerarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnCerarSesion.Location = new System.Drawing.Point(73, 3);
+            this.BtnCerarSesion.Name = "BtnCerarSesion";
+            this.BtnCerarSesion.Size = new System.Drawing.Size(200, 62);
+            this.BtnCerarSesion.TabIndex = 4;
+            this.BtnCerarSesion.Text = "Cerrar Sesión";
+            this.BtnCerarSesion.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnCerarSesion.UseVisualStyleBackColor = false;
+            // 
+            // PanelContenedor
+            // 
+            this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelContenedor.Location = new System.Drawing.Point(284, 31);
+            this.PanelContenedor.Name = "PanelContenedor";
+            this.PanelContenedor.Padding = new System.Windows.Forms.Padding(5);
+            this.PanelContenedor.Size = new System.Drawing.Size(1616, 918);
+            this.PanelContenedor.TabIndex = 5;
+            // 
             // FrmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -404,6 +461,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.sidebar.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,5 +494,8 @@
         public CustomPanel.RJButton BtnPicPaciente;
         public CustomPanel.RJButton BtnPicInventario;
         public CustomPanel.RJButton BtnPicEstadistica;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        public CustomPanel.RJButton rjButton2;
+        public CustomPanel.RJButton BtnCerarSesion;
     }
 }

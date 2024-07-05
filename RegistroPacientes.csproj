@@ -136,10 +136,34 @@
     <None Include="Resources\pacientes1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\virus_medical_records_diagnosis_document_icon_142217.png" />
+    <None Include="Resources\hogar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\virus_medical_records_diagnosis_document_icon_142190.png" />
+    <None Include="Resources\monitor-de-tablero %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monitor-de-tablero %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hogar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pastillas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grafico-histograma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista-del-portapapeles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busqueda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busqueda %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
