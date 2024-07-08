@@ -24,7 +24,7 @@ namespace RegistroPacientes.Controller.Dashboard
             ObjDashboard.StpRegistroPacientes.Click += new EventHandler(AbrirFormularioAdminPacientes);
             ObjDashboard.BtnPatience.Click += new EventHandler(AbrirFormularioAdminPacientes);
             ObjDashboard.btnMenu.Click += new EventHandler(buttonExpandCollapse_Click);
-          
+            ObjDashboard.BtnPicPaciente.Click += new EventHandler(AbrirFormularioAdminPacientes);
 
 
         }

@@ -28,32 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminPatience));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminPatience));
             this.label1 = new System.Windows.Forms.Label();
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.panelTitulo = new System.Windows.Forms.Panel();
-            this.panelCustumPequeño = new CustomPanel.PanelCustom();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panelButton = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.borderRadiusTXT2 = new CustomPanel.BorderRadiusTXT();
-            this.rjButton3 = new CustomPanel.RJButton();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.rjButton2 = new CustomPanel.RJButton();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelbuscador = new System.Windows.Forms.Panel();
-            this.rjButton1 = new CustomPanel.RJButton();
-            this.borderRadiusTXT1 = new CustomPanel.BorderRadiusTXT();
             this.PanelContenedor = new CustomPanel.PanelCustom();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -78,25 +63,40 @@
             this.CmbGrado = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.CmbCategoria = new System.Windows.Forms.ComboBox();
+            this.panelCustumPequeño = new CustomPanel.PanelCustom();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.panelButton = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.borderRadiusTXT2 = new CustomPanel.BorderRadiusTXT();
+            this.rjButton3 = new CustomPanel.RJButton();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.rjButton2 = new CustomPanel.RJButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.rjButton1 = new CustomPanel.RJButton();
+            this.borderRadiusTXT1 = new CustomPanel.BorderRadiusTXT();
             this.panelGrafica.SuspendLayout();
             this.panelTitulo.SuspendLayout();
-            this.panelCustumPequeño.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panelButton.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.panelbuscador.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.ContenedorFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panelCustumPequeño.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panelButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -131,190 +131,15 @@
             this.panelTitulo.Size = new System.Drawing.Size(325, 571);
             this.panelTitulo.TabIndex = 1;
             // 
-            // panelCustumPequeño
+            // flowLayoutPanel1
             // 
-            this.panelCustumPequeño.BackColor = System.Drawing.Color.White;
-            this.panelCustumPequeño.BorderRadius = 30;
-            this.panelCustumPequeño.Controls.Add(this.panel6);
-            this.panelCustumPequeño.Controls.Add(this.panelButton);
-            this.panelCustumPequeño.Controls.Add(this.pictureBox2);
-            this.panelCustumPequeño.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCustumPequeño.ForeColor = System.Drawing.Color.Black;
-            this.panelCustumPequeño.GradientAngle = 90F;
-            this.panelCustumPequeño.GradientBottomColor = System.Drawing.Color.White;
-            this.panelCustumPequeño.GradientTopColor = System.Drawing.Color.White;
-            this.panelCustumPequeño.Location = new System.Drawing.Point(0, 0);
-            this.panelCustumPequeño.Name = "panelCustumPequeño";
-            this.panelCustumPequeño.Size = new System.Drawing.Size(325, 571);
-            this.panelCustumPequeño.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.chart1);
-            this.panel6.Controls.Add(this.panel4);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(325, 446);
-            this.panel6.TabIndex = 15;
-            // 
-            // panelButton
-            // 
-            this.panelButton.Controls.Add(this.pictureBox5);
-            this.panelButton.Controls.Add(this.label4);
-            this.panelButton.Controls.Add(this.borderRadiusTXT2);
-            this.panelButton.Controls.Add(this.rjButton3);
-            this.panelButton.Controls.Add(this.pictureBox3);
-            this.panelButton.Controls.Add(this.rjButton2);
-            this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButton.Location = new System.Drawing.Point(0, 446);
-            this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(325, 125);
-            this.panelButton.TabIndex = 14;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(255, 70);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox5.TabIndex = 13;
-            this.pictureBox5.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(13, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 28);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Cantidad Total:";
-            // 
-            // borderRadiusTXT2
-            // 
-            this.borderRadiusTXT2.BackColor = System.Drawing.SystemColors.Window;
-            this.borderRadiusTXT2.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.borderRadiusTXT2.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.borderRadiusTXT2.BorderRadius = 0;
-            this.borderRadiusTXT2.BorderSize = 2;
-            this.borderRadiusTXT2.Location = new System.Drawing.Point(161, 0);
-            this.borderRadiusTXT2.Multiline = false;
-            this.borderRadiusTXT2.Name = "borderRadiusTXT2";
-            this.borderRadiusTXT2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.borderRadiusTXT2.PasswordChar = false;
-            this.borderRadiusTXT2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.borderRadiusTXT2.PlaceholderText = "";
-            this.borderRadiusTXT2.Size = new System.Drawing.Size(94, 31);
-            this.borderRadiusTXT2.TabIndex = 9;
-            this.borderRadiusTXT2.Texts = "";
-            this.borderRadiusTXT2.UnderlinedStyle = true;
-            // 
-            // rjButton3
-            // 
-            this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BorderRadius = 40;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(117, 60);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(188, 47);
-            this.rjButton3.TabIndex = 11;
-            this.rjButton3.Text = "Imprimir Reporte";
-            this.rjButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton3.TextColor = System.Drawing.Color.White;
-            this.rjButton3.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(65, 70);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
-            // 
-            // rjButton2
-            // 
-            this.rjButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton2.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton2.BorderRadius = 40;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(18, 60);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(93, 47);
-            this.rjButton2.TabIndex = 10;
-            this.rjButton2.Text = "PDF";
-            this.rjButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton2.TextColor = System.Drawing.Color.White;
-            this.rjButton2.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.comboBox2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(325, 157);
-            this.panel4.TabIndex = 13;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(10, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(250, 37);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Total de pacientes";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(10, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 37);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "atendidos";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(17, 101);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 36);
-            this.comboBox2.TabIndex = 6;
-            this.comboBox2.Text = "Esta Semana";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(340, 447);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.panelbuscador);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(325, 139);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panelbuscador
             // 
@@ -324,47 +149,6 @@
             this.panelbuscador.Name = "panelbuscador";
             this.panelbuscador.Size = new System.Drawing.Size(319, 55);
             this.panelbuscador.TabIndex = 0;
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.White;
-            this.rjButton1.BackGroundColor = System.Drawing.Color.White;
-            this.rjButton1.BackgroundImage = global::RegistroPacientes.Properties.Resources.busqueda__1_;
-            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rjButton1.BorderColor = System.Drawing.Color.White;
-            this.rjButton1.BorderRadius = 40;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(270, 3);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(46, 35);
-            this.rjButton1.TabIndex = 4;
-            this.rjButton1.Text = " ";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            // 
-            // borderRadiusTXT1
-            // 
-            this.borderRadiusTXT1.BackColor = System.Drawing.SystemColors.Window;
-            this.borderRadiusTXT1.BorderColor = System.Drawing.Color.White;
-            this.borderRadiusTXT1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.borderRadiusTXT1.BorderRadius = 20;
-            this.borderRadiusTXT1.BorderSize = 2;
-            this.borderRadiusTXT1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.borderRadiusTXT1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.borderRadiusTXT1.Location = new System.Drawing.Point(3, 3);
-            this.borderRadiusTXT1.Multiline = false;
-            this.borderRadiusTXT1.Name = "borderRadiusTXT1";
-            this.borderRadiusTXT1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.borderRadiusTXT1.PasswordChar = false;
-            this.borderRadiusTXT1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.borderRadiusTXT1.PlaceholderText = "";
-            this.borderRadiusTXT1.Size = new System.Drawing.Size(313, 43);
-            this.borderRadiusTXT1.TabIndex = 3;
-            this.borderRadiusTXT1.Texts = "Buscar";
-            this.borderRadiusTXT1.UnderlinedStyle = false;
             // 
             // PanelContenedor
             // 
@@ -593,9 +377,9 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(879, 46);
+            this.pictureBox4.Location = new System.Drawing.Point(881, 49);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(28, 35);
+            this.pictureBox4.Size = new System.Drawing.Size(26, 28);
             this.pictureBox4.TabIndex = 13;
             this.pictureBox4.TabStop = false;
             // 
@@ -670,6 +454,33 @@
             this.CmbCategoria.Size = new System.Drawing.Size(169, 33);
             this.CmbCategoria.TabIndex = 5;
             // 
+            // panelCustumPequeño
+            // 
+            this.panelCustumPequeño.BackColor = System.Drawing.Color.White;
+            this.panelCustumPequeño.BorderRadius = 30;
+            this.panelCustumPequeño.Controls.Add(this.panel6);
+            this.panelCustumPequeño.Controls.Add(this.panelButton);
+            this.panelCustumPequeño.Controls.Add(this.pictureBox2);
+            this.panelCustumPequeño.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCustumPequeño.ForeColor = System.Drawing.Color.Black;
+            this.panelCustumPequeño.GradientAngle = 90F;
+            this.panelCustumPequeño.GradientBottomColor = System.Drawing.Color.White;
+            this.panelCustumPequeño.GradientTopColor = System.Drawing.Color.White;
+            this.panelCustumPequeño.Location = new System.Drawing.Point(0, 0);
+            this.panelCustumPequeño.Name = "panelCustumPequeño";
+            this.panelCustumPequeño.Size = new System.Drawing.Size(325, 571);
+            this.panelCustumPequeño.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.chart1);
+            this.panel6.Controls.Add(this.panel4);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(325, 446);
+            this.panel6.TabIndex = 15;
+            // 
             // chart1
             // 
             chartArea1.Name = "ChartArea1";
@@ -687,15 +498,204 @@
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
             // 
-            // flowLayoutPanel1
+            // panel4
             // 
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.panelbuscador);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(325, 139);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.comboBox2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(325, 157);
+            this.panel4.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.Location = new System.Drawing.Point(10, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(250, 37);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Total de pacientes";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.Location = new System.Drawing.Point(10, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(145, 37);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "atendidos";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(17, 101);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(174, 36);
+            this.comboBox2.TabIndex = 6;
+            this.comboBox2.Text = "Esta Semana";
+            // 
+            // panelButton
+            // 
+            this.panelButton.Controls.Add(this.pictureBox5);
+            this.panelButton.Controls.Add(this.label4);
+            this.panelButton.Controls.Add(this.borderRadiusTXT2);
+            this.panelButton.Controls.Add(this.rjButton3);
+            this.panelButton.Controls.Add(this.pictureBox3);
+            this.panelButton.Controls.Add(this.rjButton2);
+            this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelButton.Location = new System.Drawing.Point(0, 446);
+            this.panelButton.Name = "panelButton";
+            this.panelButton.Size = new System.Drawing.Size(325, 125);
+            this.panelButton.TabIndex = 14;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(255, 70);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox5.TabIndex = 13;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Location = new System.Drawing.Point(13, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(142, 28);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Cantidad Total:";
+            // 
+            // borderRadiusTXT2
+            // 
+            this.borderRadiusTXT2.BackColor = System.Drawing.SystemColors.Window;
+            this.borderRadiusTXT2.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.borderRadiusTXT2.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.borderRadiusTXT2.BorderRadius = 0;
+            this.borderRadiusTXT2.BorderSize = 2;
+            this.borderRadiusTXT2.Location = new System.Drawing.Point(161, 0);
+            this.borderRadiusTXT2.Multiline = false;
+            this.borderRadiusTXT2.Name = "borderRadiusTXT2";
+            this.borderRadiusTXT2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.borderRadiusTXT2.PasswordChar = false;
+            this.borderRadiusTXT2.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.borderRadiusTXT2.PlaceholderText = "";
+            this.borderRadiusTXT2.Size = new System.Drawing.Size(94, 31);
+            this.borderRadiusTXT2.TabIndex = 9;
+            this.borderRadiusTXT2.Texts = "";
+            this.borderRadiusTXT2.UnderlinedStyle = true;
+            // 
+            // rjButton3
+            // 
+            this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.rjButton3.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.rjButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.rjButton3.BorderRadius = 40;
+            this.rjButton3.BorderSize = 0;
+            this.rjButton3.FlatAppearance.BorderSize = 0;
+            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton3.ForeColor = System.Drawing.Color.White;
+            this.rjButton3.Location = new System.Drawing.Point(117, 60);
+            this.rjButton3.Name = "rjButton3";
+            this.rjButton3.Size = new System.Drawing.Size(188, 47);
+            this.rjButton3.TabIndex = 11;
+            this.rjButton3.Text = "Imprimir Reporte";
+            this.rjButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton3.TextColor = System.Drawing.Color.White;
+            this.rjButton3.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(65, 70);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.rjButton2.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.rjButton2.BorderRadius = 40;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton2.ForeColor = System.Drawing.Color.White;
+            this.rjButton2.Location = new System.Drawing.Point(18, 60);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(93, 47);
+            this.rjButton2.TabIndex = 10;
+            this.rjButton2.Text = "PDF";
+            this.rjButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton2.TextColor = System.Drawing.Color.White;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(340, 447);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.Color.White;
+            this.rjButton1.BackGroundColor = System.Drawing.Color.White;
+            this.rjButton1.BackgroundImage = global::RegistroPacientes.Properties.Resources.busqueda__1_;
+            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rjButton1.BorderColor = System.Drawing.Color.White;
+            this.rjButton1.BorderRadius = 40;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(270, 3);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(46, 35);
+            this.rjButton1.TabIndex = 4;
+            this.rjButton1.Text = " ";
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            // 
+            // borderRadiusTXT1
+            // 
+            this.borderRadiusTXT1.BackColor = System.Drawing.SystemColors.Window;
+            this.borderRadiusTXT1.BorderColor = System.Drawing.Color.White;
+            this.borderRadiusTXT1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.borderRadiusTXT1.BorderRadius = 20;
+            this.borderRadiusTXT1.BorderSize = 2;
+            this.borderRadiusTXT1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.borderRadiusTXT1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.borderRadiusTXT1.Location = new System.Drawing.Point(3, 3);
+            this.borderRadiusTXT1.Multiline = false;
+            this.borderRadiusTXT1.Name = "borderRadiusTXT1";
+            this.borderRadiusTXT1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.borderRadiusTXT1.PasswordChar = false;
+            this.borderRadiusTXT1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.borderRadiusTXT1.PlaceholderText = "";
+            this.borderRadiusTXT1.Size = new System.Drawing.Size(313, 43);
+            this.borderRadiusTXT1.TabIndex = 3;
+            this.borderRadiusTXT1.Texts = "Buscar";
+            this.borderRadiusTXT1.UnderlinedStyle = false;
             // 
             // FrmAdminPatience
             // 
@@ -714,15 +714,8 @@
             this.Text = "Form1";
             this.panelGrafica.ResumeLayout(false);
             this.panelTitulo.ResumeLayout(false);
-            this.panelCustumPequeño.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panelButton.ResumeLayout(false);
-            this.panelButton.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.panelbuscador.ResumeLayout(false);
             this.PanelContenedor.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -730,9 +723,16 @@
             this.ContenedorFiltros.ResumeLayout(false);
             this.ContenedorFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panelCustumPequeño.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panelButton.ResumeLayout(false);
+            this.panelButton.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -146,6 +146,7 @@
             // 
             // BtnPicHome
             // 
+            this.BtnPicHome.AccessibleDescription = "Inicio";
             this.BtnPicHome.BackColor = System.Drawing.Color.White;
             this.BtnPicHome.BackGroundColor = System.Drawing.Color.White;
             this.BtnPicHome.BackgroundImage = global::RegistroPacientes.Properties.Resources.hogar1;
@@ -162,7 +163,7 @@
             this.BtnPicHome.Name = "BtnPicHome";
             this.BtnPicHome.Size = new System.Drawing.Size(64, 62);
             this.BtnPicHome.TabIndex = 2;
-            this.BtnPicHome.Text = " ";
+            this.BtnPicHome.Tag = "Inicio";
             this.BtnPicHome.TextColor = System.Drawing.Color.Black;
             this.BtnPicHome.UseVisualStyleBackColor = false;
             // 
