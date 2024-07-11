@@ -72,8 +72,8 @@ namespace RegistroPacientes.Models.DAO
 
                     cmd1.Parameters.AddWithValue("codigo", Codigo);
                     cmd1.Parameters.AddWithValue("idEspecialidad", IdEspecialidad);
-                    cmd1.Parameters.AddWithValue("IdGrado", IdGrado);
-                    cmd1.Parameters.AddWithValue("IdSeccion", IdSeccion);
+                    cmd1.Parameters.AddWithValue("IdGrado", idGrado);
+                    cmd1.Parameters.AddWithValue("IdSeccion", idSeccion);
                     respuesta = cmd1.ExecuteNonQuery();
                     return respuesta;
 
