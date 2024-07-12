@@ -66,6 +66,7 @@ namespace RegistroPacientes.Controlador
             daoAdmin.NombrePaciente = ObjAddPatience.TxtNombrePaciente.Texts.Trim();
             daoAdmin.ApellidoPaciente = ObjAddPatience.TxtApellidoPaciente.Texts.Trim();
             daoAdmin.IdPaciente = int.Parse(ObjAddPatience.CmbRol.SelectedValue.ToString());
+            
 
             //Datos para estudiante
             daoAdmin.Codigo = ObjAddPatience.TxtCodigoPaciente.Texts.Trim();
