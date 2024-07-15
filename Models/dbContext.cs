@@ -15,10 +15,11 @@ namespace RegistroPacientes.Models
             {
                 //string server = "DESKTOP-QR03KRF";
                 string server = "LAPTOP-KGGOS1AD\\SQLEXPRESS";
-                string database = "Expo";
-                SqlConnection conexion = new SqlConnection("Server =" + server +
-                                                                 "; DataBase = " + database +
-                                                                 "; Integrated Security = true");
+                string database = "HealthPortal";
+                //SqlConnection conexion = new SqlConnection("Server =" + server +
+                //                                               "; DataBase = " + database +
+                //                                             "; Integrated Security = true");
+                SqlConnection conexion = new SqlConnection($"Server = {server}; Database = {database}; uid = sa ; pwd = tato1234");
                 conexion.Open();
                 return conexion;
             }

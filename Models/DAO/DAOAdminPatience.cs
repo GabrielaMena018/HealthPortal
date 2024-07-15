@@ -43,7 +43,7 @@ namespace RegistroPacientes.Models.DAO
             finally
             {
                 //Independientemente se haga o no el proceso cerramos la conexión
-                getConnection().Close();
+                Command.Connection.Close();
             }
         }
 
@@ -67,7 +67,7 @@ namespace RegistroPacientes.Models.DAO
                 
                 if (respuesta ==1) 
                 {
-                    string query1 = "INSERT INTO tbEstudiantes(codigo idEspecialidad, IdGrado,IdSeccion) VALUES (@codigo, @idEspecialidad, @IdGrado, IdSeccion)";
+                    string query1 = "INSERT INTO tbEstudiantes(codigo, idEspecialidad, IdGrado,IdSeccion) VALUES (@codigo, @idEspecialidad, @IdGrado, IdSeccion)";
                     SqlCommand cmd1 = new SqlCommand(query1, Command.Connection);
 
                     cmd1.Parameters.AddWithValue("codigo", Codigo);

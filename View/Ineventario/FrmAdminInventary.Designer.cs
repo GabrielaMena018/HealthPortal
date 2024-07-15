@@ -28,16 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminInventary));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PanelContenedor = new CustomPanel.PanelCustom();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvInventory = new System.Windows.Forms.DataGridView();
+            this.IdPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombrePaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContenedorFiltros = new System.Windows.Forms.Panel();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -64,16 +72,12 @@
             this.panelbuscador = new System.Windows.Forms.Panel();
             this.rjButton1 = new CustomPanel.RJButton();
             this.borderRadiusTXT1 = new CustomPanel.BorderRadiusTXT();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.IdPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombrePaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelContenedor.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.ContenedorFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelGrafica.SuspendLayout();
@@ -88,6 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelbuscador.SuspendLayout();
+            this.cmsDataGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelContenedor
@@ -110,60 +115,114 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.dataGridView1);
+            this.panel8.Controls.Add(this.dgvInventory);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 104);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(936, 544);
             this.panel8.TabIndex = 15;
             // 
-            // dataGridView1
+            // dgvInventory
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 50;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvInventory.AllowUserToAddRows = false;
+            this.dgvInventory.AllowUserToDeleteRows = false;
+            this.dgvInventory.AllowUserToResizeColumns = false;
+            this.dgvInventory.AllowUserToResizeRows = false;
+            this.dgvInventory.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInventory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvInventory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvInventory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvInventory.ColumnHeadersHeight = 50;
+            this.dgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdPaciente,
             this.Documento,
             this.NombrePaciente,
             this.Apellido,
             this.TipoPersona,
             this.FechaVisita});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 25;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(936, 544);
-            this.dataGridView1.TabIndex = 0;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInventory.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvInventory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInventory.EnableHeadersVisualStyles = false;
+            this.dgvInventory.Location = new System.Drawing.Point(0, 0);
+            this.dgvInventory.MultiSelect = false;
+            this.dgvInventory.Name = "dgvInventory";
+            this.dgvInventory.ReadOnly = true;
+            this.dgvInventory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvInventory.RowHeadersVisible = false;
+            this.dgvInventory.RowHeadersWidth = 25;
+            this.dgvInventory.RowTemplate.Height = 24;
+            this.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInventory.Size = new System.Drawing.Size(936, 544);
+            this.dgvInventory.TabIndex = 0;
+            // 
+            // IdPaciente
+            // 
+            this.IdPaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IdPaciente.FillWeight = 50F;
+            this.IdPaciente.HeaderText = "IdInventario";
+            this.IdPaciente.MinimumWidth = 6;
+            this.IdPaciente.Name = "IdPaciente";
+            this.IdPaciente.ReadOnly = true;
+            // 
+            // Documento
+            // 
+            this.Documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Documento.FillWeight = 50F;
+            this.Documento.HeaderText = "Nombre";
+            this.Documento.MinimumWidth = 6;
+            this.Documento.Name = "Documento";
+            this.Documento.ReadOnly = true;
+            // 
+            // NombrePaciente
+            // 
+            this.NombrePaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NombrePaciente.FillWeight = 75F;
+            this.NombrePaciente.HeaderText = "Categoria";
+            this.NombrePaciente.MinimumWidth = 6;
+            this.NombrePaciente.Name = "NombrePaciente";
+            this.NombrePaciente.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Apellido.FillWeight = 75F;
+            this.Apellido.HeaderText = "Fecha de Ingreso";
+            this.Apellido.MinimumWidth = 6;
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // TipoPersona
+            // 
+            this.TipoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TipoPersona.FillWeight = 50F;
+            this.TipoPersona.HeaderText = "Fecha de vencimiento";
+            this.TipoPersona.MinimumWidth = 6;
+            this.TipoPersona.Name = "TipoPersona";
+            this.TipoPersona.ReadOnly = true;
+            // 
+            // FechaVisita
+            // 
+            this.FechaVisita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FechaVisita.FillWeight = 40F;
+            this.FechaVisita.HeaderText = "Cantidad ";
+            this.FechaVisita.MinimumWidth = 6;
+            this.FechaVisita.Name = "FechaVisita";
+            this.FechaVisita.ReadOnly = true;
             // 
             // ContenedorFiltros
             // 
@@ -181,6 +240,16 @@
             this.ContenedorFiltros.Size = new System.Drawing.Size(936, 100);
             this.ContenedorFiltros.TabIndex = 14;
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(246, 50);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(186, 37);
+            this.dateTimePicker2.TabIndex = 16;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -188,7 +257,7 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label7.Location = new System.Drawing.Point(242, 24);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 23);
+            this.label7.Size = new System.Drawing.Size(61, 28);
             this.label7.TabIndex = 15;
             this.label7.Text = "Hasta";
             // 
@@ -199,7 +268,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label6.Location = new System.Drawing.Point(453, 26);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 23);
+            this.label6.Size = new System.Drawing.Size(97, 28);
             this.label6.TabIndex = 14;
             this.label6.Text = "Categoria";
             // 
@@ -220,7 +289,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label5.Location = new System.Drawing.Point(10, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 23);
+            this.label5.Size = new System.Drawing.Size(66, 28);
             this.label5.TabIndex = 13;
             this.label5.Text = "Desde";
             // 
@@ -251,7 +320,7 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(14, 53);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(186, 32);
+            this.dateTimePicker1.Size = new System.Drawing.Size(186, 37);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // CmbCategoria
@@ -261,7 +330,7 @@
             this.CmbCategoria.FormattingEnabled = true;
             this.CmbCategoria.Location = new System.Drawing.Point(457, 52);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(228, 33);
+            this.CmbCategoria.Size = new System.Drawing.Size(228, 38);
             this.CmbCategoria.TabIndex = 5;
             // 
             // panelGrafica
@@ -314,17 +383,17 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(0, 163);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(322, 275);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
@@ -346,7 +415,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.Location = new System.Drawing.Point(11, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(190, 37);
+            this.label2.Size = new System.Drawing.Size(222, 45);
             this.label2.TabIndex = 4;
             this.label2.Text = "Indice de Uso";
             // 
@@ -357,7 +426,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(16, 85);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 36);
+            this.comboBox2.Size = new System.Drawing.Size(174, 40);
             this.comboBox2.TabIndex = 6;
             this.comboBox2.Text = "Esta Semana";
             // 
@@ -460,7 +529,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 76);
+            this.label1.Size = new System.Drawing.Size(306, 182);
             this.label1.TabIndex = 2;
             this.label1.Text = "Inventario";
             // 
@@ -468,7 +537,7 @@
             // 
             this.panelbuscador.Controls.Add(this.rjButton1);
             this.panelbuscador.Controls.Add(this.borderRadiusTXT1);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 79);
+            this.panelbuscador.Location = new System.Drawing.Point(3, 185);
             this.panelbuscador.Name = "panelbuscador";
             this.panelbuscador.Size = new System.Drawing.Size(319, 55);
             this.panelbuscador.TabIndex = 0;
@@ -509,74 +578,31 @@
             this.borderRadiusTXT1.PasswordChar = false;
             this.borderRadiusTXT1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.borderRadiusTXT1.PlaceholderText = "";
-            this.borderRadiusTXT1.Size = new System.Drawing.Size(313, 43);
+            this.borderRadiusTXT1.Size = new System.Drawing.Size(313, 47);
             this.borderRadiusTXT1.TabIndex = 3;
             this.borderRadiusTXT1.Texts = "Buscar";
             this.borderRadiusTXT1.UnderlinedStyle = false;
             // 
-            // dateTimePicker2
+            // cmsDataGrid
             // 
-            this.dateTimePicker2.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(246, 50);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(186, 32);
-            this.dateTimePicker2.TabIndex = 16;
+            this.cmsDataGrid.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.cmsDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsDelete,
+            this.cmsUpdate});
+            this.cmsDataGrid.Name = "cmsDataGrid";
+            this.cmsDataGrid.Size = new System.Drawing.Size(241, 101);
             // 
-            // IdPaciente
+            // cmsDelete
             // 
-            this.IdPaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IdPaciente.FillWeight = 50F;
-            this.IdPaciente.HeaderText = "IdInventario";
-            this.IdPaciente.MinimumWidth = 6;
-            this.IdPaciente.Name = "IdPaciente";
-            this.IdPaciente.ReadOnly = true;
+            this.cmsDelete.Name = "cmsDelete";
+            this.cmsDelete.Size = new System.Drawing.Size(240, 32);
+            this.cmsDelete.Text = "Eliminar Registro";
             // 
-            // Documento
+            // cmsUpdate
             // 
-            this.Documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Documento.FillWeight = 50F;
-            this.Documento.HeaderText = "Nombre";
-            this.Documento.MinimumWidth = 6;
-            this.Documento.Name = "Documento";
-            this.Documento.ReadOnly = true;
-            // 
-            // NombrePaciente
-            // 
-            this.NombrePaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombrePaciente.FillWeight = 75F;
-            this.NombrePaciente.HeaderText = "Categoria";
-            this.NombrePaciente.MinimumWidth = 6;
-            this.NombrePaciente.Name = "NombrePaciente";
-            this.NombrePaciente.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Apellido.FillWeight = 75F;
-            this.Apellido.HeaderText = "Fecha de Ingreso";
-            this.Apellido.MinimumWidth = 6;
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // TipoPersona
-            // 
-            this.TipoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TipoPersona.FillWeight = 50F;
-            this.TipoPersona.HeaderText = "Fecha de vencimiento";
-            this.TipoPersona.MinimumWidth = 6;
-            this.TipoPersona.Name = "TipoPersona";
-            this.TipoPersona.ReadOnly = true;
-            // 
-            // FechaVisita
-            // 
-            this.FechaVisita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FechaVisita.FillWeight = 40F;
-            this.FechaVisita.HeaderText = "Cantidad ";
-            this.FechaVisita.MinimumWidth = 6;
-            this.FechaVisita.Name = "FechaVisita";
-            this.FechaVisita.ReadOnly = true;
+            this.cmsUpdate.Name = "cmsUpdate";
+            this.cmsUpdate.Size = new System.Drawing.Size(240, 32);
+            this.cmsUpdate.Text = "Actualizar Registro";
             // 
             // FrmAdminInventary
             // 
@@ -592,7 +618,7 @@
             this.Text = "FrmAdminInventary";
             this.PanelContenedor.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             this.ContenedorFiltros.ResumeLayout(false);
             this.ContenedorFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -610,6 +636,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panelbuscador.ResumeLayout(false);
+            this.cmsDataGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -618,7 +645,6 @@
 
         private CustomPanel.PanelCustom PanelContenedor;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel ContenedorFiltros;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -653,5 +679,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoPersona;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaVisita;
+        public System.Windows.Forms.DataGridView dgvInventory;
+        public System.Windows.Forms.ContextMenuStrip cmsDataGrid;
+        public System.Windows.Forms.ToolStripMenuItem cmsDelete;
+        public System.Windows.Forms.ToolStripMenuItem cmsUpdate;
     }
 }

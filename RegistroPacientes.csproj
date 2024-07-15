@@ -47,17 +47,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Registro Inventario\ControllerAddInventory.cs" />
+    <Compile Include="Controller\Registro Inventario\ControllerAdminInventory.cs" />
     <Compile Include="Controller\Registro Pacientes\ControllerAddPatience.cs" />
     <Compile Include="Controller\Registro Pacientes\ControllerAdminPatience.cs" />
     <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
+    <Compile Include="Models\DAO\DAOAdminInventory.cs" />
     <Compile Include="Models\DAO\DAOAdminPatience.cs" />
     <Compile Include="Models\dbContext.cs" />
+    <Compile Include="Models\DTO\DTOAdminInventory.cs" />
     <Compile Include="Models\DTO\DTOAdminPatience.cs" />
     <Compile Include="View\Dashboard\FrmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Dashboard\FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ineventario\FrmAddInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ineventario\FrmAddInventory.Designer.cs">
+      <DependentUpon>FrmAddInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Ineventario\FrmAdminInventary.cs">
       <SubType>Form</SubType>
@@ -93,6 +103,9 @@
     </Compile>
     <EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ineventario\FrmAddInventory.resx">
+      <DependentUpon>FrmAddInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Ineventario\FrmAdminInventary.resx">
       <DependentUpon>FrmAdminInventary.cs</DependentUpon>
