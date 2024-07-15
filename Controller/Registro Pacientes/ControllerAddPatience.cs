@@ -12,16 +12,86 @@ namespace RegistroPacientes.Controlador
      class ControllerAddPatience
     {
         FrmAddPatience ObjAddPatience;
-        private int accion;
+        int accion;
         private string TipoPersona;
         public ControllerAddPatience( FrmAddPatience Vista) 
         {
             ObjAddPatience = Vista;
+            this.accion = accion;
+            verificarAccion();
             ObjAddPatience.Load += new EventHandler(InitialCharge);
+
             ObjAddPatience.btnAgregarPaciente.Click += new EventHandler(NewPatience);
+            ObjAddPatience.CmbRol.SelectedIndexChanged += new EventHandler(CmbRole_SelectChange);
            
 
         }
+
+        public void verificarAccion()
+        {
+            if (accion == 1)
+            {
+                ObjAddPatience.btnAgregarPaciente.Enabled = true;
+                ObjAddPatience.BtnActuzalizar.Enabled = false;
+            }
+            else if (accion == 2)
+            {
+                ObjAddPatience.btnAgregarPaciente.Enabled = false;
+                ObjAddPatience.btnAgregarPaciente.Enabled = true;
+           
+            }
+        }
+
+        private void NewPatience(object sender, EventArgs e)
+        {
+            //Enviar los datos de los componentes del DTO
+            DAOAdminPatience daoInsertPatient = new DAOAdminPatience();
+
+            //Inserccion de datos de la tabla paciente
+            daoInsertPatient.Nombre = ObjAddPatience.TxtNombrePaciente.Texts;
+            daoInsertPatient.Apellido = ObjAddPatience.TxtApellidoPaciente.Texts;
+            daoInsertPatient.Rol = (int)ObjAddPatience.CmbRol.SelectedValue;
+
+            if(ObjAddPatience.CmbRol.SelectedIndex == 0) 
+            {
+                //Insercion datos tabla grado seccion
+                daoInsertPatient.Especialidad = (int)ObjAddPatience.CmbEspecidalidadRegistro.SelectedValue;
+                daoInsertPatient.GrupoTecnico = ObjAddPatience.txtGrupo.Texts;
+                daoInsertPatient.Grado = (int)ObjAddPatience.CmBGradoRegistro.SelectedValue;
+                daoInsertPatient.SeccionAcademica = (int)ObjAddPatience.CmbSeccionRegistro.SelectedValue;
+
+
+                //Insercion de datos tbEstudiantes
+                daoInsertPatient.Codigo = ObjAddPatience.TxtCodigoPaciente.Texts;
+            }
+            else 
+            {
+                daoInsertPatient.Documento = ObjAddPatience.mksDocumento.Text;
+                daoInsertPatient.IdArea = (int)ObjAddPatience.CmbAreaPersonal.SelectedValue;
+            }
+            
+
+            //Insercion de datos tbVisitas
+            daoInsertPatient.Fecha = ObjAddPatience.PickFechaRegistro.Value.Date;
+            daoInsertPatient.Hora = ObjAddPatience.PickHoraRegistro.Value.ToString("HH:mm");
+            daoInsertPatient.Medicamento = (int)ObjAddPatience.CmbMedicamentoRegistro.SelectedValue;
+            daoInsertPatient.Observacion = ObjAddPatience.TxtObservaciones.Texts;
+
+
+            int retorno = daoInsertPatient.PatientRegistration();
+            if (retorno == 1)
+            {
+                MessageBox.Show("Datos ingresados correctamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se pudieron ingresar los datos", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+        }
+
         public void InitialCharge(object sender, EventArgs e)
         {
             //Objeto de la clase DAOAdminUsuarios
@@ -31,7 +101,8 @@ namespace RegistroPacientes.Controlador
             //Llenar combobox tbRole
             ObjAddPatience.CmbRol.DataSource = dsRol.Tables["tbTipoPersona"];
             ObjAddPatience.CmbRol.ValueMember = "IdTipoPersona";
-            ObjAddPatience.CmbRol.DisplayMember = "TipoPersona";
+            ObjAddPatience.CmbRol.DisplayMember = "TipoPerona";
+
 
             DataSet dsEspRegistro = objAdmin.LlenarCombo("tbEspecialidades");
             //Llenar combobox tbEspecialidades
@@ -45,49 +116,48 @@ namespace RegistroPacientes.Controlador
             ObjAddPatience.CmBGradoRegistro.ValueMember = "IdGrado";
             ObjAddPatience.CmBGradoRegistro.DisplayMember = "Grado";
 
-            DataSet dsSeccionesRegistros = objAdmin.LlenarCombo("tbSecciones");
-            //Llenar combobox tbGrados
-            ObjAddPatience.CmbSeccionRegistro.DataSource = dsSeccionesRegistros.Tables["tbSecciones"];
-            ObjAddPatience.CmbSeccionRegistro.ValueMember = "IdSeccion";
-            ObjAddPatience.CmbSeccionRegistro.DisplayMember = "Seccion";
+            DataSet dsSeccionesRegistros = objAdmin.LlenarCombo("tbSeccionAcademica");
+            //Llenar combobox tbSeccion
+            ObjAddPatience.CmbSeccionRegistro.DataSource = dsSeccionesRegistros.Tables["tbSeccionAcademica"];
+            ObjAddPatience.CmbSeccionRegistro.ValueMember = "IdSeccionAcademica";
+            ObjAddPatience.CmbSeccionRegistro.DisplayMember = "SeccionAcademica";
 
-            
+            //Llenar combox tbMedicamento
+            DataSet dsMedicamentoRegistros = objAdmin.LlenarCombo("tbMedicamentos");
+            ObjAddPatience.CmbMedicamentoRegistro.DataSource = dsMedicamentoRegistros.Tables["tbMedicamentos"];
+            ObjAddPatience.CmbMedicamentoRegistro.ValueMember = "IdMedicamento";
+            ObjAddPatience.CmbMedicamentoRegistro.DisplayMember = "nombreMedicamento";
+
+            //Llenar combox Area de tarbajo tbAreaPersonal
+            DataSet dsAreaPersonalRegistros = objAdmin.LlenarCombo("tbAreaPersonal");
+            ObjAddPatience.CmbAreaPersonal.DataSource = dsAreaPersonalRegistros.Tables["tbAreaPersonal"];
+            ObjAddPatience.CmbAreaPersonal.ValueMember = "IdArea";
+            ObjAddPatience.CmbAreaPersonal.DisplayMember = "TipoArea";
+
+
             //La condición sirve para que al actualizar un registro, el valor del registro aparezca seleccionado.
             if (accion == 2)
             {
                 ObjAddPatience.CmbRol.Text = TipoPersona;
             }
         }
-        public void NewPatience (object sender, EventArgs e) 
+
+
+        public void CmbRole_SelectChange(object sender, EventArgs e) 
         {
-            DAOAdminPatience daoAdmin = new DAOAdminPatience();
-
-            //Datos del paciente
-            daoAdmin.NombrePaciente = ObjAddPatience.TxtNombrePaciente.Texts.Trim();
-            daoAdmin.ApellidoPaciente = ObjAddPatience.TxtApellidoPaciente.Texts.Trim();
-            daoAdmin.IdPaciente = int.Parse(ObjAddPatience.CmbRol.SelectedValue.ToString());
-
-            //Datos para estudiante
-            daoAdmin.Codigo = ObjAddPatience.TxtCodigoPaciente.Texts.Trim();
-            daoAdmin.idSeccion = int.Parse(ObjAddPatience.CmbSeccionRegistro.SelectedValue.ToString());
-            daoAdmin.IdEspecialidad = int.Parse(ObjAddPatience.CmbEspecidalidadRegistro.SelectedValue.ToString());
-            daoAdmin.idGrado = int.Parse(ObjAddPatience.CmBGradoRegistro.SelectedValue.ToString());
-
-            int valorRetornado = daoAdmin.RegistrarVisita();
-            if (valorRetornado == 1)
+            if (ObjAddPatience.CmbRol.SelectedIndex == 0)
             {
-                MessageBox.Show("Los datos han sido registrados exitosamente",
-                                "Proceso completado",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                ObjAddPatience.groupStudent.Visible = true;
             }
-            else
+            else 
             {
-                MessageBox.Show("Los datos no pudieron ser registrados",
-                                "Proceso interrumpido",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                ObjAddPatience.groupPersonalInstitucion.Visible = true;
+                ObjAddPatience.groupStudent.Visible = false;
             }
         }
+
+      
+        
+
     }
 }

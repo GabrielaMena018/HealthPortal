@@ -25,15 +25,15 @@ namespace RegistroPacientes.Controlador
         }
         private void InitialCharge(object sender, EventArgs e)
         {
-            
+            RefrescarData();    
             //Objeto de la clase DAOAdminUsuarios
             DAOAdminPatience objAdmin = new DAOAdminPatience();
             //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombo
-            DataSet dsRol = objAdmin.LlenarCombo("tbTipoPersona");
+            DataSet dsCategoria = objAdmin.LlenarCombo("tbTipoPersona");
             //Llenar combobox tbRole
-            objAdminPatience.CmbCategoria.DataSource = dsRol.Tables["tbTipoPersona"];
+            objAdminPatience.CmbCategoria.DataSource = dsCategoria.Tables["tbTipoPersona"];
             objAdminPatience.CmbCategoria.ValueMember = "IdTipoPersona";
-            objAdminPatience.CmbCategoria.DisplayMember = "TipoPersona";
+            objAdminPatience.CmbCategoria.DisplayMember = "TipoPerona";
 
             DataSet dsEspRegistro = objAdmin.LlenarCombo("tbEspecialidades");
             //Llenar combobox tbRole
@@ -47,11 +47,7 @@ namespace RegistroPacientes.Controlador
             objAdminPatience.CmbGrado.ValueMember = "IdGrado";
             objAdminPatience.CmbGrado.DisplayMember = "Grado";
 
-            DataSet dsSeccionesRegistros = objAdmin.LlenarCombo("tbSecciones");
-            //Llenar combobox tbGrados
-            objAdminPatience.CmbSeccion.DataSource = dsSeccionesRegistros.Tables["tbSecciones"];
-            objAdminPatience.CmbSeccion.ValueMember = "IdSeccion";
-            objAdminPatience.CmbSeccion.DisplayMember = "Seccion";
+
             //La condición sirve para que al actualizar un registro, el valor del registro aparezca seleccionado.
             if (accion == 2)
             {
@@ -64,7 +60,17 @@ namespace RegistroPacientes.Controlador
         {
             FrmAddPatience openForm = new FrmAddPatience();
             openForm.ShowDialog();
+            RefrescarData();
             
+        }
+        public void RefrescarData()
+        {
+            //Objeto de la clase DAOAdminUsuarios
+            DAOAdminPatience objAdmin = new DAOAdminPatience();
+            //Declarando nuevo DataSet para que obtenga los datos del metodo ObtenerPersonas
+            DataSet ds = objAdmin.AdminPatient();
+            //Llenar DataGridView
+            objAdminPatience.GridViewPatient.DataSource = ds.Tables["ViewAdminPatient"];
         }
     }
 }

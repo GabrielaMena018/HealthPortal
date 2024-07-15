@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RegistroPacientes.Models.DTO;
+using System.Windows.Forms;
+using Microsoft.SqlServer.Server;
+using System.Collections;
 
 namespace RegistroPacientes.Models.DAO
 {
@@ -46,51 +49,165 @@ namespace RegistroPacientes.Models.DAO
                 getConnection().Close();
             }
         }
+        int respuesta;
 
-        public int RegistrarVisita() 
+        public int PatientRegistration() 
         {
-            try 
+            
+            try
             {
-                //Se crea una conexión para garantizar que efectivamente haya conexión a la base.
                 Command.Connection = getConnection();
-                string query = "INSERT INTO tbPacientes(nombrePaciente, apellidoPaciente, IdTipoPersona) VALUES (@nombrePaciente, @apellidoPaciente, @IdTipoPersona)";
-                //Se crea un comando de tipo sql al cual se le pasa el query y la conexión, esto para que el sistema sepa que hacer y donde hacerlo.
-                SqlCommand cmd = new SqlCommand(query, Command.Connection);
-                //Se le da un valor a los parametros contenidos en el query, es importante mencionar que lo que esta entre comillas es el nombre del parametro y lo que esta después de la coma es el valor que se le asignará al parametro, estos valores vienen del DTO respectivo.
-                cmd.Parameters.AddWithValue("nombrePaciente", NombrePaciente);
-                cmd.Parameters.AddWithValue("apellidoPaciente",ApellidoPaciente );
-                cmd.Parameters.AddWithValue("IdTipoRol", IdTipoPersona1);
-              
-                //Se ejecuta el comando ya con todos los valores de sus parametros.
-                //ExecuteNonQuery indicará cuantos filas fueron afectadas, es decir, cuantas filas de datos se ingresaron, por lo general devolvera 1 porque se hace una inserción a la vez.
-                int respuesta = cmd.ExecuteNonQuery();
-                
-                if (respuesta ==1) 
+                //Insertar datos en la tabala de paciente
+                string queryPatient = "INSERT INTO  tbPacientes VALUES (@nombrePaciente, @apellidoPaciente, @IdTipoPersona)";
+                SqlCommand cmdInsertPatient = new SqlCommand(queryPatient, Command.Connection);
+                //Insertar o darle valor a los parametros
+                cmdInsertPatient.Parameters.AddWithValue("nombrePaciente", Nombre);
+                cmdInsertPatient.Parameters.AddWithValue("apellidoPaciente", Apellido);
+                cmdInsertPatient.Parameters.AddWithValue("IdTipoPersona", Rol);
+                respuesta = cmdInsertPatient.ExecuteNonQuery();
+                if (respuesta == 1)
                 {
-                    string query1 = "INSERT INTO tbEstudiantes(codigo idEspecialidad, IdGrado,IdSeccion) VALUES (@codigo, @idEspecialidad, @IdGrado, IdSeccion)";
-                    SqlCommand cmd1 = new SqlCommand(query1, Command.Connection);
 
-                    cmd1.Parameters.AddWithValue("codigo", Codigo);
-                    cmd1.Parameters.AddWithValue("idEspecialidad", IdEspecialidad);
-                    cmd1.Parameters.AddWithValue("IdGrado", idGrado);
-                    cmd1.Parameters.AddWithValue("IdSeccion", idSeccion);
-                    respuesta = cmd1.ExecuteNonQuery();
-                    return respuesta;
-
+                    ObtenerIdPatient();
+                    if (Rol == 1)
+                    {
+                        ObtenerIdGradoSeccion();
+                        //Insertar estudiante
+                        string queryStudent = "INSERT INTO tbEstudiantes VALUES  (@IdPaciente, @codigo, @IdGrado_Seccion)";
+                        SqlCommand cmdStudent = new SqlCommand(queryStudent, Command.Connection);
+                        cmdStudent.Parameters.AddWithValue("IdPaciente", IdPaciente);
+                        cmdStudent.Parameters.AddWithValue("codigo", Codigo);
+                        cmdStudent.Parameters.AddWithValue("IdGrado_Seccion", IdGradoSeccion);
+                        respuesta = cmdStudent.ExecuteNonQuery();
+                        if (respuesta == 1)
+                        {
+                            AgregarVisita();
+                            if (respuesta == 1)
+                            {
+                                return 1;
+                            }
+                            else { return 0; }
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                    else
+                    { 
+                        //Insertar Personal de la Isntitución
+                        string queryPersonal = "INSERT INTO tbPersonalInstitucion VALUES (@IdPaciente,@IdArea,@Documento)";
+                        SqlCommand cmdPersonal = new SqlCommand(queryPersonal, Command.Connection);
+                        cmdPersonal.Parameters.AddWithValue("IdPaciente", IdPaciente);
+                        cmdPersonal.Parameters.AddWithValue("IdArea", IdArea);
+                        cmdPersonal.Parameters.AddWithValue("Documento", Documento);
+                        respuesta = cmdPersonal.ExecuteNonQuery();
+                        if (respuesta == 1)
+                        {
+                            AgregarVisita();
+                            if (respuesta ==1)
+                            {
+                                return 1;
+                            }
+                            else { return 0; }
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                       
+                    }
                 }
-                else 
+                else  
                 {
                     return 0;
                 }
             }
-
-            catch (Exception)
+            catch (SqlException ex)
             {
+                //Codificación de errores: esta sale del catch EC = error critico
+                MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
-            }finally
+
+            }
+            finally
             {
                 Command.Connection.Close();
             }
         }
+
+       public int ObtenerIdPatient() 
+        {
+            string queryIdPatient = "Select MAX (IdPaciente) FROM tbPacientes";
+            SqlCommand cmdIdpatient = new SqlCommand(queryIdPatient, Command.Connection);
+            SqlDataReader consulta = cmdIdpatient.ExecuteReader();
+
+            while (consulta.Read())
+            {
+                IdPaciente = consulta.GetInt32(0); // Suponiendo que IdGrado_Seccion está en el índice 0
+            }
+            consulta.Close();
+
+            return IdPaciente;
+        }
+        public int ObtenerIdGradoSeccion() 
+        {
+            //buscar grados
+            //Hacer una seleccion filtrada
+            string queryGradoSeccion = "SELECT IdGrado_Seccion FROM tbGrado_Seccion WHERE GrupoTecnico = @GrupoTecnico AND IdGrado = @IdGrado AND IdSeccionAcademica = @IdSeccionAcademica AND IdEspecialidad = @IdEspecialidad";
+            SqlCommand cmdGradoSeccion = new SqlCommand(queryGradoSeccion, Command.Connection);
+            //Parametros
+            cmdGradoSeccion.Parameters.AddWithValue("GrupoTecnico", GrupoTecnico);
+            cmdGradoSeccion.Parameters.AddWithValue("IdGrado", Grado);
+            cmdGradoSeccion.Parameters.AddWithValue("IdSeccionAcademica", SeccionAcademica);
+            cmdGradoSeccion.Parameters.AddWithValue("IdEspecialidad", Especialidad);
+            SqlDataReader consulta = cmdGradoSeccion.ExecuteReader();
+
+            while (consulta.Read())
+            {
+                IdGradoSeccion = consulta.GetInt32(0); // Suponiendo que IdGrado_Seccion está en el índice 0
+            }
+            consulta.Close();
+            return IdGradoSeccion;
+        }
+        public int AgregarVisita() 
+        {
+            string queryVisita = "INSERT INTO tbVisitas Values(@IdPaciente, @FechaVisita,@HoraVisita,@IdMedicamento, @Observaciones)";
+            SqlCommand cmdVisita = new SqlCommand(queryVisita, Command.Connection);
+            cmdVisita.Parameters.AddWithValue("IdPaciente", IdPaciente);
+            cmdVisita.Parameters.AddWithValue("FechaVisita", Fecha);
+            cmdVisita.Parameters.AddWithValue("HoraVisita", Hora);
+            cmdVisita.Parameters.AddWithValue("IdMedicamento", Medicamento);
+            cmdVisita.Parameters.AddWithValue("Observaciones", Observacion);
+            respuesta = cmdVisita.ExecuteNonQuery();
+            return respuesta;
+           
+        }
+        public DataSet AdminPatient() 
+        {
+            try
+            {
+                Command.Connection = getConnection();
+                string queryAdminPatient = "SELECT * FROM ViewAdminPatient";
+                SqlCommand cmdAdminPatient = new SqlCommand(queryAdminPatient, Command.Connection);
+                cmdAdminPatient.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmdAdminPatient);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "ViewAdminPatient");
+                return ds;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally 
+            {
+                getConnection().Close();
+            }
+          
+        }
     }
+
+
 }

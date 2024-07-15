@@ -41,17 +41,8 @@
             this.panelbuscador = new System.Windows.Forms.Panel();
             this.PanelContenedor = new CustomPanel.PanelCustom();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.IdPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombrePaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoraVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Opciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GridViewPatient = new System.Windows.Forms.DataGridView();
             this.ContenedorFiltros = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,7 +50,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnNew = new CustomPanel.RJButton();
-            this.CmbSeccion = new System.Windows.Forms.ComboBox();
             this.CmbGrado = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.CmbCategoria = new System.Windows.Forms.ComboBox();
@@ -86,7 +76,7 @@
             this.panelbuscador.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewPatient)).BeginInit();
             this.ContenedorFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelCustumPequeño.SuspendLayout();
@@ -170,41 +160,29 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.dataGridView1);
+            this.panel8.Controls.Add(this.GridViewPatient);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 104);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(936, 591);
             this.panel8.TabIndex = 15;
             // 
-            // dataGridView1
+            // GridViewPatient
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.GridViewPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridViewPatient.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.GridViewPatient.BackgroundColor = System.Drawing.Color.White;
+            this.GridViewPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GridViewPatient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 40;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdPaciente,
-            this.Documento,
-            this.NombrePaciente,
-            this.Apellido,
-            this.TipoPersona,
-            this.FechaVisita,
-            this.HoraVisita,
-            this.Opciones});
+            this.GridViewPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.GridViewPatient.ColumnHeadersHeight = 40;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -212,96 +190,23 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 25;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(936, 591);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // IdPaciente
-            // 
-            this.IdPaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IdPaciente.FillWeight = 50F;
-            this.IdPaciente.HeaderText = "Idpaciente";
-            this.IdPaciente.MinimumWidth = 6;
-            this.IdPaciente.Name = "IdPaciente";
-            this.IdPaciente.ReadOnly = true;
-            // 
-            // Documento
-            // 
-            this.Documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Documento.FillWeight = 50F;
-            this.Documento.HeaderText = "Documento";
-            this.Documento.MinimumWidth = 6;
-            this.Documento.Name = "Documento";
-            this.Documento.ReadOnly = true;
-            // 
-            // NombrePaciente
-            // 
-            this.NombrePaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombrePaciente.FillWeight = 75F;
-            this.NombrePaciente.HeaderText = "Nombres";
-            this.NombrePaciente.MinimumWidth = 6;
-            this.NombrePaciente.Name = "NombrePaciente";
-            this.NombrePaciente.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Apellido.FillWeight = 75F;
-            this.Apellido.HeaderText = "Apellidos";
-            this.Apellido.MinimumWidth = 6;
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // TipoPersona
-            // 
-            this.TipoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TipoPersona.FillWeight = 50F;
-            this.TipoPersona.HeaderText = "Rol";
-            this.TipoPersona.MinimumWidth = 6;
-            this.TipoPersona.Name = "TipoPersona";
-            this.TipoPersona.ReadOnly = true;
-            // 
-            // FechaVisita
-            // 
-            this.FechaVisita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FechaVisita.FillWeight = 40F;
-            this.FechaVisita.HeaderText = "Fecha";
-            this.FechaVisita.MinimumWidth = 6;
-            this.FechaVisita.Name = "FechaVisita";
-            this.FechaVisita.ReadOnly = true;
-            // 
-            // HoraVisita
-            // 
-            this.HoraVisita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HoraVisita.FillWeight = 50F;
-            this.HoraVisita.HeaderText = "Hora";
-            this.HoraVisita.MinimumWidth = 6;
-            this.HoraVisita.Name = "HoraVisita";
-            this.HoraVisita.ReadOnly = true;
-            // 
-            // Opciones
-            // 
-            this.Opciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Opciones.FillWeight = 50F;
-            this.Opciones.HeaderText = "Opciones";
-            this.Opciones.MinimumWidth = 6;
-            this.Opciones.Name = "Opciones";
-            this.Opciones.ReadOnly = true;
+            this.GridViewPatient.DefaultCellStyle = dataGridViewCellStyle2;
+            this.GridViewPatient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GridViewPatient.EnableHeadersVisualStyles = false;
+            this.GridViewPatient.Location = new System.Drawing.Point(0, 0);
+            this.GridViewPatient.MultiSelect = false;
+            this.GridViewPatient.Name = "GridViewPatient";
+            this.GridViewPatient.ReadOnly = true;
+            this.GridViewPatient.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.GridViewPatient.RowHeadersVisible = false;
+            this.GridViewPatient.RowHeadersWidth = 25;
+            this.GridViewPatient.RowTemplate.Height = 24;
+            this.GridViewPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GridViewPatient.Size = new System.Drawing.Size(936, 591);
+            this.GridViewPatient.TabIndex = 0;
             // 
             // ContenedorFiltros
             // 
-            this.ContenedorFiltros.Controls.Add(this.label9);
             this.ContenedorFiltros.Controls.Add(this.label8);
             this.ContenedorFiltros.Controls.Add(this.label7);
             this.ContenedorFiltros.Controls.Add(this.label6);
@@ -309,7 +214,6 @@
             this.ContenedorFiltros.Controls.Add(this.pictureBox4);
             this.ContenedorFiltros.Controls.Add(this.label5);
             this.ContenedorFiltros.Controls.Add(this.btnNew);
-            this.ContenedorFiltros.Controls.Add(this.CmbSeccion);
             this.ContenedorFiltros.Controls.Add(this.CmbGrado);
             this.ContenedorFiltros.Controls.Add(this.dateTimePicker1);
             this.ContenedorFiltros.Controls.Add(this.CmbCategoria);
@@ -319,23 +223,12 @@
             this.ContenedorFiltros.Size = new System.Drawing.Size(936, 100);
             this.ContenedorFiltros.TabIndex = 14;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(651, 24);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 23);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Sección";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label8.Location = new System.Drawing.Point(549, 24);
+            this.label8.Location = new System.Drawing.Point(549, 23);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 23);
             this.label8.TabIndex = 16;
@@ -414,16 +307,6 @@
             this.btnNew.TextColor = System.Drawing.Color.Black;
             this.btnNew.UseVisualStyleBackColor = false;
             // 
-            // CmbSeccion
-            // 
-            this.CmbSeccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbSeccion.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CmbSeccion.FormattingEnabled = true;
-            this.CmbSeccion.Location = new System.Drawing.Point(655, 49);
-            this.CmbSeccion.Name = "CmbSeccion";
-            this.CmbSeccion.Size = new System.Drawing.Size(103, 33);
-            this.CmbSeccion.TabIndex = 1;
-            // 
             // CmbGrado
             // 
             this.CmbGrado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -431,7 +314,7 @@
             this.CmbGrado.FormattingEnabled = true;
             this.CmbGrado.Location = new System.Drawing.Point(553, 49);
             this.CmbGrado.Name = "CmbGrado";
-            this.CmbGrado.Size = new System.Drawing.Size(85, 33);
+            this.CmbGrado.Size = new System.Drawing.Size(205, 33);
             this.CmbGrado.TabIndex = 3;
             // 
             // dateTimePicker1
@@ -719,7 +602,7 @@
             this.panelbuscador.ResumeLayout(false);
             this.PanelContenedor.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewPatient)).EndInit();
             this.ContenedorFiltros.ResumeLayout(false);
             this.ContenedorFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -760,17 +643,7 @@
         private CustomPanel.RJButton rjButton1;
         private CustomPanel.PanelCustom PanelContenedor;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdPaciente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombrePaciente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoPersona;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaVisita;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoraVisita;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Opciones;
         private System.Windows.Forms.Panel ContenedorFiltros;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -778,12 +651,12 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label5;
         public CustomPanel.RJButton btnNew;
-        public System.Windows.Forms.ComboBox CmbSeccion;
         public System.Windows.Forms.ComboBox CmbGrado;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.ComboBox CmbCategoria;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        public System.Windows.Forms.DataGridView GridViewPatient;
     }
 }
 
