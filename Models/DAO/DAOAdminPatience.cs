@@ -9,6 +9,7 @@ using RegistroPacientes.Models.DTO;
 using System.Windows.Forms;
 using Microsoft.SqlServer.Server;
 using System.Collections;
+using System.Windows.Input;
 
 namespace RegistroPacientes.Models.DAO
 {
@@ -50,6 +51,7 @@ namespace RegistroPacientes.Models.DAO
             }
         }
         int respuesta;
+        int RespuestaUpdate;
 
         public int PatientRegistration() 
         {
@@ -136,7 +138,7 @@ namespace RegistroPacientes.Models.DAO
             }
         }
 
-       public int ObtenerIdPatient() 
+        public int ObtenerIdPatient() 
         {
             string queryIdPatient = "Select MAX (IdPaciente) FROM tbPacientes";
             SqlCommand cmdIdpatient = new SqlCommand(queryIdPatient, Command.Connection);
@@ -183,6 +185,38 @@ namespace RegistroPacientes.Models.DAO
             return respuesta;
            
         }
+        public int UpdateVisita() 
+        {
+            try
+            {
+                string queryUpdateVisita = "UPDATE tbVisitas SET " +
+                                       "FechaVisita = @param1, " +
+                                       "HoraVisita = @param2, " +
+                                       "IdMedicmaneto = @param3, " +
+                                       "Observaciones = @param4, " +
+                                       "WHERE IdPaciente = @param5";
+                SqlCommand cmdUpdateVisita = new SqlCommand(queryUpdateVisita, Command.Connection);
+                cmdUpdateVisita.Parameters.AddWithValue("param1", Fecha);
+                cmdUpdateVisita.Parameters.AddWithValue("param2", Hora);
+                cmdUpdateVisita.Parameters.AddWithValue("param3", Medicamento);
+                cmdUpdateVisita.Parameters.AddWithValue("param4", Observacion);
+                cmdUpdateVisita.Parameters.AddWithValue("param5", IdPaciente);
+                RespuestaUpdate = cmdUpdateVisita.ExecuteNonQuery();
+                return RespuestaUpdate;
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+
+            }
+            finally 
+            {
+                Command.Connection.Close();
+            }
+           
+        }
         public DataSet AdminPatient() 
         {
             try
@@ -206,6 +240,95 @@ namespace RegistroPacientes.Models.DAO
                 getConnection().Close();
             }
           
+        }
+        public int UpdatePatient() 
+        {
+            try 
+            {
+                Command.Connection = getConnection();
+                // Update en tbPacientes
+                string queryUpdatePatient = "UPDATE tbPacientes SET " +
+                                            "nombrePaciente = @param1, " +
+                                            "apellidoPaciente = @param2, " +
+                                            "IdTipoPersona = @param3, " +
+                                            "WHERE IdPaciente = @param4"
+                                            ;
+                SqlCommand cmdUpdatePatient = new SqlCommand(queryUpdatePatient, Command.Connection);
+                cmdUpdatePatient.Parameters.AddWithValue("param1", Nombre);
+                cmdUpdatePatient.Parameters.AddWithValue("param2", Apellido);
+                cmdUpdatePatient.Parameters.AddWithValue("param3", Rol);
+                cmdUpdatePatient.Parameters.AddWithValue("param4", IdPaciente);
+                 RespuestaUpdate = cmdUpdatePatient.ExecuteNonQuery();
+                //Update en la tbEstudiantes o en la tbPersonalInstitucion dpeendiendo el rol que se le asigno al paciente
+                if (RespuestaUpdate == 0)
+                {
+                    if (Rol == 1)
+                    {
+                        ObtenerIdGradoSeccion();
+                        string queryUpdateEstudiante = "UPDATE tbEstudiantes SET" +
+                                                       "codigo = @param1, " +
+                                                       "IdGrado_Seccion = @param2, " +
+                                                       "WHERE IdPaciente = @param3 ";
+                        SqlCommand cmdUpdateEstudiante = new SqlCommand(queryUpdateEstudiante, Command.Connection);
+                        cmdUpdatePatient.Parameters.AddWithValue("param1", Codigo);
+                        cmdUpdatePatient.Parameters.AddWithValue("param2", IdGradoSeccion);
+                        cmdUpdatePatient.Parameters.AddWithValue("param3", IdPaciente);
+                        RespuestaUpdate = cmdUpdatePatient.ExecuteNonQuery();
+                        if (RespuestaUpdate == 1)
+                        {
+                            UpdateVisita();
+                            if (RespuestaUpdate == 1)
+                            {
+                                return 1;
+                            }
+                            else { return 0; }
+                            
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                }
+                else 
+                {
+                    string queryUpdatePersonalInstitucion = "UPDATE tbPersonalInstitucion SET" +
+                                                            "Docuemnto = @param1, " +
+                                                            "IdArea = @param2, " +
+                                                            "WHERE IdPaciente = @param3";
+                    SqlCommand cmdUpdatePersonal = new SqlCommand(queryUpdatePersonalInstitucion, Command.Connection);
+                    cmdUpdatePersonal.Parameters.AddWithValue("Docuemto", Documento);
+                    cmdUpdatePersonal.Parameters.AddWithValue("IdArea", IdArea);
+                    cmdUpdatePersonal.Parameters.AddWithValue("IdPaciente", IdPaciente);
+                    RespuestaUpdate = cmdUpdatePersonal.ExecuteNonQuery();
+                    if (RespuestaUpdate == 1)
+                    {
+                        UpdateVisita();
+                        if (RespuestaUpdate == 1)
+                        {
+                            return 1;
+                        }
+                        else { return 0; }
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                   
+                }
+                return 0;
+            }
+            catch (SqlException Ex)
+            {
+                MessageBox.Show($"EC_003{Ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            finally 
+            {
+                Command.Connection.Close();
+            }
+            
+                                        
         }
     }
 

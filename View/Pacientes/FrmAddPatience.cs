@@ -13,15 +13,18 @@ namespace RegistroPacientes
 {
     public partial class FrmAddPatience : Form
     {
-        public FrmAddPatience()
+        public FrmAddPatience(int accion)
         {
             InitializeComponent();
-            ControllerAddPatience Control = new ControllerAddPatience(this);
+            ControllerAddPatience objAddPatience = new ControllerAddPatience(this, accion);
         }
 
-        private void FrmAddPatience_Load(object sender, EventArgs e)
+        public FrmAddPatience(int accion, int Id, string nombrePaciente, string apellidoPaciente, string rol, DateTime fechaVisita, string horaVisita, string docuemnto)
         {
-
+            InitializeComponent();
+            ControllerAddPatience objAddUser = new ControllerAddPatience(this, accion, Id, nombrePaciente, apellidoPaciente, rol, fechaVisita, horaVisita, docuemnto);
         }
+        
+
     }
 }

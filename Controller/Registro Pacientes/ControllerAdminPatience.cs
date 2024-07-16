@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using RegistroPacientes.Models.DAO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Net;
 
 
 namespace RegistroPacientes.Controlador
@@ -22,6 +24,7 @@ namespace RegistroPacientes.Controlador
             objAdminPatience = Vista;
             objAdminPatience.btnNew.Click += new EventHandler(NewPatience);
             objAdminPatience.Load += new EventHandler(InitialCharge);
+            objAdminPatience.cmsActualizar.Click += new EventHandler(UpdatePatient);
         }
         private void InitialCharge(object sender, EventArgs e)
         {
@@ -58,7 +61,7 @@ namespace RegistroPacientes.Controlador
 
         public void NewPatience(object sender, EventArgs e)  
         {
-            FrmAddPatience openForm = new FrmAddPatience();
+            FrmAddPatience openForm = new FrmAddPatience(1);
             openForm.ShowDialog();
             RefrescarData();
             
@@ -71,6 +74,24 @@ namespace RegistroPacientes.Controlador
             DataSet ds = objAdmin.AdminPatient();
             //Llenar DataGridView
             objAdminPatience.GridViewPatient.DataSource = ds.Tables["ViewAdminPatient"];
+        }
+        private void UpdatePatient(object sender, EventArgs e) 
+        {
+            int pos = objAdminPatience.GridViewPatient.CurrentRow.Index;
+            int id;
+            string nombrePaciente, apellidosPaciente, rol, horaVisita, documento;
+            DateTime fechavisita;
+            id = int.Parse(objAdminPatience.GridViewPatient[0, pos].Value.ToString());
+            nombrePaciente = objAdminPatience.GridViewPatient[1, pos].Value.ToString();
+            apellidosPaciente = objAdminPatience.GridViewPatient[2, pos].Value.ToString();
+            rol = objAdminPatience.GridViewPatient[3, pos].Value.ToString();
+            fechavisita = DateTime.Parse(objAdminPatience.GridViewPatient[4, pos].Value.ToString());
+            horaVisita = objAdminPatience.GridViewPatient[5, pos].Value.ToString();
+            documento= objAdminPatience.GridViewPatient[6, pos].Value.ToString();
+
+            FrmAddPatience openForm = new FrmAddPatience(2,id,nombrePaciente, apellidosPaciente, rol,fechavisita,horaVisita,documento);
+            openForm.ShowDialog();
+            RefrescarData();
         }
     }
 }

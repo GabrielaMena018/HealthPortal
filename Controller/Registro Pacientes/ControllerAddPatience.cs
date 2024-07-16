@@ -3,9 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RegistroPacientes.Controlador
 {
@@ -13,18 +17,83 @@ namespace RegistroPacientes.Controlador
     {
         FrmAddPatience ObjAddPatience;
         int accion;
-        private string TipoPersona;
-        public ControllerAddPatience( FrmAddPatience Vista) 
+        private string role;
+        string TipoPersona;
+
+        public ControllerAddPatience( FrmAddPatience Vista, int accion ) 
         {
             ObjAddPatience = Vista;
             this.accion = accion;
+            //Verificar accion
             verificarAccion();
             ObjAddPatience.Load += new EventHandler(InitialCharge);
-
+            //agregar un nuevo paciente
             ObjAddPatience.btnAgregarPaciente.Click += new EventHandler(NewPatience);
+            //Opcion del comboBox en este se puede cambiar si es uin estudiante o un alumno para mostrar los datos que se tienen que llenar
             ObjAddPatience.CmbRol.SelectedIndexChanged += new EventHandler(CmbRole_SelectChange);
-           
+        }
+        public ControllerAddPatience(FrmAddPatience Vista, int accion, int Id, string nombrePaciente, string apellidosPAciente, string rol, DateTime fechaVisita, string horaVisita, string documento) 
+        {
+            ObjAddPatience = Vista;
+            this.accion = accion;
+            this.role = rol;
+            ObjAddPatience.Load += new EventHandler(InitialCharge);
+            verificarAccion();
+            ChargeValues(Id, nombrePaciente, apellidosPAciente, fechaVisita, horaVisita, documento);
+            ObjAddPatience.BtnActuzalizar.Click += new EventHandler(UpdatePatient);
+        }
 
+        public void UpdatePatient(object sender, EventArgs e)
+        {
+           DAOAdminPatience DaoUpdate = new DAOAdminPatience();
+            DaoUpdate.IdPaciente = int.Parse(ObjAddPatience.txtId.Text.Trim());
+            DaoUpdate.Nombre = ObjAddPatience.TxtNombrePaciente.Texts.Trim();
+            DaoUpdate.Apellido = ObjAddPatience.TxtApellidoPaciente.Texts.Trim();
+            DaoUpdate.Rol = (int)ObjAddPatience.CmbRol.SelectedValue;
+            DaoUpdate.Fecha = ObjAddPatience.PickFechaRegistro.Value;
+            DaoUpdate.Hora = ObjAddPatience.PickHoraRegistro.Value.ToString("HH:mm");
+            DaoUpdate.Medicamento = (int)ObjAddPatience.CmbMedicamentoRegistro.SelectedValue;
+            DaoUpdate.Observacion = ObjAddPatience.TxtObservaciones.Texts.Trim();
+            if (DaoUpdate.Rol == 1) 
+            {
+                //Actuzalizar Tabla Grado
+                DaoUpdate.Especialidad = (int)ObjAddPatience.CmbEspecidalidadRegistro.SelectedValue;
+                DaoUpdate.GrupoTecnico = ObjAddPatience.txtGrupo.Texts;
+                DaoUpdate.Grado = (int)ObjAddPatience.CmBGradoRegistro.SelectedValue;
+                DaoUpdate.SeccionAcademica = (int)ObjAddPatience.CmbSeccionRegistro.SelectedValue;
+
+                //Insercion de datos tbEstudiantes
+                DaoUpdate.Codigo = ObjAddPatience.TxtCodigoPaciente.Texts;
+
+            }
+            else 
+            {
+                DaoUpdate.Documento = ObjAddPatience.mksDocumento.Text;
+                DaoUpdate.IdArea = (int)ObjAddPatience.CmbAreaPersonal.SelectedValue;
+            }
+            int valorRetornado = DaoUpdate.UpdatePatient();
+
+            if (valorRetornado == 2)
+            {
+                MessageBox.Show("Los datos han sido actualizado exitosamente",
+                                "Proceso completado",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else if (valorRetornado == 1)
+            {
+                MessageBox.Show("Los datos no pudieron ser actualizados completamente",
+                                "Proceso interrumpido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
+                                "Proceso interrumpido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
         public void verificarAccion()
@@ -59,6 +128,7 @@ namespace RegistroPacientes.Controlador
                 daoInsertPatient.GrupoTecnico = ObjAddPatience.txtGrupo.Texts;
                 daoInsertPatient.Grado = (int)ObjAddPatience.CmBGradoRegistro.SelectedValue;
                 daoInsertPatient.SeccionAcademica = (int)ObjAddPatience.CmbSeccionRegistro.SelectedValue;
+
 
 
                 //Insercion de datos tbEstudiantes
@@ -156,8 +226,19 @@ namespace RegistroPacientes.Controlador
             }
         }
 
-      
-        
+        public void ChargeValues(int Id, string nombrePaciente, string apellidosPAciente, DateTime fechaVisita, string horaVisita, string documento)
+        {
+           ObjAddPatience.txtId.Text = Id.ToString();
+           ObjAddPatience.TxtNombrePaciente.Texts = nombrePaciente;
+            ObjAddPatience.TxtApellidoPaciente.Texts= apellidosPAciente;
+            ObjAddPatience.PickFechaRegistro.Value = fechaVisita;
+            ObjAddPatience.PickHoraRegistro.Text = horaVisita;
+            ObjAddPatience.mksDocumento.Text = documento;
+
+        }
+
+
+
 
     }
 }
