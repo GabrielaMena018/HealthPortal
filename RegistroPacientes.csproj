@@ -63,6 +63,12 @@
     <Compile Include="View\Dashboard\FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Ineventario\FrmAdminInventary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ineventario\FrmAdminInventary.Designer.cs">
+      <DependentUpon>FrmAdminInventary.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Pacientes\FrmAddPatience.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ineventario\FrmAdminInventary.resx">
+      <DependentUpon>FrmAdminInventary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Pacientes\FrmAddPatience.resx">
       <DependentUpon>FrmAddPatience.cs</DependentUpon>

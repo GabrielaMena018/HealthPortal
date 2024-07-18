@@ -66,12 +66,13 @@ namespace RegistroPacientes.Controlador
             daoAdmin.NombrePaciente = ObjAddPatience.TxtNombrePaciente.Texts.Trim();
             daoAdmin.ApellidoPaciente = ObjAddPatience.TxtApellidoPaciente.Texts.Trim();
             daoAdmin.IdPaciente = int.Parse(ObjAddPatience.CmbRol.SelectedValue.ToString());
+            
 
             //Datos para estudiante
             daoAdmin.Codigo = ObjAddPatience.TxtCodigoPaciente.Texts.Trim();
-            daoAdmin.IdSeccion = int.Parse(ObjAddPatience.CmbSeccionRegistro.SelectedValue.ToString());
+            daoAdmin.idSeccion = int.Parse(ObjAddPatience.CmbSeccionRegistro.SelectedValue.ToString());
             daoAdmin.IdEspecialidad = int.Parse(ObjAddPatience.CmbEspecidalidadRegistro.SelectedValue.ToString());
-            daoAdmin.IdGrado = int.Parse(ObjAddPatience.CmBGradoRegistro.SelectedValue.ToString());
+            daoAdmin.idGrado = int.Parse(ObjAddPatience.CmBGradoRegistro.SelectedValue.ToString());
 
             int valorRetornado = daoAdmin.RegistrarVisita();
             if (valorRetornado == 1)
