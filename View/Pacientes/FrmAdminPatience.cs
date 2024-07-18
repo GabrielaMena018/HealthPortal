@@ -20,6 +20,6 @@ namespace RegistroPacientes
             ControllerAdminPatience control = new ControllerAdminPatience(this);
         }
 
-     
+
     }
 }

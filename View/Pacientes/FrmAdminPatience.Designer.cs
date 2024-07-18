@@ -106,7 +106,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(298, 81);
+            this.label1.Size = new System.Drawing.Size(240, 65);
             this.label1.TabIndex = 2;
             this.label1.Text = "Pacientes";
             // 
@@ -317,7 +317,7 @@
             // 
             this.panelbuscador.Controls.Add(this.rjButton1);
             this.panelbuscador.Controls.Add(this.borderRadiusTXT1);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 84);
+            this.panelbuscador.Location = new System.Drawing.Point(3, 68);
             this.panelbuscador.Name = "panelbuscador";
             this.panelbuscador.Size = new System.Drawing.Size(319, 55);
             this.panelbuscador.TabIndex = 0;
@@ -519,7 +519,7 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label9.Location = new System.Drawing.Point(651, 24);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 23);
+            this.label9.Size = new System.Drawing.Size(54, 19);
             this.label9.TabIndex = 17;
             this.label9.Text = "Sección";
             // 
@@ -530,7 +530,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(549, 24);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 23);
+            this.label8.Size = new System.Drawing.Size(47, 19);
             this.label8.TabIndex = 16;
             this.label8.Text = "Grado";
             // 
@@ -541,7 +541,7 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label7.Location = new System.Drawing.Point(359, 24);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 23);
+            this.label7.Size = new System.Drawing.Size(82, 19);
             this.label7.TabIndex = 15;
             this.label7.Text = "Especialidad";
             // 
@@ -552,7 +552,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label6.Location = new System.Drawing.Point(173, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 23);
+            this.label6.Size = new System.Drawing.Size(68, 19);
             this.label6.TabIndex = 14;
             this.label6.Text = "Categoria";
             // 
@@ -563,7 +563,7 @@
             this.CmbEspecialidad.FormattingEnabled = true;
             this.CmbEspecialidad.Location = new System.Drawing.Point(363, 49);
             this.CmbEspecialidad.Name = "CmbEspecialidad";
-            this.CmbEspecialidad.Size = new System.Drawing.Size(175, 33);
+            this.CmbEspecialidad.Size = new System.Drawing.Size(175, 28);
             this.CmbEspecialidad.TabIndex = 4;
             // 
             // label5
@@ -573,7 +573,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label5.Location = new System.Drawing.Point(10, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 23);
+            this.label5.Size = new System.Drawing.Size(44, 19);
             this.label5.TabIndex = 13;
             this.label5.Text = "Fecha";
             // 
@@ -604,7 +604,7 @@
             this.CmbSeccion.FormattingEnabled = true;
             this.CmbSeccion.Location = new System.Drawing.Point(655, 49);
             this.CmbSeccion.Name = "CmbSeccion";
-            this.CmbSeccion.Size = new System.Drawing.Size(103, 33);
+            this.CmbSeccion.Size = new System.Drawing.Size(103, 28);
             this.CmbSeccion.TabIndex = 1;
             // 
             // CmbGrado
@@ -614,7 +614,7 @@
             this.CmbGrado.FormattingEnabled = true;
             this.CmbGrado.Location = new System.Drawing.Point(553, 49);
             this.CmbGrado.Name = "CmbGrado";
-            this.CmbGrado.Size = new System.Drawing.Size(85, 33);
+            this.CmbGrado.Size = new System.Drawing.Size(85, 28);
             this.CmbGrado.TabIndex = 3;
             // 
             // dateTimePicker1
@@ -624,7 +624,7 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(14, 50);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(144, 32);
+            this.dateTimePicker1.Size = new System.Drawing.Size(144, 27);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // CmbCategoria
@@ -634,10 +634,9 @@
             this.CmbCategoria.FormattingEnabled = true;
             this.CmbCategoria.Location = new System.Drawing.Point(177, 49);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(169, 33);
+            this.CmbCategoria.Size = new System.Drawing.Size(169, 28);
             this.CmbCategoria.TabIndex = 5;
             // 
-            // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
@@ -656,8 +655,7 @@
             this.pictureBox5.Size = new System.Drawing.Size(35, 32);
             this.pictureBox5.TabIndex = 13;
             this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox3
+            //             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
