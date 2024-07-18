@@ -14,8 +14,8 @@ namespace RegistroPacientes.Models
             try
             {
                 //string server = "DESKTOP-QR03KRF";
-                string server = "LAPTOP-KGGOS1AD\\SQLEXPRESS";
-                string database = "Expo";
+                string server = "FAMILIAPORTILLO\\SQLEXPRESS";
+                string database = "HealthPortal";
                 SqlConnection conexion = new SqlConnection("Server =" + server +
                                                                  "; DataBase = " + database +
                                                                  "; Integrated Security = true");

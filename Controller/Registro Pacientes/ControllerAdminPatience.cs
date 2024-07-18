@@ -47,11 +47,11 @@ namespace RegistroPacientes.Controlador
             objAdminPatience.CmbGrado.ValueMember = "IdGrado";
             objAdminPatience.CmbGrado.DisplayMember = "Grado";
 
-            DataSet dsSeccionesRegistros = objAdmin.LlenarCombo("tbSecciones");
+            DataSet dsSeccionesRegistros = objAdmin.LlenarCombo("tbSeccionAcademica");
             //Llenar combobox tbGrados
-            objAdminPatience.CmbSeccion.DataSource = dsSeccionesRegistros.Tables["tbSecciones"];
-            objAdminPatience.CmbSeccion.ValueMember = "IdSeccion";
-            objAdminPatience.CmbSeccion.DisplayMember = "Seccion";
+            objAdminPatience.CmbSeccion.DataSource = dsSeccionesRegistros.Tables["tbSeccionAcademica"];
+            objAdminPatience.CmbSeccion.ValueMember = "IdSeccionAcademica";
+            objAdminPatience.CmbSeccion.DisplayMember = "SeccionAcademica";
             //La condición sirve para que al actualizar un registro, el valor del registro aparezca seleccionado.
             if (accion == 2)
             {

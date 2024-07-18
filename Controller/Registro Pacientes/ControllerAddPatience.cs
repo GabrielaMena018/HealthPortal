@@ -45,10 +45,10 @@ namespace RegistroPacientes.Controlador
             ObjAddPatience.CmBGradoRegistro.ValueMember = "IdGrado";
             ObjAddPatience.CmBGradoRegistro.DisplayMember = "Grado";
 
-            DataSet dsSeccionesRegistros = objAdmin.LlenarCombo("tbSecciones");
+            DataSet dsSeccionesRegistros = objAdmin.LlenarCombo("tbSeccionAcademica");
             //Llenar combobox tbGrados
-            ObjAddPatience.CmbSeccionRegistro.DataSource = dsSeccionesRegistros.Tables["tbSecciones"];
-            ObjAddPatience.CmbSeccionRegistro.ValueMember = "IdSeccion";
+            ObjAddPatience.CmbSeccionRegistro.DataSource = dsSeccionesRegistros.Tables["tbSeccionAcademica"];
+            ObjAddPatience.CmbSeccionRegistro.ValueMember = "IdSeccionAcademica";
             ObjAddPatience.CmbSeccionRegistro.DisplayMember = "Seccion";
 
             
