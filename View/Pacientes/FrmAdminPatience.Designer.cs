@@ -49,11 +49,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panelButton = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.borderRadiusTXT2 = new CustomPanel.BorderRadiusTXT();
-            this.rjButton3 = new CustomPanel.RJButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.rjButton2 = new CustomPanel.RJButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelbuscador = new System.Windows.Forms.Panel();
@@ -142,16 +138,16 @@
             this.panelGrafica.Margin = new System.Windows.Forms.Padding(10);
             this.panelGrafica.MaximumSize = new System.Drawing.Size(800, 0);
             this.panelGrafica.Name = "panelGrafica";
-            this.panelGrafica.Size = new System.Drawing.Size(325, 710);
+            this.panelGrafica.Size = new System.Drawing.Size(338, 710);
             this.panelGrafica.TabIndex = 1;
             // 
             // panelTitulo
             // 
             this.panelTitulo.Controls.Add(this.panelCustumPequeño);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTitulo.Location = new System.Drawing.Point(0, 139);
+            this.panelTitulo.Location = new System.Drawing.Point(0, 133);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(325, 571);
+            this.panelTitulo.Size = new System.Drawing.Size(338, 577);
             this.panelTitulo.TabIndex = 1;
             // 
             // panelCustumPequeño
@@ -244,17 +240,13 @@
             // 
             // panelButton
             // 
-            this.panelButton.Controls.Add(this.pictureBox5);
-            this.panelButton.Controls.Add(this.label4);
-            this.panelButton.Controls.Add(this.borderRadiusTXT2);
-            this.panelButton.Controls.Add(this.rjButton3);
-            this.panelButton.Controls.Add(this.pictureBox3);
-            this.panelButton.Controls.Add(this.rjButton2);
-            this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButton.Location = new System.Drawing.Point(0, 446);
-            this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(325, 125);
-            this.panelButton.TabIndex = 14;
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(881, 49);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(26, 28);
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
             // 
             // pictureBox5
             // 
@@ -266,56 +258,6 @@
             this.pictureBox5.TabIndex = 13;
             this.pictureBox5.TabStop = false;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(13, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 28);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Cantidad Total:";
-            // 
-            // borderRadiusTXT2
-            // 
-            this.borderRadiusTXT2.BackColor = System.Drawing.SystemColors.Window;
-            this.borderRadiusTXT2.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.borderRadiusTXT2.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.borderRadiusTXT2.BorderRadius = 0;
-            this.borderRadiusTXT2.BorderSize = 2;
-            this.borderRadiusTXT2.Location = new System.Drawing.Point(161, 0);
-            this.borderRadiusTXT2.Multiline = false;
-            this.borderRadiusTXT2.Name = "borderRadiusTXT2";
-            this.borderRadiusTXT2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.borderRadiusTXT2.PasswordChar = false;
-            this.borderRadiusTXT2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.borderRadiusTXT2.PlaceholderText = "";
-            this.borderRadiusTXT2.Size = new System.Drawing.Size(94, 31);
-            this.borderRadiusTXT2.TabIndex = 9;
-            this.borderRadiusTXT2.Texts = "";
-            this.borderRadiusTXT2.UnderlinedStyle = true;
-            // 
-            // rjButton3
-            // 
-            this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BorderRadius = 40;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(117, 60);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(188, 47);
-            this.rjButton3.TabIndex = 11;
-            this.rjButton3.Text = "Imprimir Reporte";
-            this.rjButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton3.TextColor = System.Drawing.Color.White;
-            this.rjButton3.UseVisualStyleBackColor = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -325,26 +267,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(35, 32);
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
-            // 
-            // rjButton2
-            // 
-            this.rjButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton2.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton2.BorderRadius = 40;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(18, 60);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(93, 47);
-            this.rjButton2.TabIndex = 10;
-            this.rjButton2.Text = "PDF";
-            this.rjButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton2.TextColor = System.Drawing.Color.White;
-            this.rjButton2.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 
