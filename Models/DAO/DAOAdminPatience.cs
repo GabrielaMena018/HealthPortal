@@ -137,7 +137,6 @@ namespace RegistroPacientes.Models.DAO
                 Command.Connection.Close();
             }
         }
-
         public int ObtenerIdPatient() 
         {
             string queryIdPatient = "Select MAX (IdPaciente) FROM tbPacientes";
@@ -190,11 +189,11 @@ namespace RegistroPacientes.Models.DAO
             try
             {
                 string queryUpdateVisita = "UPDATE tbVisitas SET " +
-                                       "FechaVisita = @param1, " +
-                                       "HoraVisita = @param2, " +
-                                       "IdMedicmaneto = @param3, " +
-                                       "Observaciones = @param4, " +
-                                       "WHERE IdPaciente = @param5";
+                                            "FechaVisita = @param1, " +
+                                            "HoraVisita = @param2, " +
+                                            "IdMedicmaneto = @param3, " +
+                                             "Observaciones = @param4, " +
+                                            "WHERE IdPaciente = @param5";
                 SqlCommand cmdUpdateVisita = new SqlCommand(queryUpdateVisita, Command.Connection);
                 cmdUpdateVisita.Parameters.AddWithValue("param1", Fecha);
                 cmdUpdateVisita.Parameters.AddWithValue("param2", Hora);
@@ -222,7 +221,7 @@ namespace RegistroPacientes.Models.DAO
             try
             {
                 Command.Connection = getConnection();
-                string queryAdminPatient = "SELECT * FROM ViewAdminPatient";
+                string queryAdminPatient = "SELECT * FROM ViewUpdateEstudiantes";
                 SqlCommand cmdAdminPatient = new SqlCommand(queryAdminPatient, Command.Connection);
                 cmdAdminPatient.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmdAdminPatient);
@@ -240,6 +239,76 @@ namespace RegistroPacientes.Models.DAO
                 getConnection().Close();
             }
           
+        }
+        public void ObtenerDatosAddPatient() 
+        {
+            try
+            {
+                Command.Connection= getConnection();
+                if (Rol == 1) 
+                {
+                    string queryDatosAddPatient = "SELECT * FROM ViewUpdateEstudiantes WHERE IdPaciente = @IdPaciente";
+                    SqlCommand cmdDatosAddPatient = new SqlCommand(queryDatosAddPatient, Command.Connection);
+                    cmdDatosAddPatient.Parameters.AddWithValue("Idpaciente", IdPaciente);
+
+                        using (SqlDataReader reader = cmdDatosAddPatient.ExecuteReader())
+                        {
+                            if (reader.Read()) 
+                            {
+                                Nombre = reader["nombrePaciente"].ToString();
+                                Apellido = reader["apellidoPaciete"].ToString();
+                                Rol = (int)reader["TipoPerona"];
+                                Codigo = reader["codigo"].ToString();
+                                GrupoTecnico = reader["GrupoTecnico"].ToString();
+                                Grado = (int)reader["Grado"];
+                                SeccionAcademica =(int)reader["SeccionAcademica"];
+                                Especialidad = (int)reader["Especialidad"];
+                                Fecha = (DateTime)reader["FechaVisita"];
+                                Hora = reader["HoraVisita"].ToString();
+                                Medicamento = (int)reader["nombreMedicamento"];
+                                Observacion = reader["Observaciones"].ToString();
+                            }
+                        }
+                    
+
+
+                }
+                else 
+                {
+                    string queryDatosAddPatient = "SELECT * FROM ViewUpdatePersonalInstitucion WHERE IdPaciente = @IdPaciente";
+                    SqlCommand cmdDatosAddPatient = new SqlCommand(queryDatosAddPatient, Command.Connection);
+                    cmdDatosAddPatient.Parameters.AddWithValue("Idpaciente", IdPaciente);
+                    respuesta = cmdDatosAddPatient.ExecuteNonQuery();
+                    if (respuesta == 1)
+                    {
+                        using (SqlDataReader reader = Command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                Nombre = reader["nombrePaciente"].ToString();
+                                Apellido = reader["apellidoPaciete"].ToString();
+                                Rol = (int)reader["TipoPerona"];
+                                Documento = reader["Documento"].ToString();
+                                IdArea = (int)reader["TipoArea"];
+                                Fecha = (DateTime)reader["FechaVisita"];
+                                Hora = reader["HoraVisita"].ToString();
+                                Medicamento = (int)reader["nombreMedicamento"];
+                                Observacion = reader["Observaciones"].ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+            finally 
+            {
+                Command.Connection.Close();
+            }
         }
         public int UpdatePatient() 
         {

@@ -35,6 +35,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminPatience));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.panelTitulo = new System.Windows.Forms.Panel();
@@ -62,6 +64,8 @@
             this.cmsActualizar = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsEliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabEstudiantes = new System.Windows.Forms.TabPage();
             this.PanelContenedor = new CustomPanel.PanelCustom();
             this.panel8 = new System.Windows.Forms.Panel();
             this.GridViewPatient = new System.Windows.Forms.DataGridView();
@@ -76,6 +80,21 @@
             this.CmbGrado = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.CmbCategoria = new System.Windows.Forms.ComboBox();
+            this.tabDocentes = new System.Windows.Forms.TabPage();
+            this.panelCustom1 = new CustomPanel.PanelCustom();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridViewPersonal = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.rjButton4 = new CustomPanel.RJButton();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.panelGrafica.SuspendLayout();
             this.panelTitulo.SuspendLayout();
             this.panelCustumPequeño.SuspendLayout();
@@ -89,11 +108,19 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.panelbuscador.SuspendLayout();
             this.contextDataGrid.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabEstudiantes.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPatient)).BeginInit();
             this.ContenedorFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.tabDocentes.SuspendLayout();
+            this.panelCustom1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonal)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -111,7 +138,6 @@
             // 
             this.panelGrafica.Controls.Add(this.panelTitulo);
             this.panelGrafica.Controls.Add(this.flowLayoutPanel1);
-            this.panelGrafica.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelGrafica.Location = new System.Drawing.Point(20, 20);
             this.panelGrafica.Margin = new System.Windows.Forms.Padding(10);
             this.panelGrafica.MaximumSize = new System.Drawing.Size(800, 0);
@@ -422,6 +448,29 @@
             this.cmsEliminar.Size = new System.Drawing.Size(246, 26);
             this.cmsEliminar.Text = "Eliminar Paciente";
             // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabEstudiantes);
+            this.tabControl.Controls.Add(this.tabDocentes);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tabControl.Location = new System.Drawing.Point(392, 20);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(20);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(968, 710);
+            this.tabControl.TabIndex = 2;
+            // 
+            // tabEstudiantes
+            // 
+            this.tabEstudiantes.Controls.Add(this.PanelContenedor);
+            this.tabEstudiantes.Location = new System.Drawing.Point(4, 34);
+            this.tabEstudiantes.Name = "tabEstudiantes";
+            this.tabEstudiantes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEstudiantes.Size = new System.Drawing.Size(960, 672);
+            this.tabEstudiantes.TabIndex = 0;
+            this.tabEstudiantes.Text = "Estudiantes";
+            this.tabEstudiantes.UseVisualStyleBackColor = true;
+            // 
             // PanelContenedor
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.White;
@@ -433,12 +482,12 @@
             this.PanelContenedor.GradientAngle = 90F;
             this.PanelContenedor.GradientBottomColor = System.Drawing.Color.White;
             this.PanelContenedor.GradientTopColor = System.Drawing.Color.White;
-            this.PanelContenedor.Location = new System.Drawing.Point(420, 20);
+            this.PanelContenedor.Location = new System.Drawing.Point(17, 3);
             this.PanelContenedor.Margin = new System.Windows.Forms.Padding(10);
             this.PanelContenedor.Name = "PanelContenedor";
             this.PanelContenedor.Padding = new System.Windows.Forms.Padding(0, 4, 4, 15);
-            this.PanelContenedor.Size = new System.Drawing.Size(940, 710);
-            this.PanelContenedor.TabIndex = 0;
+            this.PanelContenedor.Size = new System.Drawing.Size(940, 666);
+            this.PanelContenedor.TabIndex = 1;
             // 
             // panel8
             // 
@@ -447,7 +496,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 104);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(936, 591);
+            this.panel8.Size = new System.Drawing.Size(936, 547);
             this.panel8.TabIndex = 15;
             // 
             // GridViewPatient
@@ -485,7 +534,7 @@
             this.GridViewPatient.RowHeadersWidth = 25;
             this.GridViewPatient.RowTemplate.Height = 24;
             this.GridViewPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridViewPatient.Size = new System.Drawing.Size(936, 591);
+            this.GridViewPatient.Size = new System.Drawing.Size(936, 547);
             this.GridViewPatient.TabIndex = 0;
             // 
             // ContenedorFiltros
@@ -511,7 +560,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label8.Location = new System.Drawing.Point(549, 23);
+            this.label8.Location = new System.Drawing.Point(587, 24);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 23);
             this.label8.TabIndex = 16;
@@ -546,7 +595,7 @@
             this.CmbEspecialidad.FormattingEnabled = true;
             this.CmbEspecialidad.Location = new System.Drawing.Point(363, 49);
             this.CmbEspecialidad.Name = "CmbEspecialidad";
-            this.CmbEspecialidad.Size = new System.Drawing.Size(175, 33);
+            this.CmbEspecialidad.Size = new System.Drawing.Size(211, 33);
             this.CmbEspecialidad.TabIndex = 4;
             // 
             // pictureBox4
@@ -566,9 +615,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label5.Location = new System.Drawing.Point(10, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 23);
+            this.label5.Size = new System.Drawing.Size(124, 23);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Fecha";
+            this.label5.Text = "Fecha de Visita";
             // 
             // btnNew
             // 
@@ -595,9 +644,9 @@
             this.CmbGrado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbGrado.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.CmbGrado.FormattingEnabled = true;
-            this.CmbGrado.Location = new System.Drawing.Point(553, 49);
+            this.CmbGrado.Location = new System.Drawing.Point(591, 49);
             this.CmbGrado.Name = "CmbGrado";
-            this.CmbGrado.Size = new System.Drawing.Size(205, 33);
+            this.CmbGrado.Size = new System.Drawing.Size(167, 33);
             this.CmbGrado.TabIndex = 3;
             // 
             // dateTimePicker1
@@ -620,12 +669,221 @@
             this.CmbCategoria.Size = new System.Drawing.Size(169, 33);
             this.CmbCategoria.TabIndex = 5;
             // 
+            // tabDocentes
+            // 
+            this.tabDocentes.Controls.Add(this.panelCustom1);
+            this.tabDocentes.Location = new System.Drawing.Point(4, 25);
+            this.tabDocentes.Name = "tabDocentes";
+            this.tabDocentes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDocentes.Size = new System.Drawing.Size(960, 681);
+            this.tabDocentes.TabIndex = 1;
+            this.tabDocentes.Text = "Personal docente";
+            this.tabDocentes.UseVisualStyleBackColor = true;
+            // 
+            // panelCustom1
+            // 
+            this.panelCustom1.BackColor = System.Drawing.Color.White;
+            this.panelCustom1.BorderRadius = 20;
+            this.panelCustom1.Controls.Add(this.panel1);
+            this.panelCustom1.Controls.Add(this.panel2);
+            this.panelCustom1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelCustom1.ForeColor = System.Drawing.Color.Black;
+            this.panelCustom1.GradientAngle = 90F;
+            this.panelCustom1.GradientBottomColor = System.Drawing.Color.White;
+            this.panelCustom1.GradientTopColor = System.Drawing.Color.White;
+            this.panelCustom1.Location = new System.Drawing.Point(17, 3);
+            this.panelCustom1.Margin = new System.Windows.Forms.Padding(10);
+            this.panelCustom1.Name = "panelCustom1";
+            this.panelCustom1.Padding = new System.Windows.Forms.Padding(0, 4, 4, 15);
+            this.panelCustom1.Size = new System.Drawing.Size(940, 675);
+            this.panelCustom1.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.ContextMenuStrip = this.contextDataGrid;
+            this.panel1.Controls.Add(this.dataGridViewPersonal);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 104);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(936, 556);
+            this.panel1.TabIndex = 15;
+            // 
+            // dataGridViewPersonal
+            // 
+            this.dataGridViewPersonal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewPersonal.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.dataGridViewPersonal.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewPersonal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewPersonal.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPersonal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewPersonal.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPersonal.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewPersonal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewPersonal.EnableHeadersVisualStyles = false;
+            this.dataGridViewPersonal.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewPersonal.MultiSelect = false;
+            this.dataGridViewPersonal.Name = "dataGridViewPersonal";
+            this.dataGridViewPersonal.ReadOnly = true;
+            this.dataGridViewPersonal.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewPersonal.RowHeadersVisible = false;
+            this.dataGridViewPersonal.RowHeadersWidth = 25;
+            this.dataGridViewPersonal.RowTemplate.Height = 24;
+            this.dataGridViewPersonal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewPersonal.Size = new System.Drawing.Size(936, 556);
+            this.dataGridViewPersonal.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.rjButton4);
+            this.panel2.Controls.Add(this.comboBox3);
+            this.panel2.Controls.Add(this.dateTimePicker2);
+            this.panel2.Controls.Add(this.comboBox4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(936, 100);
+            this.panel2.TabIndex = 14;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label9.Location = new System.Drawing.Point(587, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 23);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Grado";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label10.Location = new System.Drawing.Point(359, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(103, 23);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Especialidad";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label11.Location = new System.Drawing.Point(173, 24);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(84, 23);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Categoria";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(363, 49);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(206, 33);
+            this.comboBox1.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(881, 49);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(26, 28);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label12.Location = new System.Drawing.Point(10, 24);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(124, 23);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Fecha de Visita";
+            // 
+            // rjButton4
+            // 
+            this.rjButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.rjButton4.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.rjButton4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.rjButton4.BorderRadius = 40;
+            this.rjButton4.BorderSize = 0;
+            this.rjButton4.FlatAppearance.BorderSize = 0;
+            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.rjButton4.ForeColor = System.Drawing.Color.Black;
+            this.rjButton4.Location = new System.Drawing.Point(764, 36);
+            this.rjButton4.Name = "rjButton4";
+            this.rjButton4.Size = new System.Drawing.Size(155, 46);
+            this.rjButton4.TabIndex = 2;
+            this.rjButton4.Text = "Nuevo Paciente";
+            this.rjButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton4.TextColor = System.Drawing.Color.Black;
+            this.rjButton4.UseVisualStyleBackColor = false;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(591, 49);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(156, 33);
+            this.comboBox3.TabIndex = 3;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(14, 50);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(144, 32);
+            this.dateTimePicker2.TabIndex = 6;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(177, 49);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(169, 33);
+            this.comboBox4.TabIndex = 5;
+            // 
             // FrmAdminPatience
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1380, 750);
-            this.Controls.Add(this.PanelContenedor);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.panelGrafica);
             this.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -651,12 +909,21 @@
             this.flowLayoutPanel1.PerformLayout();
             this.panelbuscador.ResumeLayout(false);
             this.contextDataGrid.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            this.tabEstudiantes.ResumeLayout(false);
             this.PanelContenedor.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPatient)).EndInit();
             this.ContenedorFiltros.ResumeLayout(false);
             this.ContenedorFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.tabDocentes.ResumeLayout(false);
+            this.panelCustom1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonal)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -681,8 +948,18 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        public System.Windows.Forms.ContextMenuStrip contextDataGrid;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        public CustomPanel.RJButton rjButton1;
+        public System.Windows.Forms.ToolStripMenuItem cmsActualizar;
+        public System.Windows.Forms.ToolStripMenuItem cmsEliminar;
+        public System.Windows.Forms.ToolStripMenuItem cmsVer;
+        private System.Windows.Forms.TabPage tabEstudiantes;
         private CustomPanel.PanelCustom PanelContenedor;
         private System.Windows.Forms.Panel panel8;
+        public System.Windows.Forms.DataGridView GridViewPatient;
         private System.Windows.Forms.Panel ContenedorFiltros;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -694,15 +971,22 @@
         public System.Windows.Forms.ComboBox CmbGrado;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.ComboBox CmbCategoria;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        public System.Windows.Forms.DataGridView GridViewPatient;
-        public System.Windows.Forms.ContextMenuStrip contextDataGrid;
-        private System.Windows.Forms.ColorDialog colorDialog1;
-        public CustomPanel.RJButton rjButton1;
-        public System.Windows.Forms.ToolStripMenuItem cmsActualizar;
-        public System.Windows.Forms.ToolStripMenuItem cmsEliminar;
-        public System.Windows.Forms.ToolStripMenuItem cmsVer;
+        private System.Windows.Forms.TabPage tabDocentes;
+        private CustomPanel.PanelCustom panelCustom1;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.DataGridView dataGridViewPersonal;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label12;
+        public CustomPanel.RJButton rjButton4;
+        public System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        public System.Windows.Forms.ComboBox comboBox4;
+        public System.Windows.Forms.TabControl tabControl;
     }
 }
 

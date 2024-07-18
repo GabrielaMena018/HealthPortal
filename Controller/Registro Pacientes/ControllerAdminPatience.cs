@@ -72,24 +72,38 @@ namespace RegistroPacientes.Controlador
             DAOAdminPatience objAdmin = new DAOAdminPatience();
             //Declarando nuevo DataSet para que obtenga los datos del metodo ObtenerPersonas
             DataSet ds = objAdmin.AdminPatient();
+            objAdminPatience.tabControl.SelectedIndexChanged
             //Llenar DataGridView
             objAdminPatience.GridViewPatient.DataSource = ds.Tables["ViewAdminPatient"];
+            objAdminPatience.GridViewPatient.Columns[0].HeaderText = "ID Paciente";
+            objAdminPatience.GridViewPatient.Columns[0].Width = 33;
+            objAdminPatience.GridViewPatient.Columns[1].HeaderText = "Nombre";
+            objAdminPatience.GridViewPatient.Columns[1].Width = 80;
+            objAdminPatience.GridViewPatient.Columns[2].HeaderText = "Apellido";
+            objAdminPatience.GridViewPatient.Columns[2].Width = 85;
+            objAdminPatience.GridViewPatient.Columns[3].Visible = false;
+            objAdminPatience.GridViewPatient.Columns[4].Visible = false;
+            objAdminPatience.GridViewPatient.Columns[5].HeaderText = "Codigo";
+            objAdminPatience.GridViewPatient.Columns[6].Visible = false;
+            objAdminPatience.GridViewPatient.Columns[7].Width = 50;
+            objAdminPatience.GridViewPatient.Columns[8].Visible = false;
+            objAdminPatience.GridViewPatient.Columns[9].Width = 140;
+            objAdminPatience.GridViewPatient.Columns[10].HeaderText = "Fecha";
+            objAdminPatience.GridViewPatient.Columns[11].HeaderText = "Hora";
+            objAdminPatience.GridViewPatient.Columns[12].Visible = false;
+            objAdminPatience.GridViewPatient.Columns[13].Visible = false;
+
+            
+            
         }
         private void UpdatePatient(object sender, EventArgs e) 
         {
             int pos = objAdminPatience.GridViewPatient.CurrentRow.Index;
             int id;
-            string nombrePaciente, apellidosPaciente, rol, horaVisita, documento;
-            DateTime fechavisita;
+            string  rol;
             id = int.Parse(objAdminPatience.GridViewPatient[0, pos].Value.ToString());
-            nombrePaciente = objAdminPatience.GridViewPatient[1, pos].Value.ToString();
-            apellidosPaciente = objAdminPatience.GridViewPatient[2, pos].Value.ToString();
             rol = objAdminPatience.GridViewPatient[3, pos].Value.ToString();
-            fechavisita = DateTime.Parse(objAdminPatience.GridViewPatient[4, pos].Value.ToString());
-            horaVisita = objAdminPatience.GridViewPatient[5, pos].Value.ToString();
-            documento= objAdminPatience.GridViewPatient[6, pos].Value.ToString();
-
-            FrmAddPatience openForm = new FrmAddPatience(2,id,nombrePaciente, apellidosPaciente, rol,fechavisita,horaVisita,documento);
+            FrmAddPatience openForm = new FrmAddPatience(2,id, rol);
             openForm.ShowDialog();
             RefrescarData();
         }

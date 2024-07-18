@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,7 @@ namespace RegistroPacientes.Controlador
         int accion;
         private string role;
         string TipoPersona;
+        int Id;
 
         public ControllerAddPatience( FrmAddPatience Vista, int accion ) 
         {
@@ -32,14 +34,15 @@ namespace RegistroPacientes.Controlador
             //Opcion del comboBox en este se puede cambiar si es uin estudiante o un alumno para mostrar los datos que se tienen que llenar
             ObjAddPatience.CmbRol.SelectedIndexChanged += new EventHandler(CmbRole_SelectChange);
         }
-        public ControllerAddPatience(FrmAddPatience Vista, int accion, int Id, string nombrePaciente, string apellidosPAciente, string rol, DateTime fechaVisita, string horaVisita, string documento) 
+        public ControllerAddPatience(FrmAddPatience Vista, int accion, int id, string rol) 
         {
             ObjAddPatience = Vista;
             this.accion = accion;
             this.role = rol;
+            this.Id = id;
             ObjAddPatience.Load += new EventHandler(InitialCharge);
             verificarAccion();
-            ChargeValues(Id, nombrePaciente, apellidosPAciente, fechaVisita, horaVisita, documento);
+            ChargeValues(Id, rol);
             ObjAddPatience.BtnActuzalizar.Click += new EventHandler(UpdatePatient);
         }
 
@@ -226,14 +229,31 @@ namespace RegistroPacientes.Controlador
             }
         }
 
-        public void ChargeValues(int Id, string nombrePaciente, string apellidosPAciente, DateTime fechaVisita, string horaVisita, string documento)
+        public void ChargeValues( int Id,string rol )
         {
-           ObjAddPatience.txtId.Text = Id.ToString();
-           ObjAddPatience.TxtNombrePaciente.Texts = nombrePaciente;
-            ObjAddPatience.TxtApellidoPaciente.Texts= apellidosPAciente;
-            ObjAddPatience.PickFechaRegistro.Value = fechaVisita;
-            ObjAddPatience.PickHoraRegistro.Text = horaVisita;
-            ObjAddPatience.mksDocumento.Text = documento;
+            DAOAdminPatience objLLenarCampos = new DAOAdminPatience();
+            
+            objLLenarCampos.IdPaciente = Id;
+            
+            if (rol == "Estudiante")
+            {
+                objLLenarCampos.Rol = 1;
+                objLLenarCampos.ObtenerDatosAddPatient();
+                ObjAddPatience.txtId.Text = objLLenarCampos.IdPaciente.ToString();
+                ObjAddPatience.TxtNombrePaciente.Text = objLLenarCampos.Nombre;
+                ObjAddPatience.TxtApellidoPaciente.Texts = objLLenarCampos.Apellido;
+
+            }
+            else if( rol == "Personal de la Institucion") 
+            {
+                objLLenarCampos.Rol = 2;
+            }
+            else 
+            {
+                MessageBox.Show("Rol ingresado no valido", "Error Verificacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+            
 
         }
 

@@ -19,10 +19,10 @@ namespace RegistroPacientes
             ControllerAddPatience objAddPatience = new ControllerAddPatience(this, accion);
         }
 
-        public FrmAddPatience(int accion, int Id, string nombrePaciente, string apellidoPaciente, string rol, DateTime fechaVisita, string horaVisita, string docuemnto)
+        public FrmAddPatience(int accion, int id,  string rol )
         {
             InitializeComponent();
-            ControllerAddPatience objAddUser = new ControllerAddPatience(this, accion, Id, nombrePaciente, apellidoPaciente, rol, fechaVisita, horaVisita, docuemnto);
+            ControllerAddPatience objAddPatience = new ControllerAddPatience(this, accion, id, rol);
         }
         
 
