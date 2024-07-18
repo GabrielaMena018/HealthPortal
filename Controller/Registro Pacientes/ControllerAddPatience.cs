@@ -83,11 +83,25 @@ namespace RegistroPacientes.Controlador
             }
             else
             {
-                MessageBox.Show("Los datos no pudieron ser registrados",
-                                "Proceso interrumpido",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                ObjAddPatience.groupPersonalInstitucion.Visible = true;
+                ObjAddPatience.groupStudent.Visible = false;
             }
+        }
+
+        public void ChargeValues(int IdPaciente, string nombrePaciente, string apellidoPaciente, string TipoPersona, string codigo, string grupoTecnico, string grado, string seccionAcademica, string Especialidad, DateTime FechaVisita, string horaVisita, string nombreMedicamento, string Observaciones)
+        {
+            ObjAddPatience.txtId.Text = IdPaciente.ToString();
+            ObjAddPatience.TxtNombrePaciente.Texts = nombrePaciente;
+            ObjAddPatience.TxtApellidoPaciente.Texts = apellidoPaciente;
+            ObjAddPatience.CmbRol.Text = TipoPersona;
+            ObjAddPatience.TxtCodigoPaciente.Texts = codigo;
+            ObjAddPatience.txtGrupo.Texts = grupoTecnico;
+            ObjAddPatience.PickFechaRegistro.Value = FechaVisita;
+            ObjAddPatience.PickHoraRegistro.Text = horaVisita;
+            ObjAddPatience.TxtObservaciones.Texts = Observaciones;
+
+
+
         }
     }
 }
