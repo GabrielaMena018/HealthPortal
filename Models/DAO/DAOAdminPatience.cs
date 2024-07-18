@@ -16,6 +16,7 @@ namespace RegistroPacientes.Models.DAO
      class DAOAdminPatience : DTOAdminPatience
     {
         readonly SqlCommand Command = new SqlCommand();
+        //Llenar los comboBox
         public DataSet LlenarCombo(string table)
         {
             try
@@ -53,6 +54,7 @@ namespace RegistroPacientes.Models.DAO
         int respuesta;
         int RespuestaUpdate;
 
+        //Registrrar Paciente
         public int PatientRegistration() 
         {
             
@@ -137,6 +139,7 @@ namespace RegistroPacientes.Models.DAO
                 Command.Connection.Close();
             }
         }
+        //Este metodo sirve para obtener el Id de Cada paciente
         public int ObtenerIdPatient() 
         {
             string queryIdPatient = "Select MAX (IdPaciente) FROM tbPacientes";
@@ -151,6 +154,7 @@ namespace RegistroPacientes.Models.DAO
 
             return IdPaciente;
         }
+        //Este metodo sirve para onbtener el ID del Grado_seccion para ocuparlo como llave foranea
         public int ObtenerIdGradoSeccion() 
         {
             //buscar grados
@@ -171,6 +175,7 @@ namespace RegistroPacientes.Models.DAO
             consulta.Close();
             return IdGradoSeccion;
         }
+        //Este metodo sirve para ingresar la visita
         public int AgregarVisita() 
         {
             string queryVisita = "INSERT INTO tbVisitas Values(@IdPaciente, @FechaVisita,@HoraVisita,@IdMedicamento, @Observaciones)";
@@ -184,6 +189,7 @@ namespace RegistroPacientes.Models.DAO
             return respuesta;
            
         }
+        //El metodo UpdateVisita sirve para actuzalizar Los datos de la visita
         public int UpdateVisita() 
         {
             try
@@ -216,6 +222,7 @@ namespace RegistroPacientes.Models.DAO
             }
            
         }
+        //Esta sirve para dministrar el registro o la grid view de los estudiantes
         public DataSet AdminPatient() 
         {
             try
@@ -240,76 +247,32 @@ namespace RegistroPacientes.Models.DAO
             }
           
         }
-        public void ObtenerDatosAddPatient() 
+        //Esta sirve para dministrar el registro o la grid view de los estudiantes
+        public DataSet AdminPatientPersonalInstitucion()
         {
             try
             {
-                Command.Connection= getConnection();
-                if (Rol == 1) 
-                {
-                    string queryDatosAddPatient = "SELECT * FROM ViewUpdateEstudiantes WHERE IdPaciente = @IdPaciente";
-                    SqlCommand cmdDatosAddPatient = new SqlCommand(queryDatosAddPatient, Command.Connection);
-                    cmdDatosAddPatient.Parameters.AddWithValue("Idpaciente", IdPaciente);
-
-                        using (SqlDataReader reader = cmdDatosAddPatient.ExecuteReader())
-                        {
-                            if (reader.Read()) 
-                            {
-                                Nombre = reader["nombrePaciente"].ToString();
-                                Apellido = reader["apellidoPaciete"].ToString();
-                                Rol = (int)reader["TipoPerona"];
-                                Codigo = reader["codigo"].ToString();
-                                GrupoTecnico = reader["GrupoTecnico"].ToString();
-                                Grado = (int)reader["Grado"];
-                                SeccionAcademica =(int)reader["SeccionAcademica"];
-                                Especialidad = (int)reader["Especialidad"];
-                                Fecha = (DateTime)reader["FechaVisita"];
-                                Hora = reader["HoraVisita"].ToString();
-                                Medicamento = (int)reader["nombreMedicamento"];
-                                Observacion = reader["Observaciones"].ToString();
-                            }
-                        }
-                    
-
-
-                }
-                else 
-                {
-                    string queryDatosAddPatient = "SELECT * FROM ViewUpdatePersonalInstitucion WHERE IdPaciente = @IdPaciente";
-                    SqlCommand cmdDatosAddPatient = new SqlCommand(queryDatosAddPatient, Command.Connection);
-                    cmdDatosAddPatient.Parameters.AddWithValue("Idpaciente", IdPaciente);
-                    respuesta = cmdDatosAddPatient.ExecuteNonQuery();
-                    if (respuesta == 1)
-                    {
-                        using (SqlDataReader reader = Command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                Nombre = reader["nombrePaciente"].ToString();
-                                Apellido = reader["apellidoPaciete"].ToString();
-                                Rol = (int)reader["TipoPerona"];
-                                Documento = reader["Documento"].ToString();
-                                IdArea = (int)reader["TipoArea"];
-                                Fecha = (DateTime)reader["FechaVisita"];
-                                Hora = reader["HoraVisita"].ToString();
-                                Medicamento = (int)reader["nombreMedicamento"];
-                                Observacion = reader["Observaciones"].ToString();
-                            }
-                        }
-                    }
-                }
+                Command.Connection = getConnection();
+                string queryAdminPatient = "SELECT * FROM ViewPersonalInstitucion";
+                SqlCommand cmdAdminPatient = new SqlCommand(queryAdminPatient, Command.Connection);
+                cmdAdminPatient.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmdAdminPatient);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "ViewPersonalInstitucion");
+                return ds;
             }
             catch (SqlException ex)
             {
-
                 MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+                return null;
             }
-            finally 
+            finally
             {
-                Command.Connection.Close();
+                getConnection().Close();
             }
+
         }
+        //Sirve para actuzlaizar los datos del paciente
         public int UpdatePatient() 
         {
             try 

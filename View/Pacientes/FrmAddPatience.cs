@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using RegistroPacientes.Controlador;
 
 namespace RegistroPacientes
@@ -19,10 +20,10 @@ namespace RegistroPacientes
             ControllerAddPatience objAddPatience = new ControllerAddPatience(this, accion);
         }
 
-        public FrmAddPatience(int accion, int id,  string rol )
+        public FrmAddPatience(int accion, int IdPaciente, string nombrePaciente, string apellidoPaciente, string TipoPersona, string codigo, string grupoTecnico, string grado, string seccionAcademica, string Especialidad, DateTime FechaVisita, string horaVisita, string nombreMedicamento, string Observaciones)
         {
             InitializeComponent();
-            ControllerAddPatience objAddPatience = new ControllerAddPatience(this, accion, id, rol);
+            ControllerAddPatience objAddPatience = new ControllerAddPatience(this, accion, IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, Especialidad, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
         }
         
 

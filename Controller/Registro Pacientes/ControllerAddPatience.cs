@@ -14,7 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RegistroPacientes.Controlador
 {
-     class ControllerAddPatience
+    class ControllerAddPatience
     {
         FrmAddPatience ObjAddPatience;
         int accion;
@@ -22,7 +22,7 @@ namespace RegistroPacientes.Controlador
         string TipoPersona;
         int Id;
 
-        public ControllerAddPatience( FrmAddPatience Vista, int accion ) 
+        public ControllerAddPatience(FrmAddPatience Vista, int accion)
         {
             ObjAddPatience = Vista;
             this.accion = accion;
@@ -34,21 +34,20 @@ namespace RegistroPacientes.Controlador
             //Opcion del comboBox en este se puede cambiar si es uin estudiante o un alumno para mostrar los datos que se tienen que llenar
             ObjAddPatience.CmbRol.SelectedIndexChanged += new EventHandler(CmbRole_SelectChange);
         }
-        public ControllerAddPatience(FrmAddPatience Vista, int accion, int id, string rol) 
+        public ControllerAddPatience(FrmAddPatience Vista, int accion, int IdPaciente, string nombrePaciente, string apellidoPaciente, string TipoPersona, string codigo, string grupoTecnico, string grado, string seccionAcademica, string Especialidad, DateTime FechaVisita, string horaVisita, string nombreMedicamento, string Observaciones)
         {
             ObjAddPatience = Vista;
             this.accion = accion;
-            this.role = rol;
-            this.Id = id;
+            this.role = TipoPersona;
             ObjAddPatience.Load += new EventHandler(InitialCharge);
             verificarAccion();
-            ChargeValues(Id, rol);
+            ChargeValues(IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, Especialidad, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
             ObjAddPatience.BtnActuzalizar.Click += new EventHandler(UpdatePatient);
         }
 
         public void UpdatePatient(object sender, EventArgs e)
         {
-           DAOAdminPatience DaoUpdate = new DAOAdminPatience();
+            DAOAdminPatience DaoUpdate = new DAOAdminPatience();
             DaoUpdate.IdPaciente = int.Parse(ObjAddPatience.txtId.Text.Trim());
             DaoUpdate.Nombre = ObjAddPatience.TxtNombrePaciente.Texts.Trim();
             DaoUpdate.Apellido = ObjAddPatience.TxtApellidoPaciente.Texts.Trim();
@@ -57,7 +56,7 @@ namespace RegistroPacientes.Controlador
             DaoUpdate.Hora = ObjAddPatience.PickHoraRegistro.Value.ToString("HH:mm");
             DaoUpdate.Medicamento = (int)ObjAddPatience.CmbMedicamentoRegistro.SelectedValue;
             DaoUpdate.Observacion = ObjAddPatience.TxtObservaciones.Texts.Trim();
-            if (DaoUpdate.Rol == 1) 
+            if (DaoUpdate.Rol == 1)
             {
                 //Actuzalizar Tabla Grado
                 DaoUpdate.Especialidad = (int)ObjAddPatience.CmbEspecidalidadRegistro.SelectedValue;
@@ -69,7 +68,7 @@ namespace RegistroPacientes.Controlador
                 DaoUpdate.Codigo = ObjAddPatience.TxtCodigoPaciente.Texts;
 
             }
-            else 
+            else
             {
                 DaoUpdate.Documento = ObjAddPatience.mksDocumento.Text;
                 DaoUpdate.IdArea = (int)ObjAddPatience.CmbAreaPersonal.SelectedValue;
@@ -110,7 +109,7 @@ namespace RegistroPacientes.Controlador
             {
                 ObjAddPatience.btnAgregarPaciente.Enabled = false;
                 ObjAddPatience.btnAgregarPaciente.Enabled = true;
-           
+
             }
         }
 
@@ -124,7 +123,7 @@ namespace RegistroPacientes.Controlador
             daoInsertPatient.Apellido = ObjAddPatience.TxtApellidoPaciente.Texts;
             daoInsertPatient.Rol = (int)ObjAddPatience.CmbRol.SelectedValue;
 
-            if(ObjAddPatience.CmbRol.SelectedIndex == 0) 
+            if (ObjAddPatience.CmbRol.SelectedIndex == 0)
             {
                 //Insercion datos tabla grado seccion
                 daoInsertPatient.Especialidad = (int)ObjAddPatience.CmbEspecidalidadRegistro.SelectedValue;
@@ -137,12 +136,12 @@ namespace RegistroPacientes.Controlador
                 //Insercion de datos tbEstudiantes
                 daoInsertPatient.Codigo = ObjAddPatience.TxtCodigoPaciente.Texts;
             }
-            else 
+            else
             {
                 daoInsertPatient.Documento = ObjAddPatience.mksDocumento.Text;
                 daoInsertPatient.IdArea = (int)ObjAddPatience.CmbAreaPersonal.SelectedValue;
             }
-            
+
 
             //Insercion de datos tbVisitas
             daoInsertPatient.Fecha = ObjAddPatience.PickFechaRegistro.Value.Date;
@@ -216,49 +215,35 @@ namespace RegistroPacientes.Controlador
         }
 
 
-        public void CmbRole_SelectChange(object sender, EventArgs e) 
+        public void CmbRole_SelectChange(object sender, EventArgs e)
         {
             if (ObjAddPatience.CmbRol.SelectedIndex == 0)
             {
                 ObjAddPatience.groupStudent.Visible = true;
             }
-            else 
+            else
             {
                 ObjAddPatience.groupPersonalInstitucion.Visible = true;
                 ObjAddPatience.groupStudent.Visible = false;
             }
         }
 
-        public void ChargeValues( int Id,string rol )
+        public void ChargeValues(int IdPaciente, string nombrePaciente, string apellidoPaciente, string TipoPersona, string codigo, string grupoTecnico, string grado, string seccionAcademica, string Especialidad, DateTime FechaVisita, string horaVisita, string nombreMedicamento, string Observaciones)
         {
-            DAOAdminPatience objLLenarCampos = new DAOAdminPatience();
-            
-            objLLenarCampos.IdPaciente = Id;
-            
-            if (rol == "Estudiante")
-            {
-                objLLenarCampos.Rol = 1;
-                objLLenarCampos.ObtenerDatosAddPatient();
-                ObjAddPatience.txtId.Text = objLLenarCampos.IdPaciente.ToString();
-                ObjAddPatience.TxtNombrePaciente.Text = objLLenarCampos.Nombre;
-                ObjAddPatience.TxtApellidoPaciente.Texts = objLLenarCampos.Apellido;
+            ObjAddPatience.txtId.Text = IdPaciente.ToString();
+            ObjAddPatience.TxtNombrePaciente.Texts = nombrePaciente;
+            ObjAddPatience.TxtApellidoPaciente.Texts = apellidoPaciente;
+            ObjAddPatience.CmbRol.Text = TipoPersona;
+            ObjAddPatience.TxtCodigoPaciente.Texts = codigo;
+            ObjAddPatience.PickFechaRegistro.Value = FechaVisita;
+            ObjAddPatience.PickHoraRegistro.Text = horaVisita;
 
-            }
-            else if( rol == "Personal de la Institucion") 
-            {
-                objLLenarCampos.Rol = 2;
-            }
-            else 
-            {
-                MessageBox.Show("Rol ingresado no valido", "Error Verificacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-           
-            
+
 
         }
 
 
 
-
     }
+
 }

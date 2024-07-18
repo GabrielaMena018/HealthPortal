@@ -281,7 +281,7 @@
             this.PickFechaRegistro.Name = "PickFechaRegistro";
             this.PickFechaRegistro.Size = new System.Drawing.Size(331, 30);
             this.PickFechaRegistro.TabIndex = 17;
-            this.PickFechaRegistro.Value = new System.DateTime(2024, 6, 24, 12, 39, 57, 0);
+            this.PickFechaRegistro.Value = new System.DateTime(2024, 7, 18, 0, 0, 0, 0);
             // 
             // label8
             // 
