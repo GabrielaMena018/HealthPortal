@@ -39,7 +39,6 @@
             this.groupPersonalInstitucion = new System.Windows.Forms.GroupBox();
             this.mksDocumento = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.TxtObservaciones = new CustomPanel.BorderRadiusTXT();
             this.label11 = new System.Windows.Forms.Label();
             this.CmbMedicamentoRegistro = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -51,28 +50,32 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupStudent = new System.Windows.Forms.GroupBox();
-            this.txtGrupo = new CustomPanel.BorderRadiusTXT();
             this.label5 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.CmbEspecidalidadRegistro = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.TxtCodigoPaciente = new CustomPanel.BorderRadiusTXT();
             this.CmBGradoRegistro = new System.Windows.Forms.ComboBox();
             this.CmbSeccionRegistro = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.txtId = new System.Windows.Forms.ToolStripTextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.BtnAceptar = new CustomPanel.RJButton();
+            this.txtGrupo = new CustomPanel.BorderRadiusTXT();
+            this.TxtCodigoPaciente = new CustomPanel.BorderRadiusTXT();
             this.TxtApellidoPaciente = new CustomPanel.BorderRadiusTXT();
             this.btnAgregarPaciente = new CustomPanel.RJButton();
             this.BtnActuzalizar = new CustomPanel.RJButton();
+            this.TxtObservaciones = new CustomPanel.BorderRadiusTXT();
             this.TxtNombrePaciente = new CustomPanel.BorderRadiusTXT();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.txtId = new System.Windows.Forms.ToolStripTextBox();
             this.groupPersonalInstitucion.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupStudent.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -118,7 +121,7 @@
             this.CmbRol.Location = new System.Drawing.Point(524, 116);
             this.CmbRol.Name = "CmbRol";
             this.CmbRol.Size = new System.Drawing.Size(239, 31);
-            this.CmbRol.TabIndex = 7;
+            this.CmbRol.TabIndex = 2;
             // 
             // label4
             // 
@@ -198,26 +201,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visita";
             // 
-            // TxtObservaciones
-            // 
-            this.TxtObservaciones.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtObservaciones.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtObservaciones.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtObservaciones.BorderRadius = 20;
-            this.TxtObservaciones.BorderSize = 1;
-            this.TxtObservaciones.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtObservaciones.Location = new System.Drawing.Point(16, 146);
-            this.TxtObservaciones.Multiline = true;
-            this.TxtObservaciones.Name = "TxtObservaciones";
-            this.TxtObservaciones.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TxtObservaciones.PasswordChar = false;
-            this.TxtObservaciones.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtObservaciones.PlaceholderText = "";
-            this.TxtObservaciones.Size = new System.Drawing.Size(727, 198);
-            this.TxtObservaciones.TabIndex = 16;
-            this.TxtObservaciones.Texts = "";
-            this.TxtObservaciones.UnderlinedStyle = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -235,6 +218,7 @@
             this.CmbMedicamentoRegistro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbMedicamentoRegistro.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbMedicamentoRegistro.FormattingEnabled = true;
+            this.CmbMedicamentoRegistro.ItemHeight = 23;
             this.CmbMedicamentoRegistro.Location = new System.Drawing.Point(522, 58);
             this.CmbMedicamentoRegistro.Name = "CmbMedicamentoRegistro";
             this.CmbMedicamentoRegistro.Size = new System.Drawing.Size(224, 31);
@@ -259,7 +243,7 @@
             this.PickHoraRegistro.Location = new System.Drawing.Point(374, 59);
             this.PickHoraRegistro.Name = "PickHoraRegistro";
             this.PickHoraRegistro.Size = new System.Drawing.Size(112, 30);
-            this.PickHoraRegistro.TabIndex = 19;
+            this.PickHoraRegistro.TabIndex = 10;
             this.PickHoraRegistro.Value = new System.DateTime(2024, 6, 24, 12, 39, 57, 0);
             // 
             // label9
@@ -280,7 +264,7 @@
             this.PickFechaRegistro.Location = new System.Drawing.Point(16, 59);
             this.PickFechaRegistro.Name = "PickFechaRegistro";
             this.PickFechaRegistro.Size = new System.Drawing.Size(331, 30);
-            this.PickFechaRegistro.TabIndex = 17;
+            this.PickFechaRegistro.TabIndex = 9;
             this.PickFechaRegistro.Value = new System.DateTime(2024, 7, 18, 0, 0, 0, 0);
             // 
             // label8
@@ -299,7 +283,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(712, 788);
+            this.pictureBox4.Location = new System.Drawing.Point(585, 794);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(35, 32);
             this.pictureBox4.TabIndex = 20;
@@ -309,7 +293,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(550, 788);
+            this.pictureBox1.Location = new System.Drawing.Point(428, 794);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(35, 32);
             this.pictureBox1.TabIndex = 21;
@@ -348,26 +332,6 @@
             this.groupStudent.TabStop = false;
             this.groupStudent.Text = "Estudiante";
             // 
-            // txtGrupo
-            // 
-            this.txtGrupo.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGrupo.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtGrupo.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtGrupo.BorderRadius = 0;
-            this.txtGrupo.BorderSize = 1;
-            this.txtGrupo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtGrupo.Location = new System.Drawing.Point(391, 58);
-            this.txtGrupo.Multiline = false;
-            this.txtGrupo.Name = "txtGrupo";
-            this.txtGrupo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtGrupo.PasswordChar = false;
-            this.txtGrupo.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtGrupo.PlaceholderText = "";
-            this.txtGrupo.Size = new System.Drawing.Size(105, 38);
-            this.txtGrupo.TabIndex = 17;
-            this.txtGrupo.Texts = "";
-            this.txtGrupo.UnderlinedStyle = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -400,7 +364,7 @@
             this.CmbEspecidalidadRegistro.Location = new System.Drawing.Point(173, 60);
             this.CmbEspecidalidadRegistro.Name = "CmbEspecidalidadRegistro";
             this.CmbEspecidalidadRegistro.Size = new System.Drawing.Size(199, 31);
-            this.CmbEspecidalidadRegistro.TabIndex = 15;
+            this.CmbEspecidalidadRegistro.TabIndex = 5;
             // 
             // label14
             // 
@@ -426,26 +390,6 @@
             this.label15.Text = "Especialidad";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TxtCodigoPaciente
-            // 
-            this.TxtCodigoPaciente.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCodigoPaciente.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtCodigoPaciente.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtCodigoPaciente.BorderRadius = 20;
-            this.TxtCodigoPaciente.BorderSize = 1;
-            this.TxtCodigoPaciente.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtCodigoPaciente.Location = new System.Drawing.Point(13, 56);
-            this.TxtCodigoPaciente.Multiline = false;
-            this.TxtCodigoPaciente.Name = "TxtCodigoPaciente";
-            this.TxtCodigoPaciente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TxtCodigoPaciente.PasswordChar = false;
-            this.TxtCodigoPaciente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtCodigoPaciente.PlaceholderText = "";
-            this.TxtCodigoPaciente.Size = new System.Drawing.Size(138, 38);
-            this.TxtCodigoPaciente.TabIndex = 9;
-            this.TxtCodigoPaciente.Texts = "";
-            this.TxtCodigoPaciente.UnderlinedStyle = false;
-            // 
             // CmBGradoRegistro
             // 
             this.CmBGradoRegistro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -454,7 +398,7 @@
             this.CmBGradoRegistro.Location = new System.Drawing.Point(523, 63);
             this.CmBGradoRegistro.Name = "CmBGradoRegistro";
             this.CmBGradoRegistro.Size = new System.Drawing.Size(110, 31);
-            this.CmBGradoRegistro.TabIndex = 13;
+            this.CmBGradoRegistro.TabIndex = 7;
             // 
             // CmbSeccionRegistro
             // 
@@ -464,7 +408,7 @@
             this.CmbSeccionRegistro.Location = new System.Drawing.Point(649, 63);
             this.CmbSeccionRegistro.Name = "CmbSeccionRegistro";
             this.CmbSeccionRegistro.Size = new System.Drawing.Size(94, 31);
-            this.CmbSeccionRegistro.TabIndex = 11;
+            this.CmbSeccionRegistro.TabIndex = 8;
             // 
             // label16
             // 
@@ -477,86 +421,6 @@
             this.label16.TabIndex = 12;
             this.label16.Text = "Grado";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TxtApellidoPaciente
-            // 
-            this.TxtApellidoPaciente.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtApellidoPaciente.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtApellidoPaciente.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtApellidoPaciente.BorderRadius = 20;
-            this.TxtApellidoPaciente.BorderSize = 1;
-            this.TxtApellidoPaciente.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtApellidoPaciente.Location = new System.Drawing.Point(33, 192);
-            this.TxtApellidoPaciente.Multiline = false;
-            this.TxtApellidoPaciente.Name = "TxtApellidoPaciente";
-            this.TxtApellidoPaciente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TxtApellidoPaciente.PasswordChar = false;
-            this.TxtApellidoPaciente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtApellidoPaciente.PlaceholderText = "";
-            this.TxtApellidoPaciente.Size = new System.Drawing.Size(730, 38);
-            this.TxtApellidoPaciente.TabIndex = 23;
-            this.TxtApellidoPaciente.Texts = "";
-            this.TxtApellidoPaciente.UnderlinedStyle = false;
-            // 
-            // btnAgregarPaciente
-            // 
-            this.btnAgregarPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarPaciente.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarPaciente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarPaciente.BorderRadius = 40;
-            this.btnAgregarPaciente.BorderSize = 0;
-            this.btnAgregarPaciente.FlatAppearance.BorderSize = 0;
-            this.btnAgregarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarPaciente.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarPaciente.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarPaciente.Location = new System.Drawing.Point(615, 780);
-            this.btnAgregarPaciente.Name = "btnAgregarPaciente";
-            this.btnAgregarPaciente.Size = new System.Drawing.Size(148, 44);
-            this.btnAgregarPaciente.TabIndex = 19;
-            this.btnAgregarPaciente.Text = "Agregar";
-            this.btnAgregarPaciente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarPaciente.TextColor = System.Drawing.Color.Black;
-            this.btnAgregarPaciente.UseVisualStyleBackColor = false;
-            // 
-            // BtnActuzalizar
-            // 
-            this.BtnActuzalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.BtnActuzalizar.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.BtnActuzalizar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.BtnActuzalizar.BorderRadius = 40;
-            this.BtnActuzalizar.BorderSize = 0;
-            this.BtnActuzalizar.FlatAppearance.BorderSize = 0;
-            this.BtnActuzalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnActuzalizar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActuzalizar.ForeColor = System.Drawing.Color.Black;
-            this.BtnActuzalizar.Location = new System.Drawing.Point(451, 780);
-            this.BtnActuzalizar.Name = "BtnActuzalizar";
-            this.BtnActuzalizar.Size = new System.Drawing.Size(156, 42);
-            this.BtnActuzalizar.TabIndex = 18;
-            this.BtnActuzalizar.Text = "Actualizar";
-            this.BtnActuzalizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnActuzalizar.TextColor = System.Drawing.Color.Black;
-            this.BtnActuzalizar.UseVisualStyleBackColor = false;
-            // 
-            // TxtNombrePaciente
-            // 
-            this.TxtNombrePaciente.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtNombrePaciente.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtNombrePaciente.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtNombrePaciente.BorderRadius = 20;
-            this.TxtNombrePaciente.BorderSize = 1;
-            this.TxtNombrePaciente.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtNombrePaciente.Location = new System.Drawing.Point(36, 109);
-            this.TxtNombrePaciente.Multiline = false;
-            this.TxtNombrePaciente.Name = "TxtNombrePaciente";
-            this.TxtNombrePaciente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TxtNombrePaciente.PasswordChar = false;
-            this.TxtNombrePaciente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtNombrePaciente.PlaceholderText = "";
-            this.TxtNombrePaciente.Size = new System.Drawing.Size(471, 38);
-            this.TxtNombrePaciente.TabIndex = 6;
-            this.TxtNombrePaciente.Texts = "";
-            this.TxtNombrePaciente.UnderlinedStyle = false;
             // 
             // menuStrip1
             // 
@@ -576,6 +440,179 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(132, 27);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(732, 793);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(26, 32);
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
+            // 
+            // BtnAceptar
+            // 
+            this.BtnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BtnAceptar.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BtnAceptar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BtnAceptar.BorderRadius = 40;
+            this.BtnAceptar.BorderSize = 0;
+            this.BtnAceptar.Enabled = false;
+            this.BtnAceptar.FlatAppearance.BorderSize = 0;
+            this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAceptar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAceptar.ForeColor = System.Drawing.Color.Black;
+            this.BtnAceptar.Location = new System.Drawing.Point(642, 787);
+            this.BtnAceptar.Name = "BtnAceptar";
+            this.BtnAceptar.Size = new System.Drawing.Size(130, 42);
+            this.BtnAceptar.TabIndex = 25;
+            this.BtnAceptar.Text = "Aceptar";
+            this.BtnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAceptar.TextColor = System.Drawing.Color.Black;
+            this.BtnAceptar.UseVisualStyleBackColor = false;
+            // 
+            // txtGrupo
+            // 
+            this.txtGrupo.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGrupo.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtGrupo.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtGrupo.BorderRadius = 0;
+            this.txtGrupo.BorderSize = 1;
+            this.txtGrupo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtGrupo.Location = new System.Drawing.Point(391, 58);
+            this.txtGrupo.Multiline = false;
+            this.txtGrupo.Name = "txtGrupo";
+            this.txtGrupo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtGrupo.PasswordChar = false;
+            this.txtGrupo.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtGrupo.PlaceholderText = "";
+            this.txtGrupo.Size = new System.Drawing.Size(105, 38);
+            this.txtGrupo.TabIndex = 6;
+            this.txtGrupo.Texts = "";
+            this.txtGrupo.UnderlinedStyle = false;
+            // 
+            // TxtCodigoPaciente
+            // 
+            this.TxtCodigoPaciente.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtCodigoPaciente.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtCodigoPaciente.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.TxtCodigoPaciente.BorderRadius = 20;
+            this.TxtCodigoPaciente.BorderSize = 1;
+            this.TxtCodigoPaciente.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtCodigoPaciente.Location = new System.Drawing.Point(13, 56);
+            this.TxtCodigoPaciente.Multiline = false;
+            this.TxtCodigoPaciente.Name = "TxtCodigoPaciente";
+            this.TxtCodigoPaciente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxtCodigoPaciente.PasswordChar = false;
+            this.TxtCodigoPaciente.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtCodigoPaciente.PlaceholderText = "";
+            this.TxtCodigoPaciente.Size = new System.Drawing.Size(138, 38);
+            this.TxtCodigoPaciente.TabIndex = 4;
+            this.TxtCodigoPaciente.Texts = "";
+            this.TxtCodigoPaciente.UnderlinedStyle = false;
+            // 
+            // TxtApellidoPaciente
+            // 
+            this.TxtApellidoPaciente.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtApellidoPaciente.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtApellidoPaciente.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.TxtApellidoPaciente.BorderRadius = 20;
+            this.TxtApellidoPaciente.BorderSize = 1;
+            this.TxtApellidoPaciente.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtApellidoPaciente.Location = new System.Drawing.Point(33, 192);
+            this.TxtApellidoPaciente.Multiline = false;
+            this.TxtApellidoPaciente.Name = "TxtApellidoPaciente";
+            this.TxtApellidoPaciente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxtApellidoPaciente.PasswordChar = false;
+            this.TxtApellidoPaciente.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtApellidoPaciente.PlaceholderText = "";
+            this.TxtApellidoPaciente.Size = new System.Drawing.Size(730, 38);
+            this.TxtApellidoPaciente.TabIndex = 3;
+            this.TxtApellidoPaciente.Texts = "";
+            this.TxtApellidoPaciente.UnderlinedStyle = false;
+            // 
+            // btnAgregarPaciente
+            // 
+            this.btnAgregarPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnAgregarPaciente.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnAgregarPaciente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnAgregarPaciente.BorderRadius = 40;
+            this.btnAgregarPaciente.BorderSize = 0;
+            this.btnAgregarPaciente.Enabled = false;
+            this.btnAgregarPaciente.FlatAppearance.BorderSize = 0;
+            this.btnAgregarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarPaciente.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarPaciente.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarPaciente.Location = new System.Drawing.Point(488, 786);
+            this.btnAgregarPaciente.Name = "btnAgregarPaciente";
+            this.btnAgregarPaciente.Size = new System.Drawing.Size(148, 44);
+            this.btnAgregarPaciente.TabIndex = 19;
+            this.btnAgregarPaciente.Text = "Agregar";
+            this.btnAgregarPaciente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarPaciente.TextColor = System.Drawing.Color.Black;
+            this.btnAgregarPaciente.UseVisualStyleBackColor = false;
+            // 
+            // BtnActuzalizar
+            // 
+            this.BtnActuzalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.BtnActuzalizar.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.BtnActuzalizar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.BtnActuzalizar.BorderRadius = 40;
+            this.BtnActuzalizar.BorderSize = 0;
+            this.BtnActuzalizar.Enabled = false;
+            this.BtnActuzalizar.FlatAppearance.BorderSize = 0;
+            this.BtnActuzalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnActuzalizar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActuzalizar.ForeColor = System.Drawing.Color.Black;
+            this.BtnActuzalizar.Location = new System.Drawing.Point(324, 786);
+            this.BtnActuzalizar.Name = "BtnActuzalizar";
+            this.BtnActuzalizar.Size = new System.Drawing.Size(156, 42);
+            this.BtnActuzalizar.TabIndex = 18;
+            this.BtnActuzalizar.Text = "Actualizar";
+            this.BtnActuzalizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnActuzalizar.TextColor = System.Drawing.Color.Black;
+            this.BtnActuzalizar.UseVisualStyleBackColor = false;
+            // 
+            // TxtObservaciones
+            // 
+            this.TxtObservaciones.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtObservaciones.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtObservaciones.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.TxtObservaciones.BorderRadius = 20;
+            this.TxtObservaciones.BorderSize = 1;
+            this.TxtObservaciones.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtObservaciones.Location = new System.Drawing.Point(16, 146);
+            this.TxtObservaciones.Multiline = true;
+            this.TxtObservaciones.Name = "TxtObservaciones";
+            this.TxtObservaciones.Padding = new System.Windows.Forms.Padding(5);
+            this.TxtObservaciones.PasswordChar = false;
+            this.TxtObservaciones.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtObservaciones.PlaceholderText = "";
+            this.TxtObservaciones.Size = new System.Drawing.Size(727, 198);
+            this.TxtObservaciones.TabIndex = 12;
+            this.TxtObservaciones.Texts = "";
+            this.TxtObservaciones.UnderlinedStyle = false;
+            // 
+            // TxtNombrePaciente
+            // 
+            this.TxtNombrePaciente.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtNombrePaciente.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtNombrePaciente.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.TxtNombrePaciente.BorderRadius = 20;
+            this.TxtNombrePaciente.BorderSize = 1;
+            this.TxtNombrePaciente.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtNombrePaciente.Location = new System.Drawing.Point(36, 109);
+            this.TxtNombrePaciente.Multiline = false;
+            this.TxtNombrePaciente.Name = "TxtNombrePaciente";
+            this.TxtNombrePaciente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxtNombrePaciente.PasswordChar = false;
+            this.TxtNombrePaciente.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtNombrePaciente.PlaceholderText = "";
+            this.TxtNombrePaciente.Size = new System.Drawing.Size(471, 38);
+            this.TxtNombrePaciente.TabIndex = 1;
+            this.TxtNombrePaciente.Texts = "";
+            this.TxtNombrePaciente.UnderlinedStyle = false;
+            // 
             // FrmAddPatience
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -583,7 +620,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 860);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.BtnAceptar);
             this.Controls.Add(this.groupStudent);
             this.Controls.Add(this.TxtApellidoPaciente);
             this.Controls.Add(this.label12);
@@ -598,6 +636,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FrmAddPatience";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -612,14 +651,13 @@
             this.groupStudent.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -629,8 +667,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
@@ -657,5 +693,10 @@
         public CustomPanel.RJButton BtnActuzalizar;
         private System.Windows.Forms.MenuStrip menuStrip1;
         public System.Windows.Forms.ToolStripTextBox txtId;
+        public CustomPanel.RJButton BtnAceptar;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.PictureBox pictureBox4;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

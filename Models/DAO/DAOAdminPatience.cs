@@ -10,11 +10,15 @@ using System.Windows.Forms;
 using Microsoft.SqlServer.Server;
 using System.Collections;
 using System.Windows.Input;
+using System.Diagnostics.Eventing.Reader;
 
 namespace RegistroPacientes.Models.DAO
 {
      class DAOAdminPatience : DTOAdminPatience
     {
+        int respuesta;
+        int RespuestaUpdate;
+        int RespuestaDelete;
         readonly SqlCommand Command = new SqlCommand();
         //Llenar los comboBox
         public DataSet LlenarCombo(string table)
@@ -51,8 +55,6 @@ namespace RegistroPacientes.Models.DAO
                 getConnection().Close();
             }
         }
-        int respuesta;
-        int RespuestaUpdate;
 
         //Registrrar Paciente
         public int PatientRegistration() 
@@ -129,8 +131,8 @@ namespace RegistroPacientes.Models.DAO
             }
             catch (SqlException ex)
             {
-                //Codificación de errores: esta sale del catch EC = error critico
-                MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //Codificación de errores: esta sale del catch EC = error critico, EC_001 = no se pudo ingresar al paciente
+                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
 
             }
@@ -178,15 +180,26 @@ namespace RegistroPacientes.Models.DAO
         //Este metodo sirve para ingresar la visita
         public int AgregarVisita() 
         {
-            string queryVisita = "INSERT INTO tbVisitas Values(@IdPaciente, @FechaVisita,@HoraVisita,@IdMedicamento, @Observaciones)";
-            SqlCommand cmdVisita = new SqlCommand(queryVisita, Command.Connection);
-            cmdVisita.Parameters.AddWithValue("IdPaciente", IdPaciente);
-            cmdVisita.Parameters.AddWithValue("FechaVisita", Fecha);
-            cmdVisita.Parameters.AddWithValue("HoraVisita", Hora);
-            cmdVisita.Parameters.AddWithValue("IdMedicamento", Medicamento);
-            cmdVisita.Parameters.AddWithValue("Observaciones", Observacion);
-            respuesta = cmdVisita.ExecuteNonQuery();
-            return respuesta;
+            try
+            {
+                string queryVisita = "INSERT INTO tbVisitas Values(@IdPaciente, @FechaVisita,@HoraVisita,@IdMedicamento, @Observaciones)";
+                SqlCommand cmdVisita = new SqlCommand(queryVisita, Command.Connection);
+                cmdVisita.Parameters.AddWithValue("IdPaciente", IdPaciente);
+                cmdVisita.Parameters.AddWithValue("FechaVisita", Fecha);
+                cmdVisita.Parameters.AddWithValue("HoraVisita", Hora);
+                cmdVisita.Parameters.AddWithValue("IdMedicamento", Medicamento);
+                cmdVisita.Parameters.AddWithValue("Observaciones", Observacion);
+                respuesta = cmdVisita.ExecuteNonQuery();
+                return respuesta;
+            }
+            catch (SqlException ex)
+            {
+                //EC_002 = no se pudo agregar la visita
+                MessageBox.Show($"EC_002{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+
+           
            
         }
         //El metodo UpdateVisita sirve para actuzalizar Los datos de la visita
@@ -197,8 +210,8 @@ namespace RegistroPacientes.Models.DAO
                 string queryUpdateVisita = "UPDATE tbVisitas SET " +
                                             "FechaVisita = @param1, " +
                                             "HoraVisita = @param2, " +
-                                            "IdMedicmaneto = @param3, " +
-                                             "Observaciones = @param4, " +
+                                            "IdMedicamento = @param3, " +
+                                             "Observaciones = @param4 " +
                                             "WHERE IdPaciente = @param5";
                 SqlCommand cmdUpdateVisita = new SqlCommand(queryUpdateVisita, Command.Connection);
                 cmdUpdateVisita.Parameters.AddWithValue("param1", Fecha);
@@ -212,6 +225,7 @@ namespace RegistroPacientes.Models.DAO
             }
             catch (SqlException ex)
             {
+                //EC_003 = No se pudo actualizar la información del apartado o tabla visita
                 MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
 
@@ -238,7 +252,8 @@ namespace RegistroPacientes.Models.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //EC_004 = no se puso seleccionar la vista UpdateEstudiantes
+                MessageBox.Show($"EC_004{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally 
@@ -263,7 +278,8 @@ namespace RegistroPacientes.Models.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //EC_005 No se pudo seleccionar la vista ViewPersonalIntitucion
+                MessageBox.Show($"EC_005{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally
@@ -282,7 +298,7 @@ namespace RegistroPacientes.Models.DAO
                 string queryUpdatePatient = "UPDATE tbPacientes SET " +
                                             "nombrePaciente = @param1, " +
                                             "apellidoPaciente = @param2, " +
-                                            "IdTipoPersona = @param3, " +
+                                            "IdTipoPersona = @param3 " +
                                             "WHERE IdPaciente = @param4"
                                             ;
                 SqlCommand cmdUpdatePatient = new SqlCommand(queryUpdatePatient, Command.Connection);
@@ -290,26 +306,30 @@ namespace RegistroPacientes.Models.DAO
                 cmdUpdatePatient.Parameters.AddWithValue("param2", Apellido);
                 cmdUpdatePatient.Parameters.AddWithValue("param3", Rol);
                 cmdUpdatePatient.Parameters.AddWithValue("param4", IdPaciente);
-                 RespuestaUpdate = cmdUpdatePatient.ExecuteNonQuery();
+                RespuestaUpdate = cmdUpdatePatient.ExecuteNonQuery();
                 //Update en la tbEstudiantes o en la tbPersonalInstitucion dpeendiendo el rol que se le asigno al paciente
-                if (RespuestaUpdate == 0)
+                if (RespuestaUpdate >= 1)
                 {
                     if (Rol == 1)
                     {
                         ObtenerIdGradoSeccion();
                         string queryUpdateEstudiante = "UPDATE tbEstudiantes SET" +
-                                                       "codigo = @param1, " +
-                                                       "IdGrado_Seccion = @param2, " +
-                                                       "WHERE IdPaciente = @param3 ";
+                                                       "codigo = @param5, " +
+                                                       "IdGrado_Seccion = @param6 " +
+                                                       "WHERE IdPaciente = @param7";
                         SqlCommand cmdUpdateEstudiante = new SqlCommand(queryUpdateEstudiante, Command.Connection);
-                        cmdUpdatePatient.Parameters.AddWithValue("param1", Codigo);
-                        cmdUpdatePatient.Parameters.AddWithValue("param2", IdGradoSeccion);
-                        cmdUpdatePatient.Parameters.AddWithValue("param3", IdPaciente);
+                        cmdUpdatePatient.Parameters.AddWithValue("param5", Codigo);
+                        cmdUpdatePatient.Parameters.AddWithValue("param6", IdGradoSeccion);
+                        cmdUpdatePatient.Parameters.AddWithValue("param7", IdPaciente);
                         RespuestaUpdate = cmdUpdatePatient.ExecuteNonQuery();
-                        if (RespuestaUpdate == 1)
+                        if (RespuestaUpdate >= 1)
                         {
                             UpdateVisita();
-                            if (RespuestaUpdate == 1)
+                            if (RespuestaUpdate >= 1)
+                            {
+                                return 2;
+                            }
+                            else if( RespuestaUpdate <= 0) 
                             {
                                 return 1;
                             }
@@ -321,38 +341,49 @@ namespace RegistroPacientes.Models.DAO
                             return 0;
                         }
                     }
-                }
-                else 
-                {
-                    string queryUpdatePersonalInstitucion = "UPDATE tbPersonalInstitucion SET" +
-                                                            "Docuemnto = @param1, " +
-                                                            "IdArea = @param2, " +
-                                                            "WHERE IdPaciente = @param3";
-                    SqlCommand cmdUpdatePersonal = new SqlCommand(queryUpdatePersonalInstitucion, Command.Connection);
-                    cmdUpdatePersonal.Parameters.AddWithValue("Docuemto", Documento);
-                    cmdUpdatePersonal.Parameters.AddWithValue("IdArea", IdArea);
-                    cmdUpdatePersonal.Parameters.AddWithValue("IdPaciente", IdPaciente);
-                    RespuestaUpdate = cmdUpdatePersonal.ExecuteNonQuery();
-                    if (RespuestaUpdate == 1)
+                    else if (RespuestaUpdate <= 0)
                     {
-                        UpdateVisita();
-                        if (RespuestaUpdate == 1)
-                        {
-                            return 1;
-                        }
-                        else { return 0; }
+                        return 1;
                     }
+                    //Sino
                     else
                     {
-                        return 0;
+                        string queryUpdatePersonalInstitucion = "UPDATE tbPersonalInstitucion SET " +
+                                                                "Documento = @param1, " +
+                                                                "IdArea = @param2 " +
+                                                                "WHERE IdPaciente = @param3";
+                        SqlCommand cmdUpdatePersonal = new SqlCommand(queryUpdatePersonalInstitucion, Command.Connection);
+                        cmdUpdatePersonal.Parameters.AddWithValue("param1", Documento);
+                        cmdUpdatePersonal.Parameters.AddWithValue("param2", IdArea);
+                        cmdUpdatePersonal.Parameters.AddWithValue("param3", IdPaciente);
+                        RespuestaUpdate = cmdUpdatePersonal.ExecuteNonQuery();
+                        if (RespuestaUpdate == 1)
+                        {
+                            UpdateVisita();
+                            if (RespuestaUpdate == 1)
+                            {
+                                return 2;
+                            }
+                            else if (RespuestaUpdate <= 0)
+                            {
+                                return 1;
+                            }
+                            else { return 0; }
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                        
                     }
-                   
                 }
+                
                 return 0;
             }
             catch (SqlException Ex)
             {
-                MessageBox.Show($"EC_003{Ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //EC_006 No se pudo actuzalizar el registro del paciente
+                MessageBox.Show($"EC_006{Ex.Message}", "Error critico ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
             }
             finally 
@@ -362,7 +393,165 @@ namespace RegistroPacientes.Models.DAO
             
                                         
         }
+        //Eliminar la tabla de pacientes para asi eliminar el registro de este
+        public int DeletePatient() 
+        {
+            try
+            {
+                Command.Connection = getConnection();
+                string query = "DELETE tbPacientes WHERE IdPaciente = @param1";
+                SqlCommand cmdDelete = new SqlCommand(query, Command.Connection);
+                cmdDelete.Parameters.AddWithValue("param1", IdPaciente);
+                RespuestaDelete = cmdDelete.ExecuteNonQuery();
+                return RespuestaDelete;
+            }
+            catch (Exception)
+            {
+
+                return -1;
+            }
+            finally { Command.Connection.Close(); } 
+            
+        }
+        //eliminar registro de la tabla estudiantes
+        public int DeleteStudent() 
+        {
+            try
+            {
+                Command.Connection = getConnection();
+                string query = "DELETE tbEstudiantes WHERE IdPaciente = @param1";
+                SqlCommand cmdDelete = new SqlCommand(query, Command.Connection);
+                cmdDelete.Parameters.AddWithValue("param1", IdPaciente);
+                RespuestaDelete = cmdDelete.ExecuteNonQuery();
+                return RespuestaDelete;
+            }
+            catch (SqlException ex)
+            {
+                //EC_007 = No se pudo eleiminar la información del estudiante
+                MessageBox.Show($"EC_007{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            finally
+            {
+                //Independientemente se haga o no el proceso cerramos la conexión
+                getConnection().Close();
+            }
+            
+        }
+        //Eliminar registro de la tabla visita
+        public int DeleteVisitas() 
+        {
+            try
+            {
+                Command.Connection = getConnection();
+                string query = "DELETE tbVisitas WHERE IdPaciente = @param1";
+                SqlCommand cmdDelete = new SqlCommand(query, Command.Connection);
+                cmdDelete.Parameters.AddWithValue("param1", IdPaciente);
+                RespuestaDelete = cmdDelete.ExecuteNonQuery();
+                return RespuestaDelete;
+            }
+            catch (SqlException ex)
+            {
+                //EC_008 = No se pudo eleiminar la información de la visita que el paciente realizo
+                MessageBox.Show($"EC_008{ex.Message}", "Error critico ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            finally
+            {
+                //Independientemente se haga o no el proceso cerramos la conexión
+                getConnection().Close();
+            }
+
+        }
+        //Eliminar el registro del paciente que viene del area personal
+        public int DeletePersonal() 
+        {
+            try
+            {
+                Command.Connection = getConnection();
+                string query = "DELETE tbPersonalInstitucion WHERE IdPaciente = @param1";
+                SqlCommand cmdDelete = new SqlCommand(query, Command.Connection);
+                cmdDelete.Parameters.AddWithValue("param1", IdPaciente);
+                RespuestaDelete = cmdDelete.ExecuteNonQuery();
+                return RespuestaDelete;
+            }
+            catch (SqlException ex)
+            {
+                //EC_010 = No se pudo eliminar la información del personal de la institución
+                MessageBox.Show($"EC_010{ex.Message}", "Error critico ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            finally
+            {
+                //Independientemente se haga o no el proceso cerramos la conexión
+                getConnection().Close();
+            }
+        }
+        //Eliminar el registro del paciente
+        public int DeleteRegistroPatient() 
+        {
+            try
+            {
+                if (Rol == 1)
+                {
+
+                    DeleteStudent();
+                    if (RespuestaDelete == 1)
+                    {
+                        DeleteVisitas();
+                        if (RespuestaDelete == 1)
+                        {
+                            DeletePatient();
+                            if (RespuestaDelete == 1) 
+                            {
+                                return 1;
+                            }
+                            else { return -1; } 
+                        }
+                        else
+                        {
+                            return -1;
+                        }
+                    }
+                    else { return -1; }
+                }
+                else 
+                {
+                    DeletePersonal();
+                    if (RespuestaDelete == 1)
+                    {
+                        DeleteVisitas();
+                        if (RespuestaDelete == 1)
+                        {
+                            DeletePatient();
+                            if (RespuestaDelete == 1)
+                            {
+                                return 1;
+                            }
+                            else { return -1; }
+                        }
+                        else
+                        {
+                            return -1;
+                        }
+                    }
+                    else { return -1; }
+                }
+            }
+            catch (SqlException ex)
+            {
+                //EC_009 = No se pudo eliminar la información del paciente
+                MessageBox.Show($"EC_009{ex.Message}", "Error critico ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            finally { getConnection().Close(); }
+            
+                
+            }
+            
+        }
+        
     }
 
 
-}
+
