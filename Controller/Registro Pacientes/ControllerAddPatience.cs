@@ -38,6 +38,7 @@ namespace RegistroPacientes.Controlador
             ObjAddPatience.CmbRol.SelectedIndexChanged += new EventHandler(CmbRole_SelectChange);
             ObjAddPatience.PickFechaRegistro.Value = DateTime.Now;
             ObjAddPatience.PickHoraRegistro.Value = DateTime.Now;
+            
         }
 
         public ControllerAddPatience(FrmAddPatience Vista, int accion, int IdPaciente, string nombrePaciente, string apellidoPaciente, string TipoPersona, string codigo, string grupoTecnico, string grado, string seccionAcademica, string Especialidad, DateTime FechaVisita, string horaVisita, string nombreMedicamento, string Observaciones)

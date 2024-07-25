@@ -11,6 +11,7 @@ using System.Net;
 using System.Windows.Forms.DataVisualization.Charting;
 
 
+
 namespace RegistroPacientes.Controlador
 {
     internal class ControllerAdminPatience
@@ -35,8 +36,8 @@ namespace RegistroPacientes.Controlador
             objAdminPatience.PickFechaVisita.Value = DateTime.Now;
             objAdminPatience.GridViewPatient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             objAdminPatience.dataGridViewPersonal.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-
         }
+
         //Mandar a recolectar de cada columna del data grid la información del paciente que pertenece al personal de la institución y mandarlo a la vista FrmAddPatience
         private void VerFichaPersonal(object sender, EventArgs e)
         {
@@ -59,7 +60,10 @@ namespace RegistroPacientes.Controlador
 
             FrmAddPatience openFrom = new FrmAddPatience(3, IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, documento, TipoArea, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
             openFrom.ShowDialog();
+            objAdminPatience.dataGridViewPersonal.Dispose();
+            RefrescarPersonal();
         }
+
         //Mandar a recolectar de cada columna del data grid la información del estudiante y mandarlo a la vista FrmAddPatience
         private void VerFichaEstuddiantes(object sender, EventArgs e)
         {
@@ -131,7 +135,7 @@ namespace RegistroPacientes.Controlador
         {
             FrmAddPatience openForm = new FrmAddPatience(1);
             openForm.ShowDialog();
-            RefrescarDataPaciente();
+            RefrescarPersonal();
         }
         //Con este metodo se puede ver la información de la vista ViewAdminPatientque llena el datGrid de de los estudiantes
         public void RefrescarDataPaciente()
@@ -143,7 +147,7 @@ namespace RegistroPacientes.Controlador
             //Llenar DataGridView
             objAdminPatience.GridViewPatient.DataSource = ds.Tables["ViewAdminPatient"];
             objAdminPatience.GridViewPatient.Columns[0].HeaderText = "ID Paciente";
-            objAdminPatience.GridViewPatient.Columns[0].Width = 60;
+            objAdminPatience.GridViewPatient.Columns[0].Width = 65;
             objAdminPatience.GridViewPatient.Columns[1].HeaderText = "Nombre";
             objAdminPatience.GridViewPatient.Columns[1].Width = 170;
             objAdminPatience.GridViewPatient.Columns[2].HeaderText = "Apellido";
@@ -152,17 +156,23 @@ namespace RegistroPacientes.Controlador
             objAdminPatience.GridViewPatient.Columns[4].Visible = false;
             objAdminPatience.GridViewPatient.Columns[5].HeaderText = "Código";
             objAdminPatience.GridViewPatient.Columns[6].Visible = false;
-            objAdminPatience.GridViewPatient.Columns[7].Width = 75;
+            objAdminPatience.GridViewPatient.Columns[7].Width = 70;
             objAdminPatience.GridViewPatient.Columns[8].Visible = false;
             objAdminPatience.GridViewPatient.Columns[9].Width = 180;
             objAdminPatience.GridViewPatient.Columns[10].HeaderText = "Fecha de visita";
             objAdminPatience.GridViewPatient.Columns[11].HeaderText = "Hora de visita";
+            objAdminPatience.GridViewPatient.Columns[11].Width = 70;
             objAdminPatience.GridViewPatient.Columns[12].Visible = false;
             objAdminPatience.GridViewPatient.Columns[13].Visible = false;
+
 
         }
         //Con este metodo se puede ver la información de la vista ViewPersonalInstitucion que llena el datGrid de del personal de la institucion
         public void RefrescarDataPersonal(object sender, EventArgs e)
+        {
+            RefrescarPersonal();
+        }
+        public void RefrescarPersonal() 
         {
             //Objeto de la clase DAOAdminUsuarios
             DAOAdminPatience objAdminPersonal = new DAOAdminPatience();
@@ -172,17 +182,20 @@ namespace RegistroPacientes.Controlador
             objAdminPatience.dataGridViewPersonal.DataSource = ds.Tables["ViewPersonalInstitucion"];
             objAdminPatience.dataGridViewPersonal.Columns[0].HeaderText = "ID Paciente";
             objAdminPatience.dataGridViewPersonal.Columns[1].HeaderText = "Nombre";
+            objAdminPatience.dataGridViewPersonal.Columns[1].Width = 170;
             objAdminPatience.dataGridViewPersonal.Columns[2].HeaderText = "Apellido";
+            objAdminPatience.dataGridViewPersonal.Columns[2].Width = 170;
             objAdminPatience.dataGridViewPersonal.Columns[3].Visible = false;
             objAdminPatience.dataGridViewPersonal.Columns[4].HeaderText = "Documento";
+            objAdminPatience.dataGridViewPersonal.Columns[4].Width = 120;
             objAdminPatience.dataGridViewPersonal.Columns[5].HeaderText = "Área del trabajador";
+            objAdminPatience.dataGridViewPersonal.Columns[5].Width = 170;
             objAdminPatience.dataGridViewPersonal.Columns[6].HeaderText = "Fecha de Visita";
             objAdminPatience.dataGridViewPersonal.Columns[7].HeaderText = "Hora de Visita";
             objAdminPatience.dataGridViewPersonal.Columns[8].Visible = false;
             objAdminPatience.dataGridViewPersonal.Columns[9].Visible = false;
-
-
         }
+
         //MAndar la información del data grid para empezar el proceso de update y llenado de formulario de los estudiantes
         private void UpdatePatientEstudiantes(object sender, EventArgs e)
         {
@@ -234,6 +247,7 @@ namespace RegistroPacientes.Controlador
 
             FrmAddPatience openFrom = new FrmAddPatience(2, IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, documento, TipoArea, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
             openFrom.ShowDialog();
+            RefrescarPersonal();
 
         }
         //Eliminar paciente que sean estudiantes
@@ -270,7 +284,7 @@ namespace RegistroPacientes.Controlador
                 if (ValorRetornado == 1)
                 {
                     MessageBox.Show("Registro eliminado", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefrescarDataPaciente();
+                    RefrescarPersonal();
                 }
                 else
                 {
