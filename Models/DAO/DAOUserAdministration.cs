@@ -101,14 +101,14 @@ namespace RegistroPacientes.Models.DAO
                 command.Connection.Close();
             }
         }
-        public DataSet SearchDesiredUserInfo(string column, string search)
+        public DataSet SearchDesiredUserInfo(string search)
         {
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT * FROM [Usuarios].[viewPersonas] WHERE @param1 LIKE '%@param2%'";
+                string query = $"SELECT * FROM [Usuarios].[viewPersonas] WHERE Nombres LIKE '%{search}%' OR Apellidos LIKE '%{search}%' or [Correo Electrónico] LIKE '%{search}%'";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", column);
+                //cmd.Parameters.AddWithValue("param1", column);
                 cmd.Parameters.AddWithValue("param2", search);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);

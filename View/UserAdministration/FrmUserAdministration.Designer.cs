@@ -62,10 +62,9 @@
             this.cmbUserAdministrationFilter = new System.Windows.Forms.ComboBox();
             this.btnAddNewUser = new CustomPanel.RJButton();
             this.panelCustom2 = new CustomPanel.PanelCustom();
-            this.btnSearchForUser = new CustomPanel.RJButton();
             this.txtUserAdministrationSearch = new CustomPanel.BorderRadiusTXT();
+            this.btnSearchForUser = new CustomPanel.RJButton();
             this.lblUserAdministrationSearch = new System.Windows.Forms.Label();
-            this.cmbUserAdministrationSearch = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -414,10 +413,9 @@
             // 
             this.panelCustom2.BackColor = System.Drawing.Color.White;
             this.panelCustom2.BorderRadius = 30;
-            this.panelCustom2.Controls.Add(this.btnSearchForUser);
             this.panelCustom2.Controls.Add(this.txtUserAdministrationSearch);
+            this.panelCustom2.Controls.Add(this.btnSearchForUser);
             this.panelCustom2.Controls.Add(this.lblUserAdministrationSearch);
-            this.panelCustom2.Controls.Add(this.cmbUserAdministrationSearch);
             this.panelCustom2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCustom2.ForeColor = System.Drawing.Color.Black;
             this.panelCustom2.GradientAngle = 90F;
@@ -427,6 +425,27 @@
             this.panelCustom2.Name = "panelCustom2";
             this.panelCustom2.Size = new System.Drawing.Size(305, 561);
             this.panelCustom2.TabIndex = 4;
+            // 
+            // txtUserAdministrationSearch
+            // 
+            this.txtUserAdministrationSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.txtUserAdministrationSearch.BorderColor = System.Drawing.Color.LightGray;
+            this.txtUserAdministrationSearch.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtUserAdministrationSearch.BorderRadius = 10;
+            this.txtUserAdministrationSearch.BorderSize = 2;
+            this.txtUserAdministrationSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtUserAdministrationSearch.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtUserAdministrationSearch.Location = new System.Drawing.Point(25, 56);
+            this.txtUserAdministrationSearch.Multiline = false;
+            this.txtUserAdministrationSearch.Name = "txtUserAdministrationSearch";
+            this.txtUserAdministrationSearch.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtUserAdministrationSearch.PasswordChar = false;
+            this.txtUserAdministrationSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtUserAdministrationSearch.PlaceholderText = "";
+            this.txtUserAdministrationSearch.Size = new System.Drawing.Size(259, 34);
+            this.txtUserAdministrationSearch.TabIndex = 20;
+            this.txtUserAdministrationSearch.Texts = "";
+            this.txtUserAdministrationSearch.UnderlinedStyle = false;
             // 
             // btnSearchForUser
             // 
@@ -439,7 +458,7 @@
             this.btnSearchForUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchForUser.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnSearchForUser.ForeColor = System.Drawing.Color.Black;
-            this.btnSearchForUser.Location = new System.Drawing.Point(25, 144);
+            this.btnSearchForUser.Location = new System.Drawing.Point(25, 108);
             this.btnSearchForUser.Margin = new System.Windows.Forms.Padding(18, 3, 18, 18);
             this.btnSearchForUser.Name = "btnSearchForUser";
             this.btnSearchForUser.Size = new System.Drawing.Size(259, 46);
@@ -447,28 +466,6 @@
             this.btnSearchForUser.Text = "Buscar Usuario(s)";
             this.btnSearchForUser.TextColor = System.Drawing.Color.Black;
             this.btnSearchForUser.UseVisualStyleBackColor = false;
-            // 
-            // txtUserAdministrationSearch
-            // 
-            this.txtUserAdministrationSearch.BackColor = System.Drawing.SystemColors.Window;
-            this.txtUserAdministrationSearch.BorderColor = System.Drawing.Color.LightGray;
-            this.txtUserAdministrationSearch.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.txtUserAdministrationSearch.BorderRadius = 10;
-            this.txtUserAdministrationSearch.BorderSize = 2;
-            this.txtUserAdministrationSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtUserAdministrationSearch.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtUserAdministrationSearch.Location = new System.Drawing.Point(25, 87);
-            this.txtUserAdministrationSearch.Margin = new System.Windows.Forms.Padding(18);
-            this.txtUserAdministrationSearch.Multiline = false;
-            this.txtUserAdministrationSearch.Name = "txtUserAdministrationSearch";
-            this.txtUserAdministrationSearch.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtUserAdministrationSearch.PasswordChar = false;
-            this.txtUserAdministrationSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtUserAdministrationSearch.PlaceholderText = "Ingresar Búsqueda";
-            this.txtUserAdministrationSearch.Size = new System.Drawing.Size(259, 36);
-            this.txtUserAdministrationSearch.TabIndex = 18;
-            this.txtUserAdministrationSearch.Texts = "";
-            this.txtUserAdministrationSearch.UnderlinedStyle = false;
             // 
             // lblUserAdministrationSearch
             // 
@@ -478,22 +475,9 @@
             this.lblUserAdministrationSearch.Location = new System.Drawing.Point(21, 23);
             this.lblUserAdministrationSearch.Margin = new System.Windows.Forms.Padding(18, 0, 18, 0);
             this.lblUserAdministrationSearch.Name = "lblUserAdministrationSearch";
-            this.lblUserAdministrationSearch.Size = new System.Drawing.Size(77, 19);
+            this.lblUserAdministrationSearch.Size = new System.Drawing.Size(52, 19);
             this.lblUserAdministrationSearch.TabIndex = 17;
-            this.lblUserAdministrationSearch.Text = "Buscar por:";
-            // 
-            // cmbUserAdministrationSearch
-            // 
-            this.cmbUserAdministrationSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbUserAdministrationSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbUserAdministrationSearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.cmbUserAdministrationSearch.FormattingEnabled = true;
-            this.cmbUserAdministrationSearch.ItemHeight = 17;
-            this.cmbUserAdministrationSearch.Location = new System.Drawing.Point(21, 45);
-            this.cmbUserAdministrationSearch.Margin = new System.Windows.Forms.Padding(18, 3, 18, 3);
-            this.cmbUserAdministrationSearch.Name = "cmbUserAdministrationSearch";
-            this.cmbUserAdministrationSearch.Size = new System.Drawing.Size(263, 25);
-            this.cmbUserAdministrationSearch.TabIndex = 16;
+            this.lblUserAdministrationSearch.Text = "Buscar:";
             // 
             // FrmUserAdministration
             // 
@@ -556,12 +540,11 @@
         private System.Windows.Forms.Panel panel15;
         private CustomPanel.PanelCustom panelCustom2;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Label lblUserAdministrationSearch;
-        public System.Windows.Forms.ComboBox cmbUserAdministrationSearch;
         public CustomPanel.RJButton btnSearchForUser;
-        public CustomPanel.BorderRadiusTXT txtUserAdministrationSearch;
         public System.Windows.Forms.ContextMenuStrip contextDataGrid;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdateUser;
         public System.Windows.Forms.ToolStripMenuItem cmsDeleteUser;
+        public CustomPanel.BorderRadiusTXT txtUserAdministrationSearch;
+        private System.Windows.Forms.Label lblUserAdministrationSearch;
     }
 }
