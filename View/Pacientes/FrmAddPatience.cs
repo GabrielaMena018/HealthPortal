@@ -7,21 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Xml.Linq;
 using RegistroPacientes.Controlador;
 
 namespace RegistroPacientes
 {
     public partial class FrmAddPatience : Form
     {
-        public FrmAddPatience()
+        public FrmAddPatience(int accion)
         {
             InitializeComponent();
-            ControllerAddPatience Control = new ControllerAddPatience(this);
+            ControllerAddPatience objAddPatience = new ControllerAddPatience(this, accion);
         }
 
-        private void FrmAddPatience_Load(object sender, EventArgs e)
+        public FrmAddPatience(int accion, int IdPaciente, string nombrePaciente, string apellidoPaciente, string TipoPersona, string codigo, string grupoTecnico, string grado, string seccionAcademica, string Especialidad, DateTime FechaVisita, string horaVisita, string nombreMedicamento, string Observaciones)
         {
+            InitializeComponent();
+            ControllerAddPatience objAddPatience = new ControllerAddPatience(this,  accion, IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, Especialidad, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
+        }
 
+        public FrmAddPatience(int accion, int IdPaciente, string nombrePaciente, string apellidoPaciente, string TipoPersona, string documento, string TipoArea, DateTime FechaVisita, string horaVisita, string nombreMedicamento, string Observaciones)
+        {
+            InitializeComponent();
+            ControllerAddPatience objAddPatience = new ControllerAddPatience(this, accion,  IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, documento, TipoArea, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
         }
     }
 }

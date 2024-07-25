@@ -38,25 +38,27 @@
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirReporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.BtnPicHome = new CustomPanel.RJButton();
             this.BtnInicio = new CustomPanel.RJButton();
-            this.BtnPicPaciente = new CustomPanel.RJButton();
             this.BtnPatience = new CustomPanel.RJButton();
-            this.BtnPicInventario = new CustomPanel.RJButton();
             this.BtnInventario = new CustomPanel.RJButton();
-            this.BtnPicEstadistica = new CustomPanel.RJButton();
             this.BtnEstadistica = new CustomPanel.RJButton();
+            this.rjButton3 = new CustomPanel.RJButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnMenu = new CustomPanel.RJButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.sidebar = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rjButton2 = new CustomPanel.RJButton();
             this.BtnCerarSesion = new CustomPanel.RJButton();
             this.PanelContenedor = new System.Windows.Forms.Panel();
+            this.rjButton2 = new CustomPanel.RJButton();
+            this.btnMenu = new CustomPanel.RJButton();
+            this.BtnPicHome = new CustomPanel.RJButton();
+            this.BtnPicPaciente = new CustomPanel.RJButton();
+            this.BtnPicInventario = new CustomPanel.RJButton();
+            this.BtnPicEstadistica = new CustomPanel.RJButton();
+            this.rjButton1 = new CustomPanel.RJButton();
             this.menuStrip1.SuspendLayout();
             this.flowButtons.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -139,33 +141,12 @@
             this.flowButtons.Controls.Add(this.BtnInventario);
             this.flowButtons.Controls.Add(this.BtnPicEstadistica);
             this.flowButtons.Controls.Add(this.BtnEstadistica);
+            this.flowButtons.Controls.Add(this.rjButton1);
+            this.flowButtons.Controls.Add(this.rjButton3);
             this.flowButtons.Location = new System.Drawing.Point(3, 192);
             this.flowButtons.Name = "flowButtons";
             this.flowButtons.Size = new System.Drawing.Size(282, 464);
             this.flowButtons.TabIndex = 1;
-            // 
-            // BtnPicHome
-            // 
-            this.BtnPicHome.AccessibleDescription = "Inicio";
-            this.BtnPicHome.BackColor = System.Drawing.Color.White;
-            this.BtnPicHome.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicHome.BackgroundImage = global::RegistroPacientes.Properties.Resources.hogar1;
-            this.BtnPicHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnPicHome.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnPicHome.BorderRadius = 40;
-            this.BtnPicHome.BorderSize = 0;
-            this.BtnPicHome.FlatAppearance.BorderSize = 0;
-            this.BtnPicHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPicHome.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPicHome.ForeColor = System.Drawing.Color.Black;
-            this.BtnPicHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPicHome.Location = new System.Drawing.Point(3, 3);
-            this.BtnPicHome.Name = "BtnPicHome";
-            this.BtnPicHome.Size = new System.Drawing.Size(64, 62);
-            this.BtnPicHome.TabIndex = 2;
-            this.BtnPicHome.Tag = "Inicio";
-            this.BtnPicHome.TextColor = System.Drawing.Color.Black;
-            this.BtnPicHome.UseVisualStyleBackColor = false;
             // 
             // BtnInicio
             // 
@@ -174,6 +155,7 @@
             this.BtnInicio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnInicio.BorderRadius = 40;
             this.BtnInicio.BorderSize = 0;
+            this.BtnInicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnInicio.FlatAppearance.BorderSize = 0;
             this.BtnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnInicio.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -186,28 +168,6 @@
             this.BtnInicio.TextColor = System.Drawing.Color.Black;
             this.BtnInicio.UseVisualStyleBackColor = false;
             // 
-            // BtnPicPaciente
-            // 
-            this.BtnPicPaciente.BackColor = System.Drawing.Color.White;
-            this.BtnPicPaciente.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicPaciente.BackgroundImage = global::RegistroPacientes.Properties.Resources.lista_del_portapapeles;
-            this.BtnPicPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnPicPaciente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnPicPaciente.BorderRadius = 40;
-            this.BtnPicPaciente.BorderSize = 0;
-            this.BtnPicPaciente.FlatAppearance.BorderSize = 0;
-            this.BtnPicPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPicPaciente.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPicPaciente.ForeColor = System.Drawing.Color.Black;
-            this.BtnPicPaciente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPicPaciente.Location = new System.Drawing.Point(3, 71);
-            this.BtnPicPaciente.Name = "BtnPicPaciente";
-            this.BtnPicPaciente.Size = new System.Drawing.Size(64, 62);
-            this.BtnPicPaciente.TabIndex = 5;
-            this.BtnPicPaciente.Text = " ";
-            this.BtnPicPaciente.TextColor = System.Drawing.Color.Black;
-            this.BtnPicPaciente.UseVisualStyleBackColor = false;
-            // 
             // BtnPatience
             // 
             this.BtnPatience.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
@@ -215,6 +175,7 @@
             this.BtnPatience.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPatience.BorderRadius = 40;
             this.BtnPatience.BorderSize = 0;
+            this.BtnPatience.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnPatience.FlatAppearance.BorderSize = 0;
             this.BtnPatience.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnPatience.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -227,28 +188,6 @@
             this.BtnPatience.TextColor = System.Drawing.Color.Black;
             this.BtnPatience.UseVisualStyleBackColor = false;
             // 
-            // BtnPicInventario
-            // 
-            this.BtnPicInventario.BackColor = System.Drawing.Color.White;
-            this.BtnPicInventario.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicInventario.BackgroundImage = global::RegistroPacientes.Properties.Resources.pastillas;
-            this.BtnPicInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnPicInventario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnPicInventario.BorderRadius = 40;
-            this.BtnPicInventario.BorderSize = 0;
-            this.BtnPicInventario.FlatAppearance.BorderSize = 0;
-            this.BtnPicInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPicInventario.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPicInventario.ForeColor = System.Drawing.Color.Black;
-            this.BtnPicInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPicInventario.Location = new System.Drawing.Point(3, 139);
-            this.BtnPicInventario.Name = "BtnPicInventario";
-            this.BtnPicInventario.Size = new System.Drawing.Size(64, 62);
-            this.BtnPicInventario.TabIndex = 6;
-            this.BtnPicInventario.Text = " ";
-            this.BtnPicInventario.TextColor = System.Drawing.Color.Black;
-            this.BtnPicInventario.UseVisualStyleBackColor = false;
-            // 
             // BtnInventario
             // 
             this.BtnInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
@@ -256,6 +195,7 @@
             this.BtnInventario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnInventario.BorderRadius = 40;
             this.BtnInventario.BorderSize = 0;
+            this.BtnInventario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnInventario.FlatAppearance.BorderSize = 0;
             this.BtnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnInventario.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -268,28 +208,6 @@
             this.BtnInventario.TextColor = System.Drawing.Color.Black;
             this.BtnInventario.UseVisualStyleBackColor = false;
             // 
-            // BtnPicEstadistica
-            // 
-            this.BtnPicEstadistica.BackColor = System.Drawing.Color.White;
-            this.BtnPicEstadistica.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicEstadistica.BackgroundImage = global::RegistroPacientes.Properties.Resources.grafico_histograma;
-            this.BtnPicEstadistica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnPicEstadistica.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnPicEstadistica.BorderRadius = 40;
-            this.BtnPicEstadistica.BorderSize = 0;
-            this.BtnPicEstadistica.FlatAppearance.BorderSize = 0;
-            this.BtnPicEstadistica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPicEstadistica.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPicEstadistica.ForeColor = System.Drawing.Color.Black;
-            this.BtnPicEstadistica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPicEstadistica.Location = new System.Drawing.Point(3, 207);
-            this.BtnPicEstadistica.Name = "BtnPicEstadistica";
-            this.BtnPicEstadistica.Size = new System.Drawing.Size(64, 62);
-            this.BtnPicEstadistica.TabIndex = 7;
-            this.BtnPicEstadistica.Text = " ";
-            this.BtnPicEstadistica.TextColor = System.Drawing.Color.Black;
-            this.BtnPicEstadistica.UseVisualStyleBackColor = false;
-            // 
             // BtnEstadistica
             // 
             this.BtnEstadistica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
@@ -297,6 +215,7 @@
             this.BtnEstadistica.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnEstadistica.BorderRadius = 40;
             this.BtnEstadistica.BorderSize = 0;
+            this.BtnEstadistica.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnEstadistica.FlatAppearance.BorderSize = 0;
             this.BtnEstadistica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEstadistica.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -308,6 +227,26 @@
             this.BtnEstadistica.Text = "Estadisticas";
             this.BtnEstadistica.TextColor = System.Drawing.Color.Black;
             this.BtnEstadistica.UseVisualStyleBackColor = false;
+            // 
+            // rjButton3
+            // 
+            this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.rjButton3.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.rjButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.rjButton3.BorderRadius = 40;
+            this.rjButton3.BorderSize = 0;
+            this.rjButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton3.FlatAppearance.BorderSize = 0;
+            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton3.ForeColor = System.Drawing.Color.Black;
+            this.rjButton3.Location = new System.Drawing.Point(73, 275);
+            this.rjButton3.Name = "rjButton3";
+            this.rjButton3.Size = new System.Drawing.Size(200, 62);
+            this.rjButton3.TabIndex = 9;
+            this.rjButton3.Text = "Administrar Usuarios";
+            this.rjButton3.TextColor = System.Drawing.Color.Black;
+            this.rjButton3.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -336,26 +275,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 28);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Menu";
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.BackColor = System.Drawing.Color.White;
-            this.btnMenu.BackGroundColor = System.Drawing.Color.White;
-            this.btnMenu.BackgroundImage = global::RegistroPacientes.Properties.Resources.menu_regular_24;
-            this.btnMenu.BorderColor = System.Drawing.Color.White;
-            this.btnMenu.BorderRadius = 0;
-            this.btnMenu.BorderSize = 1;
-            this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Location = new System.Drawing.Point(14, 31);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(40, 33);
-            this.btnMenu.TabIndex = 4;
-            this.btnMenu.Text = " ";
-            this.btnMenu.TextColor = System.Drawing.Color.White;
-            this.btnMenu.UseVisualStyleBackColor = false;
+            this.label1.Text = "Menú";
             // 
             // statusStrip1
             // 
@@ -389,28 +309,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(284, 100);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // rjButton2
-            // 
-            this.rjButton2.BackColor = System.Drawing.Color.White;
-            this.rjButton2.BackGroundColor = System.Drawing.Color.White;
-            this.rjButton2.BackgroundImage = global::RegistroPacientes.Properties.Resources.salida;
-            this.rjButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.rjButton2.BorderRadius = 40;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton2.ForeColor = System.Drawing.Color.Black;
-            this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton2.Location = new System.Drawing.Point(3, 3);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(64, 62);
-            this.rjButton2.TabIndex = 8;
-            this.rjButton2.Text = " ";
-            this.rjButton2.TextColor = System.Drawing.Color.Black;
-            this.rjButton2.UseVisualStyleBackColor = false;
-            // 
             // BtnCerarSesion
             // 
             this.BtnCerarSesion.BackColor = System.Drawing.Color.White;
@@ -438,6 +336,163 @@
             this.PanelContenedor.Padding = new System.Windows.Forms.Padding(5);
             this.PanelContenedor.Size = new System.Drawing.Size(1616, 918);
             this.PanelContenedor.TabIndex = 5;
+            // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.Color.White;
+            this.rjButton2.BackGroundColor = System.Drawing.Color.White;
+            this.rjButton2.BackgroundImage = global::RegistroPacientes.Properties.Resources.salida;
+            this.rjButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.rjButton2.BorderRadius = 40;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton2.ForeColor = System.Drawing.Color.Black;
+            this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton2.Location = new System.Drawing.Point(3, 3);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(64, 62);
+            this.rjButton2.TabIndex = 8;
+            this.rjButton2.Text = " ";
+            this.rjButton2.TextColor = System.Drawing.Color.Black;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.White;
+            this.btnMenu.BackGroundColor = System.Drawing.Color.White;
+            this.btnMenu.BackgroundImage = global::RegistroPacientes.Properties.Resources.menu_regular_24;
+            this.btnMenu.BorderColor = System.Drawing.Color.White;
+            this.btnMenu.BorderRadius = 0;
+            this.btnMenu.BorderSize = 1;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.ForeColor = System.Drawing.Color.White;
+            this.btnMenu.Location = new System.Drawing.Point(14, 31);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(40, 33);
+            this.btnMenu.TabIndex = 4;
+            this.btnMenu.Text = " ";
+            this.btnMenu.TextColor = System.Drawing.Color.White;
+            this.btnMenu.UseVisualStyleBackColor = false;
+            // 
+            // BtnPicHome
+            // 
+            this.BtnPicHome.AccessibleDescription = "Inicio";
+            this.BtnPicHome.BackColor = System.Drawing.Color.White;
+            this.BtnPicHome.BackGroundColor = System.Drawing.Color.White;
+            this.BtnPicHome.BackgroundImage = global::RegistroPacientes.Properties.Resources.hogar1;
+            this.BtnPicHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnPicHome.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnPicHome.BorderRadius = 40;
+            this.BtnPicHome.BorderSize = 0;
+            this.BtnPicHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPicHome.FlatAppearance.BorderSize = 0;
+            this.BtnPicHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPicHome.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPicHome.ForeColor = System.Drawing.Color.Black;
+            this.BtnPicHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPicHome.Location = new System.Drawing.Point(3, 3);
+            this.BtnPicHome.Name = "BtnPicHome";
+            this.BtnPicHome.Size = new System.Drawing.Size(64, 62);
+            this.BtnPicHome.TabIndex = 2;
+            this.BtnPicHome.Tag = "Inicio";
+            this.BtnPicHome.TextColor = System.Drawing.Color.Black;
+            this.BtnPicHome.UseVisualStyleBackColor = false;
+            // 
+            // BtnPicPaciente
+            // 
+            this.BtnPicPaciente.BackColor = System.Drawing.Color.White;
+            this.BtnPicPaciente.BackGroundColor = System.Drawing.Color.White;
+            this.BtnPicPaciente.BackgroundImage = global::RegistroPacientes.Properties.Resources.lista_del_portapapeles;
+            this.BtnPicPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnPicPaciente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnPicPaciente.BorderRadius = 40;
+            this.BtnPicPaciente.BorderSize = 0;
+            this.BtnPicPaciente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPicPaciente.FlatAppearance.BorderSize = 0;
+            this.BtnPicPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPicPaciente.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPicPaciente.ForeColor = System.Drawing.Color.Black;
+            this.BtnPicPaciente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPicPaciente.Location = new System.Drawing.Point(3, 71);
+            this.BtnPicPaciente.Name = "BtnPicPaciente";
+            this.BtnPicPaciente.Size = new System.Drawing.Size(64, 62);
+            this.BtnPicPaciente.TabIndex = 5;
+            this.BtnPicPaciente.Text = " ";
+            this.BtnPicPaciente.TextColor = System.Drawing.Color.Black;
+            this.BtnPicPaciente.UseVisualStyleBackColor = false;
+            // 
+            // BtnPicInventario
+            // 
+            this.BtnPicInventario.BackColor = System.Drawing.Color.White;
+            this.BtnPicInventario.BackGroundColor = System.Drawing.Color.White;
+            this.BtnPicInventario.BackgroundImage = global::RegistroPacientes.Properties.Resources.pastillas;
+            this.BtnPicInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnPicInventario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnPicInventario.BorderRadius = 40;
+            this.BtnPicInventario.BorderSize = 0;
+            this.BtnPicInventario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPicInventario.FlatAppearance.BorderSize = 0;
+            this.BtnPicInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPicInventario.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPicInventario.ForeColor = System.Drawing.Color.Black;
+            this.BtnPicInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPicInventario.Location = new System.Drawing.Point(3, 139);
+            this.BtnPicInventario.Name = "BtnPicInventario";
+            this.BtnPicInventario.Size = new System.Drawing.Size(64, 62);
+            this.BtnPicInventario.TabIndex = 6;
+            this.BtnPicInventario.Text = " ";
+            this.BtnPicInventario.TextColor = System.Drawing.Color.Black;
+            this.BtnPicInventario.UseVisualStyleBackColor = false;
+            // 
+            // BtnPicEstadistica
+            // 
+            this.BtnPicEstadistica.BackColor = System.Drawing.Color.White;
+            this.BtnPicEstadistica.BackGroundColor = System.Drawing.Color.White;
+            this.BtnPicEstadistica.BackgroundImage = global::RegistroPacientes.Properties.Resources.grafico_histograma;
+            this.BtnPicEstadistica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnPicEstadistica.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnPicEstadistica.BorderRadius = 40;
+            this.BtnPicEstadistica.BorderSize = 0;
+            this.BtnPicEstadistica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPicEstadistica.FlatAppearance.BorderSize = 0;
+            this.BtnPicEstadistica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPicEstadistica.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPicEstadistica.ForeColor = System.Drawing.Color.Black;
+            this.BtnPicEstadistica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPicEstadistica.Location = new System.Drawing.Point(3, 207);
+            this.BtnPicEstadistica.Name = "BtnPicEstadistica";
+            this.BtnPicEstadistica.Size = new System.Drawing.Size(64, 62);
+            this.BtnPicEstadistica.TabIndex = 7;
+            this.BtnPicEstadistica.Text = " ";
+            this.BtnPicEstadistica.TextColor = System.Drawing.Color.Black;
+            this.BtnPicEstadistica.UseVisualStyleBackColor = false;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.Color.White;
+            this.rjButton1.BackGroundColor = System.Drawing.Color.White;
+            this.rjButton1.BackgroundImage = global::RegistroPacientes.Properties.Resources.agregar_usuario;
+            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rjButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.rjButton1.BorderRadius = 40;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton1.ForeColor = System.Drawing.Color.Black;
+            this.rjButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton1.Location = new System.Drawing.Point(3, 275);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(64, 62);
+            this.rjButton1.TabIndex = 8;
+            this.rjButton1.Text = " ";
+            this.rjButton1.TextColor = System.Drawing.Color.Black;
+            this.rjButton1.UseVisualStyleBackColor = false;
             // 
             // FrmDashboard
             // 
@@ -498,5 +553,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public CustomPanel.RJButton rjButton2;
         public CustomPanel.RJButton BtnCerarSesion;
+        public CustomPanel.RJButton rjButton1;
+        public CustomPanel.RJButton rjButton3;
     }
 }

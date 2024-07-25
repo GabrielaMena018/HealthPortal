@@ -28,75 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminPatience));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.panelCustumPequeño = new CustomPanel.PanelCustom();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.rjButton4 = new CustomPanel.RJButton();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.rjButton1 = new CustomPanel.RJButton();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panelButton = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.borderRadiusTXT2 = new CustomPanel.BorderRadiusTXT();
-            this.rjButton3 = new CustomPanel.RJButton();
-            this.rjButton2 = new CustomPanel.RJButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelbuscador = new System.Windows.Forms.Panel();
-            this.borderRadiusTXT1 = new CustomPanel.BorderRadiusTXT();
+            this.lbSearch = new System.Windows.Forms.Label();
+            this.BtnBuscar = new CustomPanel.RJButton();
+            this.txtSearch = new CustomPanel.BorderRadiusTXT();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabEstudiantes = new System.Windows.Forms.TabPage();
             this.PanelContenedor = new CustomPanel.PanelCustom();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.IdPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombrePaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoraVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Opciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsVer = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsActualizar = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsEliminar = new System.Windows.Forms.ToolStripMenuItem();
+            this.GridViewPatient = new System.Windows.Forms.DataGridView();
             this.ContenedorFiltros = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.CmbEspecialidad = new System.Windows.Forms.ComboBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnNew = new CustomPanel.RJButton();
-            this.CmbSeccion = new System.Windows.Forms.ComboBox();
             this.CmbGrado = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.PickFechaVisita = new System.Windows.Forms.DateTimePicker();
             this.CmbCategoria = new System.Windows.Forms.ComboBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.tabDocentes = new System.Windows.Forms.TabPage();
+            this.panelCustom1 = new CustomPanel.PanelCustom();
+            this.ContextDataGridPersonal = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsVerPersonal = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsActualizarPersonal = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsEliminarPersonal = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridViewPersonal = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbAreaPersonal = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.BtnNewPersonal = new CustomPanel.RJButton();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.rjButton1 = new CustomPanel.RJButton();
             this.panelGrafica.SuspendLayout();
             this.panelTitulo.SuspendLayout();
             this.panelCustumPequeño.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel4.SuspendLayout();
-            this.panelButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelbuscador.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabEstudiantes.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextDataGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewPatient)).BeginInit();
             this.ContenedorFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.tabDocentes.SuspendLayout();
+            this.panelCustom1.SuspendLayout();
+            this.ContextDataGridPersonal.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonal)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -114,9 +141,8 @@
             // 
             this.panelGrafica.Controls.Add(this.panelTitulo);
             this.panelGrafica.Controls.Add(this.flowLayoutPanel1);
-            this.panelGrafica.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelGrafica.Location = new System.Drawing.Point(20, 20);
-            this.panelGrafica.Margin = new System.Windows.Forms.Padding(10);
+            this.panelGrafica.Location = new System.Drawing.Point(14, 11);
+            this.panelGrafica.Margin = new System.Windows.Forms.Padding(30);
             this.panelGrafica.MaximumSize = new System.Drawing.Size(800, 0);
             this.panelGrafica.Name = "panelGrafica";
             this.panelGrafica.Size = new System.Drawing.Size(338, 710);
@@ -126,9 +152,9 @@
             // 
             this.panelTitulo.Controls.Add(this.panelCustumPequeño);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTitulo.Location = new System.Drawing.Point(0, 133);
+            this.panelTitulo.Location = new System.Drawing.Point(0, 139);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(338, 577);
+            this.panelTitulo.Size = new System.Drawing.Size(338, 571);
             this.panelTitulo.TabIndex = 1;
             // 
             // panelCustumPequeño
@@ -138,40 +164,104 @@
             this.panelCustumPequeño.Controls.Add(this.panel6);
             this.panelCustumPequeño.Controls.Add(this.panelButton);
             this.panelCustumPequeño.Controls.Add(this.pictureBox2);
-            this.panelCustumPequeño.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCustumPequeño.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelCustumPequeño.ForeColor = System.Drawing.Color.Black;
             this.panelCustumPequeño.GradientAngle = 90F;
             this.panelCustumPequeño.GradientBottomColor = System.Drawing.Color.White;
             this.panelCustumPequeño.GradientTopColor = System.Drawing.Color.White;
             this.panelCustumPequeño.Location = new System.Drawing.Point(0, 0);
             this.panelCustumPequeño.Name = "panelCustumPequeño";
-            this.panelCustumPequeño.Size = new System.Drawing.Size(338, 577);
+            this.panelCustumPequeño.Size = new System.Drawing.Size(338, 571);
             this.panelCustumPequeño.TabIndex = 1;
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.pictureBox7);
+            this.panel6.Controls.Add(this.rjButton4);
+            this.panel6.Controls.Add(this.pictureBox6);
+            this.panel6.Controls.Add(this.rjButton1);
             this.panel6.Controls.Add(this.chart1);
             this.panel6.Controls.Add(this.panel4);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(338, 452);
+            this.panel6.Size = new System.Drawing.Size(338, 558);
             this.panel6.TabIndex = 15;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(135, 502);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(26, 28);
+            this.pictureBox7.TabIndex = 17;
+            this.pictureBox7.TabStop = false;
+            // 
+            // rjButton4
+            // 
+            this.rjButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.rjButton4.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.rjButton4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.rjButton4.BorderRadius = 40;
+            this.rjButton4.BorderSize = 0;
+            this.rjButton4.FlatAppearance.BorderSize = 0;
+            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.rjButton4.ForeColor = System.Drawing.Color.White;
+            this.rjButton4.Location = new System.Drawing.Point(77, 489);
+            this.rjButton4.Name = "rjButton4";
+            this.rjButton4.Size = new System.Drawing.Size(96, 46);
+            this.rjButton4.TabIndex = 16;
+            this.rjButton4.Text = "PDF";
+            this.rjButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton4.TextColor = System.Drawing.Color.White;
+            this.rjButton4.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(284, 502);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(26, 28);
+            this.pictureBox6.TabIndex = 15;
+            this.pictureBox6.TabStop = false;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.rjButton1.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.rjButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.rjButton1.BorderRadius = 40;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(193, 489);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(129, 46);
+            this.rjButton1.TabIndex = 14;
+            this.rjButton1.Text = "Imprimir";
+            this.rjButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.UseVisualStyleBackColor = false;
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
-            this.chart1.Location = new System.Drawing.Point(0, 163);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Top;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(0, 157);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(322, 275);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(338, 245);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
             // 
@@ -210,6 +300,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.comboBox2.FormattingEnabled = true;
@@ -217,91 +308,23 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(174, 36);
             this.comboBox2.TabIndex = 6;
-            this.comboBox2.Text = "Esta Semana";
             // 
             // panelButton
             // 
-            this.panelButton.Controls.Add(this.pictureBox5);
-            this.panelButton.Controls.Add(this.label4);
-            this.panelButton.Controls.Add(this.borderRadiusTXT2);
-            this.panelButton.Controls.Add(this.rjButton3);
-            this.panelButton.Controls.Add(this.pictureBox3);
-            this.panelButton.Controls.Add(this.rjButton2);
-            this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButton.Location = new System.Drawing.Point(0, 452);
+            this.panelButton.Location = new System.Drawing.Point(0, 0);
             this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(338, 125);
-            this.panelButton.TabIndex = 14;
+            this.panelButton.Size = new System.Drawing.Size(200, 100);
+            this.panelButton.TabIndex = 16;
             // 
-            // label4
+            // pictureBox2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(13, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 28);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Cantidad Total:";
-            // 
-            // borderRadiusTXT2
-            // 
-            this.borderRadiusTXT2.BackColor = System.Drawing.SystemColors.Window;
-            this.borderRadiusTXT2.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.borderRadiusTXT2.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.borderRadiusTXT2.BorderRadius = 0;
-            this.borderRadiusTXT2.BorderSize = 2;
-            this.borderRadiusTXT2.Location = new System.Drawing.Point(161, 0);
-            this.borderRadiusTXT2.Multiline = false;
-            this.borderRadiusTXT2.Name = "borderRadiusTXT2";
-            this.borderRadiusTXT2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.borderRadiusTXT2.PasswordChar = false;
-            this.borderRadiusTXT2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.borderRadiusTXT2.PlaceholderText = "";
-            this.borderRadiusTXT2.Size = new System.Drawing.Size(94, 31);
-            this.borderRadiusTXT2.TabIndex = 9;
-            this.borderRadiusTXT2.Texts = "";
-            this.borderRadiusTXT2.UnderlinedStyle = true;
-            // 
-            // rjButton3
-            // 
-            this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BorderRadius = 40;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(117, 60);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(188, 47);
-            this.rjButton3.TabIndex = 11;
-            this.rjButton3.Text = "Imprimir Reporte";
-            this.rjButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton3.TextColor = System.Drawing.Color.White;
-            this.rjButton3.UseVisualStyleBackColor = false;
-            // 
-            // rjButton2
-            // 
-            this.rjButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton2.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton2.BorderRadius = 40;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(18, 60);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(93, 47);
-            this.rjButton2.TabIndex = 10;
-            this.rjButton2.Text = "PDF";
-            this.rjButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton2.TextColor = System.Drawing.Color.White;
-            this.rjButton2.UseVisualStyleBackColor = false;
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(340, 447);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
             // flowLayoutPanel1
             // 
@@ -310,38 +333,95 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(338, 133);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(338, 139);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panelbuscador
             // 
-            this.panelbuscador.Controls.Add(this.rjButton1);
-            this.panelbuscador.Controls.Add(this.borderRadiusTXT1);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 68);
+            this.panelbuscador.Controls.Add(this.lbSearch);
+            this.panelbuscador.Controls.Add(this.BtnBuscar);
+            this.panelbuscador.Controls.Add(this.txtSearch);
+            this.panelbuscador.Location = new System.Drawing.Point(3, 84);
             this.panelbuscador.Name = "panelbuscador";
             this.panelbuscador.Size = new System.Drawing.Size(319, 55);
             this.panelbuscador.TabIndex = 0;
             // 
-            // borderRadiusTXT1
+            // lbSearch
             // 
-            this.borderRadiusTXT1.BackColor = System.Drawing.SystemColors.Window;
-            this.borderRadiusTXT1.BorderColor = System.Drawing.Color.White;
-            this.borderRadiusTXT1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.borderRadiusTXT1.BorderRadius = 20;
-            this.borderRadiusTXT1.BorderSize = 2;
-            this.borderRadiusTXT1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.borderRadiusTXT1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.borderRadiusTXT1.Location = new System.Drawing.Point(3, 3);
-            this.borderRadiusTXT1.Multiline = false;
-            this.borderRadiusTXT1.Name = "borderRadiusTXT1";
-            this.borderRadiusTXT1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.borderRadiusTXT1.PasswordChar = false;
-            this.borderRadiusTXT1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.borderRadiusTXT1.PlaceholderText = "";
-            this.borderRadiusTXT1.Size = new System.Drawing.Size(313, 43);
-            this.borderRadiusTXT1.TabIndex = 3;
-            this.borderRadiusTXT1.Texts = "Buscar";
-            this.borderRadiusTXT1.UnderlinedStyle = false;
+            this.lbSearch.AutoSize = true;
+            this.lbSearch.BackColor = System.Drawing.Color.White;
+            this.lbSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSearch.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lbSearch.Location = new System.Drawing.Point(22, 9);
+            this.lbSearch.Name = "lbSearch";
+            this.lbSearch.Size = new System.Drawing.Size(68, 28);
+            this.lbSearch.TabIndex = 3;
+            this.lbSearch.Text = "Búscar";
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnBuscar.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnBuscar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnBuscar.BorderRadius = 20;
+            this.BtnBuscar.BorderSize = 0;
+            this.BtnBuscar.FlatAppearance.BorderSize = 0;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnBuscar.ForeColor = System.Drawing.Color.Black;
+            this.BtnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("BtnBuscar.Image")));
+            this.BtnBuscar.Location = new System.Drawing.Point(267, 3);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(49, 43);
+            this.BtnBuscar.TabIndex = 17;
+            this.BtnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBuscar.TextColor = System.Drawing.Color.Black;
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSearch.BorderColor = System.Drawing.Color.White;
+            this.txtSearch.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtSearch.BorderRadius = 20;
+            this.txtSearch.BorderSize = 2;
+            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtSearch.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtSearch.Location = new System.Drawing.Point(0, 0);
+            this.txtSearch.Multiline = false;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtSearch.PasswordChar = false;
+            this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtSearch.PlaceholderText = "";
+            this.txtSearch.Size = new System.Drawing.Size(257, 43);
+            this.txtSearch.TabIndex = 3;
+            this.txtSearch.Texts = " ";
+            this.txtSearch.UnderlinedStyle = false;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabEstudiantes);
+            this.tabControl.Controls.Add(this.tabDocentes);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tabControl.Location = new System.Drawing.Point(403, 20);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(30);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(957, 710);
+            this.tabControl.TabIndex = 2;
+            // 
+            // tabEstudiantes
+            // 
+            this.tabEstudiantes.Controls.Add(this.PanelContenedor);
+            this.tabEstudiantes.Location = new System.Drawing.Point(4, 34);
+            this.tabEstudiantes.Name = "tabEstudiantes";
+            this.tabEstudiantes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEstudiantes.Size = new System.Drawing.Size(949, 672);
+            this.tabEstudiantes.TabIndex = 0;
+            this.tabEstudiantes.Text = "Estudiantes";
+            this.tabEstudiantes.UseVisualStyleBackColor = true;
             // 
             // PanelContenedor
             // 
@@ -354,147 +434,94 @@
             this.PanelContenedor.GradientAngle = 90F;
             this.PanelContenedor.GradientBottomColor = System.Drawing.Color.White;
             this.PanelContenedor.GradientTopColor = System.Drawing.Color.White;
-            this.PanelContenedor.Location = new System.Drawing.Point(420, 20);
+            this.PanelContenedor.Location = new System.Drawing.Point(6, 3);
             this.PanelContenedor.Margin = new System.Windows.Forms.Padding(10);
             this.PanelContenedor.Name = "PanelContenedor";
             this.PanelContenedor.Padding = new System.Windows.Forms.Padding(0, 4, 4, 15);
-            this.PanelContenedor.Size = new System.Drawing.Size(940, 710);
-            this.PanelContenedor.TabIndex = 0;
+            this.PanelContenedor.Size = new System.Drawing.Size(940, 666);
+            this.PanelContenedor.TabIndex = 1;
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.dataGridView1);
+            this.panel8.ContextMenuStrip = this.contextDataGrid;
+            this.panel8.Controls.Add(this.GridViewPatient);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 104);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(936, 591);
+            this.panel8.Size = new System.Drawing.Size(936, 547);
             this.panel8.TabIndex = 15;
             // 
-            // dataGridView1
+            // contextDataGrid
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.ColumnHeadersHeight = 40;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdPaciente,
-            this.Documento,
-            this.NombrePaciente,
-            this.Apellido,
-            this.TipoPersona,
-            this.FechaVisita,
-            this.HoraVisita,
-            this.Opciones});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 25;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(936, 591);
-            this.dataGridView1.TabIndex = 0;
+            this.contextDataGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsVer,
+            this.cmsActualizar,
+            this.cmsEliminar});
+            this.contextDataGrid.Name = "contextDataGrid";
+            this.contextDataGrid.Size = new System.Drawing.Size(226, 82);
             // 
-            // IdPaciente
+            // cmsVer
             // 
-            this.IdPaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IdPaciente.FillWeight = 50F;
-            this.IdPaciente.HeaderText = "Idpaciente";
-            this.IdPaciente.MinimumWidth = 6;
-            this.IdPaciente.Name = "IdPaciente";
-            this.IdPaciente.ReadOnly = true;
+            this.cmsVer.Image = ((System.Drawing.Image)(resources.GetObject("cmsVer.Image")));
+            this.cmsVer.Name = "cmsVer";
+            this.cmsVer.Size = new System.Drawing.Size(225, 26);
+            this.cmsVer.Text = "Ver Ficha del Paciente";
             // 
-            // Documento
+            // cmsActualizar
             // 
-            this.Documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Documento.FillWeight = 50F;
-            this.Documento.HeaderText = "Documento";
-            this.Documento.MinimumWidth = 6;
-            this.Documento.Name = "Documento";
-            this.Documento.ReadOnly = true;
+            this.cmsActualizar.Image = ((System.Drawing.Image)(resources.GetObject("cmsActualizar.Image")));
+            this.cmsActualizar.Name = "cmsActualizar";
+            this.cmsActualizar.Size = new System.Drawing.Size(225, 26);
+            this.cmsActualizar.Text = "Actualizar Paciente";
             // 
-            // NombrePaciente
+            // cmsEliminar
             // 
-            this.NombrePaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombrePaciente.FillWeight = 75F;
-            this.NombrePaciente.HeaderText = "Nombres";
-            this.NombrePaciente.MinimumWidth = 6;
-            this.NombrePaciente.Name = "NombrePaciente";
-            this.NombrePaciente.ReadOnly = true;
+            this.cmsEliminar.Image = ((System.Drawing.Image)(resources.GetObject("cmsEliminar.Image")));
+            this.cmsEliminar.Name = "cmsEliminar";
+            this.cmsEliminar.Size = new System.Drawing.Size(225, 26);
+            this.cmsEliminar.Text = "Eliminar Paciente";
             // 
-            // Apellido
+            // GridViewPatient
             // 
-            this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Apellido.FillWeight = 75F;
-            this.Apellido.HeaderText = "Apellidos";
-            this.Apellido.MinimumWidth = 6;
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // TipoPersona
-            // 
-            this.TipoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TipoPersona.FillWeight = 50F;
-            this.TipoPersona.HeaderText = "Rol";
-            this.TipoPersona.MinimumWidth = 6;
-            this.TipoPersona.Name = "TipoPersona";
-            this.TipoPersona.ReadOnly = true;
-            // 
-            // FechaVisita
-            // 
-            this.FechaVisita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FechaVisita.FillWeight = 40F;
-            this.FechaVisita.HeaderText = "Fecha";
-            this.FechaVisita.MinimumWidth = 6;
-            this.FechaVisita.Name = "FechaVisita";
-            this.FechaVisita.ReadOnly = true;
-            // 
-            // HoraVisita
-            // 
-            this.HoraVisita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HoraVisita.FillWeight = 50F;
-            this.HoraVisita.HeaderText = "Hora";
-            this.HoraVisita.MinimumWidth = 6;
-            this.HoraVisita.Name = "HoraVisita";
-            this.HoraVisita.ReadOnly = true;
-            // 
-            // Opciones
-            // 
-            this.Opciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Opciones.FillWeight = 50F;
-            this.Opciones.HeaderText = "Opciones";
-            this.Opciones.MinimumWidth = 6;
-            this.Opciones.Name = "Opciones";
-            this.Opciones.ReadOnly = true;
+            this.GridViewPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridViewPatient.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.GridViewPatient.BackgroundColor = System.Drawing.Color.White;
+            this.GridViewPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GridViewPatient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.GridViewPatient.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridViewPatient.DefaultCellStyle = dataGridViewCellStyle2;
+            this.GridViewPatient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GridViewPatient.EnableHeadersVisualStyles = false;
+            this.GridViewPatient.Location = new System.Drawing.Point(0, 0);
+            this.GridViewPatient.MultiSelect = false;
+            this.GridViewPatient.Name = "GridViewPatient";
+            this.GridViewPatient.ReadOnly = true;
+            this.GridViewPatient.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.GridViewPatient.RowHeadersVisible = false;
+            this.GridViewPatient.RowHeadersWidth = 25;
+            this.GridViewPatient.RowTemplate.Height = 24;
+            this.GridViewPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GridViewPatient.Size = new System.Drawing.Size(936, 547);
+            this.GridViewPatient.TabIndex = 0;
             // 
             // ContenedorFiltros
             // 
-            this.ContenedorFiltros.Controls.Add(this.label9);
             this.ContenedorFiltros.Controls.Add(this.label8);
             this.ContenedorFiltros.Controls.Add(this.label7);
             this.ContenedorFiltros.Controls.Add(this.label6);
@@ -502,9 +529,8 @@
             this.ContenedorFiltros.Controls.Add(this.pictureBox4);
             this.ContenedorFiltros.Controls.Add(this.label5);
             this.ContenedorFiltros.Controls.Add(this.btnNew);
-            this.ContenedorFiltros.Controls.Add(this.CmbSeccion);
             this.ContenedorFiltros.Controls.Add(this.CmbGrado);
-            this.ContenedorFiltros.Controls.Add(this.dateTimePicker1);
+            this.ContenedorFiltros.Controls.Add(this.PickFechaVisita);
             this.ContenedorFiltros.Controls.Add(this.CmbCategoria);
             this.ContenedorFiltros.Dock = System.Windows.Forms.DockStyle.Top;
             this.ContenedorFiltros.Location = new System.Drawing.Point(0, 4);
@@ -512,23 +538,12 @@
             this.ContenedorFiltros.Size = new System.Drawing.Size(936, 100);
             this.ContenedorFiltros.TabIndex = 14;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(651, 24);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 19);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Sección";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label8.Location = new System.Drawing.Point(549, 24);
+            this.label8.Location = new System.Drawing.Point(587, 24);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 19);
             this.label8.TabIndex = 16;
@@ -563,8 +578,18 @@
             this.CmbEspecialidad.FormattingEnabled = true;
             this.CmbEspecialidad.Location = new System.Drawing.Point(363, 49);
             this.CmbEspecialidad.Name = "CmbEspecialidad";
-            this.CmbEspecialidad.Size = new System.Drawing.Size(175, 28);
+            this.CmbEspecialidad.Size = new System.Drawing.Size(211, 33);
             this.CmbEspecialidad.TabIndex = 4;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(881, 49);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(26, 28);
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
             // 
             // label5
             // 
@@ -573,9 +598,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label5.Location = new System.Drawing.Point(10, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 19);
+            this.label5.Size = new System.Drawing.Size(124, 23);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Fecha";
+            this.label5.Text = "Fecha de Visita";
             // 
             // btnNew
             // 
@@ -588,44 +613,34 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnNew.ForeColor = System.Drawing.Color.Black;
-            this.btnNew.Location = new System.Drawing.Point(764, 36);
+            this.btnNew.Location = new System.Drawing.Point(746, 36);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(155, 46);
+            this.btnNew.Size = new System.Drawing.Size(173, 46);
             this.btnNew.TabIndex = 2;
             this.btnNew.Text = "Nuevo Paciente";
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNew.TextColor = System.Drawing.Color.Black;
             this.btnNew.UseVisualStyleBackColor = false;
             // 
-            // CmbSeccion
-            // 
-            this.CmbSeccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbSeccion.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CmbSeccion.FormattingEnabled = true;
-            this.CmbSeccion.Location = new System.Drawing.Point(655, 49);
-            this.CmbSeccion.Name = "CmbSeccion";
-            this.CmbSeccion.Size = new System.Drawing.Size(103, 28);
-            this.CmbSeccion.TabIndex = 1;
-            // 
             // CmbGrado
             // 
             this.CmbGrado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbGrado.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.CmbGrado.FormattingEnabled = true;
-            this.CmbGrado.Location = new System.Drawing.Point(553, 49);
+            this.CmbGrado.Location = new System.Drawing.Point(591, 49);
             this.CmbGrado.Name = "CmbGrado";
-            this.CmbGrado.Size = new System.Drawing.Size(85, 28);
+            this.CmbGrado.Size = new System.Drawing.Size(149, 33);
             this.CmbGrado.TabIndex = 3;
             // 
-            // dateTimePicker1
+            // PickFechaVisita
             // 
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(14, 50);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(144, 27);
-            this.dateTimePicker1.TabIndex = 6;
+            this.PickFechaVisita.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.PickFechaVisita.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.PickFechaVisita.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.PickFechaVisita.Location = new System.Drawing.Point(14, 50);
+            this.PickFechaVisita.Name = "PickFechaVisita";
+            this.PickFechaVisita.Size = new System.Drawing.Size(144, 32);
+            this.PickFechaVisita.TabIndex = 6;
             // 
             // CmbCategoria
             // 
@@ -637,14 +652,201 @@
             this.CmbCategoria.Size = new System.Drawing.Size(169, 28);
             this.CmbCategoria.TabIndex = 5;
             // 
+            // tabDocentes
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(881, 49);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(26, 28);
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
+            this.tabDocentes.Controls.Add(this.panelCustom1);
+            this.tabDocentes.Location = new System.Drawing.Point(4, 34);
+            this.tabDocentes.Name = "tabDocentes";
+            this.tabDocentes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDocentes.Size = new System.Drawing.Size(949, 672);
+            this.tabDocentes.TabIndex = 1;
+            this.tabDocentes.Text = "Personal docente";
+            this.tabDocentes.UseVisualStyleBackColor = true;
+            // 
+            // panelCustom1
+            // 
+            this.panelCustom1.BackColor = System.Drawing.Color.White;
+            this.panelCustom1.BorderRadius = 20;
+            this.panelCustom1.ContextMenuStrip = this.ContextDataGridPersonal;
+            this.panelCustom1.Controls.Add(this.panel1);
+            this.panelCustom1.Controls.Add(this.panel2);
+            this.panelCustom1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCustom1.ForeColor = System.Drawing.Color.Black;
+            this.panelCustom1.GradientAngle = 90F;
+            this.panelCustom1.GradientBottomColor = System.Drawing.Color.White;
+            this.panelCustom1.GradientTopColor = System.Drawing.Color.White;
+            this.panelCustom1.Location = new System.Drawing.Point(3, 3);
+            this.panelCustom1.Margin = new System.Windows.Forms.Padding(10);
+            this.panelCustom1.Name = "panelCustom1";
+            this.panelCustom1.Padding = new System.Windows.Forms.Padding(0, 4, 4, 15);
+            this.panelCustom1.Size = new System.Drawing.Size(943, 666);
+            this.panelCustom1.TabIndex = 2;
+            // 
+            // ContextDataGridPersonal
+            // 
+            this.ContextDataGridPersonal.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ContextDataGridPersonal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsVerPersonal,
+            this.cmsActualizarPersonal,
+            this.cmsEliminarPersonal});
+            this.ContextDataGridPersonal.Name = "contextDataGrid";
+            this.ContextDataGridPersonal.Size = new System.Drawing.Size(226, 82);
+            // 
+            // cmsVerPersonal
+            // 
+            this.cmsVerPersonal.Image = ((System.Drawing.Image)(resources.GetObject("cmsVerPersonal.Image")));
+            this.cmsVerPersonal.Name = "cmsVerPersonal";
+            this.cmsVerPersonal.Size = new System.Drawing.Size(225, 26);
+            this.cmsVerPersonal.Text = "Ver Ficha del Paciente";
+            // 
+            // cmsActualizarPersonal
+            // 
+            this.cmsActualizarPersonal.Image = ((System.Drawing.Image)(resources.GetObject("cmsActualizarPersonal.Image")));
+            this.cmsActualizarPersonal.Name = "cmsActualizarPersonal";
+            this.cmsActualizarPersonal.Size = new System.Drawing.Size(225, 26);
+            this.cmsActualizarPersonal.Text = "Actualizar Paciente";
+            // 
+            // cmsEliminarPersonal
+            // 
+            this.cmsEliminarPersonal.Image = ((System.Drawing.Image)(resources.GetObject("cmsEliminarPersonal.Image")));
+            this.cmsEliminarPersonal.Name = "cmsEliminarPersonal";
+            this.cmsEliminarPersonal.Size = new System.Drawing.Size(225, 26);
+            this.cmsEliminarPersonal.Text = "Eliminar Paciente";
+            // 
+            // panel1
+            // 
+            this.panel1.ContextMenuStrip = this.contextDataGrid;
+            this.panel1.Controls.Add(this.dataGridViewPersonal);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 104);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(939, 547);
+            this.panel1.TabIndex = 15;
+            // 
+            // dataGridViewPersonal
+            // 
+            this.dataGridViewPersonal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewPersonal.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.dataGridViewPersonal.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewPersonal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewPersonal.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPersonal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewPersonal.ColumnHeadersHeight = 40;
+            this.dataGridViewPersonal.ContextMenuStrip = this.ContextDataGridPersonal;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPersonal.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewPersonal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewPersonal.EnableHeadersVisualStyles = false;
+            this.dataGridViewPersonal.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewPersonal.MultiSelect = false;
+            this.dataGridViewPersonal.Name = "dataGridViewPersonal";
+            this.dataGridViewPersonal.ReadOnly = true;
+            this.dataGridViewPersonal.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewPersonal.RowHeadersVisible = false;
+            this.dataGridViewPersonal.RowHeadersWidth = 25;
+            this.dataGridViewPersonal.RowTemplate.Height = 24;
+            this.dataGridViewPersonal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewPersonal.Size = new System.Drawing.Size(939, 547);
+            this.dataGridViewPersonal.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.cmbAreaPersonal);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.BtnNewPersonal);
+            this.panel2.Controls.Add(this.dateTimePicker2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(939, 100);
+            this.panel2.TabIndex = 14;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label10.Location = new System.Drawing.Point(316, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(143, 23);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Área del personal";
+            // 
+            // cmbAreaPersonal
+            // 
+            this.cmbAreaPersonal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAreaPersonal.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cmbAreaPersonal.FormattingEnabled = true;
+            this.cmbAreaPersonal.Location = new System.Drawing.Point(320, 46);
+            this.cmbAreaPersonal.Name = "cmbAreaPersonal";
+            this.cmbAreaPersonal.Size = new System.Drawing.Size(237, 33);
+            this.cmbAreaPersonal.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(879, 43);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(26, 28);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label12.Location = new System.Drawing.Point(83, 23);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(124, 23);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Fecha de Visita";
+            // 
+            // BtnNewPersonal
+            // 
+            this.BtnNewPersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnNewPersonal.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnNewPersonal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnNewPersonal.BorderRadius = 40;
+            this.BtnNewPersonal.BorderSize = 0;
+            this.BtnNewPersonal.FlatAppearance.BorderSize = 0;
+            this.BtnNewPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnNewPersonal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnNewPersonal.ForeColor = System.Drawing.Color.Black;
+            this.BtnNewPersonal.Location = new System.Drawing.Point(750, 36);
+            this.BtnNewPersonal.Name = "BtnNewPersonal";
+            this.BtnNewPersonal.Size = new System.Drawing.Size(169, 46);
+            this.BtnNewPersonal.TabIndex = 2;
+            this.BtnNewPersonal.Text = "Nuevo Paciente";
+            this.BtnNewPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnNewPersonal.TextColor = System.Drawing.Color.Black;
+            this.BtnNewPersonal.UseVisualStyleBackColor = false;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(87, 49);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(183, 32);
+            this.dateTimePicker2.TabIndex = 6;
             // 
             // pictureBox5
             // 
@@ -665,43 +867,13 @@
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(340, 447);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.White;
-            this.rjButton1.BackGroundColor = System.Drawing.Color.White;
-            this.rjButton1.BackgroundImage = global::RegistroPacientes.Properties.Resources.busqueda__1_;
-            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rjButton1.BorderColor = System.Drawing.Color.White;
-            this.rjButton1.BorderRadius = 40;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(270, 3);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(46, 35);
-            this.rjButton1.TabIndex = 4;
-            this.rjButton1.Text = " ";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            // 
             // FrmAdminPatience
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1380, 750);
-            this.Controls.Add(this.PanelContenedor);
             this.Controls.Add(this.panelGrafica);
+            this.Controls.Add(this.tabControl);
             this.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -714,23 +886,35 @@
             this.panelTitulo.ResumeLayout(false);
             this.panelCustumPequeño.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panelButton.ResumeLayout(false);
-            this.panelButton.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panelbuscador.ResumeLayout(false);
+            this.panelbuscador.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.tabEstudiantes.ResumeLayout(false);
             this.PanelContenedor.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextDataGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewPatient)).EndInit();
             this.ContenedorFiltros.ResumeLayout(false);
             this.ContenedorFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.tabDocentes.ResumeLayout(false);
+            this.panelCustom1.ResumeLayout(false);
+            this.ContextDataGridPersonal.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonal)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -738,7 +922,6 @@
         #endregion
         private CustomPanel.PanelCustom panelCustumPequeño;
         private System.Windows.Forms.Label label1;
-        private CustomPanel.BorderRadiusTXT borderRadiusTXT1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private CustomPanel.RJButton rjButton3;
@@ -755,20 +938,15 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private CustomPanel.RJButton rjButton1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        public CustomPanel.RJButton BtnBuscar;
+        private System.Windows.Forms.TabPage tabEstudiantes;
         private CustomPanel.PanelCustom PanelContenedor;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdPaciente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombrePaciente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoPersona;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaVisita;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoraVisita;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Opciones;
+        public System.Windows.Forms.DataGridView GridViewPatient;
         private System.Windows.Forms.Panel ContenedorFiltros;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -776,12 +954,35 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label5;
         public CustomPanel.RJButton btnNew;
-        public System.Windows.Forms.ComboBox CmbSeccion;
         public System.Windows.Forms.ComboBox CmbGrado;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.ComboBox CmbCategoria;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.TabPage tabDocentes;
+        private CustomPanel.PanelCustom panelCustom1;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.DataGridView dataGridViewPersonal;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.ComboBox cmbAreaPersonal;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label12;
+        public CustomPanel.RJButton BtnNewPersonal;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        public System.Windows.Forms.TabControl tabControl;
+        public System.Windows.Forms.ContextMenuStrip contextDataGrid;
+        public System.Windows.Forms.ToolStripMenuItem cmsVer;
+        public System.Windows.Forms.ToolStripMenuItem cmsActualizar;
+        public System.Windows.Forms.ToolStripMenuItem cmsEliminar;
+        public System.Windows.Forms.ContextMenuStrip ContextDataGridPersonal;
+        public System.Windows.Forms.ToolStripMenuItem cmsVerPersonal;
+        public System.Windows.Forms.ToolStripMenuItem cmsActualizarPersonal;
+        public System.Windows.Forms.ToolStripMenuItem cmsEliminarPersonal;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        public CustomPanel.RJButton rjButton1;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        public CustomPanel.RJButton rjButton4;
+        public System.Windows.Forms.DateTimePicker PickFechaVisita;
+        public CustomPanel.BorderRadiusTXT txtSearch;
+        public System.Windows.Forms.Label lbSearch;
     }
 }
 
