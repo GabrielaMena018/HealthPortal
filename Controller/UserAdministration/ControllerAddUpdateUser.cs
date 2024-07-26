@@ -59,6 +59,7 @@ namespace RegistroPacientes.Controller.UserAdministration
             objFrmAddUpdateUser.cmbUserAdministrationRole.DisplayMember = "nombreRol";
             if (procedure == 2)
             {
+                objFrmAddUpdateUser.cmbUserAdministrationRole.Text = role;
                 objFrmAddUpdateUser.txtUserAdministrationId.Texts = personId;
             }
         }
