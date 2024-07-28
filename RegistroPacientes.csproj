@@ -47,15 +47,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Helper\Commonclases.cs" />
+    <Compile Include="Controller\Login\ControllerLogin.cs" />
+    <Compile Include="Controller\Login\Events\Controllerconfirmpassword.cs" />
     <Compile Include="Controller\Registro Pacientes\ControllerAddPatience.cs" />
     <Compile Include="Controller\Registro Pacientes\ControllerAdminPatience.cs" />
     <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
     <Compile Include="Controller\UserAdministration\ControllerAddUpdateUser.cs" />
     <Compile Include="Controller\UserAdministration\ControllerUserAdministration.cs" />
     <Compile Include="Models\DAO\DAOAdminPatience.cs" />
+    <Compile Include="Models\DAO\DAOLogin.cs" />
     <Compile Include="Models\DAO\DAOUserAdministration.cs" />
     <Compile Include="Models\dbContext.cs" />
     <Compile Include="Models\DTO\DTOAdminPatience.cs" />
+    <Compile Include="Models\DTO\DTOLogin.cs" />
     <Compile Include="Models\DTO\DTOUserAdministration.cs" />
     <Compile Include="View\Dashboard\FrmDashboard.cs">
       <SubType>Form</SubType>
@@ -68,6 +73,12 @@
     </Compile>
     <Compile Include="View\Ineventario\FrmAdminInventary.Designer.cs">
       <DependentUpon>FrmAdminInventary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Pacientes\FrmAddPatience.cs">
       <SubType>Form</SubType>
@@ -112,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Ineventario\FrmAdminInventary.resx">
       <DependentUpon>FrmAdminInventary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Login\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Pacientes\FrmAddPatience.resx">
       <DependentUpon>FrmAddPatience.cs</DependentUpon>
@@ -216,6 +230,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\agregar-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla 2024-07-25 153608.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passwordhide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passwordhide %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
