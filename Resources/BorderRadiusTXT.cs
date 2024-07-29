@@ -356,5 +356,10 @@ namespace CustomPanel
             }
         }
         #endregion
+        public void Clear()
+        {
+            textBox1.Clear();
+            SetPlaceholder();
+        }
     }
 }

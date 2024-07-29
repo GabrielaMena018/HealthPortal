@@ -29,14 +29,14 @@ namespace RegistroPacientes.Controller.Login
                 ObjLogin = Vista;
                 ObjLogin.btnLogin.Click += new EventHandler(DataAccess);
                 //Eventos para txtUsername
-                ObjLogin.boxUsername.Enter += new EventHandler(EnterUsername);
+                ObjLogin.BoxUsername.Enter += new EventHandler(EnterUsername);
                 ObjLogin.txtusername.Leave += new EventHandler(LeaveUsername);
                 //Eventos para txtPassword
                 ObjLogin.BoxPassword.Enter += new EventHandler(EnterPassword);
                 ObjLogin.txtpassword.Leave += new EventHandler(LeavePassword);
                 //Eventos de Probar Conexión
-                ObjLogin.BoxPassword.Click += new EventHandler(ShowPassword);
-                ObjLogin.BoxPassword.Click += new EventHandler(HidePassword);
+                //ObjLogin.BoxPassword.Click += new EventHandler(ShowPassword);
+                //ObjLogin.BoxPassword.Click += new EventHandler(HidePassword);
             }
 
             /// <summary>
@@ -50,7 +50,7 @@ namespace RegistroPacientes.Controller.Login
                 DAOLogin DAOData = new DAOLogin();
                 Commonclases common = new Commonclases();
                 //Utilizando el objeto DAO para invocar a los metodos getter y setter del DTO
-                DAOData.Username = ObjLogin.boxUsername.Text;
+                DAOData.Username = ObjLogin.BoxUsername.Text;
                 //string cadenaencriptada = common.ComputeSha256Hash(ObjLogin.txtPassword.Text);
                 //MessageBox.Show($"{cadenaencriptada}");
                 DAOData.Password = ObjLogin.BoxPassword.Text;
@@ -81,9 +81,9 @@ namespace RegistroPacientes.Controller.Login
             /// <param name="e"></param>
             private void EnterUsername(object sender, EventArgs e)
             {
-                if (ObjLogin.boxUsername.Text.Trim().Equals("Usuario"))
+                if (ObjLogin.BoxUsername.Text.Trim().Equals("Usuario"))
                 {
-                    ObjLogin.boxUsername.Clear();
+                    ObjLogin.BoxUsername.Clear();
                     ObjLogin.txtusername.Visible = true;
                 }
             }
@@ -95,9 +95,9 @@ namespace RegistroPacientes.Controller.Login
             /// <param name="e"></param>
             private void LeaveUsername(object sender, EventArgs e)
             {
-                if (ObjLogin.boxUsername.Text.Trim().Equals(""))
+                if (ObjLogin.BoxUsername.Text.Trim().Equals(""))
                 {
-                    ObjLogin.boxUsername.Text = "Usuario";
+                    ObjLogin.BoxUsername.Text = "Usuario";
                     ObjLogin.txtusername.Visible = false;
                 }
             }
@@ -175,19 +175,19 @@ namespace RegistroPacientes.Controller.Login
 
             }
 
-            private void ShowPassword(object sender, EventArgs e)
-            {
-                ObjLogin.BoxPassword.UseSystemPasswordChar = false;
-                ObjLogin.lockpic.Visible = false;
-                ObjLogin.hidepass.Visible = true;
-            }
+            //private void ShowPassword(object sender, EventArgs e)
+            //{
+            //    ObjLogin.BoxPassword.UseSystemPasswordChar = false;
+            //    ObjLogin.lockpic.Visible = false;
+            //    ObjLogin.hidepass.Visible = true;
+            //}
 
-            private void HidePassword(object sender, EventArgs e)
-            {
-                ObjLogin.BoxPassword.UseSystemPasswordChar = true;
-                ObjLogin.lockpic.Visible = true;
-                ObjLogin.hidepass.Visible = false;
-            }             
+            //private void HidePassword(object sender, EventArgs e)
+            //{
+            //   ObjLogin.BoxPassword.UseSystemPasswordChar = true;
+            //    ObjLogin.lockpic.Visible = true;
+            //    ObjLogin.hidepass.Visible = false;
+            //}             
         }
     }
   
