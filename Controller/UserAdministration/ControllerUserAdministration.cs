@@ -34,9 +34,6 @@ namespace RegistroPacientes.Controller.UserAdministration
             objUserAdministration.cmbUserAdministrationFilter.DataSource = ds.Tables["tbRegistros"];
             objUserAdministration.cmbUserAdministrationFilter.DisplayMember = "nombreRegistro";
             objUserAdministration.cmbUserAdministrationFilter.ValueMember = "idRegistro";
-            objUserAdministration.cmbUserAdministrationSearch.DataSource = ds.Tables["tbRegistros"];
-            objUserAdministration.cmbUserAdministrationSearch.DisplayMember = "nombreRegistro";
-            objUserAdministration.cmbUserAdministrationSearch.ValueMember = "idRegistro";
         }
         public void LoadData(object sender, EventArgs e)
         {
@@ -58,10 +55,8 @@ namespace RegistroPacientes.Controller.UserAdministration
         public void SearchDatabase(object sender, EventArgs e)
         {
             DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
-            string column = objUserAdministration.cmbUserAdministrationSearch.Text;
             string search = objUserAdministration.txtUserAdministrationSearch.Texts;
-            MessageBox.Show(column + search);
-            DataSet ds = daoUserAdministration.SearchDesiredUserInfo(column, search);
+            DataSet ds = daoUserAdministration.SearchDesiredUserInfo(search);
             objUserAdministration.dgvUserDisplay.DataSource = ds.Tables["viewPersonas"];
         }
         public void ShowContextMenuStrip(object sender, DataGridViewCellMouseEventArgs e)

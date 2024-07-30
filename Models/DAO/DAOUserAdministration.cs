@@ -101,14 +101,14 @@ namespace RegistroPacientes.Models.DAO
                 command.Connection.Close();
             }
         }
-        public DataSet SearchDesiredUserInfo(string column, string search)
+        public DataSet SearchDesiredUserInfo(string search)
         {
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT * FROM [Usuarios].[viewPersonas] WHERE @param1 LIKE '%@param2%'";
+                string query = $"SELECT * FROM [Usuarios].[viewPersonas] WHERE Nombres LIKE '%{search}%' OR Apellidos LIKE '%{search}%' or [Correo Electrónico] LIKE '%{search}%'";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", column);
+                //cmd.Parameters.AddWithValue("param1", column);
                 cmd.Parameters.AddWithValue("param2", search);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
@@ -175,7 +175,7 @@ namespace RegistroPacientes.Models.DAO
                 if (result == 1)
                 {
                     string queryPersonas = "INSERT INTO [Usuarios].[tbPersonas] (nombrePersona, apellidoPersona, correoPersona, telefonoPersona, usuario) VALUES (@param1, @param2, @param3, @param4, @param5)";
-                    SqlCommand cmdPersonas = new SqlCommand (queryPersonas, command.Connection);
+                    SqlCommand cmdPersonas = new SqlCommand(queryPersonas, command.Connection);
                     cmdPersonas.Parameters.AddWithValue("param1", NombrePersona);
                     cmdPersonas.Parameters.AddWithValue("param2", ApellidoPersona);
                     cmdPersonas.Parameters.AddWithValue("param3", CorreoPersona);
