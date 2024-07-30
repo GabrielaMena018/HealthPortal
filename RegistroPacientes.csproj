@@ -47,16 +47,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AcademycLevelAdministration\ControllerAddGrade.cs" />
+    <Compile Include="Controller\AcademycLevelAdministration\ControllerAdminGrades.cs" />
     <Compile Include="Controller\Registro Pacientes\ControllerAddPatience.cs" />
     <Compile Include="Controller\Registro Pacientes\ControllerAdminPatience.cs" />
     <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
     <Compile Include="Controller\UserAdministration\ControllerAddUpdateUser.cs" />
     <Compile Include="Controller\UserAdministration\ControllerUserAdministration.cs" />
+    <Compile Include="Models\DAO\DAOAdminGrades.cs" />
     <Compile Include="Models\DAO\DAOAdminPatience.cs" />
     <Compile Include="Models\DAO\DAOUserAdministration.cs" />
     <Compile Include="Models\dbContext.cs" />
+    <Compile Include="Models\DTO\DTOAdminGrade.cs" />
     <Compile Include="Models\DTO\DTOAdminPatience.cs" />
     <Compile Include="Models\DTO\DTOUserAdministration.cs" />
+    <Compile Include="View\AcademycLevelAdministration\FrmAddGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AcademycLevelAdministration\FrmAddGrades.Designer.cs">
+      <DependentUpon>FrmAddGrades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AcademycLevelAdministration\FrmAdminGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AcademycLevelAdministration\FrmAdminGrades.Designer.cs">
+      <DependentUpon>FrmAdminGrades.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dashboard\FrmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +123,12 @@
     <Compile Include="View\UserAdministration\FrmUserAdministration.Designer.cs">
       <DependentUpon>FrmUserAdministration.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AcademycLevelAdministration\FrmAddGrades.resx">
+      <DependentUpon>FrmAddGrades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AcademycLevelAdministration\FrmAdminGrades.resx">
+      <DependentUpon>FrmAdminGrades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +238,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\agregar-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leccion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leccion %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

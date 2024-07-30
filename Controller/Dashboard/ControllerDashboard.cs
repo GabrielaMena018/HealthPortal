@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RegistroPacientes.View;
+using RegistroPacientes.View.UserAdministration;
+using RegistroPacientes.View.AcademycLevelAdministration;
 
 namespace RegistroPacientes.Controller.Dashboard
 {
@@ -25,8 +27,18 @@ namespace RegistroPacientes.Controller.Dashboard
             ObjDashboard.BtnPatience.Click += new EventHandler(AbrirFormularioAdminPacientes);
             ObjDashboard.btnMenu.Click += new EventHandler(buttonExpandCollapse_Click);
             ObjDashboard.BtnPicPaciente.Click += new EventHandler(AbrirFormularioAdminPacientes);
+            ObjDashboard.BtnAdminUser.Click += new EventHandler(AbrirFormularioUserAdministration);
+            ObjDashboard.BtnPicAdminUser.Click += new EventHandler(AbrirFormularioUserAdministration);
+            ObjDashboard.BtnPicAdminUser.Click += new EventHandler(AbrirFormularioUserAdministration);
+            ObjDashboard.BtnAdminGrados.Click += new EventHandler(AbrirFormularioAdminGrades);
+            ObjDashboard.BtnPicAdminGrades.Click += new EventHandler(AbrirFormularioAdminGrades);
 
 
+        }
+
+        private void AbrirFormularioAdminGrades(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmAdminGrades>();
         }
 
         public void AdminPatience(object sende, EventArgs e)
@@ -38,6 +50,11 @@ namespace RegistroPacientes.Controller.Dashboard
         private void AbrirFormularioAdminPacientes(object sender, EventArgs e)
         {
             AbrirFormulario<FrmAdminPatience>();
+        }
+
+        private void AbrirFormularioUserAdministration(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmUserAdministration>();
         }
 
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()

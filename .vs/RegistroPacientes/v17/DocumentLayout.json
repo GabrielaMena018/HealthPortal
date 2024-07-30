@@ -1,0 +1,82 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Gaby\\Desktop\\RegistroPacientes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|c:\\users\\gaby\\desktop\\registropacientes\\controller\\academycleveladministration\\controlleraddgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:controller\\academycleveladministration\\controlleraddgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|c:\\users\\gaby\\desktop\\registropacientes\\controller\\academycleveladministration\\controlleradmingrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:controller\\academycleveladministration\\controlleradmingrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|c:\\users\\gaby\\desktop\\registropacientes\\view\\academycleveladministration\\frmaddgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:view\\academycleveladministration\\frmaddgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmAddGrades.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Gaby\\Desktop\\RegistroPacientes\\View\\AcademycLevelAdministration\\FrmAddGrades.cs",
+              "RelativeDocumentMoniker": "View\\AcademycLevelAdministration\\FrmAddGrades.cs",
+              "ToolTip": "C:\\Users\\Gaby\\Desktop\\RegistroPacientes\\View\\AcademycLevelAdministration\\FrmAddGrades.cs [Dise\u00F1o]",
+              "RelativeToolTip": "View\\AcademycLevelAdministration\\FrmAddGrades.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T21:39:22.011Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ControllerAddGrade.cs",
+              "DocumentMoniker": "C:\\Users\\Gaby\\Desktop\\RegistroPacientes\\Controller\\AcademycLevelAdministration\\ControllerAddGrade.cs",
+              "RelativeDocumentMoniker": "Controller\\AcademycLevelAdministration\\ControllerAddGrade.cs",
+              "ToolTip": "C:\\Users\\Gaby\\Desktop\\RegistroPacientes\\Controller\\AcademycLevelAdministration\\ControllerAddGrade.cs*",
+              "RelativeToolTip": "Controller\\AcademycLevelAdministration\\ControllerAddGrade.cs*",
+              "ViewState": "AQIAAJYAAAAAAAAAAAAAAKkAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T21:34:47.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ControllerAdminGrades.cs",
+              "DocumentMoniker": "C:\\Users\\Gaby\\Desktop\\RegistroPacientes\\Controller\\AcademycLevelAdministration\\ControllerAdminGrades.cs",
+              "RelativeDocumentMoniker": "Controller\\AcademycLevelAdministration\\ControllerAdminGrades.cs",
+              "ToolTip": "C:\\Users\\Gaby\\Desktop\\RegistroPacientes\\Controller\\AcademycLevelAdministration\\ControllerAdminGrades.cs",
+              "RelativeToolTip": "Controller\\AcademycLevelAdministration\\ControllerAdminGrades.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADkAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T21:33:28.521Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

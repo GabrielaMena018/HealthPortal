@@ -153,6 +153,26 @@ namespace RegistroPacientes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap leccion {
+            get {
+                object obj = ResourceManager.GetObject("leccion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap leccion__2_ {
+            get {
+                object obj = ResourceManager.GetObject("leccion (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lista_del_portapapeles {
             get {
                 object obj = ResourceManager.GetObject("lista-del-portapapeles", resourceCulture);
