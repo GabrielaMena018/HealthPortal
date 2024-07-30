@@ -133,7 +133,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 65);
+            this.label1.Size = new System.Drawing.Size(298, 81);
             this.label1.TabIndex = 2;
             this.label1.Text = "Pacientes";
             // 
@@ -545,7 +545,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(587, 24);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 19);
+            this.label8.Size = new System.Drawing.Size(57, 23);
             this.label8.TabIndex = 16;
             this.label8.Text = "Grado";
             // 
@@ -556,7 +556,7 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label7.Location = new System.Drawing.Point(359, 24);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 19);
+            this.label7.Size = new System.Drawing.Size(103, 23);
             this.label7.TabIndex = 15;
             this.label7.Text = "Especialidad";
             // 
@@ -567,7 +567,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label6.Location = new System.Drawing.Point(173, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 19);
+            this.label6.Size = new System.Drawing.Size(84, 23);
             this.label6.TabIndex = 14;
             this.label6.Text = "Categoria";
             // 
@@ -649,16 +649,16 @@
             this.CmbCategoria.FormattingEnabled = true;
             this.CmbCategoria.Location = new System.Drawing.Point(177, 49);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(169, 28);
+            this.CmbCategoria.Size = new System.Drawing.Size(169, 33);
             this.CmbCategoria.TabIndex = 5;
             // 
             // tabDocentes
             // 
             this.tabDocentes.Controls.Add(this.panelCustom1);
-            this.tabDocentes.Location = new System.Drawing.Point(4, 34);
+            this.tabDocentes.Location = new System.Drawing.Point(4, 25);
             this.tabDocentes.Name = "tabDocentes";
             this.tabDocentes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDocentes.Size = new System.Drawing.Size(949, 672);
+            this.tabDocentes.Size = new System.Drawing.Size(949, 681);
             this.tabDocentes.TabIndex = 1;
             this.tabDocentes.Text = "Personal docente";
             this.tabDocentes.UseVisualStyleBackColor = true;
@@ -679,7 +679,7 @@
             this.panelCustom1.Margin = new System.Windows.Forms.Padding(10);
             this.panelCustom1.Name = "panelCustom1";
             this.panelCustom1.Padding = new System.Windows.Forms.Padding(0, 4, 4, 15);
-            this.panelCustom1.Size = new System.Drawing.Size(943, 666);
+            this.panelCustom1.Size = new System.Drawing.Size(943, 675);
             this.panelCustom1.TabIndex = 2;
             // 
             // ContextDataGridPersonal
@@ -720,7 +720,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 104);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(939, 547);
+            this.panel1.Size = new System.Drawing.Size(939, 556);
             this.panel1.TabIndex = 15;
             // 
             // dataGridViewPersonal
@@ -759,7 +759,7 @@
             this.dataGridViewPersonal.RowHeadersWidth = 25;
             this.dataGridViewPersonal.RowTemplate.Height = 24;
             this.dataGridViewPersonal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPersonal.Size = new System.Drawing.Size(939, 547);
+            this.dataGridViewPersonal.Size = new System.Drawing.Size(939, 556);
             this.dataGridViewPersonal.TabIndex = 0;
             // 
             // panel2
@@ -857,7 +857,8 @@
             this.pictureBox5.Size = new System.Drawing.Size(35, 32);
             this.pictureBox5.TabIndex = 13;
             this.pictureBox5.TabStop = false;
-            //             // pictureBox3
+            // 
+            // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));

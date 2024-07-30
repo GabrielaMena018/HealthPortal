@@ -199,7 +199,7 @@ namespace RegistroPacientes.Controlador
             daoInsertPatient.Nombre = ObjAddPatience.TxtNombrePaciente.Texts;
             daoInsertPatient.Apellido = ObjAddPatience.TxtApellidoPaciente.Texts;
             daoInsertPatient.Rol = (int)ObjAddPatience.CmbRol.SelectedValue;
-
+            
             if (ObjAddPatience.CmbRol.SelectedIndex == 0)
             {
                 //Insercion datos tabla grado seccion
