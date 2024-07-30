@@ -18,7 +18,7 @@ namespace RegistroPacientes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmUserAdministration());
+            Application.Run(new FrmDashboard());
         }
     }
 }
