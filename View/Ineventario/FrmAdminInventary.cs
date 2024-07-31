@@ -19,6 +19,5 @@ namespace RegistroPacientes.View.Ineventario
             InitializeComponent();
             ControllerAdminInventory objAdminInventory = new ControllerAdminInventory(this);
         }
-
     }
 }

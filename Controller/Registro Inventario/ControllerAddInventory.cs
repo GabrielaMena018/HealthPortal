@@ -99,18 +99,18 @@ namespace RegistroPacientes.Controller.Registro_Inventario
 
         public void NewRegisterInventory(object sender, EventArgs e)
         {
-            
+
             DAOAdminInventory daoAdmin = new DAOAdminInventory();
-            daoAdmin.RegistrarInventario();
             //Datos para la creacion de un nuevo inventario
             daoAdmin.NombreMedicamento = objAddInventory.TxtNombreMedicamento.Text.Trim();
+            daoAdmin.Descripcion = objAddInventory.TxtDescripcion.Texts.Trim();
             daoAdmin.IdCategoria = int.Parse(objAddInventory.cmbCategoria.SelectedValue.ToString());
             daoAdmin.FechaVencimiento = objAddInventory.PickFechaVencimiento.Value.Date;
             daoAdmin.Existencia = objAddInventory.TxtCantidadExistencia.Text.Trim();
             daoAdmin.Ingreso = objAddInventory.PickIngreso.Value.Date;
             daoAdmin.Salida = objAddInventory.PickHora.Value.ToString("HH:mm");
-            int returnedValue = daoAdmin.ObtenerInfoCombos();
-            
+            int returnedValue = daoAdmin.RegistrarInventario();
+
             if ( returnedValue == 1)
             {
                 MessageBox.Show("Los datos han sido registrados exitosamente",

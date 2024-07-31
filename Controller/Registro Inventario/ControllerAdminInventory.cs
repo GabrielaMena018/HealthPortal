@@ -109,8 +109,7 @@ namespace RegistroPacientes.Controller.Registro_Inventario
             int id;
             string nameMedicment, categoryMedicment, stock ,description;
             DateTime expirationDate, income, exit;
-
-            id = int.Parse(objAdminInventory.dgvInventory[0,pos]. Value.ToString() );
+            id = int.Parse(objAdminInventory.dgvInventory[0,pos]. Value.ToString());
             nameMedicment = objAdminInventory.dgvInventory [1,pos]. Value.ToString();
             categoryMedicment= objAdminInventory.dgvInventory[2,pos].Value.ToString();
             stock = objAdminInventory.dgvInventory[3,pos].Value.ToString();
