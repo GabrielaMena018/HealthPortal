@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RegistroPacientes.Controller;
+using RegistroPacientes.Controller.Registro_Inventario;
 
 namespace RegistroPacientes.View.Ineventario
 {
@@ -16,7 +17,7 @@ namespace RegistroPacientes.View.Ineventario
         public FrmAdminInventary()
         {
             InitializeComponent();
-            Controller.Registro_Inventario.ControllerAdminInventory objAdminUser = new Controller.Registro_Inventario.ControllerAdminInventory(this);
+            ControllerAdminInventory objAdminInventory = new ControllerAdminInventory(this);
         }
 
     }

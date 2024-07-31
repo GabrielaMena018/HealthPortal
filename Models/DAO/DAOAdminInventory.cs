@@ -28,7 +28,7 @@ namespace RegistroPacientes.Models.DAO
             {
                 //Se crea una conexion para garantizar que haya conexion con la base
                 command.Connection = getConnection();
-                string query = $"SELECT * FROM tbCategoriaMedicamento";
+                string query = "SELECT * FROM tbCategoriaMedicamento";
                 SqlCommand cmdInventory = new SqlCommand(query, command.Connection);
                 cmdInventory.ExecuteNonQuery();
                 SqlDataAdapter adpInventory = new SqlDataAdapter(cmdInventory);
@@ -43,7 +43,7 @@ namespace RegistroPacientes.Models.DAO
             }
             finally
             {
-                command.Connection.Close();
+                getConnection().Close();
             }
         }
 
@@ -57,8 +57,9 @@ namespace RegistroPacientes.Models.DAO
         {
             try
             {
+                MessageBox.Show("Prueba");
                 command.Connection = getConnection();
-                string query2 = "INSEERT INTO tbMedicamentos(nombreMedicamento, descripcionMedicamento, fechaVencimineto, IdMedicamento) VALUES (@nombreMedicamento, @descripcionMedicamento, @fechaVencimiento, @IdMedicamento)";
+                string query2 = "INSERT INTO tbMedicamentos(nombreMedicamento, descripcionMedicamento, fechaVencimineto, IdMedicamento) VALUES (@nombreMedicamento, @descripcionMedicamento, @fechaVencimiento, @IdMedicamento)";
                 SqlCommand cmd2 = new SqlCommand(query2, command.Connection);
                 cmd2.Parameters.AddWithValue("nombreMedicamento", NombreMedicamento);
                 cmd2.Parameters.AddWithValue("descrpcionMedicamento", Descripcion);
@@ -68,6 +69,8 @@ namespace RegistroPacientes.Models.DAO
 
                 if (respuesta == 1) 
                 {
+                    MessageBox.Show("Prueba");
+                    ObtenerIdMedicamentos();
                     string query3 = "INSERT INTO tbEntradasSalidasMedicamentos(fechaEntradaSalida, horaEntradaSalida, cantidadMedicamento, ) VALUES (@fechaEntradaSalida, @horaEntradaSalida, @cantidadMedicamento)";
                     SqlCommand cmd3 = new SqlCommand(query3, command.Connection);
                     cmd3.Parameters.AddWithValue("fechaEntradaSalida", Ingreso);
@@ -78,12 +81,14 @@ namespace RegistroPacientes.Models.DAO
                 }
                 else
                 {
+                    //RollBack();
                     return 0;
                 }                
 
         }
             catch (Exception)
             {
+                //RollBack();
                 return -1;
             }
             finally
@@ -91,17 +96,44 @@ namespace RegistroPacientes.Models.DAO
                 command.Connection.Close();
             }
         }
+
+        public int ObtenerIdMedicamentos()
+        {
+            string queryId = "SELECT MAX (IdMedicamento) FROM viewMedicamento";
+            SqlCommand cmdIdMedicment = new SqlCommand(queryId, command.Connection);
+            SqlDataReader consulta = cmdIdMedicment.ExecuteReader();
+            while (consulta.Read())
+            {
+                IdMedicamento = consulta.GetInt32(0);
+            }
+            consulta.Close();
+            return IdMedicamento;
+        }
+
+        //public void RollBack()
+        //{
+        //    string query = "DELETE FROM tbMedicamentos WHERE nombreMedicamento = @nombreMedicamento ";
+        //    SqlCommand cmdDel = new SqlCommand(query,command.Connection);
+        //    cmdDel.Parameters.AddWithValue();
+        //    int retorno = cmdDel.ExecuteNonQuery();
+        //}
+
+        /// <summary>
+        /// Leer usuario corresponde al segundo mantenimiento del CRUD
+        /// Inserción de datos a la base de datos
+        /// </summary>
+        /// <returns></returns>
         public DataSet GetInventory()
         {
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT * FROM tbMedicamentos";
+                string query = "SELECT * FROM viewMedicamento";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds,"tbMedicamentos");
+                adp.Fill(ds, "viewMedicamento");
                 return ds;
             }
             catch (Exception)
@@ -114,12 +146,18 @@ namespace RegistroPacientes.Models.DAO
                 getConnection().Close();
             }
         }
+
+        /// <summary>
+        /// Actualzar usuario corresponde al tercer mantenimiento del CRUD
+        /// Inserción de datos a la base de datos
+        /// </summary>
+        /// <returns></returns>
         public int UpdateInventory()
         {
             try
             {
                 command.Connection = getConnection();
-                string query = "UPDATE tb Medicamentos SET" +
+                string query = "UPDATE tbMedicamentos SET" +
                                 " nombreMedicamento = @nombreMedicamento," +
                                 " descreipcionMedicamento = @nombreMedicamento," +
                                 " fechaVencimiento = @nombreMedicamento " +
@@ -153,7 +191,6 @@ namespace RegistroPacientes.Models.DAO
             }
             catch (Exception)
             {
-
                 return -1;
             }
             finally
@@ -162,6 +199,11 @@ namespace RegistroPacientes.Models.DAO
             }
         }
 
+        /// <summary>
+        /// Eliminar usuario corresponde al cuarto mantenimiento del CRUD
+        /// Inserción de datos a la base de datos
+        /// </summary>
+        /// <returns></returns>
         public int DeleteInventory()
         {
             try

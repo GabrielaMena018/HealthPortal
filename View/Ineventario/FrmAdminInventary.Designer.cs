@@ -29,32 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminInventary));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.PanelContenedor = new CustomPanel.PanelCustom();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.dgvInventory = new System.Windows.Forms.DataGridView();
-            this.IdPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombrePaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContenedorFiltros = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnNew = new CustomPanel.RJButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.CmbCategoria = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.panelTitulo = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelbuscador = new System.Windows.Forms.Panel();
+            this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsView = new System.Windows.Forms.ToolStripMenuItem();
             this.panelCustumPequeño = new CustomPanel.PanelCustom();
             this.panel6 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -67,21 +56,25 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.rjButton2 = new CustomPanel.RJButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelbuscador = new System.Windows.Forms.Panel();
             this.rjButton1 = new CustomPanel.RJButton();
             this.borderRadiusTXT1 = new CustomPanel.BorderRadiusTXT();
-            this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsUpdate = new System.Windows.Forms.ToolStripMenuItem();
-            this.PanelContenedor.SuspendLayout();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
-            this.ContenedorFiltros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.PanelContenedor = new CustomPanel.PanelCustom();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.dgvInventory = new System.Windows.Forms.DataGridView();
+            this.ContenedorFiltros = new System.Windows.Forms.Panel();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnNew = new CustomPanel.RJButton();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.CmbCategoria = new System.Windows.Forms.ComboBox();
             this.panelGrafica.SuspendLayout();
             this.panelTitulo.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panelbuscador.SuspendLayout();
+            this.cmsDataGrid.SuspendLayout();
             this.panelCustumPequeño.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -90,248 +83,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panelbuscador.SuspendLayout();
-            this.cmsDataGrid.SuspendLayout();
+            this.PanelContenedor.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
+            this.ContenedorFiltros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PanelContenedor
-            // 
-            this.PanelContenedor.BackColor = System.Drawing.Color.White;
-            this.PanelContenedor.BorderRadius = 20;
-            this.PanelContenedor.Controls.Add(this.panel8);
-            this.PanelContenedor.Controls.Add(this.ContenedorFiltros);
-            this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PanelContenedor.ForeColor = System.Drawing.Color.Black;
-            this.PanelContenedor.GradientAngle = 90F;
-            this.PanelContenedor.GradientBottomColor = System.Drawing.Color.White;
-            this.PanelContenedor.GradientTopColor = System.Drawing.Color.White;
-            this.PanelContenedor.Location = new System.Drawing.Point(402, 20);
-            this.PanelContenedor.Margin = new System.Windows.Forms.Padding(10);
-            this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Padding = new System.Windows.Forms.Padding(0, 4, 4, 15);
-            this.PanelContenedor.Size = new System.Drawing.Size(940, 663);
-            this.PanelContenedor.TabIndex = 1;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.dgvInventory);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 104);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(936, 544);
-            this.panel8.TabIndex = 15;
-            // 
-            // dgvInventory
-            // 
-            this.dgvInventory.AllowUserToAddRows = false;
-            this.dgvInventory.AllowUserToDeleteRows = false;
-            this.dgvInventory.AllowUserToResizeColumns = false;
-            this.dgvInventory.AllowUserToResizeRows = false;
-            this.dgvInventory.BackgroundColor = System.Drawing.Color.White;
-            this.dgvInventory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvInventory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvInventory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvInventory.ColumnHeadersHeight = 50;
-            this.dgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdPaciente,
-            this.Documento,
-            this.NombrePaciente,
-            this.Apellido,
-            this.TipoPersona,
-            this.FechaVisita});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInventory.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvInventory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvInventory.EnableHeadersVisualStyles = false;
-            this.dgvInventory.Location = new System.Drawing.Point(0, 0);
-            this.dgvInventory.MultiSelect = false;
-            this.dgvInventory.Name = "dgvInventory";
-            this.dgvInventory.ReadOnly = true;
-            this.dgvInventory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvInventory.RowHeadersVisible = false;
-            this.dgvInventory.RowHeadersWidth = 25;
-            this.dgvInventory.RowTemplate.Height = 24;
-            this.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInventory.Size = new System.Drawing.Size(936, 544);
-            this.dgvInventory.TabIndex = 0;
-            // 
-            // IdPaciente
-            // 
-            this.IdPaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IdPaciente.FillWeight = 50F;
-            this.IdPaciente.HeaderText = "IdInventario";
-            this.IdPaciente.MinimumWidth = 6;
-            this.IdPaciente.Name = "IdPaciente";
-            this.IdPaciente.ReadOnly = true;
-            // 
-            // Documento
-            // 
-            this.Documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Documento.FillWeight = 50F;
-            this.Documento.HeaderText = "Nombre";
-            this.Documento.MinimumWidth = 6;
-            this.Documento.Name = "Documento";
-            this.Documento.ReadOnly = true;
-            // 
-            // NombrePaciente
-            // 
-            this.NombrePaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombrePaciente.FillWeight = 75F;
-            this.NombrePaciente.HeaderText = "Categoria";
-            this.NombrePaciente.MinimumWidth = 6;
-            this.NombrePaciente.Name = "NombrePaciente";
-            this.NombrePaciente.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Apellido.FillWeight = 75F;
-            this.Apellido.HeaderText = "Fecha de Ingreso";
-            this.Apellido.MinimumWidth = 6;
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // TipoPersona
-            // 
-            this.TipoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TipoPersona.FillWeight = 50F;
-            this.TipoPersona.HeaderText = "Fecha de vencimiento";
-            this.TipoPersona.MinimumWidth = 6;
-            this.TipoPersona.Name = "TipoPersona";
-            this.TipoPersona.ReadOnly = true;
-            // 
-            // FechaVisita
-            // 
-            this.FechaVisita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FechaVisita.FillWeight = 40F;
-            this.FechaVisita.HeaderText = "Cantidad ";
-            this.FechaVisita.MinimumWidth = 6;
-            this.FechaVisita.Name = "FechaVisita";
-            this.FechaVisita.ReadOnly = true;
-            // 
-            // ContenedorFiltros
-            // 
-            this.ContenedorFiltros.Controls.Add(this.dateTimePicker2);
-            this.ContenedorFiltros.Controls.Add(this.label7);
-            this.ContenedorFiltros.Controls.Add(this.label6);
-            this.ContenedorFiltros.Controls.Add(this.pictureBox4);
-            this.ContenedorFiltros.Controls.Add(this.label5);
-            this.ContenedorFiltros.Controls.Add(this.btnNew);
-            this.ContenedorFiltros.Controls.Add(this.dateTimePicker1);
-            this.ContenedorFiltros.Controls.Add(this.CmbCategoria);
-            this.ContenedorFiltros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ContenedorFiltros.Location = new System.Drawing.Point(0, 4);
-            this.ContenedorFiltros.Name = "ContenedorFiltros";
-            this.ContenedorFiltros.Size = new System.Drawing.Size(936, 100);
-            this.ContenedorFiltros.TabIndex = 14;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(246, 50);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(186, 37);
-            this.dateTimePicker2.TabIndex = 16;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(242, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 28);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Hasta";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(453, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 28);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Categoria";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(875, 45);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 27);
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(10, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 28);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Desde";
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnNew.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnNew.BorderRadius = 40;
-            this.btnNew.BorderSize = 0;
-            this.btnNew.FlatAppearance.BorderSize = 0;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnNew.ForeColor = System.Drawing.Color.Black;
-            this.btnNew.Location = new System.Drawing.Point(710, 36);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(209, 46);
-            this.btnNew.TabIndex = 2;
-            this.btnNew.Text = "Agregar Medicamento";
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNew.TextColor = System.Drawing.Color.Black;
-            this.btnNew.UseVisualStyleBackColor = false;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(14, 53);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(186, 37);
-            this.dateTimePicker1.TabIndex = 6;
-            // 
-            // CmbCategoria
-            // 
-            this.CmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbCategoria.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CmbCategoria.FormattingEnabled = true;
-            this.CmbCategoria.Location = new System.Drawing.Point(457, 52);
-            this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(228, 38);
-            this.CmbCategoria.TabIndex = 5;
             // 
             // panelGrafica
             // 
@@ -353,6 +110,64 @@
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(325, 530);
             this.panelTitulo.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.panelbuscador);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(325, 133);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(306, 182);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Inventario";
+            // 
+            // panelbuscador
+            // 
+            this.panelbuscador.Controls.Add(this.rjButton1);
+            this.panelbuscador.Controls.Add(this.borderRadiusTXT1);
+            this.panelbuscador.Location = new System.Drawing.Point(3, 185);
+            this.panelbuscador.Name = "panelbuscador";
+            this.panelbuscador.Size = new System.Drawing.Size(319, 55);
+            this.panelbuscador.TabIndex = 0;
+            // 
+            // cmsDataGrid
+            // 
+            this.cmsDataGrid.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.cmsDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsDelete,
+            this.cmsUpdate,
+            this.cmsView});
+            this.cmsDataGrid.Name = "cmsDataGrid";
+            this.cmsDataGrid.Size = new System.Drawing.Size(231, 100);
+            // 
+            // cmsDelete
+            // 
+            this.cmsDelete.Name = "cmsDelete";
+            this.cmsDelete.Size = new System.Drawing.Size(230, 32);
+            this.cmsDelete.Text = "Eliminar Registro";
+            // 
+            // cmsUpdate
+            // 
+            this.cmsUpdate.Name = "cmsUpdate";
+            this.cmsUpdate.Size = new System.Drawing.Size(230, 32);
+            this.cmsUpdate.Text = "Actualizar Registro";
+            // 
+            // cmsView
+            // 
+            this.cmsView.Name = "cmsView";
+            this.cmsView.Size = new System.Drawing.Size(230, 32);
+            this.cmsView.Text = "Ver registro";
             // 
             // panelCustumPequeño
             // 
@@ -383,17 +198,17 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(0, 163);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(322, 275);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
@@ -512,36 +327,6 @@
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.panelbuscador);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(325, 133);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 182);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Inventario";
-            // 
-            // panelbuscador
-            // 
-            this.panelbuscador.Controls.Add(this.rjButton1);
-            this.panelbuscador.Controls.Add(this.borderRadiusTXT1);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 185);
-            this.panelbuscador.Name = "panelbuscador";
-            this.panelbuscador.Size = new System.Drawing.Size(319, 55);
-            this.panelbuscador.TabIndex = 0;
-            // 
             // rjButton1
             // 
             this.rjButton1.BackColor = System.Drawing.Color.White;
@@ -583,26 +368,182 @@
             this.borderRadiusTXT1.Texts = "Buscar";
             this.borderRadiusTXT1.UnderlinedStyle = false;
             // 
-            // cmsDataGrid
+            // PanelContenedor
             // 
-            this.cmsDataGrid.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.cmsDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmsDelete,
-            this.cmsUpdate});
-            this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(241, 101);
+            this.PanelContenedor.BackColor = System.Drawing.Color.White;
+            this.PanelContenedor.BorderRadius = 20;
+            this.PanelContenedor.Controls.Add(this.panel8);
+            this.PanelContenedor.Controls.Add(this.ContenedorFiltros);
+            this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PanelContenedor.ForeColor = System.Drawing.Color.Black;
+            this.PanelContenedor.GradientAngle = 90F;
+            this.PanelContenedor.GradientBottomColor = System.Drawing.Color.White;
+            this.PanelContenedor.GradientTopColor = System.Drawing.Color.White;
+            this.PanelContenedor.Location = new System.Drawing.Point(402, 20);
+            this.PanelContenedor.Margin = new System.Windows.Forms.Padding(10);
+            this.PanelContenedor.Name = "PanelContenedor";
+            this.PanelContenedor.Padding = new System.Windows.Forms.Padding(0, 4, 4, 15);
+            this.PanelContenedor.Size = new System.Drawing.Size(940, 663);
+            this.PanelContenedor.TabIndex = 1;
             // 
-            // cmsDelete
+            // panel8
             // 
-            this.cmsDelete.Name = "cmsDelete";
-            this.cmsDelete.Size = new System.Drawing.Size(240, 32);
-            this.cmsDelete.Text = "Eliminar Registro";
+            this.panel8.Controls.Add(this.dgvInventory);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 104);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(936, 544);
+            this.panel8.TabIndex = 15;
             // 
-            // cmsUpdate
+            // dgvInventory
             // 
-            this.cmsUpdate.Name = "cmsUpdate";
-            this.cmsUpdate.Size = new System.Drawing.Size(240, 32);
-            this.cmsUpdate.Text = "Actualizar Registro";
+            this.dgvInventory.AllowUserToAddRows = false;
+            this.dgvInventory.AllowUserToDeleteRows = false;
+            this.dgvInventory.AllowUserToResizeColumns = false;
+            this.dgvInventory.AllowUserToResizeRows = false;
+            this.dgvInventory.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInventory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvInventory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvInventory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvInventory.ColumnHeadersHeight = 50;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInventory.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvInventory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInventory.EnableHeadersVisualStyles = false;
+            this.dgvInventory.Location = new System.Drawing.Point(0, 0);
+            this.dgvInventory.MultiSelect = false;
+            this.dgvInventory.Name = "dgvInventory";
+            this.dgvInventory.ReadOnly = true;
+            this.dgvInventory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvInventory.RowHeadersVisible = false;
+            this.dgvInventory.RowHeadersWidth = 25;
+            this.dgvInventory.RowTemplate.Height = 24;
+            this.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInventory.Size = new System.Drawing.Size(936, 544);
+            this.dgvInventory.TabIndex = 0;
+            // 
+            // ContenedorFiltros
+            // 
+            this.ContenedorFiltros.Controls.Add(this.dateTimePicker2);
+            this.ContenedorFiltros.Controls.Add(this.label7);
+            this.ContenedorFiltros.Controls.Add(this.label6);
+            this.ContenedorFiltros.Controls.Add(this.pictureBox4);
+            this.ContenedorFiltros.Controls.Add(this.label5);
+            this.ContenedorFiltros.Controls.Add(this.btnNew);
+            this.ContenedorFiltros.Controls.Add(this.dateTimePicker1);
+            this.ContenedorFiltros.Controls.Add(this.CmbCategoria);
+            this.ContenedorFiltros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ContenedorFiltros.Location = new System.Drawing.Point(0, 4);
+            this.ContenedorFiltros.Name = "ContenedorFiltros";
+            this.ContenedorFiltros.Size = new System.Drawing.Size(936, 100);
+            this.ContenedorFiltros.TabIndex = 14;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(246, 50);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(186, 37);
+            this.dateTimePicker2.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(242, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 28);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Hasta";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(453, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 28);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Categoria";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(875, 45);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 27);
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.Location = new System.Drawing.Point(10, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 28);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Desde";
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnNew.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnNew.BorderRadius = 40;
+            this.btnNew.BorderSize = 0;
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnNew.ForeColor = System.Drawing.Color.Black;
+            this.btnNew.Location = new System.Drawing.Point(710, 36);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(209, 46);
+            this.btnNew.TabIndex = 2;
+            this.btnNew.Text = "Agregar Medicamento";
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNew.TextColor = System.Drawing.Color.Black;
+            this.btnNew.UseVisualStyleBackColor = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(14, 53);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(186, 37);
+            this.dateTimePicker1.TabIndex = 6;
+            // 
+            // CmbCategoria
+            // 
+            this.CmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbCategoria.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CmbCategoria.FormattingEnabled = true;
+            this.CmbCategoria.Location = new System.Drawing.Point(457, 52);
+            this.CmbCategoria.Name = "CmbCategoria";
+            this.CmbCategoria.Size = new System.Drawing.Size(228, 38);
+            this.CmbCategoria.TabIndex = 5;
             // 
             // FrmAdminInventary
             // 
@@ -616,14 +557,12 @@
             this.Name = "FrmAdminInventary";
             this.Padding = new System.Windows.Forms.Padding(20);
             this.Text = "FrmAdminInventary";
-            this.PanelContenedor.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
-            this.ContenedorFiltros.ResumeLayout(false);
-            this.ContenedorFiltros.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelGrafica.ResumeLayout(false);
             this.panelTitulo.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.panelbuscador.ResumeLayout(false);
+            this.cmsDataGrid.ResumeLayout(false);
             this.panelCustumPequeño.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -633,10 +572,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            this.panelbuscador.ResumeLayout(false);
-            this.cmsDataGrid.ResumeLayout(false);
+            this.PanelContenedor.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
+            this.ContenedorFiltros.ResumeLayout(false);
+            this.ContenedorFiltros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -673,15 +614,10 @@
         private CustomPanel.RJButton rjButton1;
         private CustomPanel.BorderRadiusTXT borderRadiusTXT1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdPaciente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombrePaciente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoPersona;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaVisita;
         public System.Windows.Forms.DataGridView dgvInventory;
         public System.Windows.Forms.ContextMenuStrip cmsDataGrid;
         public System.Windows.Forms.ToolStripMenuItem cmsDelete;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdate;
+        private System.Windows.Forms.ToolStripMenuItem cmsView;
     }
 }

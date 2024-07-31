@@ -13,6 +13,7 @@ namespace RegistroPacientes.Controller.Registro_Inventario
 {
     internal class ControllerAddInventory
     {
+        FrmAdminInventary obAdmin = new FrmAdminInventary();
         FrmAddInventory objAddInventory;
         private int accion;
         private string categoryMedicment;
@@ -22,16 +23,17 @@ namespace RegistroPacientes.Controller.Registro_Inventario
         /// <param name="vista"></param>
         /// <param name="accion"></param>
          public ControllerAddInventory(FrmAddInventory vista, int accion)
-        {
+         {
             objAddInventory = vista;
             this.accion = accion;
+            vista.Load += new EventHandler(InitialCharge);
 
             //Metodos que se ejecutan cuando el programa esta cargando
             CheckAction();
-            objAddInventory.Load += new EventHandler(InitialCharge);
-
+            
             //Metodos que se ejecutan al ocurrir eventos
             objAddInventory.btnAgregarInventario.Click += new EventHandler(NewRegisterInventory);
+
         }
 
         /// <summary>
@@ -48,13 +50,12 @@ namespace RegistroPacientes.Controller.Registro_Inventario
         /// <param name="exit"></param>
         /// <param name="description"></param>
 
-        public ControllerAddInventory(FrmAddInventory vista, int accion, int id, string nameMedicment, string categoryMedicment, DateTime expirationDate, string stock, string income, string exit, string description)
+        public ControllerAddInventory(FrmAddInventory vista, int accion, int id, string nameMedicment, string categoryMedicment, DateTime expirationDate, string stock, DateTime income, DateTime exit, string description)
         {
             //Acciones iniciales
             objAddInventory = vista;
             this.accion = accion;
             this.categoryMedicment = categoryMedicment;
-
             //Metodos iniciales ejecutados cuando el formulario esta cargando
             objAddInventory.Load += new EventHandler(InitialCharge);
             CheckAction();
@@ -98,15 +99,18 @@ namespace RegistroPacientes.Controller.Registro_Inventario
 
         public void NewRegisterInventory(object sender, EventArgs e)
         {
+            
             DAOAdminInventory daoAdmin = new DAOAdminInventory();
+            daoAdmin.RegistrarInventario();
             //Datos para la creacion de un nuevo inventario
             daoAdmin.NombreMedicamento = objAddInventory.TxtNombreMedicamento.Text.Trim();
             daoAdmin.IdCategoria = int.Parse(objAddInventory.cmbCategoria.SelectedValue.ToString());
             daoAdmin.FechaVencimiento = objAddInventory.PickFechaVencimiento.Value.Date;
             daoAdmin.Existencia = objAddInventory.TxtCantidadExistencia.Text.Trim();
-            daoAdmin.Ingreso = objAddInventory.TxTIngreso.Texts.Trim();
-            daoAdmin.Salida = objAddInventory.TxTSalida.Text.Trim();
+            daoAdmin.Ingreso = objAddInventory.PickIngreso.Value.Date;
+            daoAdmin.Salida = objAddInventory.PickHora.Value.ToString("HH:mm");
             int returnedValue = daoAdmin.ObtenerInfoCombos();
+            
             if ( returnedValue == 1)
             {
                 MessageBox.Show("Los datos han sido registrados exitosamente",
@@ -131,8 +135,8 @@ namespace RegistroPacientes.Controller.Registro_Inventario
             daoUpdate.IdCategoria = int.Parse(objAddInventory.cmbCategoria.SelectedValue.ToString());
             daoUpdate.FechaVencimiento = objAddInventory.PickFechaVencimiento.Value.Date;
             daoUpdate.Existencia = objAddInventory.TxtCantidadExistencia.Text.Trim();
-            daoUpdate.Ingreso = objAddInventory.TxTIngreso.Texts.Trim();
-            daoUpdate.Salida = objAddInventory.TxTSalida.Text.Trim();
+            daoUpdate.Ingreso = objAddInventory.PickIngreso.Value.Date;
+            daoUpdate.Salida = objAddInventory.PickHora.Value.ToString("HH:mm");
 
             int returnedValue = daoUpdate.UpdateInventory();
              if (returnedValue == 2)
@@ -158,15 +162,15 @@ namespace RegistroPacientes.Controller.Registro_Inventario
             }
         }
 
-        public void ChargeValues(int id, string nameMedicment, string categoryMedicment, DateTime expirationDate, string stock, string income, string exit, string description)
+        public void ChargeValues(int id, string nameMedicment, string categoryMedicment, DateTime expirationDate, string stock, DateTime income, DateTime exit, string description)
         {
             objAddInventory.TxTId.Text = id.ToString();
             objAddInventory.TxtNombreMedicamento.Text = nameMedicment;
             objAddInventory.cmbCategoria.Text = categoryMedicment;
             objAddInventory.PickFechaVencimiento.Value = expirationDate;
             objAddInventory.TxtCantidadExistencia.Text = stock;
-            objAddInventory.TxTIngreso.Text = income;
-            objAddInventory.TxTSalida.Text = exit;
+            objAddInventory.PickIngreso.Value = income;
+            objAddInventory.PickHora.Value = exit;
             objAddInventory.TxtDescripcion.Text = description;  
 
         }

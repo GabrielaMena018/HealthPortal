@@ -14,12 +14,12 @@ namespace RegistroPacientes.Models
             try
             {
                 //string server = "DESKTOP-QR03KRF";
-                string server = "LAPTOP-KGGOS1AD\\SQLEXPRESS";
+                string server = "LAPTOP-KC01ESS7\\SQLEXPRESS";
                 string database = "HealthPortal";
                 //SqlConnection conexion = new SqlConnection("Server =" + server +
                 //                                               "; DataBase = " + database +
                 //                                             "; Integrated Security = true");
-                SqlConnection conexion = new SqlConnection($"Server = {server}; Database = {database}; uid = sa ; pwd = tato1234");
+                SqlConnection conexion = new SqlConnection($"server = {server}; database = {database}; uid = sa ; pwd = tato1234");
                 conexion.Open();
                 return conexion;
             }

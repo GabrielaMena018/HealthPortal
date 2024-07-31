@@ -138,7 +138,5 @@ namespace RegistroPacientes.Controller.Dashboard
                 }
             }
         }
-
-     
     }  
 }

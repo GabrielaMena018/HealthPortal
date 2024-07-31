@@ -24,14 +24,12 @@ namespace RegistroPacientes.Controller.Registro_Inventario
             objAdminInventory.cmsUpdate.Click += new EventHandler(UpdateInventory);
             objAdminInventory.cmsDelete.Click += new EventHandler(DeleteInventory);
             //DataGridView
-            ////ObjAdminUser.dgvInventory.CellPainting += new DataGridViewCellPaintingEventHandler(FormatoColumnaGrid);
+            //objAdminInventory.dgvInventory.CellPainting += new DataGridViewCellPaintingEventHandler(FormatoColumnaGrid);
         }
 
         public void LoadData(object sender, EventArgs e)
         {
             RefreshData();
-            //GenerarColumnaEditarDataGrid();
-            //GenerarColumnaEliminarDataGrid();
         }
 
         public void RefreshData()
@@ -41,7 +39,23 @@ namespace RegistroPacientes.Controller.Registro_Inventario
             //Declarando DataSet para que obtenga los datos del metodo GetInventory
             DataSet ds = objAdmin.GetInventory();
             //Llenar DataGridView 
-            objAdminInventory.dgvInventory.DataSource = ds.Tables["viewInventory"];
+            objAdminInventory.dgvInventory.DataSource = ds.Tables["ViewMedicamento"];
+            objAdminInventory.dgvInventory.Columns[0].HeaderText = "ID Medicamento";
+            objAdminInventory.dgvInventory.Columns[0].Width = 120;
+            objAdminInventory.dgvInventory.Columns[1].HeaderText = "Nombre";
+            objAdminInventory.dgvInventory.Columns[1].Width = 100;
+            objAdminInventory.dgvInventory.Columns[2].HeaderText = "Descripción";
+            objAdminInventory.dgvInventory.Columns[2].Width = 100;
+            objAdminInventory.dgvInventory.Columns[3].HeaderText = "Categoria";
+            objAdminInventory.dgvInventory.Columns[3].Width = 100;
+            objAdminInventory.dgvInventory.Columns[4].HeaderText = "Fecha de vencimiento";
+            objAdminInventory.dgvInventory.Columns[4].Width = 135;
+            objAdminInventory.dgvInventory.Columns[5].HeaderText = "Fecha de Ingreso";
+            objAdminInventory.dgvInventory.Columns[5].Width = 135;
+            objAdminInventory.dgvInventory.Columns[6].HeaderText = "Hora de Entrada";
+            objAdminInventory.dgvInventory.Columns[6].Width = 135;
+            objAdminInventory.dgvInventory.Columns[7].HeaderText = "Cantidad en existencia";
+            objAdminInventory.dgvInventory.Columns[7].Width = 150;
         }
 
         #region Código para generar columnas de editar y eliminar
@@ -93,15 +107,15 @@ namespace RegistroPacientes.Controller.Registro_Inventario
         {
             int pos = objAdminInventory.dgvInventory.CurrentRow.Index;
             int id;
-            string nameMedicment, categoryMedicment, stock, income, exit, description;
-            DateTime expirationDate;
+            string nameMedicment, categoryMedicment, stock ,description;
+            DateTime expirationDate, income, exit;
 
             id = int.Parse(objAdminInventory.dgvInventory[0,pos]. Value.ToString() );
             nameMedicment = objAdminInventory.dgvInventory [1,pos]. Value.ToString();
             categoryMedicment= objAdminInventory.dgvInventory[2,pos].Value.ToString();
             stock = objAdminInventory.dgvInventory[3,pos].Value.ToString();
-            income = objAdminInventory.dgvInventory[4,pos].Value.ToString();
-            exit = objAdminInventory.dgvInventory[5,pos].Value.ToString() ;
+            income = DateTime.Parse(objAdminInventory.dgvInventory[4,pos].Value.ToString());
+            exit = DateTime.Parse(objAdminInventory.dgvInventory[5,pos].Value.ToString());
             description = objAdminInventory.dgvInventory[6,pos].Value.ToString();
             expirationDate = DateTime.Parse(objAdminInventory.dgvInventory[7, pos].Value.ToString());
 
@@ -128,6 +142,8 @@ namespace RegistroPacientes.Controller.Registro_Inventario
                     MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            RefreshData();
         }
+
     }
 }
