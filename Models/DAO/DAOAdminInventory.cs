@@ -57,7 +57,6 @@ namespace RegistroPacientes.Models.DAO
         {
             try
             {
-                MessageBox.Show("Prueba1");
                 command.Connection = getConnection();
                 string query = "INSERT INTO tbMedicamentos(nombreMedicamento, descripcionMedicamento, FechaVencimiento, IdCategoriaMedicamento) VALUES (@nombreMedicamento, @descripcionMedicamento, @fechaVencimiento, @idCategoriaMedicamento)";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
@@ -65,20 +64,19 @@ namespace RegistroPacientes.Models.DAO
                 cmd.Parameters.AddWithValue("descripcionMedicamento", Descripcion);
                 cmd.Parameters.AddWithValue("fechaVencimiento", FechaVencimiento);
                 cmd.Parameters.AddWithValue("idCategoriaMedicamento", IdCategoria);
-                MessageBox.Show(Descripcion);
                 int respuesta = cmd.ExecuteNonQuery();
 
                 if (respuesta == 1)
                 {
-                    MessageBox.Show("Prueba");
                     ObtenerIdMedicamentos();
+                    MessageBox.Show(NombreMedicamento);
+                    MessageBox.Show(Existencia.ToString());
                     string query2 = "INSERT INTO tbEntradasSalidasMedicamentos(fechaEntradaSalida, horaEntradaSalida, cantidadMedicamento, IdMedicamento) VALUES (@fechaEntradaSalida, @horaEntradaSalida, @cantidadMedicamento, @idMedicamento)";
                     SqlCommand cmd2 = new SqlCommand(query2, command.Connection);
                     cmd2.Parameters.AddWithValue("fechaEntradaSalida", Ingreso);
                     cmd2.Parameters.AddWithValue("horaEntradaSalida", Salida);
-                    cmd2.Parameters.AddWithValue("cantidadMedicamento", CantidadMedicamento);
+                    cmd2.Parameters.AddWithValue("cantidadMedicamento", Existencia);
                     cmd2.Parameters.AddWithValue("idMedicamento", IdMedicamento);
-                    MessageBox.Show($"{Ingreso} {Salida} {CantidadMedicamento} {IdMedicamento}");
                     respuesta = cmd2.ExecuteNonQuery();
                     return respuesta;             
                 }
@@ -107,7 +105,7 @@ namespace RegistroPacientes.Models.DAO
 
         public void ObtenerIdMedicamentos()
         {
-            string queryId = "SELECT MAX (IdMedicamento) FROM ViewMedicamento";
+            string queryId = "SELECT MAX (IdMedicamento) FROM tbMedicamentos";
             SqlCommand cmdIdMedicment = new SqlCommand(queryId, command.Connection);
             SqlDataReader consulta = cmdIdMedicment.ExecuteReader();
             while (consulta.Read())
