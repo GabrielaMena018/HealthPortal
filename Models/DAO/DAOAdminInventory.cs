@@ -16,13 +16,13 @@ namespace RegistroPacientes.Models.DAO
         readonly SqlCommand command = new SqlCommand();
         
 
-        public int ObtenerInfoCombos()
+        public int GetInfoCombo()
         {
-            LlenarCombosInventario();
+            FillCombo();
             return 1;
         }
 
-        public DataSet LlenarCombosInventario()
+        public DataSet FillCombo()
         {
             try
             {
@@ -68,7 +68,7 @@ namespace RegistroPacientes.Models.DAO
 
                 if (respuesta == 1)
                 {
-                    ObtenerIdMedicamentos();
+                    GetIdMedicments();
                     MessageBox.Show(NombreMedicamento);
                     MessageBox.Show(Existencia.ToString());
                     string query2 = "INSERT INTO tbEntradasSalidasMedicamentos(fechaEntradaSalida, horaEntradaSalida, cantidadMedicamento, IdMedicamento) VALUES (@fechaEntradaSalida, @horaEntradaSalida, @cantidadMedicamento, @idMedicamento)";
@@ -103,7 +103,7 @@ namespace RegistroPacientes.Models.DAO
             }
         }
 
-        public void ObtenerIdMedicamentos()
+        public void GetIdMedicments()
         {
             string queryId = "SELECT MAX (IdMedicamento) FROM tbMedicamentos";
             SqlCommand cmdIdMedicment = new SqlCommand(queryId, command.Connection);
@@ -161,16 +161,17 @@ namespace RegistroPacientes.Models.DAO
         {
             try
             {
+                MessageBox.Show("" + IdMedicamento);
                 command.Connection = getConnection();
                 string query = "UPDATE tbMedicamentos SET" +
                                 " nombreMedicamento = @nombreMedicamento," +
-                                " descreipcionMedicamento = @nombreMedicamento," +
-                                " fechaVencimiento = @nombreMedicamento " +
+                                " descripcionMedicamento = @descripcionMedicamento," +
+                                " fechaVencimiento = @fechaVencimiento " +
                                 "WHERE IdMedicamento = @IdMedicamento ";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
 
                 cmd.Parameters.AddWithValue("nombreMedicamento", NombreMedicamento);
-                cmd.Parameters.AddWithValue("descrpcionMedicamento", Descripcion);
+                cmd.Parameters.AddWithValue("descripcionMedicamento", Descripcion);
                 cmd.Parameters.AddWithValue("fechaVencimiento", FechaVencimiento);
                 cmd.Parameters.AddWithValue("IdMedicamento", IdMedicamento);
 
@@ -180,15 +181,16 @@ namespace RegistroPacientes.Models.DAO
                 {
                     //Si el valor es 1 procede a actualizar la información de salida y entrada
 
-                    string query2 = "UPDATE tbEntradasSalidasMedicamentos SET" +
-                                    "fechaEntradaSalida = @fechaEntradaSalida" +
-                                    "horaEntradaSalida = @horaEntradaSalida" +
-                                    "cantidadMedicamento = @cantidadMedicamento" +
+                    string query2 = "UPDATE tbEntradasSalidasMedicamentos SET " +
+                                    "fechaEntradaSalida = @fechaEntradaSalida," +
+                                    "horaEntradaSalida = @horaEntradaSalida," +
+                                    "cantidadMedicamento = @cantidadMedicamento " +
                                     "WHERE IdMedicamento = @IdMedicamento";
                     SqlCommand cmd2 = new SqlCommand(query2, command.Connection);
-                    cmd.Parameters.AddWithValue("fechaEntradaSalida", Ingreso);
-                    cmd.Parameters.AddWithValue("horaEntradaSalida", Salida);
-                    cmd.Parameters.AddWithValue("cantidadMedicamento", CantidadMedicamento);
+                    cmd2.Parameters.AddWithValue("fechaEntradaSalida", Ingreso);
+                    cmd2.Parameters.AddWithValue("horaEntradaSalida", Salida);
+                    cmd2.Parameters.AddWithValue("cantidadMedicamento", CantidadMedicamento);
+                    cmd2.Parameters.AddWithValue("IdMedicamento", IdMedicamento);
                     respuesta = cmd2.ExecuteNonQuery();
                     respuesta = 2;
                 }
@@ -214,14 +216,27 @@ namespace RegistroPacientes.Models.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "DELETE tbMedicamentos WHERE idMedicamento = @IdMedicamento";
-                SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("IdMedicamento", IdMedicamento);
-                int respuesta = cmd.ExecuteNonQuery();
-                return respuesta;
+                string queryDelete = "DELETE tbEntradasSalidasMedicamentos WHERE IdEntradaSalida = @Param1";
+                 SqlCommand cmdDelete = new SqlCommand(queryDelete, command.Connection);
+                cmdDelete.Parameters.AddWithValue("@Param1", IdEntradaSalida);
+                int returnedDeleteValue = cmdDelete.ExecuteNonQuery();
+                if (returnedDeleteValue == 1)
+                {
+                    command.Connection = getConnection();
+                    string query = "DELETE tbMedicamentos WHERE IdMedicamento = @Param2";
+                    SqlCommand cmd = new SqlCommand(query, command.Connection);
+                    cmd.Parameters.AddWithValue("@Param2", IdMedicamento);
+                    int respuesta = cmd.ExecuteNonQuery();
+                    return respuesta;
             }
-            catch (Exception)
+                else
             {
+                return 0;
+            }
+        }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");
                 return -1;
             }
             finally

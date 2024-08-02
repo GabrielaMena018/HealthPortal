@@ -44,7 +44,6 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TxTId = new System.Windows.Forms.MenuStrip();
-            this.PickIngreso = new System.Windows.Forms.DateTimePicker();
             this.PickHora = new System.Windows.Forms.DateTimePicker();
             this.btnUpdateInventory = new CustomPanel.RJButton();
             this.btnAgregarImagen = new CustomPanel.RJButton();
@@ -52,6 +51,7 @@
             this.TxtDescripcion = new CustomPanel.BorderRadiusTXT();
             this.TxtCantidadExistencia = new CustomPanel.BorderRadiusTXT();
             this.TxtNombreMedicamento = new CustomPanel.BorderRadiusTXT();
+            this.PickIngreso = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicImagenMedicamento)).BeginInit();
@@ -220,18 +220,9 @@
             this.TxTId.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.TxTId.Location = new System.Drawing.Point(0, 0);
             this.TxTId.Name = "TxTId";
-            this.TxTId.Size = new System.Drawing.Size(904, 24);
+            this.TxTId.Size = new System.Drawing.Size(904, 36);
             this.TxTId.TabIndex = 45;
             this.TxTId.Text = "menuStrip1";
-            // 
-            // PickIngreso
-            // 
-            this.PickIngreso.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PickIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.PickIngreso.Location = new System.Drawing.Point(382, 357);
-            this.PickIngreso.Name = "PickIngreso";
-            this.PickIngreso.Size = new System.Drawing.Size(216, 34);
-            this.PickIngreso.TabIndex = 46;
             // 
             // PickHora
             // 
@@ -368,6 +359,15 @@
             this.TxtNombreMedicamento.Texts = "";
             this.TxtNombreMedicamento.UnderlinedStyle = false;
             // 
+            // PickIngreso
+            // 
+            this.PickIngreso.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PickIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.PickIngreso.Location = new System.Drawing.Point(382, 357);
+            this.PickIngreso.Name = "PickIngreso";
+            this.PickIngreso.Size = new System.Drawing.Size(216, 34);
+            this.PickIngreso.TabIndex = 46;
+            // 
             // FrmAddInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -435,7 +435,7 @@
         public System.Windows.Forms.DateTimePicker PickFechaVencimiento;
         public System.Windows.Forms.ComboBox cmbCategoria;
         public System.Windows.Forms.MenuStrip TxTId;
-        public System.Windows.Forms.DateTimePicker PickIngreso;
         public System.Windows.Forms.DateTimePicker PickHora;
+        public System.Windows.Forms.DateTimePicker PickIngreso;
     }
 }

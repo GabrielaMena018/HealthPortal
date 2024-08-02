@@ -17,6 +17,7 @@ namespace RegistroPacientes.Models.DTO
         private string salida;
         private string descripcion;
         private int idCategoria;
+        private int idEntradaSalida;
 
         public string NombreMedicamento { get => nombreMedicamento; set => nombreMedicamento = value; }
         public string Existencia { get => existencia; set => existencia = value; }
@@ -27,5 +28,6 @@ namespace RegistroPacientes.Models.DTO
         public int IdCategoria { get => idCategoria; set => idCategoria = value; }
         public int IdMedicamento { get => idMedicamento; set => idMedicamento = value; }
         public int CantidadMedicamento { get => cantidadMedicamento; set => cantidadMedicamento = value; }
+        public int IdEntradaSalida { get => idEntradaSalida; set => idEntradaSalida = value; }
     }
 }

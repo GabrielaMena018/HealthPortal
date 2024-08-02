@@ -70,7 +70,7 @@ namespace RegistroPacientes.Controller.Registro_Inventario
             DAOAdminInventory objAdmin = new DAOAdminInventory();
 
             //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombosInventario
-            DataSet dsInventory = objAdmin.LlenarCombosInventario();
+            DataSet dsInventory = objAdmin.FillCombo();
             //Llenar comboBox de la tabla tbCategoriaMedicamento
             objAddInventory.cmbCategoria.DataSource = dsInventory.Tables["tbCategoriaMedicamento"];
             objAddInventory.cmbCategoria.ValueMember = "IdCategoriaMedicamento";
@@ -93,7 +93,6 @@ namespace RegistroPacientes.Controller.Registro_Inventario
             {
                 objAddInventory.btnAgregarInventario.Enabled = false;
                 objAddInventory.btnUpdateInventory.Enabled = true;
-                objAddInventory.TxtDescripcion.Enabled = false;
             }
         }
 
@@ -129,13 +128,14 @@ namespace RegistroPacientes.Controller.Registro_Inventario
         public void UpdateInventory(object sender, EventArgs e)
         {
             DAOAdminInventory daoUpdate = new DAOAdminInventory();
-            daoUpdate.IdCategoria = int.Parse(objAddInventory.TxTId.Text.Trim());
+            daoUpdate.IdMedicamento = int.Parse(objAddInventory.TxTId.Text.Trim());
             daoUpdate.NombreMedicamento = objAddInventory.TxtNombreMedicamento.Text.Trim();
             daoUpdate.IdCategoria = int.Parse(objAddInventory.cmbCategoria.SelectedValue.ToString());
             daoUpdate.FechaVencimiento = objAddInventory.PickFechaVencimiento.Value.Date;
             daoUpdate.Existencia = objAddInventory.TxtCantidadExistencia.Text.Trim();
             daoUpdate.Ingreso = objAddInventory.PickIngreso.Value.Date;
             daoUpdate.Salida = objAddInventory.PickHora.Value.ToString("HH:mm");
+            daoUpdate.Descripcion = objAddInventory.TxtDescripcion.Texts.Trim();
 
             int returnedValue = daoUpdate.UpdateInventory();
              if (returnedValue == 2)
@@ -147,6 +147,7 @@ namespace RegistroPacientes.Controller.Registro_Inventario
             }
              else if (returnedValue == 1)
             {
+                
                 MessageBox.Show("Los datos no pudieron ser actualizados completamente",
                                 "Proceso interrumpido",
                                 MessageBoxButtons.OK,
@@ -158,19 +159,20 @@ namespace RegistroPacientes.Controller.Registro_Inventario
                                 "Proceso interrumpido",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
+                MessageBox.Show(returnedValue.ToString());
             }
         }
 
         public void ChargeValues(int id, string nameMedicment, string categoryMedicment, DateTime expirationDate, string stock, DateTime income, DateTime exit, string description)
         {
             objAddInventory.TxTId.Text = id.ToString();
-            objAddInventory.TxtNombreMedicamento.Text = nameMedicment;
+            objAddInventory.TxtNombreMedicamento.Texts = nameMedicment;
             objAddInventory.cmbCategoria.Text = categoryMedicment;
             objAddInventory.PickFechaVencimiento.Value = expirationDate;
-            objAddInventory.TxtCantidadExistencia.Text = stock;
+            objAddInventory.TxtCantidadExistencia.Texts = stock;
             objAddInventory.PickIngreso.Value = income;
             objAddInventory.PickHora.Value = exit;
-            objAddInventory.TxtDescripcion.Text = description;  
+            objAddInventory.TxtDescripcion.Texts = description;  
 
         }
     }
