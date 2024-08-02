@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RegistroPacientes.View.Login;
+using RegistroPacientes.View.UserAdministration;
 
 namespace RegistroPacientes
 {
@@ -19,6 +20,7 @@ namespace RegistroPacientes
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmLogin());
+            Application.Run(new FrmUserAdministration());
         }
     }
 }

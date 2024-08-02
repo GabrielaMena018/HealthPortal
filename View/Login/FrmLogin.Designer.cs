@@ -31,13 +31,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtpassword = new System.Windows.Forms.Label();
+            this.txtusername = new System.Windows.Forms.Label();
             this.hidepass = new System.Windows.Forms.PictureBox();
             this.lockpic = new System.Windows.Forms.PictureBox();
             this.userpic = new System.Windows.Forms.PictureBox();
             this.checkremember = new System.Windows.Forms.CheckBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.txtusername = new System.Windows.Forms.Label();
-            this.txtpassword = new System.Windows.Forms.Label();
             this.btnLogin = new CustomPanel.RJButton();
             this.BoxUsername = new CustomPanel.BorderRadiusTXT();
             this.BoxPassword = new CustomPanel.BorderRadiusTXT();
@@ -69,6 +69,27 @@
             this.panel1.Size = new System.Drawing.Size(573, 420);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // txtpassword
+            // 
+            this.txtpassword.AutoSize = true;
+            this.txtpassword.BackColor = System.Drawing.Color.White;
+            this.txtpassword.Location = new System.Drawing.Point(205, 190);
+            this.txtpassword.Name = "txtpassword";
+            this.txtpassword.Size = new System.Drawing.Size(75, 18);
+            this.txtpassword.TabIndex = 21;
+            this.txtpassword.Text = "Password";
+            // 
+            // txtusername
+            // 
+            this.txtusername.AutoSize = true;
+            this.txtusername.BackColor = System.Drawing.Color.White;
+            this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtusername.Location = new System.Drawing.Point(205, 127);
+            this.txtusername.Name = "txtusername";
+            this.txtusername.Size = new System.Drawing.Size(77, 18);
+            this.txtusername.TabIndex = 20;
+            this.txtusername.Text = "Username";
             // 
             // hidepass
             // 
@@ -138,27 +159,6 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Forgot Password?";
             // 
-            // txtusername
-            // 
-            this.txtusername.AutoSize = true;
-            this.txtusername.BackColor = System.Drawing.Color.White;
-            this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtusername.Location = new System.Drawing.Point(205, 127);
-            this.txtusername.Name = "txtusername";
-            this.txtusername.Size = new System.Drawing.Size(77, 18);
-            this.txtusername.TabIndex = 20;
-            this.txtusername.Text = "Username";
-            // 
-            // txtpassword
-            // 
-            this.txtpassword.AutoSize = true;
-            this.txtpassword.BackColor = System.Drawing.Color.White;
-            this.txtpassword.Location = new System.Drawing.Point(205, 190);
-            this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Size = new System.Drawing.Size(75, 18);
-            this.txtpassword.TabIndex = 21;
-            this.txtpassword.Text = "Password";
-            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.Gold;
@@ -184,14 +184,14 @@
             this.BoxUsername.BorderFocusColor = System.Drawing.Color.HotPink;
             this.BoxUsername.BorderRadius = 0;
             this.BoxUsername.BorderSize = 2;
-            this.BoxUsername.Location = new System.Drawing.Point(208, 148);
+            this.BoxUsername.Location = new System.Drawing.Point(233, 148);
             this.BoxUsername.Multiline = false;
             this.BoxUsername.Name = "BoxUsername";
             this.BoxUsername.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.BoxUsername.PasswordChar = false;
             this.BoxUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.BoxUsername.PlaceholderText = "";
-            this.BoxUsername.Size = new System.Drawing.Size(221, 33);
+            this.BoxUsername.Size = new System.Drawing.Size(196, 33);
             this.BoxUsername.TabIndex = 23;
             this.BoxUsername.Texts = "       Username";
             this.BoxUsername.UnderlinedStyle = false;
