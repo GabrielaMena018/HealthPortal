@@ -1,249 +1,191 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-	<PropertyGroup>
-		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		<ProjectGuid>{28C910F9-D35B-4141-8133-8836DCC2E781}</ProjectGuid>
-		<OutputType>WinExe</OutputType>
-		<RootNamespace>RegistroPacientes</RootNamespace>
-		<AssemblyName>RegistroPacientes</AssemblyName>
-		<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-		<FileAlignment>512</FileAlignment>
-		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-		<Deterministic>true</Deterministic>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<PlatformTarget>AnyCPU</PlatformTarget>
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>full</DebugType>
-		<Optimize>false</Optimize>
-		<OutputPath>bin\Debug\</OutputPath>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<PlatformTarget>AnyCPU</PlatformTarget>
-		<DebugType>pdbonly</DebugType>
-		<Optimize>true</Optimize>
-		<OutputPath>bin\Release\</OutputPath>
-		<DefineConstants>TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<ItemGroup>
-		<Reference Include="System" />
-		<Reference Include="System.Core" />
-		<Reference Include="System.Windows.Forms.DataVisualization" />
-		<Reference Include="System.Xml.Linq" />
-		<Reference Include="System.Data.DataSetExtensions" />
-		<Reference Include="Microsoft.CSharp" />
-		<Reference Include="System.Data" />
-		<Reference Include="System.Deployment" />
-		<Reference Include="System.Drawing" />
-		<Reference Include="System.Net.Http" />
-		<Reference Include="System.Windows.Forms" />
-		<Reference Include="System.Xml" />
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Include="Controller\AcademycLevelAdministration\ControllerAddGrade.cs" />
-		<Compile Include="Controller\AcademycLevelAdministration\ControllerAdminGrades.cs" />
-		<Compile Include="Controller\Registro Pacientes\ControllerAddPatience.cs" />
-		<Compile Include="Controller\Registro Pacientes\ControllerAdminPatience.cs" />
-		<Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
-		<Compile Include="Controller\UserAdministration\ControllerAddUpdateUser.cs" />
-		<Compile Include="Controller\UserAdministration\ControllerUserAdministration.cs" />
-		<Compile Include="Models\DAO\DAOAdminGrades.cs" />
-		<Compile Include="Models\DAO\DAOAdminPatience.cs" />
-		<Compile Include="Models\DAO\DAOUserAdministration.cs" />
-		<Compile Include="Models\dbContext.cs" />
-		<Compile Include="Models\DTO\DTOAdminGrade.cs" />
-		<Compile Include="Models\DTO\DTOAdminPatience.cs" />
-		<Compile Include="Models\DTO\DTOUserAdministration.cs" />
-		<Compile Include="View\AcademycLevelAdministration\FrmAddGrades.cs">
-			<SubType>Form</SubType>
-		</Compile>
-		<Compile Include="View\AcademycLevelAdministration\FrmAddGrades.Designer.cs">
-			<DependentUpon>FrmAddGrades.cs</DependentUpon>
-		</Compile>
-		<Compile Include="View\AcademycLevelAdministration\FrmAdminGrades.cs">
-			<SubType>Form</SubType>
-		</Compile>
-		<Compile Include="View\AcademycLevelAdministration\FrmAdminGrades.Designer.cs">
-			<DependentUpon>FrmAdminGrades.cs</DependentUpon>
-		</Compile>
-		<Compile Include="View\Dashboard\FrmDashboard.cs">
-			<SubType>Form</SubType>
-		</Compile>
-		<Compile Include="View\Dashboard\FrmDashboard.Designer.cs">
-			<DependentUpon>FrmDashboard.cs</DependentUpon>
-		</Compile>
-		<Compile Include="View\Ineventario\FrmAdminInventary.cs">
-			<SubType>Form</SubType>
-		</Compile>
-		<Compile Include="View\Ineventario\FrmAdminInventary.Designer.cs">
-			<DependentUpon>FrmAdminInventary.cs</DependentUpon>
-		</Compile>
-		<Compile Include="View\Pacientes\FrmAddPatience.cs">
-			<SubType>Form</SubType>
-		</Compile>
-		<Compile Include="View\Pacientes\FrmAddPatience.Designer.cs">
-			<DependentUpon>FrmAddPatience.cs</DependentUpon>
-		</Compile>
-		<Compile Include="View\Pacientes\FrmAdminPatience.cs">
-			<SubType>Form</SubType>
-		</Compile>
-		<Compile Include="View\Pacientes\FrmAdminPatience.Designer.cs">
-			<DependentUpon>FrmAdminPatience.cs</DependentUpon>
-		</Compile>
-		<Compile Include="Program.cs" />
-		<Compile Include="Properties\AssemblyInfo.cs" />
-		<Compile Include="Resources\BorderRadiusTXT.cs">
-			<SubType>UserControl</SubType>
-		</Compile>
-		<Compile Include="Resources\BorderRadiusTXT.Designer.cs">
-			<DependentUpon>BorderRadiusTXT.cs</DependentUpon>
-		</Compile>
-		<Compile Include="Resources\PanelCustom.cs">
-			<SubType>Component</SubType>
-		</Compile>
-		<Compile Include="Resources\RJButton.cs">
-			<SubType>Component</SubType>
-		</Compile>
-		<Compile Include="View\UserAdministration\FrmAddUpdateUser.cs">
-			<SubType>Form</SubType>
-		</Compile>
-		<Compile Include="View\UserAdministration\FrmAddUpdateUser.Designer.cs">
-			<DependentUpon>FrmAddUpdateUser.cs</DependentUpon>
-		</Compile>
-		<Compile Include="View\UserAdministration\FrmUserAdministration.cs">
-			<SubType>Form</SubType>
-		</Compile>
-		<Compile Include="View\UserAdministration\FrmUserAdministration.Designer.cs">
-			<DependentUpon>FrmUserAdministration.cs</DependentUpon>
-		</Compile>
-		<EmbeddedResource Include="View\AcademycLevelAdministration\FrmAddGrades.resx">
-			<DependentUpon>FrmAddGrades.cs</DependentUpon>
-		</EmbeddedResource>
-		<EmbeddedResource Include="View\AcademycLevelAdministration\FrmAdminGrades.resx">
-			<DependentUpon>FrmAdminGrades.cs</DependentUpon>
-		</EmbeddedResource>
-		<EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
-			<DependentUpon>FrmDashboard.cs</DependentUpon>
-		</EmbeddedResource>
-		<EmbeddedResource Include="View\Ineventario\FrmAdminInventary.resx">
-			<DependentUpon>FrmAdminInventary.cs</DependentUpon>
-		</EmbeddedResource>
-		<EmbeddedResource Include="View\Pacientes\FrmAddPatience.resx">
-			<DependentUpon>FrmAddPatience.cs</DependentUpon>
-		</EmbeddedResource>
-		<EmbeddedResource Include="View\Pacientes\FrmAdminPatience.resx">
-			<DependentUpon>FrmAdminPatience.cs</DependentUpon>
-		</EmbeddedResource>
-		<EmbeddedResource Include="Properties\Resources.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
-			<SubType>Designer</SubType>
-		</EmbeddedResource>
-		<Compile Include="Properties\Resources.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Resources.resx</DependentUpon>
-			<DesignTime>True</DesignTime>
-		</Compile>
-		<EmbeddedResource Include="Resources\BorderRadiusTXT.resx">
-			<DependentUpon>BorderRadiusTXT.cs</DependentUpon>
-		</EmbeddedResource>
-		<EmbeddedResource Include="View\UserAdministration\FrmAddUpdateUser.resx">
-			<DependentUpon>FrmAddUpdateUser.cs</DependentUpon>
-		</EmbeddedResource>
-		<EmbeddedResource Include="View\UserAdministration\FrmUserAdministration.resx">
-			<DependentUpon>FrmUserAdministration.cs</DependentUpon>
-		</EmbeddedResource>
-		<None Include="Properties\Settings.settings">
-			<Generator>SettingsSingleFileGenerator</Generator>
-			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
-		</None>
-		<Compile Include="Properties\Settings.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Settings.settings</DependentUpon>
-			<DesignTimeSharedInput>True</DesignTimeSharedInput>
-		</Compile>
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="App.config" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\home-alt-2-regular-36.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\menu-regular-24.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\menu-regular-241.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\pacientes.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\pacientes1.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\hogar.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\monitor-de-tablero %281%29.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\monitor-de-tablero %282%29.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\hogar1.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\pastillas.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\grafico-histograma.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\lista-del-portapapeles.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\salida.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\busqueda.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\busqueda %281%29.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\medico %282%29.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\actualizar.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\basura.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\ojo.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\ojo %281%29.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\procedimientos.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\agregar-usuario.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\leccion.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\leccion %282%29.png" />
-	</ItemGroup>
-	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28C910F9-D35B-4141-8133-8836DCC2E781}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RegistroPacientes</RootNamespace>
+    <AssemblyName>RegistroPacientes</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\Registro Inventario\ControllerAddInventory.cs" />
+    <Compile Include="Controller\Registro Inventario\ControllerAdminInventory.cs" />
+    <Compile Include="Controller\Registro Pacientes\ControllerAddPatience.cs" />
+    <Compile Include="Controller\Registro Pacientes\ControllerAdminPatience.cs" />
+    <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
+    <Compile Include="Models\DAO\DAOAdminInventory.cs" />
+    <Compile Include="Models\DAO\DAOAdminPatience.cs" />
+    <Compile Include="Models\dbContext.cs" />
+    <Compile Include="Models\DTO\DTOAdminInventory.cs" />
+    <Compile Include="Models\DTO\DTOAdminPatience.cs" />
+    <Compile Include="View\Dashboard\FrmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dashboard\FrmDashboard.Designer.cs">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ineventario\FrmAddInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ineventario\FrmAddInventory.Designer.cs">
+      <DependentUpon>FrmAddInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ineventario\FrmAdminInventary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ineventario\FrmAdminInventary.Designer.cs">
+      <DependentUpon>FrmAdminInventary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pacientes\FrmAddPatience.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pacientes\FrmAddPatience.Designer.cs">
+      <DependentUpon>FrmAddPatience.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pacientes\FrmAdminPatience.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pacientes\FrmAdminPatience.Designer.cs">
+      <DependentUpon>FrmAdminPatience.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\BorderRadiusTXT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Resources\BorderRadiusTXT.Designer.cs">
+      <DependentUpon>BorderRadiusTXT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\PanelCustom.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Resources\RJButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ineventario\FrmAddInventory.resx">
+      <DependentUpon>FrmAddInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ineventario\FrmAdminInventary.resx">
+      <DependentUpon>FrmAdminInventary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Pacientes\FrmAddPatience.resx">
+      <DependentUpon>FrmAddPatience.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Pacientes\FrmAdminPatience.resx">
+      <DependentUpon>FrmAdminPatience.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resources\BorderRadiusTXT.resx">
+      <DependentUpon>BorderRadiusTXT.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-alt-2-regular-36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-regular-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-regular-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacientes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacientes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hogar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monitor-de-tablero %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monitor-de-tablero %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hogar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pastillas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grafico-histograma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista-del-portapapeles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busqueda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busqueda %281%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
