@@ -405,7 +405,7 @@
             this.btnNewGrade.Name = "btnNewGrade";
             this.btnNewGrade.Size = new System.Drawing.Size(153, 49);
             this.btnNewGrade.TabIndex = 0;
-            this.btnNewGrade.Text = "Nuevo Grado";
+            this.btnNewGrade.Text = "Nuevo Grade";
             this.btnNewGrade.TextColor = System.Drawing.Color.Black;
             this.btnNewGrade.UseVisualStyleBackColor = false;
             // 
@@ -418,7 +418,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 23);
             this.label6.TabIndex = 20;
-            this.label6.Text = "Especialidad";
+            this.label6.Text = "specialty";
             // 
             // label3
             // 
@@ -470,7 +470,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 23);
             this.label8.TabIndex = 22;
-            this.label8.Text = "Grado";
+            this.label8.Text = "Grade";
             // 
             // tabPageAdminEspecialidad
             // 
@@ -537,14 +537,14 @@
             this.toolStripActualizarEspecialidad.Image = ((System.Drawing.Image)(resources.GetObject("toolStripActualizarEspecialidad.Image")));
             this.toolStripActualizarEspecialidad.Name = "toolStripActualizarEspecialidad";
             this.toolStripActualizarEspecialidad.Size = new System.Drawing.Size(236, 26);
-            this.toolStripActualizarEspecialidad.Text = "Actualizar Especialidad";
+            this.toolStripActualizarEspecialidad.Text = "Actualizar specialty";
             // 
             // toolStripEliminarEspecialidad
             // 
             this.toolStripEliminarEspecialidad.Image = ((System.Drawing.Image)(resources.GetObject("toolStripEliminarEspecialidad.Image")));
             this.toolStripEliminarEspecialidad.Name = "toolStripEliminarEspecialidad";
             this.toolStripEliminarEspecialidad.Size = new System.Drawing.Size(236, 26);
-            this.toolStripEliminarEspecialidad.Text = "Eliminar Especialidad";
+            this.toolStripEliminarEspecialidad.Text = "Eliminar specialty";
             // 
             // panel6
             // 
@@ -580,7 +580,7 @@
             this.btnNuevaEspecialidad.Name = "btnNuevaEspecialidad";
             this.btnNuevaEspecialidad.Size = new System.Drawing.Size(237, 50);
             this.btnNuevaEspecialidad.TabIndex = 0;
-            this.btnNuevaEspecialidad.Text = "Nueva Especialidad";
+            this.btnNuevaEspecialidad.Text = "Nueva specialty";
             this.btnNuevaEspecialidad.TextColor = System.Drawing.Color.Black;
             this.btnNuevaEspecialidad.UseVisualStyleBackColor = false;
             // 

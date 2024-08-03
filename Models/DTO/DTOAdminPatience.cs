@@ -12,49 +12,45 @@ namespace RegistroPacientes.Models.DTO
         //Atributos
 
         //Paciente
-        private int idPaciente;
-        private string nombre;
-        private string apellido;
+        private int idPatient;
+        private string name;
+        private string lastName;
         private int rol;
 
         //Estudiante
-        private string codigo;
-        private int idGradoSeccion;
+        private string code;
+        private int idGradeSection;
 
-        //Grado seccion
-        private string grupoTecnico;
-        private int especialidad;
-        private int grado;
+        //Grade seccion
+        private string groupTechnical;
+        private int specialty;
+        private int grade;
         private int seccionAcademica;
 
-        //Personal de la Institucion
-        private string documento;
-        private int idArea;
 
         //Visita
         private int Idpaciente;
-        private DateTime fecha;
-        private string hora;
+        private DateTime date;
+        private string time;
         private int medicamento;
         private string observacion;
 
         //Metodos
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido { get => apellido; set => apellido = value; }
+        public string Name { get => name; set => name = value; }
+        public string LastName { get => lastName; set => lastName = value; }
         public int Rol { get => rol; set => rol = value; }
-        public string Codigo { get => codigo; set => codigo = value; }
-        public int IdGradoSeccion { get => idGradoSeccion; set => idGradoSeccion = value; }
-        public string GrupoTecnico { get => grupoTecnico; set => grupoTecnico = value; }
-        public int Especialidad { get => especialidad; set => especialidad = value; }
-        public int Grado { get => grado; set => grado = value; }
+        public string Code { get => code; set => code = value; }
+        public int IdGradeSection { get => idGradeSection; set => idGradeSection = value; }
+        public string GroupTechnical { get => groupTechnical; set => groupTechnical = value; }
+        public int Specialty { get => specialty; set => specialty = value; }
+        public int Grade { get => grade; set => grade = value; }
         public int SeccionAcademica { get => seccionAcademica; set => seccionAcademica = value; }
         public int Idpaciente1 { get => Idpaciente; set => Idpaciente = value; }
-        public DateTime Fecha { get => fecha; set => fecha = value; }
-        public string Hora { get => hora; set => hora = value; }
+        public DateTime Date { get => date; set => date = value; }
+        public string Time { get => time; set => time = value; }
         public int Medicamento { get => medicamento; set => medicamento = value; }
         public string Observacion { get => observacion; set => observacion = value; }
-        public int IdPaciente { get => idPaciente; set => idPaciente = value; }
-        public string Documento { get => documento; set => documento = value; }
-        public int IdArea { get => idArea; set => idArea = value; }
+        public int IdPaciente { get => idPatient; set => idPatient = value; }
+
     }
 }

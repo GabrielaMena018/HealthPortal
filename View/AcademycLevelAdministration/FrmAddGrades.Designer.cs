@@ -136,13 +136,13 @@
             this.cmbEspecialidad.Size = new System.Drawing.Size(255, 33);
             this.cmbEspecialidad.TabIndex = 14;
             // 
-            // CmbGrado
+            // CmbGrade
             // 
             this.CmbGrado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbGrado.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbGrado.FormattingEnabled = true;
             this.CmbGrado.Location = new System.Drawing.Point(22, 63);
-            this.CmbGrado.Name = "CmbGrado";
+            this.CmbGrado.Name = "CmbGrade";
             this.CmbGrado.Size = new System.Drawing.Size(177, 33);
             this.CmbGrado.TabIndex = 13;
             // 
@@ -184,7 +184,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 28);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Grado";
+            this.label2.Text = "Grade";
             // 
             // txtGrupoTecnico
             // 
@@ -483,7 +483,7 @@
             this.tabPageNewEspecialidad.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageNewEspecialidad.Size = new System.Drawing.Size(571, 408);
             this.tabPageNewEspecialidad.TabIndex = 3;
-            this.tabPageNewEspecialidad.Text = "Registrar Especialidad";
+            this.tabPageNewEspecialidad.Text = "Registrar specialty";
             this.tabPageNewEspecialidad.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
@@ -504,7 +504,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(490, 23);
             this.label14.TabIndex = 20;
-            this.label14.Text = "Registrar una nueva Especialidad o actuzalizar una ya existente";
+            this.label14.Text = "Registrar una nueva specialty o actuzalizar una ya existente";
             // 
             // pictureBox4
             // 
@@ -525,7 +525,7 @@
             this.lblRegistrarEspecialidad.Name = "lblRegistrarEspecialidad";
             this.lblRegistrarEspecialidad.Size = new System.Drawing.Size(405, 50);
             this.lblRegistrarEspecialidad.TabIndex = 18;
-            this.lblRegistrarEspecialidad.Text = "Registrar Especialidad";
+            this.lblRegistrarEspecialidad.Text = "Registrar specialty";
             // 
             // btnAgregarEspecialidad
             // 
@@ -600,7 +600,7 @@
             this.lblNuevaEspecialidad.Name = "lblNuevaEspecialidad";
             this.lblNuevaEspecialidad.Size = new System.Drawing.Size(181, 28);
             this.lblNuevaEspecialidad.TabIndex = 11;
-            this.lblNuevaEspecialidad.Text = "Nueva Especialidad";
+            this.lblNuevaEspecialidad.Text = "Nueva specialty";
             // 
             // label17
             // 
@@ -610,7 +610,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(202, 28);
             this.label17.TabIndex = 9;
-            this.label17.Text = "Especialidad Existente";
+            this.label17.Text = "specialty Existente";
             // 
             // txtNuevaEspecialidad
             // 
