@@ -33,12 +33,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CmbRol = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.CmbAreaPersonal = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupPersonalInstitucion = new System.Windows.Forms.GroupBox();
-            this.mksDocumento = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TxtObservaciones = new CustomPanel.BorderRadiusTXT();
             this.label11 = new System.Windows.Forms.Label();
             this.CmbMedicamentoRegistro = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -50,32 +46,30 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupStudent = new System.Windows.Forms.GroupBox();
+            this.txtGrupo = new CustomPanel.BorderRadiusTXT();
             this.label5 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.CmbEspecidalidadRegistro = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.TxtCodigoPaciente = new CustomPanel.BorderRadiusTXT();
             this.CmBGradoRegistro = new System.Windows.Forms.ComboBox();
             this.CmbSeccionRegistro = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.txtId = new System.Windows.Forms.ToolStripTextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.BtnAceptar = new CustomPanel.RJButton();
-            this.txtGrupo = new CustomPanel.BorderRadiusTXT();
-            this.TxtCodigoPaciente = new CustomPanel.BorderRadiusTXT();
             this.TxtApellidoPaciente = new CustomPanel.BorderRadiusTXT();
             this.btnAgregarPaciente = new CustomPanel.RJButton();
             this.BtnActuzalizar = new CustomPanel.RJButton();
-            this.TxtObservaciones = new CustomPanel.BorderRadiusTXT();
             this.TxtNombrePaciente = new CustomPanel.BorderRadiusTXT();
-            this.groupPersonalInstitucion.SuspendLayout();
+            this.pic2 = new System.Windows.Forms.PictureBox();
+            this.BtnPdf = new CustomPanel.RJButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupStudent.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -123,65 +117,6 @@
             this.CmbRol.Size = new System.Drawing.Size(239, 31);
             this.CmbRol.TabIndex = 2;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(73, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 28);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Documento";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CmbAreaPersonal
-            // 
-            this.CmbAreaPersonal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbAreaPersonal.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbAreaPersonal.FormattingEnabled = true;
-            this.CmbAreaPersonal.Location = new System.Drawing.Point(317, 62);
-            this.CmbAreaPersonal.Name = "CmbAreaPersonal";
-            this.CmbAreaPersonal.Size = new System.Drawing.Size(283, 31);
-            this.CmbAreaPersonal.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(312, 32);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(147, 28);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Área de trabajo";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupPersonalInstitucion
-            // 
-            this.groupPersonalInstitucion.Controls.Add(this.mksDocumento);
-            this.groupPersonalInstitucion.Controls.Add(this.CmbAreaPersonal);
-            this.groupPersonalInstitucion.Controls.Add(this.label4);
-            this.groupPersonalInstitucion.Controls.Add(this.label7);
-            this.groupPersonalInstitucion.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPersonalInstitucion.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.groupPersonalInstitucion.Location = new System.Drawing.Point(21, 261);
-            this.groupPersonalInstitucion.Name = "groupPersonalInstitucion";
-            this.groupPersonalInstitucion.Size = new System.Drawing.Size(768, 121);
-            this.groupPersonalInstitucion.TabIndex = 16;
-            this.groupPersonalInstitucion.TabStop = false;
-            this.groupPersonalInstitucion.Text = "Personal de la Institución";
-            this.groupPersonalInstitucion.Visible = false;
-            // 
-            // mksDocumento
-            // 
-            this.mksDocumento.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.mksDocumento.Location = new System.Drawing.Point(78, 63);
-            this.mksDocumento.Name = "mksDocumento";
-            this.mksDocumento.Size = new System.Drawing.Size(163, 30);
-            this.mksDocumento.TabIndex = 16;
-            this.mksDocumento.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.TxtObservaciones);
@@ -200,6 +135,26 @@
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visita";
+            // 
+            // TxtObservaciones
+            // 
+            this.TxtObservaciones.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtObservaciones.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtObservaciones.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.TxtObservaciones.BorderRadius = 20;
+            this.TxtObservaciones.BorderSize = 1;
+            this.TxtObservaciones.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtObservaciones.Location = new System.Drawing.Point(16, 146);
+            this.TxtObservaciones.Multiline = true;
+            this.TxtObservaciones.Name = "TxtObservaciones";
+            this.TxtObservaciones.Padding = new System.Windows.Forms.Padding(5);
+            this.TxtObservaciones.PasswordChar = false;
+            this.TxtObservaciones.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtObservaciones.PlaceholderText = "";
+            this.TxtObservaciones.Size = new System.Drawing.Size(727, 198);
+            this.TxtObservaciones.TabIndex = 12;
+            this.TxtObservaciones.Texts = "";
+            this.TxtObservaciones.UnderlinedStyle = false;
             // 
             // label11
             // 
@@ -253,9 +208,9 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label9.Location = new System.Drawing.Point(369, 28);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 28);
+            this.label9.Size = new System.Drawing.Size(59, 28);
             this.label9.TabIndex = 18;
-            this.label9.Text = "Hora ";
+            this.label9.Text = "Time ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PickFechaRegistro
@@ -274,16 +229,16 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(11, 28);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 28);
+            this.label8.Size = new System.Drawing.Size(56, 28);
             this.label8.TabIndex = 16;
-            this.label8.Text = "Fecha ";
+            this.label8.Text = "date ";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(585, 794);
+            this.pictureBox4.Location = new System.Drawing.Point(603, 793);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(35, 32);
             this.pictureBox4.TabIndex = 20;
@@ -325,12 +280,32 @@
             this.groupStudent.Controls.Add(this.label16);
             this.groupStudent.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupStudent.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.groupStudent.Location = new System.Drawing.Point(21, 255);
+            this.groupStudent.Location = new System.Drawing.Point(21, 257);
             this.groupStudent.Name = "groupStudent";
             this.groupStudent.Size = new System.Drawing.Size(768, 121);
             this.groupStudent.TabIndex = 17;
             this.groupStudent.TabStop = false;
             this.groupStudent.Text = "Estudiante";
+            // 
+            // txtGrupo
+            // 
+            this.txtGrupo.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGrupo.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtGrupo.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtGrupo.BorderRadius = 0;
+            this.txtGrupo.BorderSize = 1;
+            this.txtGrupo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtGrupo.Location = new System.Drawing.Point(391, 58);
+            this.txtGrupo.Multiline = false;
+            this.txtGrupo.Name = "txtGrupo";
+            this.txtGrupo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtGrupo.PasswordChar = false;
+            this.txtGrupo.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtGrupo.PlaceholderText = "";
+            this.txtGrupo.Size = new System.Drawing.Size(105, 38);
+            this.txtGrupo.TabIndex = 6;
+            this.txtGrupo.Texts = "";
+            this.txtGrupo.UnderlinedStyle = false;
             // 
             // label5
             // 
@@ -390,6 +365,26 @@
             this.label15.Text = "Especialidad";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // TxtCodigoPaciente
+            // 
+            this.TxtCodigoPaciente.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtCodigoPaciente.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtCodigoPaciente.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.TxtCodigoPaciente.BorderRadius = 20;
+            this.TxtCodigoPaciente.BorderSize = 1;
+            this.TxtCodigoPaciente.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtCodigoPaciente.Location = new System.Drawing.Point(13, 56);
+            this.TxtCodigoPaciente.Multiline = false;
+            this.TxtCodigoPaciente.Name = "TxtCodigoPaciente";
+            this.TxtCodigoPaciente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxtCodigoPaciente.PasswordChar = false;
+            this.TxtCodigoPaciente.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtCodigoPaciente.PlaceholderText = "";
+            this.TxtCodigoPaciente.Size = new System.Drawing.Size(138, 38);
+            this.TxtCodigoPaciente.TabIndex = 4;
+            this.TxtCodigoPaciente.Texts = "";
+            this.TxtCodigoPaciente.UnderlinedStyle = false;
+            // 
             // CmBGradoRegistro
             // 
             this.CmBGradoRegistro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -440,77 +435,6 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(132, 27);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(732, 793);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(26, 32);
-            this.pictureBox2.TabIndex = 26;
-            this.pictureBox2.TabStop = false;
-            // 
-            // BtnAceptar
-            // 
-            this.BtnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.BtnAceptar.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.BtnAceptar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.BtnAceptar.BorderRadius = 40;
-            this.BtnAceptar.BorderSize = 0;
-            this.BtnAceptar.Enabled = false;
-            this.BtnAceptar.FlatAppearance.BorderSize = 0;
-            this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAceptar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAceptar.ForeColor = System.Drawing.Color.Black;
-            this.BtnAceptar.Location = new System.Drawing.Point(642, 787);
-            this.BtnAceptar.Name = "BtnAceptar";
-            this.BtnAceptar.Size = new System.Drawing.Size(130, 42);
-            this.BtnAceptar.TabIndex = 25;
-            this.BtnAceptar.Text = "Aceptar";
-            this.BtnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAceptar.TextColor = System.Drawing.Color.Black;
-            this.BtnAceptar.UseVisualStyleBackColor = false;
-            // 
-            // txtGrupo
-            // 
-            this.txtGrupo.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGrupo.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtGrupo.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtGrupo.BorderRadius = 0;
-            this.txtGrupo.BorderSize = 1;
-            this.txtGrupo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtGrupo.Location = new System.Drawing.Point(391, 58);
-            this.txtGrupo.Multiline = false;
-            this.txtGrupo.Name = "txtGrupo";
-            this.txtGrupo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtGrupo.PasswordChar = false;
-            this.txtGrupo.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtGrupo.PlaceholderText = "";
-            this.txtGrupo.Size = new System.Drawing.Size(105, 38);
-            this.txtGrupo.TabIndex = 6;
-            this.txtGrupo.Texts = "";
-            this.txtGrupo.UnderlinedStyle = false;
-            // 
-            // TxtCodigoPaciente
-            // 
-            this.TxtCodigoPaciente.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCodigoPaciente.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtCodigoPaciente.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtCodigoPaciente.BorderRadius = 20;
-            this.TxtCodigoPaciente.BorderSize = 1;
-            this.TxtCodigoPaciente.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtCodigoPaciente.Location = new System.Drawing.Point(13, 56);
-            this.TxtCodigoPaciente.Multiline = false;
-            this.TxtCodigoPaciente.Name = "TxtCodigoPaciente";
-            this.TxtCodigoPaciente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TxtCodigoPaciente.PasswordChar = false;
-            this.TxtCodigoPaciente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtCodigoPaciente.PlaceholderText = "";
-            this.TxtCodigoPaciente.Size = new System.Drawing.Size(138, 38);
-            this.TxtCodigoPaciente.TabIndex = 4;
-            this.TxtCodigoPaciente.Texts = "";
-            this.TxtCodigoPaciente.UnderlinedStyle = false;
-            // 
             // TxtApellidoPaciente
             // 
             this.TxtApellidoPaciente.BackColor = System.Drawing.SystemColors.Window;
@@ -543,7 +467,7 @@
             this.btnAgregarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarPaciente.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarPaciente.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarPaciente.Location = new System.Drawing.Point(488, 786);
+            this.btnAgregarPaciente.Location = new System.Drawing.Point(506, 785);
             this.btnAgregarPaciente.Name = "btnAgregarPaciente";
             this.btnAgregarPaciente.Size = new System.Drawing.Size(148, 44);
             this.btnAgregarPaciente.TabIndex = 19;
@@ -573,26 +497,6 @@
             this.BtnActuzalizar.TextColor = System.Drawing.Color.Black;
             this.BtnActuzalizar.UseVisualStyleBackColor = false;
             // 
-            // TxtObservaciones
-            // 
-            this.TxtObservaciones.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtObservaciones.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtObservaciones.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtObservaciones.BorderRadius = 20;
-            this.TxtObservaciones.BorderSize = 1;
-            this.TxtObservaciones.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtObservaciones.Location = new System.Drawing.Point(16, 146);
-            this.TxtObservaciones.Multiline = true;
-            this.TxtObservaciones.Name = "TxtObservaciones";
-            this.TxtObservaciones.Padding = new System.Windows.Forms.Padding(5);
-            this.TxtObservaciones.PasswordChar = false;
-            this.TxtObservaciones.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtObservaciones.PlaceholderText = "";
-            this.TxtObservaciones.Size = new System.Drawing.Size(727, 198);
-            this.TxtObservaciones.TabIndex = 12;
-            this.TxtObservaciones.Texts = "";
-            this.TxtObservaciones.UnderlinedStyle = false;
-            // 
             // TxtNombrePaciente
             // 
             this.TxtNombrePaciente.BackColor = System.Drawing.SystemColors.Window;
@@ -613,6 +517,36 @@
             this.TxtNombrePaciente.Texts = "";
             this.TxtNombrePaciente.UnderlinedStyle = false;
             // 
+            // pic2
+            // 
+            this.pic2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pic2.Image = ((System.Drawing.Image)(resources.GetObject("pic2.Image")));
+            this.pic2.Location = new System.Drawing.Point(725, 799);
+            this.pic2.Name = "pic2";
+            this.pic2.Size = new System.Drawing.Size(26, 28);
+            this.pic2.TabIndex = 19;
+            this.pic2.TabStop = false;
+            // 
+            // BtnPdf
+            // 
+            this.BtnPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnPdf.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnPdf.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnPdf.BorderRadius = 40;
+            this.BtnPdf.BorderSize = 0;
+            this.BtnPdf.FlatAppearance.BorderSize = 0;
+            this.BtnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPdf.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnPdf.ForeColor = System.Drawing.Color.White;
+            this.BtnPdf.Location = new System.Drawing.Point(667, 786);
+            this.BtnPdf.Name = "BtnPdf";
+            this.BtnPdf.Size = new System.Drawing.Size(96, 46);
+            this.BtnPdf.TabIndex = 18;
+            this.BtnPdf.Text = "PDF";
+            this.BtnPdf.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPdf.TextColor = System.Drawing.Color.White;
+            this.BtnPdf.UseVisualStyleBackColor = false;
+            // 
             // FrmAddPatience
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -620,9 +554,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 860);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.BtnAceptar);
+            this.Controls.Add(this.pic2);
             this.Controls.Add(this.groupStudent);
+            this.Controls.Add(this.BtnPdf);
             this.Controls.Add(this.TxtApellidoPaciente);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.pictureBox1);
@@ -630,7 +564,6 @@
             this.Controls.Add(this.btnAgregarPaciente);
             this.Controls.Add(this.BtnActuzalizar);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupPersonalInstitucion);
             this.Controls.Add(this.CmbRol);
             this.Controls.Add(this.TxtNombrePaciente);
             this.Controls.Add(this.label3);
@@ -641,8 +574,6 @@
             this.Name = "FrmAddPatience";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo Paciente";
-            this.groupPersonalInstitucion.ResumeLayout(false);
-            this.groupPersonalInstitucion.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -651,7 +582,7 @@
             this.groupStudent.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -660,8 +591,6 @@
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -687,16 +616,13 @@
         public CustomPanel.BorderRadiusTXT txtGrupo;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.GroupBox groupStudent;
-        public System.Windows.Forms.GroupBox groupPersonalInstitucion;
-        public System.Windows.Forms.MaskedTextBox mksDocumento;
-        public System.Windows.Forms.ComboBox CmbAreaPersonal;
         public CustomPanel.RJButton BtnActuzalizar;
         private System.Windows.Forms.MenuStrip menuStrip1;
         public System.Windows.Forms.ToolStripTextBox txtId;
-        public CustomPanel.RJButton BtnAceptar;
         public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.PictureBox pictureBox4;
         public System.Windows.Forms.PictureBox pictureBox1;
+        public CustomPanel.RJButton BtnPdf;
+        public System.Windows.Forms.PictureBox pic2;
     }
 }

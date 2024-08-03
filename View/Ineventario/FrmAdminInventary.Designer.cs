@@ -524,20 +524,20 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(186, 32);
             this.dateTimePicker2.TabIndex = 16;
             // 
-            // IdPaciente
+            // IdPatient
             // 
             this.IdPaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.IdPaciente.FillWeight = 50F;
             this.IdPaciente.HeaderText = "IdInventario";
             this.IdPaciente.MinimumWidth = 6;
-            this.IdPaciente.Name = "IdPaciente";
+            this.IdPaciente.Name = "IdPatient";
             this.IdPaciente.ReadOnly = true;
             // 
             // Documento
             // 
             this.Documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Documento.FillWeight = 50F;
-            this.Documento.HeaderText = "Nombre";
+            this.Documento.HeaderText = "Name";
             this.Documento.MinimumWidth = 6;
             this.Documento.Name = "Documento";
             this.Documento.ReadOnly = true;
@@ -551,22 +551,22 @@
             this.NombrePaciente.Name = "NombrePaciente";
             this.NombrePaciente.ReadOnly = true;
             // 
-            // Apellido
+            // LastName
             // 
             this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Apellido.FillWeight = 75F;
-            this.Apellido.HeaderText = "Fecha de Ingreso";
+            this.Apellido.HeaderText = "date de Ingreso";
             this.Apellido.MinimumWidth = 6;
-            this.Apellido.Name = "Apellido";
+            this.Apellido.Name = "LastName";
             this.Apellido.ReadOnly = true;
             // 
-            // TipoPersona
+            // typeperson
             // 
             this.TipoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TipoPersona.FillWeight = 50F;
-            this.TipoPersona.HeaderText = "Fecha de vencimiento";
+            this.TipoPersona.HeaderText = "date de vencimiento";
             this.TipoPersona.MinimumWidth = 6;
-            this.TipoPersona.Name = "TipoPersona";
+            this.TipoPersona.Name = "typeperson";
             this.TipoPersona.ReadOnly = true;
             // 
             // FechaVisita

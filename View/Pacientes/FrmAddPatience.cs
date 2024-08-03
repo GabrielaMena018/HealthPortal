@@ -27,10 +27,6 @@ namespace RegistroPacientes
             ControllerAddPatience objAddPatience = new ControllerAddPatience(this,  accion, IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, Especialidad, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
         }
 
-        public FrmAddPatience(int accion, int IdPaciente, string nombrePaciente, string apellidoPaciente, string TipoPersona, string documento, string TipoArea, DateTime FechaVisita, string horaVisita, string nombreMedicamento, string Observaciones)
-        {
-            InitializeComponent();
-            ControllerAddPatience objAddPatience = new ControllerAddPatience(this, accion,  IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, documento, TipoArea, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
-        }
+
     }
 }
