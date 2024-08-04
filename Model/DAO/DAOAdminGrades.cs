@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.Models.DAO;
-using RegistroPacientes.Models.DTO;
+using RegistroPacientes.Model.DTO;
 
 namespace RegistroPacientes.Models.DAO
 {

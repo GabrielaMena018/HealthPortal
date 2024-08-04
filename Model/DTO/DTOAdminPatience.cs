@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RegistroPacientes.Models;
 
-namespace RegistroPacientes.Models.DTO
+namespace RegistroPacientes.Model.DTO
 {
      internal class DTOAdminPatience : dbContext
     {

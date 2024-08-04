@@ -49,18 +49,22 @@
   <ItemGroup>
     <Compile Include="Controller\AcademycLevelAdministration\ControllerAddGrade.cs" />
     <Compile Include="Controller\AcademycLevelAdministration\ControllerAdminGrades.cs" />
+    <Compile Include="Controller\InventoryAdministration\ControllerAddUpdateMedicine.cs" />
+    <Compile Include="Controller\InventoryAdministration\ControllerInventoryAdministration.cs" />
     <Compile Include="Controller\Registro Pacientes\ControllerAddPatience.cs" />
     <Compile Include="Controller\Registro Pacientes\ControllerAdminPatience.cs" />
     <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
     <Compile Include="Controller\UserAdministration\ControllerAddUpdateUser.cs" />
     <Compile Include="Controller\UserAdministration\ControllerUserAdministration.cs" />
-    <Compile Include="Models\DAO\DAOAdminGrades.cs" />
-    <Compile Include="Models\DAO\DAOAdminPatience.cs" />
-    <Compile Include="Models\DAO\DAOUserAdministration.cs" />
-    <Compile Include="Models\dbContext.cs" />
-    <Compile Include="Models\DTO\DTOAdminGrade.cs" />
-    <Compile Include="Models\DTO\DTOAdminPatience.cs" />
-    <Compile Include="Models\DTO\DTOUserAdministration.cs" />
+    <Compile Include="Model\DAO\DAOAdminGrades.cs" />
+    <Compile Include="Model\DAO\DAOAdminPatience.cs" />
+    <Compile Include="Model\DAO\DAOInventoryAdministration.cs" />
+    <Compile Include="Model\DAO\DAOUserAdministration.cs" />
+    <Compile Include="Model\dbContext.cs" />
+    <Compile Include="Model\DTO\DTOAdminGrade.cs" />
+    <Compile Include="Model\DTO\DTOAdminPatience.cs" />
+    <Compile Include="Model\DTO\DTOInventoryAdministration.cs" />
+    <Compile Include="Model\DTO\DTOUserAdministration.cs" />
     <Compile Include="View\AcademycLevelAdministration\FrmAddGrades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,11 +83,17 @@
     <Compile Include="View\Dashboard\FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Ineventario\FrmAdminInventary.cs">
+    <Compile Include="View\InventoryAdministration\FrmAddUpdateMedicine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Ineventario\FrmAdminInventary.Designer.cs">
-      <DependentUpon>FrmAdminInventary.cs</DependentUpon>
+    <Compile Include="View\InventoryAdministration\FrmAddUpdateMedicine.Designer.cs">
+      <DependentUpon>FrmAddUpdateMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\InventoryAdministration\FrmInventoryAdministration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\InventoryAdministration\FrmInventoryAdministration.Designer.cs">
+      <DependentUpon>FrmInventoryAdministration.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Pacientes\FrmAddPatience.cs">
       <SubType>Form</SubType>
@@ -131,9 +141,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Ineventario\FrmAdminInventary.resx">
-      <DependentUpon>FrmAdminInventary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Pacientes\FrmAddPatience.resx">
       <DependentUpon>FrmAddPatience.cs</DependentUpon>
@@ -245,5 +252,6 @@
   <ItemGroup>
     <None Include="Resources\leccion %282%29.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

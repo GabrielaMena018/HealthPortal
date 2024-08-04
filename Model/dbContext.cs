@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RegistroPacientes.Models
+namespace RegistroPacientes.Model
 {
     public class dbContext
     {
@@ -14,7 +14,7 @@ namespace RegistroPacientes.Models
             try
             {
                 //string server = "DESKTOP-QR03KRF";
-                string server = "LAPTOP-KGGOS1AD\\SQLEXPRESS";
+                string server = "FAMILIAPORTILLO\\SQLEXPRESS";
                 string database = "HealthPortal";
                 SqlConnection conexion = new SqlConnection("Server =" + server +
                                                                  "; DataBase = " + database +

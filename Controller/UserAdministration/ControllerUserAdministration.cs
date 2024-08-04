@@ -1,4 +1,4 @@
-﻿using RegistroPacientes.Models.DAO;
+﻿using RegistroPacientes.Model.DAO;
 using RegistroPacientes.View.UserAdministration;
 using System;
 using System.Collections.Generic;

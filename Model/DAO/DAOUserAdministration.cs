@@ -1,4 +1,4 @@
-﻿using RegistroPacientes.Models.DTO;
+﻿using RegistroPacientes.Model.DTO;
 using RegistroPacientes.View.UserAdministration;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RegistroPacientes.Models.DAO
+namespace RegistroPacientes.Model.DAO
 {
     internal class DAOUserAdministration : DTOUserAdministration
     {

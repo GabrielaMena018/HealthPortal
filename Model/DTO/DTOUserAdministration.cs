@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RegistroPacientes.Models.DTO
+namespace RegistroPacientes.Model.DTO
 {
     internal class DTOUserAdministration : dbContext
     {

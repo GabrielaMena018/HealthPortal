@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RegistroPacientes.Controller;
-using RegistroPacientes.Models.DAO;
+using RegistroPacientes.Model.DAO;
 using System.Data;
 using System.Windows.Forms;
 
