@@ -3,40 +3,48 @@
   "WorkspaceRootPath": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|a:\\archivos de onedrive\\juanportillosanchez@outlook.com\\onedrive\\documents\\github\\healthportal\\model\\dao\\daoinventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:model\\dao\\daoinventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|a:\\archivos de onedrive\\juanportillosanchez@outlook.com\\onedrive\\documents\\github\\healthportal\\controller\\inventoryadministration\\controlleraddupdatemedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:controller\\inventoryadministration\\controlleraddupdatemedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|a:\\archivos de onedrive\\juanportillosanchez@outlook.com\\onedrive\\documents\\github\\healthportal\\controller\\useradministration\\controlleruseradministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:controller\\useradministration\\controlleruseradministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\view\\inventoryadministration\\frminventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:view\\inventoryadministration\\frminventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\view\\inventoryadministration\\frminventoryadministration.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:view\\inventoryadministration\\frminventoryadministration.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\view\\inventoryadministration\\frmaddupdatemedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:view\\inventoryadministration\\frmaddupdatemedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\controller\\inventoryadministration\\controllerinventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:controller\\inventoryadministration\\controllerinventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\controller\\inventoryadministration\\controlleraddupdatemedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:controller\\inventoryadministration\\controlleraddupdatemedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|a:\\archivos de onedrive\\juanportillosanchez@outlook.com\\onedrive\\documents\\github\\healthportal\\model\\dao\\daoinventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:model\\dao\\daoinventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\view\\inventoryadministration\\frmaddupdatemedicine.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:view\\inventoryadministration\\frmaddupdatemedicine.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\model\\dao\\daouseradministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:model\\dao\\daouseradministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\model\\dto\\dtoinventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:model\\dto\\dtoinventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\view\\inventoryadministration\\frmaddupdatemedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:view\\inventoryadministration\\frmaddupdatemedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\controller\\useradministration\\controlleruseradministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:controller\\useradministration\\controlleruseradministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\view\\inventoryadministration\\frmaddupdatemedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:view\\inventoryadministration\\frmaddupdatemedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\view\\inventoryadministration\\frminventoryadministration.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:view\\inventoryadministration\\frminventoryadministration.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\view\\inventoryadministration\\frmaddupdatemedicine.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:view\\inventoryadministration\\frmaddupdatemedicine.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\controller\\registro pacientes\\controlleradminpatience.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -63,14 +71,6 @@
       "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:model\\dto\\dtoadmingrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\model\\dto\\dtoinventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:model\\dto\\dtoinventoryadministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\model\\dao\\daouseradministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:model\\dao\\daouseradministration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\model\\dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28C910F9-D35B-4141-8133-8836DCC2E781}|RegistroPacientes.csproj|solutionrelative:model\\dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -94,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -114,87 +114,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmAddUpdateMedicine.cs",
-              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmAddUpdateMedicine.cs",
-              "RelativeDocumentMoniker": "View\\InventoryAdministration\\FrmAddUpdateMedicine.cs",
-              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmAddUpdateMedicine.cs",
-              "RelativeToolTip": "View\\InventoryAdministration\\FrmAddUpdateMedicine.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAWwBUAAADDAAAA",
+              "DocumentIndex": 0,
+              "Title": "ControllerAddUpdateMedicine.cs",
+              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\InventoryAdministration\\ControllerAddUpdateMedicine.cs",
+              "RelativeDocumentMoniker": "Controller\\InventoryAdministration\\ControllerAddUpdateMedicine.cs",
+              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\InventoryAdministration\\ControllerAddUpdateMedicine.cs",
+              "RelativeToolTip": "Controller\\InventoryAdministration\\ControllerAddUpdateMedicine.cs",
+              "ViewState": "AQIAAFUAAAAAAAAAAAArwGMAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T09:08:25.421Z"
+              "WhenOpened": "2024-08-05T04:53:32.116Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "ControllerUserAdministration.cs",
+              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\UserAdministration\\ControllerUserAdministration.cs",
+              "RelativeDocumentMoniker": "Controller\\UserAdministration\\ControllerUserAdministration.cs",
+              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\UserAdministration\\ControllerUserAdministration.cs",
+              "RelativeToolTip": "Controller\\UserAdministration\\ControllerUserAdministration.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAIwDkAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T04:40:44.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ControllerInventoryAdministration.cs",
               "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\InventoryAdministration\\ControllerInventoryAdministration.cs",
               "RelativeDocumentMoniker": "Controller\\InventoryAdministration\\ControllerInventoryAdministration.cs",
               "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\InventoryAdministration\\ControllerInventoryAdministration.cs",
               "RelativeToolTip": "Controller\\InventoryAdministration\\ControllerInventoryAdministration.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAqwGwAAABAAAAA",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAjwGkAAABdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T08:37:47.489Z"
+              "WhenOpened": "2024-08-04T08:37:47.489Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FrmInventoryAdministration.Designer.cs",
-              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmInventoryAdministration.Designer.cs",
-              "RelativeDocumentMoniker": "View\\InventoryAdministration\\FrmInventoryAdministration.Designer.cs",
-              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmInventoryAdministration.Designer.cs",
-              "RelativeToolTip": "View\\InventoryAdministration\\FrmInventoryAdministration.Designer.cs",
-              "ViewState": "AQIAANgBAAAAAAAAAAAqwO8BAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T08:37:47.12Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "FrmInventoryAdministration.cs [Design]",
               "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmInventoryAdministration.cs",
               "RelativeDocumentMoniker": "View\\InventoryAdministration\\FrmInventoryAdministration.cs",
               "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmInventoryAdministration.cs [Design]",
               "RelativeToolTip": "View\\InventoryAdministration\\FrmInventoryAdministration.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T09:07:32.82Z"
+              "WhenOpened": "2024-08-04T09:07:32.82Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "DAOInventoryAdministration.cs",
               "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DAO\\DAOInventoryAdministration.cs",
               "RelativeDocumentMoniker": "Model\\DAO\\DAOInventoryAdministration.cs",
               "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DAO\\DAOInventoryAdministration.cs",
               "RelativeToolTip": "Model\\DAO\\DAOInventoryAdministration.cs",
-              "ViewState": "AQIAAD4AAAAAAAAAAAArwEQAAACOAAAA",
+              "ViewState": "AQIAALoAAAAAAAAAAAAiwMkAAACtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-04T09:29:35.379Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FrmAddUpdateMedicine.Designer.cs",
-              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmAddUpdateMedicine.Designer.cs",
-              "RelativeDocumentMoniker": "View\\InventoryAdministration\\FrmAddUpdateMedicine.Designer.cs",
-              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmAddUpdateMedicine.Designer.cs",
-              "RelativeToolTip": "View\\InventoryAdministration\\FrmAddUpdateMedicine.Designer.cs",
-              "ViewState": "AQIAAKAAAAAAAAAAAAAqwK0AAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T09:10:29.519Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ControllerAddUpdateMedicine.cs",
-              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\InventoryAdministration\\ControllerAddUpdateMedicine.cs",
-              "RelativeDocumentMoniker": "Controller\\InventoryAdministration\\ControllerAddUpdateMedicine.cs",
-              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\InventoryAdministration\\ControllerAddUpdateMedicine.cs",
-              "RelativeToolTip": "Controller\\InventoryAdministration\\ControllerAddUpdateMedicine.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAiwEcAAAA9AAAA",
+              "Title": "DAOUserAdministration.cs",
+              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DAO\\DAOUserAdministration.cs",
+              "RelativeDocumentMoniker": "Model\\DAO\\DAOUserAdministration.cs",
+              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DAO\\DAOUserAdministration.cs",
+              "RelativeToolTip": "Model\\DAO\\DAOUserAdministration.cs",
+              "ViewState": "AQIAAF8AAAAAAAAAAADgv3EAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T09:11:51.429Z"
+              "WhenOpened": "2024-08-04T08:37:47.584Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -205,23 +198,64 @@
               "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmAddUpdateMedicine.cs [Design]",
               "RelativeToolTip": "View\\InventoryAdministration\\FrmAddUpdateMedicine.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T09:08:21.753Z"
+              "WhenOpened": "2024-08-04T09:08:21.753Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DTOInventoryAdministration.cs",
+              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DTO\\DTOInventoryAdministration.cs",
+              "RelativeDocumentMoniker": "Model\\DTO\\DTOInventoryAdministration.cs",
+              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DTO\\DTOInventoryAdministration.cs",
+              "RelativeToolTip": "Model\\DTO\\DTOInventoryAdministration.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T08:38:54.596Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "ControllerUserAdministration.cs",
-              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\UserAdministration\\ControllerUserAdministration.cs",
-              "RelativeDocumentMoniker": "Controller\\UserAdministration\\ControllerUserAdministration.cs",
-              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\UserAdministration\\ControllerUserAdministration.cs",
-              "RelativeToolTip": "Controller\\UserAdministration\\ControllerUserAdministration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAdAAAA",
+              "Title": "FrmAddUpdateMedicine.cs",
+              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmAddUpdateMedicine.cs",
+              "RelativeDocumentMoniker": "View\\InventoryAdministration\\FrmAddUpdateMedicine.cs",
+              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmAddUpdateMedicine.cs",
+              "RelativeToolTip": "View\\InventoryAdministration\\FrmAddUpdateMedicine.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAWwBUAAADDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T09:07:10.354Z"
+              "WhenOpened": "2024-08-04T09:08:25.421Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FrmInventoryAdministration.Designer.cs",
+              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmInventoryAdministration.Designer.cs",
+              "RelativeDocumentMoniker": "View\\InventoryAdministration\\FrmInventoryAdministration.Designer.cs",
+              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmInventoryAdministration.Designer.cs",
+              "RelativeToolTip": "View\\InventoryAdministration\\FrmInventoryAdministration.Designer.cs",
+              "ViewState": "AQIAAKUBAAAAAAAAAAAqwLQBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T08:37:47.12Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "FrmAddUpdateMedicine.Designer.cs",
+              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmAddUpdateMedicine.Designer.cs",
+              "RelativeDocumentMoniker": "View\\InventoryAdministration\\FrmAddUpdateMedicine.Designer.cs",
+              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmAddUpdateMedicine.Designer.cs",
+              "RelativeToolTip": "View\\InventoryAdministration\\FrmAddUpdateMedicine.Designer.cs",
+              "ViewState": "AQIAAKAAAAAAAAAAAAAqwK0AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T09:10:29.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "ControllerAddUpdateUser.cs",
               "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\UserAdministration\\ControllerAddUpdateUser.cs",
               "RelativeDocumentMoniker": "Controller\\UserAdministration\\ControllerAddUpdateUser.cs",
@@ -233,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Program.cs",
               "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -245,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "DTOAdminGrade.cs",
               "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DTO\\DTOAdminGrade.cs",
               "RelativeDocumentMoniker": "Model\\DTO\\DTOAdminGrade.cs",
@@ -257,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "FrmInventoryAdministration.cs",
               "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\View\\InventoryAdministration\\FrmInventoryAdministration.cs",
               "RelativeDocumentMoniker": "View\\InventoryAdministration\\FrmInventoryAdministration.cs",
@@ -265,11 +299,12 @@
               "RelativeToolTip": "View\\InventoryAdministration\\FrmInventoryAdministration.cs",
               "ViewState": "AQIAAAIAAAAAAAAAAAAjwBIAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T08:37:47.448Z"
+              "WhenOpened": "2024-08-04T08:37:47.448Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ControllerAdminPatience.cs",
               "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\Registro Pacientes\\ControllerAdminPatience.cs",
               "RelativeDocumentMoniker": "Controller\\Registro Pacientes\\ControllerAdminPatience.cs",
@@ -281,19 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "DTOInventoryAdministration.cs",
-              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DTO\\DTOInventoryAdministration.cs",
-              "RelativeDocumentMoniker": "Model\\DTO\\DTOInventoryAdministration.cs",
-              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DTO\\DTOInventoryAdministration.cs",
-              "RelativeToolTip": "Model\\DTO\\DTOInventoryAdministration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T08:38:54.596Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "ControllerAddPatience.cs",
               "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Controller\\Registro Pacientes\\ControllerAddPatience.cs",
               "RelativeDocumentMoniker": "Controller\\Registro Pacientes\\ControllerAddPatience.cs",
@@ -302,18 +325,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-01T18:03:00.038Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "DAOUserAdministration.cs",
-              "DocumentMoniker": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DAO\\DAOUserAdministration.cs",
-              "RelativeDocumentMoniker": "Model\\DAO\\DAOUserAdministration.cs",
-              "ToolTip": "A:\\Archivos de OneDrive\\juanportillosanchez@outlook.com\\OneDrive\\Documents\\GitHub\\HealthPortal\\Model\\DAO\\DAOUserAdministration.cs",
-              "RelativeToolTip": "Model\\DAO\\DAOUserAdministration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T08:37:47.584Z"
             },
             {
               "$type": "Document",

@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInventoryAdministration));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -51,13 +50,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panelButton = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.rjButton3 = new CustomPanel.RJButton();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.rjButton2 = new CustomPanel.RJButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.rjButton1 = new CustomPanel.RJButton();
-            this.borderRadiusTXT1 = new CustomPanel.BorderRadiusTXT();
+            this.txtSearch = new CustomPanel.BorderRadiusTXT();
             this.PanelContenedor = new CustomPanel.PanelCustom();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
@@ -65,11 +60,15 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnNew = new CustomPanel.RJButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.CmbCategoria = new System.Windows.Forms.ComboBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnSearch = new CustomPanel.RJButton();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panelGrafica.SuspendLayout();
             this.panelTitulo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -80,13 +79,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panelButton.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.PanelContenedor.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.ContenedorFiltros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,15 +127,15 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 182);
+            this.label1.Size = new System.Drawing.Size(250, 62);
             this.label1.TabIndex = 2;
             this.label1.Text = "Inventario";
             // 
             // panelbuscador
             // 
-            this.panelbuscador.Controls.Add(this.rjButton1);
-            this.panelbuscador.Controls.Add(this.borderRadiusTXT1);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 185);
+            this.panelbuscador.Controls.Add(this.btnSearch);
+            this.panelbuscador.Controls.Add(this.txtSearch);
+            this.panelbuscador.Location = new System.Drawing.Point(3, 65);
             this.panelbuscador.Name = "panelbuscador";
             this.panelbuscador.Size = new System.Drawing.Size(319, 55);
             this.panelbuscador.TabIndex = 0;
@@ -149,24 +148,24 @@
             this.cmsUpdate,
             this.cmsView});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(241, 133);
+            this.cmsDataGrid.Size = new System.Drawing.Size(173, 70);
             // 
             // cmsDelete
             // 
             this.cmsDelete.Name = "cmsDelete";
-            this.cmsDelete.Size = new System.Drawing.Size(240, 32);
+            this.cmsDelete.Size = new System.Drawing.Size(172, 22);
             this.cmsDelete.Text = "Eliminar Registro";
             // 
             // cmsUpdate
             // 
             this.cmsUpdate.Name = "cmsUpdate";
-            this.cmsUpdate.Size = new System.Drawing.Size(240, 32);
+            this.cmsUpdate.Size = new System.Drawing.Size(172, 22);
             this.cmsUpdate.Text = "Actualizar Registro";
             // 
             // cmsView
             // 
             this.cmsView.Name = "cmsView";
-            this.cmsView.Size = new System.Drawing.Size(240, 32);
+            this.cmsView.Size = new System.Drawing.Size(172, 22);
             this.cmsView.Text = "Ver registro";
             // 
             // panelCustumPequeño
@@ -198,17 +197,17 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(0, 163);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(322, 275);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
@@ -230,7 +229,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.Location = new System.Drawing.Point(11, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(222, 45);
+            this.label2.Size = new System.Drawing.Size(153, 30);
             this.label2.TabIndex = 4;
             this.label2.Text = "Indice de Uso";
             // 
@@ -241,7 +240,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(16, 85);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 40);
+            this.comboBox2.Size = new System.Drawing.Size(174, 29);
             this.comboBox2.TabIndex = 6;
             this.comboBox2.Text = "Esta Semana";
             // 
@@ -256,16 +255,6 @@
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(325, 125);
             this.panelButton.TabIndex = 14;
-            // 
-            // pictureBox5
-            // 
-            //this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            //this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            //this.pictureBox5.Location = new System.Drawing.Point(255, 70);
-            //this.pictureBox5.Name = "pictureBox5";
-            //this.pictureBox5.Size = new System.Drawing.Size(35, 32);
-            //this.pictureBox5.TabIndex = 13;
-            //this.pictureBox5.TabStop = false;
             // 
             // rjButton3
             // 
@@ -287,16 +276,6 @@
             this.rjButton3.TextColor = System.Drawing.Color.White;
             this.rjButton3.UseVisualStyleBackColor = false;
             // 
-            // pictureBox3
-            // 
-            //this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            //this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            //this.pictureBox3.Location = new System.Drawing.Point(65, 70);
-            //this.pictureBox3.Name = "pictureBox3";
-            //this.pictureBox3.Size = new System.Drawing.Size(35, 32);
-            //this.pictureBox3.TabIndex = 12;
-            //this.pictureBox3.TabStop = false;
-            // 
             // rjButton2
             // 
             this.rjButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -317,56 +296,26 @@
             this.rjButton2.TextColor = System.Drawing.Color.White;
             this.rjButton2.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
+            // txtSearch
             // 
-            //this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            //this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            //this.pictureBox2.Location = new System.Drawing.Point(340, 447);
-            //this.pictureBox2.Name = "pictureBox2";
-            //this.pictureBox2.Size = new System.Drawing.Size(35, 32);
-            //this.pictureBox2.TabIndex = 5;
-            //this.pictureBox2.TabStop = false;
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.White;
-            this.rjButton1.BackGroundColor = System.Drawing.Color.White;
-            this.rjButton1.BackgroundImage = global::RegistroPacientes.Properties.Resources.busqueda__1_;
-            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rjButton1.BorderColor = System.Drawing.Color.White;
-            this.rjButton1.BorderRadius = 40;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(270, 3);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(46, 35);
-            this.rjButton1.TabIndex = 4;
-            this.rjButton1.Text = " ";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            // 
-            // borderRadiusTXT1
-            // 
-            this.borderRadiusTXT1.BackColor = System.Drawing.SystemColors.Window;
-            this.borderRadiusTXT1.BorderColor = System.Drawing.Color.White;
-            this.borderRadiusTXT1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.borderRadiusTXT1.BorderRadius = 20;
-            this.borderRadiusTXT1.BorderSize = 2;
-            this.borderRadiusTXT1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.borderRadiusTXT1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.borderRadiusTXT1.Location = new System.Drawing.Point(3, 3);
-            this.borderRadiusTXT1.Multiline = false;
-            this.borderRadiusTXT1.Name = "borderRadiusTXT1";
-            this.borderRadiusTXT1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.borderRadiusTXT1.PasswordChar = false;
-            this.borderRadiusTXT1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.borderRadiusTXT1.PlaceholderText = "";
-            this.borderRadiusTXT1.Size = new System.Drawing.Size(313, 47);
-            this.borderRadiusTXT1.TabIndex = 3;
-            this.borderRadiusTXT1.Texts = "Buscar";
-            this.borderRadiusTXT1.UnderlinedStyle = false;
+            this.txtSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSearch.BorderColor = System.Drawing.Color.White;
+            this.txtSearch.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtSearch.BorderRadius = 20;
+            this.txtSearch.BorderSize = 2;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtSearch.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtSearch.Location = new System.Drawing.Point(3, 3);
+            this.txtSearch.Multiline = false;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtSearch.PasswordChar = false;
+            this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtSearch.PlaceholderText = "";
+            this.txtSearch.Size = new System.Drawing.Size(313, 36);
+            this.txtSearch.TabIndex = 3;
+            this.txtSearch.Texts = "Buscar";
+            this.txtSearch.UnderlinedStyle = false;
             // 
             // PanelContenedor
             // 
@@ -405,24 +354,24 @@
             this.dgvInventory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvInventory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvInventory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInventory.ColumnHeadersHeight = 50;
             this.dgvInventory.ContextMenuStrip = this.cmsDataGrid;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInventory.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInventory.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvInventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInventory.EnableHeadersVisualStyles = false;
             this.dgvInventory.Location = new System.Drawing.Point(0, 0);
@@ -460,7 +409,7 @@
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.Location = new System.Drawing.Point(246, 50);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(186, 37);
+            this.dateTimePicker2.Size = new System.Drawing.Size(186, 27);
             this.dateTimePicker2.TabIndex = 16;
             // 
             // label7
@@ -470,7 +419,7 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label7.Location = new System.Drawing.Point(242, 24);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 28);
+            this.label7.Size = new System.Drawing.Size(44, 19);
             this.label7.TabIndex = 15;
             this.label7.Text = "Hasta";
             // 
@@ -481,19 +430,9 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label6.Location = new System.Drawing.Point(453, 26);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 28);
+            this.label6.Size = new System.Drawing.Size(68, 19);
             this.label6.TabIndex = 14;
             this.label6.Text = "Categoria";
-            // 
-            // pictureBox4
-            // 
-            //this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            //this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            //this.pictureBox4.Location = new System.Drawing.Point(875, 45);
-            //this.pictureBox4.Name = "pictureBox4";
-            //this.pictureBox4.Size = new System.Drawing.Size(32, 27);
-            //this.pictureBox4.TabIndex = 13;
-            //this.pictureBox4.TabStop = false;
             // 
             // label5
             // 
@@ -502,7 +441,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label5.Location = new System.Drawing.Point(10, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 28);
+            this.label5.Size = new System.Drawing.Size(47, 19);
             this.label5.TabIndex = 13;
             this.label5.Text = "Desde";
             // 
@@ -533,7 +472,7 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(14, 53);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(186, 37);
+            this.dateTimePicker1.Size = new System.Drawing.Size(186, 27);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // CmbCategoria
@@ -543,10 +482,62 @@
             this.CmbCategoria.FormattingEnabled = true;
             this.CmbCategoria.Location = new System.Drawing.Point(457, 52);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(228, 38);
+            this.CmbCategoria.Size = new System.Drawing.Size(228, 27);
             this.CmbCategoria.TabIndex = 5;
             // 
-            // FrmAdminInventary
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.TabIndex = 16;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.BackGroundColor = System.Drawing.Color.White;
+            this.btnSearch.BackgroundImage = global::RegistroPacientes.Properties.Resources.busqueda__1_;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSearch.BorderColor = System.Drawing.Color.White;
+            this.btnSearch.BorderRadius = 40;
+            this.btnSearch.BorderSize = 0;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(270, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(46, 35);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = " ";
+            this.btnSearch.TextColor = System.Drawing.Color.White;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox4.TabIndex = 17;
+            this.pictureBox4.TabStop = false;
+            // 
+            // FrmInventoryAdministration
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
@@ -555,7 +546,7 @@
             this.Controls.Add(this.PanelContenedor);
             this.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmAdminInventary";
+            this.Name = "FrmInventoryAdministration";
             this.Padding = new System.Windows.Forms.Padding(20);
             this.Text = "FrmAdminInventary";
             this.panelGrafica.ResumeLayout(false);
@@ -570,14 +561,14 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panelButton.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.PanelContenedor.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             this.ContenedorFiltros.ResumeLayout(false);
             this.ContenedorFiltros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
@@ -612,13 +603,13 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelbuscador;
-        private CustomPanel.RJButton rjButton1;
-        private CustomPanel.BorderRadiusTXT borderRadiusTXT1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         public System.Windows.Forms.DataGridView dgvInventory;
         public System.Windows.Forms.ContextMenuStrip cmsDataGrid;
         public System.Windows.Forms.ToolStripMenuItem cmsDelete;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdate;
         public System.Windows.Forms.ToolStripMenuItem cmsView;
+        public CustomPanel.RJButton btnSearch;
+        public CustomPanel.BorderRadiusTXT txtSearch;
     }
 }

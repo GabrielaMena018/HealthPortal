@@ -33,3 +33,4 @@ A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHu
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.csproj.CoreCompileInputs.cache
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.exe
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.pdb
+A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.InventoryAdministration.FrmInventoryAdministration.resources

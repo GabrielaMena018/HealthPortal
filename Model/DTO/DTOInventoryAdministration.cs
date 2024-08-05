@@ -11,7 +11,7 @@ namespace RegistroPacientes.Model.DTO
         private int cantidadMedicamento;
         private int idMedicamento;
         private string nombreMedicamento;
-        private string existencia;
+        private int existencia;
         private DateTime fechaVencimiento;
         private DateTime ingreso;
         private string salida;
@@ -20,7 +20,7 @@ namespace RegistroPacientes.Model.DTO
         private int idEntradaSalida;
 
         public string NombreMedicamento { get => nombreMedicamento; set => nombreMedicamento = value; }
-        public string Existencia { get => existencia; set => existencia = value; }
+        public int Existencia { get => existencia; set => existencia = value; }
         public DateTime FechaVencimiento { get => fechaVencimiento; set => fechaVencimiento = value; }
         public DateTime Ingreso { get => ingreso; set => ingreso = value; }
         public string Salida { get => salida; set => salida = value; }

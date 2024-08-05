@@ -109,7 +109,6 @@ namespace RegistroPacientes.Model.DAO
                 string query = $"SELECT * FROM [Usuarios].[viewPersonas] WHERE Nombres LIKE '%{search}%' OR Apellidos LIKE '%{search}%' or [Correo Electrónico] LIKE '%{search}%'";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 //cmd.Parameters.AddWithValue("param1", column);
-                cmd.Parameters.AddWithValue("param2", search);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();

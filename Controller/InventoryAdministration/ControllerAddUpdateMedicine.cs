@@ -26,13 +26,13 @@ namespace RegistroPacientes.Controller.InventoryAdministration
         {
             objAddUpdateMedicine = vista;
             this.action = action;
-            vista.Load += new EventHandler(InitialCharge);
+            objAddUpdateMedicine.Load += new EventHandler(InitialCharge);
 
             //Metodos que se ejecutan cuando el programa esta cargando
             CheckAction();
 
             //Metodos que se ejecutan al ocurrir eventos
-            objAddUpdateMedicine.btnAgregarInventario.Click += new EventHandler(NewRegisterInventory);
+            objAddUpdateMedicine.btnAgregarInventario.Click += new EventHandler(RegisterNewMedicine);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace RegistroPacientes.Controller.InventoryAdministration
         /// <param name="exit"></param>
         /// <param name="description"></param>
 
-        public ControllerAddUpdateMedicine(FrmAddUpdateMedicine vista, int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime income, DateTime exit, string description)
+        public ControllerAddUpdateMedicine(FrmAddUpdateMedicine vista, int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
         {
             //Acciones iniciales
             objAddUpdateMedicine = vista;
@@ -58,7 +58,7 @@ namespace RegistroPacientes.Controller.InventoryAdministration
             //Metodos iniciales ejecutados cuando el formulario esta cargando
             objAddUpdateMedicine.Load += new EventHandler(InitialCharge);
             CheckAction();
-            ChargeValues(id, medicineName, medicineCategory, expirationDate, stock, income, exit, description);
+            ChargeValues(id, medicineName, medicineCategory, expirationDate, stock, entryDate, exit, description);
 
             //Metodos que se ejecutan al ocurrir eventos
             objAddUpdateMedicine.btnUpdateInventory.Click += new EventHandler(UpdateInventory);
@@ -72,8 +72,8 @@ namespace RegistroPacientes.Controller.InventoryAdministration
             DataSet ds = daoInventoryAdministration.FillCombo();
             //Llenar comboBox de la tabla tbCategoriaMedicamento
             objAddUpdateMedicine.cmbCategoria.DataSource = ds.Tables["tbCategoriaMedicamento"];
-            objAddUpdateMedicine.cmbCategoria.ValueMember = "IdCategoriaMedicamento";
-            objAddUpdateMedicine.cmbCategoria.DisplayMember = "CategoriaMedicamento";
+            objAddUpdateMedicine.cmbCategoria.ValueMember = "idCategoriaMedicamento";
+            objAddUpdateMedicine.cmbCategoria.DisplayMember = "categoriaMedicamento";
             //La condición sirve para que al actualizar un registro, el valor del registro aparezca seleccionado.
             if (action == 2)
             {
@@ -95,7 +95,7 @@ namespace RegistroPacientes.Controller.InventoryAdministration
             }
         }
 
-        public void NewRegisterInventory(object sender, EventArgs e)
+        public void RegisterNewMedicine(object sender, EventArgs e)
         {
             DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
             //Datos para la creacion de un nuevo inventario
@@ -103,12 +103,11 @@ namespace RegistroPacientes.Controller.InventoryAdministration
             daoInventoryAdministration.Descripcion = objAddUpdateMedicine.TxtDescripcion.Texts.Trim();
             daoInventoryAdministration.IdCategoria = int.Parse(objAddUpdateMedicine.cmbCategoria.SelectedValue.ToString());
             daoInventoryAdministration.FechaVencimiento = objAddUpdateMedicine.PickFechaVencimiento.Value.Date;
-            daoInventoryAdministration.Existencia = objAddUpdateMedicine.TxtCantidadExistencia.Texts.Trim();
+            daoInventoryAdministration.Existencia = int.Parse(objAddUpdateMedicine.TxtCantidadExistencia.Texts.Trim());
             daoInventoryAdministration.Ingreso = objAddUpdateMedicine.PickIngreso.Value.Date;
             daoInventoryAdministration.Salida = objAddUpdateMedicine.PickHora.Value.ToString("HH:mm");
-            int returnedValue = daoInventoryAdministration.RegistrarInventario();
-
-            if (returnedValue == 1)
+            int returnedValue = daoInventoryAdministration.RegisterMedicine();
+            if (returnedValue == 2)
             {
                 MessageBox.Show("Los datos han sido registrados exitosamente",
                                 "Proceso completado",
@@ -128,10 +127,10 @@ namespace RegistroPacientes.Controller.InventoryAdministration
         {
             DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
             daoInventoryAdministration.IdMedicamento = int.Parse(objAddUpdateMedicine.TxTId.Text.Trim());
-            daoInventoryAdministration.NombreMedicamento = objAddUpdateMedicine.TxtNombreMedicamento.Text.Trim();
+            daoInventoryAdministration.NombreMedicamento = objAddUpdateMedicine.TxtNombreMedicamento.Texts.Trim();
             daoInventoryAdministration.IdCategoria = int.Parse(objAddUpdateMedicine.cmbCategoria.SelectedValue.ToString());
             daoInventoryAdministration.FechaVencimiento = objAddUpdateMedicine.PickFechaVencimiento.Value.Date;
-            daoInventoryAdministration.Existencia = objAddUpdateMedicine.TxtCantidadExistencia.Text.Trim();
+            daoInventoryAdministration.Existencia = int.Parse(objAddUpdateMedicine.TxtCantidadExistencia.Texts.Trim());
             daoInventoryAdministration.Ingreso = objAddUpdateMedicine.PickIngreso.Value.Date;
             daoInventoryAdministration.Salida = objAddUpdateMedicine.PickHora.Value.ToString("HH:mm");
             daoInventoryAdministration.Descripcion = objAddUpdateMedicine.TxtDescripcion.Texts.Trim();
@@ -158,18 +157,17 @@ namespace RegistroPacientes.Controller.InventoryAdministration
                                 "Proceso interrumpido",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
-                MessageBox.Show(returnedValue.ToString());
             }
         }
 
-        public void ChargeValues(int id, string nameMedicment, string categoryMedicment, DateTime expirationDate, string stock, DateTime income, DateTime exit, string description)
+        public void ChargeValues(int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
         {
             objAddUpdateMedicine.TxTId.Text = id.ToString();
-            objAddUpdateMedicine.TxtNombreMedicamento.Texts = nameMedicment;
-            objAddUpdateMedicine.cmbCategoria.Text = categoryMedicment;
+            objAddUpdateMedicine.TxtNombreMedicamento.Texts = medicineName;
+            objAddUpdateMedicine.cmbCategoria.Text = medicineCategory;
             objAddUpdateMedicine.PickFechaVencimiento.Value = expirationDate;
             objAddUpdateMedicine.TxtCantidadExistencia.Texts = stock;
-            objAddUpdateMedicine.PickIngreso.Value = income;
+            objAddUpdateMedicine.PickIngreso.Value = entryDate;
             objAddUpdateMedicine.PickHora.Value = exit;
             objAddUpdateMedicine.TxtDescripcion.Texts = description;
 

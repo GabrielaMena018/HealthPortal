@@ -142,6 +142,9 @@
     <EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\InventoryAdministration\FrmInventoryAdministration.resx">
+      <DependentUpon>FrmInventoryAdministration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Pacientes\FrmAddPatience.resx">
       <DependentUpon>FrmAddPatience.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,7 +153,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -190,6 +192,7 @@
     <None Include="Resources\menu-regular-241.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Montserrat-VariableFont_wght.ttf" />
     <None Include="Resources\pacientes.png" />
   </ItemGroup>
   <ItemGroup>

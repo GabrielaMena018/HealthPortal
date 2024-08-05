@@ -14,11 +14,11 @@ namespace RegistroPacientes.Model.DAO
     internal class DAOInventoryAdministration : DTOInventoryAdministration
     {
         readonly SqlCommand command = new SqlCommand();
-        public int GetInfoCombo()
-        {
-            FillCombo();
-            return 1;
-        }
+        //public int GetInfoCombo()
+        //{
+        //    FillCombo();
+        //    return 1;
+        //}
 
         public DataSet FillCombo()
         {
@@ -30,13 +30,18 @@ namespace RegistroPacientes.Model.DAO
                 SqlCommand cmdInventory = new SqlCommand(query, command.Connection);
                 cmdInventory.ExecuteNonQuery();
                 SqlDataAdapter adpInventory = new SqlDataAdapter(cmdInventory);
-                DataSet dsInventory = new DataSet();
-                adpInventory.Fill(dsInventory, "tbCategoriaMedicamento");
-                return dsInventory;
-
+                DataSet ds = new DataSet();
+                adpInventory.Fill(ds, "tbCategoriaMedicamento");
+                return ds;
             }
-            catch (Exception)
+            catch (SqlException ex)
             {
+                MessageBox.Show($"{ex.Message}");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");
                 return null;
             }
             finally
@@ -51,39 +56,23 @@ namespace RegistroPacientes.Model.DAO
         /// </summary>
         /// <returns></returns>
 
-        public int RegistrarInventario()
+        public int RegisterMedicine()
         {
             try
             {
                 command.Connection = getConnection();
-                string query = "EXEC [ProcedimientosAlmacenados].[spIngresarMedicamento] @param1, @param2, @param3, @param4";
+                string query = "EXEC [ProcedimientosAlmacenados].[spIngresarMedicamento] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("param1", NombreMedicamento);
                 cmd.Parameters.AddWithValue("param2", Descripcion);
                 cmd.Parameters.AddWithValue("param3", IdCategoria);
                 cmd.Parameters.AddWithValue("param4", FechaVencimiento);
-                int respuesta = cmd.ExecuteNonQuery();
-                GetIdMedicine();
-                if (respuesta == 1)
-                {
-                    string query2 = "EXEC [ProcedimientosAlmacenados].[spRegistrarEntradaSalidaMedicamento] @param1, @param2, @param3, @param4";
-                    SqlCommand cmd2 = new SqlCommand(query2, command.Connection);
-                    cmd2.Parameters.AddWithValue("param1", Ingreso);
-                    cmd2.Parameters.AddWithValue("param2", Salida);
-                    cmd2.Parameters.AddWithValue("param3", IdMedicamento);
-                    cmd2.Parameters.AddWithValue("param4", Existencia);
-                    respuesta = cmd2.ExecuteNonQuery();
-                    return respuesta;
-                }
-                else
-                {
-                    string query3 = "DELETE FROM [Medicamentos].[tbMedicamentos] WHERE idMedicamento = @param1";
-                    SqlCommand cmd3 = new SqlCommand(query3, command.Connection);
-                    cmd3.Parameters.AddWithValue("param1", IdMedicamento);
-                    cmd3.ExecuteNonQuery();
-                    return 0;
-                }
-
+                cmd.Parameters.AddWithValue("param5", Ingreso);
+                cmd.Parameters.AddWithValue("param6", Salida);
+                cmd.Parameters.AddWithValue("param7", IdMedicamento);
+                cmd.Parameters.AddWithValue("param8", Existencia);
+                int returnedValue = cmd.ExecuteNonQuery();
+                return returnedValue;
             }
             catch (SqlException ex)
             {
@@ -99,18 +88,6 @@ namespace RegistroPacientes.Model.DAO
             {
                 command.Connection.Close();
             }
-        }
-
-        public void GetIdMedicine()
-        {
-            string query = "SELECT MAX (idMedicamento) FROM [Medicamentos].[tbMedicamentos]";
-            SqlCommand cmd = new SqlCommand(query, command.Connection);
-            SqlDataReader info = cmd.ExecuteReader();
-            while (info.Read())
-            {
-                IdMedicamento = info.GetInt32(0);
-            }
-            info.Close();
         }
 
         /// <summary>
@@ -131,14 +108,19 @@ namespace RegistroPacientes.Model.DAO
                 adp.Fill(ds, "viewMedicamento");
                 return ds;
             }
-            catch (Exception)
+            catch (SqlException ex)
             {
-
+                MessageBox.Show($"{ex.Message}");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");
                 return null;
             }
             finally
             {
-                getConnection().Close();
+                command.Connection.Close();
             }
         }
 
@@ -151,43 +133,27 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                MessageBox.Show("" + IdMedicamento);
                 command.Connection = getConnection();
-                string query = "UPDATE tbMedicamentos SET" +
-                                " nombreMedicamento = @nombreMedicamento," +
-                                " descripcionMedicamento = @descripcionMedicamento," +
-                                " fechaVencimiento = @fechaVencimiento " +
-                                "WHERE IdMedicamento = @IdMedicamento ";
+                string query = "EXEC [ProcedimientosAlmacenados].[spActualizarMedicamento] @param1, @param2, @param3, @param4, @param5, @param6, @param7";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-
-                cmd.Parameters.AddWithValue("nombreMedicamento", NombreMedicamento);
-                cmd.Parameters.AddWithValue("descripcionMedicamento", Descripcion);
-                cmd.Parameters.AddWithValue("fechaVencimiento", FechaVencimiento);
-                cmd.Parameters.AddWithValue("IdMedicamento", IdMedicamento);
-
-                int respuesta = cmd.ExecuteNonQuery();
-
-                if (respuesta == 1)
-                {
-                    //Si el valor es 1 procede a actualizar la información de salida y entrada
-
-                    string query2 = "UPDATE tbEntradasSalidasMedicamentos SET " +
-                                    "fechaEntradaSalida = @fechaEntradaSalida," +
-                                    "horaEntradaSalida = @horaEntradaSalida," +
-                                    "cantidadMedicamento = @cantidadMedicamento " +
-                                    "WHERE IdMedicamento = @IdMedicamento";
-                    SqlCommand cmd2 = new SqlCommand(query2, command.Connection);
-                    cmd2.Parameters.AddWithValue("fechaEntradaSalida", Ingreso);
-                    cmd2.Parameters.AddWithValue("horaEntradaSalida", Salida);
-                    cmd2.Parameters.AddWithValue("cantidadMedicamento", CantidadMedicamento);
-                    cmd2.Parameters.AddWithValue("IdMedicamento", IdMedicamento);
-                    respuesta = cmd2.ExecuteNonQuery();
-                    respuesta = 2;
-                }
-                return respuesta;
+                cmd.Parameters.AddWithValue("param1", NombreMedicamento);
+                cmd.Parameters.AddWithValue("param2", Descripcion);
+                cmd.Parameters.AddWithValue("param3", FechaVencimiento);
+                cmd.Parameters.AddWithValue("param4", IdMedicamento);
+                cmd.Parameters.AddWithValue("param5", Ingreso);
+                cmd.Parameters.AddWithValue("param6", Salida);
+                cmd.Parameters.AddWithValue("param7", Existencia);
+                int returnedValue = cmd.ExecuteNonQuery();
+                return returnedValue;
             }
-            catch (Exception)
+            catch (SqlException ex)
             {
+                MessageBox.Show($"{ex.Message}");
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");
                 return -1;
             }
             finally
@@ -206,28 +172,49 @@ namespace RegistroPacientes.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string queryDelete = "DELETE tbEntradasSalidasMedicamentos WHERE IdEntradaSalida = @Param1";
-                SqlCommand cmdDelete = new SqlCommand(queryDelete, command.Connection);
-                cmdDelete.Parameters.AddWithValue("@Param1", IdEntradaSalida);
-                int returnedDeleteValue = cmdDelete.ExecuteNonQuery();
-                if (returnedDeleteValue == 1)
-                {
-                    command.Connection = getConnection();
-                    string query = "DELETE tbMedicamentos WHERE IdMedicamento = @Param2";
-                    SqlCommand cmd = new SqlCommand(query, command.Connection);
-                    cmd.Parameters.AddWithValue("@Param2", IdMedicamento);
-                    int respuesta = cmd.ExecuteNonQuery();
-                    return respuesta;
-                }
-                else
-                {
-                    return 0;
-                }
+                string query = "EXEC [ProcedimientosAlmacenados].[spEliminarMedicamento] @param1, @param2";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", IdEntradaSalida);
+                cmd.Parameters.AddWithValue("param2", IdMedicamento);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"{ex.Message}");
+                return -1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message}");
                 return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public DataSet SearchMedicineInventory(string search)
+        {
+            try
+            {
+                MessageBox.Show(search);
+                command.Connection = getConnection();
+                string query = $"SELECT * FROM [Vistas].[viewMedicamento] WHERE [Nombre del Medicamento] LIKE '%{search}%' OR [Categoría del Medicamento] LIKE '%{search}%'";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "viewMedicamento");
+                return ds;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"{ex.Message}");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");
+                return null;
             }
             finally
             {

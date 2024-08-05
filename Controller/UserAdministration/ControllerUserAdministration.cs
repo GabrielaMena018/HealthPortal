@@ -23,7 +23,6 @@ namespace RegistroPacientes.Controller.UserAdministration
             objUserAdministration.btnFilter.Click += new EventHandler(SortData);
             objUserAdministration.btnSearchForUser.Click += new EventHandler(SearchDatabase);
             objUserAdministration.btnAddNewUser.Click += new EventHandler(AddUser);
-            objUserAdministration.dgvUserDisplay.CellMouseClick += new DataGridViewCellMouseEventHandler(ShowContextMenuStrip);
             objUserAdministration.cmsUpdateUser.Click += new EventHandler(UpdateUser);
             objUserAdministration.cmsDeleteUser.Click += new EventHandler(DeleteUser);
         }
@@ -55,20 +54,9 @@ namespace RegistroPacientes.Controller.UserAdministration
         public void SearchDatabase(object sender, EventArgs e)
         {
             DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
-            string search = objUserAdministration.txtUserAdministrationSearch.Texts;
+            string search = objUserAdministration.txtUserAdministrationSearch.Texts.Trim();
             DataSet ds = daoUserAdministration.SearchDesiredUserInfo(search);
             objUserAdministration.dgvUserDisplay.DataSource = ds.Tables["viewPersonas"];
-        }
-        public void ShowContextMenuStrip(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            // Fijo no tengo ni idea de como funciona esto habra estudio posteriormente
-            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                objUserAdministration.dgvUserDisplay.CurrentCell = objUserAdministration.dgvUserDisplay.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                Point cellLocation = objUserAdministration.dgvUserDisplay.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
-                Point screenLocation = objUserAdministration.dgvUserDisplay.PointToScreen(cellLocation);
-                objUserAdministration.contextDataGrid.Show(screenLocation + new Size(e.X, e.Y));
-            }
         }
         public void AddUser(object sender, EventArgs e)
         {

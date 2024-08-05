@@ -20,10 +20,10 @@ namespace RegistroPacientes.Controller.InventoryAdministration
             objInventoryAdministration = vista;
             objInventoryAdministration.Load += new EventHandler(LoadData);
             //Evento click del boton
-            objInventoryAdministration.btnNew.Click += new EventHandler(NewInventory);
-            objInventoryAdministration.cmsUpdate.Click += new EventHandler(UpdateInventory);
-            objInventoryAdministration.cmsDelete.Click += new EventHandler(DeleteInventory);
-            //objAdminInventory.cmsView.Click += new EventHandler();
+            objInventoryAdministration.btnNew.Click += new EventHandler(NewMedicineInventory);
+            objInventoryAdministration.cmsUpdate.Click += new EventHandler(UpdateMedicineInventory);
+            objInventoryAdministration.cmsDelete.Click += new EventHandler(DeleteMedicineInventory);
+            objInventoryAdministration.btnSearch.Click += new EventHandler(SearchMedicineInventory);
             //DataGridView
             //objAdminInventory.dgvInventory.CellPainting += new DataGridViewCellPaintingEventHandler(FormatoColumnaGrid);
         }
@@ -41,23 +41,14 @@ namespace RegistroPacientes.Controller.InventoryAdministration
             DataSet ds = daoInventoryAdministration.GetInventory();
             //Llenar DataGridView 
             objInventoryAdministration.dgvInventory.DataSource = ds.Tables["viewMedicamento"];
-            objInventoryAdministration.dgvInventory.Columns[0].HeaderText = "ID Medicamento";
             objInventoryAdministration.dgvInventory.Columns[0].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[1].HeaderText = "Nombre";
             objInventoryAdministration.dgvInventory.Columns[1].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[2].HeaderText = "Descripción";
             objInventoryAdministration.dgvInventory.Columns[2].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[3].HeaderText = "Categoria";
             objInventoryAdministration.dgvInventory.Columns[3].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[4].HeaderText = "Fecha de vencimiento";
             objInventoryAdministration.dgvInventory.Columns[4].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[5].HeaderText = "Fecha de Ingreso";
             objInventoryAdministration.dgvInventory.Columns[5].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[6].HeaderText = "Hora de Entrada";
             objInventoryAdministration.dgvInventory.Columns[6].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[7].HeaderText = "Cantidad en existencia";
             objInventoryAdministration.dgvInventory.Columns[7].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[8].HeaderText = "Id de la entrada";
             objInventoryAdministration.dgvInventory.Columns[8].Width = 100;
         }
 
@@ -99,23 +90,20 @@ namespace RegistroPacientes.Controller.InventoryAdministration
         //}
         #endregion
 
-        private void NewInventory(object sender, EventArgs e)
+        private void NewMedicineInventory(object sender, EventArgs e)
         {
             FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(1);
             openForm.ShowDialog();
             RefreshData();
         }
 
-        private void UpdateInventory(object sender, EventArgs e)
+        private void UpdateMedicineInventory(object sender, EventArgs e)
         {
             int pos = objInventoryAdministration.dgvInventory.CurrentRow.Index;
-            MessageBox.Show(objInventoryAdministration.dgvInventory[1, pos].Value.ToString());
-            MessageBox.Show(objInventoryAdministration.dgvInventory[7, pos].Value.ToString());
             int id;
             string nameMedicment, categoryMedicment, stock, description;
             DateTime expirationDate, income, exit;
             id = int.Parse(objInventoryAdministration.dgvInventory[0, pos].Value.ToString());
-            MessageBox.Show("" + id);
             nameMedicment = objInventoryAdministration.dgvInventory[1, pos].Value.ToString();
             description = objInventoryAdministration.dgvInventory[2, pos].Value.ToString();
             categoryMedicment = objInventoryAdministration.dgvInventory[3, pos].Value.ToString();
@@ -130,28 +118,32 @@ namespace RegistroPacientes.Controller.InventoryAdministration
             RefreshData();
         }
 
-        private void DeleteInventory(object sender, EventArgs e)
+        private void DeleteMedicineInventory(object sender, EventArgs e)
         {
             int pos = objInventoryAdministration.dgvInventory.CurrentRow.Index;
-            if ((MessageBox.Show($"¿Esta seguro que desea elimar el: {objInventoryAdministration.dgvInventory[1, pos].Value.ToString()} {objInventoryAdministration.dgvInventory[2, pos].Value.ToString()}.Considere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+            if ((MessageBox.Show($"¿Está seguro que desea eliminar al medicamento {objInventoryAdministration.dgvInventory[1, pos].Value.ToString()}? Considere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
             {
                 DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
                 daoInventoryAdministration.IdMedicamento = int.Parse(objInventoryAdministration.dgvInventory[0, pos].Value.ToString());
                 daoInventoryAdministration.IdEntradaSalida = int.Parse(objInventoryAdministration.dgvInventory[8, pos].Value.ToString());
                 int returnedValue = daoInventoryAdministration.DeleteInventory();
-                MessageBox.Show(returnedValue.ToString());
                 if (returnedValue == 1)
                 {
                     MessageBox.Show("Registro eliminado", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshData();
                 }
                 else
                 {
                     MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                RefreshData();
             }
-            RefreshData();
         }
-
+        private void SearchMedicineInventory(object sender, EventArgs e)
+        {
+            DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
+            string search = objInventoryAdministration.txtSearch.Texts.Trim();
+            DataSet ds = daoInventoryAdministration.SearchMedicineInventory(search);
+            objInventoryAdministration.dgvInventory.DataSource = ds.Tables["viewMedicamento"];
+        }
     }
 }
