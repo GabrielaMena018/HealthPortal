@@ -1,4 +1,4 @@
-﻿namespace RegistroPacientes.View.InventoryAdministration
+﻿namespace HealthPortal.View.InventoryAdministration
 {
     partial class FrmAddUpdateMedicine
     {

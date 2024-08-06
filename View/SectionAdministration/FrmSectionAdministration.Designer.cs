@@ -1,4 +1,4 @@
-﻿namespace RegistroPacientes.View.SectionAdministration
+﻿namespace HealthPortal.View.SectionAdministration
 {
     partial class FrmSectionAdministration
     {

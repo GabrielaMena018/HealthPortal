@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RegistroPacientes.Model.DTO;
+using HealthPortal.Model.DTO;
 using System.Windows.Forms;
 using Microsoft.SqlServer.Server;
 using System.Collections;
@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Diagnostics.Eventing.Reader;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace RegistroPacientes.Model.DAO
+namespace HealthPortal.Model.DAO
 {
     class DAOPatientAdministration : DTOPatientAdministration
     {

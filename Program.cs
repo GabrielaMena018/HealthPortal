@@ -1,12 +1,11 @@
-﻿using RegistroPacientes.View.Login;
-using RegistroPacientes.Helper;
+﻿using HealthPortal.View.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RegistroPacientes
+namespace HealthPortal
 {
     internal static class Program
     {

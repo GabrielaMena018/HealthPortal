@@ -1,4 +1,4 @@
-﻿namespace RegistroPacientes.View.Dashboard
+﻿namespace HealthPortal.View.Dashboard
 {
     partial class FrmDashboard
     {
@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDashboard));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.StpRegistroPacientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.StpHealthPortal = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarPacienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioMedicamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarMedicamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,7 +78,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
-            this.StpRegistroPacientes,
+            this.StpHealthPortal,
             this.inventarioMedicamentosToolStripMenuItem,
             this.estadisticasToolStripMenuItem,
             this.administrarUsuriosToolStripMenuItem});
@@ -94,13 +94,13 @@
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(65, 27);
             this.inicioToolStripMenuItem.Text = "Inicio";
             // 
-            // StpRegistroPacientes
+            // StpHealthPortal
             // 
-            this.StpRegistroPacientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StpHealthPortal.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarPacienteToolStripMenuItem});
-            this.StpRegistroPacientes.Name = "StpRegistroPacientes";
-            this.StpRegistroPacientes.Size = new System.Drawing.Size(169, 27);
-            this.StpRegistroPacientes.Text = "Registros Pacientes";
+            this.StpHealthPortal.Name = "StpHealthPortal";
+            this.StpHealthPortal.Size = new System.Drawing.Size(169, 27);
+            this.StpHealthPortal.Text = "Registros Pacientes";
             // 
             // agregarPacienteToolStripMenuItem
             // 
@@ -166,7 +166,7 @@
             this.BtnPicHome.AccessibleDescription = "Inicio";
             this.BtnPicHome.BackColor = System.Drawing.Color.White;
             this.BtnPicHome.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicHome.BackgroundImage = global::RegistroPacientes.Properties.Resources.hogar1;
+            this.BtnPicHome.BackgroundImage = global::HealthPortal.Properties.Resources.hogar1;
             this.BtnPicHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicHome.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicHome.BorderRadius = 40;
@@ -209,7 +209,7 @@
             // 
             this.BtnPicPaciente.BackColor = System.Drawing.Color.White;
             this.BtnPicPaciente.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicPaciente.BackgroundImage = global::RegistroPacientes.Properties.Resources.lista_del_portapapeles;
+            this.BtnPicPaciente.BackgroundImage = global::HealthPortal.Properties.Resources.lista_del_portapapeles;
             this.BtnPicPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicPaciente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicPaciente.BorderRadius = 40;
@@ -252,7 +252,7 @@
             // 
             this.BtnPicInventario.BackColor = System.Drawing.Color.White;
             this.BtnPicInventario.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicInventario.BackgroundImage = global::RegistroPacientes.Properties.Resources.pastillas;
+            this.BtnPicInventario.BackgroundImage = global::HealthPortal.Properties.Resources.pastillas;
             this.BtnPicInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicInventario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicInventario.BorderRadius = 40;
@@ -295,7 +295,7 @@
             // 
             this.BtnPicEstadistica.BackColor = System.Drawing.Color.White;
             this.BtnPicEstadistica.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicEstadistica.BackgroundImage = global::RegistroPacientes.Properties.Resources.grafico_histograma;
+            this.BtnPicEstadistica.BackgroundImage = global::HealthPortal.Properties.Resources.grafico_histograma;
             this.BtnPicEstadistica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicEstadistica.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicEstadistica.BorderRadius = 40;
@@ -338,7 +338,7 @@
             // 
             this.BtnPicAdminUser.BackColor = System.Drawing.Color.White;
             this.BtnPicAdminUser.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicAdminUser.BackgroundImage = global::RegistroPacientes.Properties.Resources.agregar_usuario;
+            this.BtnPicAdminUser.BackgroundImage = global::HealthPortal.Properties.Resources.agregar_usuario;
             this.BtnPicAdminUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicAdminUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicAdminUser.BorderRadius = 40;
@@ -381,7 +381,7 @@
             // 
             this.BtnPicAdminGrades.BackColor = System.Drawing.Color.White;
             this.BtnPicAdminGrades.BackGroundColor = System.Drawing.Color.White;
-            this.BtnPicAdminGrades.BackgroundImage = global::RegistroPacientes.Properties.Resources.leccion__2_;
+            this.BtnPicAdminGrades.BackgroundImage = global::HealthPortal.Properties.Resources.leccion__2_;
             this.BtnPicAdminGrades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnPicAdminGrades.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.BtnPicAdminGrades.BorderRadius = 40;
@@ -453,7 +453,7 @@
             // 
             this.btnMenu.BackColor = System.Drawing.Color.White;
             this.btnMenu.BackGroundColor = System.Drawing.Color.White;
-            this.btnMenu.BackgroundImage = global::RegistroPacientes.Properties.Resources.menu_regular_24;
+            this.btnMenu.BackgroundImage = global::HealthPortal.Properties.Resources.menu_regular_24;
             this.btnMenu.BorderColor = System.Drawing.Color.White;
             this.btnMenu.BorderRadius = 0;
             this.btnMenu.BorderSize = 1;
@@ -504,7 +504,7 @@
             // 
             this.rjButton2.BackColor = System.Drawing.Color.White;
             this.rjButton2.BackGroundColor = System.Drawing.Color.White;
-            this.rjButton2.BackgroundImage = global::RegistroPacientes.Properties.Resources.salida;
+            this.rjButton2.BackgroundImage = global::HealthPortal.Properties.Resources.salida;
             this.rjButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.rjButton2.BorderRadius = 40;
@@ -590,7 +590,7 @@
         private System.Windows.Forms.ToolStripMenuItem estadisticasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imprimirReporteToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        public System.Windows.Forms.ToolStripMenuItem StpRegistroPacientes;
+        public System.Windows.Forms.ToolStripMenuItem StpHealthPortal;
         public System.Windows.Forms.Timer sidebarTimer;
         private System.Windows.Forms.Panel panel1;
         public CustomPanel.RJButton BtnPatience;

@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.Model.DTO;
-using RegistroPacientes.Helper;
+using HealthPortal.Model.DTO;
+using HealthPortal.Helper;
 
-namespace RegistroPacientes.Model.DAO
+namespace HealthPortal.Model.DAO
 {
     internal class DAOLogin : DTOLogin
     {

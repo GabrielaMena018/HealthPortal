@@ -1,16 +1,16 @@
-﻿using RegistroPacientes.View.UserAdministration;
+﻿using HealthPortal.View.UserAdministration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RegistroPacientes.Controller;
-using RegistroPacientes.Model.DAO;
+using HealthPortal.Controller;
+using HealthPortal.Model.DAO;
 using System.Data;
 using System.Windows.Forms;
-using RegistroPacientes.Helper;
+using HealthPortal.Helper;
 
-namespace RegistroPacientes.Controller.UserAdministration
+namespace HealthPortal.Controller.UserAdministration
 {
     internal class ControllerAddUpdateUser
     {

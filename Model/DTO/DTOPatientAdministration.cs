@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RegistroPacientes.Model;
+using HealthPortal.Model;
 
-namespace RegistroPacientes.Model.DTO
+namespace HealthPortal.Model.DTO
 {
      internal class DTOPatientAdministration : dbContext
     {

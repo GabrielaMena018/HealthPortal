@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.Model.DTO;
+using HealthPortal.Model.DTO;
 
-namespace RegistroPacientes.Model.DAO
+namespace HealthPortal.Model.DAO
 {
     class DAOSectionAdministration : DTOSectionAdministration
     {

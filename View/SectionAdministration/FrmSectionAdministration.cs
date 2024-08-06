@@ -1,4 +1,4 @@
-﻿using RegistroPacientes.Controller.SectionAdministration;
+﻿using HealthPortal.Controller.SectionAdministration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RegistroPacientes.View.SectionAdministration
+namespace HealthPortal.View.SectionAdministration
 {
     public partial class FrmSectionAdministration : Form
     {

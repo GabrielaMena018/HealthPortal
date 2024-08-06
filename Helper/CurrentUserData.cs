@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RegistroPacientes.Helper
+namespace HealthPortal.Helper
 {
     internal class CurrentUserData
     {

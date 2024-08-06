@@ -1,4 +1,4 @@
-﻿namespace RegistroPacientes.View.InventoryAdministration
+﻿namespace HealthPortal.View.InventoryAdministration
 {
     partial class FrmInventoryAdministration
     {
@@ -513,7 +513,7 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.White;
             this.btnSearch.BackGroundColor = System.Drawing.Color.White;
-            this.btnSearch.BackgroundImage = global::RegistroPacientes.Properties.Resources.busqueda__1_;
+            this.btnSearch.BackgroundImage = global::HealthPortal.Properties.Resources.busqueda__1_;
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSearch.BorderColor = System.Drawing.Color.White;
             this.btnSearch.BorderRadius = 40;

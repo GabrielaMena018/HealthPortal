@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.Controller.InventoryAdministration;
+using HealthPortal.Controller.InventoryAdministration;
 
-namespace RegistroPacientes.View.InventoryAdministration
+namespace HealthPortal.View.InventoryAdministration
 {
     public partial class FrmAddUpdateMedicine : Form
     {
