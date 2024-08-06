@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RegistroPacientes.Model
 {
@@ -22,12 +23,16 @@ namespace RegistroPacientes.Model
                 conexion.Open();
                 return conexion;
             }
-            catch (Exception)
+            catch (SqlException ex)
             {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-400 No se pudo establecer la conexión con la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
-
     }
 }

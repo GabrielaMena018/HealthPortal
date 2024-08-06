@@ -36,7 +36,7 @@ namespace RegistroPacientes.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"{ex.Message}");
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             catch (Exception ex)

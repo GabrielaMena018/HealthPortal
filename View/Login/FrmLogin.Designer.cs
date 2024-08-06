@@ -120,6 +120,7 @@ namespace RegistroPacientes.View.Login
             // 
             this.picHidePassword.BackColor = System.Drawing.Color.White;
             this.picHidePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picHidePassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picHidePassword.Image = global::RegistroPacientes.Properties.Resources.hide;
             this.picHidePassword.Location = new System.Drawing.Point(115, 286);
             this.picHidePassword.Name = "picHidePassword";
@@ -133,6 +134,7 @@ namespace RegistroPacientes.View.Login
             // 
             this.picExit.BackColor = System.Drawing.Color.White;
             this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picExit.Image = global::RegistroPacientes.Properties.Resources.quit;
             this.picExit.Location = new System.Drawing.Point(431, 452);
             this.picExit.Name = "picExit";
@@ -146,6 +148,7 @@ namespace RegistroPacientes.View.Login
             // 
             this.picTestConnection.BackColor = System.Drawing.Color.White;
             this.picTestConnection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picTestConnection.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picTestConnection.Image = ((System.Drawing.Image)(resources.GetObject("picTestConnection.Image")));
             this.picTestConnection.Location = new System.Drawing.Point(93, 452);
             this.picTestConnection.Name = "picTestConnection";
@@ -162,6 +165,7 @@ namespace RegistroPacientes.View.Login
             this.btnLogin.BorderColor = System.Drawing.Color.CornflowerBlue;
             this.btnLogin.BorderRadius = 30;
             this.btnLogin.BorderSize = 0;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Berlin Sans FB", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -195,6 +199,7 @@ namespace RegistroPacientes.View.Login
             this.chkRememberMe.BackColor = System.Drawing.Color.Transparent;
             this.chkRememberMe.Checked = true;
             this.chkRememberMe.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.chkRememberMe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkRememberMe.Font = new System.Drawing.Font("Berlin Sans FB", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkRememberMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.chkRememberMe.Location = new System.Drawing.Point(93, 348);
@@ -208,6 +213,7 @@ namespace RegistroPacientes.View.Login
             // 
             this.picShowPassword.BackColor = System.Drawing.Color.White;
             this.picShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picShowPassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picShowPassword.Image = global::RegistroPacientes.Properties.Resources.show;
             this.picShowPassword.Location = new System.Drawing.Point(115, 286);
             this.picShowPassword.Name = "picShowPassword";
@@ -239,7 +245,7 @@ namespace RegistroPacientes.View.Login
             this.txtPassword.BorderRadius = 20;
             this.txtPassword.BorderSize = 2;
             this.txtPassword.Font = new System.Drawing.Font("Berlin Sans FB", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.txtPassword.Location = new System.Drawing.Point(93, 269);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(93, 3, 93, 3);
             this.txtPassword.Multiline = false;
@@ -261,7 +267,7 @@ namespace RegistroPacientes.View.Login
             this.txtUsername.BorderRadius = 20;
             this.txtUsername.BorderSize = 2;
             this.txtUsername.Font = new System.Drawing.Font("Berlin Sans FB", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.txtUsername.Location = new System.Drawing.Point(93, 149);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(93, 3, 93, 3);
             this.txtUsername.Multiline = false;
@@ -314,12 +320,12 @@ namespace RegistroPacientes.View.Login
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox picUsername;
         public CustomPanel.BorderRadiusTXT txtPassword;
-        private System.Windows.Forms.PictureBox picShowPassword;
-        private System.Windows.Forms.CheckBox chkRememberMe;
-        private System.Windows.Forms.LinkLabel llbForgotPassword;
         public CustomPanel.RJButton btnLogin;
-        private System.Windows.Forms.PictureBox picExit;
-        private System.Windows.Forms.PictureBox picTestConnection;
-        private System.Windows.Forms.PictureBox picHidePassword;
+        public System.Windows.Forms.PictureBox picTestConnection;
+        public System.Windows.Forms.PictureBox picExit;
+        public System.Windows.Forms.PictureBox picShowPassword;
+        public System.Windows.Forms.PictureBox picHidePassword;
+        public System.Windows.Forms.CheckBox chkRememberMe;
+        public System.Windows.Forms.LinkLabel llbForgotPassword;
     }
 }
