@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RegistroPacientes.View;
 using RegistroPacientes.View.UserAdministration;
-using RegistroPacientes.View.AcademycLevelAdministration;
+using RegistroPacientes.View.SectionAdministration;
 
 namespace RegistroPacientes.Controller.Dashboard
 {
@@ -38,18 +38,18 @@ namespace RegistroPacientes.Controller.Dashboard
 
         private void AbrirFormularioAdminGrades(object sender, EventArgs e)
         {
-            AbrirFormulario<FrmAdminGrades>();
+            AbrirFormulario<FrmSectionAdministration>();
         }
 
         public void AdminPatience(object sende, EventArgs e)
         {
-            FrmAdminPatience openForm = new FrmAdminPatience();
+            FrmPatientAdministration openForm = new FrmPatientAdministration();
             openForm.ShowDialog();
         }
 
         private void AbrirFormularioAdminPacientes(object sender, EventArgs e)
         {
-            AbrirFormulario<FrmAdminPatience>();
+            AbrirFormulario<FrmPatientAdministration>();
         }
 
         private void AbrirFormularioUserAdministration(object sender, EventArgs e)

@@ -1,6 +1,6 @@
-﻿namespace RegistroPacientes.View.AcademycLevelAdministration
+﻿namespace RegistroPacientes.View.SectionAdministration
 {
-    partial class FrmAddGrades
+    partial class FrmAddUpdateSection
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddGrades));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddUpdateSection));
             this.lblRegistrarSeccion = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CmbSeccionAcademica = new System.Windows.Forms.ComboBox();

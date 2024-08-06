@@ -1,6 +1,6 @@
 ﻿namespace RegistroPacientes
 {
-    partial class FrmAdminPatience
+    partial class FrmPatientAdministration
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminPatience));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPatientAdministration));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.contextDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsVer = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,15 +46,12 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.BtnView = new CustomPanel.RJButton();
             this.GridViewPatient = new System.Windows.Forms.DataGridView();
             this.ContenedorFiltros = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbRol = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btnNew = new CustomPanel.RJButton();
-            this.BtnFiltrar = new CustomPanel.RJButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.CmbSpecialty = new System.Windows.Forms.ComboBox();
@@ -63,6 +60,12 @@
             this.PickFechaVisita = new System.Windows.Forms.DateTimePicker();
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.panelTitulo = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelbuscador = new System.Windows.Forms.Panel();
+            this.btnShowAll = new CustomPanel.RJButton();
+            this.btnNew = new CustomPanel.RJButton();
+            this.BtnFiltrar = new CustomPanel.RJButton();
             this.panelCustumPequeño = new CustomPanel.PanelCustom();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -76,9 +79,6 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panelButton = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelbuscador = new System.Windows.Forms.Panel();
             this.BtnBuscar = new CustomPanel.RJButton();
             this.txtSearch = new CustomPanel.BorderRadiusTXT();
             this.contextDataGrid.SuspendLayout();
@@ -94,6 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelGrafica.SuspendLayout();
             this.panelTitulo.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panelbuscador.SuspendLayout();
             this.panelCustumPequeño.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -101,8 +103,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panelbuscador.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextDataGrid
@@ -190,31 +190,12 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.BtnView);
+            this.panel5.Controls.Add(this.btnShowAll);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.Location = new System.Drawing.Point(783, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(219, 69);
             this.panel5.TabIndex = 19;
-            // 
-            // BtnView
-            // 
-            this.BtnView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnView.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnView.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnView.BorderRadius = 40;
-            this.BtnView.BorderSize = 0;
-            this.BtnView.FlatAppearance.BorderSize = 0;
-            this.BtnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnView.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnView.ForeColor = System.Drawing.Color.Black;
-            this.BtnView.Location = new System.Drawing.Point(22, 10);
-            this.BtnView.Name = "BtnView";
-            this.BtnView.Size = new System.Drawing.Size(173, 46);
-            this.BtnView.TabIndex = 18;
-            this.BtnView.Text = "Mostrar Todo";
-            this.BtnView.TextColor = System.Drawing.Color.Black;
-            this.BtnView.UseVisualStyleBackColor = false;
             // 
             // GridViewPatient
             // 
@@ -223,24 +204,24 @@
             this.GridViewPatient.BackgroundColor = System.Drawing.Color.White;
             this.GridViewPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridViewPatient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridViewPatient.ColumnHeadersHeight = 40;
             this.GridViewPatient.ContextMenuStrip = this.contextDataGrid;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewPatient.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridViewPatient.DefaultCellStyle = dataGridViewCellStyle4;
             this.GridViewPatient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridViewPatient.EnableHeadersVisualStyles = false;
             this.GridViewPatient.Location = new System.Drawing.Point(0, 0);
@@ -316,45 +297,6 @@
             this.pictureBox4.Size = new System.Drawing.Size(26, 28);
             this.pictureBox4.TabIndex = 14;
             this.pictureBox4.TabStop = false;
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnNew.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnNew.BorderRadius = 40;
-            this.btnNew.BorderSize = 0;
-            this.btnNew.FlatAppearance.BorderSize = 0;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnNew.ForeColor = System.Drawing.Color.Black;
-            this.btnNew.Location = new System.Drawing.Point(3, 35);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(163, 46);
-            this.btnNew.TabIndex = 2;
-            this.btnNew.Text = "Nuevo Paciente";
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNew.TextColor = System.Drawing.Color.Black;
-            this.btnNew.UseVisualStyleBackColor = false;
-            // 
-            // BtnFiltrar
-            // 
-            this.BtnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnFiltrar.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnFiltrar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnFiltrar.BorderRadius = 40;
-            this.BtnFiltrar.BorderSize = 0;
-            this.BtnFiltrar.FlatAppearance.BorderSize = 0;
-            this.BtnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFiltrar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.BtnFiltrar.Location = new System.Drawing.Point(15, 35);
-            this.BtnFiltrar.Name = "BtnFiltrar";
-            this.BtnFiltrar.Size = new System.Drawing.Size(85, 46);
-            this.BtnFiltrar.TabIndex = 17;
-            this.BtnFiltrar.Text = "Filtrar";
-            this.BtnFiltrar.TextColor = System.Drawing.Color.Black;
-            this.BtnFiltrar.UseVisualStyleBackColor = false;
             // 
             // label8
             // 
@@ -445,6 +387,94 @@
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(308, 571);
             this.panelTitulo.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.panelbuscador);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(308, 139);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 65);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Pacientes";
+            // 
+            // panelbuscador
+            // 
+            this.panelbuscador.Controls.Add(this.BtnBuscar);
+            this.panelbuscador.Controls.Add(this.txtSearch);
+            this.panelbuscador.Location = new System.Drawing.Point(3, 68);
+            this.panelbuscador.Name = "panelbuscador";
+            this.panelbuscador.Size = new System.Drawing.Size(319, 55);
+            this.panelbuscador.TabIndex = 0;
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnShowAll.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnShowAll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnShowAll.BorderRadius = 40;
+            this.btnShowAll.BorderSize = 0;
+            this.btnShowAll.FlatAppearance.BorderSize = 0;
+            this.btnShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowAll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnShowAll.ForeColor = System.Drawing.Color.Black;
+            this.btnShowAll.Location = new System.Drawing.Point(22, 10);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(173, 46);
+            this.btnShowAll.TabIndex = 18;
+            this.btnShowAll.Text = "Mostrar Todo";
+            this.btnShowAll.TextColor = System.Drawing.Color.Black;
+            this.btnShowAll.UseVisualStyleBackColor = false;
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnNew.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnNew.BorderRadius = 40;
+            this.btnNew.BorderSize = 0;
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnNew.ForeColor = System.Drawing.Color.Black;
+            this.btnNew.Location = new System.Drawing.Point(3, 35);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(163, 46);
+            this.btnNew.TabIndex = 2;
+            this.btnNew.Text = "Nuevo Paciente";
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNew.TextColor = System.Drawing.Color.Black;
+            this.btnNew.UseVisualStyleBackColor = false;
+            // 
+            // BtnFiltrar
+            // 
+            this.BtnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnFiltrar.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnFiltrar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.BtnFiltrar.BorderRadius = 40;
+            this.BtnFiltrar.BorderSize = 0;
+            this.BtnFiltrar.FlatAppearance.BorderSize = 0;
+            this.BtnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFiltrar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnFiltrar.ForeColor = System.Drawing.Color.Black;
+            this.BtnFiltrar.Location = new System.Drawing.Point(15, 35);
+            this.BtnFiltrar.Name = "BtnFiltrar";
+            this.BtnFiltrar.Size = new System.Drawing.Size(85, 46);
+            this.BtnFiltrar.TabIndex = 17;
+            this.BtnFiltrar.Text = "Filtrar";
+            this.BtnFiltrar.TextColor = System.Drawing.Color.Black;
+            this.BtnFiltrar.UseVisualStyleBackColor = false;
             // 
             // panelCustumPequeño
             // 
@@ -538,18 +568,18 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Top;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(0, 157);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(308, 245);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
@@ -614,36 +644,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(35, 32);
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.panelbuscador);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(308, 139);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 65);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Pacientes";
-            // 
-            // panelbuscador
-            // 
-            this.panelbuscador.Controls.Add(this.BtnBuscar);
-            this.panelbuscador.Controls.Add(this.txtSearch);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 68);
-            this.panelbuscador.Name = "panelbuscador";
-            this.panelbuscador.Size = new System.Drawing.Size(319, 55);
-            this.panelbuscador.TabIndex = 0;
             // 
             // BtnBuscar
             // 
@@ -715,6 +715,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelGrafica.ResumeLayout(false);
             this.panelTitulo.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.panelbuscador.ResumeLayout(false);
             this.panelCustumPequeño.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -723,9 +726,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            this.panelbuscador.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -778,7 +778,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
-        public CustomPanel.RJButton BtnView;
+        public CustomPanel.RJButton btnShowAll;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.ComboBox cmbRol;
     }

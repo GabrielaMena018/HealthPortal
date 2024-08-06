@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RegistroPacientes.Models;
+using RegistroPacientes.Model;
 
 namespace RegistroPacientes.Model.DTO
 {
-     internal class DTOAdminPatience : dbContext
+     internal class DTOPatientAdministration : dbContext
     {
         //Atributos
 
@@ -15,42 +15,40 @@ namespace RegistroPacientes.Model.DTO
         private int idPatient;
         private string name;
         private string lastName;
-        private int rol;
+        private int role;
 
         //Estudiante
         private string code;
         private int idGradeSection;
 
         //Grade seccion
-        private string groupTechnical;
+        private string technicalGroup;
         private int specialty;
         private int grade;
-        private int seccionAcademica;
+        private int academicSection;
 
 
         //Visita
-        private int Idpaciente;
         private DateTime date;
         private string time;
-        private int medicamento;
-        private string observacion;
+        private int medicine;
+        private string observation;
 
         //Metodos
         public string Name { get => name; set => name = value; }
         public string LastName { get => lastName; set => lastName = value; }
-        public int Rol { get => rol; set => rol = value; }
+        public int Role { get => role; set => role = value; }
         public string Code { get => code; set => code = value; }
         public int IdGradeSection { get => idGradeSection; set => idGradeSection = value; }
-        public string GroupTechnical { get => groupTechnical; set => groupTechnical = value; }
+        public string TechnicalGroup { get => technicalGroup; set => technicalGroup = value; }
         public int Specialty { get => specialty; set => specialty = value; }
         public int Grade { get => grade; set => grade = value; }
-        public int SeccionAcademica { get => seccionAcademica; set => seccionAcademica = value; }
-        public int Idpaciente1 { get => Idpaciente; set => Idpaciente = value; }
+        public int AcademicSection { get => academicSection; set => academicSection = value; }
         public DateTime Date { get => date; set => date = value; }
         public string Time { get => time; set => time = value; }
-        public int Medicamento { get => medicamento; set => medicamento = value; }
-        public string Observacion { get => observacion; set => observacion = value; }
-        public int IdPaciente { get => idPatient; set => idPatient = value; }
+        public int Medicine { get => medicine; set => medicine = value; }
+        public string Observation { get => observation; set => observation = value; }
+        public int IdPatient { get => idPatient; set => idPatient = value; }
 
     }
 }

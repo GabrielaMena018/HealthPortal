@@ -8,16 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.Controlador;
+using RegistroPacientes.Controller;
 
 namespace RegistroPacientes
 {
-    public partial class FrmAdminPatience : Form
+    public partial class FrmPatientAdministration : Form
     {
-        public FrmAdminPatience()
+        public FrmPatientAdministration()
         {
             InitializeComponent();
-            ControllerAdminPatience control = new ControllerAdminPatience(this);
+            ControllerPatientAdministration control = new ControllerPatientAdministration(this);
         }
     }
 }

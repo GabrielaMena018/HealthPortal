@@ -15,27 +15,27 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RegistroPacientes.Model.DAO
 {
-    class DAOAdminPatience : DTOAdminPatience
+    class DAOPatientAdministration : DTOPatientAdministration
     {
         int respuesta;
         int RespuestaUpdate;
         int RespuestaDelete;
         int respuestaSearch;
-        readonly SqlCommand Command = new SqlCommand();
+        readonly SqlCommand command = new SqlCommand();
 
         //Llenar los comboBox
-        public DataSet LlenarCombo(string table)
+        public DataSet FillCombo(string table, string schema)
         {
             try
             {
                 //Se crea una conexión para garantizar que efectivamente haya conexión a la base.
-                Command.Connection = getConnection();
+                command.Connection = getConnection();
                 //**
                 //Se crea el query que indica la acción que el sistema desea realizar con la base de datos
                 //En caso sea una consulta parametrizada se deberá respetar la sintaxis sobre como colocar parametros en la instrucción sql (REVISAR LOS DEMÁS MANTENIMIENTOS PARA VER COMO SE CREAN PARAMETROS Y SE LES DA VALORES).
-                string query = $"SELECT * FROM {table}";
+                string query = $"SELECT * FROM {schema}.{table}";
                 //Se crea un comando de tipo sql al cual se le pasa el query y la conexión, esto para que el sistema sepa que hacer y donde hacerlo.
-                SqlCommand cmd = new SqlCommand(query, Command.Connection);
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
                 //ExecuteNonQuery indicará cuantos filas fueron afectadas, es decir, cuantas filas de datos se ingresaron o encontraron, por lo general cuando es una consulta su valor puede ser 1 o mayor a 1.
                 cmd.ExecuteNonQuery();
                 //Se crea un objeto SqlDataAdapter para poder llenar el DataSet que posteriormente utilizaremos, además recibe el comando sql
@@ -67,17 +67,18 @@ namespace RegistroPacientes.Model.DAO
 
             try
             {
-                Command.Connection = getConnection();
+                command.Connection = getConnection();
                 GetGradeIdSection();
+                MessageBox.Show(IdGradeSection.ToString());
                 //Insertar datos en la tabala de paciente
-                string queryPatient = "INSERT INTO  tbPacientes VALUES (@nombrePaciente, @apellidoPaciente, @codigo, @IdGrado_Seccion, @IdTipoPersona)";
-                SqlCommand cmdInsertPatient = new SqlCommand(queryPatient, Command.Connection);
+                string queryPatient = "INSERT INTO [Pacientes].[tbPacientes] VALUES (@nombrePaciente, @apellidoPaciente, @codigo, @IdGradoSeccion, @IdTipoPersona)";
+                SqlCommand cmdInsertPatient = new SqlCommand(queryPatient, command.Connection);
                 //Insertar o darle valor a los parametros
                 cmdInsertPatient.Parameters.AddWithValue("nombrePaciente", Name);
                 cmdInsertPatient.Parameters.AddWithValue("apellidoPaciente", LastName);
                 cmdInsertPatient.Parameters.AddWithValue("codigo", Code);
-                cmdInsertPatient.Parameters.AddWithValue("IdGrado_Seccion", IdGradeSection);
-                cmdInsertPatient.Parameters.AddWithValue("IdTipoPersona", Rol);
+                cmdInsertPatient.Parameters.AddWithValue("IdGradoSeccion", IdGradeSection);
+                cmdInsertPatient.Parameters.AddWithValue("IdTipoPersona", Role);
                 respuesta = cmdInsertPatient.ExecuteNonQuery();
                 if (respuesta == 1)
                 {
@@ -116,7 +117,7 @@ namespace RegistroPacientes.Model.DAO
             }
             finally
             {
-                Command.Connection.Close();
+                command.Connection.Close();
             }
         }
         //Registrra Visitas
@@ -124,13 +125,13 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                string queryVisita = "INSERT INTO tbVisitas Values(@IdPaciente, @FechaVisita,@HoraVisita,@IdMedicamento, @Observaciones)";
-                SqlCommand cmdVisita = new SqlCommand(queryVisita, Command.Connection);
-                cmdVisita.Parameters.AddWithValue("IdPaciente", IdPaciente);
+                string queryVisita = "INSERT INTO [Visitas].[tbVisitas] Values(@IdPatient, @FechaVisita,@HoraVisita,@IdMedicamento, @Observaciones)";
+                SqlCommand cmdVisita = new SqlCommand(queryVisita, command.Connection);
+                cmdVisita.Parameters.AddWithValue("IdPatient", IdPatient);
                 cmdVisita.Parameters.AddWithValue("FechaVisita", Date);
                 cmdVisita.Parameters.AddWithValue("HoraVisita", Time);
-                cmdVisita.Parameters.AddWithValue("IdMedicamento", Medicamento);
-                cmdVisita.Parameters.AddWithValue("Observaciones", Observacion);
+                cmdVisita.Parameters.AddWithValue("IdMedicamento", Medicine);
+                cmdVisita.Parameters.AddWithValue("Observaciones", Observation);
                 respuesta = cmdVisita.ExecuteNonQuery();
                 return respuesta;
             }
@@ -150,29 +151,29 @@ namespace RegistroPacientes.Model.DAO
         //Este metodo sirve para obtener el Id de Cada paciente
         public int GetIdPatient()
         {
-            string queryIdPatient = "Select MAX (IdPaciente) FROM tbPacientes";
-            SqlCommand cmdIdpatient = new SqlCommand(queryIdPatient, Command.Connection);
+            string queryIdPatient = "Select MAX (idPaciente) FROM [Pacientes].[tbPacientes]";
+            SqlCommand cmdIdpatient = new SqlCommand(queryIdPatient, command.Connection);
             SqlDataReader consulta = cmdIdpatient.ExecuteReader();
 
             while (consulta.Read())
             {
-                IdPaciente = consulta.GetInt32(0); // Suponiendo que IdGrado_Seccion está en el índice 0
+                IdPatient = consulta.GetInt32(0); // Suponiendo que IdGrado_Seccion está en el índice 0
             }
             consulta.Close();
 
-            return IdPaciente;
+            return IdPatient;
         }
         //Este metodo sirve para onbtener el ID del Grado_seccion para ocuparlo como llave foranea
-        public int GetGradeIdSection()
+        public void GetGradeIdSection()
         {
             //buscar grados
             //Hacer una seleccion filtrada
-            string queryGradoSeccion = "SELECT IdGrado_Seccion FROM tbGrado_Seccion WHERE GrupoTecnico = @GrupoTecnico AND IdGrado = @IdGrado AND IdSeccionAcademica = @IdSeccionAcademica AND IdEspecialidad = @IdEspecialidad";
-            SqlCommand cmdGradoSeccion = new SqlCommand(queryGradoSeccion, Command.Connection);
+            string queryGradoSeccion = "SELECT idGradoSeccion FROM [Secciones].[tbGradoSeccion] WHERE grupoTecnico = @GrupoTecnico AND idGrado = @IdGrado AND idSeccionAcademica = @IdSeccionAcademica AND idEspecialidad = @IdEspecialidad";
+            SqlCommand cmdGradoSeccion = new SqlCommand(queryGradoSeccion, command.Connection);
             //Parametros
-            cmdGradoSeccion.Parameters.AddWithValue("GrupoTecnico", GroupTechnical);
+            cmdGradoSeccion.Parameters.AddWithValue("GrupoTecnico", TechnicalGroup);
             cmdGradoSeccion.Parameters.AddWithValue("IdGrado", Grade);
-            cmdGradoSeccion.Parameters.AddWithValue("IdSeccionAcademica", SeccionAcademica);
+            cmdGradoSeccion.Parameters.AddWithValue("IdSeccionAcademica", AcademicSection);
             cmdGradoSeccion.Parameters.AddWithValue("IdEspecialidad", Specialty);
             SqlDataReader consulta = cmdGradoSeccion.ExecuteReader();
 
@@ -181,7 +182,6 @@ namespace RegistroPacientes.Model.DAO
                 IdGradeSection = consulta.GetInt32(0); // Suponiendo que IdGrado_Seccion está en el índice 0
             }
             consulta.Close();
-            return IdGradeSection;
         }
         //Este metodo sirve para ingresar la visita
 
@@ -192,13 +192,13 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                Command.Connection = getConnection();
-                string queryAdminPatient = "SELECT * FROM ViewAdminPatient";
-                SqlCommand cmdAdminPatient = new SqlCommand(queryAdminPatient, Command.Connection);
+                command.Connection = getConnection();
+                string queryAdminPatient = "SELECT * FROM [Vistas].[viewAdminPacientes]";
+                SqlCommand cmdAdminPatient = new SqlCommand(queryAdminPatient, command.Connection);
                 cmdAdminPatient.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmdAdminPatient);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "ViewAdminPatient");
+                adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
             catch (SqlException ex)
@@ -221,24 +221,24 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                Command.Connection = getConnection();
+                command.Connection = getConnection();
                 GetGradeIdSection();
                 // Update en tbPacientes
-                string queryUpdatePatient = "UPDATE tbPacientes SET " +
+                string queryUpdatePatient = "UPDATE [Pacientes].[tbPacientes] SET " +
                                             "nombrePaciente = @param1, " +
                                             "apellidoPaciente = @param2, " +
                                             "codigo = @param3, " +
-                                            "IdGrado_Seccion = @param4, " +
-                                            "IdTipoPersona = @param5 " +
-                                            "WHERE IdPaciente = @param6"
+                                            "idGradoSeccion = @param4, " +
+                                            "idTipoPersona = @param5 " +
+                                            "WHERE idPaciente = @param6"
                                             ;
-                SqlCommand cmdUpdatePatient = new SqlCommand(queryUpdatePatient, Command.Connection);
+                SqlCommand cmdUpdatePatient = new SqlCommand(queryUpdatePatient, command.Connection);
                 cmdUpdatePatient.Parameters.AddWithValue("param1", Name);
                 cmdUpdatePatient.Parameters.AddWithValue("param2", LastName);
                 cmdUpdatePatient.Parameters.AddWithValue("param3", Code);
                 cmdUpdatePatient.Parameters.AddWithValue("param4", IdGradeSection);
-                cmdUpdatePatient.Parameters.AddWithValue("param5", Rol);
-                cmdUpdatePatient.Parameters.AddWithValue("param6", IdPaciente);
+                cmdUpdatePatient.Parameters.AddWithValue("param5", Role);
+                cmdUpdatePatient.Parameters.AddWithValue("param6", IdPatient);
                 RespuestaUpdate = cmdUpdatePatient.ExecuteNonQuery();
                 //Update en la tbEstudiantes o en la tbPersonalInstitucion dpeendiendo el rol que se le asigno al paciente
                 if (RespuestaUpdate >= 1)
@@ -265,7 +265,7 @@ namespace RegistroPacientes.Model.DAO
             }
             finally
             {
-                Command.Connection.Close();
+                command.Connection.Close();
             }
 
 
@@ -275,18 +275,18 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                string queryUpdateVisita = "UPDATE tbVisitas SET " +
+                string queryUpdateVisita = "UPDATE [Visitas].[tbVisitas] SET " +
                                             "FechaVisita = @param1, " +
                                             "HoraVisita = @param2, " +
                                             "IdMedicamento = @param3, " +
                                              "Observaciones = @param4 " +
-                                            "WHERE IdPaciente = @param5";
-                SqlCommand cmdUpdateVisita = new SqlCommand(queryUpdateVisita, Command.Connection);
+                                            "WHERE idPaciente = @param5";
+                SqlCommand cmdUpdateVisita = new SqlCommand(queryUpdateVisita, command.Connection);
                 cmdUpdateVisita.Parameters.AddWithValue("param1", Date);
                 cmdUpdateVisita.Parameters.AddWithValue("param2", Time);
-                cmdUpdateVisita.Parameters.AddWithValue("param3", Medicamento);
-                cmdUpdateVisita.Parameters.AddWithValue("param4", Observacion);
-                cmdUpdateVisita.Parameters.AddWithValue("param5", IdPaciente);
+                cmdUpdateVisita.Parameters.AddWithValue("param3", Medicine);
+                cmdUpdateVisita.Parameters.AddWithValue("param4", Observation);
+                cmdUpdateVisita.Parameters.AddWithValue("param5", IdPatient);
                 RespuestaUpdate = cmdUpdateVisita.ExecuteNonQuery();
                 return RespuestaUpdate;
 
@@ -300,7 +300,7 @@ namespace RegistroPacientes.Model.DAO
             }
             finally
             {
-                Command.Connection.Close();
+                command.Connection.Close();
             }
 
         }
@@ -311,10 +311,10 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                Command.Connection = getConnection();
-                string query = "DELETE tbPacientes WHERE IdPaciente = @param1";
-                SqlCommand cmdDelete = new SqlCommand(query, Command.Connection);
-                cmdDelete.Parameters.AddWithValue("param1", IdPaciente);
+                command.Connection = getConnection();
+                string query = "DELETE FROM [Pacientes].[tbPacientes] WHERE idPaciente = @param1";
+                SqlCommand cmdDelete = new SqlCommand(query, command.Connection);
+                cmdDelete.Parameters.AddWithValue("param1", IdPatient);
                 RespuestaDelete = cmdDelete.ExecuteNonQuery();
                 return RespuestaDelete;
             }
@@ -323,7 +323,7 @@ namespace RegistroPacientes.Model.DAO
                 MessageBox.Show($"EC_006{ex.Message}", "Error critico ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
             }
-            finally { Command.Connection.Close(); }
+            finally { command.Connection.Close(); }
 
         }
         //eliminar registro de la tabla estudiantes
@@ -333,10 +333,10 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                Command.Connection = getConnection();
-                string query = "DELETE tbVisitas WHERE IdPaciente = @param1";
-                SqlCommand cmdDelete = new SqlCommand(query, Command.Connection);
-                cmdDelete.Parameters.AddWithValue("param1", IdPaciente);
+                command.Connection = getConnection();
+                string query = "DELETE FROM [Visitas].[tbVisitas] WHERE idPaciente = @param1";
+                SqlCommand cmdDelete = new SqlCommand(query, command.Connection);
+                cmdDelete.Parameters.AddWithValue("param1", IdPatient);
                 RespuestaDelete = cmdDelete.ExecuteNonQuery();
                 return RespuestaDelete;
             }
@@ -395,9 +395,9 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                Command.Connection = getConnection();
-                string query = $"SELECT * FROM ViewAdminPatient " +
-                               $"WHERE IdPaciente LIKE '%{search}%' " +
+                command.Connection = getConnection();
+                string query = $"SELECT * FROM [Vistas].[viewAdminPacientes] " +
+                               $"WHERE IdPatient LIKE '%{search}%' " +
                                $"OR nombrePaciente LIKE '%{search}%' " +
                                $"OR apellidoPaciente LIKE '%{search}%' " +
                                $"OR TipoPersona LIKE '%{search}%' " +
@@ -407,13 +407,13 @@ namespace RegistroPacientes.Model.DAO
                                $"OR SeccionAcademica LIKE '%{search}%' " +
                                $"OR Especialidad LIKE '%{search}%' " +
                                $"OR HoraVisita LIKE '%{search}%'";
-                SqlCommand cmd = new SqlCommand(query, Command.Connection);
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
                 //cmd.Parameters.AddWithValue("param1", column);
                 cmd.Parameters.AddWithValue("param2", search);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "ViewAdminPatient");
+                adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
             catch (SqlException sqlEx)
@@ -428,7 +428,7 @@ namespace RegistroPacientes.Model.DAO
             }
             finally
             {
-                Command.Connection.Close();
+                command.Connection.Close();
             }
         }
 
@@ -438,14 +438,14 @@ namespace RegistroPacientes.Model.DAO
             try
             {
                 string fecha = searchDate.Date.ToString();
-                Command.Connection = getConnection();
-                string query = "SELECT * FROM  ViewAdminPatient WHERE FechaVisita = @FechaVisita";
-                SqlCommand cmd = new SqlCommand(query, Command.Connection);
-                cmd.Parameters.AddWithValue("FechaVisita", searchDate);
+                command.Connection = getConnection();
+                string query = "SELECT * FROM [Vistas].[viewAdminPacientes] WHERE fechaVisita = @fechaVisita";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("fechaVisita", searchDate);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "ViewAdminPatient");
+                adp.Fill(ds, "viewAdminPatient");
                 return ds;
             }
             catch (SqlException sqlEx)
@@ -460,7 +460,7 @@ namespace RegistroPacientes.Model.DAO
             }
             finally
             {
-                Command.Connection.Close();
+                command.Connection.Close();
             }
         }
 
@@ -469,16 +469,14 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                Command.Connection = getConnection();
-                string query = $"SELECT * FROM ViewAdminPatient " +
-                               $"WHERE Especialidad LIKE '%{search}%' ";
-                SqlCommand cmd = new SqlCommand(query, Command.Connection);
-                //cmd.Parameters.AddWithValue("param1", column);
-                cmd.Parameters.AddWithValue("param2", search);
+                command.Connection = getConnection();
+                string query = $"SELECT * FROM [Vistas].[viewAdminPacientes] " +
+                               $"WHERE especialidad LIKE '%{search}%' ";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "ViewAdminPatient");
+                adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
             catch (SqlException sqlEx)
@@ -493,7 +491,7 @@ namespace RegistroPacientes.Model.DAO
             }
             finally
             {
-                Command.Connection.Close();
+                command.Connection.Close();
             }
         }
 
@@ -502,16 +500,14 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                Command.Connection = getConnection();
-                string query = $"SELECT * FROM ViewAdminPatient " +
-                               $"WHERE Grado LIKE '%{search}%'  ";
-                SqlCommand cmd = new SqlCommand(query, Command.Connection);
-                //cmd.Parameters.AddWithValue("param1", column);
-                cmd.Parameters.AddWithValue("param1", search);
+                command.Connection = getConnection();
+                string query = $"SELECT * FROM [Vistas].[viewAdminPacientes] " +
+                               $"WHERE grado LIKE '%{search}%'  ";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "ViewAdminPatient");
+                adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
             catch (SqlException sqlEx)
@@ -526,25 +522,23 @@ namespace RegistroPacientes.Model.DAO
             }
             finally
             {
-                Command.Connection.Close();
+                command.Connection.Close();
             }
         }
 
         //Buscar por tipo de persona
-        public DataSet SearchPatientRol(string search)
+        public DataSet SearchPatientRole(string search)
         {
             try
             {
-                Command.Connection = getConnection();
-                string query = $"SELECT * FROM ViewAdminPatient " +
-                               $"WHERE TipoPersona LIKE '%{search}%'  ";
-                SqlCommand cmd = new SqlCommand(query, Command.Connection);
-                //cmd.Parameters.AddWithValue("param1", column);
-                cmd.Parameters.AddWithValue("param1", search);
+                command.Connection = getConnection();
+                string query = $"SELECT * FROM [Vistas].[viewAdminPacientes] " +
+                               $"WHERE tipoPersona LIKE '%{search}%'  ";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "ViewAdminPatient");
+                adp.Fill(ds, "viewAdminPatient");
                 return ds;
             }
             catch (SqlException sqlEx)
@@ -559,7 +553,7 @@ namespace RegistroPacientes.Model.DAO
             }
             finally
             {
-                Command.Connection.Close();
+                command.Connection.Close();
             }
         }
 
@@ -568,9 +562,9 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                Command.Connection = getConnection();
-                string queryExist = "SELECT COUNT(1) FROM viewFiltrarCodigo WHERE codigo = @param1";
-                SqlCommand cmd = new SqlCommand(queryExist, Command.Connection);
+                command.Connection = getConnection();
+                string queryExist = "SELECT COUNT(1) FROM [Vistas].[viewFiltrarCodigo] WHERE codigo = @param1";
+                SqlCommand cmd = new SqlCommand(queryExist, command.Connection);
                 cmd.Parameters.AddWithValue("param1", Code);
                 SqlDataReader consulta = cmd.ExecuteReader();
 
@@ -622,9 +616,9 @@ namespace RegistroPacientes.Model.DAO
                 if (respuesta == 1)
                 {
                     string[] datos = new string[8];
-                    Command.Connection = getConnection();
-                    string query = "SELECT * FROM viewFiltrarCodigo WHERE codigo = @param1";
-                    SqlCommand cmd = new SqlCommand(query, Command.Connection);
+                    command.Connection = getConnection();
+                    string query = "SELECT * FROM [Vistas].[viewFiltrarCodigo] WHERE codigo = @param1";
+                    SqlCommand cmd = new SqlCommand(query, command.Connection);
                     cmd.Parameters.AddWithValue("param1", Code);
 
                     SqlDataReader rd = cmd.ExecuteReader();
@@ -670,9 +664,9 @@ namespace RegistroPacientes.Model.DAO
         public void RollBack()
         {
             //Eliminar el usuario ingresado
-            string query = "DELETE FROM tbPacientes WHERE IdPaciente = @param1";
-            SqlCommand cmddel = new SqlCommand(query, Command.Connection);
-            cmddel.Parameters.AddWithValue("Param1", IdPaciente);
+            string query = "DELETE FROM [Pacientes].[tbPacientes] WHERE idPaciente = @param1";
+            SqlCommand cmddel = new SqlCommand(query, command.Connection);
+            cmddel.Parameters.AddWithValue("param1", IdPatient);
             int retorno = cmddel.ExecuteNonQuery();
         }
     }

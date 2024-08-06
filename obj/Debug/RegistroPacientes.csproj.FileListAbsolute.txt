@@ -20,11 +20,7 @@ A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHu
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\bin\Debug\RegistroPacientes.exe
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\bin\Debug\RegistroPacientes.pdb
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.csproj.AssemblyReference.cache
-A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.AcademycLevelAdministration.FrmAddGrades.resources
-A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.AcademycLevelAdministration.FrmAdminGrades.resources
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.Dashboard.FrmDashboard.resources
-A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.FrmAddPatience.resources
-A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.FrmAdminPatience.resources
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.Properties.Resources.resources
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\CustomPanel.BorderRadiusTXT.resources
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.UserAdministration.FrmAddUpdateUser.resources
@@ -35,3 +31,7 @@ A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHu
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.pdb
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.InventoryAdministration.FrmInventoryAdministration.resources
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.Login.FrmLogin.resources
+A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.FrmAddUpdatePatient.resources
+A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.FrmPatientAdministration.resources
+A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.SectionAdministration.FrmAddUpdateSection.resources
+A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.SectionAdministration.FrmSectionAdministration.resources

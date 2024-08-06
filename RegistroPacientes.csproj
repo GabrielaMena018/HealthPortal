@@ -47,27 +47,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\AcademycLevelAdministration\ControllerAddGrade.cs" />
-    <Compile Include="Controller\AcademycLevelAdministration\ControllerAdminGrades.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerAddUpdateMedicine.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerInventoryAdministration.cs" />
     <Compile Include="Controller\Login\ControllerLogin.cs" />
-    <Compile Include="Controller\Registro Pacientes\ControllerAddPatience.cs" />
-    <Compile Include="Controller\Registro Pacientes\ControllerAdminPatience.cs" />
+    <Compile Include="Controller\Registro Pacientes\ControllerAddUpdatePatient.cs" />
+    <Compile Include="Controller\Registro Pacientes\ControllerPatientAdministration.cs" />
     <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
+    <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
+    <Compile Include="Controller\SectionAdministration\ControllerSectionAdministration.cs" />
     <Compile Include="Controller\UserAdministration\ControllerAddUpdateUser.cs" />
     <Compile Include="Controller\UserAdministration\ControllerUserAdministration.cs" />
     <Compile Include="Helper\CommonMethods.cs" />
     <Compile Include="Helper\CurrentUserData.cs" />
-    <Compile Include="Model\DAO\DAOAdminGrades.cs" />
-    <Compile Include="Model\DAO\DAOAdminPatience.cs" />
+    <Compile Include="Model\DAO\DAOSectionAdministration.cs" />
+    <Compile Include="Model\DAO\DAOPatientAdministration.cs" />
     <Compile Include="Model\DAO\DAOInventoryAdministration.cs" />
     <Compile Include="Model\DAO\DAOLogin.cs" />
     <Compile Include="Model\DAO\DAOUserAdministration.cs" />
     <Compile Include="Model\dbContext.cs" />
     <Compile Include="Model\DTO\DTOLogin.cs" />
-    <Compile Include="Model\DTO\DTOAdminGrade.cs" />
-    <Compile Include="Model\DTO\DTOAdminPatience.cs" />
+    <Compile Include="Model\DTO\DTOSectionAdministration.cs" />
+    <Compile Include="Model\DTO\DTOPatientAdministration.cs" />
     <Compile Include="Model\DTO\DTOInventoryAdministration.cs" />
     <Compile Include="Model\DTO\DTOUserAdministration.cs" />
     <Compile Include="Properties\Resources1.Designer.cs">
@@ -75,17 +75,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="View\AcademycLevelAdministration\FrmAddGrades.cs">
+    <Compile Include="View\SectionAdministration\FrmAddUpdateSection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AcademycLevelAdministration\FrmAddGrades.Designer.cs">
-      <DependentUpon>FrmAddGrades.cs</DependentUpon>
+    <Compile Include="View\SectionAdministration\FrmAddUpdateSection.Designer.cs">
+      <DependentUpon>FrmAddUpdateSection.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AcademycLevelAdministration\FrmAdminGrades.cs">
+    <Compile Include="View\SectionAdministration\FrmSectionAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AcademycLevelAdministration\FrmAdminGrades.Designer.cs">
-      <DependentUpon>FrmAdminGrades.cs</DependentUpon>
+    <Compile Include="View\SectionAdministration\FrmSectionAdministration.Designer.cs">
+      <DependentUpon>FrmSectionAdministration.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Dashboard\FrmDashboard.cs">
       <SubType>Form</SubType>
@@ -111,17 +111,17 @@
     <Compile Include="View\Login\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Pacientes\FrmAddPatience.cs">
+    <Compile Include="View\Pacientes\FrmAddUpdatePatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Pacientes\FrmAddPatience.Designer.cs">
-      <DependentUpon>FrmAddPatience.cs</DependentUpon>
+    <Compile Include="View\Pacientes\FrmAddUpdatePatient.Designer.cs">
+      <DependentUpon>FrmAddUpdatePatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Pacientes\FrmAdminPatience.cs">
+    <Compile Include="View\Pacientes\FrmPatientAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Pacientes\FrmAdminPatience.Designer.cs">
-      <DependentUpon>FrmAdminPatience.cs</DependentUpon>
+    <Compile Include="View\Pacientes\FrmPatientAdministration.Designer.cs">
+      <DependentUpon>FrmPatientAdministration.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,11 +149,11 @@
     <Compile Include="View\UserAdministration\FrmUserAdministration.Designer.cs">
       <DependentUpon>FrmUserAdministration.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\AcademycLevelAdministration\FrmAddGrades.resx">
-      <DependentUpon>FrmAddGrades.cs</DependentUpon>
+    <EmbeddedResource Include="View\SectionAdministration\FrmAddUpdateSection.resx">
+      <DependentUpon>FrmAddUpdateSection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AcademycLevelAdministration\FrmAdminGrades.resx">
-      <DependentUpon>FrmAdminGrades.cs</DependentUpon>
+    <EmbeddedResource Include="View\SectionAdministration\FrmSectionAdministration.resx">
+      <DependentUpon>FrmSectionAdministration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
@@ -164,11 +164,11 @@
     <EmbeddedResource Include="View\Login\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Pacientes\FrmAddPatience.resx">
-      <DependentUpon>FrmAddPatience.cs</DependentUpon>
+    <EmbeddedResource Include="View\Pacientes\FrmAddUpdatePatient.resx">
+      <DependentUpon>FrmAddUpdatePatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Pacientes\FrmAdminPatience.resx">
-      <DependentUpon>FrmAdminPatience.cs</DependentUpon>
+    <EmbeddedResource Include="View\Pacientes\FrmPatientAdministration.resx">
+      <DependentUpon>FrmPatientAdministration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
