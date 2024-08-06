@@ -50,7 +50,7 @@ namespace RegistroPacientes.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT * FROM [Usuarios].[viewPersonas]";
+                string query = "SELECT * FROM [Vistas].[viewPersonas]";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);

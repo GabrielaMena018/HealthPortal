@@ -51,20 +51,30 @@
     <Compile Include="Controller\AcademycLevelAdministration\ControllerAdminGrades.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerAddUpdateMedicine.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerInventoryAdministration.cs" />
+    <Compile Include="Controller\Login\ControllerLogin.cs" />
     <Compile Include="Controller\Registro Pacientes\ControllerAddPatience.cs" />
     <Compile Include="Controller\Registro Pacientes\ControllerAdminPatience.cs" />
     <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
     <Compile Include="Controller\UserAdministration\ControllerAddUpdateUser.cs" />
     <Compile Include="Controller\UserAdministration\ControllerUserAdministration.cs" />
+    <Compile Include="Helper\CommonMethods.cs" />
+    <Compile Include="Helper\CurrentUserData.cs" />
     <Compile Include="Model\DAO\DAOAdminGrades.cs" />
     <Compile Include="Model\DAO\DAOAdminPatience.cs" />
     <Compile Include="Model\DAO\DAOInventoryAdministration.cs" />
+    <Compile Include="Model\DAO\DAOLogin.cs" />
     <Compile Include="Model\DAO\DAOUserAdministration.cs" />
     <Compile Include="Model\dbContext.cs" />
+    <Compile Include="Model\DTO\DTOLogin.cs" />
     <Compile Include="Model\DTO\DTOAdminGrade.cs" />
     <Compile Include="Model\DTO\DTOAdminPatience.cs" />
     <Compile Include="Model\DTO\DTOInventoryAdministration.cs" />
     <Compile Include="Model\DTO\DTOUserAdministration.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="View\AcademycLevelAdministration\FrmAddGrades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +104,12 @@
     </Compile>
     <Compile Include="View\InventoryAdministration\FrmInventoryAdministration.Designer.cs">
       <DependentUpon>FrmInventoryAdministration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Pacientes\FrmAddPatience.cs">
       <SubType>Form</SubType>
@@ -145,6 +161,9 @@
     <EmbeddedResource Include="View\InventoryAdministration\FrmInventoryAdministration.resx">
       <DependentUpon>FrmInventoryAdministration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Login\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Pacientes\FrmAddPatience.resx">
       <DependentUpon>FrmAddPatience.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,12 +173,8 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Resources\BorderRadiusTXT.resx">
       <DependentUpon>BorderRadiusTXT.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,7 +207,6 @@
     <None Include="Resources\menu-regular-241.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Montserrat-VariableFont_wght.ttf" />
     <None Include="Resources\pacientes.png" />
   </ItemGroup>
   <ItemGroup>
@@ -255,6 +269,29 @@
   <ItemGroup>
     <None Include="Resources\leccion %282%29.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Group 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wifi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -113,27 +113,27 @@
             this.cmsActualizar,
             this.cmsEliminar});
             this.contextDataGrid.Name = "contextDataGrid";
-            this.contextDataGrid.Size = new System.Drawing.Size(226, 82);
+            this.contextDataGrid.Size = new System.Drawing.Size(193, 82);
             // 
             // cmsVer
             // 
             this.cmsVer.Image = ((System.Drawing.Image)(resources.GetObject("cmsVer.Image")));
             this.cmsVer.Name = "cmsVer";
-            this.cmsVer.Size = new System.Drawing.Size(225, 26);
+            this.cmsVer.Size = new System.Drawing.Size(192, 26);
             this.cmsVer.Text = "Ver Ficha del Paciente";
             // 
             // cmsActualizar
             // 
             this.cmsActualizar.Image = ((System.Drawing.Image)(resources.GetObject("cmsActualizar.Image")));
             this.cmsActualizar.Name = "cmsActualizar";
-            this.cmsActualizar.Size = new System.Drawing.Size(225, 26);
+            this.cmsActualizar.Size = new System.Drawing.Size(192, 26);
             this.cmsActualizar.Text = "Actualizar Paciente";
             // 
             // cmsEliminar
             // 
             this.cmsEliminar.Image = ((System.Drawing.Image)(resources.GetObject("cmsEliminar.Image")));
             this.cmsEliminar.Name = "cmsEliminar";
-            this.cmsEliminar.Size = new System.Drawing.Size(225, 26);
+            this.cmsEliminar.Size = new System.Drawing.Size(192, 26);
             this.cmsEliminar.Text = "Eliminar Paciente";
             // 
             // pictureBox5
@@ -281,7 +281,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label6.Location = new System.Drawing.Point(567, 23);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 23);
+            this.label6.Size = new System.Drawing.Size(87, 19);
             this.label6.TabIndex = 20;
             this.label6.Text = "Tipo Persona";
             // 
@@ -294,7 +294,7 @@
             "Todos"});
             this.cmbRol.Location = new System.Drawing.Point(571, 48);
             this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(183, 33);
+            this.cmbRol.Size = new System.Drawing.Size(183, 28);
             this.cmbRol.TabIndex = 19;
             // 
             // panel1
@@ -363,7 +363,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(483, 22);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 23);
+            this.label8.Size = new System.Drawing.Size(47, 19);
             this.label8.TabIndex = 16;
             this.label8.Text = "Grado";
             // 
@@ -374,7 +374,7 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label7.Location = new System.Drawing.Point(280, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 23);
+            this.label7.Size = new System.Drawing.Size(82, 19);
             this.label7.TabIndex = 15;
             this.label7.Text = "Especialidad";
             // 
@@ -387,7 +387,7 @@
             "Todos"});
             this.CmbSpecialty.Location = new System.Drawing.Point(284, 47);
             this.CmbSpecialty.Name = "CmbSpecialty";
-            this.CmbSpecialty.Size = new System.Drawing.Size(185, 33);
+            this.CmbSpecialty.Size = new System.Drawing.Size(185, 28);
             this.CmbSpecialty.TabIndex = 4;
             // 
             // label5
@@ -397,7 +397,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label5.Location = new System.Drawing.Point(114, 21);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 23);
+            this.label5.Size = new System.Drawing.Size(114, 19);
             this.label5.TabIndex = 13;
             this.label5.Text = "Fecha de la Visita";
             // 
@@ -410,7 +410,7 @@
             "Todos"});
             this.CmbGrade.Location = new System.Drawing.Point(487, 47);
             this.CmbGrade.Name = "CmbGrade";
-            this.CmbGrade.Size = new System.Drawing.Size(65, 33);
+            this.CmbGrade.Size = new System.Drawing.Size(65, 28);
             this.CmbGrade.TabIndex = 3;
             // 
             // PickFechaVisita
@@ -421,7 +421,7 @@
             this.PickFechaVisita.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PickFechaVisita.Location = new System.Drawing.Point(118, 47);
             this.PickFechaVisita.Name = "PickFechaVisita";
-            this.PickFechaVisita.Size = new System.Drawing.Size(150, 32);
+            this.PickFechaVisita.Size = new System.Drawing.Size(150, 27);
             this.PickFechaVisita.TabIndex = 6;
             // 
             // panelGrafica
@@ -572,7 +572,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.Location = new System.Drawing.Point(10, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(250, 37);
+            this.label2.Size = new System.Drawing.Size(201, 30);
             this.label2.TabIndex = 4;
             this.label2.Text = "Total de pacientes";
             // 
@@ -583,7 +583,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label3.Location = new System.Drawing.Point(10, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 37);
+            this.label3.Size = new System.Drawing.Size(116, 30);
             this.label3.TabIndex = 5;
             this.label3.Text = "atendidos";
             // 
@@ -595,7 +595,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(17, 101);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 36);
+            this.comboBox2.Size = new System.Drawing.Size(174, 29);
             this.comboBox2.TabIndex = 6;
             // 
             // panelButton
@@ -632,7 +632,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(298, 81);
+            this.label1.Size = new System.Drawing.Size(240, 65);
             this.label1.TabIndex = 2;
             this.label1.Text = "Pacientes";
             // 
@@ -640,7 +640,7 @@
             // 
             this.panelbuscador.Controls.Add(this.BtnBuscar);
             this.panelbuscador.Controls.Add(this.txtSearch);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 84);
+            this.panelbuscador.Location = new System.Drawing.Point(3, 68);
             this.panelbuscador.Name = "panelbuscador";
             this.panelbuscador.Size = new System.Drawing.Size(319, 55);
             this.panelbuscador.TabIndex = 0;
@@ -682,7 +682,7 @@
             this.txtSearch.PasswordChar = false;
             this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSearch.PlaceholderText = "";
-            this.txtSearch.Size = new System.Drawing.Size(219, 43);
+            this.txtSearch.Size = new System.Drawing.Size(219, 36);
             this.txtSearch.TabIndex = 3;
             this.txtSearch.Texts = "Búscar";
             this.txtSearch.UnderlinedStyle = false;

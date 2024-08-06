@@ -15,9 +15,9 @@ namespace RegistroPacientes.Controller.UserAdministration
     internal class ControllerUserAdministration
     {
         FrmUserAdministration objUserAdministration;
-        public ControllerUserAdministration(FrmUserAdministration View)
+        public ControllerUserAdministration(FrmUserAdministration view)
         {
-            objUserAdministration = View;
+            objUserAdministration = view;
             objUserAdministration.Load += new EventHandler(LoadComboBoxes);
             objUserAdministration.Load += new EventHandler(LoadData);
             objUserAdministration.btnFilter.Click += new EventHandler(SortData);

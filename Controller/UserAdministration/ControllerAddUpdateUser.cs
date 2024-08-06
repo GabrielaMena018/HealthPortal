@@ -8,6 +8,7 @@ using RegistroPacientes.Controller;
 using RegistroPacientes.Model.DAO;
 using System.Data;
 using System.Windows.Forms;
+using RegistroPacientes.Helper;
 
 namespace RegistroPacientes.Controller.UserAdministration
 {
@@ -66,6 +67,7 @@ namespace RegistroPacientes.Controller.UserAdministration
         public void NewUser(object sender, EventArgs e)
         {
             DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
+            CommonMethods commonMethods = new CommonMethods();
 
             // Persona
             daoUserAdministration.NombrePersona = objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
@@ -75,7 +77,7 @@ namespace RegistroPacientes.Controller.UserAdministration
 
             // Usuario
             daoUserAdministration.Usuario = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
-            daoUserAdministration.Contrasena = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim() + "PU123";
+            daoUserAdministration.Contrasena = commonMethods.ComputeSha256Hash(objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim() + "PU123");
             daoUserAdministration.EstadoUsuario = true;
             daoUserAdministration.IntentosUsuario = 0;
             daoUserAdministration.IdRol = int.Parse(objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue.ToString());
@@ -91,27 +93,34 @@ namespace RegistroPacientes.Controller.UserAdministration
         }
         public void UpdateUserInfo(object sender, EventArgs e)
         {
-            DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
-            daoUserAdministration.IdPersona = int.Parse(objFrmAddUpdateUser.txtUserAdministrationId.Texts.Trim());
-            daoUserAdministration.NombrePersona = objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
-            daoUserAdministration.ApellidoPersona = objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
-            daoUserAdministration.CorreoPersona = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
-            daoUserAdministration.TelefonoPersona = objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
-            daoUserAdministration.Usuario = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
-            daoUserAdministration.IdRol = (int)objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue;
+            if (string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim()))
+            {
+                DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
+                daoUserAdministration.IdPersona = int.Parse(objFrmAddUpdateUser.txtUserAdministrationId.Texts.Trim());
+                daoUserAdministration.NombrePersona = objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
+                daoUserAdministration.ApellidoPersona = objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
+                daoUserAdministration.CorreoPersona = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
+                daoUserAdministration.TelefonoPersona = objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
+                daoUserAdministration.Usuario = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
+                daoUserAdministration.IdRol = (int)objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue;
 
-            int returnedValue = daoUserAdministration.UpdateUserInfo();
-            if (returnedValue == 2)
-            {
-                MessageBox.Show("Los datos han sido actualizado exitosamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (returnedValue == 1)
-            {
-                MessageBox.Show("Los datos no pudieron ser actualizados completamente", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                int returnedValue = daoUserAdministration.UpdateUserInfo();
+                if (returnedValue == 2)
+                {
+                    MessageBox.Show("Los datos han sido actualizado exitosamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (returnedValue == 1)
+                {
+                    MessageBox.Show("Los datos no pudieron ser actualizados completamente", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Existen campos vacíos, complete cada uno de los apartados.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         public void LoadValues(int personId, string firstName, string lastName, string email, string phoneNumber, string username)

@@ -1,5 +1,5 @@
-﻿using RegistroPacientes.View.Dashboard;
-using RegistroPacientes.View.InventoryAdministration;
+﻿using RegistroPacientes.View.Login;
+using RegistroPacientes.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +17,8 @@ namespace RegistroPacientes
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmDashboard());
-            Application.Run(new FrmInventoryAdministration());
+            Application.SetCompatibleTextRenderingDefault(true);
+            Application.Run(new FrmLogin());
         }
     }
 }

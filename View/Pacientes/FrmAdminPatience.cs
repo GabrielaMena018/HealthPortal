@@ -19,7 +19,5 @@ namespace RegistroPacientes
             InitializeComponent();
             ControllerAdminPatience control = new ControllerAdminPatience(this);
         }
-
-       
     }
 }
