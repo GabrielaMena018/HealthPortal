@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HealthPortal.Controller.Dashboard;
+using RegistroPacientes.Controller.Dashboard;
 
-namespace HealthPortal.View.Dashboard
+namespace RegistroPacientes.View.Dashboard
 {
     public partial class FrmDashboard : Form
     {
@@ -17,6 +17,9 @@ namespace HealthPortal.View.Dashboard
         {
             InitializeComponent();
             ControllerDashboard control = new ControllerDashboard(this);
+
         }
+
+     
     }
 }

@@ -1,18 +1,18 @@
-﻿using HealthPortal.View.Login;
+﻿using RegistroPacientes.View.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
-using HealthPortal.Model.DAO;
-using HealthPortal.Model;
-using HealthPortal.Helper;
-using HealthPortal.View.Dashboard;
+using RegistroPacientes.Model.DAO;
+using RegistroPacientes.Model;
+using RegistroPacientes.Helper;
+using RegistroPacientes.View.Dashboard;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace HealthPortal.Controller.Login
+namespace RegistroPacientes.Controller.Login
 {
     internal class ControllerLogin
     {

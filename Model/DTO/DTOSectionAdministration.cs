@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace HealthPortal.Model.DTO
+namespace RegistroPacientes.Model.DTO
 {
      class DTOSectionAdministration : dbContext
     {

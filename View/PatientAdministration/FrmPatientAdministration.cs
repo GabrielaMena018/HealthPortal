@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HealthPortal.Controller.PatientAdministration;
+using RegistroPacientes.Controller.PatientAdministration;
 
-namespace HealthPortal.View.PatientAdministration
+namespace RegistroPacientes.View.PatientAdministration
 {
     public partial class FrmPatientAdministration : Form
     {

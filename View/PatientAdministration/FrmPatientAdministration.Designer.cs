@@ -1,4 +1,4 @@
-﻿namespace HealthPortal.View.PatientAdministration
+﻿namespace RegistroPacientes.View.PatientAdministration
 {
     partial class FrmPatientAdministration
     {

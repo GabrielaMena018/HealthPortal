@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using HealthPortal.Model.DAO;
-using HealthPortal.View.SectionAdministration;
+using RegistroPacientes.Model.DAO;
+using RegistroPacientes.View.SectionAdministration;
 
-namespace HealthPortal.Controller.SectionAdministration
+namespace RegistroPacientes.Controller.SectionAdministration
 {
     internal class ControllerSectionAdministration
     {

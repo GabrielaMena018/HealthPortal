@@ -1,15 +1,15 @@
-﻿using HealthPortal.View.Dashboard;
+﻿using RegistroPacientes.View.Dashboard;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HealthPortal.View;
-using HealthPortal.View.UserAdministration;
-using HealthPortal.View.SectionAdministration;
+using RegistroPacientes.View;
+using RegistroPacientes.View.UserAdministration;
+using RegistroPacientes.View.SectionAdministration;
 
-namespace HealthPortal.Controller.Dashboard
+namespace RegistroPacientes.Controller.Dashboard
 {
     public class ControllerDashboard
     {
@@ -23,7 +23,7 @@ namespace HealthPortal.Controller.Dashboard
         {
             
             ObjDashboard = View;
-            ObjDashboard.StpHealthPortal.Click += new EventHandler(AbrirFormularioAdminPacientes);
+            ObjDashboard.StpRegistroPacientes.Click += new EventHandler(AbrirFormularioAdminPacientes);
             ObjDashboard.BtnPatience.Click += new EventHandler(AbrirFormularioAdminPacientes);
             ObjDashboard.btnMenu.Click += new EventHandler(buttonExpandCollapse_Click);
             ObjDashboard.BtnPicPaciente.Click += new EventHandler(AbrirFormularioAdminPacientes);

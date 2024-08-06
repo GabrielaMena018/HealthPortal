@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 using System.Drawing.Text;
-using HealthPortal.Helper;
+using RegistroPacientes.Helper;
 
-namespace HealthPortal.View.Login
+namespace RegistroPacientes.View.Login
 {
     partial class FrmLogin
     {
@@ -121,7 +121,7 @@ namespace HealthPortal.View.Login
             this.picHidePassword.BackColor = System.Drawing.Color.White;
             this.picHidePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picHidePassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picHidePassword.Image = global::HealthPortal.Properties.Resources.hide;
+            this.picHidePassword.Image = global::RegistroPacientes.Properties.Resources.hide;
             this.picHidePassword.Location = new System.Drawing.Point(115, 286);
             this.picHidePassword.Name = "picHidePassword";
             this.picHidePassword.Size = new System.Drawing.Size(32, 32);
@@ -135,7 +135,7 @@ namespace HealthPortal.View.Login
             this.picExit.BackColor = System.Drawing.Color.White;
             this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.picExit.Image = global::RegistroPacientes.Properties.Resources.quit;
             this.picExit.Location = new System.Drawing.Point(431, 452);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(32, 32);
@@ -214,7 +214,7 @@ namespace HealthPortal.View.Login
             this.picShowPassword.BackColor = System.Drawing.Color.White;
             this.picShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picShowPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picShowPassword.Image = global::HealthPortal.Properties.Resources.show;
+            this.picShowPassword.Image = global::RegistroPacientes.Properties.Resources.show;
             this.picShowPassword.Location = new System.Drawing.Point(115, 286);
             this.picShowPassword.Name = "picShowPassword";
             this.picShowPassword.Size = new System.Drawing.Size(32, 32);
@@ -285,7 +285,7 @@ namespace HealthPortal.View.Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::HealthPortal.Properties.Resources.loginInterface;
+            this.BackgroundImage = global::RegistroPacientes.Properties.Resources.loginInterface;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(720, 720);
             this.Controls.Add(this.panel5);

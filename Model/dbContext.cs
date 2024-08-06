@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HealthPortal.Model
+namespace RegistroPacientes.Model
 {
     public class dbContext
     {

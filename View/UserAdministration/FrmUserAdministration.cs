@@ -7,9 +7,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HealthPortal.Controller.UserAdministration;
+using RegistroPacientes.Controller.UserAdministration;
 
-namespace HealthPortal.View.UserAdministration
+namespace RegistroPacientes.View.UserAdministration
 {
     public partial class FrmUserAdministration : Form
     {

@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HealthPortal.Controller.Dashboard;
-using HealthPortal.Model.DTO;
+using RegistroPacientes.Controller.Dashboard;
+using RegistroPacientes.Model.DTO;
 
-namespace HealthPortal.Model.DAO
+namespace RegistroPacientes.Model.DAO
 {
     internal class DAOInventoryAdministration : DTOInventoryAdministration
     {

@@ -1,4 +1,4 @@
-﻿namespace HealthPortal.View.UserAdministration
+﻿namespace RegistroPacientes.View.UserAdministration
 {
     partial class FrmAddUpdateUser
     {

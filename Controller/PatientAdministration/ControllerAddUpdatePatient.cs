@@ -1,4 +1,4 @@
-﻿using HealthPortal.Model.DAO;
+﻿using RegistroPacientes.Model.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +15,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using HealthPortal.View.PatientAdministration;
+using RegistroPacientes.View.PatientAdministration;
 
-namespace HealthPortal.Controller.PatientAdministration
+namespace RegistroPacientes.Controller.PatientAdministration
 {
     class ControllerAddUpdatePatient
     {

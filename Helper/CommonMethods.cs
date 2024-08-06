@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthPortal.Helper
+namespace RegistroPacientes.Helper
 {
     internal class CommonMethods
     {

@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
-using HealthPortal.Model.DAO;
+using RegistroPacientes.Model.DAO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Net;
 using System.Windows.Forms.DataVisualization.Charting;
-using HealthPortal.View.PatientAdministration;
+using RegistroPacientes.View.PatientAdministration;
 
-namespace HealthPortal.Controller.PatientAdministration
+namespace RegistroPacientes.Controller.PatientAdministration
 {
     internal class ControllerPatientAdministration
     {

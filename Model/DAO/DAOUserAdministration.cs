@@ -1,5 +1,5 @@
-﻿using HealthPortal.Model.DTO;
-using HealthPortal.View.UserAdministration;
+﻿using RegistroPacientes.Model.DTO;
+using RegistroPacientes.View.UserAdministration;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HealthPortal.Model.DAO
+namespace RegistroPacientes.Model.DAO
 {
     internal class DAOUserAdministration : DTOUserAdministration
     {
