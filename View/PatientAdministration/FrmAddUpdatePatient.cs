@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Linq;
-using RegistroPacientes.Controller;
+using RegistroPacientes.Controller.PatientAdministration;
 
-namespace RegistroPacientes
+namespace RegistroPacientes.View.PatientAdministration
 {
     public partial class FrmAddUpdatePatient : Form
     {

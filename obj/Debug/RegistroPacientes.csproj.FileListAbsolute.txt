@@ -35,3 +35,5 @@ A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHu
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.FrmPatientAdministration.resources
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.SectionAdministration.FrmAddUpdateSection.resources
 A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.SectionAdministration.FrmSectionAdministration.resources
+A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.PatientAdministration.FrmAddUpdatePatient.resources
+A:\Archivos de OneDrive\juanportillosanchez@outlook.com\OneDrive\Documents\GitHub\HealthPortal\obj\Debug\RegistroPacientes.View.PatientAdministration.FrmPatientAdministration.resources

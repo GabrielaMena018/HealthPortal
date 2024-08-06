@@ -59,24 +59,17 @@ namespace RegistroPacientes.Model.DAO
                 string query = "EXEC [ProcedimientosAlmacenados].[spIngresarEspecialidad] @param1";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("param1", Especialidad);
-                int respuesta = cmd.ExecuteNonQuery();
-                if (respuesta == 1)
-                {
-                    return 1;
-                }
-                else { return 0; }
+                return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
                 MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
-
             }
             finally
             {
                 command.Connection.Close();
             }
-
         }
         public int AddAcademicSection()
         {
@@ -99,23 +92,39 @@ namespace RegistroPacientes.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int InsertSecion() 
+        public int AddSection() 
         {
             try
             {
                 command.Connection = getConnection();
-                string querySeccion = "EXEC spIngresarSeccion @GrupoTecnico, @IdGrado, @IdEspecialidad, @IdSeccionAcademica";
-                SqlCommand cmdInsertSeccion = new SqlCommand(querySeccion, command.Connection);
-                cmdInsertSeccion.Parameters.AddWithValue("@GrupoTecnico", GrupoTecnico);
-                cmdInsertSeccion.Parameters.AddWithValue("@IdGrado", IdGrado);
-                cmdInsertSeccion.Parameters.AddWithValue("@IdEspecialidad", IdEspecialidad);
-                cmdInsertSeccion.Parameters.AddWithValue("@IdSeccionAcademica", IdSeccionAcademica);
-                int respuesta = cmdInsertSeccion.ExecuteNonQuery();
-                if (respuesta == 1)
-                {
-                    return 1;
-                }
-                else { return 0; }
+                string query = "EXEC [ProcedimientosAlmacenados].[spIngresarSeccion] @param1, @param2, @param3, @param4";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", GrupoTecnico);
+                cmd.Parameters.AddWithValue("param2", IdGrado);
+                cmd.Parameters.AddWithValue("param3", IdSeccionAcademica);
+                cmd.Parameters.AddWithValue("param4", IdEspecialidad);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public int UpdateSpecialty()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "EXEC  [ProcedimientosAlmacenados].[spUpdateEspecialidad] @param1, @param2";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("@param1", IdEspecialidad);
+                cmd.Parameters.AddWithValue("@param2", Especialidad);
+                return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -128,21 +137,16 @@ namespace RegistroPacientes.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int UpdateEspecialidad()
+        public int UpdateAcademicSection()
         {
             try
             {
                 command.Connection = getConnection();
-                string queryEspecialidad = "EXEC  spUpdateEspecialidad @IdEspecialidad, @nombreEspecialidad";
-                SqlCommand cmdInsertEspecialidad = new SqlCommand(queryEspecialidad, command.Connection);
-                cmdInsertEspecialidad.Parameters.AddWithValue("@IdEspecialidad", IdEspecialidad);
-                cmdInsertEspecialidad.Parameters.AddWithValue("@nombreEspecialidad", Especialidad);
-                int respuesta = cmdInsertEspecialidad.ExecuteNonQuery();
-                if (respuesta == 1)
-                {
-                    return 1;
-                }
-                else { return 0; }
+                string query = "EXEC [ProcedimientosAlmacenados].[spActualizarSeccionAcademica] @param1, @param2";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("@param1", IdSeccionAcademica);
+                cmd.Parameters.AddWithValue("@param2", SeccionAcademica);
+                return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -155,21 +159,39 @@ namespace RegistroPacientes.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int UpdateSeccionAcademica()
+        public int UpdateSection() 
         {
             try
             {
                 command.Connection = getConnection();
-                string queryEspecialidad = "EXEC  spUpdateSeccionAcademica @IdSeccionAcademica, @SeccionAcademica";
-                SqlCommand cmdInsertEspecialidad = new SqlCommand(queryEspecialidad, command.Connection);
-                cmdInsertEspecialidad.Parameters.AddWithValue("@IdSeccionAcademica", IdSeccionAcademica);
-                cmdInsertEspecialidad.Parameters.AddWithValue("@SeccionAcademica", SeccionAcademica);
-                int respuesta = cmdInsertEspecialidad.ExecuteNonQuery();
-                if (respuesta == 1)
-                {
-                    return 1;
-                }
-                else { return 0; }
+                string query = "EXEC [ProcedimientosAlmacenados].[spActualizarSeccion] @param1, @param2, @param3, @param4, @param5";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("@param1", IdSeccion);
+                cmd.Parameters.AddWithValue("@param2", GrupoTecnico);
+                cmd.Parameters.AddWithValue("@param3", IdGrado);
+                cmd.Parameters.AddWithValue("@param4", IdEspecialidad);
+                cmd.Parameters.AddWithValue("@param5", IdSeccionAcademica);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public int DeleteAcademicSection() 
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "EXEC [ProcedimientosAlmacenados].[spEliminarSeccionAcademica] @param1";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", IdSeccionAcademica);
+                return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -182,24 +204,15 @@ namespace RegistroPacientes.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int UpdateSeccion() 
+        public int DeleteSpecialty() 
         {
             try
             {
                 command.Connection = getConnection();
-                string querySeccion = "EXEC  spUpdateSeccion @IdSeccion, @GrupoTecnico, @IdGrado,@IdEspecialidad, @IdSeccionAcademica";
-                SqlCommand cmdInsertSeccion = new SqlCommand(querySeccion, command.Connection);
-                cmdInsertSeccion.Parameters.AddWithValue("@IdSeccion", IdSeccion);
-                cmdInsertSeccion.Parameters.AddWithValue("@GrupoTecnico", GrupoTecnico);
-                cmdInsertSeccion.Parameters.AddWithValue("@IdGrado", IdGrado);
-                cmdInsertSeccion.Parameters.AddWithValue("@IdEspecialidad", IdEspecialidad);
-                cmdInsertSeccion.Parameters.AddWithValue("@IdSeccionAcademica", IdSeccionAcademica);
-                int respuesta = cmdInsertSeccion.ExecuteNonQuery();
-                if (respuesta == 1)
-                {
-                    return 1;
-                }
-                else { return 0; }
+                string query = "EXEC [ProcedimientosAlmacenados].[spEliminarEspecialidad] @param1";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", IdEspecialidad);
+                return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -212,20 +225,15 @@ namespace RegistroPacientes.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int DeleteSeccionAcademica() 
+        public int DeleteSection()
         {
             try
             {
                 command.Connection = getConnection();
-                string queryEspecialidad = "EXEC  spDeleteSeccionAcademica @IdSeccionAcademica";
-                SqlCommand cmdInsertEspecialidad = new SqlCommand(queryEspecialidad, command.Connection);
-                cmdInsertEspecialidad.Parameters.AddWithValue("@IdSeccionAcademica", IdSeccionAcademica);
-                int respuesta = cmdInsertEspecialidad.ExecuteNonQuery();
-                if (respuesta == 1)
-                {
-                    return 1;
-                }
-                else { return 0; }
+                string query = "EXEC [ProcedimientosAlmacenados].[spEliminarSeccion] @param1";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", IdSeccion);
+                return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -238,69 +246,17 @@ namespace RegistroPacientes.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int DeleteEspecialidad() 
+        public DataSet RetrieveGradeData()
         {
             try
             {
                 command.Connection = getConnection();
-                string queryEspecialidad = "EXEC  spDeleteEspecialidad @IdEspecialidad";
-                SqlCommand cmdInsertEspecialidad = new SqlCommand(queryEspecialidad, command.Connection);
-                cmdInsertEspecialidad.Parameters.AddWithValue("@IdEspecialidad", IdEspecialidad);
-                int respuesta = cmdInsertEspecialidad.ExecuteNonQuery();
-                if (respuesta == 1)
-                {
-                    return 1;
-                }
-                else { return 0; }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1;
-
-            }
-            finally
-            {
-                command.Connection.Close();
-            }
-        }
-        public int DeleteSeccion()
-        {
-            try
-            {
-                command.Connection = getConnection();
-                string querySeccion = "EXEC  spDeleteSeccion @IdSeccion";
-                SqlCommand cmdDeleteSeccion = new SqlCommand(querySeccion, command.Connection);
-                cmdDeleteSeccion.Parameters.AddWithValue("@IdSeccion", IdSeccion);
-                int respuesta = cmdDeleteSeccion.ExecuteNonQuery();
-                if (respuesta == 1)
-                {
-                    return 1;
-                }
-                else { return 0; }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1;
-
-            }
-            finally
-            {
-                command.Connection.Close();
-            }
-        }
-        public DataSet AdminGrade()
-        {
-            try
-            {
-                command.Connection = getConnection();
-                string queryAdminGrade = "SELECT * FROM [Vistas].[viewGradoSeccion]";
-                SqlCommand cmdAdminGrade = new SqlCommand(queryAdminGrade, command.Connection);
-                cmdAdminGrade.ExecuteNonQuery();
-                SqlDataAdapter adp = new SqlDataAdapter(cmdAdminGrade);
+                string query = "SELECT * FROM [Vistas].[viewGradoSeccion]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "ViewGradoSeccion");
+                adp.Fill(ds, "viewGradoSeccion");
                 return ds;
             }
             catch (SqlException ex)
@@ -313,17 +269,16 @@ namespace RegistroPacientes.Model.DAO
             {
                 command.Connection.Close();
             }
-
         }
-        public DataSet AdminEspecialidades()
+        public DataSet RetrieveSpecialtyData()
         {
             try
             {
                 command.Connection = getConnection();
-                string queryAdminGrade = "SELECT * FROM [Vistas].[viewEspecialidades]";
-                SqlCommand cmdAdminGrade = new SqlCommand(queryAdminGrade, command.Connection);
-                cmdAdminGrade.ExecuteNonQuery();
-                SqlDataAdapter adp = new SqlDataAdapter(cmdAdminGrade);
+                string query = "SELECT * FROM [Vistas].[viewEspecialidades]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adp.Fill(ds, "viewEspecialidades");
                 return ds;
@@ -339,15 +294,15 @@ namespace RegistroPacientes.Model.DAO
                 command.Connection.Close();
             }
         }
-        public DataSet AdminSeccionesAcademicas()
+        public DataSet RetrieveAcademicSectionData()
         {
             try
             {
                 command.Connection = getConnection();
-                string queryAdminGrade = "SELECT * FROM [Vistas].[viewSeccionesAcademicas]";
-                SqlCommand cmdAdminGrade = new SqlCommand(queryAdminGrade, command.Connection);
-                cmdAdminGrade.ExecuteNonQuery();
-                SqlDataAdapter adp = new SqlDataAdapter(cmdAdminGrade);
+                string query = "SELECT * FROM [Vistas].[viewSeccionesAcademicas]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adp.Fill(ds, "viewSeccionesAcademicas");
                 return ds;

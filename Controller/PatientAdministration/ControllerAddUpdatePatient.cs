@@ -15,8 +15,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using RegistroPacientes.View.PatientAdministration;
 
-namespace RegistroPacientes.Controller
+namespace RegistroPacientes.Controller.PatientAdministration
 {
     class ControllerAddUpdatePatient
     {

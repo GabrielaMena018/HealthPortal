@@ -50,8 +50,8 @@
     <Compile Include="Controller\InventoryAdministration\ControllerAddUpdateMedicine.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerInventoryAdministration.cs" />
     <Compile Include="Controller\Login\ControllerLogin.cs" />
-    <Compile Include="Controller\Registro Pacientes\ControllerAddUpdatePatient.cs" />
-    <Compile Include="Controller\Registro Pacientes\ControllerPatientAdministration.cs" />
+    <Compile Include="Controller\PatientAdministration\ControllerAddUpdatePatient.cs" />
+    <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
     <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerSectionAdministration.cs" />
@@ -111,16 +111,16 @@
     <Compile Include="View\Login\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Pacientes\FrmAddUpdatePatient.cs">
+    <Compile Include="View\PatientAdministration\FrmAddUpdatePatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Pacientes\FrmAddUpdatePatient.Designer.cs">
+    <Compile Include="View\PatientAdministration\FrmAddUpdatePatient.Designer.cs">
       <DependentUpon>FrmAddUpdatePatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Pacientes\FrmPatientAdministration.cs">
+    <Compile Include="View\PatientAdministration\FrmPatientAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Pacientes\FrmPatientAdministration.Designer.cs">
+    <Compile Include="View\PatientAdministration\FrmPatientAdministration.Designer.cs">
       <DependentUpon>FrmPatientAdministration.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -164,10 +164,10 @@
     <EmbeddedResource Include="View\Login\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Pacientes\FrmAddUpdatePatient.resx">
+    <EmbeddedResource Include="View\PatientAdministration\FrmAddUpdatePatient.resx">
       <DependentUpon>FrmAddUpdatePatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Pacientes\FrmPatientAdministration.resx">
+    <EmbeddedResource Include="View\PatientAdministration\FrmPatientAdministration.resx">
       <DependentUpon>FrmPatientAdministration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

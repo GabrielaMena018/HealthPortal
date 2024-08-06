@@ -1,4 +1,4 @@
-﻿namespace RegistroPacientes
+﻿namespace RegistroPacientes.View.PatientAdministration
 {
     partial class FrmAddUpdatePatient
     {

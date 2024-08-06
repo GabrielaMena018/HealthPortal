@@ -9,8 +9,9 @@ using RegistroPacientes.Model.DAO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Net;
 using System.Windows.Forms.DataVisualization.Charting;
+using RegistroPacientes.View.PatientAdministration;
 
-namespace RegistroPacientes.Controller
+namespace RegistroPacientes.Controller.PatientAdministration
 {
     internal class ControllerPatientAdministration
     {

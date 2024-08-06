@@ -236,7 +236,7 @@ namespace RegistroPacientes.Controller.SectionAdministration
             daoSectionAdministration.IdEspecialidad = (int)objAddUpdateSection.cmbEspecialidad.SelectedValue;
             daoSectionAdministration.IdSeccionAcademica = (int)objAddUpdateSection.CmbSeccionAcademica.SelectedValue;
             daoSectionAdministration.GrupoTecnico = objAddUpdateSection.txtGrupoTecnico.Texts;
-            int retorno = daoSectionAdministration.InsertSecion();
+            int retorno = daoSectionAdministration.AddSection();
             if (retorno == 1)
             {
                 MessageBox.Show("Datos ingresados correctamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -256,7 +256,7 @@ namespace RegistroPacientes.Controller.SectionAdministration
             daoSectionAdministration.IdEspecialidad = int.Parse(objAddUpdateSection.txtId.Text.Trim());
             daoSectionAdministration.Especialidad = objAddUpdateSection.txtNuevaEspecialidad.Texts.Trim();
 
-            int valorRetornado = daoSectionAdministration.UpdateEspecialidad();
+            int valorRetornado = daoSectionAdministration.UpdateSpecialty();
             if (valorRetornado == 1)
             {
                 MessageBox.Show("Los datos han sido actualizado exitosamente",
@@ -282,7 +282,7 @@ namespace RegistroPacientes.Controller.SectionAdministration
             daoSectionAdministration.IdSeccionAcademica = int.Parse(objAddUpdateSection.txtId.Text.Trim());
             daoSectionAdministration.SeccionAcademica = objAddUpdateSection.txtNuevaSeccionAcademica.Texts.Trim();
 
-            int valorRetornado = daoSectionAdministration.UpdateSeccionAcademica();
+            int valorRetornado = daoSectionAdministration.UpdateAcademicSection();
             if (valorRetornado == 1)
             {
                 MessageBox.Show("Los datos han sido actualizado exitosamente",
@@ -309,7 +309,7 @@ namespace RegistroPacientes.Controller.SectionAdministration
             daoSectionAdministration.IdGrado = (int)(objAddUpdateSection.CmbGrado.SelectedValue);
             daoSectionAdministration.IdSeccionAcademica = (int)(objAddUpdateSection.CmbSeccionAcademica.SelectedValue);
 
-            int valorRetornado = daoSectionAdministration.UpdateSeccion();
+            int valorRetornado = daoSectionAdministration.UpdateSection();
             if (valorRetornado == 1)
             {
                 MessageBox.Show("Los datos han sido actualizado exitosamente",

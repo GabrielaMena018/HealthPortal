@@ -156,7 +156,7 @@ namespace RegistroPacientes.Controller.SectionAdministration
             {
                 DAOSectionAdministration daoDelete = new DAOSectionAdministration();
                 daoDelete.IdSeccionAcademica = int.Parse(daoSectionAdministrationGrades.dataGridSeccionAcademica[0, pos].Value.ToString());
-                int ValorRetornado = daoDelete.DeleteSeccionAcademica();
+                int ValorRetornado = daoDelete.DeleteAcademicSection();
                 if (ValorRetornado == 1)
                 {
                     MessageBox.Show("Registro eliminado", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -176,7 +176,7 @@ namespace RegistroPacientes.Controller.SectionAdministration
             {
                 DAOSectionAdministration daoDelete = new DAOSectionAdministration();
                 daoDelete.IdEspecialidad = int.Parse(daoSectionAdministrationGrades.dataGridEspecialidades[0, pos].Value.ToString());
-                int ValorRetornado = daoDelete.DeleteEspecialidad();
+                int ValorRetornado = daoDelete.DeleteSpecialty();
                 if (ValorRetornado == 1)
                 {
                     MessageBox.Show("Registro eliminado", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -197,7 +197,7 @@ namespace RegistroPacientes.Controller.SectionAdministration
             {
                 DAOSectionAdministration daoDelete = new DAOSectionAdministration();
                 daoDelete.IdSeccion = int.Parse(daoSectionAdministrationGrades.GridAdminGrade[0, pos].Value.ToString());
-                int ValorRetornado = daoDelete.DeleteSeccion();
+                int ValorRetornado = daoDelete.DeleteSection();
                 if (ValorRetornado == 1)
                 {
                     MessageBox.Show("Registro eliminado", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -215,7 +215,7 @@ namespace RegistroPacientes.Controller.SectionAdministration
         {
             DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
             //Declarando nuevo DataSet para que obtenga los datos del metodo ObtenerPersonas
-            DataSet ds = daoSectionAdministration.AdminGrade();
+            DataSet ds = daoSectionAdministration.RetrieveGradeData();
             //Llenar DataGridView
             daoSectionAdministrationGrades.GridAdminGrade.DataSource = ds.Tables["ViewGradoSeccion"];
             daoSectionAdministrationGrades.GridAdminGrade.Columns[0].HeaderText = "Id Sección";
@@ -231,7 +231,7 @@ namespace RegistroPacientes.Controller.SectionAdministration
         {
             DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
             //Declarando nuevo DataSet para que obtenga los datos del metodo ObtenerPersonas
-            DataSet ds = daoSectionAdministration.AdminEspecialidades();
+            DataSet ds = daoSectionAdministration.RetrieveSpecialtyData();
             //Llenar DataGridView
             daoSectionAdministrationGrades.dataGridEspecialidades.DataSource = ds.Tables["ViewEspecialidades"];
             daoSectionAdministrationGrades.dataGridEspecialidades.Columns[0].HeaderText = "Id Especialidad";
@@ -243,7 +243,7 @@ namespace RegistroPacientes.Controller.SectionAdministration
         {
             DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
             //Declarando nuevo DataSet para que obtenga los datos del metodo ObtenerPersonas
-            DataSet ds = daoSectionAdministration.AdminSeccionesAcademicas();
+            DataSet ds = daoSectionAdministration.RetrieveAcademicSectionData();
             //Llenar DataGridView
             daoSectionAdministrationGrades.dataGridSeccionAcademica.DataSource = ds.Tables["ViewSeccionesAcademicas"];
             daoSectionAdministrationGrades.GridAdminGrade.Columns[0].HeaderText = "Id Sección Academica";
