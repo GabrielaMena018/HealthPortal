@@ -14,8 +14,8 @@ namespace HealthPortal.Model
         {
             try
             {
-                //string server = "DESKTOP-QR03KRF";
-                string server = "FAMILIAPORTILLO\\SQLEXPRESS";
+                string server = "DESKTOP-QR03KRF";
+                //string server = "FAMILIAPORTILLO\\SQLEXPRESS";
                 string database = "HealthPortal";
                 SqlConnection conexion = new SqlConnection("Server =" + server +
                                                                  "; DataBase = " + database +

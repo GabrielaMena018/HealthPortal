@@ -186,7 +186,6 @@ namespace HealthPortal.Model.DAO
                     result = cmdPersonas.ExecuteNonQuery();
                     if (result == 1)
                     {
-                        commonMethods.SendEmail(temporaryPassword, email);
                         return result;
                     }
                     else

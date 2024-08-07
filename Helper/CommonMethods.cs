@@ -15,7 +15,6 @@ namespace HealthPortal.Helper
 {
     internal class CommonMethods
     {
-        DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         public static extern IntPtr CreateRoundRectRgn
         (
