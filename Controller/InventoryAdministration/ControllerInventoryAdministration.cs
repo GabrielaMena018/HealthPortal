@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.Model.DAO;
-using RegistroPacientes.Model.DTO;
-using RegistroPacientes.View.InventoryAdministration;
+using HealthPortal.Model.DAO;
+using HealthPortal.Model.DTO;
+using HealthPortal.View.InventoryAdministration;
 
-namespace RegistroPacientes.Controller.InventoryAdministration
+namespace HealthPortal.Controller.InventoryAdministration
 {
     internal class ControllerInventoryAdministration
     {

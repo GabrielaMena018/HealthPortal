@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.Helper;
-using RegistroPacientes.Controller.Login;
+using HealthPortal.Helper;
+using HealthPortal.Controller.Login;
 using System.Drawing.Text;
 
-namespace RegistroPacientes.View.Login
+namespace HealthPortal.View.Login
 {
     public partial class FrmLogin : Form
     {

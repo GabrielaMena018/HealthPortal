@@ -1,12 +1,13 @@
-﻿using RegistroPacientes.View.Login;
-using RegistroPacientes.Helper;
+﻿using HealthPortal.View.Login;
+using HealthPortal.View.Dashboard;
+using HealthPortal.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RegistroPacientes
+namespace HealthPortal
 {
     internal static class Program
     {
@@ -18,7 +19,8 @@ namespace RegistroPacientes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
-            Application.Run(new FrmLogin());
+            //Application.Run(new FrmLogin());
+            Application.Run(new FrmDashboard());
         }
     }
 }

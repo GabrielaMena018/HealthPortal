@@ -1,5 +1,6 @@
-﻿using RegistroPacientes.Model.DTO;
-using RegistroPacientes.View.UserAdministration;
+﻿using HealthPortal.Helper;
+using HealthPortal.Model.DTO;
+using HealthPortal.View.UserAdministration;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RegistroPacientes.Model.DAO
+namespace HealthPortal.Model.DAO
 {
     internal class DAOUserAdministration : DTOUserAdministration
     {
         readonly SqlCommand command = new SqlCommand();
+        CommonMethods commonMethods = new CommonMethods();
         public DataSet GetColumnNames()
         {
             try
@@ -78,7 +80,7 @@ namespace RegistroPacientes.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = $"SELECT * FROM [Usuarios].[viewPersonas] ORDER BY [{column}]";
+                string query = $"SELECT * FROM [Vistas].[viewPersonas] ORDER BY [{column}]";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
@@ -106,7 +108,7 @@ namespace RegistroPacientes.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = $"SELECT * FROM [Usuarios].[viewPersonas] WHERE Nombres LIKE '%{search}%' OR Apellidos LIKE '%{search}%' or [Correo Electrónico] LIKE '%{search}%'";
+                string query = $"SELECT * FROM [Vistas].[viewPersonas] WHERE Nombres LIKE '%{search}%' OR Apellidos LIKE '%{search}%' or [Correo Electrónico] LIKE '%{search}%'";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 //cmd.Parameters.AddWithValue("param1", column);
                 cmd.ExecuteNonQuery();
@@ -158,18 +160,19 @@ namespace RegistroPacientes.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int RegisterUser()
+        public int RegisterUser(string temporaryPassword, string email)
         {
             try
             {
                 command.Connection = getConnection();
-                string queryUsuarios = "INSERT INTO [Usuarios].[tbUsuarios] (usuario, contraseña, estadoUsuario, intentosUsuario, idRol) VALUES (@param1, @param2, @param3, @param4, @param5)";
+                string queryUsuarios = "INSERT INTO [Usuarios].[tbUsuarios] (usuario, contraseña, estadoUsuario, intentosUsuario, contraseñaTemporal, idRol) VALUES (@param1, @param2, @param3, @param4, @param5, @param6)";
                 SqlCommand cmdUsuarios = new SqlCommand(queryUsuarios, command.Connection);
                 cmdUsuarios.Parameters.AddWithValue("param1", Usuario);
                 cmdUsuarios.Parameters.AddWithValue("param2", Contrasena);
                 cmdUsuarios.Parameters.AddWithValue("param3", EstadoUsuario);
                 cmdUsuarios.Parameters.AddWithValue("param4", IntentosUsuario);
-                cmdUsuarios.Parameters.AddWithValue("param5", IdRol);
+                cmdUsuarios.Parameters.AddWithValue("param5", true);
+                cmdUsuarios.Parameters.AddWithValue("param6", IdRol);
                 int result = cmdUsuarios.ExecuteNonQuery();
                 if (result == 1)
                 {
@@ -183,6 +186,7 @@ namespace RegistroPacientes.Model.DAO
                     result = cmdPersonas.ExecuteNonQuery();
                     if (result == 1)
                     {
+                        commonMethods.SendEmail(temporaryPassword, email);
                         return result;
                     }
                     else

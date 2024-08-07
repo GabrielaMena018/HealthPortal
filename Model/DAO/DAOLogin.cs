@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.Model.DTO;
-using RegistroPacientes.Helper;
+using HealthPortal.Model.DTO;
+using HealthPortal.Helper;
 
-namespace RegistroPacientes.Model.DAO
+namespace HealthPortal.Model.DAO
 {
     internal class DAOLogin : DTOLogin
     {
@@ -31,6 +31,8 @@ namespace RegistroPacientes.Model.DAO
                     CurrentUserData.Status = dr.GetBoolean(2);
                     CurrentUserData.RoleId = dr.GetInt32(3);
                     CurrentUserData.FullName = dr.GetString(5);
+                    CurrentUserData.TemporaryPassword = dr.GetBoolean(6);
+                    CurrentUserData.Email = dr.GetString(7);
                 }
                 return dr.HasRows;
             }

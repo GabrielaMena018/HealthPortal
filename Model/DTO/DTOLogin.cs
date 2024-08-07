@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RegistroPacientes.Model.DTO
+namespace HealthPortal.Model.DTO
 {   public class DTOLogin : dbContext
     {
         private string username;

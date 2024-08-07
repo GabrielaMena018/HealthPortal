@@ -1,4 +1,4 @@
-﻿using RegistroPacientes.Controller.SectionAdministration;
+﻿using HealthPortal.Controller.SectionAdministration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace RegistroPacientes.View.SectionAdministration
+namespace HealthPortal.View.SectionAdministration
 {
     public partial class FrmAddUpdateSection : Form
     {

@@ -1,16 +1,17 @@
-﻿using RegistroPacientes.View.UserAdministration;
+﻿using HealthPortal.View.UserAdministration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RegistroPacientes.Controller;
-using RegistroPacientes.Model.DAO;
+using HealthPortal.Controller;
+using HealthPortal.Model.DAO;
 using System.Data;
 using System.Windows.Forms;
-using RegistroPacientes.Helper;
+using System.Net.Mail;
+using HealthPortal.Helper;
 
-namespace RegistroPacientes.Controller.UserAdministration
+namespace HealthPortal.Controller.UserAdministration
 {
     internal class ControllerAddUpdateUser
     {
@@ -18,26 +19,26 @@ namespace RegistroPacientes.Controller.UserAdministration
         private int procedure;
         private string role;
         private string personId;
-        public ControllerAddUpdateUser(FrmAddUpdateUser View, int procedure)
+        public ControllerAddUpdateUser(FrmAddUpdateUser view, int procedure)
         {
-            objFrmAddUpdateUser = View;
+            objFrmAddUpdateUser = view;
             this.procedure = procedure;
-            verifyProcedure();
+            VerifyProcedure();
             objFrmAddUpdateUser.Load += new EventHandler(LoadComboBox);
             objFrmAddUpdateUser.btnAddNewUser.Click += new EventHandler(NewUser);
         }
-        public ControllerAddUpdateUser(FrmAddUpdateUser View, int procedure, int personId, string firstName, string lastName, string email, string phoneNumber, string username, string role)
+        public ControllerAddUpdateUser(FrmAddUpdateUser view, int procedure, int personId, string firstName, string lastName, string email, string phoneNumber, string username, string role)
         {
-            objFrmAddUpdateUser = View;
+            objFrmAddUpdateUser = view;
             this.procedure = procedure;
             this.role = role;
             this.personId = personId.ToString();
-            verifyProcedure();
+            VerifyProcedure();
             objFrmAddUpdateUser.Load += new EventHandler(LoadComboBox);
             LoadValues(personId, firstName, lastName, email, phoneNumber, username);
             objFrmAddUpdateUser.btnUpdateUser.Click += new EventHandler(UpdateUserInfo);
         }
-        public void verifyProcedure()
+        public void VerifyProcedure()
         {
             if (procedure == 1)
             {
@@ -68,20 +69,25 @@ namespace RegistroPacientes.Controller.UserAdministration
         {
             DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
             CommonMethods commonMethods = new CommonMethods();
+            string temporaryPassword;
+            string email;
 
             // Persona
             daoUserAdministration.NombrePersona = objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
             daoUserAdministration.ApellidoPersona = objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
+            email = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
             daoUserAdministration.CorreoPersona = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
             daoUserAdministration.TelefonoPersona = objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
 
             // Usuario
             daoUserAdministration.Usuario = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
-            daoUserAdministration.Contrasena = commonMethods.ComputeSha256Hash(objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim() + "PU123");
+            temporaryPassword = commonMethods.GenerateRandomPassword();
+            daoUserAdministration.Contrasena = commonMethods.ComputeSha256Hash(temporaryPassword);
             daoUserAdministration.EstadoUsuario = true;
             daoUserAdministration.IntentosUsuario = 0;
+            daoUserAdministration.ContrasenaTemporal = true;
             daoUserAdministration.IdRol = int.Parse(objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue.ToString());
-            int returnedValue = daoUserAdministration.RegisterUser();
+            int returnedValue = daoUserAdministration.RegisterUser(temporaryPassword, email);
             if (returnedValue == 1)
             {
                 MessageBox.Show("Los datos han sido ingresados de manera exitosa.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -93,7 +99,7 @@ namespace RegistroPacientes.Controller.UserAdministration
         }
         public void UpdateUserInfo(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim()))
+            if (string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim()))
             {
                 DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
                 daoUserAdministration.IdPersona = int.Parse(objFrmAddUpdateUser.txtUserAdministrationId.Texts.Trim());

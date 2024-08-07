@@ -1,18 +1,18 @@
-﻿using RegistroPacientes.View.Login;
+﻿using HealthPortal.View.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
-using RegistroPacientes.Model.DAO;
-using RegistroPacientes.Model;
-using RegistroPacientes.Helper;
-using RegistroPacientes.View.Dashboard;
+using HealthPortal.Model.DAO;
+using HealthPortal.Model;
+using HealthPortal.Helper;
+using HealthPortal.View.Dashboard;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace RegistroPacientes.Controller.Login
+namespace HealthPortal.Controller.Login
 {
     internal class ControllerLogin
     {
@@ -81,12 +81,18 @@ namespace RegistroPacientes.Controller.Login
             CommonMethods commonMethods = new CommonMethods();
             daoLogin.Username = objLogin.txtUsername.Texts.Trim();
             daoLogin.Password = commonMethods.ComputeSha256Hash(objLogin.txtPassword.Texts.Trim());
-            bool result = daoLogin.EvaluateLogin();
-            if (result == true)
+            if (daoLogin.EvaluateLogin())
             {
                 objLogin.Hide();
-                FrmDashboard objDashboard = new FrmDashboard();
-                objDashboard.Show();
+                if (CurrentUserData.TemporaryPassword)
+                {
+
+                }
+                else
+                {
+                    FrmDashboard objDashboard = new FrmDashboard();
+                    objDashboard.Show();
+                }
             }
             else
             {

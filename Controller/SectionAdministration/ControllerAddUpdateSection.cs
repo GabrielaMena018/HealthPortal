@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using RegistroPacientes.Model.DAO;
-using RegistroPacientes.View.SectionAdministration;
+using HealthPortal.Model.DAO;
+using HealthPortal.View.SectionAdministration;
 
-namespace RegistroPacientes.Controller.SectionAdministration
+namespace HealthPortal.Controller.SectionAdministration
 {
     public class ControllerAddUpdateSection
     {

@@ -1,4 +1,4 @@
-﻿using RegistroPacientes.Controller.UserAdministration;
+﻿using HealthPortal.Controller.UserAdministration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RegistroPacientes.View.UserAdministration
+namespace HealthPortal.View.UserAdministration
 {
     public partial class FrmAddUpdateUser : Form
     {

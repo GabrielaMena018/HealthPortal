@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
-using RegistroPacientes.Model.DAO;
+using HealthPortal.Model.DAO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Net;
 using System.Windows.Forms.DataVisualization.Charting;
-using RegistroPacientes.View.PatientAdministration;
+using HealthPortal.View.PatientAdministration;
 
-namespace RegistroPacientes.Controller.PatientAdministration
+namespace HealthPortal.Controller.PatientAdministration
 {
     internal class ControllerPatientAdministration
     {
@@ -77,20 +77,20 @@ namespace RegistroPacientes.Controller.PatientAdministration
                 DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
                 string search = objPatientAdministration.txtSearch.Texts;
                 DataSet ds = daoPatientAdministration.SearchPatient(search);
-                objPatientAdministration.GridViewPatient.DataSource = ds.Tables["ViewAdminPatient"];
+                objPatientAdministration.GridViewPatient.DataSource = ds.Tables["viewAdminPacientes"];
         }
 
         private void TextTxt(object sender, EventArgs e)
         {
             if (objPatientAdministration.txtSearch.Texts == "")
             {
-                objPatientAdministration.txtSearch.Texts = "Búscar";
+                objPatientAdministration.txtSearch.Texts = "Buscar";
             }
         }
 
         private void ClearTxt(object sender, EventArgs e)
         {
-            if (objPatientAdministration.txtSearch.Texts == "Búscar")
+            if (objPatientAdministration.txtSearch.Texts == "Buscar")
             {
                 objPatientAdministration.txtSearch.Clear();
             }

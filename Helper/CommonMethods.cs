@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using System.Drawing.Text;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using HealthPortal.Model.DAO;
 
-namespace RegistroPacientes.Helper
+namespace HealthPortal.Helper
 {
     internal class CommonMethods
     {
+        DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         public static extern IntPtr CreateRoundRectRgn
         (
@@ -36,6 +41,44 @@ namespace RegistroPacientes.Helper
                     builder.Append(bytes[i].ToString("x2"));
                 }
                 return builder.ToString();
+            }
+        }
+        public string GenerateRandomPassword()
+        {
+            const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+-=";
+            StringBuilder password = new StringBuilder();
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            byte[] data = new byte[8];
+            rng.GetBytes(data);
+            foreach (byte a in data)
+            {
+                password.Append(validCharacters[a % validCharacters.Length]);
+            }
+            return password.ToString();
+        }
+        public void SendEmail(string temporaryPassword, string email)
+        {
+            try
+            {
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "0ikBiODwKpIWRj4"),
+                    EnableSsl = true
+                };
+                MailMessage mailMessage = new MailMessage
+                {
+                    From = new MailAddress("healthportal.noreply@gmail.com"),
+                    Subject = "Contraseña Temporal",
+                    Body = $"¡Ha sido registrado como usuario en HealthPortal! La contraseña que deberá utilizar para inciar sesión es: {temporaryPassword}. Claro está que, por motivos de seguridad, es indispensable que, al iniciar sesión por primera vez, se asegure de cambiar la contraseña.",
+                    IsBodyHtml = true
+                };
+                mailMessage.To.Add(email);
+                client.Send(mailMessage);
+                MessageBox.Show($"Contraseña temporal enviada al usuario a través de su correo electrónico de manera exitosa.", "Correo enviado exitosamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error al enviar el correo. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

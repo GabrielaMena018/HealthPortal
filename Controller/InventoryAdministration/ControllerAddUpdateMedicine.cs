@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
-using RegistroPacientes.Model.DAO;
-using RegistroPacientes.View.InventoryAdministration;
+using HealthPortal.Model.DAO;
+using HealthPortal.View.InventoryAdministration;
 using System.Collections.Specialized;
 
-namespace RegistroPacientes.Controller.InventoryAdministration
+namespace HealthPortal.Controller.InventoryAdministration
 {
     internal class ControllerAddUpdateMedicine
     {

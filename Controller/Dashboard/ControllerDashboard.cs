@@ -1,68 +1,79 @@
-﻿using RegistroPacientes.View.Dashboard;
+﻿using HealthPortal.View.Dashboard;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.View;
-using RegistroPacientes.View.UserAdministration;
-using RegistroPacientes.View.SectionAdministration;
+using HealthPortal.View.PatientAdministration;
+using HealthPortal.View.UserAdministration;
+using HealthPortal.View.SectionAdministration;
+using HealthPortal.View.InventoryAdministration;
 
-namespace RegistroPacientes.Controller.Dashboard
+namespace HealthPortal.Controller.Dashboard
 {
     public class ControllerDashboard
     {
-        FrmDashboard ObjDashboard;
+        FrmDashboard objDashboard;
         Form currentForm;
-        bool SiderBarExpand = true;
-        int ComputerHeight = Screen.PrimaryScreen.Bounds.Height;
+        bool sideBarExpand = true;
+        int computerHeight = Screen.PrimaryScreen.Bounds.Height;
         int computerWidth = Screen.PrimaryScreen.Bounds.Width;
       
-        public ControllerDashboard(FrmDashboard View)
+        public ControllerDashboard(FrmDashboard view)
         {
-            
-            ObjDashboard = View;
-            ObjDashboard.StpRegistroPacientes.Click += new EventHandler(AbrirFormularioAdminPacientes);
-            ObjDashboard.BtnPatience.Click += new EventHandler(AbrirFormularioAdminPacientes);
-            ObjDashboard.btnMenu.Click += new EventHandler(buttonExpandCollapse_Click);
-            ObjDashboard.BtnPicPaciente.Click += new EventHandler(AbrirFormularioAdminPacientes);
-            ObjDashboard.BtnAdminUser.Click += new EventHandler(AbrirFormularioUserAdministration);
-            ObjDashboard.BtnPicAdminUser.Click += new EventHandler(AbrirFormularioUserAdministration);
-            ObjDashboard.BtnPicAdminUser.Click += new EventHandler(AbrirFormularioUserAdministration);
-            ObjDashboard.BtnAdminGrados.Click += new EventHandler(AbrirFormularioAdminGrades);
-            ObjDashboard.BtnPicAdminGrades.Click += new EventHandler(AbrirFormularioAdminGrades);
+            objDashboard = view;
 
+            // PatientAdministration
+            objDashboard.tsrPatientAdministration.Click += new EventHandler(OpenFormPatientAdministration);
+            objDashboard.btnPatientAdministrationImg.Click += new EventHandler(OpenFormPatientAdministration);
+            objDashboard.btnPatientAdministration.Click += new EventHandler(OpenFormPatientAdministration);
 
+            // InventoryAdministration
+            objDashboard.tsrInventoryAdministration.Click += new EventHandler(OpenFormInventoryAdministration);
+            objDashboard.btnInventoryAdministration.Click += new EventHandler(OpenFormInventoryAdministration);
+            objDashboard.btnInventoryAdministration.Click += new EventHandler(OpenFormInventoryAdministration);
+
+            // UserAdministration
+            objDashboard.tsrUserAdminsitration.Click += new EventHandler(OpenFormUserAdministration);
+            objDashboard.btnUserAdministrationImg.Click += new EventHandler(OpenFormUserAdministration);
+            objDashboard.btnUserAdministration.Click += new EventHandler(OpenFormUserAdministration);
+
+            // SectionAdministration
+            objDashboard.tsrSectionAdministration.Click += new EventHandler(OpenFormSectionAdministration);
+            objDashboard.btnSectionAdministrationImg.Click += new EventHandler(OpenFormSectionAdministration);
+            objDashboard.btnSectionAdministration.Click += new EventHandler(OpenFormSectionAdministration);
+
+            // Sidebar del Dashboard
+            objDashboard.btnMenu.Click += new EventHandler(buttonExpandCollapse_Click);
         }
-
-        private void AbrirFormularioAdminGrades(object sender, EventArgs e)
+        private void OpenFormPatientAdministration(object sender, EventArgs e)
         {
-            AbrirFormulario<FrmSectionAdministration>();
+            OpenForm<FrmPatientAdministration>();
         }
-
-        public void AdminPatience(object sende, EventArgs e)
+        private void OpenFormInventoryAdministration(object sender, EventArgs e)
         {
-            FrmPatientAdministration openForm = new FrmPatientAdministration();
-            openForm.ShowDialog();
+            OpenForm<FrmInventoryAdministration>();
         }
-
-        private void AbrirFormularioAdminPacientes(object sender, EventArgs e)
+        private void OpenFormUserAdministration(object sender, EventArgs e)
         {
-            AbrirFormulario<FrmPatientAdministration>();
+            OpenForm<FrmUserAdministration>();
         }
-
-        private void AbrirFormularioUserAdministration(object sender, EventArgs e)
+        private void OpenFormSectionAdministration(object sender, EventArgs e)
         {
-            AbrirFormulario<FrmUserAdministration>();
+            OpenForm<FrmSectionAdministration>();
         }
-
-        private void AbrirFormulario<MiForm>() where MiForm : Form, new()
+        //public void PatientAdministration(object sende, EventArgs e)
+        //{
+        //    FrmPatientAdministration openForm = new FrmPatientAdministration();
+        //    openForm.ShowDialog();
+        //}
+        private void OpenForm<MiForm>() where MiForm : Form, new()
         {
             //Se declara objeto de tipo Form llamada formulario
             Form formulario;
             //Se guarda en el panel contenedor del formulario principal todos los controles del formulario que desea abrir <MiForm> posteriormente se guarda todo en el objeto de tipo formulario
-            formulario = ObjDashboard.PanelContenedor.Controls.OfType<MiForm>().FirstOrDefault();
+            formulario = objDashboard.PanelContenedor.Controls.OfType<MiForm>().FirstOrDefault();
             //Si el formulario no existe se procederá a crearlo de lo contrario solo se traerá al frente (ver clausula else)
             if (formulario == null)
             {
@@ -82,14 +93,14 @@ namespace RegistroPacientes.Controller.Dashboard
                     //Se cierra el formulario actual para mostrar el nuevo formulario
                     currentForm.Close();
                     //Se eliminan del panel contenedor todos los controles del formulario que se cerrará
-                    ObjDashboard.PanelContenedor.Controls.Remove(currentForm);
+                    objDashboard.PanelContenedor.Controls.Remove(currentForm);
                 }
                 //Se establece como nuevo formulario actual el formulario que se está abriendo
                 currentForm = formulario;
                 //Se agregan los controles del nuevo formulario al panel contenedor
-                ObjDashboard.PanelContenedor.Controls.Add(formulario);
+                objDashboard.PanelContenedor.Controls.Add(formulario);
                 //Tag es una propiedad genérica disponible para la mayoría de los controles en aplicaciones .NET, incluyendo los paneles.
-                ObjDashboard.PanelContenedor.Tag = formulario;
+                objDashboard.PanelContenedor.Tag = formulario;
                 //Se muestra el formulario en el panel contenedor
                 formulario.Show();
                 //Se trae al frente el formulario armado
@@ -100,58 +111,58 @@ namespace RegistroPacientes.Controller.Dashboard
                 formulario.BringToFront();
             }
         }
-        private void CerrarForm(object sender, EventArgs e)
+        private void CloseForm(object sender, EventArgs e)
         {
             //Se cierra el formulario actual para mostrar el nuevo formulario
             currentForm.Close();
             //Se eliminan del panel contenedor todos los controles del formulario que se cerrará
-            ObjDashboard.PanelContenedor.Controls.Remove(currentForm);
+            objDashboard.PanelContenedor.Controls.Remove(currentForm);
         }
 
         private void buttonExpandCollapse_Click(object sender, EventArgs e)
         {
-            ObjDashboard.sidebar.Width = (ObjDashboard.MaximumSize.Width + ComputerHeight);
+            objDashboard.sidebar.Width = (objDashboard.MaximumSize.Width + computerHeight);
            
 
-            SiderBarExpand = !SiderBarExpand;
-            ObjDashboard.flowButtons.Width = ObjDashboard.sidebar.Width;
+            sideBarExpand = !sideBarExpand;
+            objDashboard.flowButtons.Width = objDashboard.sidebar.Width;
 
-            if (SiderBarExpand)
+            if (sideBarExpand)
             {
-                ObjDashboard.sidebar.Width = ObjDashboard.sidebar.MinimumSize.Width;
-                ObjDashboard.sidebarTimer.Stop();
+                objDashboard.sidebar.Width = objDashboard.sidebar.MinimumSize.Width;
+                objDashboard.sidebarTimer.Stop();
             }
             else
             {
-                ObjDashboard.sidebar.Width = ObjDashboard.sidebar.MaximumSize.Width;
-                ObjDashboard.sidebarTimer.Start();
+                objDashboard.sidebar.Width = objDashboard.sidebar.MaximumSize.Width;
+                objDashboard.sidebarTimer.Start();
             }
         }
 
         private void SliderTime_Tick(object sender, EventArgs e)
         {
-            if (SiderBarExpand)
+            if (sideBarExpand)
             {
                 
-                if (ObjDashboard.sidebar.Width > ObjDashboard.sidebar.MinimumSize.Width)     
+                if (objDashboard.sidebar.Width > objDashboard.sidebar.MinimumSize.Width)     
                 {
-                    ObjDashboard.sidebar.Width -= 10;
+                    objDashboard.sidebar.Width -= 10;
                 }
                 else 
                 {
-                   ObjDashboard.sidebarTimer.Stop ();
+                   objDashboard.sidebarTimer.Stop ();
                 }
             }
             else
             {
                 
-                if (ObjDashboard.sidebar.Width < ObjDashboard.sidebar.MaximumSize.Width)
+                if (objDashboard.sidebar.Width < objDashboard.sidebar.MaximumSize.Width)
                 {
-                    ObjDashboard.sidebar.Width += 10;
+                    objDashboard.sidebar.Width += 10;
                 }
                 else
                 {
-                    ObjDashboard.sidebarTimer.Stop();
+                    objDashboard.sidebarTimer.Stop();
                 }
             }
         }

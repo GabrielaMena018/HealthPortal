@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RegistroPacientes.Model.DTO
+namespace HealthPortal.Model.DTO
 {
     internal class DTOUserAdministration : dbContext
     {
@@ -17,6 +17,7 @@ namespace RegistroPacientes.Model.DTO
         private string contrasena;
         private bool estadoUsuario;
         private int intentosUsuario;
+        private bool contrasenaTemporal;
 
         // Atributos de tbPersonas
         private int idPersona;
@@ -32,6 +33,7 @@ namespace RegistroPacientes.Model.DTO
         public string Contrasena { get => contrasena; set => contrasena = value; }
         public bool EstadoUsuario { get => estadoUsuario; set => estadoUsuario = value; }
         public int IntentosUsuario { get => intentosUsuario; set => intentosUsuario = value; }
+        public bool ContrasenaTemporal { get => contrasenaTemporal; set => contrasenaTemporal = value; }
         public int IdPersona { get => idPersona; set => idPersona = value; }
         public string NombrePersona { get => nombrePersona; set => nombrePersona = value; }
         public string ApellidoPersona { get => apellidoPersona; set => apellidoPersona = value; }

@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RegistroPacientes.Model.DTO;
+using HealthPortal.Model.DTO;
 using System.Windows.Forms;
 using Microsoft.SqlServer.Server;
 using System.Collections;
@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Diagnostics.Eventing.Reader;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace RegistroPacientes.Model.DAO
+namespace HealthPortal.Model.DAO
 {
     class DAOPatientAdministration : DTOPatientAdministration
     {
@@ -69,7 +69,6 @@ namespace RegistroPacientes.Model.DAO
             {
                 command.Connection = getConnection();
                 GetGradeIdSection();
-                MessageBox.Show(IdGradeSection.ToString());
                 //Insertar datos en la tabala de paciente
                 string queryPatient = "INSERT INTO [Pacientes].[tbPacientes] VALUES (@nombrePaciente, @apellidoPaciente, @codigo, @IdGradoSeccion, @IdTipoPersona)";
                 SqlCommand cmdInsertPatient = new SqlCommand(queryPatient, command.Connection);
@@ -397,19 +396,17 @@ namespace RegistroPacientes.Model.DAO
             {
                 command.Connection = getConnection();
                 string query = $"SELECT * FROM [Vistas].[viewAdminPacientes] " +
-                               $"WHERE IdPatient LIKE '%{search}%' " +
+                               $"WHERE idPaciente LIKE '%{search}%' " +
                                $"OR nombrePaciente LIKE '%{search}%' " +
                                $"OR apellidoPaciente LIKE '%{search}%' " +
-                               $"OR TipoPersona LIKE '%{search}%' " +
+                               $"OR tipoPersona LIKE '%{search}%' " +
                                $"OR codigo LIKE '%{search}%'" +
-                               $"OR GrupoTecnico LIKE '%{search}%' " +
-                               $"OR Grado LIKE '%{search}%'" +
-                               $"OR SeccionAcademica LIKE '%{search}%' " +
-                               $"OR Especialidad LIKE '%{search}%' " +
-                               $"OR HoraVisita LIKE '%{search}%'";
+                               $"OR grupoTecnico LIKE '%{search}%' " +
+                               $"OR grado LIKE '%{search}%'" +
+                               $"OR seccionAcademica LIKE '%{search}%' " +
+                               $"OR especialidad LIKE '%{search}%' " +
+                               $"OR horaVisita LIKE '%{search}%'";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                //cmd.Parameters.AddWithValue("param1", column);
-                cmd.Parameters.AddWithValue("param2", search);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -438,6 +435,7 @@ namespace RegistroPacientes.Model.DAO
             try
             {
                 string fecha = searchDate.Date.ToString();
+                MessageBox.Show(fecha);
                 command.Connection = getConnection();
                 string query = "SELECT * FROM [Vistas].[viewAdminPacientes] WHERE fechaVisita = @fechaVisita";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
@@ -445,7 +443,7 @@ namespace RegistroPacientes.Model.DAO
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "viewAdminPatient");
+                adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
             catch (SqlException sqlEx)
@@ -538,7 +536,7 @@ namespace RegistroPacientes.Model.DAO
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "viewAdminPatient");
+                adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
             catch (SqlException sqlEx)

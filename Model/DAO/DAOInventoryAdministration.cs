@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.Controller.Dashboard;
-using RegistroPacientes.Model.DTO;
+using HealthPortal.Controller.Dashboard;
+using HealthPortal.Model.DTO;
 
-namespace RegistroPacientes.Model.DAO
+namespace HealthPortal.Model.DAO
 {
     internal class DAOInventoryAdministration : DTOInventoryAdministration
     {
@@ -197,7 +197,6 @@ namespace RegistroPacientes.Model.DAO
         {
             try
             {
-                MessageBox.Show(search);
                 command.Connection = getConnection();
                 string query = $"SELECT * FROM [Vistas].[viewMedicamento] WHERE [Nombre del Medicamento] LIKE '%{search}%' OR [Categoría del Medicamento] LIKE '%{search}%'";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
