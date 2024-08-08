@@ -50,6 +50,7 @@
     <Compile Include="Controller\InventoryAdministration\ControllerAddUpdateMedicine.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerInventoryAdministration.cs" />
     <Compile Include="Controller\Login\ControllerLogin.cs" />
+    <Compile Include="Controller\Login\ControllerPasswordChange.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerAddUpdatePatient.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
     <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
@@ -74,6 +75,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login\FrmPasswordChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login\FrmPasswordChange.Designer.cs">
+      <DependentUpon>FrmPasswordChange.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SectionAdministration\FrmAddUpdateSection.cs">
       <SubType>Form</SubType>
@@ -149,6 +156,9 @@
     <Compile Include="View\UserAdministration\FrmUserAdministration.Designer.cs">
       <DependentUpon>FrmUserAdministration.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Login\FrmPasswordChange.resx">
+      <DependentUpon>FrmPasswordChange.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\SectionAdministration\FrmAddUpdateSection.resx">
       <DependentUpon>FrmAddUpdateSection.cs</DependentUpon>
     </EmbeddedResource>

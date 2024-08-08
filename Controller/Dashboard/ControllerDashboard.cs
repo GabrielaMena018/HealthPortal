@@ -9,6 +9,8 @@ using HealthPortal.View.PatientAdministration;
 using HealthPortal.View.UserAdministration;
 using HealthPortal.View.SectionAdministration;
 using HealthPortal.View.InventoryAdministration;
+using HealthPortal.Helper;
+using HealthPortal.View.Login;
 
 namespace HealthPortal.Controller.Dashboard
 {
@@ -16,6 +18,7 @@ namespace HealthPortal.Controller.Dashboard
     {
         FrmDashboard objDashboard;
         Form currentForm;
+        CommonMethods commonMethods = new CommonMethods();
         bool sideBarExpand = true;
         int computerHeight = Screen.PrimaryScreen.Bounds.Height;
         int computerWidth = Screen.PrimaryScreen.Bounds.Width;
@@ -44,6 +47,11 @@ namespace HealthPortal.Controller.Dashboard
             objDashboard.btnSectionAdministrationImg.Click += new EventHandler(OpenFormSectionAdministration);
             objDashboard.btnSectionAdministration.Click += new EventHandler(OpenFormSectionAdministration);
 
+            // Logout
+            // Al que lea esto le mando un abrazo, atentamente Juan del 8 de agosto de 2024 a las 12:58 de la madrugada
+            objDashboard.btnLogout.Click += new EventHandler(Logout);
+            objDashboard.btnLogoutImg.Click += new EventHandler(Logout);
+
             // Sidebar del Dashboard
             objDashboard.btnMenu.Click += new EventHandler(buttonExpandCollapse_Click);
         }
@@ -68,6 +76,16 @@ namespace HealthPortal.Controller.Dashboard
         //    FrmPatientAdministration openForm = new FrmPatientAdministration();
         //    openForm.ShowDialog();
         //}
+        private void Logout(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea cerrar sesión?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                commonMethods.DisposeOfCurrentUserData();
+                FrmLogin objLogin = new FrmLogin();
+                objLogin.Show();
+                objDashboard.Dispose();
+            }
+        }
         private void OpenForm<MiForm>() where MiForm : Form, new()
         {
             //Se declara objeto de tipo Form llamada formulario

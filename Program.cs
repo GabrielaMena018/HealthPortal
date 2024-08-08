@@ -19,8 +19,8 @@ namespace HealthPortal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
-            //Application.Run(new FrmLogin());
-            Application.Run(new FrmDashboard());
+            Application.Run(new FrmLogin());
+            //Application.Run(new FrmDashboard());
         }
     }
 }

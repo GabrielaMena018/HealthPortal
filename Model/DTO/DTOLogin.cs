@@ -12,18 +12,18 @@ namespace HealthPortal.Model.DTO
 
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
-        public bool V { get; }
+        //public bool V { get; }
 
-        public DTOLogin()
-        {
+        //public DTOLogin()
+        //{
 
-        }
+        //}
 
-        public DTOLogin(bool v, string username, string password)
-        {
-            V = v;
-            this.username = username;
-            this.password = password;
-        }
+        //public DTOLogin(bool v, string username, string password)
+        //{
+        //    V = v;
+        //    this.username = username;
+        //    this.password = password;
+        //}
     }
 }

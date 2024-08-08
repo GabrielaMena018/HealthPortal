@@ -68,7 +68,7 @@ namespace HealthPortal.Helper
                 {
                     From = new MailAddress("healthportal.noreply@gmail.com"),
                     Subject = "Contraseña Temporal",
-                    Body = $"¡Ha sido registrado como usuario en HealthPortal! La contraseña que deberá utilizar para inciar sesión es: {temporaryPassword}. Claro está que, por motivos de seguridad, es indispensable que, al iniciar sesión por primera vez, se asegure de cambiar la contraseña.",
+                    Body = $"¡Ha sido registrado como usuario en HealthPortal! La contraseña que deberá utilizar para inciar sesión es: '{temporaryPassword}'. Claro está que, por motivos de seguridad, es indispensable que, al iniciar sesión por primera vez, se asegure de cambiar la contraseña.",
                     IsBodyHtml = true
                 };
                 mailMessage.To.Add(email);
@@ -81,6 +81,43 @@ namespace HealthPortal.Helper
                 MessageBox.Show($"Hubo un error al enviar el correo. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+        }
+        public bool SendRecoveryEmail(string temporaryPassword, string email)
+        {
+            try
+            {
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "ausw xphf aobi nemd"),
+                    EnableSsl = true
+                };
+                MailMessage mailMessage = new MailMessage
+                {
+                    From = new MailAddress("healthportal.noreply@gmail.com"),
+                    Subject = "Contraseña Temporal",
+                    Body = $"Al parecer ha olvidado su contraseña para iniciar sesión en HealthPortal. La contraseña que deberá utilizar para inciar sesión es: '{temporaryPassword}'. Claro está que, por motivos de seguridad, es indispensable que, al iniciar sesión con esta nueva contraseña, se asegure de cambiar la contraseña a una de su elección. Además, ¡asegúrese de recordarla esta vez!",
+                    IsBodyHtml = true
+                };
+                mailMessage.To.Add(email);
+                client.Send(mailMessage);
+                MessageBox.Show($"Contraseña temporal enviada al usuario a través de su correo electrónico de manera exitosa.", "Correo enviado exitosamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error al enviar el correo. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+        }
+        public void DisposeOfCurrentUserData()
+        {
+            CurrentUserData.Username = string.Empty;
+            CurrentUserData.Status = false;
+            CurrentUserData.FullName = string.Empty;
+            CurrentUserData.Password = string.Empty;
+            CurrentUserData.RoleId = 0;
+            CurrentUserData.TemporaryPassword = false;
+            CurrentUserData.Email = string.Empty;
         }
     }
 }

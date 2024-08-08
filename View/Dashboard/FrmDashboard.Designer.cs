@@ -39,6 +39,7 @@
             this.tsrStatistics = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirReporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsrUserAdminsitration = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsrSectionAdministration = new System.Windows.Forms.ToolStripMenuItem();
             this.flowButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMainImg = new CustomPanel.RJButton();
             this.btnMain = new CustomPanel.RJButton();
@@ -59,11 +60,10 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.sidebar = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rjButton2 = new CustomPanel.RJButton();
-            this.BtnCerarSesion = new CustomPanel.RJButton();
+            this.btnLogoutImg = new CustomPanel.RJButton();
+            this.btnLogout = new CustomPanel.RJButton();
             this.PanelContenedor = new System.Windows.Forms.Panel();
-            this.tsrSectionAdministration = new System.Windows.Forms.ToolStripMenuItem();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.flowButtons.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -145,6 +145,12 @@
             this.tsrUserAdminsitration.Size = new System.Drawing.Size(149, 23);
             this.tsrUserAdminsitration.Text = "Administrar Usuarios";
             // 
+            // tsrSectionAdministration
+            // 
+            this.tsrSectionAdministration.Name = "tsrSectionAdministration";
+            this.tsrSectionAdministration.Size = new System.Drawing.Size(140, 23);
+            this.tsrSectionAdministration.Text = "Administrar Grados";
+            // 
             // flowButtons
             // 
             this.flowButtons.Controls.Add(this.btnMainImg);
@@ -160,7 +166,7 @@
             this.flowButtons.Controls.Add(this.btnSectionAdministrationImg);
             this.flowButtons.Controls.Add(this.btnSectionAdministration);
             this.flowButtons.Location = new System.Drawing.Point(2, 156);
-            this.flowButtons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowButtons.Margin = new System.Windows.Forms.Padding(2);
             this.flowButtons.Name = "flowButtons";
             this.flowButtons.Size = new System.Drawing.Size(212, 377);
             this.flowButtons.TabIndex = 1;
@@ -182,7 +188,7 @@
             this.btnMainImg.ForeColor = System.Drawing.Color.Black;
             this.btnMainImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMainImg.Location = new System.Drawing.Point(2, 2);
-            this.btnMainImg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMainImg.Margin = new System.Windows.Forms.Padding(2);
             this.btnMainImg.Name = "btnMainImg";
             this.btnMainImg.Size = new System.Drawing.Size(48, 50);
             this.btnMainImg.TabIndex = 2;
@@ -203,7 +209,7 @@
             this.btnMain.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMain.ForeColor = System.Drawing.Color.Black;
             this.btnMain.Location = new System.Drawing.Point(54, 2);
-            this.btnMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMain.Margin = new System.Windows.Forms.Padding(2);
             this.btnMain.Name = "btnMain";
             this.btnMain.Size = new System.Drawing.Size(150, 50);
             this.btnMain.TabIndex = 0;
@@ -227,7 +233,7 @@
             this.btnPatientAdministrationImg.ForeColor = System.Drawing.Color.Black;
             this.btnPatientAdministrationImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPatientAdministrationImg.Location = new System.Drawing.Point(2, 56);
-            this.btnPatientAdministrationImg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPatientAdministrationImg.Margin = new System.Windows.Forms.Padding(2);
             this.btnPatientAdministrationImg.Name = "btnPatientAdministrationImg";
             this.btnPatientAdministrationImg.Size = new System.Drawing.Size(48, 50);
             this.btnPatientAdministrationImg.TabIndex = 5;
@@ -248,7 +254,7 @@
             this.btnPatientAdministration.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPatientAdministration.ForeColor = System.Drawing.Color.Black;
             this.btnPatientAdministration.Location = new System.Drawing.Point(54, 56);
-            this.btnPatientAdministration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPatientAdministration.Margin = new System.Windows.Forms.Padding(2);
             this.btnPatientAdministration.Name = "btnPatientAdministration";
             this.btnPatientAdministration.Size = new System.Drawing.Size(150, 50);
             this.btnPatientAdministration.TabIndex = 1;
@@ -272,7 +278,7 @@
             this.btnInventoryAdministrationImg.ForeColor = System.Drawing.Color.Black;
             this.btnInventoryAdministrationImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInventoryAdministrationImg.Location = new System.Drawing.Point(2, 110);
-            this.btnInventoryAdministrationImg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInventoryAdministrationImg.Margin = new System.Windows.Forms.Padding(2);
             this.btnInventoryAdministrationImg.Name = "btnInventoryAdministrationImg";
             this.btnInventoryAdministrationImg.Size = new System.Drawing.Size(48, 50);
             this.btnInventoryAdministrationImg.TabIndex = 6;
@@ -293,7 +299,7 @@
             this.btnInventoryAdministration.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventoryAdministration.ForeColor = System.Drawing.Color.Black;
             this.btnInventoryAdministration.Location = new System.Drawing.Point(54, 110);
-            this.btnInventoryAdministration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInventoryAdministration.Margin = new System.Windows.Forms.Padding(2);
             this.btnInventoryAdministration.Name = "btnInventoryAdministration";
             this.btnInventoryAdministration.Size = new System.Drawing.Size(150, 50);
             this.btnInventoryAdministration.TabIndex = 2;
@@ -317,7 +323,7 @@
             this.btnStatisticsImg.ForeColor = System.Drawing.Color.Black;
             this.btnStatisticsImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStatisticsImg.Location = new System.Drawing.Point(2, 164);
-            this.btnStatisticsImg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStatisticsImg.Margin = new System.Windows.Forms.Padding(2);
             this.btnStatisticsImg.Name = "btnStatisticsImg";
             this.btnStatisticsImg.Size = new System.Drawing.Size(48, 50);
             this.btnStatisticsImg.TabIndex = 7;
@@ -338,7 +344,7 @@
             this.btnStatistics.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistics.ForeColor = System.Drawing.Color.Black;
             this.btnStatistics.Location = new System.Drawing.Point(54, 164);
-            this.btnStatistics.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStatistics.Margin = new System.Windows.Forms.Padding(2);
             this.btnStatistics.Name = "btnStatistics";
             this.btnStatistics.Size = new System.Drawing.Size(150, 50);
             this.btnStatistics.TabIndex = 3;
@@ -362,7 +368,7 @@
             this.btnUserAdministrationImg.ForeColor = System.Drawing.Color.Black;
             this.btnUserAdministrationImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUserAdministrationImg.Location = new System.Drawing.Point(2, 218);
-            this.btnUserAdministrationImg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUserAdministrationImg.Margin = new System.Windows.Forms.Padding(2);
             this.btnUserAdministrationImg.Name = "btnUserAdministrationImg";
             this.btnUserAdministrationImg.Size = new System.Drawing.Size(48, 50);
             this.btnUserAdministrationImg.TabIndex = 8;
@@ -383,7 +389,7 @@
             this.btnUserAdministration.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserAdministration.ForeColor = System.Drawing.Color.Black;
             this.btnUserAdministration.Location = new System.Drawing.Point(54, 218);
-            this.btnUserAdministration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUserAdministration.Margin = new System.Windows.Forms.Padding(2);
             this.btnUserAdministration.Name = "btnUserAdministration";
             this.btnUserAdministration.Size = new System.Drawing.Size(150, 50);
             this.btnUserAdministration.TabIndex = 9;
@@ -407,7 +413,7 @@
             this.btnSectionAdministrationImg.ForeColor = System.Drawing.Color.Black;
             this.btnSectionAdministrationImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSectionAdministrationImg.Location = new System.Drawing.Point(2, 272);
-            this.btnSectionAdministrationImg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSectionAdministrationImg.Margin = new System.Windows.Forms.Padding(2);
             this.btnSectionAdministrationImg.Name = "btnSectionAdministrationImg";
             this.btnSectionAdministrationImg.Size = new System.Drawing.Size(48, 50);
             this.btnSectionAdministrationImg.TabIndex = 10;
@@ -428,7 +434,7 @@
             this.btnSectionAdministration.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSectionAdministration.ForeColor = System.Drawing.Color.Black;
             this.btnSectionAdministration.Location = new System.Drawing.Point(54, 272);
-            this.btnSectionAdministration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSectionAdministration.Margin = new System.Windows.Forms.Padding(2);
             this.btnSectionAdministration.Name = "btnSectionAdministration";
             this.btnSectionAdministration.Size = new System.Drawing.Size(150, 50);
             this.btnSectionAdministration.TabIndex = 11;
@@ -441,7 +447,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(213, 156);
             this.panel1.TabIndex = 0;
@@ -452,7 +458,7 @@
             this.panel2.Controls.Add(this.btnMenu);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(213, 75);
             this.panel2.TabIndex = 0;
@@ -480,7 +486,7 @@
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenu.ForeColor = System.Drawing.Color.White;
             this.btnMenu.Location = new System.Drawing.Point(10, 25);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(2);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(30, 27);
             this.btnMenu.TabIndex = 4;
@@ -506,81 +512,75 @@
             this.sidebar.Controls.Add(this.flowButtons);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 27);
-            this.sidebar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sidebar.Margin = new System.Windows.Forms.Padding(2);
             this.sidebar.MaximumSize = new System.Drawing.Size(213, 0);
             this.sidebar.MinimumSize = new System.Drawing.Size(54, 0);
             this.sidebar.Name = "sidebar";
             this.sidebar.Size = new System.Drawing.Size(213, 746);
             this.sidebar.TabIndex = 4;
             // 
-            // flowLayoutPanel1
+            // btnLogoutImg
             // 
-            this.flowLayoutPanel1.Controls.Add(this.rjButton2);
-            this.flowLayoutPanel1.Controls.Add(this.BtnCerarSesion);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 665);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(213, 81);
-            this.flowLayoutPanel1.TabIndex = 2;
+            this.btnLogoutImg.BackColor = System.Drawing.Color.White;
+            this.btnLogoutImg.BackGroundColor = System.Drawing.Color.White;
+            this.btnLogoutImg.BackgroundImage = global::HealthPortal.Properties.Resources.salida;
+            this.btnLogoutImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnLogoutImg.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnLogoutImg.BorderRadius = 40;
+            this.btnLogoutImg.BorderSize = 0;
+            this.btnLogoutImg.FlatAppearance.BorderSize = 0;
+            this.btnLogoutImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogoutImg.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogoutImg.ForeColor = System.Drawing.Color.Black;
+            this.btnLogoutImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogoutImg.Location = new System.Drawing.Point(2, 2);
+            this.btnLogoutImg.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogoutImg.Name = "btnLogoutImg";
+            this.btnLogoutImg.Size = new System.Drawing.Size(48, 50);
+            this.btnLogoutImg.TabIndex = 8;
+            this.btnLogoutImg.Text = " ";
+            this.btnLogoutImg.TextColor = System.Drawing.Color.Black;
+            this.btnLogoutImg.UseVisualStyleBackColor = false;
             // 
-            // rjButton2
+            // btnLogout
             // 
-            this.rjButton2.BackColor = System.Drawing.Color.White;
-            this.rjButton2.BackGroundColor = System.Drawing.Color.White;
-            this.rjButton2.BackgroundImage = global::HealthPortal.Properties.Resources.salida;
-            this.rjButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.rjButton2.BorderRadius = 40;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton2.ForeColor = System.Drawing.Color.Black;
-            this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton2.Location = new System.Drawing.Point(2, 2);
-            this.rjButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(48, 50);
-            this.rjButton2.TabIndex = 8;
-            this.rjButton2.Text = " ";
-            this.rjButton2.TextColor = System.Drawing.Color.Black;
-            this.rjButton2.UseVisualStyleBackColor = false;
-            // 
-            // BtnCerarSesion
-            // 
-            this.BtnCerarSesion.BackColor = System.Drawing.Color.White;
-            this.BtnCerarSesion.BackGroundColor = System.Drawing.Color.White;
-            this.BtnCerarSesion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnCerarSesion.BorderRadius = 40;
-            this.BtnCerarSesion.BorderSize = 2;
-            this.BtnCerarSesion.FlatAppearance.BorderSize = 0;
-            this.BtnCerarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerarSesion.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnCerarSesion.Location = new System.Drawing.Point(54, 2);
-            this.BtnCerarSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.BtnCerarSesion.Name = "BtnCerarSesion";
-            this.BtnCerarSesion.Size = new System.Drawing.Size(150, 50);
-            this.BtnCerarSesion.TabIndex = 4;
-            this.BtnCerarSesion.Text = "Cerrar Sesión";
-            this.BtnCerarSesion.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnCerarSesion.UseVisualStyleBackColor = false;
+            this.btnLogout.BackColor = System.Drawing.Color.White;
+            this.btnLogout.BackGroundColor = System.Drawing.Color.White;
+            this.btnLogout.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnLogout.BorderRadius = 40;
+            this.btnLogout.BorderSize = 2;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnLogout.Location = new System.Drawing.Point(54, 2);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(150, 50);
+            this.btnLogout.TabIndex = 4;
+            this.btnLogout.Text = "Cerrar Sesión";
+            this.btnLogout.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnLogout.UseVisualStyleBackColor = false;
             // 
             // PanelContenedor
             // 
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelContenedor.Location = new System.Drawing.Point(213, 27);
-            this.PanelContenedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelContenedor.Margin = new System.Windows.Forms.Padding(2);
             this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PanelContenedor.Padding = new System.Windows.Forms.Padding(4);
             this.PanelContenedor.Size = new System.Drawing.Size(1213, 746);
             this.PanelContenedor.TabIndex = 5;
             // 
-            // tsrSectionAdministration
+            // flowLayoutPanel1
             // 
-            this.tsrSectionAdministration.Name = "tsrSectionAdministration";
-            this.tsrSectionAdministration.Size = new System.Drawing.Size(140, 23);
-            this.tsrSectionAdministration.Text = "Administrar Grados";
+            this.flowLayoutPanel1.Controls.Add(this.btnLogoutImg);
+            this.flowLayoutPanel1.Controls.Add(this.btnLogout);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 665);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(213, 81);
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // FrmDashboard
             // 
@@ -594,7 +594,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(1442, 834);
             this.Name = "FrmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -637,9 +637,8 @@
         public CustomPanel.RJButton btnPatientAdministrationImg;
         public CustomPanel.RJButton btnInventoryAdministrationImg;
         public CustomPanel.RJButton btnStatisticsImg;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        public CustomPanel.RJButton rjButton2;
-        public CustomPanel.RJButton BtnCerarSesion;
+        public CustomPanel.RJButton btnLogoutImg;
+        public CustomPanel.RJButton btnLogout;
         public CustomPanel.RJButton btnUserAdministrationImg;
         public CustomPanel.RJButton btnUserAdministration;
         public System.Windows.Forms.ToolStripMenuItem tsrUserAdminsitration;
@@ -649,5 +648,6 @@
         public System.Windows.Forms.ToolStripMenuItem tsrInventoryAdministration;
         public System.Windows.Forms.ToolStripMenuItem tsrStatistics;
         public System.Windows.Forms.ToolStripMenuItem tsrSectionAdministration;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

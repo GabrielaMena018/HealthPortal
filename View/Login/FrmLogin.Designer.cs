@@ -221,6 +221,7 @@ namespace HealthPortal.View.Login
             this.picShowPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picShowPassword.TabIndex = 5;
             this.picShowPassword.TabStop = false;
+            this.picShowPassword.Visible = false;
             this.picShowPassword.WaitOnLoad = true;
             // 
             // picUsername
