@@ -25,6 +25,7 @@ namespace HealthPortal.Controller.UserAdministration
             objUserAdministration.btnAddNewUser.Click += new EventHandler(AddUser);
             objUserAdministration.cmsUpdateUser.Click += new EventHandler(UpdateUser);
             objUserAdministration.cmsDeleteUser.Click += new EventHandler(DeleteUser);
+            objUserAdministration.cmsViewUser.Click += new EventHandler(ViewUser);
         }
         public void LoadComboBoxes(object sender, EventArgs e)
         {
@@ -83,6 +84,20 @@ namespace HealthPortal.Controller.UserAdministration
                 ReloadData();
             }
         }
+        public void ViewUser(object sender, EventArgs e)
+        {
+            int position = objUserAdministration.dgvUserDisplay.CurrentRow.Index;
+            int personId = int.Parse(objUserAdministration.dgvUserDisplay[0, position].Value.ToString());
+            string firstName = objUserAdministration.dgvUserDisplay[1, position].Value.ToString();
+            string lastName = objUserAdministration.dgvUserDisplay[2, position].Value.ToString();
+            string email = objUserAdministration.dgvUserDisplay[3, position].Value.ToString();
+            string phoneNumber = objUserAdministration.dgvUserDisplay[4, position].Value.ToString();
+            string username = objUserAdministration.dgvUserDisplay[5, position].Value.ToString();
+            string role = objUserAdministration.dgvUserDisplay[6, position].Value.ToString();
+
+            FrmAddUpdateUser handleForm = new FrmAddUpdateUser(3, personId, firstName, lastName, email, phoneNumber, username, role);
+            handleForm.ShowDialog();
+        }
         public void DeleteUser(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Seguro que desea eliminar los datos del usuario? Esta acción no se puede deshacer.", "Eliminación de Datos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -92,8 +107,7 @@ namespace HealthPortal.Controller.UserAdministration
                 DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
                 daoUserAdministration.Usuario = objUserAdministration.dgvUserDisplay[5, position].Value.ToString();
                 daoUserAdministration.IdPersona = int.Parse(objUserAdministration.dgvUserDisplay[0, position].Value.ToString());
-                int returnedValue = daoUserAdministration.DeleteUser();
-                if (returnedValue == 1)
+                if (daoUserAdministration.DeleteUser() == 2)
                 {
                     MessageBox.Show("Usuario eliminado.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ReloadData();

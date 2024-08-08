@@ -55,13 +55,13 @@ namespace HealthPortal.Helper
             }
             return password.ToString();
         }
-        public void SendEmail(string temporaryPassword, string email)
+        public bool SendEmail(string temporaryPassword, string email)
         {
             try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
                 {
-                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "0ikBiODwKpIWRj4"),
+                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "ausw xphf aobi nemd"),
                     EnableSsl = true
                 };
                 MailMessage mailMessage = new MailMessage
@@ -74,10 +74,12 @@ namespace HealthPortal.Helper
                 mailMessage.To.Add(email);
                 client.Send(mailMessage);
                 MessageBox.Show($"Contraseña temporal enviada al usuario a través de su correo electrónico de manera exitosa.", "Correo enviado exitosamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Hubo un error al enviar el correo. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
         }
     }

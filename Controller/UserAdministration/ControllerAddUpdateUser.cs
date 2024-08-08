@@ -10,6 +10,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Net.Mail;
 using HealthPortal.Helper;
+using HealthPortal.Model.DTO;
 
 namespace HealthPortal.Controller.UserAdministration
 {
@@ -51,6 +52,17 @@ namespace HealthPortal.Controller.UserAdministration
                 objFrmAddUpdateUser.btnUpdateUser.Enabled = true;
                 objFrmAddUpdateUser.txtUserAdministrationUsername.Enabled = false;
             }
+            else
+            {
+                objFrmAddUpdateUser.btnAddNewUser.Enabled = false;
+                objFrmAddUpdateUser.btnUpdateUser.Enabled = false;
+                objFrmAddUpdateUser.txtUserAdministrationName.Enabled = false;
+                objFrmAddUpdateUser.txtUserAdministrationLastName.Enabled = false;
+                objFrmAddUpdateUser.txtUserAdministrationEmail.Enabled = false;
+                objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Enabled = false;
+                objFrmAddUpdateUser.txtUserAdministrationUsername.Enabled = false;
+                objFrmAddUpdateUser.cmbUserAdministrationRole.Enabled = false;
+            }
         }
         public void LoadComboBox(object sender, EventArgs e)
         {
@@ -87,10 +99,14 @@ namespace HealthPortal.Controller.UserAdministration
             daoUserAdministration.IntentosUsuario = 0;
             daoUserAdministration.ContrasenaTemporal = true;
             daoUserAdministration.IdRol = int.Parse(objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue.ToString());
-            int returnedValue = daoUserAdministration.RegisterUser(temporaryPassword, email);
-            if (returnedValue == 1)
+            if (daoUserAdministration.RegisterUser() == 2)
             {
                 MessageBox.Show("Los datos han sido ingresados de manera exitosa.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (commonMethods.SendEmail(temporaryPassword, email) == false)
+                {
+                    daoUserAdministration.IdPersona = daoUserAdministration.GetMaxID();
+                    daoUserAdministration.DeleteUser();
+                }
             }
             else
             {
@@ -131,7 +147,7 @@ namespace HealthPortal.Controller.UserAdministration
         }
         public void LoadValues(int personId, string firstName, string lastName, string email, string phoneNumber, string username)
         {
-            //objFrmAddUpdateUser.txtUserAdministrationId.Texts = personId.ToString();
+            objFrmAddUpdateUser.txtUserAdministrationId.Texts = personId.ToString();
             objFrmAddUpdateUser.txtUserAdministrationName.Texts = firstName;
             objFrmAddUpdateUser.txtUserAdministrationLastName.Texts = lastName;
             objFrmAddUpdateUser.txtUserAdministrationEmail.Texts = email;

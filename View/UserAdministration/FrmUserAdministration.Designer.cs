@@ -37,6 +37,9 @@
             this.panelCustom1 = new CustomPanel.PanelCustom();
             this.panel11 = new System.Windows.Forms.Panel();
             this.dgvUserDisplay = new System.Windows.Forms.DataGridView();
+            this.cmsDatagGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsUpdateUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsDeleteUser = new System.Windows.Forms.ToolStripMenuItem();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnFilter = new CustomPanel.RJButton();
@@ -62,13 +65,12 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmsDatagGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmsUpdateUser = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsDeleteUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsViewUser = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panelCustom1.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserDisplay)).BeginInit();
+            this.cmsDatagGrid.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -78,7 +80,6 @@
             this.panel14.SuspendLayout();
             this.panelCustom2.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.cmsDatagGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel3
@@ -164,6 +165,27 @@
             this.dgvUserDisplay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUserDisplay.Size = new System.Drawing.Size(935, 564);
             this.dgvUserDisplay.TabIndex = 0;
+            // 
+            // cmsDatagGrid
+            // 
+            this.cmsDatagGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsUpdateUser,
+            this.cmsDeleteUser,
+            this.cmsViewUser});
+            this.cmsDatagGrid.Name = "contextDataGrid";
+            this.cmsDatagGrid.Size = new System.Drawing.Size(181, 92);
+            // 
+            // cmsUpdateUser
+            // 
+            this.cmsUpdateUser.Name = "cmsUpdateUser";
+            this.cmsUpdateUser.Size = new System.Drawing.Size(180, 22);
+            this.cmsUpdateUser.Text = "Actualizar Usuario";
+            // 
+            // cmsDeleteUser
+            // 
+            this.cmsDeleteUser.Name = "cmsDeleteUser";
+            this.cmsDeleteUser.Size = new System.Drawing.Size(180, 22);
+            this.cmsDeleteUser.Text = "Eliminar Usuario";
             // 
             // panel9
             // 
@@ -461,25 +483,11 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Administración de Usuarios";
             // 
-            // cmsDatagGrid
+            // cmsViewUser
             // 
-            this.cmsDatagGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmsUpdateUser,
-            this.cmsDeleteUser});
-            this.cmsDatagGrid.Name = "contextDataGrid";
-            this.cmsDatagGrid.Size = new System.Drawing.Size(170, 48);
-            // 
-            // cmsUpdateUser
-            // 
-            this.cmsUpdateUser.Name = "cmsUpdateUser";
-            this.cmsUpdateUser.Size = new System.Drawing.Size(169, 22);
-            this.cmsUpdateUser.Text = "Actualizar Usuario";
-            // 
-            // cmsDeleteUser
-            // 
-            this.cmsDeleteUser.Name = "cmsDeleteUser";
-            this.cmsDeleteUser.Size = new System.Drawing.Size(169, 22);
-            this.cmsDeleteUser.Text = "Eliminar Usuario";
+            this.cmsViewUser.Name = "cmsViewUser";
+            this.cmsViewUser.Size = new System.Drawing.Size(180, 22);
+            this.cmsViewUser.Text = "Ver Usuario";
             // 
             // FrmUserAdministration
             // 
@@ -497,6 +505,7 @@
             this.panelCustom1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserDisplay)).EndInit();
+            this.cmsDatagGrid.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -509,7 +518,6 @@
             this.panelCustom2.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            this.cmsDatagGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -548,5 +556,6 @@
         public System.Windows.Forms.ToolStripMenuItem cmsDeleteUser;
         public CustomPanel.BorderRadiusTXT txtUserAdministrationSearch;
         private System.Windows.Forms.Label lblUserAdministrationSearch;
+        public System.Windows.Forms.ToolStripMenuItem cmsViewUser;
     }
 }

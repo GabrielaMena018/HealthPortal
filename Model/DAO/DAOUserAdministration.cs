@@ -32,9 +32,9 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "tbRegistros");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             catch (Exception ex)
@@ -60,9 +60,9 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewPersonas");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             catch (Exception ex)
@@ -88,9 +88,9 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewPersonas");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             catch (Exception ex)
@@ -117,9 +117,9 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewPersonas");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             catch (Exception ex)
@@ -145,9 +145,9 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "tbRoles");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             catch (Exception ex)
@@ -160,51 +160,28 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int RegisterUser(string temporaryPassword, string email)
+        public int RegisterUser()
         {
             try
             {
                 command.Connection = getConnection();
-                string queryUsuarios = "INSERT INTO [Usuarios].[tbUsuarios] (usuario, contraseña, estadoUsuario, intentosUsuario, contraseñaTemporal, idRol) VALUES (@param1, @param2, @param3, @param4, @param5, @param6)";
-                SqlCommand cmdUsuarios = new SqlCommand(queryUsuarios, command.Connection);
-                cmdUsuarios.Parameters.AddWithValue("param1", Usuario);
-                cmdUsuarios.Parameters.AddWithValue("param2", Contrasena);
-                cmdUsuarios.Parameters.AddWithValue("param3", EstadoUsuario);
-                cmdUsuarios.Parameters.AddWithValue("param4", IntentosUsuario);
-                cmdUsuarios.Parameters.AddWithValue("param5", true);
-                cmdUsuarios.Parameters.AddWithValue("param6", IdRol);
-                int result = cmdUsuarios.ExecuteNonQuery();
-                if (result == 1)
-                {
-                    string queryPersonas = "INSERT INTO [Usuarios].[tbPersonas] (nombrePersona, apellidoPersona, correoPersona, telefonoPersona, usuario) VALUES (@param1, @param2, @param3, @param4, @param5)";
-                    SqlCommand cmdPersonas = new SqlCommand(queryPersonas, command.Connection);
-                    cmdPersonas.Parameters.AddWithValue("param1", NombrePersona);
-                    cmdPersonas.Parameters.AddWithValue("param2", ApellidoPersona);
-                    cmdPersonas.Parameters.AddWithValue("param3", CorreoPersona);
-                    cmdPersonas.Parameters.AddWithValue("param4", TelefonoPersona);
-                    cmdPersonas.Parameters.AddWithValue("param5", Usuario);
-                    result = cmdPersonas.ExecuteNonQuery();
-                    if (result == 1)
-                    {
-                        return result;
-                    }
-                    else
-                    {
-                        string queryDelete = "DELETE FROM [Usuarios].[tbUsuarios] WHERE usuario = @param1";
-                        SqlCommand cmdDelete = new SqlCommand(queryDelete, command.Connection);
-                        cmdDelete.Parameters.AddWithValue("param1", Usuario);
-                        cmdDelete.ExecuteNonQuery();
-                        return 0;
-                    }
-                }
-                else
-                {
-                    return 0;
-                }
+                string query = "EXEC [ProcedimientosAlmacenados].[spRegistrarUsuario] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", Usuario);
+                cmd.Parameters.AddWithValue("param2", Contrasena);
+                cmd.Parameters.AddWithValue("param3", EstadoUsuario);
+                cmd.Parameters.AddWithValue("param4", IntentosUsuario);
+                cmd.Parameters.AddWithValue("param5", true);
+                cmd.Parameters.AddWithValue("param6", IdRol);
+                cmd.Parameters.AddWithValue("param7", NombrePersona);
+                cmd.Parameters.AddWithValue("param8", ApellidoPersona);
+                cmd.Parameters.AddWithValue("param9", CorreoPersona);
+                cmd.Parameters.AddWithValue("param10", TelefonoPersona);
+                return cmd.ExecuteNonQuery();
             }
-            catch (SqlException sqlEx)
+            catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
             }
             catch (Exception ex)
@@ -232,18 +209,18 @@ namespace HealthPortal.Model.DAO
                 int result = cmdPersonas.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    string queryUsuarios = "UPDATE [Usuarios].[tbUsuarios] SET idRol = @param1 WHERE usuario = @param2";
-                    SqlCommand cmdUsuarios = new SqlCommand(queryUsuarios, command.Connection);
-                    cmdUsuarios.Parameters.AddWithValue("param1", IdRol);
-                    cmdUsuarios.Parameters.AddWithValue("param2", Usuario);
-                    result = cmdUsuarios.ExecuteNonQuery();
+                    string query = "UPDATE [Usuarios].[tbUsuarios] SET idRol = @param1 WHERE usuario = @param2";
+                    SqlCommand cmd = new SqlCommand(query, command.Connection);
+                    cmd.Parameters.AddWithValue("param1", IdRol);
+                    cmd.Parameters.AddWithValue("param2", Usuario);
+                    result = cmd.ExecuteNonQuery();
                     if (result == 1) { result = 2; }
                 }
                 return result;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
             }
             catch (Exception ex)
@@ -261,18 +238,39 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string queryIdPersona = "DELETE FROM [Usuarios].[tbPersonas] WHERE idPersona = @param1";
-                SqlCommand cmdIdPersona = new SqlCommand(queryIdPersona, command.Connection);
-                cmdIdPersona.Parameters.AddWithValue("param1", IdPersona);
-                string queryUsuario = "DELETE FROM [Usuarios].[tbUsuarios] WHERE usuario = @param2";
-                SqlCommand cmdUsuario = new SqlCommand(queryUsuario, command.Connection);
-                cmdUsuario.Parameters.AddWithValue("param2", Usuario);
-                int result = ((cmdIdPersona.ExecuteNonQuery() + cmdUsuario.ExecuteNonQuery()) / 2);
-                return result;
+                string query = "EXEC [ProcedimientosAlmacenados].[spEliminarUsuario] @param1, @param2";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", IdPersona);
+                cmd.Parameters.AddWithValue("param2", Usuario);
+                return cmd.ExecuteNonQuery();
             }
-            catch (SqlException sqlEx)
+            catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-402 No se pudo eliminar al usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public int GetMaxID()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT MAX(idPersona) FROM [Usuarios].[tbPersonas]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
             }
             catch (Exception ex)
