@@ -20,7 +20,7 @@ namespace HealthPortal.Controller.UserAdministration
         public ControllerUserAdministration(FrmUserAdministration view)
         {
             objUserAdministration = view;
-            objUserAdministration.Load += new EventHandler(LoadComboBoxes);
+            //objUserAdministration.Load += new EventHandler(LoadComboBoxes);
             objUserAdministration.Load += new EventHandler(LoadData);
             objUserAdministration.Load += new EventHandler(VerifyAccessLevel);
             objUserAdministration.btnFilter.Click += new EventHandler(SortData);
@@ -31,14 +31,14 @@ namespace HealthPortal.Controller.UserAdministration
             objUserAdministration.cmsViewUser.Click += new EventHandler(ViewUser);
             objUserAdministration.cmsReestablishPassword.Click += new EventHandler(ChangeUserPassword);
         }
-        public void LoadComboBoxes(object sender, EventArgs e)
-        {
-            DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
-            DataSet ds = daoUserAdministration.GetColumnNames();
-            objUserAdministration.cmbUserAdministrationFilter.DataSource = ds.Tables["tbRegistros"];
-            objUserAdministration.cmbUserAdministrationFilter.DisplayMember = "nombreRegistro";
-            objUserAdministration.cmbUserAdministrationFilter.ValueMember = "idRegistro";
-        }
+        //public void LoadComboBoxes(object sender, EventArgs e)
+        //{
+        //    DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
+        //    DataSet ds = daoUserAdministration.GetColumnNames();
+        //    objUserAdministration.cmbUserAdministrationFilter.DataSource = ds.Tables["tbRegistros"];
+        //    objUserAdministration.cmbUserAdministrationFilter.DisplayMember = "nombreRegistro";
+        //    objUserAdministration.cmbUserAdministrationFilter.ValueMember = "idRegistro";
+        //}
         public void LoadData(object sender, EventArgs e)
         {
             ReloadData();

@@ -20,34 +20,34 @@ namespace HealthPortal.Model.DAO
     {
         readonly SqlCommand command = new SqlCommand();
         CommonMethods commonMethods = new CommonMethods();
-        public DataSet GetColumnNames()
-        {
-            try
-            {
-                command.Connection = getConnection();
-                string query = "SELECT * FROM [Usuarios].[tbRegistros]";
-                SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.ExecuteNonQuery();
-                SqlDataAdapter adp = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adp.Fill(ds, "tbRegistros");
-                return ds;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-            finally
-            {
-                command.Connection.Close();
-            }
-        }
+        //public DataSet GetColumnNames()
+        //{
+        //    try
+        //    {
+        //        command.Connection = getConnection();
+        //        string query = "SELECT * FROM [Usuarios].[tbRegistros]";
+        //        SqlCommand cmd = new SqlCommand(query, command.Connection);
+        //        cmd.ExecuteNonQuery();
+        //        SqlDataAdapter adp = new SqlDataAdapter(cmd);
+        //        DataSet ds = new DataSet();
+        //        adp.Fill(ds, "tbRegistros");
+        //        return ds;
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return null;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return null;
+        //    }
+        //    finally
+        //    {
+        //        command.Connection.Close();
+        //    }
+        //}
         public DataSet GetUserInfo()
         {
             try
