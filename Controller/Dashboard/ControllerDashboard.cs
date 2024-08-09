@@ -26,6 +26,7 @@ namespace HealthPortal.Controller.Dashboard
         public ControllerDashboard(FrmDashboard view)
         {
             objDashboard = view;
+            objDashboard.Load += new EventHandler(InitialChargue);
 
             // PatientAdministration
             objDashboard.tsrPatientAdministration.Click += new EventHandler(OpenFormPatientAdministration);
@@ -35,7 +36,7 @@ namespace HealthPortal.Controller.Dashboard
             // InventoryAdministration
             objDashboard.tsrInventoryAdministration.Click += new EventHandler(OpenFormInventoryAdministration);
             objDashboard.btnInventoryAdministration.Click += new EventHandler(OpenFormInventoryAdministration);
-            objDashboard.btnInventoryAdministration.Click += new EventHandler(OpenFormInventoryAdministration);
+            objDashboard.btnInventoryAdministrationImg.Click += new EventHandler(OpenFormInventoryAdministration);
 
             // UserAdministration
             objDashboard.tsrUserAdminsitration.Click += new EventHandler(OpenFormUserAdministration);
@@ -55,6 +56,12 @@ namespace HealthPortal.Controller.Dashboard
             // Sidebar del Dashboard
             objDashboard.btnMenu.Click += new EventHandler(buttonExpandCollapse_Click);
         }
+
+        private void InitialChargue(object sender, EventArgs e)
+        {
+            CheckRolUser();
+        }
+
         private void OpenFormPatientAdministration(object sender, EventArgs e)
         {
             OpenForm<FrmPatientAdministration>();
@@ -182,6 +189,17 @@ namespace HealthPortal.Controller.Dashboard
                 {
                     objDashboard.sidebarTimer.Stop();
                 }
+            }
+        }
+
+        private void CheckRolUser() 
+        {
+            if (CurrentUserData.RoleId == 2)
+            {
+                objDashboard.btnSectionAdministration.Visible = false;
+                objDashboard.btnSectionAdministrationImg.Visible = false;
+                objDashboard.btnUserAdministration.Visible = false;
+                objDashboard.btnUserAdministrationImg.Visible = false;
             }
         }
 

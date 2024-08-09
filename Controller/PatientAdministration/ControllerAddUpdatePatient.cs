@@ -55,13 +55,7 @@ namespace HealthPortal.Controller.PatientAdministration
             objAddUpdatePatient.btnUpdate.Click += new EventHandler(UpdatePatient);
             //Opcion del comboBox en este se puede cambiar si es uin estudiante o un alumno para mostrar los datos que se tienen que llenar
         }
-        private void CheckUserAccessLevel()
-        {
-            if (CurrentUserData.RoleId == 4 && CurrentUserData.RoleId == 5)
-            {
-                objAddUpdatePatient.cmbMedicamentoRegistro.Enabled = false;
-            }
-        }
+
         //Este metodo captura el evento cuando el txtCodigo pierde el focus para poder inicar la busqueda por medio de la coindidencia del Code
         private void LeaveCode(object sender, EventArgs e)
         {
@@ -90,7 +84,7 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.cmbRegisterSpecialty.Text = objAddUpdatePatient.cmbRegisterSpecialty.Text;
                 objAddUpdatePatient.cmbSection.Text = objAddUpdatePatient.cmbSection.Text;
                 objAddUpdatePatient.cmbRole.Text = objAddUpdatePatient.cmbRole.Text;
-                MessageBox.Show("Paciente no resgistrado anteriormente", "Registro paciente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El paciente no tiene un registro de visitas existentes, ingresar los datos", "Registro paciente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -158,7 +152,7 @@ namespace HealthPortal.Controller.PatientAdministration
             }
             else if (action == 2)
             {
-                objAddUpdatePatient.label1.Text = "Actualizar registro de paciente";
+                objAddUpdatePatient.label1.Text = "Actualizar Visita";
                 objAddUpdatePatient.btnAddPatient.Enabled = false;
                 objAddUpdatePatient.btnUpdate.Enabled = true;
                 objAddUpdatePatient.btnPDF.Enabled = false;
@@ -170,7 +164,7 @@ namespace HealthPortal.Controller.PatientAdministration
             }
             else if(action == 3)
             {
-                objAddUpdatePatient.label1.Text = "Ficha de paciente";
+                objAddUpdatePatient.label1.Text = "Ficha de Visita";
                 objAddUpdatePatient.btnAddPatient.Enabled = false;
                 objAddUpdatePatient.btnAddPatient.BackColor = Color.Silver;
                 objAddUpdatePatient.btnUpdate.Enabled = false;
@@ -203,7 +197,7 @@ namespace HealthPortal.Controller.PatientAdministration
         {
             //Enviar los datos de los componentes del DTO
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
-
+            daoPatientAdministration.IdPersona = CurrentUserData.IdPersona;
             //Inserccion de datos de la tabla paciente
             daoPatientAdministration.Name = objAddUpdatePatient.txtPatientName.Texts;
             daoPatientAdministration.LastName = objAddUpdatePatient.txtPatientLastName.Texts;

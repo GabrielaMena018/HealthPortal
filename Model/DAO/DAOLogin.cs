@@ -33,6 +33,7 @@ namespace HealthPortal.Model.DAO
                     CurrentUserData.FullName = dr.GetString(5);
                     CurrentUserData.TemporaryPassword = dr.GetBoolean(6);
                     CurrentUserData.Email = dr.GetString(7);
+                    CurrentUserData.IdPersona = dr.GetInt32(8);
                 }
                 return dr.HasRows;
             }
@@ -169,5 +170,6 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
+
     }
 }

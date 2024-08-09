@@ -92,6 +92,7 @@ namespace HealthPortal.Model.DAO
                         }
                         else
                         {
+                            RollBack();
                             return 0;
                         }
                     }
@@ -124,13 +125,14 @@ namespace HealthPortal.Model.DAO
         {
             try
             {
-                string queryVisita = "INSERT INTO [Visitas].[tbVisitas] Values(@IdPatient, @FechaVisita,@HoraVisita,@IdMedicamento, @Observaciones)";
+                string queryVisita = "INSERT INTO [Visitas].[tbVisitas] Values(@idPaciente,@fechaVisita,@horaVisita,@idMedicamento,@observaciones, @idPersona)";
                 SqlCommand cmdVisita = new SqlCommand(queryVisita, command.Connection);
-                cmdVisita.Parameters.AddWithValue("IdPatient", IdPatient);
-                cmdVisita.Parameters.AddWithValue("FechaVisita", Date);
-                cmdVisita.Parameters.AddWithValue("HoraVisita", Time);
-                cmdVisita.Parameters.AddWithValue("IdMedicamento", Medicine);
-                cmdVisita.Parameters.AddWithValue("Observaciones", Observation);
+                cmdVisita.Parameters.AddWithValue("idPaciente", IdPatient);
+                cmdVisita.Parameters.AddWithValue("fechaVisita", Date);
+                cmdVisita.Parameters.AddWithValue("horaVisita", Time);
+                cmdVisita.Parameters.AddWithValue("idMedicamento", Medicine);
+                cmdVisita.Parameters.AddWithValue("observaciones", Observation);
+                cmdVisita.Parameters.AddWithValue("idPersona", IdPersona);
                 respuesta = cmdVisita.ExecuteNonQuery();
                 return respuesta;
             }
@@ -138,7 +140,7 @@ namespace HealthPortal.Model.DAO
             {
                 //EC_002 = no se pudo agregar la visita
                 MessageBox.Show($"EC_002{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1;
+                return respuesta = -1;
             }
 
 

@@ -33,6 +33,7 @@ namespace HealthPortal.Model.DTO
         private string time;
         private int medicine;
         private string observation;
+        private int idPersona;
 
         //Metodos
         public string Name { get => name; set => name = value; }
@@ -49,6 +50,6 @@ namespace HealthPortal.Model.DTO
         public int Medicine { get => medicine; set => medicine = value; }
         public string Observation { get => observation; set => observation = value; }
         public int IdPatient { get => idPatient; set => idPatient = value; }
-
+        public int IdPersona { get => idPersona; set => idPersona = value; }
     }
 }

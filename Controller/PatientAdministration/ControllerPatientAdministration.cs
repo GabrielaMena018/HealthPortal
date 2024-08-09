@@ -184,9 +184,9 @@ namespace HealthPortal.Controller.PatientAdministration
             objPatientAdministration.GridViewPatient.DataSource = ds.Tables["viewAdminPacientes"];
             objPatientAdministration.GridViewPatient.Columns[0].HeaderText = "ID";
             objPatientAdministration.GridViewPatient.Columns[0].Width = 35;
-            objPatientAdministration.GridViewPatient.Columns[1].HeaderText = "Name";
+            objPatientAdministration.GridViewPatient.Columns[1].HeaderText = "Nombre";
             objPatientAdministration.GridViewPatient.Columns[1].Width = 145;
-            objPatientAdministration.GridViewPatient.Columns[2].HeaderText = "LastName";
+            objPatientAdministration.GridViewPatient.Columns[2].HeaderText = "Apellidos";
             objPatientAdministration.GridViewPatient.Columns[2].Width = 145;
             objPatientAdministration.GridViewPatient.Columns[3].HeaderText = "Tipo Persona";
             objPatientAdministration.GridViewPatient.Columns[3].Width = 80;
@@ -197,11 +197,11 @@ namespace HealthPortal.Controller.PatientAdministration
             objPatientAdministration.GridViewPatient.Columns[7].HeaderText = "Sección";
             objPatientAdministration.GridViewPatient.Columns[7].Width = 63;
             objPatientAdministration.GridViewPatient.Columns[6].Width = 70;
-            objPatientAdministration.GridViewPatient.Columns[8].HeaderText = "Specialty";
+            objPatientAdministration.GridViewPatient.Columns[8].HeaderText = "Especialidad";
             objPatientAdministration.GridViewPatient.Columns[8].Width = 175;
-            objPatientAdministration.GridViewPatient.Columns[9].HeaderText = "Date de visita";
+            objPatientAdministration.GridViewPatient.Columns[9].HeaderText = "Fecha de visita";
             objPatientAdministration.GridViewPatient.Columns[9].Width = 80;
-            objPatientAdministration.GridViewPatient.Columns[10].HeaderText = "Time de visita";
+            objPatientAdministration.GridViewPatient.Columns[10].HeaderText = "Hora de visita";
             objPatientAdministration.GridViewPatient.Columns[10].Width = 70;
             objPatientAdministration.GridViewPatient.Columns[11].Visible = false;
             objPatientAdministration.GridViewPatient.Columns[12].Visible = false;
@@ -269,7 +269,7 @@ namespace HealthPortal.Controller.PatientAdministration
             }
         }
 
-        //Metodo para eliminar pacientes del personal de la institucionm
+        
         
     }
 }

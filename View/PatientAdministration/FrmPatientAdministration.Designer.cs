@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPatientAdministration));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.contextDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsVer = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,27 +113,27 @@
             this.cmsActualizar,
             this.cmsEliminar});
             this.contextDataGrid.Name = "contextDataGrid";
-            this.contextDataGrid.Size = new System.Drawing.Size(193, 82);
+            this.contextDataGrid.Size = new System.Drawing.Size(226, 82);
             // 
             // cmsVer
             // 
             this.cmsVer.Image = ((System.Drawing.Image)(resources.GetObject("cmsVer.Image")));
             this.cmsVer.Name = "cmsVer";
-            this.cmsVer.Size = new System.Drawing.Size(192, 26);
+            this.cmsVer.Size = new System.Drawing.Size(225, 26);
             this.cmsVer.Text = "Ver Ficha del Paciente";
             // 
             // cmsActualizar
             // 
             this.cmsActualizar.Image = ((System.Drawing.Image)(resources.GetObject("cmsActualizar.Image")));
             this.cmsActualizar.Name = "cmsActualizar";
-            this.cmsActualizar.Size = new System.Drawing.Size(192, 26);
+            this.cmsActualizar.Size = new System.Drawing.Size(225, 26);
             this.cmsActualizar.Text = "Actualizar Paciente";
             // 
             // cmsEliminar
             // 
             this.cmsEliminar.Image = ((System.Drawing.Image)(resources.GetObject("cmsEliminar.Image")));
             this.cmsEliminar.Name = "cmsEliminar";
-            this.cmsEliminar.Size = new System.Drawing.Size(192, 26);
+            this.cmsEliminar.Size = new System.Drawing.Size(225, 26);
             this.cmsEliminar.Text = "Eliminar Paciente";
             // 
             // pictureBox5
@@ -223,24 +223,24 @@
             this.GridViewPatient.BackgroundColor = System.Drawing.Color.White;
             this.GridViewPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridViewPatient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridViewPatient.ColumnHeadersHeight = 40;
             this.GridViewPatient.ContextMenuStrip = this.contextDataGrid;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewPatient.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridViewPatient.DefaultCellStyle = dataGridViewCellStyle4;
             this.GridViewPatient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridViewPatient.EnableHeadersVisualStyles = false;
             this.GridViewPatient.Location = new System.Drawing.Point(0, 0);
@@ -281,7 +281,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label6.Location = new System.Drawing.Point(567, 23);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 19);
+            this.label6.Size = new System.Drawing.Size(108, 23);
             this.label6.TabIndex = 20;
             this.label6.Text = "Tipo Persona";
             // 
@@ -294,7 +294,7 @@
             "Todos"});
             this.cmbRol.Location = new System.Drawing.Point(571, 48);
             this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(183, 28);
+            this.cmbRol.Size = new System.Drawing.Size(183, 33);
             this.cmbRol.TabIndex = 19;
             // 
             // panel1
@@ -332,7 +332,7 @@
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(163, 46);
             this.btnNew.TabIndex = 2;
-            this.btnNew.Text = "Nuevo Paciente";
+            this.btnNew.Text = "Nueva Visita";
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNew.TextColor = System.Drawing.Color.Black;
             this.btnNew.UseVisualStyleBackColor = false;
@@ -363,7 +363,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(483, 22);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 19);
+            this.label8.Size = new System.Drawing.Size(57, 23);
             this.label8.TabIndex = 16;
             this.label8.Text = "Grado";
             // 
@@ -374,7 +374,7 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label7.Location = new System.Drawing.Point(280, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 19);
+            this.label7.Size = new System.Drawing.Size(103, 23);
             this.label7.TabIndex = 15;
             this.label7.Text = "Especialidad";
             // 
@@ -387,7 +387,7 @@
             "Todos"});
             this.CmbSpecialty.Location = new System.Drawing.Point(284, 47);
             this.CmbSpecialty.Name = "CmbSpecialty";
-            this.CmbSpecialty.Size = new System.Drawing.Size(185, 28);
+            this.CmbSpecialty.Size = new System.Drawing.Size(185, 33);
             this.CmbSpecialty.TabIndex = 4;
             // 
             // label5
@@ -397,7 +397,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label5.Location = new System.Drawing.Point(114, 21);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 19);
+            this.label5.Size = new System.Drawing.Size(142, 23);
             this.label5.TabIndex = 13;
             this.label5.Text = "Fecha de la Visita";
             // 
@@ -410,7 +410,7 @@
             "Todos"});
             this.CmbGrade.Location = new System.Drawing.Point(487, 47);
             this.CmbGrade.Name = "CmbGrade";
-            this.CmbGrade.Size = new System.Drawing.Size(65, 28);
+            this.CmbGrade.Size = new System.Drawing.Size(65, 33);
             this.CmbGrade.TabIndex = 3;
             // 
             // PickFechaVisita
@@ -421,7 +421,7 @@
             this.PickFechaVisita.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PickFechaVisita.Location = new System.Drawing.Point(118, 47);
             this.PickFechaVisita.Name = "PickFechaVisita";
-            this.PickFechaVisita.Size = new System.Drawing.Size(150, 27);
+            this.PickFechaVisita.Size = new System.Drawing.Size(150, 32);
             this.PickFechaVisita.TabIndex = 6;
             // 
             // panelGrafica
@@ -538,18 +538,18 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Top;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(0, 157);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(308, 245);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
@@ -572,7 +572,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.Location = new System.Drawing.Point(10, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(201, 30);
+            this.label2.Size = new System.Drawing.Size(250, 37);
             this.label2.TabIndex = 4;
             this.label2.Text = "Total de pacientes";
             // 
@@ -583,7 +583,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label3.Location = new System.Drawing.Point(10, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 30);
+            this.label3.Size = new System.Drawing.Size(145, 37);
             this.label3.TabIndex = 5;
             this.label3.Text = "atendidos";
             // 
@@ -595,7 +595,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(17, 101);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 29);
+            this.comboBox2.Size = new System.Drawing.Size(174, 36);
             this.comboBox2.TabIndex = 6;
             // 
             // panelButton
@@ -632,15 +632,15 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 65);
+            this.label1.Size = new System.Drawing.Size(216, 81);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Pacientes";
+            this.label1.Text = "Visitas";
             // 
             // panelbuscador
             // 
             this.panelbuscador.Controls.Add(this.BtnBuscar);
             this.panelbuscador.Controls.Add(this.txtSearch);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 68);
+            this.panelbuscador.Location = new System.Drawing.Point(3, 84);
             this.panelbuscador.Name = "panelbuscador";
             this.panelbuscador.Size = new System.Drawing.Size(319, 55);
             this.panelbuscador.TabIndex = 0;
@@ -682,7 +682,7 @@
             this.txtSearch.PasswordChar = false;
             this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSearch.PlaceholderText = "";
-            this.txtSearch.Size = new System.Drawing.Size(219, 36);
+            this.txtSearch.Size = new System.Drawing.Size(219, 43);
             this.txtSearch.TabIndex = 3;
             this.txtSearch.Texts = "Búscar";
             this.txtSearch.UnderlinedStyle = false;

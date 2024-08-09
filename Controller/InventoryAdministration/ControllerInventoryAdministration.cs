@@ -30,6 +30,14 @@ namespace HealthPortal.Controller.InventoryAdministration
 
         public void LoadData(object sender, EventArgs e)
         {
+            DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
+
+            //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombosInventario
+            DataSet ds = daoInventoryAdministration.FillCombo();
+            //Llenar comboBox de la tabla tbCategoriaMedicamento
+           objInventoryAdministration.CmbCategoria.DataSource = ds.Tables["tbCategoriaMedicamento"];
+            objInventoryAdministration.CmbCategoria.ValueMember = "idCategoriaMedicamento";
+            objInventoryAdministration.CmbCategoria.DisplayMember = "categoriaMedicamento";
             RefreshData();
         }
 
