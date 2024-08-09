@@ -16,6 +16,7 @@ namespace HealthPortal.View.UserAdministration
         public FrmUserAdministration()
         {
             InitializeComponent();
+            cmsReestablishPassword.Enabled = false;
             ControllerUserAdministration control = new ControllerUserAdministration(this);
         }
     }

@@ -1,4 +1,6 @@
-﻿using HealthPortal.Model.DAO;
+﻿using HealthPortal.Helper;
+using HealthPortal.Model.DAO;
+using HealthPortal.View.Login;
 using HealthPortal.View.UserAdministration;
 using System;
 using System.Collections.Generic;
@@ -20,12 +22,14 @@ namespace HealthPortal.Controller.UserAdministration
             objUserAdministration = view;
             objUserAdministration.Load += new EventHandler(LoadComboBoxes);
             objUserAdministration.Load += new EventHandler(LoadData);
+            objUserAdministration.Load += new EventHandler(VerifyAccessLevel);
             objUserAdministration.btnFilter.Click += new EventHandler(SortData);
             objUserAdministration.btnSearchForUser.Click += new EventHandler(SearchDatabase);
             objUserAdministration.btnAddNewUser.Click += new EventHandler(AddUser);
             objUserAdministration.cmsUpdateUser.Click += new EventHandler(UpdateUser);
             objUserAdministration.cmsDeleteUser.Click += new EventHandler(DeleteUser);
             objUserAdministration.cmsViewUser.Click += new EventHandler(ViewUser);
+            objUserAdministration.cmsReestablishPassword.Click += new EventHandler(ChangeUserPassword);
         }
         public void LoadComboBoxes(object sender, EventArgs e)
         {
@@ -44,6 +48,17 @@ namespace HealthPortal.Controller.UserAdministration
             DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
             DataSet ds = daoUserAdministration.GetUserInfo();
             objUserAdministration.dgvUserDisplay.DataSource = ds.Tables["viewPersonas"];
+        }
+        public void VerifyAccessLevel(object sender, EventArgs e)
+        {
+            if (CurrentUserData.RoleId == 1)
+            {
+                objUserAdministration.cmsReestablishPassword.Enabled = true;
+            }
+            else
+            {
+                objUserAdministration.cmsReestablishPassword.Enabled = false;
+            }
         }
         public void SortData(object sender, EventArgs e)
         {
@@ -117,6 +132,14 @@ namespace HealthPortal.Controller.UserAdministration
                     MessageBox.Show("El usuario no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+        public void ChangeUserPassword(object sender, EventArgs e)
+        {
+            DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
+            int position = objUserAdministration.dgvUserDisplay.CurrentRow.Index;
+            string username = objUserAdministration.dgvUserDisplay[5, position].Value.ToString();
+            FrmPasswordChange objPasswordChange = new FrmPasswordChange(2, username);
+            objPasswordChange.Show();
         }
     }
 }

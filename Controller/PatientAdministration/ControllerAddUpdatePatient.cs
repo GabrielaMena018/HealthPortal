@@ -16,75 +16,80 @@ using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using HealthPortal.View.PatientAdministration;
+using HealthPortal.Helper;
 
 namespace HealthPortal.Controller.PatientAdministration
 {
     class ControllerAddUpdatePatient
     {
-        FrmAddUpdatePatient ObjAddPatience;
+        FrmAddUpdatePatient objAddUpdatePatient;
         int action;
         private string typeperson, Grade, specialty, AcademicSection, namemedication, TypeArea;
         
-
         public ControllerAddUpdatePatient(FrmAddUpdatePatient view, int action)
         {
-            ObjAddPatience = view;
+            objAddUpdatePatient = view;
             this.action = action;
             //Verificar action
             VerifyAction();
-            ObjAddPatience.Load += new EventHandler(InitialCharge);
+            objAddUpdatePatient.Load += new EventHandler(InitialCharge);
             //agregar un nuevo paciente
-            ObjAddPatience.btnAgregarPaciente.Click += new EventHandler(NewPatience);
+            objAddUpdatePatient.btnAddPatient.Click += new EventHandler(NewPatience);
             //Opcion del comboBox en este se puede cambiar si es uin estudiante o un alumno para mostrar los datos que se tienen que llenar
-            ObjAddPatience.PickFechaRegistro.Value = DateTime.Now;
-            ObjAddPatience.PickHoraRegistro.Value = DateTime.Now;
-            ObjAddPatience.TxtCodigoPaciente.Leave += new EventHandler(LeaveCode); 
+            objAddUpdatePatient.dtpRegisterDate.Value = DateTime.Now;
+            objAddUpdatePatient.dtpRegisterTime.Value = DateTime.Now;
+            objAddUpdatePatient.txtPatientCode.Leave += new EventHandler(LeaveCode); 
         }
         public ControllerAddUpdatePatient(FrmAddUpdatePatient View, int Action, int IdPatient, string PatientName, string PatientLastName, string TypePerson, string codigo, string grupoTecnico, string grade, string seccionAcademica, string Especialidad, DateTime VisitDate, string TimeVisit, string nombreMedicamento, string Observaciones)
         {
-            ObjAddPatience = View;
+            objAddUpdatePatient = View;
             this.action = Action;
             this.typeperson = TypePerson;
             this.Grade = grade;
             this.AcademicSection = seccionAcademica;
             this.specialty = Especialidad;
             this.namemedication = nombreMedicamento;
-            ObjAddPatience.Load += new EventHandler(InitialCharge);
+            objAddUpdatePatient.Load += new EventHandler(InitialCharge);
             VerifyAction();
             ChargeValues(IdPatient, PatientName, PatientLastName, codigo, grupoTecnico,  VisitDate, TimeVisit,  Observaciones);
-            ObjAddPatience.BtnActuzalizar.Click += new EventHandler(UpdatePatient);
+            objAddUpdatePatient.btnUpdate.Click += new EventHandler(UpdatePatient);
             //Opcion del comboBox en este se puede cambiar si es uin estudiante o un alumno para mostrar los datos que se tienen que llenar
-
         }
-
+        private void CheckUserAccessLevel()
+        {
+            if (CurrentUserData.RoleId == 4 && CurrentUserData.RoleId == 5)
+            {
+                objAddUpdatePatient.cmbMedicamentoRegistro.Enabled = false;
+            }
+        }
         //Este metodo captura el evento cuando el txtCodigo pierde el focus para poder inicar la busqueda por medio de la coindidencia del Code
         private void LeaveCode(object sender, EventArgs e)
         {
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
-            daoPatientAdministration.Code = ObjAddPatience.TxtCodigoPaciente.Texts;
+            daoPatientAdministration.Code = objAddUpdatePatient.txtPatientCode.Texts;
             string[] datos = new string[8];
             datos = daoPatientAdministration.SearchCode();
             if (datos != null)
             {
-                ObjAddPatience.TxtNombrePaciente.Texts = datos[0];
-                ObjAddPatience.TxtApellidoPaciente.Texts = datos[1];
-                ObjAddPatience.TxtCodigoPaciente.Texts = datos[2];
-                ObjAddPatience.txtGrupo.Texts = datos[3];
-                ObjAddPatience.CmBGradoRegistro.Text = datos[4];
-                ObjAddPatience.CmbEspecidalidadRegistro.Text = datos[5];
-                ObjAddPatience.CmbSeccionRegistro.Text = datos[6];
-                ObjAddPatience.CmbRol.Text = datos[7];
+                objAddUpdatePatient.txtPatientName.Texts = datos[0];
+                objAddUpdatePatient.txtPatientLastName.Texts = datos[1];
+                objAddUpdatePatient.txtPatientCode.Texts = datos[2];
+                objAddUpdatePatient.txtGrupo.Texts = datos[3];
+                objAddUpdatePatient.CmBGradoRegistro.Text = datos[4];
+                objAddUpdatePatient.cmbRegisterSpecialty.Text = datos[5];
+                objAddUpdatePatient.cmbSection.Text = datos[6];
+                objAddUpdatePatient.cmbRole.Text = datos[7];
             }
             else if (datos == null)
             {
-                ObjAddPatience.TxtNombrePaciente.Texts = ObjAddPatience.TxtNombrePaciente.Texts;
-                ObjAddPatience.TxtApellidoPaciente.Texts = ObjAddPatience.TxtApellidoPaciente.Texts;
-                ObjAddPatience.TxtCodigoPaciente.Texts = ObjAddPatience.TxtCodigoPaciente.Texts;
-                ObjAddPatience.txtGrupo.Texts = ObjAddPatience.txtGrupo.Texts;
-                ObjAddPatience.CmBGradoRegistro.Text = ObjAddPatience.CmBGradoRegistro.Text;
-                ObjAddPatience.CmbEspecidalidadRegistro.Text = ObjAddPatience.CmbEspecidalidadRegistro.Text;
-                ObjAddPatience.CmbSeccionRegistro.Text = ObjAddPatience.CmbSeccionRegistro.Text;
-                ObjAddPatience.CmbRol.Text = ObjAddPatience.CmbRol.Text;
+                objAddUpdatePatient.txtPatientName.Texts = objAddUpdatePatient.txtPatientName.Texts;
+                objAddUpdatePatient.txtPatientLastName.Texts = objAddUpdatePatient.txtPatientLastName.Texts;
+                objAddUpdatePatient.txtPatientCode.Texts = objAddUpdatePatient.txtPatientCode.Texts;
+                objAddUpdatePatient.txtGrupo.Texts = objAddUpdatePatient.txtGrupo.Texts;
+                objAddUpdatePatient.CmBGradoRegistro.Text = objAddUpdatePatient.CmBGradoRegistro.Text;
+                objAddUpdatePatient.cmbRegisterSpecialty.Text = objAddUpdatePatient.cmbRegisterSpecialty.Text;
+                objAddUpdatePatient.cmbSection.Text = objAddUpdatePatient.cmbSection.Text;
+                objAddUpdatePatient.cmbRole.Text = objAddUpdatePatient.cmbRole.Text;
                 MessageBox.Show("Paciente no resgistrado anteriormente", "Registro paciente", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -94,23 +99,23 @@ namespace HealthPortal.Controller.PatientAdministration
         public void UpdatePatient(object sender, EventArgs e)
         {
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
-            daoPatientAdministration.IdPatient = int.Parse(ObjAddPatience.txtId.Text.Trim());
-            daoPatientAdministration.Name = ObjAddPatience.TxtNombrePaciente.Texts.Trim();
-            daoPatientAdministration.LastName = ObjAddPatience.TxtApellidoPaciente.Texts.Trim();
-            daoPatientAdministration.Role = (int)ObjAddPatience.CmbRol.SelectedValue;
-            daoPatientAdministration.Date = ObjAddPatience.PickFechaRegistro.Value;
-            daoPatientAdministration.Time = ObjAddPatience.PickHoraRegistro.Value.ToString("HH:mm");
-            daoPatientAdministration.Medicine = (int)ObjAddPatience.CmbMedicamentoRegistro.SelectedValue;
-            daoPatientAdministration.Observation = ObjAddPatience.TxtObservaciones.Texts.Trim();
+            daoPatientAdministration.IdPatient = int.Parse(objAddUpdatePatient.txtId.Text.Trim());
+            daoPatientAdministration.Name = objAddUpdatePatient.txtPatientName.Texts.Trim();
+            daoPatientAdministration.LastName = objAddUpdatePatient.txtPatientLastName.Texts.Trim();
+            daoPatientAdministration.Role = (int)objAddUpdatePatient.cmbRole.SelectedValue;
+            daoPatientAdministration.Date = objAddUpdatePatient.dtpRegisterDate.Value;
+            daoPatientAdministration.Time = objAddUpdatePatient.dtpRegisterTime.Value.ToString("HH:mm");
+            daoPatientAdministration.Medicine = (int)objAddUpdatePatient.cmbMedicamentoRegistro.SelectedValue;
+            daoPatientAdministration.Observation = objAddUpdatePatient.txtObservations.Texts.Trim();
 
                 //Actuzalizar Tabla Grade
-                daoPatientAdministration.Specialty = (int)ObjAddPatience.CmbEspecidalidadRegistro.SelectedValue;
-                daoPatientAdministration.TechnicalGroup = ObjAddPatience.txtGrupo.Texts;
-                daoPatientAdministration.Grade = (int)ObjAddPatience.CmBGradoRegistro.SelectedValue;
-                daoPatientAdministration.AcademicSection = (int)ObjAddPatience.CmbSeccionRegistro.SelectedValue;
+                daoPatientAdministration.Specialty = (int)objAddUpdatePatient.cmbRegisterSpecialty.SelectedValue;
+                daoPatientAdministration.TechnicalGroup = objAddUpdatePatient.txtGrupo.Texts;
+                daoPatientAdministration.Grade = (int)objAddUpdatePatient.CmBGradoRegistro.SelectedValue;
+                daoPatientAdministration.AcademicSection = (int)objAddUpdatePatient.cmbSection.SelectedValue;
 
                 //Insercion de datos tbEstudiantes
-                daoPatientAdministration.Code = ObjAddPatience.TxtCodigoPaciente.Texts;
+                daoPatientAdministration.Code = objAddUpdatePatient.txtPatientCode.Texts;
 
 
             int valorRetornado = daoPatientAdministration.UpdatePatient();
@@ -143,53 +148,53 @@ namespace HealthPortal.Controller.PatientAdministration
         {
             if (action == 1)
             {
-                ObjAddPatience.btnAgregarPaciente.Enabled = true;
-                ObjAddPatience.BtnActuzalizar.Enabled = false;
-                ObjAddPatience.BtnPdf.Enabled = false;
-                ObjAddPatience.BtnPdf.BackColor = Color.Silver;
-                ObjAddPatience.pic2.BackColor = Color.Silver;
-                ObjAddPatience.BtnActuzalizar.BackColor = Color.Silver;
-                ObjAddPatience.pictureBox1.BackColor = Color.Silver;
+                objAddUpdatePatient.btnAddPatient.Enabled = true;
+                objAddUpdatePatient.btnUpdate.Enabled = false;
+                objAddUpdatePatient.btnPDF.Enabled = false;
+                objAddUpdatePatient.btnPDF.BackColor = Color.Silver;
+                objAddUpdatePatient.pic2.BackColor = Color.Silver;
+                objAddUpdatePatient.btnUpdate.BackColor = Color.Silver;
+                objAddUpdatePatient.pictureBox1.BackColor = Color.Silver;
             }
             else if (action == 2)
             {
-                ObjAddPatience.label1.Text = "Actualizar registro de paciente";
-                ObjAddPatience.btnAgregarPaciente.Enabled = false;
-                ObjAddPatience.BtnActuzalizar.Enabled = true;
-                ObjAddPatience.BtnPdf.Enabled = false;
-                ObjAddPatience.BtnPdf.BackColor = Color.Silver;
-                ObjAddPatience.pic2.BackColor = Color.Silver;
-                ObjAddPatience.btnAgregarPaciente.BackColor = Color.Silver;
-                ObjAddPatience.pictureBox4.BackColor = Color.Silver;
+                objAddUpdatePatient.label1.Text = "Actualizar registro de paciente";
+                objAddUpdatePatient.btnAddPatient.Enabled = false;
+                objAddUpdatePatient.btnUpdate.Enabled = true;
+                objAddUpdatePatient.btnPDF.Enabled = false;
+                objAddUpdatePatient.btnPDF.BackColor = Color.Silver;
+                objAddUpdatePatient.pic2.BackColor = Color.Silver;
+                objAddUpdatePatient.btnAddPatient.BackColor = Color.Silver;
+                objAddUpdatePatient.pictureBox4.BackColor = Color.Silver;
 
             }
             else if(action == 3)
             {
-                ObjAddPatience.label1.Text = "Ficha de paciente";
-                ObjAddPatience.btnAgregarPaciente.Enabled = false;
-                ObjAddPatience.btnAgregarPaciente.BackColor = Color.Silver;
-                ObjAddPatience.BtnActuzalizar.Enabled = false;
-                ObjAddPatience.BtnActuzalizar.BackColor = Color.Silver;
-                ObjAddPatience.pictureBox1.BackColor = Color.Silver;
-                ObjAddPatience.pictureBox4.BackColor = Color.Silver;
-                ObjAddPatience.BtnPdf.Enabled = true;
-                ObjAddPatience.TxtNombrePaciente.Enabled=false;
-                ObjAddPatience.TxtNombrePaciente.BackColor = Color.WhiteSmoke;
-                ObjAddPatience.TxtApellidoPaciente.Enabled = false;
-                ObjAddPatience.TxtApellidoPaciente.BackColor = Color.WhiteSmoke;
-                ObjAddPatience.CmbRol.Enabled=false;
-                ObjAddPatience.TxtCodigoPaciente.Enabled = false;
-                ObjAddPatience.TxtCodigoPaciente.BackColor= Color.WhiteSmoke;
-                ObjAddPatience.CmbEspecidalidadRegistro.Enabled=false;
-                ObjAddPatience.txtGrupo.Enabled=false;
-                ObjAddPatience.txtGrupo.BackColor = Color.WhiteSmoke;
-                ObjAddPatience.CmBGradoRegistro.Enabled=false;
-                ObjAddPatience.CmbMedicamentoRegistro.Enabled=false;
-                ObjAddPatience.TxtObservaciones.Enabled=false;
-                ObjAddPatience.TxtObservaciones.BackColor= Color.WhiteSmoke;
-                ObjAddPatience.PickFechaRegistro.Enabled=false;
-                ObjAddPatience.PickHoraRegistro.Enabled=false;
-                ObjAddPatience.CmbSeccionRegistro.Enabled=false;
+                objAddUpdatePatient.label1.Text = "Ficha de paciente";
+                objAddUpdatePatient.btnAddPatient.Enabled = false;
+                objAddUpdatePatient.btnAddPatient.BackColor = Color.Silver;
+                objAddUpdatePatient.btnUpdate.Enabled = false;
+                objAddUpdatePatient.btnUpdate.BackColor = Color.Silver;
+                objAddUpdatePatient.pictureBox1.BackColor = Color.Silver;
+                objAddUpdatePatient.pictureBox4.BackColor = Color.Silver;
+                objAddUpdatePatient.btnPDF.Enabled = true;
+                objAddUpdatePatient.txtPatientName.Enabled=false;
+                objAddUpdatePatient.txtPatientName.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.txtPatientLastName.Enabled = false;
+                objAddUpdatePatient.txtPatientLastName.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.cmbRole.Enabled=false;
+                objAddUpdatePatient.txtPatientCode.Enabled = false;
+                objAddUpdatePatient.txtPatientCode.BackColor= Color.WhiteSmoke;
+                objAddUpdatePatient.cmbRegisterSpecialty.Enabled=false;
+                objAddUpdatePatient.txtGrupo.Enabled=false;
+                objAddUpdatePatient.txtGrupo.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.CmBGradoRegistro.Enabled=false;
+                objAddUpdatePatient.cmbMedicamentoRegistro.Enabled=false;
+                objAddUpdatePatient.txtObservations.Enabled=false;
+                objAddUpdatePatient.txtObservations.BackColor= Color.WhiteSmoke;
+                objAddUpdatePatient.dtpRegisterDate.Enabled=false;
+                objAddUpdatePatient.dtpRegisterTime.Enabled=false;
+                objAddUpdatePatient.cmbSection.Enabled=false;
             }
         }
 
@@ -200,24 +205,24 @@ namespace HealthPortal.Controller.PatientAdministration
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
 
             //Inserccion de datos de la tabla paciente
-            daoPatientAdministration.Name = ObjAddPatience.TxtNombrePaciente.Texts;
-            daoPatientAdministration.LastName = ObjAddPatience.TxtApellidoPaciente.Texts;
-            daoPatientAdministration.Role = (int)ObjAddPatience.CmbRol.SelectedValue;
+            daoPatientAdministration.Name = objAddUpdatePatient.txtPatientName.Texts;
+            daoPatientAdministration.LastName = objAddUpdatePatient.txtPatientLastName.Texts;
+            daoPatientAdministration.Role = (int)objAddUpdatePatient.cmbRole.SelectedValue;
 
             //Insercion datos tabla grade seccion
-                daoPatientAdministration.Specialty = (int)ObjAddPatience.CmbEspecidalidadRegistro.SelectedValue;
-                daoPatientAdministration.TechnicalGroup = ObjAddPatience.txtGrupo.Texts;
-                daoPatientAdministration.Grade = (int)ObjAddPatience.CmBGradoRegistro.SelectedValue;
-                daoPatientAdministration.AcademicSection = (int)ObjAddPatience.CmbSeccionRegistro.SelectedValue;
+                daoPatientAdministration.Specialty = (int)objAddUpdatePatient.cmbRegisterSpecialty.SelectedValue;
+                daoPatientAdministration.TechnicalGroup = objAddUpdatePatient.txtGrupo.Texts;
+                daoPatientAdministration.Grade = (int)objAddUpdatePatient.CmBGradoRegistro.SelectedValue;
+                daoPatientAdministration.AcademicSection = (int)objAddUpdatePatient.cmbSection.SelectedValue;
 
                 //Insercion de datos tbEstudiantes
-                daoPatientAdministration.Code = ObjAddPatience.TxtCodigoPaciente.Texts;
+                daoPatientAdministration.Code = objAddUpdatePatient.txtPatientCode.Texts;
 
             //Insercion de datos tbVisitas
-            daoPatientAdministration.Date = ObjAddPatience.PickFechaRegistro.Value.Date;
-            daoPatientAdministration.Time = ObjAddPatience.PickHoraRegistro.Value.ToString("HH:mm");
-            daoPatientAdministration.Medicine = (int)ObjAddPatience.CmbMedicamentoRegistro.SelectedValue;
-            daoPatientAdministration.Observation = ObjAddPatience.TxtObservaciones.Texts;
+            daoPatientAdministration.Date = objAddUpdatePatient.dtpRegisterDate.Value.Date;
+            daoPatientAdministration.Time = objAddUpdatePatient.dtpRegisterTime.Value.ToString("HH:mm");
+            daoPatientAdministration.Medicine = (int)objAddUpdatePatient.cmbMedicamentoRegistro.SelectedValue;
+            daoPatientAdministration.Observation = objAddUpdatePatient.txtObservations.Texts;
 
 
             int retorno = daoPatientAdministration.PatientRegistration();
@@ -242,57 +247,57 @@ namespace HealthPortal.Controller.PatientAdministration
             //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombo
             DataSet dsRol = daoPatientAdministration.FillCombo("tbTipoPersona", "Pacientes");
             //Llenar combobox tbRole
-            ObjAddPatience.CmbRol.DataSource = dsRol.Tables["tbTipoPersona"];
-            ObjAddPatience.CmbRol.ValueMember = "idTipoPersona";
-            ObjAddPatience.CmbRol.DisplayMember = "tipoPersona";
+            objAddUpdatePatient.cmbRole.DataSource = dsRol.Tables["tbTipoPersona"];
+            objAddUpdatePatient.cmbRole.ValueMember = "idTipoPersona";
+            objAddUpdatePatient.cmbRole.DisplayMember = "tipoPersona";
 
 
             DataSet dsEspRegistro = daoPatientAdministration.FillCombo("tbEspecialidades", "Secciones");
             //Llenar combobox tbEspecialidades
-            ObjAddPatience.CmbEspecidalidadRegistro.DataSource = dsEspRegistro.Tables["tbEspecialidades"];
-            ObjAddPatience.CmbEspecidalidadRegistro.ValueMember = "idEspecialidad";
-            ObjAddPatience.CmbEspecidalidadRegistro.DisplayMember = "especialidad";
+            objAddUpdatePatient.cmbRegisterSpecialty.DataSource = dsEspRegistro.Tables["tbEspecialidades"];
+            objAddUpdatePatient.cmbRegisterSpecialty.ValueMember = "idEspecialidad";
+            objAddUpdatePatient.cmbRegisterSpecialty.DisplayMember = "especialidad";
 
             DataSet dsGradosRegistros = daoPatientAdministration.FillCombo("tbGrados", "Secciones");
             //Llenar combobox tbGrados
-            ObjAddPatience.CmBGradoRegistro.DataSource = dsGradosRegistros.Tables["tbGrados"];
-            ObjAddPatience.CmBGradoRegistro.ValueMember = "idGrado";
-            ObjAddPatience.CmBGradoRegistro.DisplayMember = "grado";
+            objAddUpdatePatient.CmBGradoRegistro.DataSource = dsGradosRegistros.Tables["tbGrados"];
+            objAddUpdatePatient.CmBGradoRegistro.ValueMember = "idGrado";
+            objAddUpdatePatient.CmBGradoRegistro.DisplayMember = "grado";
 
             DataSet dsSeccionesRegistros = daoPatientAdministration.FillCombo("tbSeccionAcademica", "Secciones");
             //Llenar combobox tbSeccion
-            ObjAddPatience.CmbSeccionRegistro.DataSource = dsSeccionesRegistros.Tables["tbSeccionAcademica"];
-            ObjAddPatience.CmbSeccionRegistro.ValueMember = "idSeccionAcademica";
-            ObjAddPatience.CmbSeccionRegistro.DisplayMember = "seccionAcademica";
+            objAddUpdatePatient.cmbSection.DataSource = dsSeccionesRegistros.Tables["tbSeccionAcademica"];
+            objAddUpdatePatient.cmbSection.ValueMember = "idSeccionAcademica";
+            objAddUpdatePatient.cmbSection.DisplayMember = "seccionAcademica";
 
             //Llenar combox tbMedicamento
             DataSet dsMedicamentoRegistros = daoPatientAdministration.FillCombo("tbMedicamentos", "Medicamentos");
-            ObjAddPatience.CmbMedicamentoRegistro.DataSource = dsMedicamentoRegistros.Tables["tbMedicamentos"];
-            ObjAddPatience.CmbMedicamentoRegistro.ValueMember = "idMedicamento";
-            ObjAddPatience.CmbMedicamentoRegistro.DisplayMember = "nombreMedicamento";
+            objAddUpdatePatient.cmbMedicamentoRegistro.DataSource = dsMedicamentoRegistros.Tables["tbMedicamentos"];
+            objAddUpdatePatient.cmbMedicamentoRegistro.ValueMember = "idMedicamento";
+            objAddUpdatePatient.cmbMedicamentoRegistro.DisplayMember = "nombreMedicamento";
 
             //La condición sirve para que al actualizar un registro, el valor del registro aparezca seleccionado.
             if (action == 2 || action == 3)
             {
-                ObjAddPatience.CmbRol.Text = typeperson;
-                ObjAddPatience.CmBGradoRegistro.Text = Grade;
-                ObjAddPatience.CmbSeccionRegistro.Text = AcademicSection;
-                ObjAddPatience.CmbEspecidalidadRegistro.Text = specialty;
-                ObjAddPatience.CmbMedicamentoRegistro.Text = namemedication;
+                objAddUpdatePatient.cmbRole.Text = typeperson;
+                objAddUpdatePatient.CmBGradoRegistro.Text = Grade;
+                objAddUpdatePatient.cmbSection.Text = AcademicSection;
+                objAddUpdatePatient.cmbRegisterSpecialty.Text = specialty;
+                objAddUpdatePatient.cmbMedicamentoRegistro.Text = namemedication;
             }
         }
 
         //Cargar Los datos del formulario de Estudiantes
         public void ChargeValues(int IdPatient, string PatientName, string PatientLastName,  string Code, string grupoTecnico,  DateTime DateVisit, string TimeVisit,  string Observaciones)
         {
-            ObjAddPatience.txtId.Text = IdPatient.ToString();
-            ObjAddPatience.TxtNombrePaciente.Texts = PatientName;
-            ObjAddPatience.TxtApellidoPaciente.Texts = PatientLastName;
-            ObjAddPatience.TxtCodigoPaciente.Texts = Code;
-            ObjAddPatience.PickFechaRegistro.Value = DateVisit;
-            ObjAddPatience.PickHoraRegistro.Text = TimeVisit;
-            ObjAddPatience.txtGrupo.Texts = grupoTecnico;
-            ObjAddPatience.TxtObservaciones.Texts = Observaciones;
+            objAddUpdatePatient.txtId.Text = IdPatient.ToString();
+            objAddUpdatePatient.txtPatientName.Texts = PatientName;
+            objAddUpdatePatient.txtPatientLastName.Texts = PatientLastName;
+            objAddUpdatePatient.txtPatientCode.Texts = Code;
+            objAddUpdatePatient.dtpRegisterDate.Value = DateVisit;
+            objAddUpdatePatient.dtpRegisterTime.Text = TimeVisit;
+            objAddUpdatePatient.txtGrupo.Texts = grupoTecnico;
+            objAddUpdatePatient.txtObservations.Texts = Observaciones;
         }
     }
 }

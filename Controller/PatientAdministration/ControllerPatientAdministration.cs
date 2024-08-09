@@ -10,6 +10,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Net;
 using System.Windows.Forms.DataVisualization.Charting;
 using HealthPortal.View.PatientAdministration;
+using HealthPortal.Helper;
 
 namespace HealthPortal.Controller.PatientAdministration
 {
@@ -34,6 +35,14 @@ namespace HealthPortal.Controller.PatientAdministration
             objPatientAdministration.btnShowAll.Click += new EventHandler(RefreshStudentData);
             objPatientAdministration.PickFechaVisita.Value = DateTime.Now;
 
+        }
+        private void CheckUserAccessLevel()
+        {
+            if (CurrentUserData.RoleId == 4 && CurrentUserData.RoleId == 5)
+            {
+                objPatientAdministration.cmsEliminar.Enabled = false;
+                objPatientAdministration.cmsActualizar.Enabled = false;
+            }
         }
         private void SearchGrado(object sender, EventArgs e)
         {
@@ -129,11 +138,12 @@ namespace HealthPortal.Controller.PatientAdministration
         //Esta es la carga inicial la cual se encarga de llenar los combobox
         private void InitialCharge(object sender, EventArgs e)
         {
+            CheckUserAccessLevel();
+
             //Objeto de la clase DAOAdminUsuarios
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
             //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombo
             
-
             DataSet ds = daoPatientAdministration.FillCombo("tbEspecialidades", "Secciones");
             //Llenar combobox tbRole
             objPatientAdministration.CmbSpecialty.DataSource = ds.Tables["tbEspecialidades"];

@@ -12,6 +12,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HealthPortal.Model.DAO
 {
@@ -277,6 +278,40 @@ namespace HealthPortal.Model.DAO
             {
                 MessageBox.Show($"{ex.Message} EC-402 No se pudo eliminar al usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public bool ReestablishUserPassword(string username)
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "EXEC [ProcedimientosAlmacenados].[spCambiarContraseña] @param1, @param2, @param3";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", Contrasena);
+                cmd.Parameters.AddWithValue("param2", username);
+                cmd.Parameters.AddWithValue("param3", true);
+                if (cmd.ExecuteNonQuery() == 2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             finally
             {

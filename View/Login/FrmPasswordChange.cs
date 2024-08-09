@@ -14,11 +14,17 @@ namespace HealthPortal.View.Login
 {
     public partial class FrmPasswordChange : Form
     {
-        public FrmPasswordChange()
+        public FrmPasswordChange(int procedure)
         {
             InitializeComponent();
             Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            ControllerPasswordChange control = new ControllerPasswordChange(this);
+            ControllerPasswordChange control = new ControllerPasswordChange(this, procedure);
+        }
+        public FrmPasswordChange(int procedure, string username)
+        {
+            InitializeComponent();
+            Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            ControllerPasswordChange control = new ControllerPasswordChange(this, procedure, username);
         }
     }
 }

@@ -36,6 +36,8 @@
             this.txtNewPasswordConfirmation = new CustomPanel.BorderRadiusTXT();
             this.label4 = new System.Windows.Forms.Label();
             this.btnChangePassword = new CustomPanel.RJButton();
+            this.picExit = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -163,8 +165,8 @@
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.Color.Black;
-            this.btnChangePassword.Location = new System.Drawing.Point(153, 342);
-            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(5);
+            this.btnChangePassword.Location = new System.Drawing.Point(148, 337);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(10);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(257, 45);
             this.btnChangePassword.TabIndex = 39;
@@ -172,12 +174,28 @@
             this.btnChangePassword.TextColor = System.Drawing.Color.Black;
             this.btnChangePassword.UseVisualStyleBackColor = false;
             // 
+            // picExit
+            // 
+            this.picExit.BackColor = System.Drawing.Color.White;
+            this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.picExit.Location = new System.Drawing.Point(30, 342);
+            this.picExit.Margin = new System.Windows.Forms.Padding(5);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(32, 32);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picExit.TabIndex = 40;
+            this.picExit.TabStop = false;
+            this.picExit.WaitOnLoad = true;
+            // 
             // FrmPasswordChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(424, 401);
+            this.Controls.Add(this.picExit);
             this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.txtNewPasswordConfirmation);
             this.Controls.Add(this.label4);
@@ -190,6 +208,7 @@
             this.Name = "FrmPasswordChange";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPasswordChange";
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +223,6 @@
         public CustomPanel.BorderRadiusTXT txtNewPasswordConfirmation;
         private System.Windows.Forms.Label label4;
         public CustomPanel.RJButton btnChangePassword;
+        public System.Windows.Forms.PictureBox picExit;
     }
 }

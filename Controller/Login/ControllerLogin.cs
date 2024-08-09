@@ -87,12 +87,12 @@ namespace HealthPortal.Controller.Login
             CommonMethods commonMethods = new CommonMethods();
             daoLogin.Username = objLogin.txtUsername.Texts.Trim();
             daoLogin.Password = commonMethods.ComputeSha256Hash(objLogin.txtPassword.Texts.Trim());
-            if (daoLogin.EvaluateLogin() == true)
+            if (daoLogin.EvaluateLogin() == true && CurrentUserData.Username.Equals(daoLogin.Username))
             {
                 objLogin.Hide();
                 if (CurrentUserData.TemporaryPassword)
                 {
-                    FrmPasswordChange objPasswordChange = new FrmPasswordChange();
+                    FrmPasswordChange objPasswordChange = new FrmPasswordChange(1);
                     objPasswordChange.Show();
                 }
                 else
