@@ -163,8 +163,6 @@ namespace HealthPortal.Controller.PatientAdministration
             objPatientAdministration.cmbRol.DisplayMember = "tipoPersona";
 
             RefreshPatientData();
-
-
         }
         public void NewStudentPatient(object sender, EventArgs e)
         {

@@ -303,5 +303,17 @@
   <ItemGroup>
     <None Include="Resources\user.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverShow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverHide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverQuit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverWifi.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

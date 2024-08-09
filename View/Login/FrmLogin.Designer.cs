@@ -39,7 +39,7 @@ namespace HealthPortal.View.Login
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.picHidePassword = new System.Windows.Forms.PictureBox();
-            this.picExit = new System.Windows.Forms.PictureBox();
+            this.picQuit = new System.Windows.Forms.PictureBox();
             this.picTestConnection = new System.Windows.Forms.PictureBox();
             this.btnLogin = new CustomPanel.RJButton();
             this.llbForgotPassword = new System.Windows.Forms.LinkLabel();
@@ -50,7 +50,7 @@ namespace HealthPortal.View.Login
             this.txtUsername = new CustomPanel.BorderRadiusTXT();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHidePassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picQuit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTestConnection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShowPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUsername)).BeginInit();
@@ -100,7 +100,7 @@ namespace HealthPortal.View.Login
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.Controls.Add(this.picHidePassword);
-            this.panel5.Controls.Add(this.picExit);
+            this.panel5.Controls.Add(this.picQuit);
             this.panel5.Controls.Add(this.picTestConnection);
             this.panel5.Controls.Add(this.btnLogin);
             this.panel5.Controls.Add(this.llbForgotPassword);
@@ -130,19 +130,19 @@ namespace HealthPortal.View.Login
             this.picHidePassword.TabStop = false;
             this.picHidePassword.WaitOnLoad = true;
             // 
-            // picExit
+            // picQuit
             // 
-            this.picExit.BackColor = System.Drawing.Color.White;
-            this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picExit.Image = global::HealthPortal.Properties.Resources.quit;
-            this.picExit.Location = new System.Drawing.Point(431, 452);
-            this.picExit.Name = "picExit";
-            this.picExit.Size = new System.Drawing.Size(32, 32);
-            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picExit.TabIndex = 11;
-            this.picExit.TabStop = false;
-            this.picExit.WaitOnLoad = true;
+            this.picQuit.BackColor = System.Drawing.Color.White;
+            this.picQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picQuit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picQuit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.picQuit.Location = new System.Drawing.Point(431, 452);
+            this.picQuit.Name = "picQuit";
+            this.picQuit.Size = new System.Drawing.Size(32, 32);
+            this.picQuit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picQuit.TabIndex = 11;
+            this.picQuit.TabStop = false;
+            this.picQuit.WaitOnLoad = true;
             // 
             // picTestConnection
             // 
@@ -303,7 +303,7 @@ namespace HealthPortal.View.Login
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHidePassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picQuit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTestConnection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShowPassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUsername)).EndInit();
@@ -323,7 +323,7 @@ namespace HealthPortal.View.Login
         public CustomPanel.BorderRadiusTXT txtPassword;
         public CustomPanel.RJButton btnLogin;
         public System.Windows.Forms.PictureBox picTestConnection;
-        public System.Windows.Forms.PictureBox picExit;
+        public System.Windows.Forms.PictureBox picQuit;
         public System.Windows.Forms.PictureBox picShowPassword;
         public System.Windows.Forms.PictureBox picHidePassword;
         public System.Windows.Forms.CheckBox chkRememberMe;

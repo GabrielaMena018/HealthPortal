@@ -208,4 +208,16 @@
   <data name="wifi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wifi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hoverHide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hoverHide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hoverQuit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hoverQuit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hoverShow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hoverShow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hoverWifi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hoverWifi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

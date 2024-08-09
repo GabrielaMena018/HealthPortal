@@ -11,26 +11,76 @@ using HealthPortal.Helper;
 using HealthPortal.View.Dashboard;
 using System.Windows.Forms;
 using System.Drawing;
+using HealthPortal.Properties;
+using CustomPanel;
 
 namespace HealthPortal.Controller.Login
 {
     internal class ControllerLogin
     {
         FrmLogin objLogin;
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         public ControllerLogin(FrmLogin view)
         {
             objLogin = view;
+
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "picShowPassword", Tuple.Create(Resources.show, Resources.hoverShow) },
+                { "picHidePassword", Tuple.Create(Resources.hide, Resources.hoverHide) },
+                { "picQuit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "picTestConnection", Tuple.Create(Resources.wifi, Resources.hoverWifi) }
+            };
+
             objLogin.Load += new EventHandler(HidePassword);
             objLogin.txtUsername.Enter += new EventHandler(EnterTxtUsername);
             objLogin.txtUsername.Leave += new EventHandler(LeaveTxtUsername);
             objLogin.txtPassword.Enter += new EventHandler(EnterTxtPassword);
             objLogin.txtPassword.Leave += new EventHandler(LeaveTxtPassword);
             objLogin.picTestConnection.Click += new EventHandler(TestConnection);
-            objLogin.picExit.Click += new EventHandler(ExitApplication);
+            objLogin.picQuit.Click += new EventHandler(ExitApplication);
             objLogin.btnLogin.Click += new EventHandler(AttemptLogin);
             objLogin.picHidePassword.Click += new EventHandler(ShowPassword);
             objLogin.picShowPassword.Click += new EventHandler(HidePassword);
             objLogin.llbForgotPassword.Click += new EventHandler(EmailPasswordRecovery);
+            objLogin.picQuit.MouseEnter += new EventHandler(MouseEnterControl);
+            objLogin.picHidePassword.MouseEnter += new EventHandler(MouseEnterControl);
+            objLogin.picShowPassword.MouseEnter += new EventHandler(MouseEnterControl);
+            objLogin.picTestConnection.MouseEnter += new EventHandler(MouseEnterControl);
+            objLogin.btnLogin.MouseEnter += new EventHandler(MouseEnterButton);
+            objLogin.picQuit.MouseLeave += new EventHandler(MouseLeaveControl);
+            objLogin.picHidePassword.MouseLeave += new EventHandler(MouseLeaveControl);
+            objLogin.picShowPassword.MouseLeave += new EventHandler(MouseLeaveControl);
+            objLogin.picTestConnection.MouseLeave += new EventHandler(MouseLeaveControl);
+            objLogin.btnLogin.MouseLeave += new EventHandler(MouseLeaveButton);
+        }
+        private void MouseEnterButton(object sender, EventArgs e)
+        {
+            RJButton btn = sender as RJButton;
+            btn.BackColor = Color.FromArgb(31, 43, 91);
+            btn.ForeColor = Color.White;
+        }
+        private void MouseLeaveButton(object sender, EventArgs e)
+        {
+            RJButton btn = sender as RJButton;
+            btn.BackColor = Color.FromArgb(255, 183, 3);
+            btn.ForeColor = Color.FromArgb(31, 43, 91);
+        }
+        private void MouseEnterControl(object sender, EventArgs e)
+        {
+            PictureBox pic = sender as PictureBox;
+            if (pic != null && imageMapping.ContainsKey(pic.Name))
+            {
+                pic.Image = imageMapping[pic.Name].Item2;
+            }
+        }
+        private void MouseLeaveControl(object sender, EventArgs e)
+        {
+            PictureBox pic = sender as PictureBox;
+            if (pic != null && imageMapping.ContainsKey(pic.Name))
+            {
+                pic.Image = imageMapping[pic.Name].Item1;
+            }
         }
         private void EnterTxtUsername(object sender, EventArgs e)
         {
