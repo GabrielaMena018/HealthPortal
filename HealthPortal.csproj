@@ -47,10 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\FirstUsage\ControllerEmailVerification.cs" />
+    <Compile Include="Controller\FirstUsage\ControllerFirstUserCreation.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerAddUpdateMedicine.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerInventoryAdministration.cs" />
     <Compile Include="Controller\Login\ControllerLogin.cs" />
-    <Compile Include="Controller\Login\ControllerPasswordChange.cs" />
+    <Compile Include="Controller\PasswordChange\ControllerPasswordChange.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerAddUpdatePatient.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
     <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
@@ -60,13 +62,17 @@
     <Compile Include="Controller\UserAdministration\ControllerUserAdministration.cs" />
     <Compile Include="Helper\CommonMethods.cs" />
     <Compile Include="Helper\CurrentUserData.cs" />
+    <Compile Include="Model\DAO\DAOFirstUsage.cs" />
+    <Compile Include="Model\DAO\DAOPasswordChange.cs" />
     <Compile Include="Model\DAO\DAOSectionAdministration.cs" />
     <Compile Include="Model\DAO\DAOPatientAdministration.cs" />
     <Compile Include="Model\DAO\DAOInventoryAdministration.cs" />
     <Compile Include="Model\DAO\DAOLogin.cs" />
     <Compile Include="Model\DAO\DAOUserAdministration.cs" />
     <Compile Include="Model\dbContext.cs" />
+    <Compile Include="Model\DTO\DTOFirstUsage.cs" />
     <Compile Include="Model\DTO\DTOLogin.cs" />
+    <Compile Include="Model\DTO\DTOPasswordChange.cs" />
     <Compile Include="Model\DTO\DTOSectionAdministration.cs" />
     <Compile Include="Model\DTO\DTOPatientAdministration.cs" />
     <Compile Include="Model\DTO\DTOInventoryAdministration.cs" />
@@ -76,10 +82,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\FrmPasswordChange.cs">
+    <Compile Include="View\FirstUsage\FrmEmailVerification.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Login\FrmPasswordChange.Designer.cs">
+    <Compile Include="View\FirstUsage\FrmEmailVerification.Designer.cs">
+      <DependentUpon>FrmEmailVerification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FirstUsage\FrmFirstUserCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FirstUsage\FrmFirstUserCreation.Designer.cs">
+      <DependentUpon>FrmFirstUserCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PasswordChange\FrmPasswordChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PasswordChange\FrmPasswordChange.Designer.cs">
       <DependentUpon>FrmPasswordChange.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SectionAdministration\FrmAddUpdateSection.cs">
@@ -156,8 +174,11 @@
     <Compile Include="View\UserAdministration\FrmUserAdministration.Designer.cs">
       <DependentUpon>FrmUserAdministration.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Login\FrmPasswordChange.resx">
-      <DependentUpon>FrmPasswordChange.cs</DependentUpon>
+    <EmbeddedResource Include="View\FirstUsage\FrmEmailVerification.resx">
+      <DependentUpon>FrmEmailVerification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FirstUsage\FrmFirstUserCreation.resx">
+      <DependentUpon>FrmFirstUserCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SectionAdministration\FrmAddUpdateSection.resx">
       <DependentUpon>FrmAddUpdateSection.cs</DependentUpon>
@@ -314,6 +335,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hoverWifi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

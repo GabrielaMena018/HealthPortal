@@ -101,11 +101,15 @@ namespace HealthPortal.Controller.UserAdministration
             daoUserAdministration.IdRol = int.Parse(objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue.ToString());
             if (daoUserAdministration.RegisterUser() == 2)
             {
-                MessageBox.Show("Los datos han sido ingresados de manera exitosa.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Los datos han sido guardados de manera exitosa.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (commonMethods.SendEmail(temporaryPassword, email) == false)
                 {
                     daoUserAdministration.IdPersona = daoUserAdministration.GetMaxID();
                     daoUserAdministration.DeleteUser();
+                }
+                else
+                {
+                    MessageBox.Show("Los datos han sido registrados en la base de datos de manera exitosa.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else

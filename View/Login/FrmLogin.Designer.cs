@@ -39,7 +39,7 @@ namespace HealthPortal.View.Login
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.picHidePassword = new System.Windows.Forms.PictureBox();
-            this.picQuit = new System.Windows.Forms.PictureBox();
+            this.picExit = new System.Windows.Forms.PictureBox();
             this.picTestConnection = new System.Windows.Forms.PictureBox();
             this.btnLogin = new CustomPanel.RJButton();
             this.llbForgotPassword = new System.Windows.Forms.LinkLabel();
@@ -50,7 +50,7 @@ namespace HealthPortal.View.Login
             this.txtUsername = new CustomPanel.BorderRadiusTXT();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHidePassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picQuit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTestConnection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShowPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUsername)).BeginInit();
@@ -100,7 +100,7 @@ namespace HealthPortal.View.Login
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.Controls.Add(this.picHidePassword);
-            this.panel5.Controls.Add(this.picQuit);
+            this.panel5.Controls.Add(this.picExit);
             this.panel5.Controls.Add(this.picTestConnection);
             this.panel5.Controls.Add(this.btnLogin);
             this.panel5.Controls.Add(this.llbForgotPassword);
@@ -130,19 +130,19 @@ namespace HealthPortal.View.Login
             this.picHidePassword.TabStop = false;
             this.picHidePassword.WaitOnLoad = true;
             // 
-            // picQuit
+            // picExit
             // 
-            this.picQuit.BackColor = System.Drawing.Color.White;
-            this.picQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picQuit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picQuit.Image = global::HealthPortal.Properties.Resources.quit;
-            this.picQuit.Location = new System.Drawing.Point(431, 452);
-            this.picQuit.Name = "picQuit";
-            this.picQuit.Size = new System.Drawing.Size(32, 32);
-            this.picQuit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picQuit.TabIndex = 11;
-            this.picQuit.TabStop = false;
-            this.picQuit.WaitOnLoad = true;
+            this.picExit.BackColor = System.Drawing.Color.White;
+            this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.picExit.Location = new System.Drawing.Point(431, 469);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(32, 32);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picExit.TabIndex = 11;
+            this.picExit.TabStop = false;
+            this.picExit.WaitOnLoad = true;
             // 
             // picTestConnection
             // 
@@ -150,7 +150,7 @@ namespace HealthPortal.View.Login
             this.picTestConnection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picTestConnection.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picTestConnection.Image = ((System.Drawing.Image)(resources.GetObject("picTestConnection.Image")));
-            this.picTestConnection.Location = new System.Drawing.Point(93, 452);
+            this.picTestConnection.Location = new System.Drawing.Point(93, 469);
             this.picTestConnection.Name = "picTestConnection";
             this.picTestConnection.Size = new System.Drawing.Size(32, 32);
             this.picTestConnection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -168,12 +168,12 @@ namespace HealthPortal.View.Login
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Berlin Sans FB", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnLogin.Location = new System.Drawing.Point(191, 426);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(191, 3, 191, 111);
+            this.btnLogin.Location = new System.Drawing.Point(176, 443);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(176, 3, 176, 111);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(174, 58);
+            this.btnLogin.Size = new System.Drawing.Size(204, 58);
             this.btnLogin.TabIndex = 9;
             this.btnLogin.Text = "Iniciar Sesión";
             this.btnLogin.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
@@ -183,11 +183,11 @@ namespace HealthPortal.View.Login
             // 
             this.llbForgotPassword.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.llbForgotPassword.AutoSize = true;
-            this.llbForgotPassword.Font = new System.Drawing.Font("Berlin Sans FB", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llbForgotPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llbForgotPassword.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.llbForgotPassword.Location = new System.Drawing.Point(338, 349);
+            this.llbForgotPassword.Location = new System.Drawing.Point(302, 349);
             this.llbForgotPassword.Name = "llbForgotPassword";
-            this.llbForgotPassword.Size = new System.Drawing.Size(125, 15);
+            this.llbForgotPassword.Size = new System.Drawing.Size(161, 17);
             this.llbForgotPassword.TabIndex = 8;
             this.llbForgotPassword.TabStop = true;
             this.llbForgotPassword.Text = "¿Olvidó su contraseña?";
@@ -200,11 +200,11 @@ namespace HealthPortal.View.Login
             this.chkRememberMe.Checked = true;
             this.chkRememberMe.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.chkRememberMe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkRememberMe.Font = new System.Drawing.Font("Berlin Sans FB", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkRememberMe.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkRememberMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.chkRememberMe.Location = new System.Drawing.Point(93, 348);
             this.chkRememberMe.Name = "chkRememberMe";
-            this.chkRememberMe.Size = new System.Drawing.Size(145, 19);
+            this.chkRememberMe.Size = new System.Drawing.Size(179, 21);
             this.chkRememberMe.TabIndex = 7;
             this.chkRememberMe.Text = "¿Guardar información?";
             this.chkRememberMe.UseVisualStyleBackColor = false;
@@ -245,7 +245,7 @@ namespace HealthPortal.View.Login
             this.txtPassword.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtPassword.BorderRadius = 20;
             this.txtPassword.BorderSize = 2;
-            this.txtPassword.Font = new System.Drawing.Font("Berlin Sans FB", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.txtPassword.Location = new System.Drawing.Point(93, 269);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(93, 3, 93, 3);
@@ -255,7 +255,7 @@ namespace HealthPortal.View.Login
             this.txtPassword.PasswordChar = false;
             this.txtPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPassword.PlaceholderText = "";
-            this.txtPassword.Size = new System.Drawing.Size(370, 64);
+            this.txtPassword.Size = new System.Drawing.Size(370, 66);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.Texts = "Contraseña";
             this.txtPassword.UnderlinedStyle = false;
@@ -267,7 +267,7 @@ namespace HealthPortal.View.Login
             this.txtUsername.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtUsername.BorderRadius = 20;
             this.txtUsername.BorderSize = 2;
-            this.txtUsername.Font = new System.Drawing.Font("Berlin Sans FB", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.txtUsername.Location = new System.Drawing.Point(93, 149);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(93, 3, 93, 3);
@@ -277,7 +277,7 @@ namespace HealthPortal.View.Login
             this.txtUsername.PasswordChar = false;
             this.txtUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtUsername.PlaceholderText = "";
-            this.txtUsername.Size = new System.Drawing.Size(370, 64);
+            this.txtUsername.Size = new System.Drawing.Size(370, 66);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.Texts = "Usuario";
             this.txtUsername.UnderlinedStyle = false;
@@ -303,7 +303,7 @@ namespace HealthPortal.View.Login
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHidePassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picQuit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTestConnection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShowPassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUsername)).EndInit();
@@ -323,7 +323,7 @@ namespace HealthPortal.View.Login
         public CustomPanel.BorderRadiusTXT txtPassword;
         public CustomPanel.RJButton btnLogin;
         public System.Windows.Forms.PictureBox picTestConnection;
-        public System.Windows.Forms.PictureBox picQuit;
+        public System.Windows.Forms.PictureBox picExit;
         public System.Windows.Forms.PictureBox picShowPassword;
         public System.Windows.Forms.PictureBox picHidePassword;
         public System.Windows.Forms.CheckBox chkRememberMe;

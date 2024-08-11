@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HealthPortal.Controller.FirstUsage;
+using HealthPortal.Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,20 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HealthPortal.Helper;
-using HealthPortal.Controller.Login;
-using System.Drawing.Text;
 
-namespace HealthPortal.View.Login
+namespace HealthPortal.View.FirstUsage
 {
-    public partial class FrmLogin : Form
+    public partial class FrmFirstUserCreation : Form
     {
-        public FrmLogin()
+        public FrmFirstUserCreation()
         {
             InitializeComponent();
             Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            picShowPassword.Visible = false;
-            ControllerLogin control = new ControllerLogin(this);
+            btnShowPassword.Visible = false;
+            ControllerFirstUserCreation control = new ControllerFirstUserCreation(this);
         }
     }
 }

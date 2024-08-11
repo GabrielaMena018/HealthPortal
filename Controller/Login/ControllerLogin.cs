@@ -1,4 +1,5 @@
 ﻿using HealthPortal.View.Login;
+using HealthPortal.View.PasswordChange;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace HealthPortal.Controller.Login
             {
                 { "picShowPassword", Tuple.Create(Resources.show, Resources.hoverShow) },
                 { "picHidePassword", Tuple.Create(Resources.hide, Resources.hoverHide) },
-                { "picQuit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "picExit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
                 { "picTestConnection", Tuple.Create(Resources.wifi, Resources.hoverWifi) }
             };
 
@@ -38,17 +39,17 @@ namespace HealthPortal.Controller.Login
             objLogin.txtPassword.Enter += new EventHandler(EnterTxtPassword);
             objLogin.txtPassword.Leave += new EventHandler(LeaveTxtPassword);
             objLogin.picTestConnection.Click += new EventHandler(TestConnection);
-            objLogin.picQuit.Click += new EventHandler(ExitApplication);
+            objLogin.picExit.Click += new EventHandler(ExitApplication);
             objLogin.btnLogin.Click += new EventHandler(AttemptLogin);
             objLogin.picHidePassword.Click += new EventHandler(ShowPassword);
             objLogin.picShowPassword.Click += new EventHandler(HidePassword);
             objLogin.llbForgotPassword.Click += new EventHandler(EmailPasswordRecovery);
-            objLogin.picQuit.MouseEnter += new EventHandler(MouseEnterControl);
+            objLogin.picExit.MouseEnter += new EventHandler(MouseEnterControl);
             objLogin.picHidePassword.MouseEnter += new EventHandler(MouseEnterControl);
             objLogin.picShowPassword.MouseEnter += new EventHandler(MouseEnterControl);
             objLogin.picTestConnection.MouseEnter += new EventHandler(MouseEnterControl);
             objLogin.btnLogin.MouseEnter += new EventHandler(MouseEnterButton);
-            objLogin.picQuit.MouseLeave += new EventHandler(MouseLeaveControl);
+            objLogin.picExit.MouseLeave += new EventHandler(MouseLeaveControl);
             objLogin.picHidePassword.MouseLeave += new EventHandler(MouseLeaveControl);
             objLogin.picShowPassword.MouseLeave += new EventHandler(MouseLeaveControl);
             objLogin.picTestConnection.MouseLeave += new EventHandler(MouseLeaveControl);

@@ -33,7 +33,7 @@ namespace HealthPortal.Model.DAO
                     CurrentUserData.FullName = dr.GetString(5);
                     CurrentUserData.TemporaryPassword = dr.GetBoolean(6);
                     CurrentUserData.Email = dr.GetString(7);
-                    CurrentUserData.IdPersona = dr.GetInt32(8);
+                    //CurrentUserData.IdPersona = dr.GetInt32(8);
                 }
                 return dr.HasRows;
             }
@@ -52,67 +52,25 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public bool VerifyCurrentUserPassword(string password)
+        public int GetAmountOfUsers()
         {
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT * FROM [Vistas].[viewInformacionLogin] WHERE [usuario] = @param1 AND [contraseña] = @param2";
+                string query = "SELECT COUNT(*) FROM [Vistas].[viewInformacionLogin]";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", CurrentUserData.Username);
-                cmd.Parameters.AddWithValue("param2", password);
-                if (cmd.ExecuteScalar() != null)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                int totalUserAmount = (int)cmd.ExecuteScalar();
+                return totalUserAmount;
             }
             catch (SqlException ex)
             {
                 MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return 0;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            finally
-            {
-                command.Connection.Close();
-            }
-        }
-        public bool UpdatePassword()
-        {
-            try
-            {
-                command.Connection = getConnection();
-                string query = "EXEC [ProcedimientosAlmacenados].[spCambiarContraseña] @param1, @param2, @param3";
-                SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", Password);
-                cmd.Parameters.AddWithValue("param2", Username);
-                cmd.Parameters.AddWithValue("param3", false);
-                if (cmd.ExecuteNonQuery() == 2)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return 0;
             }
             finally
             {

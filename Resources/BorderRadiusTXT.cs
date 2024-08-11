@@ -287,12 +287,12 @@ namespace CustomPanel
         #endregion
 
         #region -> Overridden methods
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-            if (this.DesignMode)
-                UpdateControlHeight();
-        }
+        //protected override void OnResize(EventArgs e)
+        //{
+        //    base.OnResize(e);
+        //    if (this.DesignMode)
+        //        UpdateControlHeight();
+        //}
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);

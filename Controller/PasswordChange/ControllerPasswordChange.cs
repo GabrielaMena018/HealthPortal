@@ -1,22 +1,22 @@
-﻿using System;
+﻿using HealthPortal.Helper;
+using HealthPortal.Model.DAO;
+using HealthPortal.View.PasswordChange;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HealthPortal.Model.DAO;
-using HealthPortal.View.Login;
-using HealthPortal.Helper;
 using System.Windows.Forms;
-using HealthPortal.Model.DTO;
+using HealthPortal.View.Login;
 
-namespace HealthPortal.Controller.Login
+namespace HealthPortal.Controller.PasswordChange
 {
     internal class ControllerPasswordChange
     {
         FrmPasswordChange objPasswordChange;
         CommonMethods commonMethods = new CommonMethods();
-        int procedure;
-        string username;
+        readonly int procedure;
+        readonly string username;
         public ControllerPasswordChange(FrmPasswordChange view, int procedure)
         {
             this.procedure = procedure;
@@ -34,8 +34,8 @@ namespace HealthPortal.Controller.Login
             objPasswordChange.btnChangePassword.Click += new EventHandler(RespectiveAction);
             objPasswordChange.picExit.Click += new EventHandler(CloseForm);
         }
-        private void VerifyProcedure(object sender, EventArgs e) 
-        { 
+        private void VerifyProcedure(object sender, EventArgs e)
+        {
             if (procedure == 2)
             {
                 objPasswordChange.txtPreviousPassword.Enabled = false;
@@ -78,14 +78,14 @@ namespace HealthPortal.Controller.Login
         }
         private void AttemptPasswordChange()
         {
-            DAOLogin daoLogin = new DAOLogin();
+            DAOPasswordChange daoPasswordChange = new DAOPasswordChange();
             if (VerifyPassword() == true)
             {
                 if (CheckNewPassword() == true)
                 {
-                    daoLogin.Username = CurrentUserData.Username;
-                    daoLogin.Password = commonMethods.ComputeSha256Hash(objPasswordChange.txtNewPassword.Texts.Trim());
-                    if (daoLogin.UpdatePassword() == true)
+                    daoPasswordChange.Username = CurrentUserData.Username;
+                    daoPasswordChange.Password = commonMethods.ComputeSha256Hash(objPasswordChange.txtNewPassword.Texts.Trim());
+                    if (daoPasswordChange.UpdatePassword() == true)
                     {
                         MessageBox.Show("Contraseña cambiada con éxito. Vuelva a iniciar sesión con su nueva contraseña.", "Cambio de contraseña exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         BackToLogin();
@@ -107,9 +107,9 @@ namespace HealthPortal.Controller.Login
         }
         private bool VerifyPassword()
         {
-            DAOLogin daoLogin = new DAOLogin();
+            DAOPasswordChange daoPasswordChange = new DAOPasswordChange();
             string password = commonMethods.ComputeSha256Hash(objPasswordChange.txtPreviousPassword.Texts.Trim());
-            return daoLogin.VerifyCurrentUserPassword(password);
+            return daoPasswordChange.VerifyCurrentUserPassword(password);
         }
         private bool CheckNewPassword()
         {

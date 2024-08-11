@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthPortal.Model.DAO;
+using HealthPortal.View.FirstUsage;
+using HealthPortal.View.Login;
 
 namespace HealthPortal.Helper
 {
@@ -25,6 +27,19 @@ namespace HealthPortal.Helper
             int nWidthEllipse, // width of ellipse
             int nHeightEllipse // height of ellipse
         );
+        public static void DetermineInitialForm()
+        {
+            DAOLogin daoLogin = new DAOLogin();
+            int usuarios = daoLogin.GetAmountOfUsers();
+            if (usuarios == 0)
+            {
+                Application.Run(new FrmFirstUserCreation());
+            }
+            else
+            {
+                Application.Run(new FrmLogin());
+            }
+        }
         public string ComputeSha256Hash(string rawData)
         {
             // Crear una instancia de SHA256
@@ -44,7 +59,7 @@ namespace HealthPortal.Helper
         }
         public string GenerateRandomPassword()
         {
-            const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+-=";
+            const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?@#$%^&*";
             StringBuilder password = new StringBuilder();
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
             byte[] data = new byte[8];
@@ -54,6 +69,45 @@ namespace HealthPortal.Helper
                 password.Append(validCharacters[a % validCharacters.Length]);
             }
             return password.ToString();
+        }
+        public static bool IsPasswordValid(string password)
+        {
+            const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?@#$%^&*";
+            foreach (char a in password)
+            {
+                if (!validCharacters.Contains(a))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public bool SendVerificationEmail(string email, string confirmationCode)
+        {
+            try
+            {
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "ausw xphf aobi nemd"),
+                    EnableSsl = true
+                };
+                MailMessage mailMessage = new MailMessage
+                {
+                    From = new MailAddress("healthportal.noreply@gmail.com"),
+                    Subject = "Confirmación de Correo",
+                    Body = $"¡Ha sido registrado como usuario en HealthPortal! El código de confirmación que deberá utilizar para confirmar su contraseña es: '{confirmationCode}'.",
+                    IsBodyHtml = true
+                };
+                mailMessage.To.Add(email);
+                client.Send(mailMessage);
+                MessageBox.Show($"Correo de confirmación de cuenta enviado exitosamente.", "Correo enviado exitosamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error al enviar el correo. Revise el correo ingresado y vuelva a intentar. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
         }
         public bool SendEmail(string temporaryPassword, string email)
         {
@@ -78,7 +132,7 @@ namespace HealthPortal.Helper
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error al enviar el correo. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Hubo un error al enviar el correo. Revise el correo ingresado y vuelva a intentar. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
         }
@@ -105,7 +159,7 @@ namespace HealthPortal.Helper
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error al enviar el correo. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Hubo un error al enviar el correo. Revise el correo ingresado y vuelva a intentar. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
         }

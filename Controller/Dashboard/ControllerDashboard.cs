@@ -26,7 +26,7 @@ namespace HealthPortal.Controller.Dashboard
         public ControllerDashboard(FrmDashboard view)
         {
             objDashboard = view;
-            objDashboard.Load += new EventHandler(InitialChargue);
+            objDashboard.Load += new EventHandler(InitialCharge);
 
             // PatientAdministration
             objDashboard.tsrPatientAdministration.Click += new EventHandler(OpenFormPatientAdministration);
@@ -54,12 +54,12 @@ namespace HealthPortal.Controller.Dashboard
             objDashboard.btnLogoutImg.Click += new EventHandler(Logout);
 
             // Sidebar del Dashboard
-            objDashboard.btnMenu.Click += new EventHandler(buttonExpandCollapse_Click);
+            objDashboard.btnMenu.Click += new EventHandler(ExpandSideMenu);
         }
 
-        private void InitialChargue(object sender, EventArgs e)
+        private void InitialCharge(object sender, EventArgs e)
         {
-            CheckRolUser();
+            CheckUserRole();
         }
 
         private void OpenFormPatientAdministration(object sender, EventArgs e)
@@ -144,7 +144,7 @@ namespace HealthPortal.Controller.Dashboard
             objDashboard.PanelContenedor.Controls.Remove(currentForm);
         }
 
-        private void buttonExpandCollapse_Click(object sender, EventArgs e)
+        private void ExpandSideMenu(object sender, EventArgs e)
         {
             objDashboard.sidebar.Width = (objDashboard.MaximumSize.Width + computerHeight);
            
@@ -164,35 +164,35 @@ namespace HealthPortal.Controller.Dashboard
             }
         }
 
-        private void SliderTime_Tick(object sender, EventArgs e)
-        {
-            if (sideBarExpand)
-            {
+        //private void SliderTime_Tick(object sender, EventArgs e)
+        //{
+        //    if (sideBarExpand)
+        //    {
                 
-                if (objDashboard.sidebar.Width > objDashboard.sidebar.MinimumSize.Width)     
-                {
-                    objDashboard.sidebar.Width -= 10;
-                }
-                else 
-                {
-                   objDashboard.sidebarTimer.Stop ();
-                }
-            }
-            else
-            {
+        //        if (objDashboard.sidebar.Width > objDashboard.sidebar.MinimumSize.Width)     
+        //        {
+        //            objDashboard.sidebar.Width -= 10;
+        //        }
+        //        else 
+        //        {
+        //           objDashboard.sidebarTimer.Stop ();
+        //        }
+        //    }
+        //    else
+        //    {
                 
-                if (objDashboard.sidebar.Width < objDashboard.sidebar.MaximumSize.Width)
-                {
-                    objDashboard.sidebar.Width += 10;
-                }
-                else
-                {
-                    objDashboard.sidebarTimer.Stop();
-                }
-            }
-        }
+        //        if (objDashboard.sidebar.Width < objDashboard.sidebar.MaximumSize.Width)
+        //        {
+        //            objDashboard.sidebar.Width += 10;
+        //        }
+        //        else
+        //        {
+        //            objDashboard.sidebarTimer.Stop();
+        //        }
+        //    }
+        //}
 
-        private void CheckRolUser() 
+        private void CheckUserRole() 
         {
             if (CurrentUserData.RoleId == 2)
             {

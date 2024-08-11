@@ -1,6 +1,6 @@
 ﻿using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
-using HealthPortal.View.Login;
+using HealthPortal.View.PasswordChange;
 using HealthPortal.View.UserAdministration;
 using System;
 using System.Collections.Generic;

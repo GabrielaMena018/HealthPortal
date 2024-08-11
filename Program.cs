@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HealthPortal.View.FirstUsage;
 
 namespace HealthPortal
 {
@@ -19,8 +20,7 @@ namespace HealthPortal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
-            Application.Run(new FrmLogin());
-            //Application.Run(new FrmDashboard());
+            CommonMethods.DetermineInitialForm();
         }
     }
 }
