@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HealthPortal.Controller.Dashboard;
+using HealthPortal.Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HealthPortal.Controller.Dashboard;
 
 namespace HealthPortal.View.Dashboard
 {
@@ -16,6 +17,7 @@ namespace HealthPortal.View.Dashboard
         public FrmDashboard()
         {
             InitializeComponent();
+            Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             ControllerDashboard control = new ControllerDashboard(this);
         }
     }

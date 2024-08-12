@@ -1,6 +1,4 @@
-﻿using HealthPortal.View.Login;
-using HealthPortal.View.Dashboard;
-using HealthPortal.Helper;
+﻿using HealthPortal.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;

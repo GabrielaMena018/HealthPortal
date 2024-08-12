@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
     <Compile Include="Controller\FirstUsage\ControllerEmailVerification.cs" />
     <Compile Include="Controller\FirstUsage\ControllerFirstUserCreation.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerAddUpdateMedicine.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="Controller\PasswordChange\ControllerPasswordChange.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerAddUpdatePatient.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
-    <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerSectionAdministration.cs" />
     <Compile Include="Controller\UserAdministration\ControllerAddUpdateUser.cs" />
@@ -81,6 +81,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dashboard\FrmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dashboard\FrmDashboard.Designer.cs">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FirstUsage\FrmEmailVerification.cs">
       <SubType>Form</SubType>
@@ -111,12 +117,6 @@
     </Compile>
     <Compile Include="View\SectionAdministration\FrmSectionAdministration.Designer.cs">
       <DependentUpon>FrmSectionAdministration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dashboard\FrmDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dashboard\FrmDashboard.Designer.cs">
-      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\InventoryAdministration\FrmAddUpdateMedicine.cs">
       <SubType>Form</SubType>
@@ -174,6 +174,9 @@
     <Compile Include="View\UserAdministration\FrmUserAdministration.Designer.cs">
       <DependentUpon>FrmUserAdministration.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FirstUsage\FrmEmailVerification.resx">
       <DependentUpon>FrmEmailVerification.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,9 +188,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\SectionAdministration\FrmSectionAdministration.resx">
       <DependentUpon>FrmSectionAdministration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
-      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\InventoryAdministration\FrmInventoryAdministration.resx">
       <DependentUpon>FrmInventoryAdministration.cs</DependentUpon>
@@ -344,6 +344,81 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hide1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ícono R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ícono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gravity-ui_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ícono.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\material-symbols_logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi_graph-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\octicon_checklist-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\octicon_home-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\solar_pills-line-duotone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\majesticons_user-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\octicon_checklist-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\octicon_home-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\solar_pills-line-duotone1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\majesticons_user-line1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bx_book1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\material-symbols_logout1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi_graph-line1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bx_book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverInventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverSections.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverStatistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverUsers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverVisits.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
