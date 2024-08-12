@@ -26,15 +26,16 @@ namespace HealthPortal.Controller.Dashboard
         bool isSideBarExpanded = false;
         const int collapsedWidth = 150;
         const int expandedWidth = 280;
-        const int collapsedLogoX = 27;
-        const int expandedLogoX = 92;
-        const int logoY = 27;
+        const int collapsedLogoX = 35;
+        const int expandedLogoX = 100;
+        const int logoY = 35;
         public ControllerDashboard(FrmDashboard view)
         {
             objDashboard = view;
             objDashboard.Load += new EventHandler(InitialLoad);
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
             {
+                { "btnMenu", Tuple.Create(Resources.menu, Resources.hoverMenu)},
                 { "btnMainMenu", Tuple.Create(Resources.main, Resources.hoverMain) },
                 { "btnVisits", Tuple.Create(Resources.visits, Resources.hoverVisits) },
                 { "btnInventory", Tuple.Create(Resources.inventory, Resources.hoverInventory) },
@@ -45,7 +46,7 @@ namespace HealthPortal.Controller.Dashboard
             };
 
             // Expandir / Colapsar la sidebar
-            objDashboard.btnLogo.Click += new EventHandler(MorphSideBar);
+            objDashboard.btnMenu.Click += new EventHandler(MorphSideBar);
 
             // Abrir Formularios
             //objDashboard.btnMainMenu.Click += new EventHandler(OpenMainMenuForm);
@@ -56,6 +57,7 @@ namespace HealthPortal.Controller.Dashboard
             objDashboard.btnUsers.Click += new EventHandler(OpenUserAdministrationForm);
 
             // Cambios de imagen por MouseEnter
+            objDashboard.btnMenu.MouseEnter += new EventHandler(MouseEnterControl);
             objDashboard.btnMainMenu.MouseEnter += new EventHandler(MouseEnterControl);
             objDashboard.btnVisits.MouseEnter += new EventHandler(MouseEnterControl);
             objDashboard.btnInventory.MouseEnter += new EventHandler(MouseEnterControl);
@@ -65,6 +67,7 @@ namespace HealthPortal.Controller.Dashboard
             objDashboard.btnLogout.MouseEnter += new EventHandler(MouseEnterControl);
 
             // Cambios de imagen por MouseLeave
+            objDashboard.btnMenu.MouseLeave += new EventHandler(MouseLeaveControl);
             objDashboard.btnMainMenu.MouseLeave += new EventHandler(MouseLeaveControl);
             objDashboard.btnVisits.MouseLeave += new EventHandler(MouseLeaveControl);
             objDashboard.btnInventory.MouseLeave += new EventHandler(MouseLeaveControl);
@@ -82,9 +85,8 @@ namespace HealthPortal.Controller.Dashboard
         }
         private void MorphSideBar(object sender, EventArgs e)
         {
-            isSideBarExpanded = !isSideBarExpanded;
             objDashboard.pnlSideBar.Width = isSideBarExpanded ? collapsedWidth : expandedWidth;
-            objDashboard.btnLogo.Location = new Point(isSideBarExpanded ? collapsedLogoX : expandedLogoX, logoY);
+            objDashboard.btnMenu.Location = new Point(isSideBarExpanded ? collapsedLogoX : expandedLogoX, logoY);
             objDashboard.pnlLogo.Width = objDashboard.pnlSideBar.Width;
             objDashboard.flpTabs.Width = objDashboard.pnlSideBar.Width;
             objDashboard.pnlMainMenu.Width = objDashboard.pnlSideBar.Width;
@@ -94,6 +96,7 @@ namespace HealthPortal.Controller.Dashboard
             objDashboard.pnlSections.Width = objDashboard.pnlSideBar.Width;
             objDashboard.pnlUsers.Width = objDashboard.pnlSideBar.Width;
             objDashboard.pnlLogout.Width = objDashboard.pnlSideBar.Width;
+            isSideBarExpanded = !isSideBarExpanded;
         }
         private void OpenPatientAdministrationForm(object sender, EventArgs e)
         {

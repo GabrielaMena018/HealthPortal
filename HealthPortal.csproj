@@ -420,5 +420,11 @@
   <ItemGroup>
     <None Include="Resources\hoverVisits.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gg_menu-round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gg_menu-round-1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,7 +46,7 @@
             this.pnlLogout = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
-            this.btnLogo = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlSideBar.SuspendLayout();
             this.flpTabs.SuspendLayout();
@@ -264,26 +264,28 @@
             // 
             // pnlLogo
             // 
-            this.pnlLogo.Controls.Add(this.btnLogo);
+            this.pnlLogo.Controls.Add(this.btnMenu);
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
             this.pnlLogo.Name = "pnlLogo";
             this.pnlLogo.Size = new System.Drawing.Size(150, 150);
             this.pnlLogo.TabIndex = 0;
             // 
-            // btnLogo
+            // btnMenu
             // 
-            this.btnLogo.BackgroundImage = global::HealthPortal.Properties.Resources.Ícono;
-            this.btnLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogo.FlatAppearance.BorderSize = 0;
-            this.btnLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogo.Location = new System.Drawing.Point(27, 27);
-            this.btnLogo.Margin = new System.Windows.Forms.Padding(27);
-            this.btnLogo.Name = "btnLogo";
-            this.btnLogo.Size = new System.Drawing.Size(96, 96);
-            this.btnLogo.TabIndex = 0;
-            this.btnLogo.UseVisualStyleBackColor = true;
+            this.btnMenu.BackgroundImage = global::HealthPortal.Properties.Resources.menu;
+            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Location = new System.Drawing.Point(35, 35);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(27);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(80, 80);
+            this.btnMenu.TabIndex = 0;
+            this.btnMenu.UseVisualStyleBackColor = true;
             // 
             // pnlContainer
             // 
@@ -322,7 +324,7 @@
 
         #endregion
         public System.Windows.Forms.Panel pnlLogo;
-        public System.Windows.Forms.Button btnLogo;
+        public System.Windows.Forms.Button btnMenu;
         public System.Windows.Forms.Panel pnlUsers;
         public System.Windows.Forms.Button btnUsers;
         public System.Windows.Forms.Panel pnlSections;
