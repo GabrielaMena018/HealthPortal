@@ -85,26 +85,26 @@ namespace HealthPortal.Controller.UserAdministration
             string email;
 
             // Persona
-            daoUserAdministration.NombrePersona = objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
-            daoUserAdministration.ApellidoPersona = objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
+            daoUserAdministration.PersonName = objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
+            daoUserAdministration.PersonLastName = objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
             email = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
-            daoUserAdministration.CorreoPersona = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
-            daoUserAdministration.TelefonoPersona = objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
+            daoUserAdministration.Email = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
+            daoUserAdministration.PhoneNumber = objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
 
             // Usuario
-            daoUserAdministration.Usuario = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
+            daoUserAdministration.Username = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
             temporaryPassword = commonMethods.GenerateRandomPassword();
-            daoUserAdministration.Contrasena = commonMethods.ComputeSha256Hash(temporaryPassword);
-            daoUserAdministration.EstadoUsuario = true;
-            daoUserAdministration.IntentosUsuario = 0;
-            daoUserAdministration.ContrasenaTemporal = true;
-            daoUserAdministration.IdRol = int.Parse(objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue.ToString());
+            daoUserAdministration.Password = commonMethods.ComputeSha256Hash(temporaryPassword);
+            daoUserAdministration.UserStatus = true;
+            daoUserAdministration.UserAttempts = 0;
+            daoUserAdministration.TemporaryPassword = true;
+            daoUserAdministration.RoleId = int.Parse(objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue.ToString());
             if (daoUserAdministration.RegisterUser() == 2)
             {
                 MessageBox.Show("Los datos han sido guardados de manera exitosa.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (commonMethods.SendEmail(temporaryPassword, email) == false)
                 {
-                    daoUserAdministration.IdPersona = daoUserAdministration.GetMaxID();
+                    daoUserAdministration.PersonId = daoUserAdministration.GetMaxID();
                     daoUserAdministration.DeleteUser();
                 }
                 else
@@ -122,13 +122,13 @@ namespace HealthPortal.Controller.UserAdministration
             if (string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim()))
             {
                 DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
-                daoUserAdministration.IdPersona = int.Parse(objFrmAddUpdateUser.txtUserAdministrationId.Texts.Trim());
-                daoUserAdministration.NombrePersona = objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
-                daoUserAdministration.ApellidoPersona = objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
-                daoUserAdministration.CorreoPersona = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
-                daoUserAdministration.TelefonoPersona = objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
-                daoUserAdministration.Usuario = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
-                daoUserAdministration.IdRol = (int)objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue;
+                daoUserAdministration.PersonId = int.Parse(objFrmAddUpdateUser.txtUserAdministrationId.Texts.Trim());
+                daoUserAdministration.PersonName = objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
+                daoUserAdministration.PersonLastName = objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
+                daoUserAdministration.Email = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
+                daoUserAdministration.PhoneNumber = objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
+                daoUserAdministration.Username = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
+                daoUserAdministration.RoleId = (int)objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue;
 
                 int returnedValue = daoUserAdministration.UpdateUserInfo();
                 if (returnedValue == 2)

@@ -61,8 +61,9 @@ namespace HealthPortal.Controller.PasswordChange
             DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
             if (CheckNewPassword() == true)
             {
-                daoUserAdministration.Contrasena = commonMethods.ComputeSha256Hash(objPasswordChange.txtNewPassword.Texts.Trim());
-                if (daoUserAdministration.ReestablishUserPassword(username) == true)
+                daoUserAdministration.Password = commonMethods.ComputeSha256Hash(objPasswordChange.txtNewPassword.Texts.Trim());
+                daoUserAdministration.Username = username;
+                if (daoUserAdministration.ReestablishUserPassword() == true)
                 {
                     MessageBox.Show("Contraseña cambiada con éxito. Ha de informar al usuario del más reciente cambio. Cuando el usuario inicie sesión, también deberá de crear una nueva contraseña.", "Cambio de contraseña exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

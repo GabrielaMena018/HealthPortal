@@ -168,16 +168,16 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spRegistrarUsuario] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", Usuario);
-                cmd.Parameters.AddWithValue("param2", Contrasena);
-                cmd.Parameters.AddWithValue("param3", EstadoUsuario);
-                cmd.Parameters.AddWithValue("param4", IntentosUsuario);
+                cmd.Parameters.AddWithValue("param1", Username);
+                cmd.Parameters.AddWithValue("param2", Password);
+                cmd.Parameters.AddWithValue("param3", UserStatus);
+                cmd.Parameters.AddWithValue("param4", UserAttempts);
                 cmd.Parameters.AddWithValue("param5", true);
-                cmd.Parameters.AddWithValue("param6", IdRol);
-                cmd.Parameters.AddWithValue("param7", NombrePersona);
-                cmd.Parameters.AddWithValue("param8", ApellidoPersona);
-                cmd.Parameters.AddWithValue("param9", CorreoPersona);
-                cmd.Parameters.AddWithValue("param10", TelefonoPersona);
+                cmd.Parameters.AddWithValue("param6", RoleId);
+                cmd.Parameters.AddWithValue("param7", PersonName);
+                cmd.Parameters.AddWithValue("param8", PersonLastName);
+                cmd.Parameters.AddWithValue("param9", Email);
+                cmd.Parameters.AddWithValue("param10", PhoneNumber);
                 return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -202,18 +202,18 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string queryPersonas = "UPDATE [Usuarios].[tbPersonas] SET nombrePersona = @param1, apellidoPersona = @param2, correoPersona = @param3, telefonoPersona = @param4 WHERE idPersona = @param5";
                 SqlCommand cmdPersonas = new SqlCommand(queryPersonas, command.Connection);
-                cmdPersonas.Parameters.AddWithValue("param1", NombrePersona);
-                cmdPersonas.Parameters.AddWithValue("param2", ApellidoPersona);
-                cmdPersonas.Parameters.AddWithValue("param3", CorreoPersona);
-                cmdPersonas.Parameters.AddWithValue("param4", TelefonoPersona);
-                cmdPersonas.Parameters.AddWithValue("param5", IdPersona);
+                cmdPersonas.Parameters.AddWithValue("param1", PersonName);
+                cmdPersonas.Parameters.AddWithValue("param2", PersonLastName);
+                cmdPersonas.Parameters.AddWithValue("param3", Email);
+                cmdPersonas.Parameters.AddWithValue("param4", PhoneNumber);
+                cmdPersonas.Parameters.AddWithValue("param5", PersonId);
                 int result = cmdPersonas.ExecuteNonQuery();
                 if (result == 1)
                 {
                     string query = "UPDATE [Usuarios].[tbUsuarios] SET idRol = @param1 WHERE usuario = @param2";
                     SqlCommand cmd = new SqlCommand(query, command.Connection);
-                    cmd.Parameters.AddWithValue("param1", IdRol);
-                    cmd.Parameters.AddWithValue("param2", Usuario);
+                    cmd.Parameters.AddWithValue("param1", RoleId);
+                    cmd.Parameters.AddWithValue("param2", Username);
                     result = cmd.ExecuteNonQuery();
                     if (result == 1) { result = 2; }
                 }
@@ -241,8 +241,8 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spEliminarUsuario] @param1, @param2";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", IdPersona);
-                cmd.Parameters.AddWithValue("param2", Usuario);
+                cmd.Parameters.AddWithValue("param1", PersonId);
+                cmd.Parameters.AddWithValue("param2", Username);
                 return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -284,15 +284,15 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public bool ReestablishUserPassword(string username)
+        public bool ReestablishUserPassword()
         {
             try
             {
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spCambiarContraseña] @param1, @param2, @param3";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", Contrasena);
-                cmd.Parameters.AddWithValue("param2", username);
+                cmd.Parameters.AddWithValue("param1", Password);
+                cmd.Parameters.AddWithValue("param2", Username);
                 cmd.Parameters.AddWithValue("param3", true);
                 if (cmd.ExecuteNonQuery() == 2)
                 {

@@ -9,35 +9,34 @@ namespace HealthPortal.Model.DTO
     internal class DTOUserAdministration : dbContext
     {
         // Atributos de tbRoles
-        private int idRol;
-        private string nombreRol;
+        private int roleId;
+        private string roleName;
 
         // Atributos de tbUsuarios
-        private string usuario;
-        private string contrasena;
-        private bool estadoUsuario;
-        private int intentosUsuario;
-        private bool contrasenaTemporal;
+        private string username;
+        private string password;
+        private bool userStatus;
+        private int userAttempts;
+        private bool temporaryPassword;
 
         // Atributos de tbPersonas
-        private int idPersona;
-        private string nombrePersona;
-        private string apellidoPersona;
-        private string correoPersona;
-        private string telefonoPersona;
+        private int personId;
+        private string personName;
+        private string personLastName;
+        private string email;
+        private string phoneNumber;
 
-        // Getter y Setter de cada atributo
-        public int IdRol { get => idRol; set => idRol = value; }
-        public string NombreRol { get => nombreRol; set => nombreRol = value; }
-        public string Usuario { get => usuario; set => usuario = value; }
-        public string Contrasena { get => contrasena; set => contrasena = value; }
-        public bool EstadoUsuario { get => estadoUsuario; set => estadoUsuario = value; }
-        public int IntentosUsuario { get => intentosUsuario; set => intentosUsuario = value; }
-        public bool ContrasenaTemporal { get => contrasenaTemporal; set => contrasenaTemporal = value; }
-        public int IdPersona { get => idPersona; set => idPersona = value; }
-        public string NombrePersona { get => nombrePersona; set => nombrePersona = value; }
-        public string ApellidoPersona { get => apellidoPersona; set => apellidoPersona = value; }
-        public string CorreoPersona { get => correoPersona; set => correoPersona = value; }
-        public string TelefonoPersona { get => telefonoPersona; set => telefonoPersona = value; }
+        public int RoleId { get => roleId; set => roleId = value; }
+        public string RoleName { get => roleName; set => roleName = value; }
+        public string Username { get => username; set => username = value; }
+        public string Password { get => password; set => password = value; }
+        public bool UserStatus { get => userStatus; set => userStatus = value; }
+        public int UserAttempts { get => userAttempts; set => userAttempts = value; }
+        public bool TemporaryPassword { get => temporaryPassword; set => temporaryPassword = value; }
+        public int PersonId { get => personId; set => personId = value; }
+        public string PersonName { get => personName; set => personName = value; }
+        public string PersonLastName { get => personLastName; set => personLastName = value; }
+        public string Email { get => email; set => email = value; }
+        public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
     }
 }

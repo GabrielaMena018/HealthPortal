@@ -120,8 +120,8 @@ namespace HealthPortal.Controller.UserAdministration
             {
                 int position = objUserAdministration.dgvUserDisplay.CurrentRow.Index;
                 DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
-                daoUserAdministration.Usuario = objUserAdministration.dgvUserDisplay[5, position].Value.ToString();
-                daoUserAdministration.IdPersona = int.Parse(objUserAdministration.dgvUserDisplay[0, position].Value.ToString());
+                daoUserAdministration.Username = objUserAdministration.dgvUserDisplay[5, position].Value.ToString();
+                daoUserAdministration.PersonId = int.Parse(objUserAdministration.dgvUserDisplay[0, position].Value.ToString());
                 if (daoUserAdministration.DeleteUser() == 2)
                 {
                     MessageBox.Show("Usuario eliminado.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -135,11 +135,15 @@ namespace HealthPortal.Controller.UserAdministration
         }
         public void ChangeUserPassword(object sender, EventArgs e)
         {
+            CommonMethods commonMethods = new CommonMethods();
             DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
             int position = objUserAdministration.dgvUserDisplay.CurrentRow.Index;
-            string username = objUserAdministration.dgvUserDisplay[5, position].Value.ToString();
-            FrmPasswordChange objPasswordChange = new FrmPasswordChange(2, username);
-            objPasswordChange.Show();
+            daoUserAdministration.Username = objUserAdministration.dgvUserDisplay[5, position].Value.ToString();
+            string email = objUserAdministration.dgvUserDisplay[3, position].Value.ToString();
+            string temporaryPassword = commonMethods.GenerateRandomPassword();
+            daoUserAdministration.Password = commonMethods.ComputeSha256Hash(temporaryPassword);
+            commonMethods.SendRecoveryEmail(temporaryPassword, email);
+            daoUserAdministration.ReestablishUserPassword();
         }
     }
 }
