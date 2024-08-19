@@ -32,13 +32,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnHidePassword = new System.Windows.Forms.Button();
             this.btnShowPassword = new System.Windows.Forms.Button();
+            this.txtConfirmPassword = new CustomPanel.BorderRadiusTXT();
+            this.txtPassword = new CustomPanel.BorderRadiusTXT();
+            this.txtUsername = new CustomPanel.BorderRadiusTXT();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRegisterFirstUser = new CustomPanel.RJButton();
-            this.txtConfirmPassword = new CustomPanel.BorderRadiusTXT();
-            this.txtPassword = new CustomPanel.BorderRadiusTXT();
-            this.txtUsername = new CustomPanel.BorderRadiusTXT();
             this.txtPhoneNumber = new CustomPanel.BorderRadiusTXT();
             this.txtEmail = new CustomPanel.BorderRadiusTXT();
             this.txtLastName = new CustomPanel.BorderRadiusTXT();
@@ -87,63 +87,6 @@
             this.btnShowPassword.Size = new System.Drawing.Size(24, 24);
             this.btnShowPassword.TabIndex = 24;
             this.btnShowPassword.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label2.Location = new System.Drawing.Point(18, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(606, 16);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "¡Bienvendi@ a HealthPortal! Ahora, vamos a crear al primer usuario, que será admi" +
-    "nistrador por defecto";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label1.Location = new System.Drawing.Point(14, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(427, 37);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Creación de Primer Usuario";
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackgroundImage = global::HealthPortal.Properties.Resources.quit;
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(624, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(32, 32);
-            this.btnExit.TabIndex = 26;
-            this.btnExit.UseVisualStyleBackColor = true;
-            // 
-            // btnRegisterFirstUser
-            // 
-            this.btnRegisterFirstUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnRegisterFirstUser.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnRegisterFirstUser.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.btnRegisterFirstUser.BorderRadius = 30;
-            this.btnRegisterFirstUser.BorderSize = 0;
-            this.btnRegisterFirstUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegisterFirstUser.FlatAppearance.BorderSize = 0;
-            this.btnRegisterFirstUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegisterFirstUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisterFirstUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnRegisterFirstUser.Location = new System.Drawing.Point(21, 330);
-            this.btnRegisterFirstUser.Margin = new System.Windows.Forms.Padding(176, 3, 176, 20);
-            this.btnRegisterFirstUser.Name = "btnRegisterFirstUser";
-            this.btnRegisterFirstUser.Size = new System.Drawing.Size(620, 40);
-            this.btnRegisterFirstUser.TabIndex = 23;
-            this.btnRegisterFirstUser.Text = "Registrar Primer Usuario";
-            this.btnRegisterFirstUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnRegisterFirstUser.UseVisualStyleBackColor = false;
             // 
             // txtConfirmPassword
             // 
@@ -210,6 +153,64 @@
             this.txtUsername.TabIndex = 14;
             this.txtUsername.Texts = "Usuario";
             this.txtUsername.UnderlinedStyle = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            this.label2.Location = new System.Drawing.Point(18, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(606, 16);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "¡Bienvendi@ a HealthPortal! Ahora, vamos a crear al primer usuario, que será admi" +
+    "nistrador por defecto";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            this.label1.Location = new System.Drawing.Point(14, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(427, 37);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Creación de Primer Usuario";
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackgroundImage = global::HealthPortal.Properties.Resources.quit;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(624, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(32, 32);
+            this.btnExit.TabIndex = 26;
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
+            // btnRegisterFirstUser
+            // 
+            this.btnRegisterFirstUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnRegisterFirstUser.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnRegisterFirstUser.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnRegisterFirstUser.BorderRadius = 30;
+            this.btnRegisterFirstUser.BorderSize = 0;
+            this.btnRegisterFirstUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegisterFirstUser.FlatAppearance.BorderSize = 0;
+            this.btnRegisterFirstUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegisterFirstUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterFirstUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnRegisterFirstUser.Location = new System.Drawing.Point(21, 330);
+            this.btnRegisterFirstUser.Margin = new System.Windows.Forms.Padding(176, 3, 176, 20);
+            this.btnRegisterFirstUser.Name = "btnRegisterFirstUser";
+            this.btnRegisterFirstUser.Size = new System.Drawing.Size(620, 40);
+            this.btnRegisterFirstUser.TabIndex = 23;
+            this.btnRegisterFirstUser.Text = "Registrar Primer Usuario";
+            this.btnRegisterFirstUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnRegisterFirstUser.UseVisualStyleBackColor = false;
             // 
             // txtPhoneNumber
             // 

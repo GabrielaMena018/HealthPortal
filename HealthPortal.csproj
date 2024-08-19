@@ -183,6 +183,9 @@
     <EmbeddedResource Include="View\FirstUsage\FrmFirstUserCreation.resx">
       <DependentUpon>FrmFirstUserCreation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\InventoryAdministration\FrmAddUpdateMedicine.resx">
+      <DependentUpon>FrmAddUpdateMedicine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\SectionAdministration\FrmAddUpdateSection.resx">
       <DependentUpon>FrmAddUpdateSection.cs</DependentUpon>
     </EmbeddedResource>

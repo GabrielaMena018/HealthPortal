@@ -12,11 +12,13 @@ namespace HealthPortal.Model.DTO
         private int idMedicamento;
         private string nombreMedicamento;
         private int existencia;
+        private int envases;
         private DateTime fechaVencimiento;
         private DateTime ingreso;
         private string salida;
         private string descripcion;
         private int idCategoria;
+        private int idCategoriaInventario;
         private int idEntradaSalida;
 
         public string NombreMedicamento { get => nombreMedicamento; set => nombreMedicamento = value; }
@@ -26,8 +28,10 @@ namespace HealthPortal.Model.DTO
         public string Salida { get => salida; set => salida = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public int IdCategoria { get => idCategoria; set => idCategoria = value; }
+        public int IdCategoriaInventario { get => idCategoriaInventario; set => idCategoriaInventario = value; }
         public int IdMedicamento { get => idMedicamento; set => idMedicamento = value; }
         public int CantidadMedicamento { get => cantidadMedicamento; set => cantidadMedicamento = value; }
         public int IdEntradaSalida { get => idEntradaSalida; set => idEntradaSalida = value; }
+        public int Envases { get => envases; set => envases = value; }
     }
 }

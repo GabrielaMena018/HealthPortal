@@ -14,19 +14,13 @@ namespace HealthPortal.Model.DAO
     internal class DAOInventoryAdministration : DTOInventoryAdministration
     {
         readonly SqlCommand command = new SqlCommand();
-        //public int GetInfoCombo()
-        //{
-        //    FillCombo();
-        //    return 1;
-        //}
-
         public DataSet FillCombo()
         {
             try
             {
                 //Se crea una conexion para garantizar que haya conexion con la base
                 command.Connection = getConnection();
-                string query = "SELECT * FROM [Medicamentos].[tbCategoriaMedicamento]";
+                string query = "SELECT * FROM [Inventario].[tbCategoriaMedicamento]";
                 SqlCommand cmdInventory = new SqlCommand(query, command.Connection);
                 cmdInventory.ExecuteNonQuery();
                 SqlDataAdapter adpInventory = new SqlDataAdapter(cmdInventory);
@@ -61,16 +55,18 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "EXEC [ProcedimientosAlmacenados].[spIngresarMedicamento] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8";
+                string query = "EXEC [ProcedimientosAlmacenados].[spIngresarMedicamento] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("param1", NombreMedicamento);
                 cmd.Parameters.AddWithValue("param2", Descripcion);
                 cmd.Parameters.AddWithValue("param3", IdCategoria);
-                cmd.Parameters.AddWithValue("param4", FechaVencimiento);
-                cmd.Parameters.AddWithValue("param5", Ingreso);
-                cmd.Parameters.AddWithValue("param6", Salida);
-                cmd.Parameters.AddWithValue("param7", IdMedicamento);
-                cmd.Parameters.AddWithValue("param8", Existencia);
+                cmd.Parameters.AddWithValue("param4", 1);
+                cmd.Parameters.AddWithValue("param5", FechaVencimiento);
+                cmd.Parameters.AddWithValue("param6", Ingreso);
+                cmd.Parameters.AddWithValue("param7", Salida);
+                cmd.Parameters.AddWithValue("param8", IdMedicamento);
+                cmd.Parameters.AddWithValue("param9", Envases);
+                cmd.Parameters.AddWithValue("param10", Existencia);
                 int returnedValue = cmd.ExecuteNonQuery();
                 return returnedValue;
             }
@@ -100,12 +96,12 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT * FROM [Vistas].[viewMedicamento]";
+                string query = "SELECT * FROM [Vistas].[viewInventario]";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "viewMedicamento");
+                adp.Fill(ds, "viewInventario");
                 return ds;
             }
             catch (SqlException ex)
@@ -142,7 +138,8 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("param4", IdMedicamento);
                 cmd.Parameters.AddWithValue("param5", Ingreso);
                 cmd.Parameters.AddWithValue("param6", Salida);
-                cmd.Parameters.AddWithValue("param7", Existencia);
+                cmd.Parameters.AddWithValue("param7", Envases);
+                cmd.Parameters.AddWithValue("param8", Existencia);
                 int returnedValue = cmd.ExecuteNonQuery();
                 return returnedValue;
             }
@@ -198,11 +195,11 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = $"SELECT * FROM [Vistas].[viewMedicamento] WHERE [Nombre del Medicamento] LIKE '%{search}%' OR [Categoría del Medicamento] LIKE '%{search}%'";
+                string query = $"SELECT * FROM [Vistas].[viewInventario] WHERE [Nombre del Medicamento] LIKE '%{search}%' OR [Categoría del Medicamento] LIKE '%{search}%'";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adp.Fill(ds, "viewMedicamento");
+                adp.Fill(ds, "viewInventario");
                 return ds;
             }
             catch (SqlException ex)

@@ -8,6 +8,7 @@ using System.Data;
 using HealthPortal.Model.DAO;
 using HealthPortal.View.InventoryAdministration;
 using System.Collections.Specialized;
+using System.Drawing;
 
 namespace HealthPortal.Controller.InventoryAdministration
 {
@@ -32,7 +33,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             CheckAction();
 
             //Metodos que se ejecutan al ocurrir eventos
-            objAddUpdateMedicine.btnAgregarInventario.Click += new EventHandler(RegisterNewMedicine);
+            objAddUpdateMedicine.btnAddInventory.Click += new EventHandler(RegisterNewMedicine);
         }
 
         /// <summary>
@@ -62,7 +63,20 @@ namespace HealthPortal.Controller.InventoryAdministration
 
             //Metodos que se ejecutan al ocurrir eventos
             objAddUpdateMedicine.btnUpdateInventory.Click += new EventHandler(UpdateInventory);
+            //objAddUpdateMedicine.btnAgregarImagen.Click += new EventHandler(AddImage);
         }
+
+        //private void AddImage(object sender, EventArgs e)
+        // {
+        //     FrmAddUpdateMedicine objImage = new FrmAddUpdateMedicine();
+        //     OpenFileDialog openImage = new OpenFileDialog();
+        //     openImage.Filter = "archivos de imagenes (*. png; *.jpg)| *.png ; *jpg";
+        //     if (openImage.ShowDialog() == DialogResult.OK)
+        //     {
+        //         objImage.PicImage.Image = Image.FromFile(openImage.FileName);
+        //         //objImage.PicImage.SizeMode = PictureBoxSizeMode.StretchImage;
+        //     }
+        // }
         public void InitialCharge(object sender, EventArgs e)
         {
             //Objeto de la clase DAOAdminInventory
@@ -71,13 +85,14 @@ namespace HealthPortal.Controller.InventoryAdministration
             //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombosInventario
             DataSet ds = daoInventoryAdministration.FillCombo();
             //Llenar comboBox de la tabla tbCategoriaMedicamento
-            objAddUpdateMedicine.cmbCategoria.DataSource = ds.Tables["tbCategoriaMedicamento"];
-            objAddUpdateMedicine.cmbCategoria.ValueMember = "idCategoriaMedicamento";
-            objAddUpdateMedicine.cmbCategoria.DisplayMember = "categoriaMedicamento";
+            objAddUpdateMedicine.cmbCategory.DataSource = ds.Tables["tbCategoriaMedicamento"];
+            objAddUpdateMedicine.cmbCategory.ValueMember = "idCategoriaMedicamento";
+            objAddUpdateMedicine.cmbCategory.DisplayMember = "categoriaMedicamento";
+            objAddUpdateMedicine.cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             //La condición sirve para que al actualizar un registro, el valor del registro aparezca seleccionado.
             if (action == 2)
             {
-                objAddUpdateMedicine.cmbCategoria.Text = medicineCategory;
+                objAddUpdateMedicine.cmbCategory.Text = medicineCategory;
             }
         }
 
@@ -85,55 +100,104 @@ namespace HealthPortal.Controller.InventoryAdministration
         {
             if (action == 1)
             {
-                objAddUpdateMedicine.btnAgregarInventario.Enabled = true;
+                objAddUpdateMedicine.btnAddInventory.Enabled = true;
                 objAddUpdateMedicine.btnUpdateInventory.Enabled = false;
             }
             else if (action == 2)
             {
-                objAddUpdateMedicine.btnAgregarInventario.Enabled = false;
+                objAddUpdateMedicine.lblTitle.Text = "Actualización de Inventario";
+                objAddUpdateMedicine.btnAddInventory.Enabled = false;
                 objAddUpdateMedicine.btnUpdateInventory.Enabled = true;
+                objAddUpdateMedicine.btnAddImage.Text = "Actualizar";
+                objAddUpdateMedicine.cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
+            else if (action == 3)
+            {
+                objAddUpdateMedicine.lblTitle.Text = "Ficha de Inventario";
+                objAddUpdateMedicine.btnAddInventory.Visible = false;
+                objAddUpdateMedicine.btnUpdateInventory.Visible = false;
+                objAddUpdateMedicine.txtID.Visible = false;
+                objAddUpdateMedicine.txtMedicineName.Enabled = false;
+                objAddUpdateMedicine.txtMedicineName.BackColor = Color.Silver;
+                objAddUpdateMedicine.txtDescription.Enabled = false;
+                objAddUpdateMedicine.txtDescription.BackColor = Color.Silver;
+                objAddUpdateMedicine.dtpExpirationDate.Enabled = false;
+                objAddUpdateMedicine.dtpExpirationDate.CalendarTitleBackColor = Color.Silver;
+                objAddUpdateMedicine.dtpEntryTime.Enabled = false;
+                objAddUpdateMedicine.dtpEntryTime.CalendarTitleBackColor = Color.Silver;
+                objAddUpdateMedicine.dtpEntryDate.Enabled = false;
+                objAddUpdateMedicine.dtpEntryDate.CalendarTitleBackColor = Color.Silver;
+                objAddUpdateMedicine.numStock.Enabled = false;
+                objAddUpdateMedicine.numStock.BackColor = Color.Silver;
+                objAddUpdateMedicine.btnAddImage.Visible = false;
+                objAddUpdateMedicine.cmbCategory.Enabled = false;
+                objAddUpdateMedicine.cmbCategory.BackColor = Color.Silver;
+
             }
         }
 
         public void RegisterNewMedicine(object sender, EventArgs e)
         {
+            DateTime fecha = DateTime.Today;
+            DateTime vencimiento = fecha.AddDays(31);
             DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
             //Datos para la creacion de un nuevo inventario
-            daoInventoryAdministration.NombreMedicamento = objAddUpdateMedicine.TxtNombreMedicamento.Texts.Trim();
-            daoInventoryAdministration.Descripcion = objAddUpdateMedicine.TxtDescripcion.Texts.Trim();
-            daoInventoryAdministration.IdCategoria = int.Parse(objAddUpdateMedicine.cmbCategoria.SelectedValue.ToString());
-            daoInventoryAdministration.FechaVencimiento = objAddUpdateMedicine.PickFechaVencimiento.Value.Date;
-            daoInventoryAdministration.Existencia = int.Parse(objAddUpdateMedicine.TxtCantidadExistencia.Texts.Trim());
-            daoInventoryAdministration.Ingreso = objAddUpdateMedicine.PickIngreso.Value.Date;
-            daoInventoryAdministration.Salida = objAddUpdateMedicine.PickHora.Value.ToString("HH:mm");
-            int returnedValue = daoInventoryAdministration.RegisterMedicine();
-            if (returnedValue == 2)
+            daoInventoryAdministration.NombreMedicamento = objAddUpdateMedicine.txtMedicineName.Texts.Trim();
+            if (objAddUpdateMedicine.txtMedicineName.Texts == "")
             {
-                MessageBox.Show("Los datos han sido registrados exitosamente",
-                                "Proceso completado",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese nombre del medicamento valido, ya que el medicamento se encuentra vacío", "Error al ingreso de medicamentos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Los datos no pudieron ser registrados",
-                                "Proceso interrumpido",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                daoInventoryAdministration.Descripcion = objAddUpdateMedicine.txtDescription.Texts.Trim();
+                daoInventoryAdministration.IdCategoria = int.Parse(objAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
+                daoInventoryAdministration.FechaVencimiento = objAddUpdateMedicine.dtpExpirationDate.Value.Date;
+                if (objAddUpdateMedicine.dtpExpirationDate.Value.Date <= vencimiento)
+                {
+                    MessageBox.Show("Ingrese una fecha de vencimiento valida, de 31 días despues de la fecha de el día de hoy", "Datos erroneos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    daoInventoryAdministration.Existencia = int.Parse(objAddUpdateMedicine.numStock.Text.Trim());
+                    daoInventoryAdministration.Envases = 1;
+                    if (int.Parse(objAddUpdateMedicine.numStock.Text) == 0)
+                    {
+                        MessageBox.Show("Ingrese una cantidad correcta de medicamentos", "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        daoInventoryAdministration.Ingreso = objAddUpdateMedicine.dtpEntryDate.Value.Date;
+                        daoInventoryAdministration.Salida = objAddUpdateMedicine.dtpEntryTime.Value.ToString("HH:mm");
+                        int returnedValue = daoInventoryAdministration.RegisterMedicine();
+                        if (returnedValue == 2)
+                        {
+                            MessageBox.Show("Los datos han sido registrados exitosamente",
+                                            "Proceso completado",
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Los datos no pudieron ser registrados",
+                                            "Proceso interrumpido",
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Error);
+                        }
+                    }
+                }
             }
         }
-
         public void UpdateInventory(object sender, EventArgs e)
         {
             DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
-            daoInventoryAdministration.IdMedicamento = int.Parse(objAddUpdateMedicine.TxTId.Text.Trim());
-            daoInventoryAdministration.NombreMedicamento = objAddUpdateMedicine.TxtNombreMedicamento.Texts.Trim();
-            daoInventoryAdministration.IdCategoria = int.Parse(objAddUpdateMedicine.cmbCategoria.SelectedValue.ToString());
-            daoInventoryAdministration.FechaVencimiento = objAddUpdateMedicine.PickFechaVencimiento.Value.Date;
-            daoInventoryAdministration.Existencia = int.Parse(objAddUpdateMedicine.TxtCantidadExistencia.Texts.Trim());
-            daoInventoryAdministration.Ingreso = objAddUpdateMedicine.PickIngreso.Value.Date;
-            daoInventoryAdministration.Salida = objAddUpdateMedicine.PickHora.Value.ToString("HH:mm");
-            daoInventoryAdministration.Descripcion = objAddUpdateMedicine.TxtDescripcion.Texts.Trim();
+            daoInventoryAdministration.IdMedicamento = int.Parse(objAddUpdateMedicine.txtID.Text.Trim());
+            daoInventoryAdministration.NombreMedicamento = objAddUpdateMedicine.txtMedicineName.Texts.Trim();
+            daoInventoryAdministration.IdCategoria = int.Parse(objAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
+            daoInventoryAdministration.FechaVencimiento = objAddUpdateMedicine.dtpExpirationDate.Value.Date;
+            daoInventoryAdministration.Existencia = int.Parse(objAddUpdateMedicine.numStock.Text.Trim());
+            daoInventoryAdministration.Ingreso = objAddUpdateMedicine.dtpEntryDate.Value.Date;
+            daoInventoryAdministration.Salida = objAddUpdateMedicine.dtpEntryTime.Value.ToString("HH:mm");
+            daoInventoryAdministration.Descripcion = objAddUpdateMedicine.txtDescription.Texts.Trim();
 
             int returnedValue = daoInventoryAdministration.UpdateInventory();
             if (returnedValue == 2)
@@ -162,14 +226,14 @@ namespace HealthPortal.Controller.InventoryAdministration
 
         public void ChargeValues(int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
         {
-            objAddUpdateMedicine.TxTId.Text = id.ToString();
-            objAddUpdateMedicine.TxtNombreMedicamento.Texts = medicineName;
-            objAddUpdateMedicine.cmbCategoria.Text = medicineCategory;
-            objAddUpdateMedicine.PickFechaVencimiento.Value = expirationDate;
-            objAddUpdateMedicine.TxtCantidadExistencia.Texts = stock;
-            objAddUpdateMedicine.PickIngreso.Value = entryDate;
-            objAddUpdateMedicine.PickHora.Value = exit;
-            objAddUpdateMedicine.TxtDescripcion.Texts = description;
+            objAddUpdateMedicine.txtID.Text = id.ToString();
+            objAddUpdateMedicine.txtMedicineName.Texts = medicineName;
+            objAddUpdateMedicine.cmbCategory.Text = medicineCategory;
+            objAddUpdateMedicine.dtpExpirationDate.Value = expirationDate;
+            objAddUpdateMedicine.numStock.Text = stock;
+            objAddUpdateMedicine.dtpEntryDate.Value = entryDate;
+            objAddUpdateMedicine.dtpEntryTime.Value = exit;
+            objAddUpdateMedicine.txtDescription.Texts = description;
 
         }
     }

@@ -28,55 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddUpdateMedicine));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.PickFechaVencimiento = new System.Windows.Forms.DateTimePicker();
+            this.dtpExpirationDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.PicImagenMedicamento = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.TxTId = new System.Windows.Forms.MenuStrip();
-            this.PickHora = new System.Windows.Forms.DateTimePicker();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.txtID = new System.Windows.Forms.MenuStrip();
+            this.dtpEntryTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpEntryDate = new System.Windows.Forms.DateTimePicker();
+            this.numStock = new System.Windows.Forms.NumericUpDown();
+            this.picImage = new System.Windows.Forms.PictureBox();
             this.btnUpdateInventory = new CustomPanel.RJButton();
-            this.btnAgregarImagen = new CustomPanel.RJButton();
-            this.btnAgregarInventario = new CustomPanel.RJButton();
-            this.TxtDescripcion = new CustomPanel.BorderRadiusTXT();
-            this.TxtCantidadExistencia = new CustomPanel.BorderRadiusTXT();
-            this.TxtNombreMedicamento = new CustomPanel.BorderRadiusTXT();
-            this.PickIngreso = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicImagenMedicamento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnAddImage = new CustomPanel.RJButton();
+            this.btnAddInventory = new CustomPanel.RJButton();
+            this.txtDescription = new CustomPanel.BorderRadiusTXT();
+            this.txtMedicineName = new CustomPanel.BorderRadiusTXT();
+            ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label1.Location = new System.Drawing.Point(14, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(479, 61);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Ingreso de Inventario";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            this.lblTitle.Location = new System.Drawing.Point(9, 16);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(320, 41);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Ingreso de Inventario";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label12.Location = new System.Drawing.Point(371, 433);
+            this.label12.Location = new System.Drawing.Point(247, 281);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(249, 32);
+            this.label12.Size = new System.Drawing.Size(160, 21);
             this.label12.TabIndex = 28;
             this.label12.Text = "Fecha de vencimineto";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -86,11 +82,12 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(651, 321);
+            this.label3.Location = new System.Drawing.Point(434, 209);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(253, 32);
+            this.label3.Size = new System.Drawing.Size(152, 21);
             this.label3.TabIndex = 25;
-            this.label3.Text = "Cantidad en Existencia";
+            this.label3.Text = "Capsulas por envase";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -98,32 +95,34 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(376, 104);
+            this.label2.Location = new System.Drawing.Point(251, 68);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(297, 32);
+            this.label2.Size = new System.Drawing.Size(192, 21);
             this.label2.TabIndex = 24;
             this.label2.Text = "Nombre del Medicamento";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PickFechaVencimiento
+            // dtpExpirationDate
             // 
-            this.PickFechaVencimiento.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PickFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.PickFechaVencimiento.Location = new System.Drawing.Point(382, 469);
-            this.PickFechaVencimiento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PickFechaVencimiento.Name = "PickFechaVencimiento";
-            this.PickFechaVencimiento.Size = new System.Drawing.Size(206, 35);
-            this.PickFechaVencimiento.TabIndex = 30;
-            this.PickFechaVencimiento.Value = new System.DateTime(2024, 6, 24, 12, 39, 57, 0);
+            this.dtpExpirationDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpExpirationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpExpirationDate.Location = new System.Drawing.Point(255, 305);
+            this.dtpExpirationDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dtpExpirationDate.Name = "dtpExpirationDate";
+            this.dtpExpirationDate.Size = new System.Drawing.Size(139, 26);
+            this.dtpExpirationDate.TabIndex = 30;
+            this.dtpExpirationDate.Value = new System.DateTime(2024, 6, 24, 12, 39, 57, 0);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(651, 433);
+            this.label4.Location = new System.Drawing.Point(434, 281);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(185, 32);
+            this.label4.Size = new System.Drawing.Size(121, 21);
             this.label4.TabIndex = 31;
             this.label4.Text = "Hora de Ingreso";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,9 +132,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(376, 322);
+            this.label5.Location = new System.Drawing.Point(251, 209);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(196, 32);
+            this.label5.Size = new System.Drawing.Size(127, 21);
             this.label5.TabIndex = 32;
             this.label5.Text = "Fecha de ingreso";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,9 +145,10 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(26, 533);
+            this.label6.Location = new System.Drawing.Point(17, 346);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 32);
+            this.label6.Size = new System.Drawing.Size(91, 21);
             this.label6.TabIndex = 35;
             this.label6.Text = "Descripción";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -157,40 +158,73 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(376, 222);
+            this.label7.Location = new System.Drawing.Point(251, 144);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(311, 32);
+            this.label7.Size = new System.Drawing.Size(201, 21);
             this.label7.TabIndex = 41;
-            this.label7.Text = "Categoria del Medicamento";
+            this.label7.Text = "Categoría del Medicamento";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cmbCategoria
+            // cmbCategory
             // 
-            this.cmbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(374, 257);
-            this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(507, 37);
-            this.cmbCategoria.TabIndex = 42;
+            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(249, 167);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(339, 28);
+            this.cmbCategory.TabIndex = 42;
             // 
-            // TxTId
+            // txtID
             // 
-            this.TxTId.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.TxTId.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.TxTId.Location = new System.Drawing.Point(0, 0);
-            this.TxTId.Name = "TxTId";
-            this.TxTId.Size = new System.Drawing.Size(904, 36);
-            this.TxTId.TabIndex = 45;
-            this.TxTId.Text = "menuStrip1";
+            this.txtID.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.txtID.Location = new System.Drawing.Point(0, 0);
+            this.txtID.Name = "txtID";
+            this.txtID.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.txtID.Size = new System.Drawing.Size(603, 24);
+            this.txtID.TabIndex = 45;
+            this.txtID.Text = "menuStrip1";
             // 
-            // PickHora
+            // dtpEntryTime
             // 
-            this.PickHora.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PickHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.PickHora.Location = new System.Drawing.Point(657, 470);
-            this.PickHora.Name = "PickHora";
-            this.PickHora.Size = new System.Drawing.Size(205, 34);
-            this.PickHora.TabIndex = 47;
+            this.dtpEntryTime.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEntryTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpEntryTime.Location = new System.Drawing.Point(438, 306);
+            this.dtpEntryTime.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpEntryTime.Name = "dtpEntryTime";
+            this.dtpEntryTime.Size = new System.Drawing.Size(138, 25);
+            this.dtpEntryTime.TabIndex = 47;
+            // 
+            // dtpEntryDate
+            // 
+            this.dtpEntryDate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEntryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEntryDate.Location = new System.Drawing.Point(255, 232);
+            this.dtpEntryDate.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpEntryDate.Name = "dtpEntryDate";
+            this.dtpEntryDate.Size = new System.Drawing.Size(145, 25);
+            this.dtpEntryDate.TabIndex = 46;
+            // 
+            // numStock
+            // 
+            this.numStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numStock.Location = new System.Drawing.Point(447, 232);
+            this.numStock.Margin = new System.Windows.Forms.Padding(2);
+            this.numStock.Name = "numStock";
+            this.numStock.Size = new System.Drawing.Size(128, 26);
+            this.numStock.TabIndex = 52;
+            // 
+            // picImage
+            // 
+            this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picImage.Location = new System.Drawing.Point(21, 68);
+            this.picImage.Margin = new System.Windows.Forms.Padding(2);
+            this.picImage.Name = "picImage";
+            this.picImage.Size = new System.Drawing.Size(210, 226);
+            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImage.TabIndex = 53;
+            this.picImage.TabStop = false;
             // 
             // btnUpdateInventory
             // 
@@ -203,198 +237,160 @@
             this.btnUpdateInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateInventory.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateInventory.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdateInventory.Location = new System.Drawing.Point(522, 847);
-            this.btnUpdateInventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUpdateInventory.Location = new System.Drawing.Point(348, 551);
+            this.btnUpdateInventory.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUpdateInventory.Name = "btnUpdateInventory";
-            this.btnUpdateInventory.Size = new System.Drawing.Size(165, 49);
+            this.btnUpdateInventory.Size = new System.Drawing.Size(110, 32);
             this.btnUpdateInventory.TabIndex = 43;
             this.btnUpdateInventory.Text = "Actualizar";
             this.btnUpdateInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateInventory.TextColor = System.Drawing.Color.Black;
             this.btnUpdateInventory.UseVisualStyleBackColor = false;
             // 
-            // btnAgregarImagen
+            // btnAddImage
             // 
-            this.btnAgregarImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarImagen.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarImagen.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarImagen.BorderRadius = 40;
-            this.btnAgregarImagen.BorderSize = 0;
-            this.btnAgregarImagen.FlatAppearance.BorderSize = 0;
-            this.btnAgregarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarImagen.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarImagen.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarImagen.Location = new System.Drawing.Point(32, 457);
-            this.btnAgregarImagen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAgregarImagen.Name = "btnAgregarImagen";
-            this.btnAgregarImagen.Size = new System.Drawing.Size(153, 47);
-            this.btnAgregarImagen.TabIndex = 38;
-            this.btnAgregarImagen.Text = "Agregar";
-            this.btnAgregarImagen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarImagen.TextColor = System.Drawing.Color.Black;
-            this.btnAgregarImagen.UseVisualStyleBackColor = false;
+            this.btnAddImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnAddImage.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnAddImage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnAddImage.BorderRadius = 40;
+            this.btnAddImage.BorderSize = 0;
+            this.btnAddImage.FlatAppearance.BorderSize = 0;
+            this.btnAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddImage.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddImage.ForeColor = System.Drawing.Color.Black;
+            this.btnAddImage.Location = new System.Drawing.Point(21, 297);
+            this.btnAddImage.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnAddImage.Name = "btnAddImage";
+            this.btnAddImage.Size = new System.Drawing.Size(102, 31);
+            this.btnAddImage.TabIndex = 38;
+            this.btnAddImage.Text = "Agregar";
+            this.btnAddImage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddImage.TextColor = System.Drawing.Color.Black;
+            this.btnAddImage.UseVisualStyleBackColor = false;
             // 
-            // btnAgregarInventario
+            // btnAddInventory
             // 
-            this.btnAgregarInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnAgregarInventario.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnAgregarInventario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnAgregarInventario.BorderRadius = 40;
-            this.btnAgregarInventario.BorderSize = 0;
-            this.btnAgregarInventario.FlatAppearance.BorderSize = 0;
-            this.btnAgregarInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarInventario.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarInventario.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarInventario.Location = new System.Drawing.Point(721, 840);
-            this.btnAgregarInventario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAgregarInventario.Name = "btnAgregarInventario";
-            this.btnAgregarInventario.Size = new System.Drawing.Size(141, 49);
-            this.btnAgregarInventario.TabIndex = 37;
-            this.btnAgregarInventario.Text = "Agregar";
-            this.btnAgregarInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarInventario.TextColor = System.Drawing.Color.Black;
-            this.btnAgregarInventario.UseVisualStyleBackColor = false;
+            this.btnAddInventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddInventory.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddInventory.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddInventory.BorderRadius = 40;
+            this.btnAddInventory.BorderSize = 0;
+            this.btnAddInventory.FlatAppearance.BorderSize = 0;
+            this.btnAddInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddInventory.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddInventory.ForeColor = System.Drawing.Color.Black;
+            this.btnAddInventory.Location = new System.Drawing.Point(481, 546);
+            this.btnAddInventory.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnAddInventory.Name = "btnAddInventory";
+            this.btnAddInventory.Size = new System.Drawing.Size(94, 32);
+            this.btnAddInventory.TabIndex = 37;
+            this.btnAddInventory.Text = "Agregar";
+            this.btnAddInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddInventory.TextColor = System.Drawing.Color.Black;
+            this.btnAddInventory.UseVisualStyleBackColor = false;
             // 
-            // TxtDescripcion
+            // txtDescription
             // 
-            this.TxtDescripcion.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtDescripcion.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtDescripcion.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtDescripcion.BorderRadius = 20;
-            this.TxtDescripcion.BorderSize = 1;
-            this.TxtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtDescripcion.Location = new System.Drawing.Point(25, 569);
-            this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtDescripcion.Multiline = true;
-            this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Padding = new System.Windows.Forms.Padding(11, 9, 11, 9);
-            this.TxtDescripcion.PasswordChar = false;
-            this.TxtDescripcion.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtDescripcion.PlaceholderText = "";
-            this.TxtDescripcion.Size = new System.Drawing.Size(856, 248);
-            this.TxtDescripcion.TabIndex = 36;
-            this.TxtDescripcion.Texts = "";
-            this.TxtDescripcion.UnderlinedStyle = false;
+            this.txtDescription.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDescription.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtDescription.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtDescription.BorderRadius = 20;
+            this.txtDescription.BorderSize = 1;
+            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtDescription.Location = new System.Drawing.Point(17, 370);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtDescription.PasswordChar = false;
+            this.txtDescription.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtDescription.PlaceholderText = "";
+            this.txtDescription.Size = new System.Drawing.Size(571, 161);
+            this.txtDescription.TabIndex = 36;
+            this.txtDescription.Texts = "";
+            this.txtDescription.UnderlinedStyle = false;
             // 
-            // TxtCantidadExistencia
+            // txtMedicineName
             // 
-            this.TxtCantidadExistencia.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCantidadExistencia.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtCantidadExistencia.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtCantidadExistencia.BorderRadius = 20;
-            this.TxtCantidadExistencia.BorderSize = 1;
-            this.TxtCantidadExistencia.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtCantidadExistencia.Location = new System.Drawing.Point(657, 357);
-            this.TxtCantidadExistencia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtCantidadExistencia.Multiline = false;
-            this.TxtCantidadExistencia.Name = "TxtCantidadExistencia";
-            this.TxtCantidadExistencia.Padding = new System.Windows.Forms.Padding(11, 9, 11, 9);
-            this.TxtCantidadExistencia.PasswordChar = false;
-            this.TxtCantidadExistencia.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtCantidadExistencia.PlaceholderText = "";
-            this.TxtCantidadExistencia.Size = new System.Drawing.Size(205, 47);
-            this.TxtCantidadExistencia.TabIndex = 29;
-            this.TxtCantidadExistencia.Texts = "";
-            this.TxtCantidadExistencia.UnderlinedStyle = false;
+            this.txtMedicineName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMedicineName.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtMedicineName.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtMedicineName.BorderRadius = 20;
+            this.txtMedicineName.BorderSize = 1;
+            this.txtMedicineName.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtMedicineName.Location = new System.Drawing.Point(250, 99);
+            this.txtMedicineName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtMedicineName.Multiline = false;
+            this.txtMedicineName.Name = "txtMedicineName";
+            this.txtMedicineName.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtMedicineName.PasswordChar = false;
+            this.txtMedicineName.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtMedicineName.PlaceholderText = "";
+            this.txtMedicineName.Size = new System.Drawing.Size(343, 32);
+            this.txtMedicineName.TabIndex = 26;
+            this.txtMedicineName.Texts = "";
+            this.txtMedicineName.UnderlinedStyle = false;
             // 
-            // TxtNombreMedicamento
+            // FrmAddUpdateMedicine
             // 
-            this.TxtNombreMedicamento.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtNombreMedicamento.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtNombreMedicamento.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtNombreMedicamento.BorderRadius = 20;
-            this.TxtNombreMedicamento.BorderSize = 1;
-            this.TxtNombreMedicamento.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtNombreMedicamento.Location = new System.Drawing.Point(375, 153);
-            this.TxtNombreMedicamento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtNombreMedicamento.Multiline = false;
-            this.TxtNombreMedicamento.Name = "TxtNombreMedicamento";
-            this.TxtNombreMedicamento.Padding = new System.Windows.Forms.Padding(11, 9, 11, 9);
-            this.TxtNombreMedicamento.PasswordChar = false;
-            this.TxtNombreMedicamento.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtNombreMedicamento.PlaceholderText = "";
-            this.TxtNombreMedicamento.Size = new System.Drawing.Size(514, 47);
-            this.TxtNombreMedicamento.TabIndex = 26;
-            this.TxtNombreMedicamento.Texts = "";
-            this.TxtNombreMedicamento.UnderlinedStyle = false;
-            // 
-            // PickIngreso
-            // 
-            this.PickIngreso.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PickIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.PickIngreso.Location = new System.Drawing.Point(382, 357);
-            this.PickIngreso.Name = "PickIngreso";
-            this.PickIngreso.Size = new System.Drawing.Size(216, 34);
-            this.PickIngreso.TabIndex = 46;
-            // 
-            // FrmAddInventory
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(904, 922);
-            this.Controls.Add(this.PickHora);
-            this.Controls.Add(this.PickIngreso);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(603, 599);
+            this.Controls.Add(this.picImage);
+            this.Controls.Add(this.numStock);
+            this.Controls.Add(this.dtpEntryTime);
+            this.Controls.Add(this.dtpEntryDate);
             this.Controls.Add(this.btnUpdateInventory);
-            this.Controls.Add(this.cmbCategoria);
+            this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.btnAgregarImagen);
-            this.Controls.Add(this.btnAgregarInventario);
-            this.Controls.Add(this.TxtDescripcion);
+            this.Controls.Add(this.btnAddImage);
+            this.Controls.Add(this.btnAddInventory);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.PickFechaVencimiento);
-            this.Controls.Add(this.TxtCantidadExistencia);
+            this.Controls.Add(this.dtpExpirationDate);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.TxtNombreMedicamento);
+            this.Controls.Add(this.txtMedicineName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.PicImagenMedicamento);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.TxTId);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.txtID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.MainMenuStrip = this.TxTId;
+            this.MainMenuStrip = this.txtID;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmAddUpdateMedicine";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmAddUpdateMedicine";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicImagenMedicamento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox PicImagenMedicamento;
-        public CustomPanel.BorderRadiusTXT TxtCantidadExistencia;
         private System.Windows.Forms.Label label12;
-        public CustomPanel.BorderRadiusTXT TxtNombreMedicamento;
+        public CustomPanel.BorderRadiusTXT txtMedicineName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        public CustomPanel.BorderRadiusTXT TxtDescripcion;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        public CustomPanel.RJButton btnAgregarImagen;
+        public CustomPanel.BorderRadiusTXT txtDescription;
+        public CustomPanel.RJButton btnAddImage;
         private System.Windows.Forms.Label label7;
-        public CustomPanel.RJButton btnAgregarInventario;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public CustomPanel.RJButton btnAddInventory;
         public CustomPanel.RJButton btnUpdateInventory;
-        public System.Windows.Forms.DateTimePicker PickFechaVencimiento;
-        public System.Windows.Forms.ComboBox cmbCategoria;
-        public System.Windows.Forms.MenuStrip TxTId;
-        public System.Windows.Forms.DateTimePicker PickHora;
-        public System.Windows.Forms.DateTimePicker PickIngreso;
+        public System.Windows.Forms.DateTimePicker dtpExpirationDate;
+        public System.Windows.Forms.ComboBox cmbCategory;
+        public System.Windows.Forms.MenuStrip txtID;
+        public System.Windows.Forms.DateTimePicker dtpEntryTime;
+        public System.Windows.Forms.DateTimePicker dtpEntryDate;
+        public System.Windows.Forms.NumericUpDown numStock;
+        public System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.PictureBox picImage;
     }
 }
