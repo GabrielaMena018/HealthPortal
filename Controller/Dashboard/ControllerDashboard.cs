@@ -1,161 +1,239 @@
-﻿using RegistroPacientes.View.Dashboard;
+﻿using HealthPortal.Helper;
+using HealthPortal.View.Dashboard;
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroPacientes.View;
-using RegistroPacientes.View.UserAdministration;
-using RegistroPacientes.View.AcademycLevelAdministration;
+using HealthPortal.View.InventoryAdministration;
+using HealthPortal.View.PatientAdministration;
+using HealthPortal.View.SectionAdministration;
+using HealthPortal.View.UserAdministration;
+using HealthPortal.Properties;
+using HealthPortal.View.Login;
 
-namespace RegistroPacientes.Controller.Dashboard
+namespace HealthPortal.Controller.Dashboard
 {
-    public class ControllerDashboard
+    internal class ControllerDashboard
     {
-        FrmDashboard ObjDashboard;
+        FrmDashboard objDashboard;
         Form currentForm;
-        bool SiderBarExpand = true;
-        int ComputerHeight = Screen.PrimaryScreen.Bounds.Height;
-        int computerWidth = Screen.PrimaryScreen.Bounds.Width;
-      
-        public ControllerDashboard(FrmDashboard View)
+        Button currentButton;
+        CommonMethods commonMethods = new CommonMethods();
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
+        bool isSideBarExpanded = false;
+        const int collapsedWidth = 150;
+        const int expandedWidth = 280;
+        const int collapsedLogoX = 35;
+        const int expandedLogoX = 100;
+        const int logoY = 35;
+        public ControllerDashboard(FrmDashboard view)
         {
-            
-            ObjDashboard = View;
-            ObjDashboard.StpRegistroPacientes.Click += new EventHandler(AbrirFormularioAdminPacientes);
-            ObjDashboard.BtnPatience.Click += new EventHandler(AbrirFormularioAdminPacientes);
-            ObjDashboard.btnMenu.Click += new EventHandler(buttonExpandCollapse_Click);
-            ObjDashboard.BtnPicPaciente.Click += new EventHandler(AbrirFormularioAdminPacientes);
-            ObjDashboard.BtnAdminUser.Click += new EventHandler(AbrirFormularioUserAdministration);
-            ObjDashboard.BtnPicAdminUser.Click += new EventHandler(AbrirFormularioUserAdministration);
-            ObjDashboard.BtnPicAdminUser.Click += new EventHandler(AbrirFormularioUserAdministration);
-            ObjDashboard.BtnAdminGrados.Click += new EventHandler(AbrirFormularioAdminGrades);
-            ObjDashboard.BtnPicAdminGrades.Click += new EventHandler(AbrirFormularioAdminGrades);
-
-
-        }
-
-        private void AbrirFormularioAdminGrades(object sender, EventArgs e)
-        {
-            AbrirFormulario<FrmAdminGrades>();
-        }
-
-        public void AdminPatience(object sende, EventArgs e)
-        {
-            FrmAdminPatience openForm = new FrmAdminPatience();
-            openForm.ShowDialog();
-        }
-
-        private void AbrirFormularioAdminPacientes(object sender, EventArgs e)
-        {
-            AbrirFormulario<FrmAdminPatience>();
-        }
-
-        private void AbrirFormularioUserAdministration(object sender, EventArgs e)
-        {
-            AbrirFormulario<FrmUserAdministration>();
-        }
-
-        private void AbrirFormulario<MiForm>() where MiForm : Form, new()
-        {
-            //Se declara objeto de tipo Form llamada formulario
-            Form formulario;
-            //Se guarda en el panel contenedor del formulario principal todos los controles del formulario que desea abrir <MiForm> posteriormente se guarda todo en el objeto de tipo formulario
-            formulario = ObjDashboard.PanelContenedor.Controls.OfType<MiForm>().FirstOrDefault();
-            //Si el formulario no existe se procederá a crearlo de lo contrario solo se traerá al frente (ver clausula else)
-            if (formulario == null)
+            objDashboard = view;
+            objDashboard.Load += new EventHandler(InitialLoad);
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
             {
-                //Se define un nuevo formulario para guardarse como nuevo objeto MiForm
-                formulario = new MiForm();
-                //Se especifica que el formulario debe mostrarse como ventana
-                formulario.TopLevel = false;
-                //Se eliminan los bordes del formulario
-                formulario.FormBorderStyle = FormBorderStyle.None;
-                //Se establece que se abrira en todo el espacio del formulario padre
-                formulario.Dock = DockStyle.Fill;
-                //Se le asigna una opacidad de 0.75
-                formulario.Opacity = 0.75;
-                //Se evalua el formulario actual para verificar si es nulo
+                { "btnMenu", Tuple.Create(Resources.menu, Resources.hoverMenu)},
+                { "btnMainMenu", Tuple.Create(Resources.main, Resources.hoverMain) },
+                { "btnVisits", Tuple.Create(Resources.visits, Resources.hoverVisits) },
+                { "btnInventory", Tuple.Create(Resources.inventory, Resources.hoverInventory) },
+                { "btnStatistics", Tuple.Create(Resources.mdi_graph_line1, Resources.hoverStatistics) },
+                { "btnSections", Tuple.Create(Resources.bx_book1, Resources.hoverSections) },
+                { "btnUsers", Tuple.Create(Resources.users, Resources.hoverUsers) },
+                { "btnLogout", Tuple.Create(Resources.logout, Resources.hoverLogout) }
+            };
+
+            // Expandir / Colapsar la sidebar
+            objDashboard.btnMenu.Click += new EventHandler(MorphSideBar);
+
+            // Abrir Formularios
+            //objDashboard.btnMainMenu.Click += new EventHandler(OpenMainMenuForm);
+            objDashboard.btnVisits.Click += new EventHandler(OpenPatientAdministrationForm);
+            objDashboard.btnInventory.Click += new EventHandler(OpenInventoryAdministrationForm);
+            //objDashboard.btnStatistics.Click += new EventHandler(OpenStatisticsForm);
+            objDashboard.btnSections.Click += new EventHandler(OpenSectionAdministrationForm);
+            objDashboard.btnUsers.Click += new EventHandler(OpenUserAdministrationForm);
+
+            // Cambios de imagen por MouseEnter
+            objDashboard.btnMenu.MouseEnter += new EventHandler(MouseEnterControl);
+            objDashboard.btnMainMenu.MouseEnter += new EventHandler(MouseEnterControl);
+            objDashboard.btnVisits.MouseEnter += new EventHandler(MouseEnterControl);
+            objDashboard.btnInventory.MouseEnter += new EventHandler(MouseEnterControl);
+            objDashboard.btnStatistics.MouseEnter += new EventHandler(MouseEnterControl);
+            objDashboard.btnSections.MouseEnter += new EventHandler(MouseEnterControl);
+            objDashboard.btnUsers.MouseEnter += new EventHandler(MouseEnterControl);
+            objDashboard.btnLogout.MouseEnter += new EventHandler(MouseEnterControl);
+
+            // Cambios de imagen por MouseLeave
+            objDashboard.btnMenu.MouseLeave += new EventHandler(MouseLeaveControl);
+            objDashboard.btnMainMenu.MouseLeave += new EventHandler(MouseLeaveControl);
+            objDashboard.btnVisits.MouseLeave += new EventHandler(MouseLeaveControl);
+            objDashboard.btnInventory.MouseLeave += new EventHandler(MouseLeaveControl);
+            objDashboard.btnStatistics.MouseLeave += new EventHandler(MouseLeaveControl);
+            objDashboard.btnSections.MouseLeave += new EventHandler(MouseLeaveControl);
+            objDashboard.btnUsers.MouseLeave += new EventHandler(MouseLeaveControl);
+            objDashboard.btnLogout.MouseLeave += new EventHandler(MouseLeaveControl);
+
+            // Cerrar Sesión
+            objDashboard.btnLogout.Click += new EventHandler(Logout);
+        }
+        private void InitialLoad(object sender, EventArgs e)
+        {
+            CheckUserAccessRole();
+        }
+        private void MorphSideBar(object sender, EventArgs e)
+        {
+            objDashboard.pnlSideBar.Width = isSideBarExpanded ? collapsedWidth : expandedWidth;
+            objDashboard.btnMenu.Location = new Point(isSideBarExpanded ? collapsedLogoX : expandedLogoX, logoY);
+            objDashboard.pnlLogo.Width = objDashboard.pnlSideBar.Width;
+            objDashboard.flpTabs.Width = objDashboard.pnlSideBar.Width;
+            objDashboard.pnlMainMenu.Width = objDashboard.pnlSideBar.Width;
+            objDashboard.pnlVisits.Width = objDashboard.pnlSideBar.Width;
+            objDashboard.pnlInventory.Width = objDashboard.pnlSideBar.Width;
+            objDashboard.pnlStatistics.Width = objDashboard.pnlSideBar.Width;
+            objDashboard.pnlSections.Width = objDashboard.pnlSideBar.Width;
+            objDashboard.pnlUsers.Width = objDashboard.pnlSideBar.Width;
+            objDashboard.pnlLogout.Width = objDashboard.pnlSideBar.Width;
+            isSideBarExpanded = !isSideBarExpanded;
+        }
+        private void OpenPatientAdministrationForm(object sender, EventArgs e)
+        {
+            objDashboard.btnMainMenu.BackgroundImage = Resources.main;
+            objDashboard.btnVisits.BackgroundImage = Resources.hoverVisits;
+            objDashboard.btnInventory.BackgroundImage = Resources.inventory;
+            objDashboard.btnStatistics.BackgroundImage = Resources.mdi_graph_line1;
+            objDashboard.btnSections.BackgroundImage = Resources.bx_book1;
+            objDashboard.btnUsers.BackgroundImage = Resources.users;
+
+            objDashboard.pnlMainMenu.BackColor = Color.White;
+            objDashboard.pnlVisits.BackColor = Color.FromArgb(142, 202, 230);
+            objDashboard.pnlInventory.BackColor = Color.White;
+            objDashboard.pnlStatistics.BackColor = Color.White;
+            objDashboard.pnlSections.BackColor = Color.White;
+            objDashboard.pnlUsers.BackColor = Color.White;
+
+            OpenForm<FrmPatientAdministration>(objDashboard.btnVisits);
+        }
+        private void OpenInventoryAdministrationForm(object sender, EventArgs e)
+        {
+            objDashboard.btnMainMenu.BackgroundImage = Resources.main;
+            objDashboard.btnVisits.BackgroundImage = Resources.visits;
+            objDashboard.btnInventory.BackgroundImage = Resources.hoverInventory;
+            objDashboard.btnStatistics.BackgroundImage = Resources.mdi_graph_line1;
+            objDashboard.btnSections.BackgroundImage = Resources.bx_book1;
+            objDashboard.btnUsers.BackgroundImage = Resources.users;
+
+            objDashboard.pnlMainMenu.BackColor = Color.White;
+            objDashboard.pnlVisits.BackColor = Color.White;
+            objDashboard.pnlInventory.BackColor = Color.FromArgb(142, 202, 230);
+            objDashboard.pnlStatistics.BackColor = Color.White;
+            objDashboard.pnlSections.BackColor = Color.White;
+            objDashboard.pnlUsers.BackColor = Color.White;
+
+            OpenForm<FrmInventoryAdministration>(objDashboard.btnInventory);
+        }
+        private void OpenSectionAdministrationForm(object sender, EventArgs e)
+        {
+            objDashboard.btnMainMenu.BackgroundImage = Resources.main;
+            objDashboard.btnVisits.BackgroundImage = Resources.visits;
+            objDashboard.btnInventory.BackgroundImage = Resources.inventory;
+            objDashboard.btnStatistics.BackgroundImage = Resources.mdi_graph_line1;
+            objDashboard.btnSections.BackgroundImage = Resources.hoverSections;
+            objDashboard.btnUsers.BackgroundImage = Resources.users;
+
+            objDashboard.pnlMainMenu.BackColor = Color.White;
+            objDashboard.pnlVisits.BackColor = Color.White;
+            objDashboard.pnlInventory.BackColor = Color.White;
+            objDashboard.pnlStatistics.BackColor = Color.White;
+            objDashboard.pnlSections.BackColor = Color.FromArgb(142, 202, 230);
+            objDashboard.pnlUsers.BackColor = Color.White;
+
+            OpenForm<FrmSectionAdministration>(objDashboard.btnSections);
+        }
+        private void OpenUserAdministrationForm(object sender, EventArgs e)
+        {
+            objDashboard.btnMainMenu.BackgroundImage = Resources.main;
+            objDashboard.btnVisits.BackgroundImage = Resources.visits;
+            objDashboard.btnInventory.BackgroundImage = Resources.inventory;
+            objDashboard.btnStatistics.BackgroundImage = Resources.mdi_graph_line1;
+            objDashboard.btnSections.BackgroundImage = Resources.bx_book1;
+            objDashboard.btnUsers.BackgroundImage = Resources.hoverUsers;
+
+            objDashboard.pnlMainMenu.BackColor = Color.White;
+            objDashboard.pnlVisits.BackColor = Color.White;
+            objDashboard.pnlInventory.BackColor = Color.White;
+            objDashboard.pnlStatistics.BackColor = Color.White;
+            objDashboard.pnlSections.BackColor = Color.White;
+            objDashboard.pnlUsers.BackColor = Color.FromArgb(142, 202, 230);
+
+            OpenForm<FrmUserAdministration>(objDashboard.btnUsers);
+        }
+        private void MouseEnterControl(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.BackgroundImage = imageMapping[btn.Name].Item2;
+            }
+        }
+        private void MouseLeaveControl(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                if (btn != currentButton)
+                {
+                    btn.BackgroundImage = imageMapping[btn.Name].Item1;
+                }
+            }
+        }
+        private void Logout(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea cerrar sesión?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                commonMethods.DisposeOfCurrentUserData();
+                FrmLogin objLogin = new FrmLogin();
+                objLogin.Show();
+                objDashboard.Dispose();
+            }
+        }
+        private void OpenForm<NewForm>(Button associatedBtn) where NewForm : Form, new()
+        {
+            Form form;
+            form = objDashboard.pnlContainer.Controls.OfType<NewForm>().FirstOrDefault();
+            if (form == null)
+            {
+                form = new NewForm();
+                form.TopLevel = false;
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.Dock = DockStyle.Fill;
+                //form.Opacity = 0.75;
                 if (currentForm != null)
                 {
-                    //Se cierra el formulario actual para mostrar el nuevo formulario
                     currentForm.Close();
-                    //Se eliminan del panel contenedor todos los controles del formulario que se cerrará
-                    ObjDashboard.PanelContenedor.Controls.Remove(currentForm);
+                    objDashboard.pnlContainer.Controls.Remove(currentForm);
                 }
-                //Se establece como nuevo formulario actual el formulario que se está abriendo
-                currentForm = formulario;
-                //Se agregan los controles del nuevo formulario al panel contenedor
-                ObjDashboard.PanelContenedor.Controls.Add(formulario);
-                //Tag es una propiedad genérica disponible para la mayoría de los controles en aplicaciones .NET, incluyendo los paneles.
-                ObjDashboard.PanelContenedor.Tag = formulario;
-                //Se muestra el formulario en el panel contenedor
-                formulario.Show();
-                //Se trae al frente el formulario armado
-                formulario.BringToFront();
+                currentForm = form;
+                objDashboard.pnlContainer.Controls.Add(form);
+                objDashboard.pnlContainer.Tag = form;
+                form.Show();
+                form.BringToFront();
             }
             else
             {
-                formulario.BringToFront();
+                form.BringToFront();
             }
+            currentButton = associatedBtn;
         }
-        private void CerrarForm(object sender, EventArgs e)
+        private void CheckUserAccessRole()
         {
-            //Se cierra el formulario actual para mostrar el nuevo formulario
-            currentForm.Close();
-            //Se eliminan del panel contenedor todos los controles del formulario que se cerrará
-            ObjDashboard.PanelContenedor.Controls.Remove(currentForm);
-        }
-
-        private void buttonExpandCollapse_Click(object sender, EventArgs e)
-        {
-            ObjDashboard.sidebar.Width = (ObjDashboard.MaximumSize.Width + ComputerHeight);
-           
-
-            SiderBarExpand = !SiderBarExpand;
-            ObjDashboard.flowButtons.Width = ObjDashboard.sidebar.Width;
-
-            if (SiderBarExpand)
+            if (CurrentUserData.RoleId != 1)
             {
-                ObjDashboard.sidebar.Width = ObjDashboard.sidebar.MinimumSize.Width;
-                ObjDashboard.sidebarTimer.Stop();
-            }
-            else
-            {
-                ObjDashboard.sidebar.Width = ObjDashboard.sidebar.MaximumSize.Width;
-                ObjDashboard.sidebarTimer.Start();
+                objDashboard.btnSections.Visible = false;
+                objDashboard.btnUsers.Visible = false;
             }
         }
-
-        private void SliderTime_Tick(object sender, EventArgs e)
-        {
-            if (SiderBarExpand)
-            {
-                
-                if (ObjDashboard.sidebar.Width > ObjDashboard.sidebar.MinimumSize.Width)     
-                {
-                    ObjDashboard.sidebar.Width -= 10;
-                }
-                else 
-                {
-                   ObjDashboard.sidebarTimer.Stop ();
-                }
-            }
-            else
-            {
-                
-                if (ObjDashboard.sidebar.Width < ObjDashboard.sidebar.MaximumSize.Width)
-                {
-                    ObjDashboard.sidebar.Width += 10;
-                }
-                else
-                {
-                    ObjDashboard.sidebarTimer.Stop();
-                }
-            }
-        }
-
-     
-    }  
+    }
 }

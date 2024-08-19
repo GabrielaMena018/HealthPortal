@@ -1,4 +1,4 @@
-﻿namespace RegistroPacientes.View.UserAdministration
+﻿namespace HealthPortal.View.UserAdministration
 {
     partial class FrmUserAdministration
     {
@@ -34,6 +34,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsUpdateUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsDeleteUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsViewUser = new System.Windows.Forms.ToolStripMenuItem();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -49,9 +53,7 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.contextDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmsUpdateUser = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsDeleteUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsReestablishPassword = new System.Windows.Forms.ToolStripMenuItem();
             this.panelCustom1 = new CustomPanel.PanelCustom();
             this.panel11 = new System.Windows.Forms.Panel();
             this.dgvUserDisplay = new System.Windows.Forms.DataGridView();
@@ -66,13 +68,13 @@
             this.btnSearchForUser = new CustomPanel.RJButton();
             this.lblUserAdministrationSearch = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.cmsDataGrid.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.contextDataGrid.SuspendLayout();
             this.panelCustom1.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserDisplay)).BeginInit();
@@ -102,6 +104,34 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(989, 711);
             this.panel1.TabIndex = 8;
+            // 
+            // cmsDataGrid
+            // 
+            this.cmsDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsUpdateUser,
+            this.cmsDeleteUser,
+            this.cmsViewUser,
+            this.cmsReestablishPassword});
+            this.cmsDataGrid.Name = "contextDataGrid";
+            this.cmsDataGrid.Size = new System.Drawing.Size(204, 114);
+            // 
+            // cmsUpdateUser
+            // 
+            this.cmsUpdateUser.Name = "cmsUpdateUser";
+            this.cmsUpdateUser.Size = new System.Drawing.Size(203, 22);
+            this.cmsUpdateUser.Text = "Actualizar Usuario";
+            // 
+            // cmsDeleteUser
+            // 
+            this.cmsDeleteUser.Name = "cmsDeleteUser";
+            this.cmsDeleteUser.Size = new System.Drawing.Size(203, 22);
+            this.cmsDeleteUser.Text = "Eliminar Usuario";
+            // 
+            // cmsViewUser
+            // 
+            this.cmsViewUser.Name = "cmsViewUser";
+            this.cmsViewUser.Size = new System.Drawing.Size(203, 22);
+            this.cmsViewUser.Text = "Ver Usuario";
             // 
             // panel8
             // 
@@ -245,25 +275,11 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Administración de Usuarios";
             // 
-            // contextDataGrid
+            // cmsReestablishPassword
             // 
-            this.contextDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmsUpdateUser,
-            this.cmsDeleteUser});
-            this.contextDataGrid.Name = "contextDataGrid";
-            this.contextDataGrid.Size = new System.Drawing.Size(170, 48);
-            // 
-            // cmsUpdateUser
-            // 
-            this.cmsUpdateUser.Name = "cmsUpdateUser";
-            this.cmsUpdateUser.Size = new System.Drawing.Size(169, 22);
-            this.cmsUpdateUser.Text = "Actualizar Usuario";
-            // 
-            // cmsDeleteUser
-            // 
-            this.cmsDeleteUser.Name = "cmsDeleteUser";
-            this.cmsDeleteUser.Size = new System.Drawing.Size(169, 22);
-            this.cmsDeleteUser.Text = "Eliminar Usuario";
+            this.cmsReestablishPassword.Name = "cmsReestablishPassword";
+            this.cmsReestablishPassword.Size = new System.Drawing.Size(203, 22);
+            this.cmsReestablishPassword.Text = "Reestablecer Contraseña";
             // 
             // panelCustom1
             // 
@@ -304,6 +320,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUserDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUserDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserDisplay.ContextMenuStrip = this.cmsDataGrid;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -493,6 +510,7 @@
             this.Name = "FrmUserAdministration";
             this.Text = "FrmUserAdministration";
             this.panel1.ResumeLayout(false);
+            this.cmsDataGrid.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -500,7 +518,6 @@
             this.panel14.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            this.contextDataGrid.ResumeLayout(false);
             this.panelCustom1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserDisplay)).EndInit();
@@ -542,10 +559,12 @@
         private CustomPanel.PanelCustom panelCustom2;
         private System.Windows.Forms.Panel panel18;
         public CustomPanel.RJButton btnSearchForUser;
-        public System.Windows.Forms.ContextMenuStrip contextDataGrid;
+        public System.Windows.Forms.ContextMenuStrip cmsDataGrid;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdateUser;
         public System.Windows.Forms.ToolStripMenuItem cmsDeleteUser;
         public CustomPanel.BorderRadiusTXT txtUserAdministrationSearch;
         private System.Windows.Forms.Label lblUserAdministrationSearch;
+        public System.Windows.Forms.ToolStripMenuItem cmsViewUser;
+        public System.Windows.Forms.ToolStripMenuItem cmsReestablishPassword;
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RegistroPacientes.Properties
+namespace HealthPortal.Properties
 {
 
 

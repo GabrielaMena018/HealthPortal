@@ -1,12 +1,12 @@
-﻿using RegistroPacientes.View.Dashboard;
-using RegistroPacientes.View.UserAdministration;
+﻿using HealthPortal.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HealthPortal.View.FirstUsage;
 
-namespace RegistroPacientes
+namespace HealthPortal
 {
     internal static class Program
     {
@@ -17,8 +17,8 @@ namespace RegistroPacientes
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDashboard());
+            Application.SetCompatibleTextRenderingDefault(true);
+            CommonMethods.DetermineInitialForm();
         }
     }
 }
