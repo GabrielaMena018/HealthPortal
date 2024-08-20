@@ -20,7 +20,7 @@ namespace HealthPortal.Controller.PatientAdministration
         public ControllerPatientAdministration(FrmPatientAdministration view)
         {
             objPatientAdministration = view;
-            objPatientAdministration.btnPrint.Click += new EventHandler(NewStudentPatient);
+            objPatientAdministration.btnNew.Click += new EventHandler(NewStudentPatient);
             objPatientAdministration.Load += new EventHandler(InitialCharge);
             objPatientAdministration.cmsActualizar.Click += new EventHandler(UpdatePatient);
             objPatientAdministration.cmsVer.Click += new EventHandler(ViewPatientFile);
