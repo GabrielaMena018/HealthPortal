@@ -20,5 +20,7 @@ namespace HealthPortal.View.Dashboard
             Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             ControllerDashboard control = new ControllerDashboard(this);
         }
+
+        
     }
 }
