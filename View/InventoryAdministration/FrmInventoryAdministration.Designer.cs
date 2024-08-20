@@ -165,7 +165,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.Location = new System.Drawing.Point(11, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 30);
+            this.label2.Size = new System.Drawing.Size(222, 45);
             this.label2.TabIndex = 4;
             this.label2.Text = "Indice de Uso";
             // 
@@ -176,7 +176,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(16, 85);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 29);
+            this.comboBox2.Size = new System.Drawing.Size(174, 40);
             this.comboBox2.TabIndex = 6;
             this.comboBox2.Text = "Esta Semana";
             // 
@@ -252,7 +252,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 62);
+            this.label1.Size = new System.Drawing.Size(306, 182);
             this.label1.TabIndex = 2;
             this.label1.Text = "Inventario";
             // 
@@ -260,7 +260,7 @@
             // 
             this.panelbuscador.Controls.Add(this.btnSearch);
             this.panelbuscador.Controls.Add(this.txtSearch);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 65);
+            this.panelbuscador.Location = new System.Drawing.Point(3, 185);
             this.panelbuscador.Name = "panelbuscador";
             this.panelbuscador.Size = new System.Drawing.Size(319, 55);
             this.panelbuscador.TabIndex = 0;
@@ -301,7 +301,7 @@
             this.txtSearch.PasswordChar = false;
             this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSearch.PlaceholderText = "";
-            this.txtSearch.Size = new System.Drawing.Size(313, 36);
+            this.txtSearch.Size = new System.Drawing.Size(313, 47);
             this.txtSearch.TabIndex = 3;
             this.txtSearch.Texts = "Buscar";
             this.txtSearch.UnderlinedStyle = false;
@@ -315,30 +315,30 @@
             this.cmsView,
             this.cmsPDF});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(173, 92);
+            this.cmsDataGrid.Size = new System.Drawing.Size(231, 132);
             // 
             // cmsDelete
             // 
             this.cmsDelete.Name = "cmsDelete";
-            this.cmsDelete.Size = new System.Drawing.Size(172, 22);
+            this.cmsDelete.Size = new System.Drawing.Size(230, 32);
             this.cmsDelete.Text = "Eliminar Registro";
             // 
             // cmsUpdate
             // 
             this.cmsUpdate.Name = "cmsUpdate";
-            this.cmsUpdate.Size = new System.Drawing.Size(172, 22);
+            this.cmsUpdate.Size = new System.Drawing.Size(230, 32);
             this.cmsUpdate.Text = "Actualizar Registro";
             // 
             // cmsView
             // 
             this.cmsView.Name = "cmsView";
-            this.cmsView.Size = new System.Drawing.Size(172, 22);
+            this.cmsView.Size = new System.Drawing.Size(230, 32);
             this.cmsView.Text = "Ver registro";
             // 
             // cmsPDF
             // 
             this.cmsPDF.Name = "cmsPDF";
-            this.cmsPDF.Size = new System.Drawing.Size(172, 22);
+            this.cmsPDF.Size = new System.Drawing.Size(230, 32);
             this.cmsPDF.Text = "Imprimir PDF";
             // 
             // PanelContenedor
@@ -428,7 +428,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label6.Location = new System.Drawing.Point(43, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 19);
+            this.label6.Size = new System.Drawing.Size(97, 28);
             this.label6.TabIndex = 14;
             this.label6.Text = "Categoria";
             // 
@@ -459,7 +459,7 @@
             this.CmbCategoria.FormattingEnabled = true;
             this.CmbCategoria.Location = new System.Drawing.Point(47, 42);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(228, 27);
+            this.CmbCategoria.Size = new System.Drawing.Size(228, 38);
             this.CmbCategoria.TabIndex = 5;
             // 
             // FrmInventoryAdministration

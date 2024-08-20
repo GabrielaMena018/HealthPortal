@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace HealthPortal.Model
 {
@@ -15,12 +16,14 @@ namespace HealthPortal.Model
             try
             {
                 //string server = "DESKTOP-QR03KRF";
-                //string server = "LAPTOP-KGGOS1AD\\SQLEXPRESS";
-                string server = "FAMILIAPORTILLO\\SQLEXPRESS";
+                string server = "LAPTOP-KC01ESS7\\SQLEXPRESS";
+                //string server = "FAMILIAPORTILLO\\SQLEXPRESS";
                 string database = "HealthPortal";
-                SqlConnection conexion = new SqlConnection("Server =" + server +
-                                                                 "; DataBase = " + database +
-                                                                 "; Integrated Security = true");
+                //SqlConnection conexion = new SqlConnection("Server =" + server +
+                //                                                 "; DataBase = " + database +
+                //                                                 "; Integrated Security = true");
+                SqlConnection conexion = new SqlConnection($"Server = {server}; Database = {database}; uid = sa ; " +
+                                                                                                  $"pwd = tato1234");
                 conexion.Open();
                 return conexion;
             }

@@ -20,6 +20,7 @@ namespace HealthPortal.Model.DTO
         private int idCategoria;
         private int idCategoriaInventario;
         private int idEntradaSalida;
+        private byte[] imagen;
 
         public string NombreMedicamento { get => nombreMedicamento; set => nombreMedicamento = value; }
         public int Existencia { get => existencia; set => existencia = value; }
@@ -33,5 +34,6 @@ namespace HealthPortal.Model.DTO
         public int CantidadMedicamento { get => cantidadMedicamento; set => cantidadMedicamento = value; }
         public int IdEntradaSalida { get => idEntradaSalida; set => idEntradaSalida = value; }
         public int Envases { get => envases; set => envases = value; }
+        public byte[] Imagen { get => imagen; set => imagen = value; }
     }
 }

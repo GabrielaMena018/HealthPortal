@@ -43,6 +43,31 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
+        public byte[] GetImageBytes()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT imagenInventario FROM [Inventario].[tbInventario] WHERE idInventario = @param1";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", IdMedicamento);
+                return cmd.ExecuteScalar() as byte[];
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
 
         /// <summary>
         /// Registrar usuario corresponde al primer mantenimiento del CRUD
@@ -55,18 +80,19 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "EXEC [ProcedimientosAlmacenados].[spIngresarMedicamento] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10";
+                string query = "EXEC [ProcedimientosAlmacenados].[spIngresarMedicamento] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10, @param11";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("param1", NombreMedicamento);
                 cmd.Parameters.AddWithValue("param2", Descripcion);
                 cmd.Parameters.AddWithValue("param3", IdCategoria);
                 cmd.Parameters.AddWithValue("param4", 1);
                 cmd.Parameters.AddWithValue("param5", FechaVencimiento);
-                cmd.Parameters.AddWithValue("param6", Ingreso);
-                cmd.Parameters.AddWithValue("param7", Salida);
-                cmd.Parameters.AddWithValue("param8", IdMedicamento);
-                cmd.Parameters.AddWithValue("param9", Envases);
-                cmd.Parameters.AddWithValue("param10", Existencia);
+                cmd.Parameters.AddWithValue("param6", Imagen);
+                cmd.Parameters.AddWithValue("param7", Ingreso);
+                cmd.Parameters.AddWithValue("param8", Salida);
+                cmd.Parameters.AddWithValue("param9", IdMedicamento);
+                cmd.Parameters.AddWithValue("param10", Envases);
+                cmd.Parameters.AddWithValue("param11", Existencia);
                 int returnedValue = cmd.ExecuteNonQuery();
                 return returnedValue;
             }
@@ -130,7 +156,7 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "EXEC [ProcedimientosAlmacenados].[spActualizarMedicamento] @param1, @param2, @param3, @param4, @param5, @param6, @param7";
+                string query = "EXEC [ProcedimientosAlmacenados].[spActualizarMedicamento] @param1, @param2, @param3, @param4, @param5, @param6, @param7, param8";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("param1", NombreMedicamento);
                 cmd.Parameters.AddWithValue("param2", Descripcion);

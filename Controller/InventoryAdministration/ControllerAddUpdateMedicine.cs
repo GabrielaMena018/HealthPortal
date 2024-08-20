@@ -9,6 +9,7 @@ using HealthPortal.Model.DAO;
 using HealthPortal.View.InventoryAdministration;
 using System.Collections.Specialized;
 using System.Drawing;
+using System.IO;
 
 namespace HealthPortal.Controller.InventoryAdministration
 {
@@ -34,6 +35,7 @@ namespace HealthPortal.Controller.InventoryAdministration
 
             //Metodos que se ejecutan al ocurrir eventos
             objAddUpdateMedicine.btnAddInventory.Click += new EventHandler(RegisterNewMedicine);
+            objAddUpdateMedicine.btnAddImage.Click += new EventHandler(AddImage);
         }
 
         /// <summary>
@@ -63,20 +65,18 @@ namespace HealthPortal.Controller.InventoryAdministration
 
             //Metodos que se ejecutan al ocurrir eventos
             objAddUpdateMedicine.btnUpdateInventory.Click += new EventHandler(UpdateInventory);
-            //objAddUpdateMedicine.btnAgregarImagen.Click += new EventHandler(AddImage);
+            objAddUpdateMedicine.btnAddImage.Click += new EventHandler(AddImage);
         }
-
-        //private void AddImage(object sender, EventArgs e)
-        // {
-        //     FrmAddUpdateMedicine objImage = new FrmAddUpdateMedicine();
-        //     OpenFileDialog openImage = new OpenFileDialog();
-        //     openImage.Filter = "archivos de imagenes (*. png; *.jpg)| *.png ; *jpg";
-        //     if (openImage.ShowDialog() == DialogResult.OK)
-        //     {
-        //         objImage.PicImage.Image = Image.FromFile(openImage.FileName);
-        //         //objImage.PicImage.SizeMode = PictureBoxSizeMode.StretchImage;
-        //     }
-        // }
+        private void AddImage(object sender, EventArgs e)
+        {
+            OpenFileDialog openImage = new OpenFileDialog();
+            openImage.Filter = "archivos de imagenes (*. png; *.jpg)| *.png ; *jpg";
+            if (openImage.ShowDialog() == DialogResult.OK)
+            {
+                objAddUpdateMedicine.picImage.Image = Image.FromFile(openImage.FileName);
+                objAddUpdateMedicine.picImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
         public void InitialCharge(object sender, EventArgs e)
         {
             //Objeto de la clase DAOAdminInventory
@@ -118,20 +118,20 @@ namespace HealthPortal.Controller.InventoryAdministration
                 objAddUpdateMedicine.btnUpdateInventory.Visible = false;
                 objAddUpdateMedicine.txtID.Visible = false;
                 objAddUpdateMedicine.txtMedicineName.Enabled = false;
-                objAddUpdateMedicine.txtMedicineName.BackColor = Color.Silver;
+                objAddUpdateMedicine.txtMedicineName.BackColor = Color.White;
                 objAddUpdateMedicine.txtDescription.Enabled = false;
-                objAddUpdateMedicine.txtDescription.BackColor = Color.Silver;
+                objAddUpdateMedicine.txtDescription.BackColor = Color.White;
                 objAddUpdateMedicine.dtpExpirationDate.Enabled = false;
-                objAddUpdateMedicine.dtpExpirationDate.CalendarTitleBackColor = Color.Silver;
+                objAddUpdateMedicine.dtpExpirationDate.CalendarTitleBackColor = Color.White;
                 objAddUpdateMedicine.dtpEntryTime.Enabled = false;
-                objAddUpdateMedicine.dtpEntryTime.CalendarTitleBackColor = Color.Silver;
+                objAddUpdateMedicine.dtpEntryTime.CalendarTitleBackColor = Color.White;
                 objAddUpdateMedicine.dtpEntryDate.Enabled = false;
-                objAddUpdateMedicine.dtpEntryDate.CalendarTitleBackColor = Color.Silver;
+                objAddUpdateMedicine.dtpEntryDate.CalendarTitleBackColor = Color.White;
                 objAddUpdateMedicine.numStock.Enabled = false;
-                objAddUpdateMedicine.numStock.BackColor = Color.Silver;
+                objAddUpdateMedicine.numStock.BackColor = Color.White;
                 objAddUpdateMedicine.btnAddImage.Visible = false;
                 objAddUpdateMedicine.cmbCategory.Enabled = false;
-                objAddUpdateMedicine.cmbCategory.BackColor = Color.Silver;
+                objAddUpdateMedicine.cmbCategory.BackColor = Color.White;
 
             }
         }
@@ -168,6 +168,12 @@ namespace HealthPortal.Controller.InventoryAdministration
                     {
                         daoInventoryAdministration.Ingreso = objAddUpdateMedicine.dtpEntryDate.Value.Date;
                         daoInventoryAdministration.Salida = objAddUpdateMedicine.dtpEntryTime.Value.ToString("HH:mm");
+
+                        MemoryStream memoryStream = new MemoryStream();
+                        Image img = objAddUpdateMedicine.picImage.Image;
+                        img.Save(memoryStream, img.RawFormat);
+                        daoInventoryAdministration.Imagen = memoryStream.ToArray();
+
                         int returnedValue = daoInventoryAdministration.RegisterMedicine();
                         if (returnedValue == 2)
                         {
@@ -226,6 +232,9 @@ namespace HealthPortal.Controller.InventoryAdministration
 
         public void ChargeValues(int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
         {
+            DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
+            daoInventoryAdministration.IdMedicamento = id;
+            MemoryStream memoryStream = new MemoryStream(daoInventoryAdministration.GetImageBytes());
             objAddUpdateMedicine.txtID.Text = id.ToString();
             objAddUpdateMedicine.txtMedicineName.Texts = medicineName;
             objAddUpdateMedicine.cmbCategory.Text = medicineCategory;
@@ -234,7 +243,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             objAddUpdateMedicine.dtpEntryDate.Value = entryDate;
             objAddUpdateMedicine.dtpEntryTime.Value = exit;
             objAddUpdateMedicine.txtDescription.Texts = description;
-
+            objAddUpdateMedicine.picImage.Image = Image.FromStream(memoryStream);
         }
     }
 }
