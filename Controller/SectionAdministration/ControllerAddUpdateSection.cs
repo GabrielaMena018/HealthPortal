@@ -198,7 +198,7 @@ namespace HealthPortal.Controller.SectionAdministration
             DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
 
             daoSectionAdministration.SeccionAcademica = objAddUpdateSection.txtNuevaSeccionAcademica.Texts;
-            int retorno = daoSectionAdministration.AddSpecialty();
+            int retorno = daoSectionAdministration.AddAcademicSection();
             if (retorno == 1)
             {
                 MessageBox.Show("Datos ingresados correctamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -125,6 +125,7 @@ namespace HealthPortal.Model.DAO
         {
             try
             {
+                GetIdPerson();
                 string queryVisita = "INSERT INTO [Visitas].[tbVisitas] Values(@idPaciente,@fechaVisita,@horaVisita,@idMedicamento,@observaciones, @idPersona)";
                 SqlCommand cmdVisita = new SqlCommand(queryVisita, command.Connection);
                 cmdVisita.Parameters.AddWithValue("idPaciente", IdPatient);
@@ -164,6 +165,23 @@ namespace HealthPortal.Model.DAO
 
             return IdPatient;
         }
+
+        public int GetIdPerson() 
+        {
+            string QueryIdPerson = "SELECT IdPersona FROM [Usuarios].[tbPersonas] WHERE usuario = @param1";
+            SqlCommand cmdIdPerson = new SqlCommand(QueryIdPerson, command.Connection);
+            cmdIdPerson.Parameters.AddWithValue("param1", Username);
+            SqlDataReader consulta = cmdIdPerson.ExecuteReader();
+
+            while (consulta.Read())
+            {
+                IdPersona = consulta.GetInt32(0); // Suponiendo que IdGrado_Seccion está en el índice 0
+            }
+            consulta.Close();
+
+            return IdPersona;
+        }
+
         //Este metodo sirve para onbtener el ID del Grado_seccion para ocuparlo como llave foranea
         public void GetGradeIdSection()
         {
