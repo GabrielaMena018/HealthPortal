@@ -93,7 +93,7 @@ namespace HealthPortal.Controller.PasswordManagement
             {
                 DAOPasswordManagement dao = new DAOPasswordManagement();
                 CommonMethods commonMethods = new CommonMethods();
-                string temporaryPassword = commonMethods.GenerateRandomPassword();
+                string temporaryPassword = commonMethods.GenerateRandomPassword(8);
                 string newPassword = commonMethods.ComputeSha256Hash(temporaryPassword);
                 dao.Username = username;
                 dao.TemporaryPasswordAssignation(newPassword);

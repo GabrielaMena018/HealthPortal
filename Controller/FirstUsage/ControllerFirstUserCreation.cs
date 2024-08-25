@@ -13,16 +13,17 @@ using HealthPortal.Helper;
 using HealthPortal.Model.DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Security.Principal;
 
 namespace HealthPortal.Controller.FirstUsage
 {
     internal class ControllerFirstUserCreation
     {
-        FrmFirstUserCreation objFirstUserCreation;
+        FrmFirstUserCreation frmFirstUserCreation;
         private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         public ControllerFirstUserCreation(FrmFirstUserCreation view)
         {
-            objFirstUserCreation = view;
+            frmFirstUserCreation = view;
 
             // El diccionario "imageMapping" declarado previamente se inicializa con los valores correspondientes para posteriormente ser utilizado en los eventos .Enter y .Leave de los botones
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
@@ -33,52 +34,52 @@ namespace HealthPortal.Controller.FirstUsage
             };
 
             // Evento de carga del formulario, se oculta automáticamente la contraseña
-            objFirstUserCreation.Load += new EventHandler(HidePassword);
+            frmFirstUserCreation.Load += new EventHandler(ShowPassword);
 
             // Eventos para mover el formulario
-            objFirstUserCreation.MouseDown += new MouseEventHandler(FormMouseDown);
-            objFirstUserCreation.MouseMove += new MouseEventHandler(FormMouseMove);
-            objFirstUserCreation.MouseUp += new MouseEventHandler(FormMouseUp);
+            frmFirstUserCreation.MouseDown += new MouseEventHandler(FormMouseDown);
+            frmFirstUserCreation.MouseMove += new MouseEventHandler(FormMouseMove);
+            frmFirstUserCreation.MouseUp += new MouseEventHandler(FormMouseUp);
 
             // Eventos .Enter de los textbox; se verifica si la propiedad .Texts de los textbox corresponde a lo que viene siendo el texto "placeholder", y si sí lo es, se vacían
-            objFirstUserCreation.txtName.Enter += new EventHandler(EnterTextBox);
-            objFirstUserCreation.txtLastName.Enter += new EventHandler(EnterTextBox);
-            objFirstUserCreation.txtEmail.Enter += new EventHandler(EnterTextBox);
-            objFirstUserCreation.txtPhoneNumber.Enter += new EventHandler(EnterTextBox);
-            objFirstUserCreation.txtUsername.Enter += new EventHandler(EnterTextBox);
-            objFirstUserCreation.txtPassword.Enter += new EventHandler(EnterTextBox);
-            objFirstUserCreation.txtConfirmPassword.Enter += new EventHandler(EnterTextBox);
+            frmFirstUserCreation.txtName.Enter += new EventHandler(EnterTextBox);
+            frmFirstUserCreation.txtLastName.Enter += new EventHandler(EnterTextBox);
+            frmFirstUserCreation.txtEmail.Enter += new EventHandler(EnterTextBox);
+            frmFirstUserCreation.txtPhoneNumber.Enter += new EventHandler(EnterTextBox);
+            frmFirstUserCreation.txtUsername.Enter += new EventHandler(EnterTextBox);
+            frmFirstUserCreation.txtPassword.Enter += new EventHandler(EnterTextBox);
+            frmFirstUserCreation.txtConfirmPassword.Enter += new EventHandler(EnterTextBox);
 
             // Eventos .Leave de los textbox; se verifica si al salir del textbox la propiedad .Texts contiene un string vacío "", y si sí es un string vacío, se le coloca el texto "placeholder"
-            objFirstUserCreation.txtName.Leave += new EventHandler(LeaveTextBox);
-            objFirstUserCreation.txtLastName.Leave += new EventHandler(LeaveTextBox);
-            objFirstUserCreation.txtEmail.Leave += new EventHandler(LeaveTextBox);
-            objFirstUserCreation.txtPhoneNumber.Leave += new EventHandler(LeaveTextBox);
-            objFirstUserCreation.txtUsername.Leave += new EventHandler(LeaveTextBox);
-            objFirstUserCreation.txtPassword.Leave += new EventHandler(LeaveTextBox);
-            objFirstUserCreation.txtConfirmPassword.Leave += new EventHandler(LeaveTextBox);
+            frmFirstUserCreation.txtName.Leave += new EventHandler(LeaveTextBox);
+            frmFirstUserCreation.txtLastName.Leave += new EventHandler(LeaveTextBox);
+            frmFirstUserCreation.txtEmail.Leave += new EventHandler(LeaveTextBox);
+            frmFirstUserCreation.txtPhoneNumber.Leave += new EventHandler(LeaveTextBox);
+            frmFirstUserCreation.txtUsername.Leave += new EventHandler(LeaveTextBox);
+            frmFirstUserCreation.txtPassword.Leave += new EventHandler(LeaveTextBox);
+            frmFirstUserCreation.txtConfirmPassword.Leave += new EventHandler(LeaveTextBox);
 
             // Eventos .Click para ocultar / mostrar la contraseña
-            objFirstUserCreation.btnHidePassword.Click += new EventHandler(ShowPassword);
-            objFirstUserCreation.btnShowPassword.Click += new EventHandler(HidePassword);
+            frmFirstUserCreation.btnHidePassword.Click += new EventHandler(ShowPassword);
+            frmFirstUserCreation.btnShowPassword.Click += new EventHandler(HidePassword);
 
             // Eventos .Enter de los botones, haciéndose la distinción entre los botones que son únicamente imágenes y los que son únicamente texto (MouseEnterPictureButton y MouseEnterTextButton, respectivamente)
-            objFirstUserCreation.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
-            objFirstUserCreation.btnHidePassword.MouseEnter += new EventHandler(MouseEnterPictureButton);
-            objFirstUserCreation.btnShowPassword.MouseEnter += new EventHandler(MouseEnterPictureButton);
-            objFirstUserCreation.btnRegisterFirstUser.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmFirstUserCreation.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmFirstUserCreation.btnHidePassword.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmFirstUserCreation.btnShowPassword.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmFirstUserCreation.btnRegisterFirstUser.MouseEnter += new EventHandler(MouseEnterTextButton);
 
             // Eventos .Leave de los botones, haciéndose la distinción entre los botones que son únicamente imágenes y los que son únicamente texto (MouseLeavePictureButton y MouseLeaveTextButton, respectivamente)
-            objFirstUserCreation.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
-            objFirstUserCreation.btnHidePassword.MouseLeave += new EventHandler(MouseLeavePictureButton);
-            objFirstUserCreation.btnShowPassword.MouseLeave += new EventHandler(MouseLeavePictureButton);
-            objFirstUserCreation.btnRegisterFirstUser.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmFirstUserCreation.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmFirstUserCreation.btnHidePassword.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmFirstUserCreation.btnShowPassword.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmFirstUserCreation.btnRegisterFirstUser.MouseLeave += new EventHandler(MouseLeaveTextButton);
 
             // Evento .Click que inicia el proceso de registro del primer usuario
-            objFirstUserCreation.btnRegisterFirstUser.Click += new EventHandler(AttemptFirstUserRegistration);
+            frmFirstUserCreation.btnRegisterFirstUser.Click += new EventHandler(AttemptFirstUserRegistration);
 
             // Evento .Click que lo único que hace es cerrar el programa xd
-            objFirstUserCreation.btnExit.Click += new EventHandler(ExitApplication);
+            frmFirstUserCreation.btnExit.Click += new EventHandler(ExitApplication);
         }
         private void FormMouseDown(object sender, EventArgs e)
         {
@@ -101,10 +102,10 @@ namespace HealthPortal.Controller.FirstUsage
         /// <param name="e"></param>
         private void ShowPassword(object sender, EventArgs e)
         {
-            objFirstUserCreation.txtPassword.PasswordChar = false;
-            objFirstUserCreation.txtConfirmPassword.PasswordChar = false;
-            objFirstUserCreation.btnHidePassword.Visible = false;
-            objFirstUserCreation.btnShowPassword.Visible = true;
+            frmFirstUserCreation.txtPassword.PasswordChar = false;
+            frmFirstUserCreation.txtConfirmPassword.PasswordChar = false;
+            frmFirstUserCreation.btnHidePassword.Visible = false;
+            frmFirstUserCreation.btnShowPassword.Visible = true;
         }
         /// <summary>
         ///     La propiedad .PasswordChar de los textbox Password y ConfirmPassword pasa a ser TRUE,
@@ -114,14 +115,14 @@ namespace HealthPortal.Controller.FirstUsage
         /// <param name="e"></param>
         private void HidePassword(object sender, EventArgs e)
         {
-            if (!objFirstUserCreation.txtPassword.Texts.Trim().Equals("Contraseña"))
+            if (!frmFirstUserCreation.txtPassword.Texts.Trim().Equals("Contraseña"))
             {
-                objFirstUserCreation.txtPassword.PasswordChar = true;
-                objFirstUserCreation.btnShowPassword.Visible = false;
-                objFirstUserCreation.btnHidePassword.Visible = true;
-                if (!objFirstUserCreation.txtConfirmPassword.Texts.Trim().Equals("Confirmar contraseña"))
+                frmFirstUserCreation.txtPassword.PasswordChar = true;
+                frmFirstUserCreation.btnShowPassword.Visible = false;
+                frmFirstUserCreation.btnHidePassword.Visible = true;
+                if (!frmFirstUserCreation.txtConfirmPassword.Texts.Trim().Equals("Confirmar contraseña"))
                 {
-                    objFirstUserCreation.txtConfirmPassword.PasswordChar = true;
+                    frmFirstUserCreation.txtConfirmPassword.PasswordChar = true;
                 }
             }
         }
@@ -189,42 +190,46 @@ namespace HealthPortal.Controller.FirstUsage
         private void AttemptFirstUserRegistration(object sender, EventArgs e)
         {
             // Se verifica que ninguno de los textbox esté vacío
-            if (!(objFirstUserCreation.txtLastName.Texts.Trim() == "" || objFirstUserCreation.txtLastName.Texts.Trim() == "" || objFirstUserCreation.txtEmail.Texts.Trim() == "" || objFirstUserCreation.txtPhoneNumber.Texts.Trim() == "" || objFirstUserCreation.txtUsername.Texts.Trim() == "" || objFirstUserCreation.txtPassword.Texts.Trim() == "" || objFirstUserCreation.txtConfirmPassword.Texts.Trim() == ""))
+            if (!(frmFirstUserCreation.txtLastName.Texts.Trim() == "" || frmFirstUserCreation.txtLastName.Texts.Trim() == "" || frmFirstUserCreation.txtEmail.Texts.Trim() == "" || frmFirstUserCreation.txtPhoneNumber.Texts.Trim() == "" || frmFirstUserCreation.txtUsername.Texts.Trim() == "" || frmFirstUserCreation.txtPassword.Texts.Trim() == "" || frmFirstUserCreation.txtConfirmPassword.Texts.Trim() == "" || frmFirstUserCreation.txtName.Texts.Trim() == "Nombres" || frmFirstUserCreation.txtLastName.Texts.Trim() == "Apellidos" || frmFirstUserCreation.txtEmail.Texts.Trim() == "Correo Electrónico" || frmFirstUserCreation.txtPhoneNumber.Texts.Trim() == "Número de Teléfono" || frmFirstUserCreation.txtUsername.Texts.Trim() == "Usuario" || frmFirstUserCreation.txtPassword.Texts.Trim() == "Contraseña" || frmFirstUserCreation.txtConfirmPassword.Texts.Trim() == "Confirmar contraseña"))
             {
                 // Se verifica que estos dos métodos retornen TRUE
                 if (VerifyPasswordSimilarity() == true && ValidateEmail() == true)
                 {
-                    DAOFirstUsage daoFirstUsage = new DAOFirstUsage();
+                    DAOFirstUsage dao = new DAOFirstUsage();
                     CommonMethods commonMethods = new CommonMethods();
                     // A los atributos del DTO, por medio del DAO, se les asignan los contenidos de los textbox
-                    daoFirstUsage.Name = objFirstUserCreation.txtName.Texts.Trim();
-                    daoFirstUsage.LastName = objFirstUserCreation.txtLastName.Texts.Trim();
-                    daoFirstUsage.Email = objFirstUserCreation.txtEmail.Texts.Trim();
-                    daoFirstUsage.Phone = objFirstUserCreation.txtPhoneNumber.Texts.Trim();
-                    daoFirstUsage.Username = objFirstUserCreation.txtUsername.Texts.Trim();
+                    dao.Name = frmFirstUserCreation.txtName.Texts.Trim();
+                    dao.LastName = frmFirstUserCreation.txtLastName.Texts.Trim();
+                    dao.Email = frmFirstUserCreation.txtEmail.Texts.Trim();
+                    dao.Phone = frmFirstUserCreation.txtPhoneNumber.Texts.Trim();
+                    dao.Username = frmFirstUserCreation.txtUsername.Texts.Trim();
 
                     // Excepto a la contraseña, esa tiene el paso extra de la encriptación con SHA256
-                    daoFirstUsage.Password = commonMethods.ComputeSha256Hash(objFirstUserCreation.txtPassword.Texts.Trim());
+                    dao.Password = commonMethods.ComputeSha256Hash(frmFirstUserCreation.txtPassword.Texts.Trim());
+
+                    // Y también exceptuando estos dos últimos que son casos especiales
+                    dao.Token = commonMethods.GenerateRandomPassword(69);
+                    dao.ExpirationDate = DateTime.Now.AddMonths(1);
 
                     // Se evalúa que se haya logrado la inserción a la tabla tbUsuarios y tbPersonas
-                    if (daoFirstUsage.RegisterFirstUser() == 2)
+                    if (dao.RegisterFirstUser() == 2)
                     {
-                        // Se genera una contraseña aleatoria, aunque en este caso particular cumplirá la función de código de confirmación del correo ingresado
-                        string confirmationCode = commonMethods.GenerateRandomPassword();
+                        // Se genera una contraseña aleatoria, aunque en este caso      particular cumplirá la función de código de confirmación      del correo ingresado
+                        string confirmationCode = commonMethods.GenerateRandomPassword(8);
                         MessageBox.Show("Los datos han sido guardados de manera exitosa.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Se evalua si el correo logró ser enviado
-                        if (commonMethods.SendVerificationEmail(daoFirstUsage.Email, confirmationCode) == false)
+                        if (commonMethods.SendVerificationEmail(dao.Email, confirmationCode) == false)
                         {
-                            // Si no se envió, se recupera el ID de este primer usuario y posteriormente se elimina el registro, pues es de suma importancia que el correo sí exista
-                            daoFirstUsage.PersonID = daoFirstUsage.GetMaxID();
-                            daoFirstUsage.DeleteUser();
+                            // Si no se envió, se recupera el ID de este primer             usuario y posteriormente se elimina el registro,              pues es de suma importancia que el correo sí                  exista
+                            dao.PersonID = dao.GetMaxID();
+                            dao.DeleteUser();
                         }
                         else
                         {
                             // Si el correo se envió de manera exitosa, se oculta el formulario actual y se muestra el formulario en el que se tendrá que ingresar el código de confirmación recién generado
                             FrmEmailVerification objEmailVerification = new FrmEmailVerification(confirmationCode);
-                            objFirstUserCreation.Hide();
+                            frmFirstUserCreation.Hide();
                             objEmailVerification.Show();
                         }
                     }
@@ -234,6 +239,10 @@ namespace HealthPortal.Controller.FirstUsage
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Asegúrese de haber ingresado datos correctos y de no haber dejado ningún campo vacío.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         /// <summary>
         ///     Se verifica que el texto que contiene txtPassword y txtConfirmPassword sean lo mismo
@@ -241,9 +250,9 @@ namespace HealthPortal.Controller.FirstUsage
         /// <returns></returns>
         private bool VerifyPasswordSimilarity()
         {
-            if (objFirstUserCreation.txtPassword.Texts.Trim() == objFirstUserCreation.txtConfirmPassword.Texts.Trim())
+            if (frmFirstUserCreation.txtPassword.Texts.Trim() == frmFirstUserCreation.txtConfirmPassword.Texts.Trim())
             {
-                if (CommonMethods.IsPasswordValid(objFirstUserCreation.txtPassword.Texts.Trim()))
+                if (CommonMethods.IsPasswordValid(frmFirstUserCreation.txtPassword.Texts.Trim()))
                 {
                     return true;
                 }
@@ -265,7 +274,7 @@ namespace HealthPortal.Controller.FirstUsage
         /// <returns></returns>
         bool ValidateEmail()
         {
-            string email = objFirstUserCreation.txtEmail.Texts.Trim();
+            string email = frmFirstUserCreation.txtEmail.Texts.Trim();
 
             // Se verifica que el correo ingresado contenga el carácter '@'
             if (!(email.Contains("@")))
@@ -293,13 +302,13 @@ namespace HealthPortal.Controller.FirstUsage
         }
         string GetPlaceholderText(BorderRadiusTXT txt)
         {
-            if (txt == objFirstUserCreation.txtName) return "Nombres";
-            if (txt == objFirstUserCreation.txtLastName) return "Apellidos";
-            if (txt == objFirstUserCreation.txtEmail) return "Correo Electrónico";
-            if (txt == objFirstUserCreation.txtPhoneNumber) return "Número de Teléfono";
-            if (txt == objFirstUserCreation.txtUsername) return "Usuario";
-            if (txt == objFirstUserCreation.txtPassword) return "Contraseña";
-            if (txt == objFirstUserCreation.txtConfirmPassword) return "Confirmar contraseña";
+            if (txt == frmFirstUserCreation.txtName) return "Nombres";
+            if (txt == frmFirstUserCreation.txtLastName) return "Apellidos";
+            if (txt == frmFirstUserCreation.txtEmail) return "Correo Electrónico";
+            if (txt == frmFirstUserCreation.txtPhoneNumber) return "Número de Teléfono";
+            if (txt == frmFirstUserCreation.txtUsername) return "Usuario";
+            if (txt == frmFirstUserCreation.txtPassword) return "Contraseña";
+            if (txt == frmFirstUserCreation.txtConfirmPassword) return "Confirmar contraseña";
             return string.Empty;
         }
     }

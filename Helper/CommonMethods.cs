@@ -67,12 +67,12 @@ namespace HealthPortal.Helper
                 return builder.ToString();
             }
         }
-        public string GenerateRandomPassword()
+        public string GenerateRandomPassword(int length)
         {
             const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?@#$%^&*";
             StringBuilder password = new StringBuilder();
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            byte[] data = new byte[8];
+            byte[] data = new byte[length];
             rng.GetBytes(data);
             foreach (byte a in data)
             {

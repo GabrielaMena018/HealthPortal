@@ -45,19 +45,21 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "EXEC [ProcedimientosAlmacenados].[spRegistrarUsuario] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10, @param11";
+                string query = "EXEC [ProcedimientosAlmacenados].[spRegistrarUsuario] @username, @password, @token, @userStatus, @userAttempts, @temporaryPassword, @rememberCredentials, @roleId, @institutionId, @name, @lastName, @email, @phoneNumber";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", Username);
-                cmd.Parameters.AddWithValue("param2", Password);
-                cmd.Parameters.AddWithValue("param3", true);
-                cmd.Parameters.AddWithValue("param4", 0);
-                cmd.Parameters.AddWithValue("param5", false);
-                cmd.Parameters.AddWithValue("param6", 1);
-                cmd.Parameters.AddWithValue("param7", 0);
-                cmd.Parameters.AddWithValue("param8", Name);
-                cmd.Parameters.AddWithValue("param9", LastName);
-                cmd.Parameters.AddWithValue("param10", Email);
-                cmd.Parameters.AddWithValue("param11", Phone);
+                cmd.Parameters.AddWithValue("username", Username);
+                cmd.Parameters.AddWithValue("password", Password);
+                cmd.Parameters.AddWithValue("token", Token);
+                cmd.Parameters.AddWithValue("userStatus", true);
+                cmd.Parameters.AddWithValue("userAttempts", 0);
+                cmd.Parameters.AddWithValue("temporaryPassword", false);
+                cmd.Parameters.AddWithValue("rememberCredentials", false);
+                cmd.Parameters.AddWithValue("roleId", 1);
+                cmd.Parameters.AddWithValue("institutionId", 0);
+                cmd.Parameters.AddWithValue("name", Name);
+                cmd.Parameters.AddWithValue("lastName", LastName);
+                cmd.Parameters.AddWithValue("email", Email);
+                cmd.Parameters.AddWithValue("phoneNumber", Phone);
                 return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

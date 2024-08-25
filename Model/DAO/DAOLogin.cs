@@ -18,22 +18,22 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT * FROM [Vistas].[viewInformacionLogin] WHERE [usuario] = @param1 AND [contraseña] = @param2 AND [estadoUsuario] = @param3";
+                string query = "SELECT * FROM [Vistas].[viewInformacionLogin] WHERE [usuario] = @username AND [contraseña] = @password AND [estadoUsuario] = @userStatus";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", Username);
-                cmd.Parameters.AddWithValue("param2", Password);
-                cmd.Parameters.AddWithValue("param3", true);
+                cmd.Parameters.AddWithValue("username", Username);
+                cmd.Parameters.AddWithValue("password", Password);
+                cmd.Parameters.AddWithValue("userStatus", true);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     CurrentUserData.Username = dr.GetString(0);
                     CurrentUserData.Password = dr.GetString(1);
-                    CurrentUserData.Status = dr.GetBoolean(2);
-                    CurrentUserData.RoleId = dr.GetInt32(3);
-                    CurrentUserData.FullName = dr.GetString(5);
-                    CurrentUserData.TemporaryPassword = dr.GetBoolean(6);
-                    CurrentUserData.Email = dr.GetString(7);
-                    //CurrentUserData.IdPersona = dr.GetInt32(8);
+                    CurrentUserData.Token = dr.GetString(2);
+                    CurrentUserData.Status = dr.GetBoolean(3);
+                    CurrentUserData.RoleId = dr.GetInt32(4);
+                    CurrentUserData.FullName = dr.GetString(6);
+                    CurrentUserData.TemporaryPassword = dr.GetBoolean(7);
+                    CurrentUserData.Email = dr.GetString(8);
                 }
                 return dr.HasRows;
             }
@@ -46,6 +46,67 @@ namespace HealthPortal.Model.DAO
             {
                 MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public void TokenLogin()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT * FROM [Vistas].[viewInformacionLogin] WHERE [usuario] = @username AND [token] = @token AND [estadoUsuario] = @userStatus";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("username", Username);
+                cmd.Parameters.AddWithValue("token", Token);
+                cmd.Parameters.AddWithValue("userStatus", true);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    CurrentUserData.Username = dr.GetString(0);
+                    CurrentUserData.Password = dr.GetString(1);
+                    CurrentUserData.Token = dr.GetString(2);
+                    CurrentUserData.Status = dr.GetBoolean(3);
+                    CurrentUserData.RoleId = dr.GetInt32(4);
+                    CurrentUserData.FullName = dr.GetString(6);
+                    CurrentUserData.TemporaryPassword = dr.GetBoolean(7);
+                    CurrentUserData.Email = dr.GetString(8);
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public string ValidateToken()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT usuario FROM [Institución].[tbUsuarios] WHERE token = @token";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("token", Token);
+                return (string)cmd.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
             finally
             {
@@ -119,6 +180,31 @@ namespace HealthPortal.Model.DAO
             {
                 MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public bool RememberedCredentials()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT recordarCredenciales FROM [Institución].[tbUsuarios] WHERE usuario = @username";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("username", Username);
+                return (bool)cmd.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             finally
             {

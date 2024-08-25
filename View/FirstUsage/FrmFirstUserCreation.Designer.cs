@@ -66,6 +66,11 @@
             // btnHidePassword
             // 
             this.btnHidePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnHidePassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHidePassword.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnHidePassword.FlatAppearance.BorderSize = 0;
+            this.btnHidePassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHidePassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnHidePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHidePassword.ForeColor = System.Drawing.Color.White;
             this.btnHidePassword.Image = ((System.Drawing.Image)(resources.GetObject("btnHidePassword.Image")));
@@ -78,13 +83,18 @@
             // 
             // btnShowPassword
             // 
-            this.btnShowPassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowPassword.BackgroundImage")));
             this.btnShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnShowPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShowPassword.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnShowPassword.FlatAppearance.BorderSize = 0;
+            this.btnShowPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnShowPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnShowPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowPassword.ForeColor = System.Drawing.Color.White;
-            this.btnShowPassword.Location = new System.Drawing.Point(368, 45);
+            this.btnShowPassword.Image = global::HealthPortal.Properties.Resources.show;
+            this.btnShowPassword.Location = new System.Drawing.Point(368, 43);
             this.btnShowPassword.Name = "btnShowPassword";
-            this.btnShowPassword.Size = new System.Drawing.Size(24, 24);
+            this.btnShowPassword.Size = new System.Drawing.Size(25, 25);
             this.btnShowPassword.TabIndex = 24;
             this.btnShowPassword.UseVisualStyleBackColor = true;
             // 
@@ -183,14 +193,18 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(624, 12);
+            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.btnExit.Location = new System.Drawing.Point(622, 12);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(32, 32);
+            this.btnExit.Size = new System.Drawing.Size(34, 34);
             this.btnExit.TabIndex = 26;
             this.btnExit.UseVisualStyleBackColor = true;
             // 

@@ -34,10 +34,10 @@
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.picLocation = new System.Windows.Forms.PictureBox();
             this.grpLogo = new System.Windows.Forms.GroupBox();
+            this.btnAddLogo = new CustomPanel.RJButton();
             this.grpInstitutionInfo = new System.Windows.Forms.GroupBox();
             this.txtInstitutionName = new CustomPanel.BorderRadiusTXT();
             this.txtInstitutionAddress = new CustomPanel.BorderRadiusTXT();
-            this.btnAddLogo = new CustomPanel.RJButton();
             this.btnRegisterInstitution = new CustomPanel.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLocation)).BeginInit();
@@ -49,8 +49,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label2.Location = new System.Drawing.Point(18, 56);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label2.Location = new System.Drawing.Point(18, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(625, 16);
             this.label2.TabIndex = 17;
@@ -61,9 +61,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label1.Location = new System.Drawing.Point(14, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(5);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label1.Location = new System.Drawing.Point(19, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(367, 37);
             this.label1.TabIndex = 16;
@@ -115,6 +115,27 @@
             this.grpLogo.TabIndex = 30;
             this.grpLogo.TabStop = false;
             this.grpLogo.Text = "Logotipo de la Institución";
+            // 
+            // btnAddLogo
+            // 
+            this.btnAddLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddLogo.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddLogo.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddLogo.BorderRadius = 20;
+            this.btnAddLogo.BorderSize = 0;
+            this.btnAddLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddLogo.FlatAppearance.BorderSize = 0;
+            this.btnAddLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddLogo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddLogo.Location = new System.Drawing.Point(20, 294);
+            this.btnAddLogo.Margin = new System.Windows.Forms.Padding(7);
+            this.btnAddLogo.Name = "btnAddLogo";
+            this.btnAddLogo.Size = new System.Drawing.Size(258, 26);
+            this.btnAddLogo.TabIndex = 3;
+            this.btnAddLogo.Text = "Añadir Logo de la Institución";
+            this.btnAddLogo.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddLogo.UseVisualStyleBackColor = false;
             // 
             // grpInstitutionInfo
             // 
@@ -175,27 +196,6 @@
             this.txtInstitutionAddress.TabIndex = 2;
             this.txtInstitutionAddress.Texts = "Dirección de la Institución";
             this.txtInstitutionAddress.UnderlinedStyle = false;
-            // 
-            // btnAddLogo
-            // 
-            this.btnAddLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnAddLogo.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnAddLogo.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAddLogo.BorderRadius = 20;
-            this.btnAddLogo.BorderSize = 0;
-            this.btnAddLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddLogo.FlatAppearance.BorderSize = 0;
-            this.btnAddLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddLogo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnAddLogo.Location = new System.Drawing.Point(20, 294);
-            this.btnAddLogo.Margin = new System.Windows.Forms.Padding(7);
-            this.btnAddLogo.Name = "btnAddLogo";
-            this.btnAddLogo.Size = new System.Drawing.Size(258, 26);
-            this.btnAddLogo.TabIndex = 3;
-            this.btnAddLogo.Text = "Añadir Logo de la Institución";
-            this.btnAddLogo.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnAddLogo.UseVisualStyleBackColor = false;
             // 
             // btnRegisterInstitution
             // 

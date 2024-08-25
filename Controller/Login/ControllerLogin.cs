@@ -27,36 +27,37 @@ namespace HealthPortal.Controller.Login
 
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
             {
-                { "picShowPassword", Tuple.Create(Resources.show, Resources.hoverShow) },
-                { "picHidePassword", Tuple.Create(Resources.hide, Resources.hoverHide) },
-                { "picExit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
-                { "picTestConnection", Tuple.Create(Resources.wifi, Resources.hoverWifi) }
+                { "btnShowPassword", Tuple.Create(Resources.show, Resources.hoverShow) },
+                { "btnHidePassword", Tuple.Create(Resources.hide, Resources.hoverHide) },
+                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnTestConnection", Tuple.Create(Resources.wifi, Resources.hoverWifi) }
             };
 
             frmLogin.MouseDown += new MouseEventHandler(FormMouseDown);
             frmLogin.MouseMove += new MouseEventHandler(FormMouseMove);
             frmLogin.MouseUp += new MouseEventHandler(FormMouseUp);
-            frmLogin.Load += new EventHandler(HidePassword);
-            frmLogin.txtUsername.Enter += new EventHandler(EnterTxtUsername);
-            frmLogin.txtUsername.Leave += new EventHandler(LeaveTxtUsername);
-            frmLogin.txtPassword.Enter += new EventHandler(EnterTxtPassword);
-            frmLogin.txtPassword.Leave += new EventHandler(LeaveTxtPassword);
-            frmLogin.picTestConnection.Click += new EventHandler(TestConnection);
-            frmLogin.picExit.Click += new EventHandler(ExitApplication);
+            frmLogin.Load += new EventHandler(ShowPassword);
+            frmLogin.Load += new EventHandler(ExistingToken);
+            frmLogin.txtUsername.Enter += new EventHandler(EnterTextBox);
+            frmLogin.txtUsername.Leave += new EventHandler(LeaveTextBox);
+            frmLogin.txtPassword.Enter += new EventHandler(EnterTextBox);
+            frmLogin.txtPassword.Leave += new EventHandler(LeaveTextBox);
+            frmLogin.btnTestConnection.Click += new EventHandler(TestConnection);
+            frmLogin.btnExit.Click += new EventHandler(ExitApplication);
             frmLogin.btnLogin.Click += new EventHandler(AttemptLogin);
-            frmLogin.picHidePassword.Click += new EventHandler(ShowPassword);
-            frmLogin.picShowPassword.Click += new EventHandler(HidePassword);
+            frmLogin.btnHidePassword.Click += new EventHandler(ShowPassword);
+            frmLogin.btnShowPassword.Click += new EventHandler(HidePassword);
             frmLogin.llbForgotPassword.Click += new EventHandler(OpenPasswordRecoveryForm);
-            frmLogin.picExit.MouseEnter += new EventHandler(MouseEnterControl);
-            frmLogin.picHidePassword.MouseEnter += new EventHandler(MouseEnterControl);
-            frmLogin.picShowPassword.MouseEnter += new EventHandler(MouseEnterControl);
-            frmLogin.picTestConnection.MouseEnter += new EventHandler(MouseEnterControl);
-            frmLogin.btnLogin.MouseEnter += new EventHandler(MouseEnterButton);
-            frmLogin.picExit.MouseLeave += new EventHandler(MouseLeaveControl);
-            frmLogin.picHidePassword.MouseLeave += new EventHandler(MouseLeaveControl);
-            frmLogin.picShowPassword.MouseLeave += new EventHandler(MouseLeaveControl);
-            frmLogin.picTestConnection.MouseLeave += new EventHandler(MouseLeaveControl);
-            frmLogin.btnLogin.MouseLeave += new EventHandler(MouseLeaveButton);
+            frmLogin.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmLogin.btnHidePassword.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmLogin.btnShowPassword.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmLogin.btnTestConnection.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmLogin.btnLogin.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmLogin.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmLogin.btnHidePassword.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmLogin.btnShowPassword.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmLogin.btnTestConnection.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmLogin.btnLogin.MouseLeave += new EventHandler(MouseLeaveTextButton);
         }
         private void FormMouseDown(object sender, EventArgs e)
         {
@@ -70,66 +71,82 @@ namespace HealthPortal.Controller.Login
         {
             CommonMethods.FormMouseUp(sender);
         }
-        private void MouseEnterButton(object sender, EventArgs e)
+        private async void ExistingToken(object sender, EventArgs e)
+        {
+            DAOLogin dao = new DAOLogin();
+            dao.Token = GetStoredToken();
+            if (!string.IsNullOrEmpty(dao.Token))
+            {
+                dao.Username = dao.ValidateToken();
+                if (dao.Username != null)
+                {
+                    await Task.Delay(1000);
+                    if (MessageBox.Show($"Se encontró información de inicio de sesión en esta computadora. ¿Desea iniciar sesión como '{dao.Username}''?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        dao.TokenLogin();
+                        FrmDashboard frmDashboard = new FrmDashboard();
+                        frmDashboard.Show();
+                        frmLogin.Hide();
+                    }
+                }
+            }
+        }
+        private string GetStoredToken()
+        {;
+            return Properties.Settings.Default.RememberMeToken;
+        }
+        private void MouseEnterTextButton(object sender, EventArgs e)
         {
             RJButton btn = sender as RJButton;
             btn.BackColor = Color.FromArgb(31, 43, 91);
             btn.ForeColor = Color.White;
         }
-        private void MouseLeaveButton(object sender, EventArgs e)
+        private void MouseLeaveTextButton(object sender, EventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.BackColor = Color.FromArgb(255, 183, 3);
+            btn.BackColor = Color.FromArgb(142, 202, 230);
             btn.ForeColor = Color.FromArgb(31, 43, 91);
         }
-        private void MouseEnterControl(object sender, EventArgs e)
+        private void MouseEnterPictureButton(object sender, EventArgs e)
         {
-            PictureBox pic = sender as PictureBox;
-            if (pic != null && imageMapping.ContainsKey(pic.Name))
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
             {
-                pic.Image = imageMapping[pic.Name].Item2;
+                btn.Image = imageMapping[btn.Name].Item2;
+                btn.ForeColor = Color.FromArgb(31, 43, 91);
             }
         }
-        private void MouseLeaveControl(object sender, EventArgs e)
+        private void MouseLeavePictureButton(object sender, EventArgs e)
         {
-            PictureBox pic = sender as PictureBox;
-            if (pic != null && imageMapping.ContainsKey(pic.Name))
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
             {
-                pic.Image = imageMapping[pic.Name].Item1;
+                btn.Image = imageMapping[btn.Name].Item1;
+                btn.ForeColor = Color.FromArgb(142, 202, 230);
             }
         }
-        private void EnterTxtUsername(object sender, EventArgs e)
+        private void EnterTextBox(object sender, EventArgs e)
         {
-            if (frmLogin.txtUsername.Texts.Trim().Equals("Usuario"))
+            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            if (txt != null)
             {
-                frmLogin.txtUsername.Clear();
-                frmLogin.txtUsername.ForeColor = Color.FromArgb(31, 43, 91);
+                if (txt.Texts.Trim() == GetPlaceholderText(txt))
+                {
+                    txt.Clear();
+                    txt.ForeColor = Color.FromArgb(31, 43, 91);
+                }
             }
         }
-        private void LeaveTxtUsername(object sender, EventArgs e)
+        private void LeaveTextBox(object sender, EventArgs e)
         {
-            if (frmLogin.txtUsername.Texts.Trim().Equals(""))
+            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            if (txt != null)
             {
-                frmLogin.txtUsername.Texts = "Usuario";
-                frmLogin.txtUsername.ForeColor = Color.FromArgb(142, 202, 230);
-            }
-        }
-        private void EnterTxtPassword(object sender, EventArgs e)
-        {
-            if (frmLogin.txtPassword.Texts.Trim().Equals("Contraseña"))
-            {
-                frmLogin.txtPassword.Clear();
-                frmLogin.txtPassword.ForeColor = Color.FromArgb(31, 43, 91);
-                HidePassword(sender, e);
-            }
-        }
-        private void LeaveTxtPassword(object sender, EventArgs e)
-        {
-            if (frmLogin.txtPassword.Texts.Trim().Equals(""))
-            {
-                frmLogin.txtPassword.Texts = "Contraseña";
-                frmLogin.txtPassword.ForeColor = Color.FromArgb(142, 202, 230);
-                ShowPassword(sender, e);
+                if (string.IsNullOrEmpty(txt.Texts))
+                {
+                    txt.Texts = GetPlaceholderText(txt);
+                    txt.ForeColor = Color.FromArgb(142, 202, 230);
+                }
             }
         }
         private void TestConnection(object sender, EventArgs e)
@@ -158,13 +175,14 @@ namespace HealthPortal.Controller.Login
                 frmLogin.Hide();
                 if (CurrentUserData.TemporaryPassword)
                 {
-                    FrmPasswordChange objPasswordChange = new FrmPasswordChange(1);
-                    objPasswordChange.Show();
+                    FrmPasswordChange frmPasswordChange = new FrmPasswordChange(1);
+                    frmPasswordChange.Show();
                 }
                 else
                 {
-                    FrmDashboard objDashboard = new FrmDashboard();
-                    objDashboard.Show();
+                    if (frmLogin.rdoRememberMe.Checked == true) SaveTokenLocally();
+                    FrmDashboard frmDashboard = new FrmDashboard();
+                    frmDashboard.Show();
                 }
             }
             else
@@ -175,16 +193,16 @@ namespace HealthPortal.Controller.Login
         private void ShowPassword(object sender, EventArgs e)
         {
             frmLogin.txtPassword.PasswordChar = false;
-            frmLogin.picHidePassword.Visible = false;
-            frmLogin.picShowPassword.Visible = true;
+            frmLogin.btnHidePassword.Visible = false;
+            frmLogin.btnShowPassword.Visible = true;
         }
         private void HidePassword(object sender, EventArgs e)
         {
             if (!frmLogin.txtPassword.Texts.Trim().Equals("Contraseña"))
             {
                 frmLogin.txtPassword.PasswordChar = true;
-                frmLogin.picShowPassword.Visible = false;
-                frmLogin.picHidePassword.Visible = true;
+                frmLogin.btnShowPassword.Visible = false;
+                frmLogin.btnHidePassword.Visible = true;
             }
         }
         private void OpenPasswordRecoveryForm(object sender, EventArgs e)
@@ -201,13 +219,25 @@ namespace HealthPortal.Controller.Login
                 }
                 else
                 {
-                    MessageBox.Show("El usuario ingresado NO existe. Verifique el usuario ingresado e intente de nuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El usuario ingresado no existe. Verifique la información proporcionada e intente de nuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
                 MessageBox.Show("Para poder utilizar los métodos de recuperación disponibles, por favor ingrese su usuario.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+        public string GetPlaceholderText(BorderRadiusTXT txt)
+        {
+            if (txt == frmLogin.txtUsername) return "Usuario";
+            if (txt == frmLogin.txtPassword) return "Contraseña";
+            return string.Empty;
+        }
+        public void SaveTokenLocally()
+        {
+            MessageBox.Show(CurrentUserData.Token);
+            Properties.Settings.Default.RememberMeToken = CurrentUserData.Token;
+            Properties.Settings.Default.Save();
         }
     }
 }

@@ -140,7 +140,7 @@ namespace HealthPortal.Controller.UserAdministration
             int position = objUserAdministration.dgvUserDisplay.CurrentRow.Index;
             daoUserAdministration.Username = objUserAdministration.dgvUserDisplay[5, position].Value.ToString();
             string email = objUserAdministration.dgvUserDisplay[3, position].Value.ToString();
-            string temporaryPassword = commonMethods.GenerateRandomPassword();
+            string temporaryPassword = commonMethods.GenerateRandomPassword(8);
             daoUserAdministration.Password = commonMethods.ComputeSha256Hash(temporaryPassword);
             commonMethods.SendRecoveryEmail(temporaryPassword, email);
             daoUserAdministration.ReestablishUserPassword();
