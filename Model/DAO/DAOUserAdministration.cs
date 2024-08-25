@@ -20,34 +20,6 @@ namespace HealthPortal.Model.DAO
     {
         readonly SqlCommand command = new SqlCommand();
         CommonMethods commonMethods = new CommonMethods();
-        //public DataSet GetColumnNames()
-        //{
-        //    try
-        //    {
-        //        command.Connection = getConnection();
-        //        string query = "SELECT * FROM [Usuarios].[tbRegistros]";
-        //        SqlCommand cmd = new SqlCommand(query, command.Connection);
-        //        cmd.ExecuteNonQuery();
-        //        SqlDataAdapter adp = new SqlDataAdapter(cmd);
-        //        DataSet ds = new DataSet();
-        //        adp.Fill(ds, "tbRegistros");
-        //        return ds;
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return null;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        command.Connection.Close();
-        //    }
-        //}
         public DataSet GetUserInfo()
         {
             try
@@ -109,7 +81,7 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = $"SELECT * FROM [Vistas].[viewPersonas] WHERE Nombres LIKE '%{search}%' OR Apellidos LIKE '%{search}%' or [Correo Electrónico] LIKE '%{search}%'";
+                string query = $"SELECT * FROM [Vistas].[viewPersonas] WHERE [Nombres] LIKE '%{search}%' OR [Apellidos] LIKE '%{search}%' or [Correo Electrónico] LIKE '%{search}%'";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 //cmd.Parameters.AddWithValue("param1", column);
                 cmd.ExecuteNonQuery();
@@ -138,7 +110,7 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT * FROM [Usuarios].[tbRoles]";
+                string query = "SELECT * FROM [Institución].[tbRoles]";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
@@ -166,7 +138,7 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "EXEC [ProcedimientosAlmacenados].[spRegistrarUsuario] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10";
+                string query = "EXEC [ProcedimientosAlmacenados].[spRegistrarUsuario] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10, @param11";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("param1", Username);
                 cmd.Parameters.AddWithValue("param2", Password);
@@ -174,10 +146,11 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("param4", UserAttempts);
                 cmd.Parameters.AddWithValue("param5", true);
                 cmd.Parameters.AddWithValue("param6", RoleId);
-                cmd.Parameters.AddWithValue("param7", PersonName);
-                cmd.Parameters.AddWithValue("param8", PersonLastName);
-                cmd.Parameters.AddWithValue("param9", Email);
-                cmd.Parameters.AddWithValue("param10", PhoneNumber);
+                cmd.Parameters.AddWithValue("param7", 0);
+                cmd.Parameters.AddWithValue("param8", PersonName);
+                cmd.Parameters.AddWithValue("param9", PersonLastName);
+                cmd.Parameters.AddWithValue("param10", Email);
+                cmd.Parameters.AddWithValue("param11", PhoneNumber);
                 return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -200,7 +173,7 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string queryPersonas = "UPDATE [Usuarios].[tbPersonas] SET nombrePersona = @param1, apellidoPersona = @param2, correoPersona = @param3, telefonoPersona = @param4 WHERE idPersona = @param5";
+                string queryPersonas = "UPDATE [Institución].[tbPersonas] SET nombrePersona = @param1, apellidoPersona = @param2, correoPersona = @param3, telefonoPersona = @param4 WHERE idPersona = @param5";
                 SqlCommand cmdPersonas = new SqlCommand(queryPersonas, command.Connection);
                 cmdPersonas.Parameters.AddWithValue("param1", PersonName);
                 cmdPersonas.Parameters.AddWithValue("param2", PersonLastName);
@@ -210,12 +183,12 @@ namespace HealthPortal.Model.DAO
                 int result = cmdPersonas.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    string query = "UPDATE [Usuarios].[tbUsuarios] SET idRol = @param1 WHERE usuario = @param2";
+                    string query = "UPDATE [Institución].[tbUsuarios] SET idRol = @param1 WHERE usuario = @param2";
                     SqlCommand cmd = new SqlCommand(query, command.Connection);
                     cmd.Parameters.AddWithValue("param1", RoleId);
                     cmd.Parameters.AddWithValue("param2", Username);
                     result = cmd.ExecuteNonQuery();
-                    if (result == 1) { result = 2; }
+                    if (result == 1) result = 2;
                 }
                 return result;
             }
@@ -265,7 +238,7 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT MAX(idPersona) FROM [Usuarios].[tbPersonas]";
+                string query = "SELECT MAX(idPersona) FROM [Institución].[tbPersonas]";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }

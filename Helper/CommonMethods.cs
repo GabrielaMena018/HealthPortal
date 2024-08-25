@@ -12,11 +12,15 @@ using System.Windows.Forms;
 using HealthPortal.Model.DAO;
 using HealthPortal.View.FirstUsage;
 using HealthPortal.View.Login;
+using System.Drawing;
+using System.IO;
 
 namespace HealthPortal.Helper
 {
     internal class CommonMethods
     {
+        static bool dragging = false;
+        static Point dragCursorPoint, dragFormPoint;
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         public static extern IntPtr CreateRoundRectRgn
         (
@@ -30,10 +34,16 @@ namespace HealthPortal.Helper
         public static void DetermineInitialForm()
         {
             DAOLogin daoLogin = new DAOLogin();
-            int usuarios = daoLogin.GetAmountOfUsers();
-            if (usuarios == 0)
+            if (daoLogin.GetAmountOfUsers() == 0)
             {
-                Application.Run(new FrmFirstUserCreation());
+                if (daoLogin.GetInstitutionInfo() == 0)
+                {
+                    Application.Run(new FrmInstitutionCreation());
+                }
+                else
+                {
+                    Application.Run(new FrmFirstUserCreation());
+                }
             }
             else
             {
@@ -172,6 +182,48 @@ namespace HealthPortal.Helper
             CurrentUserData.RoleId = 0;
             CurrentUserData.TemporaryPassword = false;
             CurrentUserData.Email = string.Empty;
+        }
+        static public void FormMouseDown(object sender)
+        {
+            Form frm = sender as Form;
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = frm.Location;
+            frm.Cursor = Cursors.Hand;
+        }
+        static public void FormMouseMove(object sender)
+        {
+            Form frm = sender as Form;
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                frm.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+        static public void FormMouseUp(object sender)
+        {
+            Form frm = sender as Form;
+            dragging = false;
+            frm.Cursor = Cursors.Default;
+        }
+        static public byte[] ImageToByteArray(Image img)
+        {
+            if (img != null)
+            {
+                MemoryStream memoryStream = new MemoryStream();
+                img.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
+                return memoryStream.ToArray();
+            }
+            return null;
+        }
+        static public Image ByteArrayToImage(byte[] byteArray)
+        {
+            if (byteArray != null)
+            {
+                MemoryStream memoryStream = new MemoryStream(byteArray);
+                return Image.FromStream(memoryStream);
+            }
+            return null;
         }
     }
 }

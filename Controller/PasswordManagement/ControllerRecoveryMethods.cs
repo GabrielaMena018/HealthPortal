@@ -1,0 +1,104 @@
+﻿using HealthPortal.Helper;
+using HealthPortal.Model.DAO;
+using HealthPortal.Properties;
+using HealthPortal.View.Login;
+using HealthPortal.View.PasswordManagement;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace HealthPortal.Controller.PasswordManagement
+{
+    internal class ControllerRecoveryMethods
+    {
+        FrmRecoveryMethods frmRecoveryMethods;
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
+        string username;
+        public ControllerRecoveryMethods(FrmRecoveryMethods view, string username)
+        {
+            frmRecoveryMethods = view;
+            this.username = username;
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnEmailRecoveryMethod", Tuple.Create(Resources.emailRecovery, Resources.hoverEmailRecovery) },
+                { "btnSecurityQuestions", Tuple.Create(Resources.securityQuestions, Resources.hoverSecurityQuestions) },
+                { "btnSecurityPIN", Tuple.Create(Resources.PIN, Resources.hoverPIN) },
+                { "btnAdminIntervention", Tuple.Create(Resources.adminIntervention, Resources.hoverAdminIntervention) },
+                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) }
+            };
+            frmRecoveryMethods.MouseDown += new MouseEventHandler(FormMouseDown);
+            frmRecoveryMethods.MouseMove += new MouseEventHandler(FormMouseMove);
+            frmRecoveryMethods.MouseUp += new MouseEventHandler(FormMouseUp);
+
+            frmRecoveryMethods.btnExit.Click += new EventHandler(GoBackToLogin);
+
+            frmRecoveryMethods.btnEmailRecoveryMethod.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmRecoveryMethods.btnSecurityQuestions.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmRecoveryMethods.btnSecurityPIN.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmRecoveryMethods.btnAdminIntervention.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmRecoveryMethods.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+
+            frmRecoveryMethods.btnEmailRecoveryMethod.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmRecoveryMethods.btnSecurityQuestions.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmRecoveryMethods.btnSecurityPIN.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmRecoveryMethods.btnAdminIntervention.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmRecoveryMethods.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+
+            frmRecoveryMethods.btnEmailRecoveryMethod.Click += new EventHandler(EmailPasswordRecovery);
+        }
+        private void FormMouseDown(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseDown(sender);
+        }
+        private void FormMouseMove(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseMove(sender);
+        }
+        private void FormMouseUp(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseUp(sender);
+        }
+        private void GoBackToLogin(object sender, EventArgs e)
+        {
+            FrmLogin frmLogin = new FrmLogin();
+            frmRecoveryMethods.Hide();
+            frmLogin.Show();
+            frmRecoveryMethods.Dispose();
+        }
+        private void MouseEnterPictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item2;
+                if (btn != frmRecoveryMethods.btnExit) btn.BackColor = Color.FromArgb(31, 43, 91);
+            }
+        }
+        private void MouseLeavePictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item1;
+                if (btn != frmRecoveryMethods.btnExit) btn.BackColor = Color.FromArgb(142, 202, 230);
+            }
+        }
+        private void EmailPasswordRecovery(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea utilizar la recuperación por correo electrónico? Le será enviado un correo conteniendo una contraseña temporal que deberá usar para iniciar sesión la próxima vez.", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DAOPasswordManagement dao = new DAOPasswordManagement();
+                CommonMethods commonMethods = new CommonMethods();
+                string temporaryPassword = commonMethods.GenerateRandomPassword();
+                string newPassword = commonMethods.ComputeSha256Hash(temporaryPassword);
+                dao.Username = username;
+                dao.TemporaryPasswordAssignation(newPassword);
+                commonMethods.SendRecoveryEmail(temporaryPassword, dao.VerifyEmail(username));
+            }
+        }
+    }
+}

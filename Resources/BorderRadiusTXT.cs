@@ -28,7 +28,7 @@ namespace CustomPanel
         private int borderSize = 2;
         private bool underlinedStyle = false;
         private bool isFocused = false;
-
+        private int maxLength = 32767;
         private int borderRadius = 0;
         private Color placeholderColor = Color.DarkGray;
         private string placeholderText = "";
@@ -183,6 +183,17 @@ namespace CustomPanel
                 placeholderText = value;
                 textBox1.Text = "";
                 SetPlaceholder();
+            }
+        }
+
+        [Category("RJ Code Advance")]
+        public int MaxLength
+        {
+            get { return maxLength; }
+            set
+            {
+                maxLength = value;
+                textBox1.MaxLength = value;
             }
         }
         #endregion

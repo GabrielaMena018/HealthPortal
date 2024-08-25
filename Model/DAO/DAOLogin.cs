@@ -52,6 +52,31 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
+        public bool ConfirmUser()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT * FROM [Institución].[tbUsuarios] WHERE usuario = @username";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("username", Username);
+                return cmd.ExecuteReader().HasRows;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
         public int GetAmountOfUsers()
         {
             try
@@ -59,8 +84,7 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string query = "SELECT COUNT(*) FROM [Vistas].[viewInformacionLogin]";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                int totalUserAmount = (int)cmd.ExecuteScalar();
-                return totalUserAmount;
+                return (int)cmd.ExecuteScalar();
             }
             catch (SqlException ex)
             {
@@ -77,57 +101,29 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public string VerifyEmail(string username)
+        public int GetInstitutionInfo()
         {
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT [correoPersona] FROM [Vistas].[viewInformacionLogin] WHERE [usuario] = @param1";
+                string query = "SELECT COUNT(*) FROM [Institución].[tbInstitución]";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", username);
-                return cmd.ExecuteScalar().ToString();
-
+                return (int)cmd.ExecuteScalar();
             }
             catch (SqlException ex)
             {
                 MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                return 0;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                return 0;
             }
             finally
             {
                 command.Connection.Close();
             }
         }
-        public void TemporaryPasswordAssignation(string newPassword)
-        {
-            try
-            {
-                command.Connection = getConnection();
-                string query = "UPDATE [Usuarios].[tbUsuarios] SET [contraseña] = @param1, [contraseñaTemporal] = @param2 WHERE [usuario] = @param3";
-                SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", newPassword);
-                cmd.Parameters.AddWithValue("param2", true);
-                cmd.Parameters.AddWithValue("param3", Username);
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                command.Connection.Close();
-            }
-        }
-
     }
 }

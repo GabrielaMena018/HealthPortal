@@ -1,6 +1,6 @@
 ﻿using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
-using HealthPortal.View.PasswordChange;
+using HealthPortal.View.PasswordManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthPortal.View.Login;
 
-namespace HealthPortal.Controller.PasswordChange
+namespace HealthPortal.Controller.PasswordManagement
 {
     internal class ControllerPasswordChange
     {
@@ -79,7 +79,7 @@ namespace HealthPortal.Controller.PasswordChange
         }
         private void AttemptPasswordChange()
         {
-            DAOPasswordChange daoPasswordChange = new DAOPasswordChange();
+            DAOPasswordManagement daoPasswordChange = new DAOPasswordManagement();
             if (VerifyPassword() == true)
             {
                 if (CheckNewPassword() == true)
@@ -108,7 +108,7 @@ namespace HealthPortal.Controller.PasswordChange
         }
         private bool VerifyPassword()
         {
-            DAOPasswordChange daoPasswordChange = new DAOPasswordChange();
+            DAOPasswordManagement daoPasswordChange = new DAOPasswordManagement();
             string password = commonMethods.ComputeSha256Hash(objPasswordChange.txtPreviousPassword.Texts.Trim());
             return daoPasswordChange.VerifyCurrentUserPassword(password);
         }

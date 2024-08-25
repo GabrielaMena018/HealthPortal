@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HealthPortal.Model.DTO
 {
-    internal class DTOPasswordChange : dbContext
+    internal class DTOPasswordManagement : dbContext
     {
         private string username;
         private string password;

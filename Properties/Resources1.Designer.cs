@@ -73,6 +73,16 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adminIntervention {
+            get {
+                object obj = ResourceManager.GetObject("adminIntervention", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap agregar_usuario {
             get {
                 object obj = ResourceManager.GetObject("agregar-usuario", resourceCulture);
@@ -113,6 +123,16 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap emailRecovery {
+            get {
+                object obj = ResourceManager.GetObject("emailRecovery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap grafico_histograma {
             get {
                 object obj = ResourceManager.GetObject("grafico-histograma", resourceCulture);
@@ -126,6 +146,16 @@ namespace HealthPortal.Properties {
         internal static System.Drawing.Bitmap hide {
             get {
                 object obj = ResourceManager.GetObject("hide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hide32 {
+            get {
+                object obj = ResourceManager.GetObject("hide32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +193,39 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hoverAdminIntervention {
+            get {
+                object obj = ResourceManager.GetObject("hoverAdminIntervention", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hoverEmailRecovery {
+            get {
+                object obj = ResourceManager.GetObject("hoverEmailRecovery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hoverHide {
             get {
                 object obj = ResourceManager.GetObject("hoverHide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hoverHide32 {
+            get {
+                object obj = ResourceManager.GetObject("hoverHide32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,6 +273,16 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hoverPIN {
+            get {
+                object obj = ResourceManager.GetObject("hoverPIN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hoverQuit {
             get {
                 object obj = ResourceManager.GetObject("hoverQuit", resourceCulture);
@@ -233,9 +303,29 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hoverSecurityQuestions {
+            get {
+                object obj = ResourceManager.GetObject("hoverSecurityQuestions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hoverShow {
             get {
                 object obj = ResourceManager.GetObject("hoverShow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hoverShow32 {
+            get {
+                object obj = ResourceManager.GetObject("hoverShow32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,26 +366,6 @@ namespace HealthPortal.Properties {
         internal static System.Drawing.Bitmap hoverWifi {
             get {
                 object obj = ResourceManager.GetObject("hoverWifi", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ícono {
-            get {
-                object obj = ResourceManager.GetObject("Ícono", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ícono_R {
-            get {
-                object obj = ResourceManager.GetObject("Ícono_R", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -473,6 +543,16 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PIN {
+            get {
+                object obj = ResourceManager.GetObject("PIN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap procedimientos {
             get {
                 object obj = ResourceManager.GetObject("procedimientos", resourceCulture);
@@ -503,9 +583,29 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap securityQuestions {
+            get {
+                object obj = ResourceManager.GetObject("securityQuestions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap show {
             get {
                 object obj = ResourceManager.GetObject("show", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap show32 {
+            get {
+                object obj = ResourceManager.GetObject("show32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmailVerification));
             this.label1 = new System.Windows.Forms.Label();
             this.txtConfirmationCode = new CustomPanel.BorderRadiusTXT();
             this.btnConfirmEmail = new CustomPanel.RJButton();
@@ -40,9 +41,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label1.Location = new System.Drawing.Point(14, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(5);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label1.Location = new System.Drawing.Point(19, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(383, 37);
             this.label1.TabIndex = 7;
@@ -57,15 +58,16 @@
             this.txtConfirmationCode.BorderSize = 2;
             this.txtConfirmationCode.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmationCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtConfirmationCode.Location = new System.Drawing.Point(21, 94);
+            this.txtConfirmationCode.Location = new System.Drawing.Point(26, 102);
             this.txtConfirmationCode.Margin = new System.Windows.Forms.Padding(20);
+            this.txtConfirmationCode.MaxLength = 32767;
             this.txtConfirmationCode.Multiline = false;
             this.txtConfirmationCode.Name = "txtConfirmationCode";
             this.txtConfirmationCode.Padding = new System.Windows.Forms.Padding(20, 10, 10, 10);
             this.txtConfirmationCode.PasswordChar = false;
             this.txtConfirmationCode.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtConfirmationCode.PlaceholderText = "";
-            this.txtConfirmationCode.Size = new System.Drawing.Size(441, 38);
+            this.txtConfirmationCode.Size = new System.Drawing.Size(468, 38);
             this.txtConfirmationCode.TabIndex = 9;
             this.txtConfirmationCode.Texts = "Código de Confirmación";
             this.txtConfirmationCode.UnderlinedStyle = false;
@@ -80,12 +82,12 @@
             this.btnConfirmEmail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfirmEmail.FlatAppearance.BorderSize = 0;
             this.btnConfirmEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmEmail.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnConfirmEmail.Location = new System.Drawing.Point(324, 155);
+            this.btnConfirmEmail.Location = new System.Drawing.Point(26, 163);
             this.btnConfirmEmail.Margin = new System.Windows.Forms.Padding(176, 3, 20, 20);
             this.btnConfirmEmail.Name = "btnConfirmEmail";
-            this.btnConfirmEmail.Size = new System.Drawing.Size(170, 40);
+            this.btnConfirmEmail.Size = new System.Drawing.Size(468, 32);
             this.btnConfirmEmail.TabIndex = 15;
             this.btnConfirmEmail.Text = "Confirmar Correo";
             this.btnConfirmEmail.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
@@ -95,8 +97,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label2.Location = new System.Drawing.Point(18, 56);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label2.Location = new System.Drawing.Point(23, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(447, 16);
             this.label2.TabIndex = 16;
@@ -107,7 +109,7 @@
             this.picExit.BackColor = System.Drawing.Color.White;
             this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
             this.picExit.Location = new System.Drawing.Point(479, 12);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(32, 32);

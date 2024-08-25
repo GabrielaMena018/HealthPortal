@@ -1,4 +1,4 @@
-﻿namespace HealthPortal.View.PasswordChange
+﻿namespace HealthPortal.View.PasswordManagement
 {
     partial class FrmPasswordChange
     {

@@ -1,4 +1,4 @@
-﻿using HealthPortal.Controller.PasswordChange;
+﻿using HealthPortal.Controller.PasswordManagement;
 using HealthPortal.Helper;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HealthPortal.View.PasswordChange
+namespace HealthPortal.View.PasswordManagement
 {
     public partial class FrmPasswordChange : Form
     {

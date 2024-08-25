@@ -1,5 +1,5 @@
 ﻿using HealthPortal.View.Login;
-using HealthPortal.View.PasswordChange;
+using HealthPortal.View.PasswordManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +19,11 @@ namespace HealthPortal.Controller.Login
 {
     internal class ControllerLogin
     {
-        FrmLogin objLogin;
+        FrmLogin frmLogin;
         private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         public ControllerLogin(FrmLogin view)
         {
-            objLogin = view;
+            frmLogin = view;
 
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
             {
@@ -33,27 +33,42 @@ namespace HealthPortal.Controller.Login
                 { "picTestConnection", Tuple.Create(Resources.wifi, Resources.hoverWifi) }
             };
 
-            objLogin.Load += new EventHandler(HidePassword);
-            objLogin.txtUsername.Enter += new EventHandler(EnterTxtUsername);
-            objLogin.txtUsername.Leave += new EventHandler(LeaveTxtUsername);
-            objLogin.txtPassword.Enter += new EventHandler(EnterTxtPassword);
-            objLogin.txtPassword.Leave += new EventHandler(LeaveTxtPassword);
-            objLogin.picTestConnection.Click += new EventHandler(TestConnection);
-            objLogin.picExit.Click += new EventHandler(ExitApplication);
-            objLogin.btnLogin.Click += new EventHandler(AttemptLogin);
-            objLogin.picHidePassword.Click += new EventHandler(ShowPassword);
-            objLogin.picShowPassword.Click += new EventHandler(HidePassword);
-            objLogin.llbForgotPassword.Click += new EventHandler(EmailPasswordRecovery);
-            objLogin.picExit.MouseEnter += new EventHandler(MouseEnterControl);
-            objLogin.picHidePassword.MouseEnter += new EventHandler(MouseEnterControl);
-            objLogin.picShowPassword.MouseEnter += new EventHandler(MouseEnterControl);
-            objLogin.picTestConnection.MouseEnter += new EventHandler(MouseEnterControl);
-            objLogin.btnLogin.MouseEnter += new EventHandler(MouseEnterButton);
-            objLogin.picExit.MouseLeave += new EventHandler(MouseLeaveControl);
-            objLogin.picHidePassword.MouseLeave += new EventHandler(MouseLeaveControl);
-            objLogin.picShowPassword.MouseLeave += new EventHandler(MouseLeaveControl);
-            objLogin.picTestConnection.MouseLeave += new EventHandler(MouseLeaveControl);
-            objLogin.btnLogin.MouseLeave += new EventHandler(MouseLeaveButton);
+            frmLogin.MouseDown += new MouseEventHandler(FormMouseDown);
+            frmLogin.MouseMove += new MouseEventHandler(FormMouseMove);
+            frmLogin.MouseUp += new MouseEventHandler(FormMouseUp);
+            frmLogin.Load += new EventHandler(HidePassword);
+            frmLogin.txtUsername.Enter += new EventHandler(EnterTxtUsername);
+            frmLogin.txtUsername.Leave += new EventHandler(LeaveTxtUsername);
+            frmLogin.txtPassword.Enter += new EventHandler(EnterTxtPassword);
+            frmLogin.txtPassword.Leave += new EventHandler(LeaveTxtPassword);
+            frmLogin.picTestConnection.Click += new EventHandler(TestConnection);
+            frmLogin.picExit.Click += new EventHandler(ExitApplication);
+            frmLogin.btnLogin.Click += new EventHandler(AttemptLogin);
+            frmLogin.picHidePassword.Click += new EventHandler(ShowPassword);
+            frmLogin.picShowPassword.Click += new EventHandler(HidePassword);
+            frmLogin.llbForgotPassword.Click += new EventHandler(OpenPasswordRecoveryForm);
+            frmLogin.picExit.MouseEnter += new EventHandler(MouseEnterControl);
+            frmLogin.picHidePassword.MouseEnter += new EventHandler(MouseEnterControl);
+            frmLogin.picShowPassword.MouseEnter += new EventHandler(MouseEnterControl);
+            frmLogin.picTestConnection.MouseEnter += new EventHandler(MouseEnterControl);
+            frmLogin.btnLogin.MouseEnter += new EventHandler(MouseEnterButton);
+            frmLogin.picExit.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmLogin.picHidePassword.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmLogin.picShowPassword.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmLogin.picTestConnection.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmLogin.btnLogin.MouseLeave += new EventHandler(MouseLeaveButton);
+        }
+        private void FormMouseDown(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseDown(sender);
+        }
+        private void FormMouseMove(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseMove(sender);
+        }
+        private void FormMouseUp(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseUp(sender);
         }
         private void MouseEnterButton(object sender, EventArgs e)
         {
@@ -85,35 +100,35 @@ namespace HealthPortal.Controller.Login
         }
         private void EnterTxtUsername(object sender, EventArgs e)
         {
-            if (objLogin.txtUsername.Texts.Trim().Equals("Usuario"))
+            if (frmLogin.txtUsername.Texts.Trim().Equals("Usuario"))
             {
-                objLogin.txtUsername.Clear();
-                objLogin.txtUsername.ForeColor = Color.FromArgb(31, 43, 91);
+                frmLogin.txtUsername.Clear();
+                frmLogin.txtUsername.ForeColor = Color.FromArgb(31, 43, 91);
             }
         }
         private void LeaveTxtUsername(object sender, EventArgs e)
         {
-            if (objLogin.txtUsername.Texts.Trim().Equals(""))
+            if (frmLogin.txtUsername.Texts.Trim().Equals(""))
             {
-                objLogin.txtUsername.Texts = "Usuario";
-                objLogin.txtUsername.ForeColor = Color.FromArgb(142, 202, 230);
+                frmLogin.txtUsername.Texts = "Usuario";
+                frmLogin.txtUsername.ForeColor = Color.FromArgb(142, 202, 230);
             }
         }
         private void EnterTxtPassword(object sender, EventArgs e)
         {
-            if (objLogin.txtPassword.Texts.Trim().Equals("Contraseña"))
+            if (frmLogin.txtPassword.Texts.Trim().Equals("Contraseña"))
             {
-                objLogin.txtPassword.Clear();
-                objLogin.txtPassword.ForeColor = Color.FromArgb(31, 43, 91);
+                frmLogin.txtPassword.Clear();
+                frmLogin.txtPassword.ForeColor = Color.FromArgb(31, 43, 91);
                 HidePassword(sender, e);
             }
         }
         private void LeaveTxtPassword(object sender, EventArgs e)
         {
-            if (objLogin.txtPassword.Texts.Trim().Equals(""))
+            if (frmLogin.txtPassword.Texts.Trim().Equals(""))
             {
-                objLogin.txtPassword.Texts = "Contraseña";
-                objLogin.txtPassword.ForeColor = Color.FromArgb(142, 202, 230);
+                frmLogin.txtPassword.Texts = "Contraseña";
+                frmLogin.txtPassword.ForeColor = Color.FromArgb(142, 202, 230);
                 ShowPassword(sender, e);
             }
         }
@@ -134,13 +149,13 @@ namespace HealthPortal.Controller.Login
         }
         private void AttemptLogin(object sender, EventArgs e)
         {
-            DAOLogin daoLogin = new DAOLogin();
+            DAOLogin dao = new DAOLogin();
             CommonMethods commonMethods = new CommonMethods();
-            daoLogin.Username = objLogin.txtUsername.Texts.Trim();
-            daoLogin.Password = commonMethods.ComputeSha256Hash(objLogin.txtPassword.Texts.Trim());
-            if (daoLogin.EvaluateLogin() == true && CurrentUserData.Username.Equals(daoLogin.Username))
+            dao.Username = frmLogin.txtUsername.Texts.Trim();
+            dao.Password = commonMethods.ComputeSha256Hash(frmLogin.txtPassword.Texts.Trim());
+            if (dao.EvaluateLogin() == true && CurrentUserData.Username.Equals(dao.Username))
             {
-                objLogin.Hide();
+                frmLogin.Hide();
                 if (CurrentUserData.TemporaryPassword)
                 {
                     FrmPasswordChange objPasswordChange = new FrmPasswordChange(1);
@@ -159,34 +174,39 @@ namespace HealthPortal.Controller.Login
         }
         private void ShowPassword(object sender, EventArgs e)
         {
-            objLogin.txtPassword.PasswordChar = false;
-            objLogin.picHidePassword.Visible = false;
-            objLogin.picShowPassword.Visible = true;
+            frmLogin.txtPassword.PasswordChar = false;
+            frmLogin.picHidePassword.Visible = false;
+            frmLogin.picShowPassword.Visible = true;
         }
         private void HidePassword(object sender, EventArgs e)
         {
-            if (!objLogin.txtPassword.Texts.Trim().Equals("Contraseña"))
+            if (!frmLogin.txtPassword.Texts.Trim().Equals("Contraseña"))
             {
-                objLogin.txtPassword.PasswordChar = true;
-                objLogin.picShowPassword.Visible = false;
-                objLogin.picHidePassword.Visible = true;
+                frmLogin.txtPassword.PasswordChar = true;
+                frmLogin.picShowPassword.Visible = false;
+                frmLogin.picHidePassword.Visible = true;
             }
         }
-        private void EmailPasswordRecovery(object sender, EventArgs e)
+        private void OpenPasswordRecoveryForm(object sender, EventArgs e)
         {
-            if (objLogin.txtUsername.Texts.Trim() == "" || objLogin.txtUsername.Texts.Trim() == "Usuario")
+            if (!string.IsNullOrEmpty(frmLogin.txtUsername.Texts.Trim()))
             {
-                MessageBox.Show("Llene el campo de nombre de usuario para poder verificar las credenciales.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DAOLogin dao = new DAOLogin();
+                dao.Username = frmLogin.txtUsername.Texts.Trim();
+                if (dao.ConfirmUser())
+                {
+                    FrmRecoveryMethods frmRecoveryMethods = new FrmRecoveryMethods(frmLogin.txtUsername.Texts.Trim());
+                    frmLogin.Hide();
+                    frmRecoveryMethods.Show();
+                }
+                else
+                {
+                    MessageBox.Show("El usuario ingresado NO existe. Verifique el usuario ingresado e intente de nuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                DAOLogin daoLogin = new DAOLogin();
-                CommonMethods commonMethods = new CommonMethods();
-                string temporaryPassword = commonMethods.GenerateRandomPassword();
-                string newPassword = commonMethods.ComputeSha256Hash(temporaryPassword);
-                daoLogin.Username = objLogin.txtUsername.Texts.Trim();
-                daoLogin.TemporaryPasswordAssignation(newPassword);
-                commonMethods.SendRecoveryEmail(temporaryPassword, daoLogin.VerifyEmail(objLogin.txtUsername.Texts.Trim()));
+                MessageBox.Show("Para poder utilizar los métodos de recuperación disponibles, por favor ingrese su usuario.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

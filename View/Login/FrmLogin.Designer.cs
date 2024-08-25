@@ -33,10 +33,6 @@ namespace HealthPortal.View.Login
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.picHidePassword = new System.Windows.Forms.PictureBox();
             this.picExit = new System.Windows.Forms.PictureBox();
@@ -56,48 +52,11 @@ namespace HealthPortal.View.Login
             ((System.ComponentModel.ISupportInitialize)(this.picUsername)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(638, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(82, 720);
-            this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(82, 720);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(82, 671);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(556, 49);
-            this.panel3.TabIndex = 3;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(82, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(556, 108);
-            this.panel4.TabIndex = 4;
-            // 
             // panel5
             // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.Controls.Add(this.picHidePassword);
             this.panel5.Controls.Add(this.picExit);
@@ -109,9 +68,8 @@ namespace HealthPortal.View.Login
             this.panel5.Controls.Add(this.picUsername);
             this.panel5.Controls.Add(this.txtPassword);
             this.panel5.Controls.Add(this.txtUsername);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(82, 108);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(82, 108, 82, 49);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(556, 563);
             this.panel5.TabIndex = 5;
@@ -121,7 +79,7 @@ namespace HealthPortal.View.Login
             this.picHidePassword.BackColor = System.Drawing.Color.White;
             this.picHidePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picHidePassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picHidePassword.Image = global::HealthPortal.Properties.Resources.hide;
+            this.picHidePassword.Image = global::HealthPortal.Properties.Resources.hide32;
             this.picHidePassword.Location = new System.Drawing.Point(115, 286);
             this.picHidePassword.Name = "picHidePassword";
             this.picHidePassword.Size = new System.Drawing.Size(32, 32);
@@ -135,7 +93,7 @@ namespace HealthPortal.View.Login
             this.picExit.BackColor = System.Drawing.Color.White;
             this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
             this.picExit.Location = new System.Drawing.Point(431, 469);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(32, 32);
@@ -214,7 +172,7 @@ namespace HealthPortal.View.Login
             this.picShowPassword.BackColor = System.Drawing.Color.White;
             this.picShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picShowPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picShowPassword.Image = global::HealthPortal.Properties.Resources.show;
+            this.picShowPassword.Image = ((System.Drawing.Image)(resources.GetObject("picShowPassword.Image")));
             this.picShowPassword.Location = new System.Drawing.Point(115, 286);
             this.picShowPassword.Name = "picShowPassword";
             this.picShowPassword.Size = new System.Drawing.Size(32, 32);
@@ -249,6 +207,7 @@ namespace HealthPortal.View.Login
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.txtPassword.Location = new System.Drawing.Point(93, 269);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(93, 3, 93, 3);
+            this.txtPassword.MaxLength = 32767;
             this.txtPassword.Multiline = false;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Padding = new System.Windows.Forms.Padding(80, 20, 20, 20);
@@ -271,6 +230,7 @@ namespace HealthPortal.View.Login
             this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.txtUsername.Location = new System.Drawing.Point(93, 149);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(93, 3, 93, 3);
+            this.txtUsername.MaxLength = 32767;
             this.txtUsername.Multiline = false;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Padding = new System.Windows.Forms.Padding(80, 20, 20, 20);
@@ -290,10 +250,6 @@ namespace HealthPortal.View.Login
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(720, 720);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -312,12 +268,7 @@ namespace HealthPortal.View.Login
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         public CustomPanel.BorderRadiusTXT txtUsername;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox picUsername;
         public CustomPanel.BorderRadiusTXT txtPassword;

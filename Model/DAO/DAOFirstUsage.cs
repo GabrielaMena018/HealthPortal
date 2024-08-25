@@ -12,12 +12,40 @@ namespace HealthPortal.Model.DAO
     internal class DAOFirstUsage : DTOFirstUsage
     {
         SqlCommand command = new SqlCommand();
+        public int RegisterInstitution()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "INSERT INTO [Institución].[tbInstitución] VALUES (@institutionName, @institutionAddress, @institutionLogo, @institutionLocation)";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("institutionName", InstitutionName);
+                cmd.Parameters.AddWithValue("institutionAddress", InstitutionAddress);
+                cmd.Parameters.AddWithValue("institutionLogo", InstitutionLogo);
+                cmd.Parameters.AddWithValue("institutionLocation", InstitutionLocation);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
         public int RegisterFirstUser()
         {
             try
             {
                 command.Connection = getConnection();
-                string query = "EXEC [ProcedimientosAlmacenados].[spRegistrarPrimerUsuario] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10";
+                string query = "EXEC [ProcedimientosAlmacenados].[spRegistrarUsuario] @param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10, @param11";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("param1", Username);
                 cmd.Parameters.AddWithValue("param2", Password);
@@ -25,10 +53,11 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("param4", 0);
                 cmd.Parameters.AddWithValue("param5", false);
                 cmd.Parameters.AddWithValue("param6", 1);
-                cmd.Parameters.AddWithValue("param7", Name);
-                cmd.Parameters.AddWithValue("param8", LastName);
-                cmd.Parameters.AddWithValue("param9", Email);
-                cmd.Parameters.AddWithValue("param10", Phone);
+                cmd.Parameters.AddWithValue("param7", 0);
+                cmd.Parameters.AddWithValue("param8", Name);
+                cmd.Parameters.AddWithValue("param9", LastName);
+                cmd.Parameters.AddWithValue("param10", Email);
+                cmd.Parameters.AddWithValue("param11", Phone);
                 return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -51,7 +80,7 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "SELECT MAX(idPersona) FROM [Usuarios].[tbPersonas]";
+                string query = "SELECT MAX(idPersona) FROM [Institución].[tbPersonas]";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }

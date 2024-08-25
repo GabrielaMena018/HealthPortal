@@ -11,7 +11,7 @@ using HealthPortal.Helper;
 
 namespace HealthPortal.Model.DAO
 {
-    internal class DAOPasswordChange : DTOPasswordChange
+    internal class DAOPasswordManagement : DTOPasswordManagement
     {
         SqlCommand command = new SqlCommand();
         public bool VerifyCurrentUserPassword(string password)
@@ -75,6 +75,57 @@ namespace HealthPortal.Model.DAO
             {
                 MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public string VerifyEmail(string username)
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT [correoPersona] FROM [Vistas].[viewInformacionLogin] WHERE [usuario] = @param1";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", username);
+                return cmd.ExecuteScalar().ToString();
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public void TemporaryPasswordAssignation(string newPassword)
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "UPDATE [Institución].[tbUsuarios] SET [contraseña] = @param1, [contraseñaTemporal] = @param2 WHERE [usuario] = @param3";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", newPassword);
+                cmd.Parameters.AddWithValue("param2", true);
+                cmd.Parameters.AddWithValue("param3", Username);
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
