@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPatientAdministration));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.contextDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsVer = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +66,7 @@
             this.panelCustumPequeño = new CustomPanel.PanelCustom();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.rjButton4 = new CustomPanel.RJButton();
+            this.btnPDF = new CustomPanel.RJButton();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnPrint = new CustomPanel.RJButton();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -223,24 +223,24 @@
             this.GridViewPatient.BackgroundColor = System.Drawing.Color.White;
             this.GridViewPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridViewPatient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridViewPatient.ColumnHeadersHeight = 40;
             this.GridViewPatient.ContextMenuStrip = this.contextDataGrid;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewPatient.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridViewPatient.DefaultCellStyle = dataGridViewCellStyle4;
             this.GridViewPatient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridViewPatient.EnableHeadersVisualStyles = false;
             this.GridViewPatient.Location = new System.Drawing.Point(0, 0);
@@ -466,7 +466,7 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Controls.Add(this.rjButton4);
+            this.panel6.Controls.Add(this.btnPDF);
             this.panel6.Controls.Add(this.pictureBox6);
             this.panel6.Controls.Add(this.btnPrint);
             this.panel6.Controls.Add(this.chart1);
@@ -486,25 +486,25 @@
             this.pictureBox7.TabIndex = 17;
             this.pictureBox7.TabStop = false;
             // 
-            // rjButton4
+            // btnPDF
             // 
-            this.rjButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton4.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton4.BorderRadius = 40;
-            this.rjButton4.BorderSize = 0;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(43, 489);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Size = new System.Drawing.Size(96, 46);
-            this.rjButton4.TabIndex = 16;
-            this.rjButton4.Text = "PDF";
-            this.rjButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton4.TextColor = System.Drawing.Color.White;
-            this.rjButton4.UseVisualStyleBackColor = false;
+            this.btnPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPDF.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPDF.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPDF.BorderRadius = 40;
+            this.btnPDF.BorderSize = 0;
+            this.btnPDF.FlatAppearance.BorderSize = 0;
+            this.btnPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPDF.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnPDF.ForeColor = System.Drawing.Color.White;
+            this.btnPDF.Location = new System.Drawing.Point(43, 489);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(96, 46);
+            this.btnPDF.TabIndex = 16;
+            this.btnPDF.Text = "PDF";
+            this.btnPDF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPDF.TextColor = System.Drawing.Color.White;
+            this.btnPDF.UseVisualStyleBackColor = false;
             // 
             // pictureBox6
             // 
@@ -538,11 +538,11 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Top;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(0, 157);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -553,11 +553,11 @@
         System.Drawing.Color.PowderBlue,
         System.Drawing.Color.Khaki,
         System.Drawing.Color.Goldenrod};
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(308, 245);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
@@ -756,7 +756,7 @@
         private CustomPanel.PanelCustom panelCustumPequeño;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox7;
-        public CustomPanel.RJButton rjButton4;
+        public CustomPanel.RJButton btnPDF;
         private System.Windows.Forms.PictureBox pictureBox6;
         public CustomPanel.RJButton btnPrint;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;

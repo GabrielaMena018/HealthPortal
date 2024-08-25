@@ -44,7 +44,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panelButton = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.rjButton3 = new CustomPanel.RJButton();
+            this.btnPrintReport = new CustomPanel.RJButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -165,7 +165,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.Location = new System.Drawing.Point(11, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(222, 45);
+            this.label2.Size = new System.Drawing.Size(190, 37);
             this.label2.TabIndex = 4;
             this.label2.Text = "Indice de Uso";
             // 
@@ -176,14 +176,14 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(16, 85);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 40);
+            this.comboBox2.Size = new System.Drawing.Size(174, 36);
             this.comboBox2.TabIndex = 6;
             this.comboBox2.Text = "Esta Semana";
             // 
             // panelButton
             // 
             this.panelButton.Controls.Add(this.pictureBox5);
-            this.panelButton.Controls.Add(this.rjButton3);
+            this.panelButton.Controls.Add(this.btnPrintReport);
             this.panelButton.Controls.Add(this.pictureBox3);
             this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelButton.Location = new System.Drawing.Point(0, 405);
@@ -199,25 +199,25 @@
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
-            // rjButton3
+            // btnPrintReport
             // 
-            this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton3.BorderRadius = 40;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(117, 60);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(188, 47);
-            this.rjButton3.TabIndex = 11;
-            this.rjButton3.Text = "Imprimir Reporte";
-            this.rjButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton3.TextColor = System.Drawing.Color.White;
-            this.rjButton3.UseVisualStyleBackColor = false;
+            this.btnPrintReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.btnPrintReport.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.btnPrintReport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.btnPrintReport.BorderRadius = 40;
+            this.btnPrintReport.BorderSize = 0;
+            this.btnPrintReport.FlatAppearance.BorderSize = 0;
+            this.btnPrintReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintReport.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintReport.ForeColor = System.Drawing.Color.White;
+            this.btnPrintReport.Location = new System.Drawing.Point(117, 60);
+            this.btnPrintReport.Name = "btnPrintReport";
+            this.btnPrintReport.Size = new System.Drawing.Size(188, 47);
+            this.btnPrintReport.TabIndex = 11;
+            this.btnPrintReport.Text = "Imprimir Reporte";
+            this.btnPrintReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrintReport.TextColor = System.Drawing.Color.White;
+            this.btnPrintReport.UseVisualStyleBackColor = false;
             // 
             // pictureBox3
             // 
@@ -252,7 +252,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 182);
+            this.label1.Size = new System.Drawing.Size(306, 76);
             this.label1.TabIndex = 2;
             this.label1.Text = "Inventario";
             // 
@@ -260,7 +260,7 @@
             // 
             this.panelbuscador.Controls.Add(this.btnSearch);
             this.panelbuscador.Controls.Add(this.txtSearch);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 185);
+            this.panelbuscador.Location = new System.Drawing.Point(3, 79);
             this.panelbuscador.Name = "panelbuscador";
             this.panelbuscador.Size = new System.Drawing.Size(319, 55);
             this.panelbuscador.TabIndex = 0;
@@ -301,7 +301,7 @@
             this.txtSearch.PasswordChar = false;
             this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSearch.PlaceholderText = "";
-            this.txtSearch.Size = new System.Drawing.Size(313, 47);
+            this.txtSearch.Size = new System.Drawing.Size(313, 43);
             this.txtSearch.TabIndex = 3;
             this.txtSearch.Texts = "Buscar";
             this.txtSearch.UnderlinedStyle = false;
@@ -315,30 +315,30 @@
             this.cmsView,
             this.cmsPDF});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(231, 132);
+            this.cmsDataGrid.Size = new System.Drawing.Size(204, 100);
             // 
             // cmsDelete
             // 
             this.cmsDelete.Name = "cmsDelete";
-            this.cmsDelete.Size = new System.Drawing.Size(230, 32);
+            this.cmsDelete.Size = new System.Drawing.Size(203, 24);
             this.cmsDelete.Text = "Eliminar Registro";
             // 
             // cmsUpdate
             // 
             this.cmsUpdate.Name = "cmsUpdate";
-            this.cmsUpdate.Size = new System.Drawing.Size(230, 32);
+            this.cmsUpdate.Size = new System.Drawing.Size(203, 24);
             this.cmsUpdate.Text = "Actualizar Registro";
             // 
             // cmsView
             // 
             this.cmsView.Name = "cmsView";
-            this.cmsView.Size = new System.Drawing.Size(230, 32);
+            this.cmsView.Size = new System.Drawing.Size(203, 24);
             this.cmsView.Text = "Ver registro";
             // 
             // cmsPDF
             // 
             this.cmsPDF.Name = "cmsPDF";
-            this.cmsPDF.Size = new System.Drawing.Size(230, 32);
+            this.cmsPDF.Size = new System.Drawing.Size(203, 24);
             this.cmsPDF.Text = "Imprimir PDF";
             // 
             // PanelContenedor
@@ -428,7 +428,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label6.Location = new System.Drawing.Point(43, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 28);
+            this.label6.Size = new System.Drawing.Size(84, 23);
             this.label6.TabIndex = 14;
             this.label6.Text = "Categoria";
             // 
@@ -459,7 +459,7 @@
             this.CmbCategoria.FormattingEnabled = true;
             this.CmbCategoria.Location = new System.Drawing.Point(47, 42);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(228, 38);
+            this.CmbCategoria.Size = new System.Drawing.Size(228, 33);
             this.CmbCategoria.TabIndex = 5;
             // 
             // FrmInventoryAdministration
@@ -516,7 +516,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Panel panelButton;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private CustomPanel.RJButton rjButton3;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -530,5 +529,6 @@
         public CustomPanel.RJButton btnSearch;
         public CustomPanel.BorderRadiusTXT txtSearch;
         public System.Windows.Forms.ToolStripMenuItem cmsPDF;
+        public CustomPanel.RJButton btnPrintReport;
     }
 }

@@ -11,6 +11,7 @@ using System.Net;
 using System.Windows.Forms.DataVisualization.Charting;
 using HealthPortal.View.PatientAdministration;
 using HealthPortal.Helper;
+using HealthPortal.View.Report.patient;
 
 namespace HealthPortal.Controller.PatientAdministration
 {
@@ -20,7 +21,7 @@ namespace HealthPortal.Controller.PatientAdministration
         public ControllerPatientAdministration(FrmPatientAdministration view)
         {
             objPatientAdministration = view;
-            objPatientAdministration.btnNew.Click += new EventHandler(NewStudentPatient);
+            objPatientAdministration.btnPrint.Click += new EventHandler(NewStudentPatient);
             objPatientAdministration.Load += new EventHandler(InitialCharge);
             objPatientAdministration.cmsActualizar.Click += new EventHandler(UpdatePatient);
             objPatientAdministration.cmsVer.Click += new EventHandler(ViewPatientFile);
@@ -33,9 +34,17 @@ namespace HealthPortal.Controller.PatientAdministration
             objPatientAdministration.CmbGrade.SelectedIndexChanged += new EventHandler(SearchGrado);
             objPatientAdministration.cmbRol.SelectedIndexChanged += new EventHandler(SearchRole);
             objPatientAdministration.btnShowAll.Click += new EventHandler(RefreshStudentData);
+            objPatientAdministration.btnPDF.Click += new EventHandler(VisitReport);
             objPatientAdministration.PickFechaVisita.Value = DateTime.Now;
 
         }
+
+        private void VisitReport(object sender, EventArgs e)
+        {
+            FrmReportGeneralPatient openForm = new FrmReportGeneralPatient();
+            openForm.ShowDialog();
+        }
+
         private void CheckUserAccessLevel()
         {
             if (CurrentUserData.RoleId == 4 && CurrentUserData.RoleId == 5)

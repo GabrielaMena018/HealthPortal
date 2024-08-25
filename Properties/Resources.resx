@@ -190,14 +190,8 @@
   <data name="hoverWifi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hoverWifi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\solar_pills-line-duotone1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimizar-ventana (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimizar-ventana (2)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="users" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\majesticons_user-line1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,9 +226,6 @@
   <data name="leccion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\leccion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\x1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="grafico-histograma" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\grafico-histograma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,14 +247,8 @@
   <data name="pastillas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pastillas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="minimizar-ventana (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimizar-ventana (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="hoverUsers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hoverUsers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimizar-ventana (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimizar-ventana (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="leccion (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\leccion (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -282,11 +267,5 @@
   </data>
   <data name="hoverQuit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hoverQuit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="restaurar-ventana" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\restaurar-ventana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimizar-ventana (2)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimizar-ventana (2)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -41,6 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelCustom1 = new CustomPanel.PanelCustom();
+            this.btnGenerarReporte = new CustomPanel.RJButton();
             this.rjButton2 = new CustomPanel.RJButton();
             this.borderRadiusTXT1 = new CustomPanel.BorderRadiusTXT();
             this.label4 = new System.Windows.Forms.Label();
@@ -82,6 +83,7 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.BtnNuevaSecciónAcademica = new CustomPanel.RJButton();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelCustom1.SuspendLayout();
@@ -106,6 +108,7 @@
             this.ContextSecciónAcademica.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -155,6 +158,7 @@
             // 
             this.panelCustom1.BackColor = System.Drawing.Color.White;
             this.panelCustom1.BorderRadius = 30;
+            this.panelCustom1.Controls.Add(this.panel14);
             this.panelCustom1.Controls.Add(this.rjButton2);
             this.panelCustom1.Controls.Add(this.borderRadiusTXT1);
             this.panelCustom1.Controls.Add(this.label4);
@@ -168,6 +172,25 @@
             this.panelCustom1.Name = "panelCustom1";
             this.panelCustom1.Size = new System.Drawing.Size(369, 543);
             this.panelCustom1.TabIndex = 5;
+            // 
+            // btnGenerarReporte
+            // 
+            this.btnGenerarReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnGenerarReporte.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnGenerarReporte.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnGenerarReporte.BorderRadius = 40;
+            this.btnGenerarReporte.BorderSize = 0;
+            this.btnGenerarReporte.FlatAppearance.BorderSize = 0;
+            this.btnGenerarReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarReporte.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarReporte.ForeColor = System.Drawing.Color.Black;
+            this.btnGenerarReporte.Location = new System.Drawing.Point(168, 15);
+            this.btnGenerarReporte.Name = "btnGenerarReporte";
+            this.btnGenerarReporte.Size = new System.Drawing.Size(172, 43);
+            this.btnGenerarReporte.TabIndex = 27;
+            this.btnGenerarReporte.Text = "Generar Reporte";
+            this.btnGenerarReporte.TextColor = System.Drawing.Color.Black;
+            this.btnGenerarReporte.UseVisualStyleBackColor = false;
             // 
             // rjButton2
             // 
@@ -416,7 +439,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label6.Location = new System.Drawing.Point(403, 21);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 23);
+            this.label6.Size = new System.Drawing.Size(75, 23);
             this.label6.TabIndex = 20;
             this.label6.Text = "specialty";
             // 
@@ -468,7 +491,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(31, 21);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 23);
+            this.label8.Size = new System.Drawing.Size(56, 23);
             this.label8.TabIndex = 22;
             this.label8.Text = "Grade";
             // 
@@ -530,20 +553,20 @@
             this.toolStripActualizarEspecialidad,
             this.toolStripEliminarEspecialidad});
             this.ContextEspecialidad.Name = "contextDataGrid";
-            this.ContextEspecialidad.Size = new System.Drawing.Size(237, 56);
+            this.ContextEspecialidad.Size = new System.Drawing.Size(211, 56);
             // 
             // toolStripActualizarEspecialidad
             // 
             this.toolStripActualizarEspecialidad.Image = ((System.Drawing.Image)(resources.GetObject("toolStripActualizarEspecialidad.Image")));
             this.toolStripActualizarEspecialidad.Name = "toolStripActualizarEspecialidad";
-            this.toolStripActualizarEspecialidad.Size = new System.Drawing.Size(236, 26);
+            this.toolStripActualizarEspecialidad.Size = new System.Drawing.Size(210, 26);
             this.toolStripActualizarEspecialidad.Text = "Actualizar specialty";
             // 
             // toolStripEliminarEspecialidad
             // 
             this.toolStripEliminarEspecialidad.Image = ((System.Drawing.Image)(resources.GetObject("toolStripEliminarEspecialidad.Image")));
             this.toolStripEliminarEspecialidad.Name = "toolStripEliminarEspecialidad";
-            this.toolStripEliminarEspecialidad.Size = new System.Drawing.Size(236, 26);
+            this.toolStripEliminarEspecialidad.Size = new System.Drawing.Size(210, 26);
             this.toolStripEliminarEspecialidad.Text = "Eliminar specialty";
             // 
             // panel6
@@ -706,7 +729,16 @@
             this.BtnNuevaSecciónAcademica.TextColor = System.Drawing.Color.Black;
             this.BtnNuevaSecciónAcademica.UseVisualStyleBackColor = false;
             // 
-            // FrmAdminGrades
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.btnGenerarReporte);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel14.Location = new System.Drawing.Point(0, 462);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(369, 81);
+            this.panel14.TabIndex = 28;
+            // 
+            // FrmSectionAdministration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -715,7 +747,7 @@
             this.Controls.Add(this.panel7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(1380, 750);
-            this.Name = "FrmAdminGrades";
+            this.Name = "FrmSectionAdministration";
             this.Padding = new System.Windows.Forms.Padding(30);
             this.Text = "FrmAdminGrades";
             this.panel1.ResumeLayout(false);
@@ -745,6 +777,7 @@
             this.ContextSecciónAcademica.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -797,5 +830,7 @@
         private System.Windows.Forms.Panel panel13;
         public System.Windows.Forms.TabControl tabControlAdministrar;
         public System.Windows.Forms.TabPage tabPageAdminSection;
+        public CustomPanel.RJButton btnGenerarReporte;
+        private System.Windows.Forms.Panel panel14;
     }
 }

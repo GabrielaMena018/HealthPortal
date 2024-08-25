@@ -126,12 +126,12 @@ namespace HealthPortal.Model.DAO
             try
             {
                 GetIdPerson();
-                string queryVisita = "INSERT INTO [Visitas].[tbVisitas] Values(@idPaciente,@fechaVisita,@horaVisita,@idMedicamento,@observaciones, @idPersona)";
+                string queryVisita = "INSERT INTO [Visitas].[tbVisitas] Values(@idPaciente,@fechaVisita,@horaVisita,@idInventario,@observaciones, @idPersona)";
                 SqlCommand cmdVisita = new SqlCommand(queryVisita, command.Connection);
                 cmdVisita.Parameters.AddWithValue("idPaciente", IdPatient);
                 cmdVisita.Parameters.AddWithValue("fechaVisita", Date);
                 cmdVisita.Parameters.AddWithValue("horaVisita", Time);
-                cmdVisita.Parameters.AddWithValue("idMedicamento", Medicine);
+                cmdVisita.Parameters.AddWithValue("idInventario", Medicine);
                 cmdVisita.Parameters.AddWithValue("observaciones", Observation);
                 cmdVisita.Parameters.AddWithValue("idPersona", IdPersona);
                 respuesta = cmdVisita.ExecuteNonQuery();
@@ -297,7 +297,7 @@ namespace HealthPortal.Model.DAO
                 string queryUpdateVisita = "UPDATE [Visitas].[tbVisitas] SET " +
                                             "FechaVisita = @param1, " +
                                             "HoraVisita = @param2, " +
-                                            "IdMedicamento = @param3, " +
+                                            "idInventario = @param3, " +
                                              "Observaciones = @param4 " +
                                             "WHERE idPaciente = @param5";
                 SqlCommand cmdUpdateVisita = new SqlCommand(queryUpdateVisita, command.Connection);

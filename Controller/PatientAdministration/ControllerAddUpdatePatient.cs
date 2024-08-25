@@ -17,8 +17,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using HealthPortal.View.PatientAdministration;
 using HealthPortal.Helper;
-using FluentValidation;
-using FluentValidation.Results;
 using HealthPortal.Model.DTO;
 using System.Text.RegularExpressions;
 
@@ -285,10 +283,10 @@ namespace HealthPortal.Controller.PatientAdministration
             objAddUpdatePatient.cmbSection.DisplayMember = "seccionAcademica";
 
             //Llenar combox tbMedicamento
-            DataSet dsMedicamentoRegistros = daoPatientAdministration.FillCombo("tbMedicamentos", "Medicamentos");
-            objAddUpdatePatient.cmbMedicamentoRegistro.DataSource = dsMedicamentoRegistros.Tables["tbMedicamentos"];
-            objAddUpdatePatient.cmbMedicamentoRegistro.ValueMember = "idMedicamento";
-            objAddUpdatePatient.cmbMedicamentoRegistro.DisplayMember = "nombreMedicamento";
+            DataSet dsMedicamentoRegistros = daoPatientAdministration.FillCombo("tbInventario", "Inventario");
+            objAddUpdatePatient.cmbMedicamentoRegistro.DataSource = dsMedicamentoRegistros.Tables["tbInventario"];
+            objAddUpdatePatient.cmbMedicamentoRegistro.ValueMember = "idInventario";
+            objAddUpdatePatient.cmbMedicamentoRegistro.DisplayMember = "nombreInventario";
 
             objAddUpdatePatient.txtPersona.Texts = CurrentUserData.FullName;
 
