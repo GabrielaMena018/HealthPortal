@@ -33,22 +33,22 @@
             this.pnlSideBar = new System.Windows.Forms.Panel();
             this.flpTabs = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlMainMenu = new System.Windows.Forms.Panel();
-            this.pnlVisits = new System.Windows.Forms.Panel();
-            this.pnlInventory = new System.Windows.Forms.Panel();
-            this.pnlStatistics = new System.Windows.Forms.Panel();
-            this.pnlSections = new System.Windows.Forms.Panel();
-            this.pnlUsers = new System.Windows.Forms.Panel();
-            this.pnlLogout = new System.Windows.Forms.Panel();
-            this.pnlLogo = new System.Windows.Forms.Panel();
-            this.pnlContainer = new System.Windows.Forms.Panel();
             this.btnMainMenu = new System.Windows.Forms.Button();
+            this.pnlVisits = new System.Windows.Forms.Panel();
             this.btnVisits = new System.Windows.Forms.Button();
+            this.pnlInventory = new System.Windows.Forms.Panel();
             this.btnInventory = new System.Windows.Forms.Button();
+            this.pnlStatistics = new System.Windows.Forms.Panel();
             this.btnStatistics = new System.Windows.Forms.Button();
+            this.pnlSections = new System.Windows.Forms.Panel();
             this.btnSections = new System.Windows.Forms.Button();
+            this.pnlUsers = new System.Windows.Forms.Panel();
             this.btnUsers = new System.Windows.Forms.Button();
+            this.pnlLogout = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.pnlLogo = new System.Windows.Forms.Panel();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.pnlContainer = new System.Windows.Forms.Panel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnlSideBar.SuspendLayout();
             this.flpTabs.SuspendLayout();
@@ -72,7 +72,7 @@
             this.pnlSideBar.Location = new System.Drawing.Point(0, 0);
             this.pnlSideBar.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSideBar.Name = "pnlSideBar";
-            this.pnlSideBar.Size = new System.Drawing.Size(200, 1015);
+            this.pnlSideBar.Size = new System.Drawing.Size(200, 1018);
             this.pnlSideBar.TabIndex = 0;
             // 
             // flpTabs
@@ -87,7 +87,7 @@
             this.flpTabs.Location = new System.Drawing.Point(0, 185);
             this.flpTabs.Margin = new System.Windows.Forms.Padding(0);
             this.flpTabs.Name = "flpTabs";
-            this.flpTabs.Size = new System.Drawing.Size(200, 676);
+            this.flpTabs.Size = new System.Drawing.Size(200, 679);
             this.flpTabs.TabIndex = 8;
             // 
             // pnlMainMenu
@@ -98,80 +98,6 @@
             this.pnlMainMenu.Name = "pnlMainMenu";
             this.pnlMainMenu.Size = new System.Drawing.Size(200, 98);
             this.pnlMainMenu.TabIndex = 7;
-            // 
-            // pnlVisits
-            // 
-            this.pnlVisits.Controls.Add(this.btnVisits);
-            this.pnlVisits.Location = new System.Drawing.Point(0, 98);
-            this.pnlVisits.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlVisits.Name = "pnlVisits";
-            this.pnlVisits.Size = new System.Drawing.Size(200, 123);
-            this.pnlVisits.TabIndex = 8;
-            // 
-            // pnlInventory
-            // 
-            this.pnlInventory.Controls.Add(this.btnInventory);
-            this.pnlInventory.Location = new System.Drawing.Point(0, 221);
-            this.pnlInventory.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlInventory.Name = "pnlInventory";
-            this.pnlInventory.Size = new System.Drawing.Size(200, 123);
-            this.pnlInventory.TabIndex = 9;
-            // 
-            // pnlStatistics
-            // 
-            this.pnlStatistics.Controls.Add(this.btnStatistics);
-            this.pnlStatistics.Location = new System.Drawing.Point(0, 344);
-            this.pnlStatistics.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlStatistics.Name = "pnlStatistics";
-            this.pnlStatistics.Size = new System.Drawing.Size(200, 98);
-            this.pnlStatistics.TabIndex = 10;
-            // 
-            // pnlSections
-            // 
-            this.pnlSections.Controls.Add(this.btnSections);
-            this.pnlSections.Location = new System.Drawing.Point(0, 442);
-            this.pnlSections.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlSections.Name = "pnlSections";
-            this.pnlSections.Size = new System.Drawing.Size(200, 123);
-            this.pnlSections.TabIndex = 11;
-            // 
-            // pnlUsers
-            // 
-            this.pnlUsers.Controls.Add(this.btnUsers);
-            this.pnlUsers.Location = new System.Drawing.Point(0, 565);
-            this.pnlUsers.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlUsers.Name = "pnlUsers";
-            this.pnlUsers.Size = new System.Drawing.Size(200, 111);
-            this.pnlUsers.TabIndex = 12;
-            // 
-            // pnlLogout
-            // 
-            this.pnlLogout.Controls.Add(this.btnLogout);
-            this.pnlLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlLogout.Location = new System.Drawing.Point(0, 861);
-            this.pnlLogout.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlLogout.Name = "pnlLogout";
-            this.pnlLogout.Size = new System.Drawing.Size(200, 154);
-            this.pnlLogout.TabIndex = 7;
-            // 
-            // pnlLogo
-            // 
-            this.pnlLogo.Controls.Add(this.btnMenu);
-            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(200, 185);
-            this.pnlLogo.TabIndex = 0;
-            // 
-            // pnlContainer
-            // 
-            this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer.Location = new System.Drawing.Point(200, 0);
-            this.pnlContainer.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(1827, 1015);
-            this.pnlContainer.TabIndex = 2;
             // 
             // btnMainMenu
             // 
@@ -189,6 +115,15 @@
             this.btnMainMenu.TabIndex = 1;
             this.btnMainMenu.UseVisualStyleBackColor = true;
             // 
+            // pnlVisits
+            // 
+            this.pnlVisits.Controls.Add(this.btnVisits);
+            this.pnlVisits.Location = new System.Drawing.Point(0, 98);
+            this.pnlVisits.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlVisits.Name = "pnlVisits";
+            this.pnlVisits.Size = new System.Drawing.Size(200, 123);
+            this.pnlVisits.TabIndex = 8;
+            // 
             // btnVisits
             // 
             this.btnVisits.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVisits.BackgroundImage")));
@@ -204,6 +139,15 @@
             this.btnVisits.Size = new System.Drawing.Size(64, 59);
             this.btnVisits.TabIndex = 2;
             this.btnVisits.UseVisualStyleBackColor = true;
+            // 
+            // pnlInventory
+            // 
+            this.pnlInventory.Controls.Add(this.btnInventory);
+            this.pnlInventory.Location = new System.Drawing.Point(0, 221);
+            this.pnlInventory.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlInventory.Name = "pnlInventory";
+            this.pnlInventory.Size = new System.Drawing.Size(200, 123);
+            this.pnlInventory.TabIndex = 9;
             // 
             // btnInventory
             // 
@@ -221,6 +165,15 @@
             this.btnInventory.TabIndex = 3;
             this.btnInventory.UseVisualStyleBackColor = true;
             // 
+            // pnlStatistics
+            // 
+            this.pnlStatistics.Controls.Add(this.btnStatistics);
+            this.pnlStatistics.Location = new System.Drawing.Point(0, 344);
+            this.pnlStatistics.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlStatistics.Name = "pnlStatistics";
+            this.pnlStatistics.Size = new System.Drawing.Size(200, 98);
+            this.pnlStatistics.TabIndex = 10;
+            // 
             // btnStatistics
             // 
             this.btnStatistics.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStatistics.BackgroundImage")));
@@ -236,6 +189,15 @@
             this.btnStatistics.Size = new System.Drawing.Size(64, 59);
             this.btnStatistics.TabIndex = 4;
             this.btnStatistics.UseVisualStyleBackColor = true;
+            // 
+            // pnlSections
+            // 
+            this.pnlSections.Controls.Add(this.btnSections);
+            this.pnlSections.Location = new System.Drawing.Point(0, 442);
+            this.pnlSections.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlSections.Name = "pnlSections";
+            this.pnlSections.Size = new System.Drawing.Size(200, 123);
+            this.pnlSections.TabIndex = 11;
             // 
             // btnSections
             // 
@@ -253,6 +215,15 @@
             this.btnSections.TabIndex = 5;
             this.btnSections.UseVisualStyleBackColor = true;
             // 
+            // pnlUsers
+            // 
+            this.pnlUsers.Controls.Add(this.btnUsers);
+            this.pnlUsers.Location = new System.Drawing.Point(0, 565);
+            this.pnlUsers.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlUsers.Name = "pnlUsers";
+            this.pnlUsers.Size = new System.Drawing.Size(200, 111);
+            this.pnlUsers.TabIndex = 12;
+            // 
             // btnUsers
             // 
             this.btnUsers.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUsers.BackgroundImage")));
@@ -268,6 +239,16 @@
             this.btnUsers.Size = new System.Drawing.Size(64, 59);
             this.btnUsers.TabIndex = 6;
             this.btnUsers.UseVisualStyleBackColor = true;
+            // 
+            // pnlLogout
+            // 
+            this.pnlLogout.Controls.Add(this.btnLogout);
+            this.pnlLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlLogout.Location = new System.Drawing.Point(0, 864);
+            this.pnlLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlLogout.Name = "pnlLogout";
+            this.pnlLogout.Size = new System.Drawing.Size(200, 154);
+            this.pnlLogout.TabIndex = 7;
             // 
             // btnLogout
             // 
@@ -285,6 +266,16 @@
             this.btnLogout.TabIndex = 7;
             this.btnLogout.UseVisualStyleBackColor = true;
             // 
+            // pnlLogo
+            // 
+            this.pnlLogo.Controls.Add(this.btnMenu);
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(200, 185);
+            this.pnlLogo.TabIndex = 0;
+            // 
             // btnMenu
             // 
             this.btnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMenu.BackgroundImage")));
@@ -301,6 +292,15 @@
             this.btnMenu.TabIndex = 0;
             this.btnMenu.UseVisualStyleBackColor = true;
             // 
+            // pnlContainer
+            // 
+            this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContainer.Location = new System.Drawing.Point(200, 0);
+            this.pnlContainer.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContainer.Name = "pnlContainer";
+            this.pnlContainer.Size = new System.Drawing.Size(1742, 1018);
+            this.pnlContainer.TabIndex = 2;
+            // 
             // notifyIcon1
             // 
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
@@ -312,12 +312,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(2027, 1015);
+            this.ClientSize = new System.Drawing.Size(1942, 1018);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.pnlSideBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1918, 1018);
             this.Name = "FrmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNewDashboard";

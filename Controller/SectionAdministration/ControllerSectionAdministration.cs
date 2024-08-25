@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using HealthPortal.Model.DAO;
+using HealthPortal.View.Report.Section;
 using HealthPortal.View.SectionAdministration;
 
 namespace HealthPortal.Controller.SectionAdministration
@@ -30,8 +31,14 @@ namespace HealthPortal.Controller.SectionAdministration
             daoSectionAdministrationGrades.BtnNuevaSecciónAcademica.Click += new EventHandler(NewSeccionAcademica);
             daoSectionAdministrationGrades.tabControlAdministrar.SelectedIndexChanged += new EventHandler(tabControl_SelectedIndexChanged);
             daoSectionAdministrationGrades.cmsVerSeccion.Click += new EventHandler(VerSeccion);
+            daoSectionAdministrationGrades.btnGenerarReporte.Click += new EventHandler(ReportSection);
 
+        }
 
+        private void ReportSection(object sender, EventArgs e)
+        {
+            FrmGeneralReportSection openForm = new FrmGeneralReportSection();
+            openForm.ShowDialog();
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)

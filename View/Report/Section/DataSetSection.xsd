@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetSection" targetNamespace="http://tempuri.org/DataSetSection.xsd" xmlns:mstns="http://tempuri.org/DataSetSection.xsd" xmlns="http://tempuri.org/DataSetSection.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HealthPortal4ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HealthPortal4ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HealthPortal.Properties.Settings.GlobalReference.Default.HealthPortal4ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewGradoSeccionTableAdapter" GeneratorDataComponentClassName="viewGradoSeccionTableAdapter" Name="viewGradoSeccion" UserDataComponentName="viewGradoSeccionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HealthPortal4ConnectionString (Settings)" DbObjectName="HealthPortal4.Vistas.viewGradoSeccion" DbObjectType="View" FillMethodModifier="Public" FillMethodName="AdminSection" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="AdminSection" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="AdminSection">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT grupoTecnico, grado, seccionAcademica, especialidad
+FROM     Vistas.viewGradoSeccion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="grupoTecnico" DataSetColumn="grupoTecnico" />
+              <Mapping SourceColumn="grado" DataSetColumn="grado" />
+              <Mapping SourceColumn="seccionAcademica" DataSetColumn="seccionAcademica" />
+              <Mapping SourceColumn="especialidad" DataSetColumn="especialidad" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetSection" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSetSection" msprop:Generator_DataSetName="DataSetSection">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="viewGradoSeccion" msprop:Generator_RowEvHandlerName="viewGradoSeccionRowChangeEventHandler" msprop:Generator_RowDeletedName="viewGradoSeccionRowDeleted" msprop:Generator_RowDeletingName="viewGradoSeccionRowDeleting" msprop:Generator_RowEvArgName="viewGradoSeccionRowChangeEvent" msprop:Generator_TablePropName="viewGradoSeccion" msprop:Generator_RowChangedName="viewGradoSeccionRowChanged" msprop:Generator_RowChangingName="viewGradoSeccionRowChanging" msprop:Generator_TableClassName="viewGradoSeccionDataTable" msprop:Generator_RowClassName="viewGradoSeccionRow" msprop:Generator_TableVarName="tableviewGradoSeccion" msprop:Generator_UserTableName="viewGradoSeccion">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="grupoTecnico" msprop:Generator_ColumnPropNameInRow="grupoTecnico" msprop:Generator_ColumnPropNameInTable="grupoTecnicoColumn" msprop:Generator_ColumnVarNameInTable="columngrupoTecnico" msprop:Generator_UserColumnName="grupoTecnico">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="grado" msprop:Generator_ColumnPropNameInRow="grado" msprop:Generator_ColumnPropNameInTable="gradoColumn" msprop:Generator_ColumnVarNameInTable="columngrado" msprop:Generator_UserColumnName="grado">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="seccionAcademica" msprop:Generator_ColumnPropNameInRow="seccionAcademica" msprop:Generator_ColumnPropNameInTable="seccionAcademicaColumn" msprop:Generator_ColumnVarNameInTable="columnseccionAcademica" msprop:Generator_UserColumnName="seccionAcademica">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="especialidad" msprop:Generator_ColumnPropNameInRow="especialidad" msprop:Generator_ColumnPropNameInTable="especialidadColumn" msprop:Generator_ColumnVarNameInTable="columnespecialidad" msprop:Generator_UserColumnName="especialidad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

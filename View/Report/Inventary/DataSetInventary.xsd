@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetInventary" targetNamespace="http://tempuri.org/DataSetInventary.xsd" xmlns:mstns="http://tempuri.org/DataSetInventary.xsd" xmlns="http://tempuri.org/DataSetInventary.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HealthPortal4ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HealthPortal4ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HealthPortal.Properties.Settings.GlobalReference.Default.HealthPortal4ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewGenarlReportInventaryTableAdapter" GeneratorDataComponentClassName="ViewGenarlReportInventaryTableAdapter" Name="ViewGenarlReportInventary" UserDataComponentName="ViewGenarlReportInventaryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HealthPortal4ConnectionString (Settings)" DbObjectName="HealthPortal4.Vistas.ViewGenarlReportInventary" DbObjectType="View" FillMethodModifier="Public" FillMethodName="AdminInventory" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="AdminInventory" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="AdminInventory">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT nombreInventario, categoriaMedicamento, fechaVencimiento, fechaEntradaSalida, horaEntradaSalida, cantidadInventario
+FROM     Vistas.ViewGenarlReportInventary</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nombreInventario" DataSetColumn="nombreInventario" />
+              <Mapping SourceColumn="categoriaMedicamento" DataSetColumn="categoriaMedicamento" />
+              <Mapping SourceColumn="fechaVencimiento" DataSetColumn="fechaVencimiento" />
+              <Mapping SourceColumn="fechaEntradaSalida" DataSetColumn="fechaEntradaSalida" />
+              <Mapping SourceColumn="horaEntradaSalida" DataSetColumn="horaEntradaSalida" />
+              <Mapping SourceColumn="cantidadInventario" DataSetColumn="cantidadInventario" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetInventary" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSetInventary" msprop:Generator_DataSetName="DataSetInventary">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ViewGenarlReportInventary" msprop:Generator_RowEvHandlerName="ViewGenarlReportInventaryRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewGenarlReportInventaryRowDeleted" msprop:Generator_RowDeletingName="ViewGenarlReportInventaryRowDeleting" msprop:Generator_RowEvArgName="ViewGenarlReportInventaryRowChangeEvent" msprop:Generator_TablePropName="ViewGenarlReportInventary" msprop:Generator_RowChangedName="ViewGenarlReportInventaryRowChanged" msprop:Generator_RowChangingName="ViewGenarlReportInventaryRowChanging" msprop:Generator_TableClassName="ViewGenarlReportInventaryDataTable" msprop:Generator_RowClassName="ViewGenarlReportInventaryRow" msprop:Generator_TableVarName="tableViewGenarlReportInventary" msprop:Generator_UserTableName="ViewGenarlReportInventary">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombreInventario" msprop:Generator_ColumnPropNameInRow="nombreInventario" msprop:Generator_ColumnPropNameInTable="nombreInventarioColumn" msprop:Generator_ColumnVarNameInTable="columnnombreInventario" msprop:Generator_UserColumnName="nombreInventario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="categoriaMedicamento" msprop:Generator_ColumnPropNameInRow="categoriaMedicamento" msprop:Generator_ColumnPropNameInTable="categoriaMedicamentoColumn" msprop:Generator_ColumnVarNameInTable="columncategoriaMedicamento" msprop:Generator_UserColumnName="categoriaMedicamento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaVencimiento" msprop:Generator_ColumnPropNameInRow="fechaVencimiento" msprop:Generator_ColumnPropNameInTable="fechaVencimientoColumn" msprop:Generator_ColumnVarNameInTable="columnfechaVencimiento" msprop:Generator_UserColumnName="fechaVencimiento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechaEntradaSalida" msprop:Generator_ColumnPropNameInRow="fechaEntradaSalida" msprop:Generator_ColumnPropNameInTable="fechaEntradaSalidaColumn" msprop:Generator_ColumnVarNameInTable="columnfechaEntradaSalida" msprop:Generator_UserColumnName="fechaEntradaSalida" type="xs:dateTime" />
+              <xs:element name="horaEntradaSalida" msprop:Generator_ColumnPropNameInRow="horaEntradaSalida" msprop:Generator_ColumnPropNameInTable="horaEntradaSalidaColumn" msprop:Generator_ColumnVarNameInTable="columnhoraEntradaSalida" msprop:Generator_UserColumnName="horaEntradaSalida">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cantidadInventario" msprop:Generator_ColumnPropNameInRow="cantidadInventario" msprop:Generator_ColumnPropNameInTable="cantidadInventarioColumn" msprop:Generator_ColumnVarNameInTable="columncantidadInventario" msprop:Generator_UserColumnName="cantidadInventario" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
