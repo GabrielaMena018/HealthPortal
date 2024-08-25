@@ -155,39 +155,54 @@ namespace HealthPortal.Controller.InventoryAdministration
 
         public void UpdateInventory(object sender, EventArgs e)
         {
+            DateTime fecha = DateTime.Today;
+            DateTime vencimiento = fecha.AddDays(31);
             DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
             daoInventoryAdministration.IdMedicamento = int.Parse(objAddUpdateMedicine.txtID.Text.Trim());
             daoInventoryAdministration.NombreMedicamento = objAddUpdateMedicine.txtMedicineName.Texts.Trim();
             daoInventoryAdministration.IdCategoria = int.Parse(objAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
             daoInventoryAdministration.FechaVencimiento = objAddUpdateMedicine.dtpExpirationDate.Value.Date;
             daoInventoryAdministration.Existencia = int.Parse(objAddUpdateMedicine.numStock.Text.Trim());
+            daoInventoryAdministration.Envases = int.Parse(objAddUpdateMedicine.numStockPacking.Text.Trim());
             daoInventoryAdministration.Ingreso = objAddUpdateMedicine.dtpEntryDate.Value.Date;
             daoInventoryAdministration.Salida = objAddUpdateMedicine.dtpEntryTime.Value.ToString("HH:mm");
             daoInventoryAdministration.Descripcion = objAddUpdateMedicine.txtDescription.Texts.Trim();
-
-            int returnedValue = daoInventoryAdministration.UpdateInventory();
-            if (returnedValue == 2)
+            MemoryStream memoryStream = new MemoryStream();
+            Image img = objAddUpdateMedicine.picImage.Image;
+            if (objAddUpdateMedicine.txtMedicineName.Texts == "" || objAddUpdateMedicine.dtpExpirationDate.Value.Date <= vencimiento || int.Parse(objAddUpdateMedicine.numStock.Text) == 0 || int.Parse(objAddUpdateMedicine.numStockPacking.Text) == 0 || objAddUpdateMedicine.picImage.Image == null)
             {
-                MessageBox.Show("Los datos han sido actualizado exitosamente",
-                                "Proceso completado",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-            }
-            else if (returnedValue == 1)
-            {
-
-                MessageBox.Show("Los datos no pudieron ser actualizados completamente",
-                                "Proceso interrumpido",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                MessageBox.Show("La fecha de vencimineto debe de ser de 31 dias despues de la fecha de hoy, la cantidad de medicamentos ingreados no es valida o hay campos vacios dentro del formulario, favor revisar de nuevo el ingreso de datos para continuar la inserción", "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
-                                "Proceso interrumpido",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                img.Save(memoryStream, img.RawFormat);
+                daoInventoryAdministration.Imagen = memoryStream.ToArray();
+                int returnedValue = daoInventoryAdministration.UpdateInventory();
+                if (returnedValue == 2)
+                {
+                    MessageBox.Show("Los datos han sido actualizado exitosamente",
+                                    "Proceso completado",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                }
+                else if (returnedValue == 1)
+                {
+
+                    MessageBox.Show("Los datos no pudieron ser actualizados completamente",
+                                    "Proceso interrumpido",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
+                                    "Proceso interrumpido",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
             }
+
+            
         }
 
         public void ChargeValues(int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock,string stockPack, DateTime entryDate, DateTime exit, string description)
