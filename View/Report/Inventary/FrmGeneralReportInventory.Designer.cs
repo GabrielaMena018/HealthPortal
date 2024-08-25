@@ -30,19 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.viewGenarlReportInventaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.borderRadiusTXT1 = new CustomPanel.BorderRadiusTXT();
             this.btnNew = new CustomPanel.RJButton();
             this.panelTop = new System.Windows.Forms.FlowLayoutPanel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.viewGenarlReportInventaryBindingSource)).BeginInit();
+            this.dataSetInventary3 = new HealthPortal.View.Report.Inventary.DataSetInventary();
+            this.viewGenarlReportInventaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.viewGenarlReportInventaryTableAdapter3 = new HealthPortal.View.Report.Inventary.DataSetInventaryTableAdapters.ViewGenarlReportInventaryTableAdapter();
             this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInventary3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewGenarlReportInventaryBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // viewGenarlReportInventaryBindingSource
-            // 
-            this.viewGenarlReportInventaryBindingSource.DataMember = "ViewGenarlReportInventary";
             // 
             // label1
             // 
@@ -121,6 +120,20 @@
             this.reportViewer1.Size = new System.Drawing.Size(1034, 451);
             this.reportViewer1.TabIndex = 2;
             // 
+            // dataSetInventary3
+            // 
+            this.dataSetInventary3.DataSetName = "DataSetInventary";
+            this.dataSetInventary3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // viewGenarlReportInventaryBindingSource
+            // 
+            this.viewGenarlReportInventaryBindingSource.DataMember = "ViewGenarlReportInventary";
+            this.viewGenarlReportInventaryBindingSource.DataSource = this.dataSetInventary3;
+            // 
+            // viewGenarlReportInventaryTableAdapter3
+            // 
+            this.viewGenarlReportInventaryTableAdapter3.ClearBeforeFill = true;
+            // 
             // FrmGeneralReportInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -132,9 +145,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de inventario";
             this.Load += new System.EventHandler(this.FrmGeneralReportInventory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.viewGenarlReportInventaryBindingSource)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInventary3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewGenarlReportInventaryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -150,9 +164,11 @@
         private DataSetInventaryTableAdapters.ViewGenarlReportInventaryTableAdapter viewGenarlReportInventaryTableAdapter;
         private DataSetInventary dataSetInventary1;
         private DataSetInventaryTableAdapters.ViewGenarlReportInventaryTableAdapter viewGenarlReportInventaryTableAdapter1;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private DataSetInventary dataSetInventary2;
-        private System.Windows.Forms.BindingSource viewGenarlReportInventaryBindingSource;
         private DataSetInventaryTableAdapters.ViewGenarlReportInventaryTableAdapter viewGenarlReportInventaryTableAdapter2;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private DataSetInventary dataSetInventary3;
+        private System.Windows.Forms.BindingSource viewGenarlReportInventaryBindingSource;
+        private DataSetInventaryTableAdapters.ViewGenarlReportInventaryTableAdapter viewGenarlReportInventaryTableAdapter3;
     }
 }

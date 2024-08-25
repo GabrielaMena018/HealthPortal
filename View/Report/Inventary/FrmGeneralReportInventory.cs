@@ -19,17 +19,9 @@ namespace HealthPortal.View.Report.Inventary
 
         private void FrmGeneralReportInventory_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'dataSetInventary2.ViewGenarlReportInventary' Puede moverla o quitarla según sea necesario.
-            this.viewGenarlReportInventaryTableAdapter2.AdminInventory(this.dataSetInventary2.ViewGenarlReportInventary);
-            // TODO: esta línea de código carga datos en la tabla 'dataSetInventary1.ViewGenarlReportInventary' Puede moverla o quitarla según sea necesario.
+            // TODO: esta línea de código carga datos en la tabla 'dataSetInventary3.ViewGenarlReportInventary' Puede moverla o quitarla según sea necesario.
+            this.viewGenarlReportInventaryTableAdapter3.AdminInventory(this.dataSetInventary3.ViewGenarlReportInventary);
 
-            // TODO: esta línea de código carga datos en la tabla 'dataSetInventary.ViewGenarlReportInventary' Puede moverla o quitarla según sea necesario.
-
-            // TODO: esta línea de código carga datos en la tabla 'dataSetInventary.viewInventario' Puede moverla o quitarla según sea necesario.
-
-
-
-            this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }
     }
