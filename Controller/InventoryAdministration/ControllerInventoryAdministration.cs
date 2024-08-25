@@ -56,15 +56,16 @@ namespace HealthPortal.Controller.InventoryAdministration
             DataSet ds = daoInventoryAdministration.GetInventory();
             //Llenar DataGridView
             objInventoryAdministration.dgvInventory.DataSource = ds.Tables["viewInventario"];
-            objInventoryAdministration.dgvInventory.Columns[0].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[1].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[2].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[3].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[4].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[5].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[6].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[7].Width = 100;
-            objInventoryAdministration.dgvInventory.Columns[8].Width = 100;
+            objInventoryAdministration.dgvInventory.Columns[0].Width = 120;
+            objInventoryAdministration.dgvInventory.Columns[1].Width = 120;
+            objInventoryAdministration.dgvInventory.Columns[2].Width = 120;
+            objInventoryAdministration.dgvInventory.Columns[3].Width = 120;
+            objInventoryAdministration.dgvInventory.Columns[4].Width = 120;
+            objInventoryAdministration.dgvInventory.Columns[5].Width = 120;
+            objInventoryAdministration.dgvInventory.Columns[6].Width = 120;
+            objInventoryAdministration.dgvInventory.Columns[7].Width = 120;
+            objInventoryAdministration.dgvInventory.Columns[8].Width = 120;
+
         }
 
         #region Código para generar columnas de editar y eliminar
@@ -122,7 +123,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             {
                 int pos = objInventoryAdministration.dgvInventory.CurrentRow.Index;
                 int id;
-                string nameMedicine, categoryMedicine, stock, description;
+                string nameMedicine, categoryMedicine, stock, stockPack, description;
                 DateTime expirationDate, income, exit;
                 id = int.Parse(objInventoryAdministration.dgvInventory[0, pos].Value.ToString());
                 nameMedicine = objInventoryAdministration.dgvInventory[1, pos].Value.ToString();
@@ -132,9 +133,10 @@ namespace HealthPortal.Controller.InventoryAdministration
                 income = DateTime.Parse(objInventoryAdministration.dgvInventory[5, pos].Value.ToString());
                 exit = DateTime.Parse(objInventoryAdministration.dgvInventory[6, pos].Value.ToString());
                 stock = objInventoryAdministration.dgvInventory[7, pos].Value.ToString();
+                stockPack = objInventoryAdministration.dgvInventory[8,pos].Value.ToString();
 
 
-                FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(2, id, nameMedicine, categoryMedicine, expirationDate, stock, income, exit, description);
+                FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(2, id, nameMedicine, categoryMedicine, expirationDate, stock, stockPack, income, exit, description);
                 openForm.ShowDialog();
                 RefreshData();
             }
@@ -186,7 +188,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             {
                 int pos = objInventoryAdministration.dgvInventory.CurrentRow.Index;
                 int id;
-                string nameMedicine, categoryMedicine, stock, description;
+                string nameMedicine, categoryMedicine, stock, stockPack, description;
                 DateTime expirationDate, income, exit;
                 id = int.Parse(objInventoryAdministration.dgvInventory[0, pos].Value.ToString());
                 nameMedicine = objInventoryAdministration.dgvInventory[1, pos].Value.ToString();
@@ -196,39 +198,13 @@ namespace HealthPortal.Controller.InventoryAdministration
                 income = DateTime.Parse(objInventoryAdministration.dgvInventory[5, pos].Value.ToString());
                 exit = DateTime.Parse(objInventoryAdministration.dgvInventory[6, pos].Value.ToString());
                 stock = objInventoryAdministration.dgvInventory[7, pos].Value.ToString();
+                stockPack = objInventoryAdministration.dgvInventory[8,pos].Value.ToString();
 
 
-                FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(3, id, nameMedicine, categoryMedicine, expirationDate, stock, income, exit, description);
+                FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(3, id, nameMedicine, categoryMedicine, expirationDate, stock, stockPack, income, exit, description);
                 openForm.ShowDialog();
                 RefreshData();
             }
         }
-
-        //private void printPDF(object sender, EventArgs e)
-        //{
-        //    SaveFileDialog save = new SaveFileDialog();
-        //    save.FileName = DateTime.Now.ToString("ddMMyyyy") + ".pdf";
-        //    save.ShowDialog();
-
-        //    string html = "<table border = 1> <tr> <td> HOLA </td> </tr> </table>";
-        //    if (save.ShowDialog() == DialogResult.OK)
-        //    {
-        //        using(FileStream stream = new FileStream(save.FileName, FileMode.Create))
-        //        {
-        //            Document pdf = new Document(PageSize.A4,25, 25, 25, 25);
-
-        //            PdfWriter writter = PdfWriter.GetInstance(pdf, stream);
-        //            pdf.Open();
-        //            pdf.Add(new Phrase(""));
-        //            using (StringReader sr = new StringReader(html))
-        //            {
-        //                XMLWorkerHelper.GetInstance().ParseXHtml(writter, pdf, sr);
-
-        //            }
-        //            pdf.Close();
-        //            stream.Close();
-        //        }
-        //    }
-        //}
     }
 }
