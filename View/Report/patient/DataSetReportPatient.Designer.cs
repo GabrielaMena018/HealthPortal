@@ -1119,13 +1119,32 @@ namespace HealthPortal.View.Report.patient.DataSetReportPatientTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT nombreCompeltoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionA" +
                 "cademica, especialidad, fechaVisita, horaVisita, nombreInventario, nombreComplet" +
                 "o\r\nFROM     Vistas.ViewGeneralReportPatient";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT nombreCompeltoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, especialidad, fechaVisita, horaVisita, nombreInventario, nombreCompleto
+FROM     Vistas.ViewGeneralReportPatient
+WHERE  (nombreCompeltoPaciente = @Param1) OR
+                  (codigo = @Param1) OR
+                  (grado = @Param1) OR
+                  (especialidad = @Param1)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.VarChar, 121, global::System.Data.ParameterDirection.Input, 0, 0, "nombreCompeltoPaciente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT nombreCompeltoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionA" +
+                "cademica, especialidad, fechaVisita, horaVisita, nombreInventario, nombreComplet" +
+                "o\r\nFROM     Vistas.ViewGeneralReportPatient\r\nWHERE  (fechaVisita BETWEEN @param1" +
+                " AND @param2)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@param1", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fechaVisita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@param2", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fechaVisita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1147,6 +1166,90 @@ namespace HealthPortal.View.Report.patient.DataSetReportPatientTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetReportPatient.ViewGeneralReportPatientDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetReportPatient.ViewGeneralReportPatientDataTable dataTable = new DataSetReportPatient.ViewGeneralReportPatientDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int AdminInventaryEspecifico(DataSetReportPatient.ViewGeneralReportPatientDataTable dataTable, string Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Param1 == null)) {
+                throw new global::System.ArgumentNullException("Param1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportPatient.ViewGeneralReportPatientDataTable GetDataBy(string Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Param1 == null)) {
+                throw new global::System.ArgumentNullException("Param1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+            }
+            DataSetReportPatient.ViewGeneralReportPatientDataTable dataTable = new DataSetReportPatient.ViewGeneralReportPatientDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int AdminPatientDate(DataSetReportPatient.ViewGeneralReportPatientDataTable dataTable, string param1, string param2) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((param1 == null)) {
+                throw new global::System.ArgumentNullException("param1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(param1));
+            }
+            if ((param2 == null)) {
+                throw new global::System.ArgumentNullException("param2");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(param2));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportPatient.ViewGeneralReportPatientDataTable GetDataBy1(string param1, string param2) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((param1 == null)) {
+                throw new global::System.ArgumentNullException("param1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(param1));
+            }
+            if ((param2 == null)) {
+                throw new global::System.ArgumentNullException("param2");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(param2));
+            }
             DataSetReportPatient.ViewGeneralReportPatientDataTable dataTable = new DataSetReportPatient.ViewGeneralReportPatientDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

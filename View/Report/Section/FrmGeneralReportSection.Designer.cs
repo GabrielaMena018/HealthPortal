@@ -30,16 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGeneralReportSection));
+            this.viewGradoSeccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetSection = new HealthPortal.View.Report.Section.DataSetSection();
             this.panelTop = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dataSetSection = new HealthPortal.View.Report.Section.DataSetSection();
-            this.viewGradoSeccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.viewGradoSeccionTableAdapter = new HealthPortal.View.Report.Section.DataSetSectionTableAdapters.viewGradoSeccionTableAdapter();
-            this.panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetSection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewGradoSeccionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetSection)).BeginInit();
+            this.panelTop.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // viewGradoSeccionBindingSource
+            // 
+            this.viewGradoSeccionBindingSource.DataMember = "viewGradoSeccion";
+            this.viewGradoSeccionBindingSource.DataSource = this.dataSetSection;
+            // 
+            // dataSetSection
+            // 
+            this.dataSetSection.DataSetName = "DataSetSection";
+            this.dataSetSection.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panelTop
             // 
@@ -77,16 +88,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(1018, 460);
             this.reportViewer1.TabIndex = 6;
             // 
-            // dataSetSection
-            // 
-            this.dataSetSection.DataSetName = "DataSetSection";
-            this.dataSetSection.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // viewGradoSeccionBindingSource
-            // 
-            this.viewGradoSeccionBindingSource.DataMember = "viewGradoSeccion";
-            this.viewGradoSeccionBindingSource.DataSource = this.dataSetSection;
-            // 
             // viewGradoSeccionTableAdapter
             // 
             this.viewGradoSeccionTableAdapter.ClearBeforeFill = true;
@@ -98,13 +99,14 @@
             this.ClientSize = new System.Drawing.Size(1018, 545);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panelTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmGeneralReportSection";
-            this.Text = "FrmGeneralReportSection";
+            this.Text = "Reporte de secciones";
             this.Load += new System.EventHandler(this.FrmGeneralReportSection_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.viewGradoSeccionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetSection)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetSection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewGradoSeccionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
