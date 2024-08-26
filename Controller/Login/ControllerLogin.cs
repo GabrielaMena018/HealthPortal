@@ -20,6 +20,7 @@ namespace HealthPortal.Controller.Login
     internal class ControllerLogin
     {
         FrmLogin frmLogin;
+        bool acceptAutomaticLogin = true;
         private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         public ControllerLogin(FrmLogin view)
         {
@@ -37,7 +38,7 @@ namespace HealthPortal.Controller.Login
             frmLogin.MouseMove += new MouseEventHandler(FormMouseMove);
             frmLogin.MouseUp += new MouseEventHandler(FormMouseUp);
             frmLogin.Load += new EventHandler(ShowPassword);
-            frmLogin.Load += new EventHandler(ExistingToken);
+            frmLogin.txtUsername.Enter += new EventHandler(ExistingToken);
             frmLogin.txtUsername.Enter += new EventHandler(EnterTextBox);
             frmLogin.txtUsername.Leave += new EventHandler(LeaveTextBox);
             frmLogin.txtPassword.Enter += new EventHandler(EnterTextBox);
@@ -73,20 +74,24 @@ namespace HealthPortal.Controller.Login
         }
         private async void ExistingToken(object sender, EventArgs e)
         {
+            await Task.Delay(250);
             DAOLogin dao = new DAOLogin();
             dao.Token = GetStoredToken();
             if (!string.IsNullOrEmpty(dao.Token))
             {
                 dao.Username = dao.ValidateToken();
-                if (dao.Username != null)
+                if (dao.Username != null && acceptAutomaticLogin)
                 {
-                    await Task.Delay(1000);
                     if (MessageBox.Show($"Se encontró información de inicio de sesión en esta computadora. ¿Desea iniciar sesión como '{dao.Username}''?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         dao.TokenLogin();
                         FrmDashboard frmDashboard = new FrmDashboard();
                         frmDashboard.Show();
                         frmLogin.Hide();
+                    }
+                    else
+                    {
+                        acceptAutomaticLogin = false;
                     }
                 }
             }

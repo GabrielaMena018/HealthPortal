@@ -18,7 +18,7 @@ namespace HealthPortal.Controller.Dashboard
 {
     internal class ControllerDashboard
     {
-        FrmDashboard objDashboard;
+        FrmDashboard frmDashboard;
         Form currentForm;
         Button currentButton;
         CommonMethods commonMethods = new CommonMethods();
@@ -33,8 +33,8 @@ namespace HealthPortal.Controller.Dashboard
         const int logoY = 43;
         public ControllerDashboard(FrmDashboard view)
         {
-            objDashboard = view;
-            objDashboard.Load += new EventHandler(InitialLoad);
+            frmDashboard = view;
+            frmDashboard.Load += new EventHandler(InitialLoad);
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
             {
                 { "btnMenu", Tuple.Create(Resources.menu, Resources.hoverMenu)},
@@ -48,39 +48,39 @@ namespace HealthPortal.Controller.Dashboard
             };
 
             // Expandir / Colapsar la sidebar
-            objDashboard.btnMenu.Click += new EventHandler(MorphSideBar);
+            frmDashboard.btnMenu.Click += new EventHandler(MorphSideBar);
 
             // Abrir Formularios
-            //objDashboard.btnMainMenu.Click += new EventHandler(OpenMainMenuForm);
-            objDashboard.btnVisits.Click += new EventHandler(OpenPatientAdministrationForm);
-            objDashboard.btnInventory.Click += new EventHandler(OpenInventoryAdministrationForm);
-            //objDashboard.btnStatistics.Click += new EventHandler(OpenStatisticsForm);
-            objDashboard.btnSections.Click += new EventHandler(OpenSectionAdministrationForm);
-            objDashboard.btnUsers.Click += new EventHandler(OpenUserAdministrationForm);
+            //frmDashboard.btnMainMenu.Click += new EventHandler(OpenMainMenuForm);
+            frmDashboard.btnVisits.Click += new EventHandler(OpenPatientAdministrationForm);
+            frmDashboard.btnInventory.Click += new EventHandler(OpenInventoryAdministrationForm);
+            //frmDashboard.btnStatistics.Click += new EventHandler(OpenStatisticsForm);
+            frmDashboard.btnSections.Click += new EventHandler(OpenSectionAdministrationForm);
+            frmDashboard.btnUsers.Click += new EventHandler(OpenUserAdministrationForm);
 
             // Cambios de imagen por MouseEnter
-            objDashboard.btnMenu.MouseEnter += new EventHandler(MouseEnterControl);
-            objDashboard.btnMainMenu.MouseEnter += new EventHandler(MouseEnterControl);
-            objDashboard.btnVisits.MouseEnter += new EventHandler(MouseEnterControl);
-            objDashboard.btnInventory.MouseEnter += new EventHandler(MouseEnterControl);
-            objDashboard.btnStatistics.MouseEnter += new EventHandler(MouseEnterControl);
-            objDashboard.btnSections.MouseEnter += new EventHandler(MouseEnterControl);
-            objDashboard.btnUsers.MouseEnter += new EventHandler(MouseEnterControl);
-            objDashboard.btnLogout.MouseEnter += new EventHandler(MouseEnterControl);
+            frmDashboard.btnMenu.MouseEnter += new EventHandler(MouseEnterControl);
+            frmDashboard.btnMainMenu.MouseEnter += new EventHandler(MouseEnterControl);
+            frmDashboard.btnVisits.MouseEnter += new EventHandler(MouseEnterControl);
+            frmDashboard.btnInventory.MouseEnter += new EventHandler(MouseEnterControl);
+            frmDashboard.btnStatistics.MouseEnter += new EventHandler(MouseEnterControl);
+            frmDashboard.btnSections.MouseEnter += new EventHandler(MouseEnterControl);
+            frmDashboard.btnUsers.MouseEnter += new EventHandler(MouseEnterControl);
+            frmDashboard.btnLogout.MouseEnter += new EventHandler(MouseEnterControl);
 
             // Cambios de imagen por MouseLeave
-            objDashboard.btnMenu.MouseLeave += new EventHandler(MouseLeaveControl);
-            objDashboard.btnMainMenu.MouseLeave += new EventHandler(MouseLeaveControl);
-            objDashboard.btnVisits.MouseLeave += new EventHandler(MouseLeaveControl);
-            objDashboard.btnInventory.MouseLeave += new EventHandler(MouseLeaveControl);
-            objDashboard.btnStatistics.MouseLeave += new EventHandler(MouseLeaveControl);
-            objDashboard.btnSections.MouseLeave += new EventHandler(MouseLeaveControl);
-            objDashboard.btnUsers.MouseLeave += new EventHandler(MouseLeaveControl);
-            objDashboard.btnLogout.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmDashboard.btnMenu.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmDashboard.btnMainMenu.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmDashboard.btnVisits.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmDashboard.btnInventory.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmDashboard.btnStatistics.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmDashboard.btnSections.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmDashboard.btnUsers.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmDashboard.btnLogout.MouseLeave += new EventHandler(MouseLeaveControl);
 
             // Cerrar Sesión
-            objDashboard.btnLogout.Click += new EventHandler(Logout);
-            objDashboard.FormClosing += new FormClosingEventHandler(CloseProgram);
+            frmDashboard.btnLogout.Click += new EventHandler(Logout);
+            frmDashboard.FormClosing += new FormClosingEventHandler(CloseProgram);
         }
         private void InitialLoad(object sender, EventArgs e)
         {
@@ -89,32 +89,32 @@ namespace HealthPortal.Controller.Dashboard
         private void MorphSideBar(object sender, EventArgs e)
         {
             // Se actualiza el ancho del panel lateral donde están los botoncitos
-            objDashboard.pnlSideBar.Width = isSideBarExpanded ? collapsedWidth : expandedWidth;
-            objDashboard.btnMenu.Location = new Point(isSideBarExpanded ? collapsedLogoX : expandedLogoX, logoY);
+            frmDashboard.pnlSideBar.Width = isSideBarExpanded ? collapsedWidth : expandedWidth;
+            frmDashboard.btnMenu.Location = new Point(isSideBarExpanded ? collapsedLogoX : expandedLogoX, logoY);
 
             // Se actualizan todos los paneles para que tengan el mismo ancho del recién cambiado panel lateral
-            foreach (Panel pnl in new Panel[] { objDashboard.pnlMenu, objDashboard.flpTabs, objDashboard.pnlMainMenu, objDashboard.pnlVisits, objDashboard.pnlInventory, objDashboard.pnlStatistics, objDashboard.pnlSections, objDashboard.pnlUsers, objDashboard.pnlLogout })
+            foreach (Panel pnl in new Panel[] { frmDashboard.pnlMenu, frmDashboard.flpTabs, frmDashboard.pnlMainMenu, frmDashboard.pnlVisits, frmDashboard.pnlInventory, frmDashboard.pnlStatistics, frmDashboard.pnlSections, frmDashboard.pnlUsers, frmDashboard.pnlLogout })
             {
-                pnl.Width = objDashboard.pnlSideBar.Width;
+                pnl.Width = frmDashboard.pnlSideBar.Width;
             }
 
             // Se actualizan todos los botones basándose en el estado del panel lateral
-            foreach (Button btn in new Button[] { objDashboard.btnMainMenu, objDashboard.btnVisits, objDashboard.btnInventory, objDashboard.btnStatistics, objDashboard.btnSections, objDashboard.btnUsers, objDashboard.btnLogout })
+            foreach (Button btn in new Button[] { frmDashboard.btnMainMenu, frmDashboard.btnVisits, frmDashboard.btnInventory, frmDashboard.btnStatistics, frmDashboard.btnSections, frmDashboard.btnUsers, frmDashboard.btnLogout })
             {
                 if (isSideBarExpanded)
                 {
                     btn.Text = "";
                     btn.ImageAlign = ContentAlignment.MiddleCenter;
-                    if(!(btn == objDashboard.btnLogout)) btn.Size = new Size(32, 32);
+                    if(!(btn == frmDashboard.btnLogout)) btn.Size = new Size(32, 32);
                     else btn.Size = new Size(48, 48);
-                    btn.Location = new Point(btn == objDashboard.btnLogout ? collapsedButtonX[1] : collapsedButtonX[0], btn.Location.Y);
+                    btn.Location = new Point(btn == frmDashboard.btnLogout ? collapsedButtonX[1] : collapsedButtonX[0], btn.Location.Y);
                 }
                 else
                 {
                     btn.Text = GetButtonText(btn);
                     btn.Visible = true;
                     btn.ImageAlign = ContentAlignment.MiddleLeft;
-                    if (!(btn == objDashboard.btnLogout)) btn.Size = new Size(208, 32);
+                    if (!(btn == frmDashboard.btnLogout)) btn.Size = new Size(208, 32);
                     else btn.Size = new Size(208, 48);
                     btn.Location = new Point(expandedButtonX, btn.Location.Y);
                 }
@@ -125,131 +125,131 @@ namespace HealthPortal.Controller.Dashboard
         }
         private void OpenPatientAdministrationForm(object sender, EventArgs e)
         {
-            objDashboard.btnMainMenu.Image = Resources.main;
-            objDashboard.btnVisits.Image = Resources.hoverVisits;
-            objDashboard.btnInventory.Image = Resources.inventory;
-            objDashboard.btnStatistics.Image = Resources.statistics;
-            objDashboard.btnSections.Image = Resources.sections;
-            objDashboard.btnUsers.Image = Resources.users;
+            frmDashboard.btnMainMenu.Image = Resources.main;
+            frmDashboard.btnVisits.Image = Resources.hoverVisits;
+            frmDashboard.btnInventory.Image = Resources.inventory;
+            frmDashboard.btnStatistics.Image = Resources.statistics;
+            frmDashboard.btnSections.Image = Resources.sections;
+            frmDashboard.btnUsers.Image = Resources.users;
 
-            objDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnVisits.ForeColor = Color.FromArgb(31, 43, 91);
-            objDashboard.btnInventory.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnSections.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnUsers.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnVisits.ForeColor = Color.FromArgb(31, 43, 91);
+            frmDashboard.btnInventory.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnSections.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnUsers.ForeColor = Color.FromArgb(142, 202, 230);
 
-            objDashboard.pnlMainMenu.BackColor = Color.White;
-            objDashboard.pnlVisits.BackColor = Color.FromArgb(142, 202, 230);
-            objDashboard.pnlInventory.BackColor = Color.White;
-            objDashboard.pnlStatistics.BackColor = Color.White;
-            objDashboard.pnlSections.BackColor = Color.White;
-            objDashboard.pnlUsers.BackColor = Color.White;
+            frmDashboard.pnlMainMenu.BackColor = Color.White;
+            frmDashboard.pnlVisits.BackColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.pnlInventory.BackColor = Color.White;
+            frmDashboard.pnlStatistics.BackColor = Color.White;
+            frmDashboard.pnlSections.BackColor = Color.White;
+            frmDashboard.pnlUsers.BackColor = Color.White;
 
-            objDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnVisits.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnInventory.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnSections.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnUsers.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnVisits.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnInventory.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnSections.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnUsers.FlatAppearance.BorderColor = Color.White;
 
-            OpenForm<FrmPatientAdministration>(objDashboard.btnVisits);
+            OpenForm<FrmPatientAdministration>(frmDashboard.btnVisits);
         }
         private void OpenInventoryAdministrationForm(object sender, EventArgs e)
         {
-            objDashboard.btnMainMenu.Image = Resources.main;
-            objDashboard.btnVisits.Image = Resources.visits;
-            objDashboard.btnInventory.Image = Resources.hoverInventory;
-            objDashboard.btnStatistics.Image = Resources.statistics;
-            objDashboard.btnSections.Image = Resources.sections;
-            objDashboard.btnUsers.Image = Resources.users;
+            frmDashboard.btnMainMenu.Image = Resources.main;
+            frmDashboard.btnVisits.Image = Resources.visits;
+            frmDashboard.btnInventory.Image = Resources.hoverInventory;
+            frmDashboard.btnStatistics.Image = Resources.statistics;
+            frmDashboard.btnSections.Image = Resources.sections;
+            frmDashboard.btnUsers.Image = Resources.users;
 
-            objDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnVisits.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnInventory.ForeColor = Color.FromArgb(31, 43, 91);
-            objDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnSections.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnUsers.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnVisits.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnInventory.ForeColor = Color.FromArgb(31, 43, 91);
+            frmDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnSections.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnUsers.ForeColor = Color.FromArgb(142, 202, 230);
 
-            objDashboard.pnlMainMenu.BackColor = Color.White;
-            objDashboard.pnlVisits.BackColor = Color.White;
-            objDashboard.pnlInventory.BackColor = Color.FromArgb(142, 202, 230);
-            objDashboard.pnlStatistics.BackColor = Color.White;
-            objDashboard.pnlSections.BackColor = Color.White;
-            objDashboard.pnlUsers.BackColor = Color.White;
+            frmDashboard.pnlMainMenu.BackColor = Color.White;
+            frmDashboard.pnlVisits.BackColor = Color.White;
+            frmDashboard.pnlInventory.BackColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.pnlStatistics.BackColor = Color.White;
+            frmDashboard.pnlSections.BackColor = Color.White;
+            frmDashboard.pnlUsers.BackColor = Color.White;
 
-            objDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnVisits.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnInventory.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnSections.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnUsers.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnVisits.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnInventory.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnSections.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnUsers.FlatAppearance.BorderColor = Color.White;
 
-            OpenForm<FrmInventoryAdministration>(objDashboard.btnInventory);
+            OpenForm<FrmInventoryAdministration>(frmDashboard.btnInventory);
         }
         private void OpenSectionAdministrationForm(object sender, EventArgs e)
         {
-            objDashboard.btnMainMenu.Image = Resources.main;
-            objDashboard.btnVisits.Image = Resources.visits;
-            objDashboard.btnInventory.Image = Resources.inventory;
-            objDashboard.btnStatistics.Image = Resources.statistics;
-            objDashboard.btnSections.Image = Resources.hoverSections;
-            objDashboard.btnUsers.Image = Resources.users;
+            frmDashboard.btnMainMenu.Image = Resources.main;
+            frmDashboard.btnVisits.Image = Resources.visits;
+            frmDashboard.btnInventory.Image = Resources.inventory;
+            frmDashboard.btnStatistics.Image = Resources.statistics;
+            frmDashboard.btnSections.Image = Resources.hoverSections;
+            frmDashboard.btnUsers.Image = Resources.users;
 
-            objDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnVisits.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnInventory.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnSections.ForeColor = Color.FromArgb(31, 43, 91);
-            objDashboard.btnUsers.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnVisits.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnInventory.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnSections.ForeColor = Color.FromArgb(31, 43, 91);
+            frmDashboard.btnUsers.ForeColor = Color.FromArgb(142, 202, 230);
 
-            objDashboard.pnlMainMenu.BackColor = Color.White;
-            objDashboard.pnlVisits.BackColor = Color.White;
-            objDashboard.pnlInventory.BackColor = Color.White;
-            objDashboard.pnlStatistics.BackColor = Color.White;
-            objDashboard.pnlSections.BackColor = Color.FromArgb(142, 202, 230);
-            objDashboard.pnlUsers.BackColor = Color.White;
+            frmDashboard.pnlMainMenu.BackColor = Color.White;
+            frmDashboard.pnlVisits.BackColor = Color.White;
+            frmDashboard.pnlInventory.BackColor = Color.White;
+            frmDashboard.pnlStatistics.BackColor = Color.White;
+            frmDashboard.pnlSections.BackColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.pnlUsers.BackColor = Color.White;
 
-            objDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnVisits.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnInventory.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnSections.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnUsers.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnVisits.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnInventory.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnSections.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnUsers.FlatAppearance.BorderColor = Color.White;
 
-            OpenForm<FrmSectionAdministration>(objDashboard.btnSections);
+            OpenForm<FrmSectionAdministration>(frmDashboard.btnSections);
         }
         private void OpenUserAdministrationForm(object sender, EventArgs e)
         {
-            objDashboard.btnMainMenu.Image = Resources.main;
-            objDashboard.btnVisits.Image = Resources.visits;
-            objDashboard.btnInventory.Image = Resources.inventory;
-            objDashboard.btnStatistics.Image = Resources.statistics;
-            objDashboard.btnSections.Image = Resources.sections;
-            objDashboard.btnUsers.Image = Resources.hoverUsers;
+            frmDashboard.btnMainMenu.Image = Resources.main;
+            frmDashboard.btnVisits.Image = Resources.visits;
+            frmDashboard.btnInventory.Image = Resources.inventory;
+            frmDashboard.btnStatistics.Image = Resources.statistics;
+            frmDashboard.btnSections.Image = Resources.sections;
+            frmDashboard.btnUsers.Image = Resources.hoverUsers;
 
-            objDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnVisits.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnInventory.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnSections.ForeColor = Color.FromArgb(142, 202, 230);
-            objDashboard.btnUsers.ForeColor = Color.FromArgb(31, 43, 91);
+            frmDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnVisits.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnInventory.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnSections.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnUsers.ForeColor = Color.FromArgb(31, 43, 91);
 
-            objDashboard.pnlMainMenu.BackColor = Color.White;
-            objDashboard.pnlVisits.BackColor = Color.White;
-            objDashboard.pnlInventory.BackColor = Color.White;
-            objDashboard.pnlStatistics.BackColor = Color.White;
-            objDashboard.pnlSections.BackColor = Color.White;
-            objDashboard.pnlUsers.BackColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.pnlMainMenu.BackColor = Color.White;
+            frmDashboard.pnlVisits.BackColor = Color.White;
+            frmDashboard.pnlInventory.BackColor = Color.White;
+            frmDashboard.pnlStatistics.BackColor = Color.White;
+            frmDashboard.pnlSections.BackColor = Color.White;
+            frmDashboard.pnlUsers.BackColor = Color.FromArgb(142, 202, 230);
 
-            objDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnVisits.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnInventory.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnSections.FlatAppearance.BorderColor = Color.White;
-            objDashboard.btnUsers.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnVisits.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnInventory.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnSections.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnUsers.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
 
-            OpenForm<FrmUserAdministration>(objDashboard.btnUsers);
+            OpenForm<FrmUserAdministration>(frmDashboard.btnUsers);
         }
         private void MouseEnterControl(object sender, EventArgs e)
         {
@@ -279,7 +279,7 @@ namespace HealthPortal.Controller.Dashboard
                 commonMethods.DisposeOfCurrentUserData();
                 FrmLogin objLogin = new FrmLogin();
                 objLogin.Show();
-                objDashboard.Dispose();
+                frmDashboard.Dispose();
             }
         }
         private void CloseProgram(object sender, FormClosingEventArgs e)
@@ -293,7 +293,7 @@ namespace HealthPortal.Controller.Dashboard
         private void OpenForm<NewForm>(Button associatedBtn) where NewForm : Form, new()
         {
             Form form;
-            form = objDashboard.pnlContainer.Controls.OfType<NewForm>().FirstOrDefault();
+            form = frmDashboard.pnlContainer.Controls.OfType<NewForm>().FirstOrDefault();
             if (form == null)
             {
                 form = new NewForm();
@@ -304,11 +304,11 @@ namespace HealthPortal.Controller.Dashboard
                 if (currentForm != null)
                 {
                     currentForm.Close();
-                    objDashboard.pnlContainer.Controls.Remove(currentForm);
+                    frmDashboard.pnlContainer.Controls.Remove(currentForm);
                 }
                 currentForm = form;
-                objDashboard.pnlContainer.Controls.Add(form);
-                objDashboard.pnlContainer.Tag = form;
+                frmDashboard.pnlContainer.Controls.Add(form);
+                frmDashboard.pnlContainer.Tag = form;
                 form.Show();
                 form.BringToFront();
             }
@@ -322,19 +322,19 @@ namespace HealthPortal.Controller.Dashboard
         {
             if (CurrentUserData.RoleId != 1)
             {
-                objDashboard.btnSections.Visible = false;
-                objDashboard.btnUsers.Visible = false;
+                frmDashboard.btnSections.Visible = false;
+                frmDashboard.btnUsers.Visible = false;
             }
         }
         private string GetButtonText(Button btn)
         {
-            if (btn == objDashboard.btnMainMenu) return "Página Principal";
-            if (btn == objDashboard.btnVisits) return "Visitas";
-            if (btn == objDashboard.btnInventory) return "Inventario";
-            if (btn == objDashboard.btnStatistics) return "Estadísticas";
-            if (btn == objDashboard.btnSections) return "Secciones";
-            if (btn == objDashboard.btnUsers) return "Usuarios";
-            if (btn == objDashboard.btnLogout) return "Cerrar Sesión";
+            if (btn == frmDashboard.btnMainMenu) return "Página Principal";
+            if (btn == frmDashboard.btnVisits) return "Visitas";
+            if (btn == frmDashboard.btnInventory) return "Inventario";
+            if (btn == frmDashboard.btnStatistics) return "Estadísticas";
+            if (btn == frmDashboard.btnSections) return "Secciones";
+            if (btn == frmDashboard.btnUsers) return "Usuarios";
+            if (btn == frmDashboard.btnLogout) return "Cerrar Sesión";
             return "";
         }
     }
