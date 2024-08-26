@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGeneralReportUsers));
             this.viewPersonasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetUsers = new HealthPortal.View.Report.users.DataSetUsers();
             this.panelTop = new System.Windows.Forms.FlowLayoutPanel();
@@ -157,9 +158,10 @@
             this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmGeneralReportUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reporte general de usuarios";
+            this.Text = "Reporte de usuarios";
             this.Load += new System.EventHandler(this.FrmGeneralReportUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.viewPersonasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUsers)).EndInit();

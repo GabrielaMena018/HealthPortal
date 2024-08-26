@@ -30,18 +30,29 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGeneralReportInventory));
+            this.viewGenarlReportInventaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetInventary3 = new HealthPortal.View.Report.Inventary.DataSetInventary();
             this.label1 = new System.Windows.Forms.Label();
             this.borderRadiusTXT1 = new CustomPanel.BorderRadiusTXT();
             this.btnNew = new CustomPanel.RJButton();
             this.panelTop = new System.Windows.Forms.FlowLayoutPanel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dataSetInventary3 = new HealthPortal.View.Report.Inventary.DataSetInventary();
-            this.viewGenarlReportInventaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.viewGenarlReportInventaryTableAdapter3 = new HealthPortal.View.Report.Inventary.DataSetInventaryTableAdapters.ViewGenarlReportInventaryTableAdapter();
-            this.panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInventary3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewGenarlReportInventaryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInventary3)).BeginInit();
+            this.panelTop.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // viewGenarlReportInventaryBindingSource
+            // 
+            this.viewGenarlReportInventaryBindingSource.DataMember = "ViewGenarlReportInventary";
+            this.viewGenarlReportInventaryBindingSource.DataSource = this.dataSetInventary3;
+            // 
+            // dataSetInventary3
+            // 
+            this.dataSetInventary3.DataSetName = "DataSetInventary";
+            this.dataSetInventary3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -120,16 +131,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(1034, 451);
             this.reportViewer1.TabIndex = 2;
             // 
-            // dataSetInventary3
-            // 
-            this.dataSetInventary3.DataSetName = "DataSetInventary";
-            this.dataSetInventary3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // viewGenarlReportInventaryBindingSource
-            // 
-            this.viewGenarlReportInventaryBindingSource.DataMember = "ViewGenarlReportInventary";
-            this.viewGenarlReportInventaryBindingSource.DataSource = this.dataSetInventary3;
-            // 
             // viewGenarlReportInventaryTableAdapter3
             // 
             this.viewGenarlReportInventaryTableAdapter3.ClearBeforeFill = true;
@@ -141,14 +142,15 @@
             this.ClientSize = new System.Drawing.Size(1034, 519);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panelTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmGeneralReportInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de inventario";
             this.Load += new System.EventHandler(this.FrmGeneralReportInventory_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.viewGenarlReportInventaryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInventary3)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInventary3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewGenarlReportInventaryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

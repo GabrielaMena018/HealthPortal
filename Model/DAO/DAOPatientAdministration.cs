@@ -687,6 +687,44 @@ namespace HealthPortal.Model.DAO
             cmddel.Parameters.AddWithValue("param1", IdPatient);
             int retorno = cmddel.ExecuteNonQuery();
         }
+
+        public int GetCodeIdPatient()
+        {
+            command.Connection = getConnection();
+            string QueryIdPatient = "SELECT idPaciente FROM [Pacientes].[tbPacientes] WHERE codigo = @param1";
+            SqlCommand cmdIdPatient = new SqlCommand(QueryIdPatient, command.Connection);
+            cmdIdPatient.Parameters.AddWithValue("param1", Code);
+            SqlDataReader consulta = cmdIdPatient.ExecuteReader();
+
+            while (consulta.Read())
+            {
+                IdPatient = consulta.GetInt32(0); // Suponiendo que IdGrado_Seccion está en el índice 0
+            }
+            consulta.Close();
+
+            return IdPatient;
+        }
+
+        public int InsertVisit() 
+        {
+            GetCodeIdPatient();
+            AddVisit();
+            if (respuesta == 1)
+            {
+                return 1;
+            }
+            else if (respuesta == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+              
+             
+        }
+
     }
 }
         
