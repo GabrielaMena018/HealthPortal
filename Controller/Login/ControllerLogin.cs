@@ -97,7 +97,7 @@ namespace HealthPortal.Controller.Login
             }
         }
         private string GetStoredToken()
-        {;
+        {
             return Properties.Settings.Default.RememberMeToken;
         }
         private void MouseEnterTextButton(object sender, EventArgs e)
@@ -240,7 +240,6 @@ namespace HealthPortal.Controller.Login
         }
         public void SaveTokenLocally()
         {
-            MessageBox.Show(CurrentUserData.Token);
             Properties.Settings.Default.RememberMeToken = CurrentUserData.Token;
             Properties.Settings.Default.Save();
         }

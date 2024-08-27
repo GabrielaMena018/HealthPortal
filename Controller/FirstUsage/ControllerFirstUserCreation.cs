@@ -209,7 +209,6 @@ namespace HealthPortal.Controller.FirstUsage
 
                     // Y también exceptuando estos dos últimos que son casos especiales
                     dao.Token = commonMethods.GenerateRandomPassword(69);
-                    dao.ExpirationDate = DateTime.Now.AddMonths(1);
 
                     // Se evalúa que se haya logrado la inserción a la tabla tbUsuarios y tbPersonas
                     if (dao.RegisterFirstUser() == 2)

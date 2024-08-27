@@ -95,6 +95,7 @@ namespace HealthPortal.Controller.UserAdministration
             daoUserAdministration.Username = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
             temporaryPassword = commonMethods.GenerateRandomPassword(8);
             daoUserAdministration.Password = commonMethods.ComputeSha256Hash(temporaryPassword);
+            daoUserAdministration.Token = commonMethods.GenerateRandomPassword(69);
             daoUserAdministration.UserStatus = true;
             daoUserAdministration.UserAttempts = 0;
             daoUserAdministration.TemporaryPassword = true;

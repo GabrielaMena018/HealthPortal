@@ -15,6 +15,7 @@ namespace HealthPortal.Model.DTO
         // Atributos de tbUsuarios
         private string username;
         private string password;
+        private string token;
         private bool userStatus;
         private int userAttempts;
         private bool temporaryPassword;
@@ -30,6 +31,7 @@ namespace HealthPortal.Model.DTO
         public string RoleName { get => roleName; set => roleName = value; }
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
+        public string Token { get => token; set => token = value; }
         public bool UserStatus { get => userStatus; set => userStatus = value; }
         public int UserAttempts { get => userAttempts; set => userAttempts = value; }
         public bool TemporaryPassword { get => temporaryPassword; set => temporaryPassword = value; }

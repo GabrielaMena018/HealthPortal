@@ -25,7 +25,6 @@ namespace HealthPortal.Model.DTO
 
         // Atributos de tbTokens
         private string token;
-        private DateTime expirationDate;
 
         public string Name { get => name; set => name = value; }
         public string LastName { get => lastName; set => lastName = value; }
@@ -39,6 +38,5 @@ namespace HealthPortal.Model.DTO
         public byte[] InstitutionLogo { get => institutionLogo; set => institutionLogo = value; }
         public byte[] InstitutionLocation { get => institutionLocation; set => institutionLocation = value; }
         public string Token { get => token; set => token = value; }
-        public DateTime ExpirationDate { get => expirationDate; set => expirationDate = value; }
     }
 }
