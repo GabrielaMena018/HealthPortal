@@ -17,13 +17,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using HealthPortal.View.PatientAdministration;
 using HealthPortal.Helper;
+using System.Text.RegularExpressions;
 
 namespace HealthPortal.Controller.PatientAdministration
 {
     class ControllerAddUpdatePatient
     {
         FrmAddUpdatePatient objAddUpdatePatient;
-        int action;
+        int action, respuesta;
         private string typeperson, Grade, specialty, AcademicSection, namemedication, TypeArea;
         
         public ControllerAddUpdatePatient(FrmAddUpdatePatient view, int action)
@@ -33,12 +34,11 @@ namespace HealthPortal.Controller.PatientAdministration
             //Verificar action
             VerifyAction();
             objAddUpdatePatient.Load += new EventHandler(InitialCharge);
-            //agregar un nuevo paciente
-            objAddUpdatePatient.btnAddPatient.Click += new EventHandler(NewPatience);
+
             //Opcion del comboBox en este se puede cambiar si es uin estudiante o un alumno para mostrar los datos que se tienen que llenar
             objAddUpdatePatient.dtpRegisterDate.Value = DateTime.Now;
             objAddUpdatePatient.dtpRegisterTime.Value = DateTime.Now;
-            objAddUpdatePatient.txtPatientCode.Leave += new EventHandler(LeaveCode); 
+            objAddUpdatePatient.txtPatientCode.Leave += new EventHandler(Code);
         }
         public ControllerAddUpdatePatient(FrmAddUpdatePatient View, int Action, int IdPatient, string PatientName, string PatientLastName, string TypePerson, string codigo, string grupoTecnico, string grade, string seccionAcademica, string Especialidad, DateTime VisitDate, string TimeVisit, string nombreMedicamento, string Observaciones)
         {
@@ -56,8 +56,25 @@ namespace HealthPortal.Controller.PatientAdministration
             //Opcion del comboBox en este se puede cambiar si es uin estudiante o un alumno para mostrar los datos que se tienen que llenar
         }
 
+        public void VerifyInsert(object sender, EventArgs e)
+        {
+            if (respuesta == 1)
+            {
+                NewVisit();
+            }
+            else if (respuesta == 0)
+            {
+                NewPatience();
+            }
+        }
+
+        public void Code(object sender, EventArgs e)
+        {
+            LeaveCode();
+        }
+
         //Este metodo captura el evento cuando el txtCodigo pierde el focus para poder inicar la busqueda por medio de la coindidencia del Code
-        private void LeaveCode(object sender, EventArgs e)
+        private int LeaveCode()
         {
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
             daoPatientAdministration.Code = objAddUpdatePatient.txtPatientCode.Texts;
@@ -73,6 +90,7 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.cmbRegisterSpecialty.Text = datos[5];
                 objAddUpdatePatient.cmbSection.Text = datos[6];
                 objAddUpdatePatient.cmbRole.Text = datos[7];
+                return respuesta = 1;
             }
             else if (datos == null)
             {
@@ -85,9 +103,16 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.cmbSection.Text = objAddUpdatePatient.cmbSection.Text;
                 objAddUpdatePatient.cmbRole.Text = objAddUpdatePatient.cmbRole.Text;
                 MessageBox.Show("El paciente no tiene un registro de visitas existentes, ingresar los datos", "Registro paciente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return respuesta = 2;
+            }
+            else
+            {
+                return respuesta = 0;
             }
 
         }
+
+
 
         //Metodo para actuzlaizar paciente
         public void UpdatePatient(object sender, EventArgs e)
@@ -191,45 +216,129 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.cmbSection.Enabled=false;
             }
         }
-
-        //Ingreso de nuevo paciente
-        private void NewPatience(object sender, EventArgs e)
+        private void NewVisit()
         {
-            //Enviar los datos de los componentes del DTO
-            DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
-            daoPatientAdministration.IdPersona = CurrentUserData.IdPersona;
-            //Inserccion de datos de la tabla paciente
-            daoPatientAdministration.Name = objAddUpdatePatient.txtPatientName.Texts;
-            daoPatientAdministration.LastName = objAddUpdatePatient.txtPatientLastName.Texts;
-            daoPatientAdministration.Role = (int)objAddUpdatePatient.cmbRole.SelectedValue;
-
-            //Insercion datos tabla grade seccion
-                daoPatientAdministration.Specialty = (int)objAddUpdatePatient.cmbRegisterSpecialty.SelectedValue;
-                daoPatientAdministration.TechnicalGroup = objAddUpdatePatient.txtGrupo.Texts;
-                daoPatientAdministration.Grade = (int)objAddUpdatePatient.CmBGradoRegistro.SelectedValue;
-                daoPatientAdministration.AcademicSection = (int)objAddUpdatePatient.cmbSection.SelectedValue;
-
-                //Insercion de datos tbEstudiantes
-                daoPatientAdministration.Code = objAddUpdatePatient.txtPatientCode.Texts;
-
-            //Insercion de datos tbVisitas
-            daoPatientAdministration.Date = objAddUpdatePatient.dtpRegisterDate.Value.Date;
-            daoPatientAdministration.Time = objAddUpdatePatient.dtpRegisterTime.Value.ToString("HH:mm");
-            daoPatientAdministration.Medicine = (int)objAddUpdatePatient.cmbMedicamentoRegistro.SelectedValue;
-            daoPatientAdministration.Observation = objAddUpdatePatient.txtObservations.Texts;
-
-
-            int retorno = daoPatientAdministration.PatientRegistration();
-            if (retorno == 1)
+            bool TxtEmpty = ValueTxtBox();
+            if (TxtEmpty == true)
             {
-                MessageBox.Show("Datos ingresados correctamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                bool validation = ValidationPatient();
+                if (validation == true)
+                {
+
+                    //Enviar los datos de los componentes del DTO
+                    DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
+                    daoPatientAdministration.Username = CurrentUserData.Username;
+                    //Inserccion de datos de la tabla paciente
+                    daoPatientAdministration.Name = objAddUpdatePatient.txtPatientName.Texts;
+                    daoPatientAdministration.LastName = objAddUpdatePatient.txtPatientLastName.Texts;
+                    daoPatientAdministration.Role = (int)objAddUpdatePatient.cmbRole.SelectedValue;
+
+                    //Insercion datos tabla grade seccion
+                    daoPatientAdministration.Specialty = (int)objAddUpdatePatient.cmbRegisterSpecialty.SelectedValue;
+                    daoPatientAdministration.TechnicalGroup = objAddUpdatePatient.txtGrupo.Texts;
+                    daoPatientAdministration.Grade = (int)objAddUpdatePatient.CmBGradoRegistro.SelectedValue;
+                    daoPatientAdministration.AcademicSection = (int)objAddUpdatePatient.cmbSection.SelectedValue;
+
+                    //Insercion de datos tbEstudiantes
+                    daoPatientAdministration.Code = objAddUpdatePatient.txtPatientCode.Texts;
+
+                    //Insercion de datos tbVisitas
+                    daoPatientAdministration.Date = objAddUpdatePatient.dtpRegisterDate.Value.Date;
+                    daoPatientAdministration.Time = objAddUpdatePatient.dtpRegisterTime.Value.ToString("HH:mm");
+                    daoPatientAdministration.Medicine = (int)objAddUpdatePatient.cmbMedicamentoRegistro.SelectedValue;
+                    daoPatientAdministration.Observation = objAddUpdatePatient.txtObservations.Texts;
+
+
+
+                    int retorno = daoPatientAdministration.InsertVisit();
+                    if (retorno == 1)
+                    {
+                        MessageBox.Show("Datos ingresados correctamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (MessageBox.Show("Desea ingresar una nueva visita?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                                                                                                            == DialogResult.Yes)
+                        {
+                            Clear();
+                        }
+                        else
+                        {
+                            objAddUpdatePatient.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudieron ingresar los datos", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
             }
-            else
+            else if (TxtEmpty == false)
             {
-                MessageBox.Show("No se pudieron ingresar los datos", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Algunos campos se encuentran vacios, Asegurar de compleatar la información", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
 
+        public void Clear()
+        {
+            objAddUpdatePatient.txtPatientName.Clear();
+            objAddUpdatePatient.txtPatientLastName.Clear();
+            objAddUpdatePatient.txtPatientCode.Clear();
+            objAddUpdatePatient.txtObservations.Clear();
+            objAddUpdatePatient.txtGrupo.Clear();
+        }
+        //Ingreso de nuevo paciente
+        private void NewPatience()
+        {
+            bool TxtEmpty = ValueTxtBox();
+            if (TxtEmpty == true)
+            {
+
+                bool validation = ValidationPatient();
+                if (validation == true)
+                {
+
+                    //Enviar los datos de los componentes del DTO
+                    DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
+                    daoPatientAdministration.Username = CurrentUserData.Username;
+                    //Inserccion de datos de la tabla paciente
+                    daoPatientAdministration.Name = objAddUpdatePatient.txtPatientName.Texts;
+                    daoPatientAdministration.LastName = objAddUpdatePatient.txtPatientLastName.Texts;
+                    daoPatientAdministration.Role = (int)objAddUpdatePatient.cmbRole.SelectedValue;
+
+                    //Insercion datos tabla grade seccion
+                    daoPatientAdministration.Specialty = (int)objAddUpdatePatient.cmbRegisterSpecialty.SelectedValue;
+                    daoPatientAdministration.TechnicalGroup = objAddUpdatePatient.txtGrupo.Texts;
+                    daoPatientAdministration.Grade = (int)objAddUpdatePatient.CmBGradoRegistro.SelectedValue;
+                    daoPatientAdministration.AcademicSection = (int)objAddUpdatePatient.cmbSection.SelectedValue;
+
+                    //Insercion de datos tbEstudiantes
+                    daoPatientAdministration.Code = objAddUpdatePatient.txtPatientCode.Texts;
+
+                    //Insercion de datos tbVisitas
+                    daoPatientAdministration.Date = objAddUpdatePatient.dtpRegisterDate.Value.Date;
+                    daoPatientAdministration.Time = objAddUpdatePatient.dtpRegisterTime.Value.ToString("HH:mm");
+                    daoPatientAdministration.Medicine = (int)objAddUpdatePatient.cmbMedicamentoRegistro.SelectedValue;
+                    daoPatientAdministration.Observation = objAddUpdatePatient.txtObservations.Texts;
+
+
+
+                    int retorno = daoPatientAdministration.PatientRegistration();
+                    if (retorno == 1)
+                    {
+                        MessageBox.Show("Datos ingresados correctamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudieron ingresar los datos", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+            }
+            else if (TxtEmpty == false)
+            {
+                MessageBox.Show("Algunos campos se encuentran vacios, Asegurar de compleatar la información", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -292,6 +401,114 @@ namespace HealthPortal.Controller.PatientAdministration
             objAddUpdatePatient.dtpRegisterTime.Text = TimeVisit;
             objAddUpdatePatient.txtGrupo.Texts = grupoTecnico;
             objAddUpdatePatient.txtObservations.Texts = Observaciones;
+        }
+
+        private bool ValueTxtBox()
+        {
+            bool todosLlenos = true;
+
+            // Recorrer todos los controles del formulario
+            if (objAddUpdatePatient.txtPatientName.Texts != "")
+            {
+                if (objAddUpdatePatient.txtPatientLastName.Texts != "")
+                {
+                    if (objAddUpdatePatient.txtPatientCode.Texts != "")
+                    {
+                        if (objAddUpdatePatient.txtGrupo.Texts == "")
+                        {
+                            todosLlenos = false;
+
+                        }
+
+                    }
+                    else
+                    {
+                        todosLlenos = false;
+                    }
+
+                }
+                else
+                {
+                    todosLlenos = false;
+                }
+            }
+            else
+            {
+                todosLlenos = false;
+            }
+
+            return todosLlenos;
+        }
+
+        public bool ValidationPatient()
+        {
+            DAOPatientAdministration DaoPatient = new DAOPatientAdministration();
+
+            if (objAddUpdatePatient.txtPatientName.Texts.Length <= 60)
+            {
+                if (objAddUpdatePatient.txtPatientName.Texts != "")
+                {
+                    if (objAddUpdatePatient.txtPatientLastName.Texts.Length <= 60)
+                    {
+                        if (objAddUpdatePatient.txtPatientLastName.Texts != "")
+                        {
+                            if (objAddUpdatePatient.txtPatientCode.Texts.Length <= 10)
+                            {
+                                if (Regex.IsMatch(objAddUpdatePatient.txtPatientCode.Texts, @"^-?\d+(\.\d+)?$") == true)
+                                {
+                                    if (objAddUpdatePatient.txtPatientCode.Texts != "")
+                                    {
+                                        if (objAddUpdatePatient.dtpRegisterDate.Value.Date == DateTime.Now.Date)
+                                        {
+                                            return true;
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show($"La fecha tiene que ser la actual {DateTime.Now} ");
+                                            return false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("El codigo del paciente no puede estar vacio");
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"El código del paciente no es valido{objAddUpdatePatient.txtPatientCode.Texts} Verifique que solo contenga números", "Validación de codigo del paciente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("El código del paciente ha excedido el maximo de criterios");
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El apellido del paciente no puede ir vacio");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El apellido del paciente ha excedido el maximo de criterios");
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El nombre no puede ir vacio");
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("El nombre ha excedido el maximo de criterios");
+                return false;
+            }
         }
     }
 }
