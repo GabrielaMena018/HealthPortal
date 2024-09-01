@@ -530,5 +530,8 @@
   <ItemGroup>
     <None Include="Resources\wifi.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\Report\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
