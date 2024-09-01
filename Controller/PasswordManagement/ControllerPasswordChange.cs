@@ -14,7 +14,6 @@ namespace HealthPortal.Controller.PasswordManagement
     internal class ControllerPasswordChange
     {
         FrmPasswordChange objPasswordChange;
-        CommonMethods commonMethods = new CommonMethods();
         readonly int procedure;
         readonly string username;
         public ControllerPasswordChange(FrmPasswordChange view, int procedure)
@@ -23,7 +22,7 @@ namespace HealthPortal.Controller.PasswordManagement
             objPasswordChange = view;
             objPasswordChange.Load += new EventHandler(VerifyProcedure);
             objPasswordChange.btnChangePassword.Click += new EventHandler(RespectiveAction);
-            objPasswordChange.picExit.Click += new EventHandler(CloseForm);
+            objPasswordChange.btnExit.Click += new EventHandler(CloseForm);
         }
         public ControllerPasswordChange(FrmPasswordChange view, int procedure, string username)
         {
@@ -32,7 +31,7 @@ namespace HealthPortal.Controller.PasswordManagement
             objPasswordChange = view;
             objPasswordChange.Load += new EventHandler(VerifyProcedure);
             objPasswordChange.btnChangePassword.Click += new EventHandler(RespectiveAction);
-            objPasswordChange.picExit.Click += new EventHandler(CloseForm);
+            objPasswordChange.btnExit.Click += new EventHandler(CloseForm);
         }
         private void VerifyProcedure(object sender, EventArgs e)
         {
@@ -61,7 +60,7 @@ namespace HealthPortal.Controller.PasswordManagement
             DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
             if (CheckNewPassword() == true)
             {
-                daoUserAdministration.Password = commonMethods.ComputeSha256Hash(objPasswordChange.txtNewPassword.Texts.Trim());
+                daoUserAdministration.Password = CommonMethods.ComputeSha256Hash(objPasswordChange.txtNewPassword.Texts.Trim());
                 daoUserAdministration.Username = username;
                 if (daoUserAdministration.ReestablishUserPassword() == true)
                 {
@@ -85,7 +84,7 @@ namespace HealthPortal.Controller.PasswordManagement
                 if (CheckNewPassword() == true)
                 {
                     daoPasswordChange.Username = CurrentUserData.Username;
-                    daoPasswordChange.Password = commonMethods.ComputeSha256Hash(objPasswordChange.txtNewPassword.Texts.Trim());
+                    daoPasswordChange.Password = CommonMethods.ComputeSha256Hash(objPasswordChange.txtNewPassword.Texts.Trim());
                     if (daoPasswordChange.UpdatePassword() == true)
                     {
                         MessageBox.Show("Contraseña cambiada con éxito. Vuelva a iniciar sesión con su nueva contraseña.", "Cambio de contraseña exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -109,7 +108,7 @@ namespace HealthPortal.Controller.PasswordManagement
         private bool VerifyPassword()
         {
             DAOPasswordManagement daoPasswordChange = new DAOPasswordManagement();
-            string password = commonMethods.ComputeSha256Hash(objPasswordChange.txtPreviousPassword.Texts.Trim());
+            string password = CommonMethods.ComputeSha256Hash(objPasswordChange.txtPreviousPassword.Texts.Trim());
             return daoPasswordChange.VerifyCurrentUserPassword(password);
         }
         private bool CheckNewPassword()
@@ -125,7 +124,7 @@ namespace HealthPortal.Controller.PasswordManagement
         }
         private void BackToLogin()
         {
-            commonMethods.DisposeOfCurrentUserData();
+            CommonMethods.DisposeOfCurrentUserData();
             FrmLogin objLogin = new FrmLogin();
             objLogin.Show();
             objPasswordChange.Dispose();

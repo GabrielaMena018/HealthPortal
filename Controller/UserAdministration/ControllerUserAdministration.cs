@@ -146,14 +146,13 @@ namespace HealthPortal.Controller.UserAdministration
         }
         private void ChangeUserPassword(object sender, EventArgs e)
         {
-            CommonMethods commonMethods = new CommonMethods();
             DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
             int position = frmUserAdministration.dgvUserDisplay.CurrentRow.Index;
             daoUserAdministration.Username = frmUserAdministration.dgvUserDisplay[5, position].Value.ToString();
             string email = frmUserAdministration.dgvUserDisplay[3, position].Value.ToString();
-            string temporaryPassword = commonMethods.GenerateRandomPassword(8);
-            daoUserAdministration.Password = commonMethods.ComputeSha256Hash(temporaryPassword);
-            commonMethods.SendRecoveryEmail(temporaryPassword, email);
+            string temporaryPassword = CommonMethods.GenerateRandomPassword(8);
+            daoUserAdministration.Password = CommonMethods.ComputeSha256Hash(temporaryPassword);
+            CommonMethods.SendRecoveryEmail(temporaryPassword, email);
             daoUserAdministration.ReestablishUserPassword();
         }
         private void SetDataGridViewColumnSize()

@@ -75,8 +75,8 @@ namespace HealthPortal.Controller.FirstUsage
             frmFirstUserCreation.btnShowPassword.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmFirstUserCreation.btnRegisterFirstUser.MouseLeave += new EventHandler(MouseLeaveTextButton);
 
-            // Evento .Click que inicia el proceso de registro del primer usuario
-            frmFirstUserCreation.btnRegisterFirstUser.Click += new EventHandler(AttemptFirstUserRegistration);
+            // Eventos que inician el proceso de registro del primer usuario
+            frmFirstUserCreation.btnRegisterFirstUser.Click += new EventHandler(FirstUserRegistration);
 
             // Evento .Click que lo único que hace es cerrar el programa xd
             frmFirstUserCreation.btnExit.Click += new EventHandler(ExitApplication);
@@ -183,11 +183,11 @@ namespace HealthPortal.Controller.FirstUsage
             }
         }
         /// <summary>
-        ///     Proceso de registro del primer usuario del programa
+        ///     Proceso para registrar al primer usuario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AttemptFirstUserRegistration(object sender, EventArgs e)
+        private void FirstUserRegistration(object sender, EventArgs e)
         {
             // Se verifica que ninguno de los textbox esté vacío
             if (!(frmFirstUserCreation.txtLastName.Texts.Trim() == "" || frmFirstUserCreation.txtLastName.Texts.Trim() == "" || frmFirstUserCreation.txtEmail.Texts.Trim() == "" || frmFirstUserCreation.txtPhoneNumber.Texts.Trim() == "" || frmFirstUserCreation.txtUsername.Texts.Trim() == "" || frmFirstUserCreation.txtPassword.Texts.Trim() == "" || frmFirstUserCreation.txtConfirmPassword.Texts.Trim() == "" || frmFirstUserCreation.txtName.Texts.Trim() == "Nombres" || frmFirstUserCreation.txtLastName.Texts.Trim() == "Apellidos" || frmFirstUserCreation.txtEmail.Texts.Trim() == "Correo Electrónico" || frmFirstUserCreation.txtPhoneNumber.Texts.Trim() == "Número de Teléfono" || frmFirstUserCreation.txtUsername.Texts.Trim() == "Usuario" || frmFirstUserCreation.txtPassword.Texts.Trim() == "Contraseña" || frmFirstUserCreation.txtConfirmPassword.Texts.Trim() == "Confirmar contraseña"))
@@ -196,7 +196,6 @@ namespace HealthPortal.Controller.FirstUsage
                 if (VerifyPasswordSimilarity() == true && ValidateEmail() == true)
                 {
                     DAOFirstUsage dao = new DAOFirstUsage();
-                    CommonMethods commonMethods = new CommonMethods();
                     // A los atributos del DTO, por medio del DAO, se les asignan los contenidos de los textbox
                     dao.Name = frmFirstUserCreation.txtName.Texts.Trim();
                     dao.LastName = frmFirstUserCreation.txtLastName.Texts.Trim();
@@ -205,20 +204,20 @@ namespace HealthPortal.Controller.FirstUsage
                     dao.Username = frmFirstUserCreation.txtUsername.Texts.Trim();
 
                     // Excepto a la contraseña, esa tiene el paso extra de la encriptación con SHA256
-                    dao.Password = commonMethods.ComputeSha256Hash(frmFirstUserCreation.txtPassword.Texts.Trim());
+                    dao.Password = CommonMethods.ComputeSha256Hash(frmFirstUserCreation.txtPassword.Texts.Trim());
 
                     // Y también exceptuando estos dos últimos que son casos especiales
-                    dao.Token = commonMethods.GenerateRandomPassword(69);
+                    dao.Token = CommonMethods.GenerateRandomPassword(69);
 
                     // Se evalúa que se haya logrado la inserción a la tabla tbUsuarios y tbPersonas
                     if (dao.RegisterFirstUser() == 2)
                     {
                         // Se genera una contraseña aleatoria, aunque en este caso      particular cumplirá la función de código de confirmación      del correo ingresado
-                        string confirmationCode = commonMethods.GenerateRandomPassword(8);
+                        string confirmationCode = CommonMethods.GenerateRandomPassword(8);
                         MessageBox.Show("Los datos han sido guardados de manera exitosa.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Se evalua si el correo logró ser enviado
-                        if (commonMethods.SendVerificationEmail(dao.Email, confirmationCode) == false)
+                        if (CommonMethods.SendVerificationEmail(dao.Email, confirmationCode) == false)
                         {
                             // Si no se envió, se recupera el ID de este primer             usuario y posteriormente se elimina el registro,              pues es de suma importancia que el correo sí                  exista
                             dao.PersonID = dao.GetMaxID();
@@ -283,8 +282,9 @@ namespace HealthPortal.Controller.FirstUsage
                 // Se retorna FALSE porque obviamente no es un correo válido
                 return false;
             }
+            DAOFirstUsage dao = new DAOFirstUsage();
             // Se inicializa un array con los dominios permitidos
-            string[] allowedDomains = { "gmail.com", "ricaldone.edu.sv" };
+            string[] allowedDomains = { "gmail.com", $"{dao.InstitutionDomain()}" };
 
             // Se extrae el dominio del correo ingresado, creando un Substring que le sigue al carácter '@'. El +1 es para que el Substring comience en el siguiente carácter, entonces el Substring es, por ejemplo, "gmail.com" en lugar de "@gmail.com"
             string extention = email.Substring(email.LastIndexOf('@') + 1);

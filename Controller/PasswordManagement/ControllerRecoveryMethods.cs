@@ -92,12 +92,11 @@ namespace HealthPortal.Controller.PasswordManagement
             if (MessageBox.Show("¿Seguro que desea utilizar la recuperación por correo electrónico? Le será enviado un correo conteniendo una contraseña temporal que deberá usar para iniciar sesión la próxima vez.", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 DAOPasswordManagement dao = new DAOPasswordManagement();
-                CommonMethods commonMethods = new CommonMethods();
-                string temporaryPassword = commonMethods.GenerateRandomPassword(8);
-                string newPassword = commonMethods.ComputeSha256Hash(temporaryPassword);
+                string temporaryPassword = CommonMethods.GenerateRandomPassword(8);
+                string newPassword = CommonMethods.ComputeSha256Hash(temporaryPassword);
                 dao.Username = username;
                 dao.TemporaryPasswordAssignation(newPassword);
-                commonMethods.SendRecoveryEmail(temporaryPassword, dao.VerifyEmail(username));
+                CommonMethods.SendRecoveryEmail(temporaryPassword, dao.VerifyEmail(username));
             }
         }
     }

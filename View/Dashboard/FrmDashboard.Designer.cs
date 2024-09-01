@@ -115,6 +115,7 @@
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(64, 64);
             this.btnMenu.TabIndex = 0;
+            this.btnMenu.TabStop = false;
             this.btnMenu.UseVisualStyleBackColor = false;
             // 
             // pnlMainMenu
@@ -146,6 +147,7 @@
             this.btnMainMenu.Name = "btnMainMenu";
             this.btnMainMenu.Size = new System.Drawing.Size(208, 32);
             this.btnMainMenu.TabIndex = 1;
+            this.btnMainMenu.TabStop = false;
             this.btnMainMenu.Text = "Página Principal";
             this.btnMainMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMainMenu.UseVisualStyleBackColor = false;
@@ -179,6 +181,7 @@
             this.btnVisits.Name = "btnVisits";
             this.btnVisits.Size = new System.Drawing.Size(208, 32);
             this.btnVisits.TabIndex = 1;
+            this.btnVisits.TabStop = false;
             this.btnVisits.Text = "Visitas";
             this.btnVisits.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVisits.UseVisualStyleBackColor = false;
@@ -212,6 +215,7 @@
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.Size = new System.Drawing.Size(208, 32);
             this.btnInventory.TabIndex = 1;
+            this.btnInventory.TabStop = false;
             this.btnInventory.Text = "Inventario";
             this.btnInventory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInventory.UseVisualStyleBackColor = false;
@@ -245,6 +249,7 @@
             this.btnStatistics.Name = "btnStatistics";
             this.btnStatistics.Size = new System.Drawing.Size(208, 32);
             this.btnStatistics.TabIndex = 1;
+            this.btnStatistics.TabStop = false;
             this.btnStatistics.Text = "Estadísticas";
             this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStatistics.UseVisualStyleBackColor = false;
@@ -278,6 +283,7 @@
             this.btnSections.Name = "btnSections";
             this.btnSections.Size = new System.Drawing.Size(208, 32);
             this.btnSections.TabIndex = 1;
+            this.btnSections.TabStop = false;
             this.btnSections.Text = "Secciones";
             this.btnSections.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSections.UseVisualStyleBackColor = false;
@@ -311,6 +317,7 @@
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(208, 32);
             this.btnUsers.TabIndex = 1;
+            this.btnUsers.TabStop = false;
             this.btnUsers.Text = "Usuarios";
             this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUsers.UseVisualStyleBackColor = false;
@@ -343,6 +350,7 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(208, 48);
             this.btnLogout.TabIndex = 0;
+            this.btnLogout.TabStop = false;
             this.btnLogout.Text = "Cerrar Sesión";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogout.UseVisualStyleBackColor = false;

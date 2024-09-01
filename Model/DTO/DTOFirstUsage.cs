@@ -21,7 +21,9 @@ namespace HealthPortal.Model.DTO
         private string institutionName;
         private string institutionAddress;
         private byte[] institutionLogo;
-        private byte[] institutionLocation;
+        private string institutionPhone;
+        private string institutionEmail;
+        private int institutionCategoryID;
 
         // Atributos de tbTokens
         private string token;
@@ -36,7 +38,9 @@ namespace HealthPortal.Model.DTO
         public string InstitutionName { get => institutionName; set => institutionName = value; }
         public string InstitutionAddress { get => institutionAddress; set => institutionAddress = value; }
         public byte[] InstitutionLogo { get => institutionLogo; set => institutionLogo = value; }
-        public byte[] InstitutionLocation { get => institutionLocation; set => institutionLocation = value; }
+        public string InstitutionPhone { get => institutionPhone; set => institutionPhone = value; }
+        public string InstitutionEmail { get => institutionEmail; set => institutionEmail = value; }
+        public int InstitutionCategoryID { get => institutionCategoryID; set => institutionCategoryID = value; }
         public string Token { get => token; set => token = value; }
     }
 }

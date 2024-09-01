@@ -34,7 +34,6 @@ namespace HealthPortal.View.Login
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.label1 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
             this.rdoRememberMe = new System.Windows.Forms.RadioButton();
             this.llbForgotPassword = new System.Windows.Forms.LinkLabel();
             this.btnShowPassword = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@ namespace HealthPortal.View.Login
             this.txtPassword = new CustomPanel.BorderRadiusTXT();
             this.txtUsername = new CustomPanel.BorderRadiusTXT();
             this.btnTestConnection = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -56,23 +56,6 @@ namespace HealthPortal.View.Login
             this.label1.Size = new System.Drawing.Size(253, 37);
             this.label1.TabIndex = 17;
             this.label1.Text = "Inicio de Sesión";
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
-            this.btnExit.Location = new System.Drawing.Point(350, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(33, 33);
-            this.btnExit.TabIndex = 27;
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExit.UseVisualStyleBackColor = true;
             // 
             // rdoRememberMe
             // 
@@ -99,7 +82,6 @@ namespace HealthPortal.View.Login
             this.llbForgotPassword.Name = "llbForgotPassword";
             this.llbForgotPassword.Size = new System.Drawing.Size(124, 16);
             this.llbForgotPassword.TabIndex = 31;
-            this.llbForgotPassword.TabStop = true;
             this.llbForgotPassword.Text = "Olvidé mi contraseña";
             // 
             // btnShowPassword
@@ -116,6 +98,7 @@ namespace HealthPortal.View.Login
             this.btnShowPassword.Name = "btnShowPassword";
             this.btnShowPassword.Size = new System.Drawing.Size(25, 25);
             this.btnShowPassword.TabIndex = 34;
+            this.btnShowPassword.TabStop = false;
             this.btnShowPassword.UseVisualStyleBackColor = true;
             // 
             // btnHidePassword
@@ -132,6 +115,7 @@ namespace HealthPortal.View.Login
             this.btnHidePassword.Name = "btnHidePassword";
             this.btnHidePassword.Size = new System.Drawing.Size(25, 25);
             this.btnHidePassword.TabIndex = 35;
+            this.btnHidePassword.TabStop = false;
             this.btnHidePassword.Text = " ";
             this.btnHidePassword.UseVisualStyleBackColor = true;
             // 
@@ -152,6 +136,7 @@ namespace HealthPortal.View.Login
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(141, 39);
             this.btnLogin.TabIndex = 32;
+            this.btnLogin.TabStop = false;
             this.btnLogin.Text = "Iniciar Sesión";
             this.btnLogin.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -175,7 +160,7 @@ namespace HealthPortal.View.Login
             this.txtPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.Size = new System.Drawing.Size(326, 38);
-            this.txtPassword.TabIndex = 29;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.Texts = "Contraseña";
             this.txtPassword.UnderlinedStyle = false;
             // 
@@ -198,7 +183,7 @@ namespace HealthPortal.View.Login
             this.txtUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtUsername.PlaceholderText = "";
             this.txtUsername.Size = new System.Drawing.Size(326, 38);
-            this.txtUsername.TabIndex = 28;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.Texts = "Usuario";
             this.txtUsername.UnderlinedStyle = false;
             // 
@@ -218,9 +203,28 @@ namespace HealthPortal.View.Login
             this.btnTestConnection.Name = "btnTestConnection";
             this.btnTestConnection.Size = new System.Drawing.Size(145, 33);
             this.btnTestConnection.TabIndex = 36;
+            this.btnTestConnection.TabStop = false;
             this.btnTestConnection.Text = "Probar Conexión";
             this.btnTestConnection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTestConnection.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.btnExit.Location = new System.Drawing.Point(349, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(34, 34);
+            this.btnExit.TabIndex = 37;
+            this.btnExit.TabStop = false;
+            this.btnExit.UseVisualStyleBackColor = false;
             // 
             // FrmLogin
             // 
@@ -229,6 +233,7 @@ namespace HealthPortal.View.Login
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(395, 309);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnTestConnection);
             this.Controls.Add(this.btnHidePassword);
             this.Controls.Add(this.btnShowPassword);
@@ -237,7 +242,6 @@ namespace HealthPortal.View.Login
             this.Controls.Add(this.rdoRememberMe);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -253,7 +257,6 @@ namespace HealthPortal.View.Login
         #endregion
 
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Button btnExit;
         public CustomPanel.BorderRadiusTXT txtUsername;
         public CustomPanel.BorderRadiusTXT txtPassword;
         public CustomPanel.RJButton btnLogin;
@@ -262,5 +265,6 @@ namespace HealthPortal.View.Login
         public System.Windows.Forms.RadioButton rdoRememberMe;
         public System.Windows.Forms.LinkLabel llbForgotPassword;
         public System.Windows.Forms.Button btnTestConnection;
+        public System.Windows.Forms.Button btnExit;
     }
 }

@@ -28,187 +28,181 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPasswordChange));
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.grpPreviousPassword = new System.Windows.Forms.GroupBox();
             this.txtPreviousPassword = new CustomPanel.BorderRadiusTXT();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.grpNewPassword = new System.Windows.Forms.GroupBox();
             this.txtNewPassword = new CustomPanel.BorderRadiusTXT();
-            this.txtNewPasswordConfirmation = new CustomPanel.BorderRadiusTXT();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnChangePassword = new CustomPanel.RJButton();
-            this.picExit = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
+            this.txtNewPasswordConfirmation = new CustomPanel.BorderRadiusTXT();
+            this.grpPreviousPassword.SuspendLayout();
+            this.grpNewPassword.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label1.Location = new System.Drawing.Point(14, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(5);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label1.Location = new System.Drawing.Point(19, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(330, 41);
-            this.label1.TabIndex = 5;
+            this.label1.Size = new System.Drawing.Size(366, 37);
+            this.label1.TabIndex = 41;
             this.label1.Text = "Cambio de contraseña";
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(413, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(32, 32);
+            this.btnExit.TabIndex = 42;
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
+            // grpPreviousPassword
+            // 
+            this.grpPreviousPassword.Controls.Add(this.txtPreviousPassword);
+            this.grpPreviousPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpPreviousPassword.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.grpPreviousPassword.Location = new System.Drawing.Point(26, 69);
+            this.grpPreviousPassword.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.grpPreviousPassword.Name = "grpPreviousPassword";
+            this.grpPreviousPassword.Size = new System.Drawing.Size(402, 100);
+            this.grpPreviousPassword.TabIndex = 43;
+            this.grpPreviousPassword.TabStop = false;
+            this.grpPreviousPassword.Text = "Contraseña previa";
             // 
             // txtPreviousPassword
             // 
             this.txtPreviousPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPreviousPassword.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtPreviousPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.txtPreviousPassword.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtPreviousPassword.BorderRadius = 15;
-            this.txtPreviousPassword.BorderSize = 1;
-            this.txtPreviousPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPreviousPassword.Location = new System.Drawing.Point(21, 109);
-            this.txtPreviousPassword.Margin = new System.Windows.Forms.Padding(5);
+            this.txtPreviousPassword.BorderRadius = 18;
+            this.txtPreviousPassword.BorderSize = 2;
+            this.txtPreviousPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPreviousPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtPreviousPassword.Location = new System.Drawing.Point(14, 36);
+            this.txtPreviousPassword.Margin = new System.Windows.Forms.Padding(11, 17, 11, 11);
+            this.txtPreviousPassword.MaxLength = 256;
             this.txtPreviousPassword.Multiline = false;
             this.txtPreviousPassword.Name = "txtPreviousPassword";
-            this.txtPreviousPassword.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtPreviousPassword.Padding = new System.Windows.Forms.Padding(20, 10, 10, 10);
             this.txtPreviousPassword.PasswordChar = false;
             this.txtPreviousPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPreviousPassword.PlaceholderText = "";
-            this.txtPreviousPassword.Size = new System.Drawing.Size(343, 32);
-            this.txtPreviousPassword.TabIndex = 27;
-            this.txtPreviousPassword.Texts = "";
+            this.txtPreviousPassword.Size = new System.Drawing.Size(374, 38);
+            this.txtPreviousPassword.TabIndex = 1;
+            this.txtPreviousPassword.Texts = "Ingrese su contraseña previa";
             this.txtPreviousPassword.UnderlinedStyle = false;
             // 
-            // label2
+            // grpNewPassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(17, 78);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 15, 5, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 21);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Contraseña antigua";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(17, 156);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 21);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Contraseña nueva";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.grpNewPassword.Controls.Add(this.txtNewPasswordConfirmation);
+            this.grpNewPassword.Controls.Add(this.txtNewPassword);
+            this.grpNewPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpNewPassword.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.grpNewPassword.Location = new System.Drawing.Point(26, 184);
+            this.grpNewPassword.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.grpNewPassword.Name = "grpNewPassword";
+            this.grpNewPassword.Size = new System.Drawing.Size(402, 162);
+            this.grpNewPassword.TabIndex = 44;
+            this.grpNewPassword.TabStop = false;
+            this.grpNewPassword.Text = "Contraseña nueva";
             // 
             // txtNewPassword
             // 
             this.txtNewPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNewPassword.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtNewPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.txtNewPassword.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtNewPassword.BorderRadius = 15;
-            this.txtNewPassword.BorderSize = 1;
-            this.txtNewPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNewPassword.Location = new System.Drawing.Point(21, 187);
-            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(5);
+            this.txtNewPassword.BorderRadius = 18;
+            this.txtNewPassword.BorderSize = 2;
+            this.txtNewPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtNewPassword.Location = new System.Drawing.Point(14, 36);
+            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(11, 17, 11, 11);
+            this.txtNewPassword.MaxLength = 256;
             this.txtNewPassword.Multiline = false;
             this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtNewPassword.Padding = new System.Windows.Forms.Padding(20, 10, 10, 10);
             this.txtNewPassword.PasswordChar = false;
             this.txtNewPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtNewPassword.PlaceholderText = "";
-            this.txtNewPassword.Size = new System.Drawing.Size(343, 32);
-            this.txtNewPassword.TabIndex = 30;
-            this.txtNewPassword.Texts = "";
+            this.txtNewPassword.Size = new System.Drawing.Size(374, 38);
+            this.txtNewPassword.TabIndex = 2;
+            this.txtNewPassword.Texts = "Ingrese su contraseña nueva";
             this.txtNewPassword.UnderlinedStyle = false;
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnChangePassword.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnChangePassword.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnChangePassword.BorderRadius = 30;
+            this.btnChangePassword.BorderSize = 0;
+            this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangePassword.FlatAppearance.BorderSize = 0;
+            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangePassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnChangePassword.Location = new System.Drawing.Point(132, 364);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(20);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(296, 40);
+            this.btnChangePassword.TabIndex = 4;
+            this.btnChangePassword.Text = "Confirmar cambio de contraseña";
+            this.btnChangePassword.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnChangePassword.UseVisualStyleBackColor = false;
             // 
             // txtNewPasswordConfirmation
             // 
             this.txtNewPasswordConfirmation.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNewPasswordConfirmation.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtNewPasswordConfirmation.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.txtNewPasswordConfirmation.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtNewPasswordConfirmation.BorderRadius = 15;
-            this.txtNewPasswordConfirmation.BorderSize = 1;
-            this.txtNewPasswordConfirmation.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNewPasswordConfirmation.Location = new System.Drawing.Point(21, 265);
-            this.txtNewPasswordConfirmation.Margin = new System.Windows.Forms.Padding(5);
+            this.txtNewPasswordConfirmation.BorderRadius = 18;
+            this.txtNewPasswordConfirmation.BorderSize = 2;
+            this.txtNewPasswordConfirmation.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPasswordConfirmation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtNewPasswordConfirmation.Location = new System.Drawing.Point(14, 96);
+            this.txtNewPasswordConfirmation.Margin = new System.Windows.Forms.Padding(11);
+            this.txtNewPasswordConfirmation.MaxLength = 256;
             this.txtNewPasswordConfirmation.Multiline = false;
             this.txtNewPasswordConfirmation.Name = "txtNewPasswordConfirmation";
-            this.txtNewPasswordConfirmation.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtNewPasswordConfirmation.Padding = new System.Windows.Forms.Padding(20, 10, 10, 10);
             this.txtNewPasswordConfirmation.PasswordChar = false;
             this.txtNewPasswordConfirmation.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtNewPasswordConfirmation.PlaceholderText = "";
-            this.txtNewPasswordConfirmation.Size = new System.Drawing.Size(343, 32);
-            this.txtNewPasswordConfirmation.TabIndex = 32;
-            this.txtNewPasswordConfirmation.Texts = "";
+            this.txtNewPasswordConfirmation.Size = new System.Drawing.Size(374, 38);
+            this.txtNewPasswordConfirmation.TabIndex = 3;
+            this.txtNewPasswordConfirmation.Texts = "Confirme su contraseña nueva";
             this.txtNewPasswordConfirmation.UnderlinedStyle = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(17, 234);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(207, 21);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Confirmar contraseña nueva";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnChangePassword
-            // 
-            this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnChangePassword.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnChangePassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnChangePassword.BorderRadius = 40;
-            this.btnChangePassword.BorderSize = 0;
-            this.btnChangePassword.FlatAppearance.BorderSize = 0;
-            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePassword.ForeColor = System.Drawing.Color.Black;
-            this.btnChangePassword.Location = new System.Drawing.Point(148, 337);
-            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(10);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(257, 45);
-            this.btnChangePassword.TabIndex = 39;
-            this.btnChangePassword.Text = "Confirmar cambio de contraseña";
-            this.btnChangePassword.TextColor = System.Drawing.Color.Black;
-            this.btnChangePassword.UseVisualStyleBackColor = false;
-            // 
-            // picExit
-            // 
-            this.picExit.BackColor = System.Drawing.Color.White;
-            this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picExit.Image = global::HealthPortal.Properties.Resources.quit;
-            this.picExit.Location = new System.Drawing.Point(30, 342);
-            this.picExit.Margin = new System.Windows.Forms.Padding(5);
-            this.picExit.Name = "picExit";
-            this.picExit.Size = new System.Drawing.Size(32, 32);
-            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picExit.TabIndex = 40;
-            this.picExit.TabStop = false;
-            this.picExit.WaitOnLoad = true;
             // 
             // FrmPasswordChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(424, 401);
-            this.Controls.Add(this.picExit);
+            this.ClientSize = new System.Drawing.Size(457, 433);
             this.Controls.Add(this.btnChangePassword);
-            this.Controls.Add(this.txtNewPasswordConfirmation);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtNewPassword);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtPreviousPassword);
+            this.Controls.Add(this.grpNewPassword);
+            this.Controls.Add(this.grpPreviousPassword);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPasswordChange";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPasswordChange";
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
+            this.grpPreviousPassword.ResumeLayout(false);
+            this.grpNewPassword.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,13 +210,12 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.GroupBox grpPreviousPassword;
         public CustomPanel.BorderRadiusTXT txtPreviousPassword;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox grpNewPassword;
         public CustomPanel.BorderRadiusTXT txtNewPassword;
         public CustomPanel.BorderRadiusTXT txtNewPasswordConfirmation;
-        private System.Windows.Forms.Label label4;
         public CustomPanel.RJButton btnChangePassword;
-        public System.Windows.Forms.PictureBox picExit;
     }
 }

@@ -80,7 +80,6 @@ namespace HealthPortal.Controller.UserAdministration
         public void NewUser(object sender, EventArgs e)
         {
             DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
-            CommonMethods commonMethods = new CommonMethods();
             string temporaryPassword;
             string email;
 
@@ -93,9 +92,9 @@ namespace HealthPortal.Controller.UserAdministration
 
             // Usuario
             daoUserAdministration.Username = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
-            temporaryPassword = commonMethods.GenerateRandomPassword(8);
-            daoUserAdministration.Password = commonMethods.ComputeSha256Hash(temporaryPassword);
-            daoUserAdministration.Token = commonMethods.GenerateRandomPassword(69);
+            temporaryPassword = CommonMethods.GenerateRandomPassword(8);
+            daoUserAdministration.Password = CommonMethods.ComputeSha256Hash(temporaryPassword);
+            daoUserAdministration.Token = CommonMethods.GenerateRandomPassword(69);
             daoUserAdministration.UserStatus = true;
             daoUserAdministration.UserAttempts = 0;
             daoUserAdministration.TemporaryPassword = true;
@@ -103,7 +102,7 @@ namespace HealthPortal.Controller.UserAdministration
             if (daoUserAdministration.RegisterUser() == 2)
             {
                 MessageBox.Show("Los datos han sido guardados de manera exitosa.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (commonMethods.SendEmail(temporaryPassword, email) == false)
+                if (CommonMethods.SendEmail(temporaryPassword, email) == false)
                 {
                     daoUserAdministration.PersonId = daoUserAdministration.GetMaxID();
                     daoUserAdministration.DeleteUser();

@@ -1,28 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthPortal.Model.DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace HealthPortal.Model.DAO
 {
     internal class DAOFirstUsage : DTOFirstUsage
     {
         SqlCommand command = new SqlCommand();
+        public DataSet FillCombobox()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT * FROM [Institución].[tbCategoríaInstitución]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "tbCategoríaInstitución");
+                return ds;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public string InstitutionDomain()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT [dominioInstitución] FROM [Institución].[tbInstitución]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                return (string)cmd.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
         public int RegisterInstitution()
         {
             try
             {
                 command.Connection = getConnection();
-                string query = "INSERT INTO [Institución].[tbInstitución] VALUES (@institutionName, @institutionAddress, @institutionLogo, @institutionLocation)";
+                string query = "INSERT INTO [Institución].[tbInstitución] VALUES (@institutionName, @institutionAddress, @institutionLogo, @securityQuestions, @institutionEmail, @institutionDomain, @institutionPhone, @institutionCategoryID)";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("institutionName", InstitutionName);
                 cmd.Parameters.AddWithValue("institutionAddress", InstitutionAddress);
                 cmd.Parameters.AddWithValue("institutionLogo", InstitutionLogo);
-                cmd.Parameters.AddWithValue("institutionLocation", InstitutionLocation);
+                cmd.Parameters.AddWithValue("securityQuestions", false);
+                cmd.Parameters.AddWithValue("institutionEmail", InstitutionEmail);
+                cmd.Parameters.AddWithValue("institutionDomain", InstitutionEmail.Substring(InstitutionEmail.LastIndexOf('@') + 1));
+                cmd.Parameters.AddWithValue("institutionPhone", InstitutionPhone);
+                cmd.Parameters.AddWithValue("institutionCategoryId", InstitutionCategoryID);
                 return cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

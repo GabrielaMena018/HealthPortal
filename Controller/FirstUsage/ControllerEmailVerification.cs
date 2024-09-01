@@ -24,11 +24,11 @@ namespace HealthPortal.Controller.FirstUsage
 
             objEmailVerification.txtConfirmationCode.Enter += new EventHandler(EnterTxtConfirmationCode);
             objEmailVerification.txtConfirmationCode.Leave += new EventHandler(LeaveTxtConfirmationCode);
-            objEmailVerification.picExit.MouseEnter += new EventHandler(MouseEnterControl);
-            objEmailVerification.picExit.MouseLeave += new EventHandler(MouseLeaveControl);
+            objEmailVerification.btnExit.MouseEnter += new EventHandler(MouseEnterControl);
+            objEmailVerification.btnExit.MouseLeave += new EventHandler(MouseLeaveControl);
             objEmailVerification.btnConfirmEmail.MouseEnter += new EventHandler(MouseEnterButton);
             objEmailVerification.btnConfirmEmail.MouseLeave += new EventHandler(MouseLeaveButton);
-            objEmailVerification.picExit.Click += new EventHandler(ExitForm);
+            objEmailVerification.btnExit.Click += new EventHandler(ExitForm);
             objEmailVerification.btnConfirmEmail.Click += new EventHandler(CompareConfirmationCode);
         }
         private void EnterTxtConfirmationCode(object sender, EventArgs e)
@@ -61,13 +61,13 @@ namespace HealthPortal.Controller.FirstUsage
         }
         private void MouseEnterControl(object sender, EventArgs e)
         {
-            PictureBox pic = sender as PictureBox;
-            pic.Image = Resources.hoverQuit;
+            Button btn = sender as Button;
+            btn.Image = Resources.hoverQuit;
         }
         private void MouseLeaveControl(object sender, EventArgs e)
         {
-            PictureBox pic = sender as PictureBox;
-            pic.Image = Resources.quit;
+            Button btn = sender as Button;
+            btn.Image = Resources.quit;
         }
         private void ExitForm(object sender, EventArgs e)
         {

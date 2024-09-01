@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmailVerification));
             this.label1 = new System.Windows.Forms.Label();
             this.txtConfirmationCode = new CustomPanel.BorderRadiusTXT();
             this.btnConfirmEmail = new CustomPanel.RJButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.picExit = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -89,6 +87,7 @@
             this.btnConfirmEmail.Name = "btnConfirmEmail";
             this.btnConfirmEmail.Size = new System.Drawing.Size(468, 32);
             this.btnConfirmEmail.TabIndex = 15;
+            this.btnConfirmEmail.TabStop = false;
             this.btnConfirmEmail.Text = "Confirmar Correo";
             this.btnConfirmEmail.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnConfirmEmail.UseVisualStyleBackColor = false;
@@ -104,19 +103,23 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Ingrese el código de confirmación que ha sido enviado a su correo";
             // 
-            // picExit
+            // btnExit
             // 
-            this.picExit.BackColor = System.Drawing.Color.White;
-            this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(479, 12);
-            this.picExit.Name = "picExit";
-            this.picExit.Size = new System.Drawing.Size(32, 32);
-            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picExit.TabIndex = 17;
-            this.picExit.TabStop = false;
-            this.picExit.WaitOnLoad = true;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.btnExit.Location = new System.Drawing.Point(477, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(34, 34);
+            this.btnExit.TabIndex = 17;
+            this.btnExit.TabStop = false;
+            this.btnExit.UseVisualStyleBackColor = false;
             // 
             // FrmEmailVerification
             // 
@@ -124,7 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(523, 224);
-            this.Controls.Add(this.picExit);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnConfirmEmail);
             this.Controls.Add(this.txtConfirmationCode);
@@ -133,7 +136,6 @@
             this.Name = "FrmEmailVerification";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEmailVerification";
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,6 +147,6 @@
         public CustomPanel.BorderRadiusTXT txtConfirmationCode;
         public CustomPanel.RJButton btnConfirmEmail;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.PictureBox picExit;
+        public System.Windows.Forms.Button btnExit;
     }
 }

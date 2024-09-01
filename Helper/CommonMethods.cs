@@ -14,6 +14,7 @@ using HealthPortal.View.FirstUsage;
 using HealthPortal.View.Login;
 using System.Drawing;
 using System.IO;
+using CustomPanel;
 
 namespace HealthPortal.Helper
 {
@@ -50,7 +51,7 @@ namespace HealthPortal.Helper
                 Application.Run(new FrmLogin());
             }
         }
-        public string ComputeSha256Hash(string rawData)
+        public static string ComputeSha256Hash(string rawData)
         {
             // Crear una instancia de SHA256
             using (SHA256 sha256Hash = SHA256.Create())
@@ -67,7 +68,7 @@ namespace HealthPortal.Helper
                 return builder.ToString();
             }
         }
-        public string GenerateRandomPassword(int length)
+        public static string GenerateRandomPassword(int length)
         {
             const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?@#$%^&*";
             StringBuilder password = new StringBuilder();
@@ -92,7 +93,7 @@ namespace HealthPortal.Helper
             }
             return true;
         }
-        public bool SendVerificationEmail(string email, string confirmationCode)
+        public static bool SendVerificationEmail(string email, string confirmationCode)
         {
             try
             {
@@ -119,7 +120,7 @@ namespace HealthPortal.Helper
                 return false;
             }
         }
-        public bool SendEmail(string temporaryPassword, string email)
+        public static bool SendEmail(string temporaryPassword, string email)
         {
             try
             {
@@ -146,7 +147,7 @@ namespace HealthPortal.Helper
                 return false;
             }
         }
-        public bool SendRecoveryEmail(string temporaryPassword, string email)
+        public static bool SendRecoveryEmail(string temporaryPassword, string email)
         {
             try
             {
@@ -173,7 +174,7 @@ namespace HealthPortal.Helper
                 return false;
             }
         }
-        public void DisposeOfCurrentUserData()
+        public static void DisposeOfCurrentUserData()
         {
             CurrentUserData.Username = string.Empty;
             CurrentUserData.Status = false;
@@ -183,7 +184,7 @@ namespace HealthPortal.Helper
             CurrentUserData.TemporaryPassword = false;
             CurrentUserData.Email = string.Empty;
         }
-        static public void FormMouseDown(object sender)
+        public static void FormMouseDown(object sender)
         {
             Form frm = sender as Form;
             dragging = true;
@@ -191,7 +192,7 @@ namespace HealthPortal.Helper
             dragFormPoint = frm.Location;
             frm.Cursor = Cursors.Hand;
         }
-        static public void FormMouseMove(object sender)
+        public static void FormMouseMove(object sender)
         {
             Form frm = sender as Form;
             if (dragging)
@@ -200,13 +201,13 @@ namespace HealthPortal.Helper
                 frm.Location = Point.Add(dragFormPoint, new Size(diff));
             }
         }
-        static public void FormMouseUp(object sender)
+        public static void FormMouseUp(object sender)
         {
             Form frm = sender as Form;
             dragging = false;
             frm.Cursor = Cursors.Default;
         }
-        static public byte[] ImageToByteArray(Image img)
+        public static byte[] ImageToByteArray(Image img)
         {
             if (img != null)
             {
@@ -216,12 +217,23 @@ namespace HealthPortal.Helper
             }
             return null;
         }
-        static public Image ByteArrayToImage(byte[] byteArray)
+        public static Image ByteArrayToImage(byte[] byteArray)
         {
             if (byteArray != null)
             {
                 MemoryStream memoryStream = new MemoryStream(byteArray);
                 return Image.FromStream(memoryStream);
+            }
+            return null;
+        }
+        public static RJButton FindMainButton(Control frm)
+        {
+            foreach (Control control in frm.Controls)
+            {
+                if (control is RJButton btn && btn.Tag != null && btn.Tag.ToString() == "LastButton")
+                {
+                    return btn;
+                }
             }
             return null;
         }

@@ -172,9 +172,8 @@ namespace HealthPortal.Controller.Login
         private void AttemptLogin(object sender, EventArgs e)
         {
             DAOLogin dao = new DAOLogin();
-            CommonMethods commonMethods = new CommonMethods();
             dao.Username = frmLogin.txtUsername.Texts.Trim();
-            dao.Password = commonMethods.ComputeSha256Hash(frmLogin.txtPassword.Texts.Trim());
+            dao.Password = CommonMethods.ComputeSha256Hash(frmLogin.txtPassword.Texts.Trim());
             if (dao.EvaluateLogin() == true && CurrentUserData.Username.Equals(dao.Username))
             {
                 frmLogin.Hide();

@@ -203,6 +203,9 @@
     <EmbeddedResource Include="View\InventoryAdministration\FrmAddUpdateMedicine.resx">
       <DependentUpon>FrmAddUpdateMedicine.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\PasswordManagement\FrmPasswordChange.resx">
+      <DependentUpon>FrmPasswordChange.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\PasswordManagement\FrmRecoveryMethods.resx">
       <DependentUpon>FrmRecoveryMethods.cs</DependentUpon>
     </EmbeddedResource>

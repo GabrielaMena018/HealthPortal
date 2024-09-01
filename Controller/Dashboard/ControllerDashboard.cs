@@ -21,7 +21,6 @@ namespace HealthPortal.Controller.Dashboard
         FrmDashboard frmDashboard;
         Form currentForm;
         Button currentButton;
-        CommonMethods commonMethods = new CommonMethods();
         private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         bool isSideBarExpanded = true;
         const int collapsedWidth = 150;
@@ -276,7 +275,7 @@ namespace HealthPortal.Controller.Dashboard
         {
             if (MessageBox.Show("¿Seguro que desea cerrar sesión?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                commonMethods.DisposeOfCurrentUserData();
+                CommonMethods.DisposeOfCurrentUserData();
                 FrmLogin objLogin = new FrmLogin();
                 objLogin.Show();
                 frmDashboard.Dispose();
@@ -286,7 +285,7 @@ namespace HealthPortal.Controller.Dashboard
         {
             if (MessageBox.Show("¿Desea cerrar el programa directamente? Considere que se cerrará la sesión de manera automática", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                commonMethods.DisposeOfCurrentUserData();
+                CommonMethods.DisposeOfCurrentUserData();
                 Environment.Exit(0);
             }
         }

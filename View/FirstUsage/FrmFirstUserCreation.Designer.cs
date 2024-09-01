@@ -32,13 +32,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnHidePassword = new System.Windows.Forms.Button();
             this.btnShowPassword = new System.Windows.Forms.Button();
-            this.txtConfirmPassword = new CustomPanel.BorderRadiusTXT();
-            this.txtPassword = new CustomPanel.BorderRadiusTXT();
-            this.txtUsername = new CustomPanel.BorderRadiusTXT();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRegisterFirstUser = new CustomPanel.RJButton();
+            this.txtConfirmPassword = new CustomPanel.BorderRadiusTXT();
+            this.txtPassword = new CustomPanel.BorderRadiusTXT();
+            this.txtUsername = new CustomPanel.BorderRadiusTXT();
             this.txtPhoneNumber = new CustomPanel.BorderRadiusTXT();
             this.txtEmail = new CustomPanel.BorderRadiusTXT();
             this.txtLastName = new CustomPanel.BorderRadiusTXT();
@@ -59,7 +59,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(20, 20, 20, 10);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(620, 98);
-            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de Inicio de Sesión";
             // 
@@ -77,7 +77,8 @@
             this.btnHidePassword.Location = new System.Drawing.Point(368, 43);
             this.btnHidePassword.Name = "btnHidePassword";
             this.btnHidePassword.Size = new System.Drawing.Size(25, 25);
-            this.btnHidePassword.TabIndex = 25;
+            this.btnHidePassword.TabIndex = 7;
+            this.btnHidePassword.TabStop = false;
             this.btnHidePassword.Text = " ";
             this.btnHidePassword.UseVisualStyleBackColor = true;
             // 
@@ -95,77 +96,9 @@
             this.btnShowPassword.Location = new System.Drawing.Point(368, 43);
             this.btnShowPassword.Name = "btnShowPassword";
             this.btnShowPassword.Size = new System.Drawing.Size(25, 25);
-            this.btnShowPassword.TabIndex = 24;
+            this.btnShowPassword.TabIndex = 7;
+            this.btnShowPassword.TabStop = false;
             this.btnShowPassword.UseVisualStyleBackColor = true;
-            // 
-            // txtConfirmPassword
-            // 
-            this.txtConfirmPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.txtConfirmPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtConfirmPassword.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtConfirmPassword.BorderRadius = 18;
-            this.txtConfirmPassword.BorderSize = 2;
-            this.txtConfirmPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtConfirmPassword.Location = new System.Drawing.Point(417, 37);
-            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(20);
-            this.txtConfirmPassword.MaxLength = 32767;
-            this.txtConfirmPassword.Multiline = false;
-            this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Padding = new System.Windows.Forms.Padding(15, 10, 10, 10);
-            this.txtConfirmPassword.PasswordChar = false;
-            this.txtConfirmPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtConfirmPassword.PlaceholderText = "";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(180, 38);
-            this.txtConfirmPassword.TabIndex = 16;
-            this.txtConfirmPassword.Texts = "Confirmar contraseña";
-            this.txtConfirmPassword.UnderlinedStyle = false;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtPassword.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtPassword.BorderRadius = 18;
-            this.txtPassword.BorderSize = 2;
-            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtPassword.Location = new System.Drawing.Point(223, 37);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(20, 20, 0, 20);
-            this.txtPassword.MaxLength = 32767;
-            this.txtPassword.Multiline = false;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Padding = new System.Windows.Forms.Padding(15, 10, 10, 10);
-            this.txtPassword.PasswordChar = false;
-            this.txtPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtPassword.PlaceholderText = "";
-            this.txtPassword.Size = new System.Drawing.Size(180, 38);
-            this.txtPassword.TabIndex = 15;
-            this.txtPassword.Texts = "Contraseña";
-            this.txtPassword.UnderlinedStyle = false;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.BackColor = System.Drawing.SystemColors.Window;
-            this.txtUsername.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtUsername.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtUsername.BorderRadius = 18;
-            this.txtUsername.BorderSize = 2;
-            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtUsername.Location = new System.Drawing.Point(23, 37);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(20, 20, 0, 20);
-            this.txtUsername.MaxLength = 32767;
-            this.txtUsername.Multiline = false;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Padding = new System.Windows.Forms.Padding(15, 10, 10, 10);
-            this.txtUsername.PasswordChar = false;
-            this.txtUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtUsername.PlaceholderText = "";
-            this.txtUsername.Size = new System.Drawing.Size(180, 38);
-            this.txtUsername.TabIndex = 14;
-            this.txtUsername.Texts = "Usuario";
-            this.txtUsername.UnderlinedStyle = false;
             // 
             // label2
             // 
@@ -205,8 +138,9 @@
             this.btnExit.Location = new System.Drawing.Point(622, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(34, 34);
-            this.btnExit.TabIndex = 26;
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.TabIndex = 10;
+            this.btnExit.TabStop = false;
+            this.btnExit.UseVisualStyleBackColor = false;
             // 
             // btnRegisterFirstUser
             // 
@@ -224,10 +158,81 @@
             this.btnRegisterFirstUser.Margin = new System.Windows.Forms.Padding(176, 10, 176, 15);
             this.btnRegisterFirstUser.Name = "btnRegisterFirstUser";
             this.btnRegisterFirstUser.Size = new System.Drawing.Size(620, 39);
-            this.btnRegisterFirstUser.TabIndex = 23;
+            this.btnRegisterFirstUser.TabIndex = 9;
+            this.btnRegisterFirstUser.TabStop = false;
+            this.btnRegisterFirstUser.Tag = "LastButton";
             this.btnRegisterFirstUser.Text = "Registrar Primer Usuario";
             this.btnRegisterFirstUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnRegisterFirstUser.UseVisualStyleBackColor = false;
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.txtConfirmPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtConfirmPassword.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtConfirmPassword.BorderRadius = 18;
+            this.txtConfirmPassword.BorderSize = 2;
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtConfirmPassword.Location = new System.Drawing.Point(417, 37);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(20);
+            this.txtConfirmPassword.MaxLength = 32767;
+            this.txtConfirmPassword.Multiline = false;
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Padding = new System.Windows.Forms.Padding(15, 10, 10, 10);
+            this.txtConfirmPassword.PasswordChar = false;
+            this.txtConfirmPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtConfirmPassword.PlaceholderText = "";
+            this.txtConfirmPassword.Size = new System.Drawing.Size(180, 38);
+            this.txtConfirmPassword.TabIndex = 8;
+            this.txtConfirmPassword.Texts = "Confirmar contraseña";
+            this.txtConfirmPassword.UnderlinedStyle = false;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtPassword.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtPassword.BorderRadius = 18;
+            this.txtPassword.BorderSize = 2;
+            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtPassword.Location = new System.Drawing.Point(223, 37);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(20, 20, 0, 20);
+            this.txtPassword.MaxLength = 32767;
+            this.txtPassword.Multiline = false;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Padding = new System.Windows.Forms.Padding(15, 10, 10, 10);
+            this.txtPassword.PasswordChar = false;
+            this.txtPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPassword.PlaceholderText = "";
+            this.txtPassword.Size = new System.Drawing.Size(180, 38);
+            this.txtPassword.TabIndex = 6;
+            this.txtPassword.Texts = "Contraseña";
+            this.txtPassword.UnderlinedStyle = false;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.BackColor = System.Drawing.SystemColors.Window;
+            this.txtUsername.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtUsername.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtUsername.BorderRadius = 18;
+            this.txtUsername.BorderSize = 2;
+            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtUsername.Location = new System.Drawing.Point(23, 37);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(20, 20, 0, 20);
+            this.txtUsername.MaxLength = 32767;
+            this.txtUsername.Multiline = false;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Padding = new System.Windows.Forms.Padding(15, 10, 10, 10);
+            this.txtUsername.PasswordChar = false;
+            this.txtUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtUsername.PlaceholderText = "";
+            this.txtUsername.Size = new System.Drawing.Size(180, 38);
+            this.txtUsername.TabIndex = 5;
+            this.txtUsername.Texts = "Usuario";
+            this.txtUsername.UnderlinedStyle = false;
             // 
             // txtPhoneNumber
             // 
@@ -248,7 +253,7 @@
             this.txtPhoneNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPhoneNumber.PlaceholderText = "";
             this.txtPhoneNumber.Size = new System.Drawing.Size(286, 38);
-            this.txtPhoneNumber.TabIndex = 21;
+            this.txtPhoneNumber.TabIndex = 4;
             this.txtPhoneNumber.Texts = "Número de Teléfono";
             this.txtPhoneNumber.UnderlinedStyle = false;
             // 
@@ -271,7 +276,7 @@
             this.txtEmail.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtEmail.PlaceholderText = "";
             this.txtEmail.Size = new System.Drawing.Size(290, 38);
-            this.txtEmail.TabIndex = 20;
+            this.txtEmail.TabIndex = 3;
             this.txtEmail.Texts = "Correo Electrónico";
             this.txtEmail.UnderlinedStyle = false;
             // 
@@ -294,7 +299,7 @@
             this.txtLastName.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtLastName.PlaceholderText = "";
             this.txtLastName.Size = new System.Drawing.Size(286, 38);
-            this.txtLastName.TabIndex = 19;
+            this.txtLastName.TabIndex = 2;
             this.txtLastName.Texts = "Apellidos";
             this.txtLastName.UnderlinedStyle = false;
             // 
@@ -317,7 +322,7 @@
             this.txtName.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtName.PlaceholderText = "";
             this.txtName.Size = new System.Drawing.Size(290, 38);
-            this.txtName.TabIndex = 18;
+            this.txtName.TabIndex = 1;
             this.txtName.Texts = "Nombres";
             this.txtName.UnderlinedStyle = false;
             // 
