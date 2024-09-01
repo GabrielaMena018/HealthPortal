@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HealthPortal.View.MainPage;
 using HealthPortal.View.InventoryAdministration;
 using HealthPortal.View.PatientAdministration;
 using HealthPortal.View.SectionAdministration;
@@ -37,7 +38,7 @@ namespace HealthPortal.Controller.Dashboard
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
             {
                 { "btnMenu", Tuple.Create(Resources.menu, Resources.hoverMenu)},
-                { "btnMainMenu", Tuple.Create(Resources.main, Resources.hoverMain) },
+                { "btnMainPage", Tuple.Create(Resources.main, Resources.hoverMain) },
                 { "btnVisits", Tuple.Create(Resources.visits, Resources.hoverVisits) },
                 { "btnInventory", Tuple.Create(Resources.inventory, Resources.hoverInventory) },
                 { "btnStatistics", Tuple.Create(Resources.statistics, Resources.hoverStatistics) },
@@ -50,7 +51,8 @@ namespace HealthPortal.Controller.Dashboard
             frmDashboard.btnMenu.Click += new EventHandler(MorphSideBar);
 
             // Abrir Formularios
-            //frmDashboard.btnMainMenu.Click += new EventHandler(OpenMainMenuForm);
+            frmDashboard.Load += new EventHandler(OpenMainPageForm);
+            frmDashboard.btnMainPage.Click += new EventHandler(OpenMainPageForm);
             frmDashboard.btnVisits.Click += new EventHandler(OpenPatientAdministrationForm);
             frmDashboard.btnInventory.Click += new EventHandler(OpenInventoryAdministrationForm);
             //frmDashboard.btnStatistics.Click += new EventHandler(OpenStatisticsForm);
@@ -59,7 +61,7 @@ namespace HealthPortal.Controller.Dashboard
 
             // Cambios de imagen por MouseEnter
             frmDashboard.btnMenu.MouseEnter += new EventHandler(MouseEnterControl);
-            frmDashboard.btnMainMenu.MouseEnter += new EventHandler(MouseEnterControl);
+            frmDashboard.btnMainPage.MouseEnter += new EventHandler(MouseEnterControl);
             frmDashboard.btnVisits.MouseEnter += new EventHandler(MouseEnterControl);
             frmDashboard.btnInventory.MouseEnter += new EventHandler(MouseEnterControl);
             frmDashboard.btnStatistics.MouseEnter += new EventHandler(MouseEnterControl);
@@ -69,7 +71,7 @@ namespace HealthPortal.Controller.Dashboard
 
             // Cambios de imagen por MouseLeave
             frmDashboard.btnMenu.MouseLeave += new EventHandler(MouseLeaveControl);
-            frmDashboard.btnMainMenu.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmDashboard.btnMainPage.MouseLeave += new EventHandler(MouseLeaveControl);
             frmDashboard.btnVisits.MouseLeave += new EventHandler(MouseLeaveControl);
             frmDashboard.btnInventory.MouseLeave += new EventHandler(MouseLeaveControl);
             frmDashboard.btnStatistics.MouseLeave += new EventHandler(MouseLeaveControl);
@@ -92,13 +94,13 @@ namespace HealthPortal.Controller.Dashboard
             frmDashboard.btnMenu.Location = new Point(isSideBarExpanded ? collapsedLogoX : expandedLogoX, logoY);
 
             // Se actualizan todos los paneles para que tengan el mismo ancho del recién cambiado panel lateral
-            foreach (Panel pnl in new Panel[] { frmDashboard.pnlMenu, frmDashboard.flpTabs, frmDashboard.pnlMainMenu, frmDashboard.pnlVisits, frmDashboard.pnlInventory, frmDashboard.pnlStatistics, frmDashboard.pnlSections, frmDashboard.pnlUsers, frmDashboard.pnlLogout })
+            foreach (Panel pnl in new Panel[] { frmDashboard.pnlMenu, frmDashboard.flpTabs, frmDashboard.pnlMainPage, frmDashboard.pnlVisits, frmDashboard.pnlInventory, frmDashboard.pnlStatistics, frmDashboard.pnlSections, frmDashboard.pnlUsers, frmDashboard.pnlLogout })
             {
                 pnl.Width = frmDashboard.pnlSideBar.Width;
             }
 
             // Se actualizan todos los botones basándose en el estado del panel lateral
-            foreach (Button btn in new Button[] { frmDashboard.btnMainMenu, frmDashboard.btnVisits, frmDashboard.btnInventory, frmDashboard.btnStatistics, frmDashboard.btnSections, frmDashboard.btnUsers, frmDashboard.btnLogout })
+            foreach (Button btn in new Button[] { frmDashboard.btnMainPage, frmDashboard.btnVisits, frmDashboard.btnInventory, frmDashboard.btnStatistics, frmDashboard.btnSections, frmDashboard.btnUsers, frmDashboard.btnLogout })
             {
                 if (isSideBarExpanded)
                 {
@@ -122,30 +124,62 @@ namespace HealthPortal.Controller.Dashboard
             }
             isSideBarExpanded = !isSideBarExpanded;
         }
+        private void OpenMainPageForm(object sender, EventArgs e)
+        {
+            frmDashboard.btnMainPage.Image = Resources.hoverMain;
+            frmDashboard.btnVisits.Image = Resources.visits;
+            frmDashboard.btnInventory.Image = Resources.inventory;
+            frmDashboard.btnStatistics.Image = Resources.statistics;
+            frmDashboard.btnSections.Image = Resources.sections;
+            frmDashboard.btnUsers.Image = Resources.users;
+
+            frmDashboard.btnMainPage.ForeColor = Color.FromArgb(31, 43, 91);
+            frmDashboard.btnVisits.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnInventory.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnSections.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnUsers.ForeColor = Color.FromArgb(142, 202, 230);
+
+            frmDashboard.pnlMainPage.BackColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.pnlVisits.BackColor = Color.White;
+            frmDashboard.pnlInventory.BackColor = Color.White;
+            frmDashboard.pnlStatistics.BackColor = Color.White;
+            frmDashboard.pnlSections.BackColor = Color.White;
+            frmDashboard.pnlUsers.BackColor = Color.White;
+
+            frmDashboard.btnMainPage.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnVisits.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnInventory.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnSections.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnUsers.FlatAppearance.BorderColor = Color.White;
+
+            OpenForm<FrmMainPage>(frmDashboard.btnMainPage);
+        }
         private void OpenPatientAdministrationForm(object sender, EventArgs e)
         {
-            frmDashboard.btnMainMenu.Image = Resources.main;
+            frmDashboard.btnMainPage.Image = Resources.main;
             frmDashboard.btnVisits.Image = Resources.hoverVisits;
             frmDashboard.btnInventory.Image = Resources.inventory;
             frmDashboard.btnStatistics.Image = Resources.statistics;
             frmDashboard.btnSections.Image = Resources.sections;
             frmDashboard.btnUsers.Image = Resources.users;
 
-            frmDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnMainPage.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnVisits.ForeColor = Color.FromArgb(31, 43, 91);
             frmDashboard.btnInventory.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnSections.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnUsers.ForeColor = Color.FromArgb(142, 202, 230);
 
-            frmDashboard.pnlMainMenu.BackColor = Color.White;
+            frmDashboard.pnlMainPage.BackColor = Color.White;
             frmDashboard.pnlVisits.BackColor = Color.FromArgb(142, 202, 230);
             frmDashboard.pnlInventory.BackColor = Color.White;
             frmDashboard.pnlStatistics.BackColor = Color.White;
             frmDashboard.pnlSections.BackColor = Color.White;
             frmDashboard.pnlUsers.BackColor = Color.White;
 
-            frmDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnMainPage.FlatAppearance.BorderColor = Color.White;
             frmDashboard.btnVisits.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnInventory.FlatAppearance.BorderColor = Color.White;
             frmDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
@@ -156,28 +190,28 @@ namespace HealthPortal.Controller.Dashboard
         }
         private void OpenInventoryAdministrationForm(object sender, EventArgs e)
         {
-            frmDashboard.btnMainMenu.Image = Resources.main;
+            frmDashboard.btnMainPage.Image = Resources.main;
             frmDashboard.btnVisits.Image = Resources.visits;
             frmDashboard.btnInventory.Image = Resources.hoverInventory;
             frmDashboard.btnStatistics.Image = Resources.statistics;
             frmDashboard.btnSections.Image = Resources.sections;
             frmDashboard.btnUsers.Image = Resources.users;
 
-            frmDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnMainPage.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnVisits.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnInventory.ForeColor = Color.FromArgb(31, 43, 91);
             frmDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnSections.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnUsers.ForeColor = Color.FromArgb(142, 202, 230);
 
-            frmDashboard.pnlMainMenu.BackColor = Color.White;
+            frmDashboard.pnlMainPage.BackColor = Color.White;
             frmDashboard.pnlVisits.BackColor = Color.White;
             frmDashboard.pnlInventory.BackColor = Color.FromArgb(142, 202, 230);
             frmDashboard.pnlStatistics.BackColor = Color.White;
             frmDashboard.pnlSections.BackColor = Color.White;
             frmDashboard.pnlUsers.BackColor = Color.White;
 
-            frmDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnMainPage.FlatAppearance.BorderColor = Color.White;
             frmDashboard.btnVisits.FlatAppearance.BorderColor = Color.White;
             frmDashboard.btnInventory.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
@@ -188,28 +222,28 @@ namespace HealthPortal.Controller.Dashboard
         }
         private void OpenSectionAdministrationForm(object sender, EventArgs e)
         {
-            frmDashboard.btnMainMenu.Image = Resources.main;
+            frmDashboard.btnMainPage.Image = Resources.main;
             frmDashboard.btnVisits.Image = Resources.visits;
             frmDashboard.btnInventory.Image = Resources.inventory;
             frmDashboard.btnStatistics.Image = Resources.statistics;
             frmDashboard.btnSections.Image = Resources.hoverSections;
             frmDashboard.btnUsers.Image = Resources.users;
 
-            frmDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnMainPage.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnVisits.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnInventory.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnSections.ForeColor = Color.FromArgb(31, 43, 91);
             frmDashboard.btnUsers.ForeColor = Color.FromArgb(142, 202, 230);
 
-            frmDashboard.pnlMainMenu.BackColor = Color.White;
+            frmDashboard.pnlMainPage.BackColor = Color.White;
             frmDashboard.pnlVisits.BackColor = Color.White;
             frmDashboard.pnlInventory.BackColor = Color.White;
             frmDashboard.pnlStatistics.BackColor = Color.White;
             frmDashboard.pnlSections.BackColor = Color.FromArgb(142, 202, 230);
             frmDashboard.pnlUsers.BackColor = Color.White;
 
-            frmDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnMainPage.FlatAppearance.BorderColor = Color.White;
             frmDashboard.btnVisits.FlatAppearance.BorderColor = Color.White;
             frmDashboard.btnInventory.FlatAppearance.BorderColor = Color.White;
             frmDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
@@ -220,28 +254,28 @@ namespace HealthPortal.Controller.Dashboard
         }
         private void OpenUserAdministrationForm(object sender, EventArgs e)
         {
-            frmDashboard.btnMainMenu.Image = Resources.main;
+            frmDashboard.btnMainPage.Image = Resources.main;
             frmDashboard.btnVisits.Image = Resources.visits;
             frmDashboard.btnInventory.Image = Resources.inventory;
             frmDashboard.btnStatistics.Image = Resources.statistics;
             frmDashboard.btnSections.Image = Resources.sections;
             frmDashboard.btnUsers.Image = Resources.hoverUsers;
 
-            frmDashboard.btnMainMenu.ForeColor = Color.FromArgb(142, 202, 230);
+            frmDashboard.btnMainPage.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnVisits.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnInventory.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnStatistics.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnSections.ForeColor = Color.FromArgb(142, 202, 230);
             frmDashboard.btnUsers.ForeColor = Color.FromArgb(31, 43, 91);
 
-            frmDashboard.pnlMainMenu.BackColor = Color.White;
+            frmDashboard.pnlMainPage.BackColor = Color.White;
             frmDashboard.pnlVisits.BackColor = Color.White;
             frmDashboard.pnlInventory.BackColor = Color.White;
             frmDashboard.pnlStatistics.BackColor = Color.White;
             frmDashboard.pnlSections.BackColor = Color.White;
             frmDashboard.pnlUsers.BackColor = Color.FromArgb(142, 202, 230);
 
-            frmDashboard.btnMainMenu.FlatAppearance.BorderColor = Color.White;
+            frmDashboard.btnMainPage.FlatAppearance.BorderColor = Color.White;
             frmDashboard.btnVisits.FlatAppearance.BorderColor = Color.White;
             frmDashboard.btnInventory.FlatAppearance.BorderColor = Color.White;
             frmDashboard.btnStatistics.FlatAppearance.BorderColor = Color.White;
@@ -327,7 +361,7 @@ namespace HealthPortal.Controller.Dashboard
         }
         private string GetButtonText(Button btn)
         {
-            if (btn == frmDashboard.btnMainMenu) return "Página Principal";
+            if (btn == frmDashboard.btnMainPage) return "Página Principal";
             if (btn == frmDashboard.btnVisits) return "Visitas";
             if (btn == frmDashboard.btnInventory) return "Inventario";
             if (btn == frmDashboard.btnStatistics) return "Estadísticas";

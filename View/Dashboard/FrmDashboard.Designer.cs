@@ -33,8 +33,8 @@
             this.flpTabs = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.btnMenu = new System.Windows.Forms.Button();
-            this.pnlMainMenu = new System.Windows.Forms.Panel();
-            this.btnMainMenu = new System.Windows.Forms.Button();
+            this.pnlMainPage = new System.Windows.Forms.Panel();
+            this.btnMainPage = new System.Windows.Forms.Button();
             this.pnlVisits = new System.Windows.Forms.Panel();
             this.btnVisits = new System.Windows.Forms.Button();
             this.pnlInventory = new System.Windows.Forms.Panel();
@@ -51,7 +51,7 @@
             this.pnlSideBar.SuspendLayout();
             this.flpTabs.SuspendLayout();
             this.pnlMenu.SuspendLayout();
-            this.pnlMainMenu.SuspendLayout();
+            this.pnlMainPage.SuspendLayout();
             this.pnlVisits.SuspendLayout();
             this.pnlInventory.SuspendLayout();
             this.pnlStatistics.SuspendLayout();
@@ -74,7 +74,7 @@
             // flpTabs
             // 
             this.flpTabs.Controls.Add(this.pnlMenu);
-            this.flpTabs.Controls.Add(this.pnlMainMenu);
+            this.flpTabs.Controls.Add(this.pnlMainPage);
             this.flpTabs.Controls.Add(this.pnlVisits);
             this.flpTabs.Controls.Add(this.pnlInventory);
             this.flpTabs.Controls.Add(this.pnlStatistics);
@@ -118,39 +118,39 @@
             this.btnMenu.TabStop = false;
             this.btnMenu.UseVisualStyleBackColor = false;
             // 
-            // pnlMainMenu
+            // pnlMainPage
             // 
-            this.pnlMainMenu.Controls.Add(this.btnMainMenu);
-            this.pnlMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMainMenu.Location = new System.Drawing.Point(0, 150);
-            this.pnlMainMenu.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlMainMenu.Name = "pnlMainMenu";
-            this.pnlMainMenu.Size = new System.Drawing.Size(280, 85);
-            this.pnlMainMenu.TabIndex = 9;
+            this.pnlMainPage.Controls.Add(this.btnMainPage);
+            this.pnlMainPage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMainPage.Location = new System.Drawing.Point(0, 150);
+            this.pnlMainPage.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlMainPage.Name = "pnlMainPage";
+            this.pnlMainPage.Size = new System.Drawing.Size(280, 85);
+            this.pnlMainPage.TabIndex = 9;
             // 
-            // btnMainMenu
+            // btnMainPage
             // 
-            this.btnMainMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMainMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMainMenu.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnMainMenu.FlatAppearance.BorderSize = 0;
-            this.btnMainMenu.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMainMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMainMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMainMenu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMainMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnMainMenu.Image = global::HealthPortal.Properties.Resources.main;
-            this.btnMainMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMainMenu.Location = new System.Drawing.Point(34, 26);
-            this.btnMainMenu.Margin = new System.Windows.Forms.Padding(34, 27, 34, 27);
-            this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(208, 32);
-            this.btnMainMenu.TabIndex = 1;
-            this.btnMainMenu.TabStop = false;
-            this.btnMainMenu.Text = "Página Principal";
-            this.btnMainMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMainMenu.UseVisualStyleBackColor = false;
+            this.btnMainPage.BackColor = System.Drawing.Color.Transparent;
+            this.btnMainPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMainPage.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnMainPage.FlatAppearance.BorderSize = 0;
+            this.btnMainPage.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnMainPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMainPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnMainPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainPage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnMainPage.Image = global::HealthPortal.Properties.Resources.main;
+            this.btnMainPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMainPage.Location = new System.Drawing.Point(34, 26);
+            this.btnMainPage.Margin = new System.Windows.Forms.Padding(34, 27, 34, 27);
+            this.btnMainPage.Name = "btnMainPage";
+            this.btnMainPage.Size = new System.Drawing.Size(208, 32);
+            this.btnMainPage.TabIndex = 1;
+            this.btnMainPage.TabStop = false;
+            this.btnMainPage.Text = "Página Principal";
+            this.btnMainPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMainPage.UseVisualStyleBackColor = false;
             // 
             // pnlVisits
             // 
@@ -379,7 +379,7 @@
             this.pnlSideBar.ResumeLayout(false);
             this.flpTabs.ResumeLayout(false);
             this.pnlMenu.ResumeLayout(false);
-            this.pnlMainMenu.ResumeLayout(false);
+            this.pnlMainPage.ResumeLayout(false);
             this.pnlVisits.ResumeLayout(false);
             this.pnlInventory.ResumeLayout(false);
             this.pnlStatistics.ResumeLayout(false);
@@ -401,14 +401,14 @@
         public System.Windows.Forms.Button btnSections;
         public System.Windows.Forms.Button btnUsers;
         public System.Windows.Forms.Button btnLogout;
-        public System.Windows.Forms.Button btnMainMenu;
+        public System.Windows.Forms.Button btnMainPage;
         public System.Windows.Forms.Button btnVisits;
         public System.Windows.Forms.Button btnMenu;
         public System.Windows.Forms.Panel pnlInventory;
         public System.Windows.Forms.Panel pnlStatistics;
         public System.Windows.Forms.Panel pnlSections;
         public System.Windows.Forms.Panel pnlUsers;
-        public System.Windows.Forms.Panel pnlMainMenu;
+        public System.Windows.Forms.Panel pnlMainPage;
         public System.Windows.Forms.Panel pnlVisits;
     }
 }

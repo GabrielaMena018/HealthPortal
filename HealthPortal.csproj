@@ -54,6 +54,7 @@
     <Compile Include="Controller\InventoryAdministration\ControllerAddUpdateMedicine.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerInventoryAdministration.cs" />
     <Compile Include="Controller\Login\ControllerLogin.cs" />
+    <Compile Include="Controller\MainPage\ControllerMainPage.cs" />
     <Compile Include="Controller\PasswordManagement\ControllerPasswordChange.cs" />
     <Compile Include="Controller\PasswordManagement\ControllerRecoveryMethods.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerAddUpdatePatient.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Helper\CommonMethods.cs" />
     <Compile Include="Helper\CurrentUserData.cs" />
     <Compile Include="Model\DAO\DAOFirstUsage.cs" />
+    <Compile Include="Model\DAO\DAOMainPage.cs" />
     <Compile Include="Model\DAO\DAOPasswordManagement.cs" />
     <Compile Include="Model\DAO\DAOSectionAdministration.cs" />
     <Compile Include="Model\DAO\DAOPatientAdministration.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Model\dbContext.cs" />
     <Compile Include="Model\DTO\DTOFirstUsage.cs" />
     <Compile Include="Model\DTO\DTOLogin.cs" />
+    <Compile Include="Model\DTO\DTOMainPage.cs" />
     <Compile Include="Model\DTO\DTOPasswordManagement.cs" />
     <Compile Include="Model\DTO\DTOSectionAdministration.cs" />
     <Compile Include="Model\DTO\DTOPatientAdministration.cs" />
@@ -107,6 +110,12 @@
     </Compile>
     <Compile Include="View\FirstUsage\FrmInstitutionCreation.Designer.cs">
       <DependentUpon>FrmInstitutionCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainPage\FrmMainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainPage\FrmMainPage.Designer.cs">
+      <DependentUpon>FrmMainPage.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PasswordManagement\FrmPasswordChange.cs">
       <SubType>Form</SubType>
@@ -202,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\InventoryAdministration\FrmAddUpdateMedicine.resx">
       <DependentUpon>FrmAddUpdateMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainPage\FrmMainPage.resx">
+      <DependentUpon>FrmMainPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PasswordManagement\FrmPasswordChange.resx">
       <DependentUpon>FrmPasswordChange.cs</DependentUpon>
