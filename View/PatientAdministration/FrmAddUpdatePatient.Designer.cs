@@ -64,6 +64,8 @@
             this.txtPatientName = new CustomPanel.BorderRadiusTXT();
             this.pic2 = new System.Windows.Forms.PictureBox();
             this.btnPDF = new CustomPanel.RJButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPersona = new CustomPanel.BorderRadiusTXT();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -149,9 +151,10 @@
             this.txtObservations.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtObservations.Location = new System.Drawing.Point(16, 146);
             this.txtObservations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtObservations.MaxLength = 32767;
             this.txtObservations.Multiline = true;
             this.txtObservations.Name = "txtObservations";
-            this.txtObservations.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtObservations.Padding = new System.Windows.Forms.Padding(5);
             this.txtObservations.PasswordChar = false;
             this.txtObservations.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtObservations.PlaceholderText = "";
@@ -308,6 +311,7 @@
             this.txtGrupo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtGrupo.Location = new System.Drawing.Point(391, 58);
             this.txtGrupo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGrupo.MaxLength = 32767;
             this.txtGrupo.Multiline = false;
             this.txtGrupo.Name = "txtGrupo";
             this.txtGrupo.Padding = new System.Windows.Forms.Padding(11, 7, 11, 7);
@@ -388,6 +392,7 @@
             this.txtPatientCode.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPatientCode.Location = new System.Drawing.Point(13, 57);
             this.txtPatientCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPatientCode.MaxLength = 32767;
             this.txtPatientCode.Multiline = false;
             this.txtPatientCode.Name = "txtPatientCode";
             this.txtPatientCode.Padding = new System.Windows.Forms.Padding(11, 7, 11, 7);
@@ -462,6 +467,7 @@
             this.txtPatientLastName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPatientLastName.Location = new System.Drawing.Point(33, 192);
             this.txtPatientLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPatientLastName.MaxLength = 32767;
             this.txtPatientLastName.Multiline = false;
             this.txtPatientLastName.Name = "txtPatientLastName";
             this.txtPatientLastName.Padding = new System.Windows.Forms.Padding(11, 7, 11, 7);
@@ -527,6 +533,7 @@
             this.txtPatientName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPatientName.Location = new System.Drawing.Point(36, 110);
             this.txtPatientName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPatientName.MaxLength = 32767;
             this.txtPatientName.Multiline = false;
             this.txtPatientName.Name = "txtPatientName";
             this.txtPatientName.Padding = new System.Windows.Forms.Padding(11, 7, 11, 7);
@@ -570,6 +577,41 @@
             this.btnPDF.TextColor = System.Drawing.Color.White;
             this.btnPDF.UseVisualStyleBackColor = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(391, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 20);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Atendido Por:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtPersona
+            // 
+            this.txtPersona.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPersona.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtPersona.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtPersona.BorderRadius = 0;
+            this.txtPersona.BorderSize = 1;
+            this.txtPersona.Enabled = false;
+            this.txtPersona.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPersona.Location = new System.Drawing.Point(496, 30);
+            this.txtPersona.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPersona.MaxLength = 32767;
+            this.txtPersona.Multiline = false;
+            this.txtPersona.Name = "txtPersona";
+            this.txtPersona.Padding = new System.Windows.Forms.Padding(11, 7, 11, 7);
+            this.txtPersona.PasswordChar = false;
+            this.txtPersona.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPersona.PlaceholderText = "";
+            this.txtPersona.Size = new System.Drawing.Size(281, 32);
+            this.txtPersona.TabIndex = 28;
+            this.txtPersona.Texts = "";
+            this.txtPersona.UnderlinedStyle = true;
+            // 
             // FrmAddUpdatePatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -577,6 +619,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 860);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtPersona);
             this.Controls.Add(this.pic2);
             this.Controls.Add(this.groupStudent);
             this.Controls.Add(this.btnPDF);
@@ -594,10 +638,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmAddUpdatePatient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Nuevo Paciente";
+            this.Text = "Ingreso de visitas";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -648,5 +693,7 @@
         public System.Windows.Forms.PictureBox pictureBox1;
         public CustomPanel.RJButton btnPDF;
         public System.Windows.Forms.PictureBox pic2;
+        private System.Windows.Forms.Label label6;
+        public CustomPanel.BorderRadiusTXT txtPersona;
     }
 }
