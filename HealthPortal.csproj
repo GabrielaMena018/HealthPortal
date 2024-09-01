@@ -148,11 +148,21 @@
     <Compile Include="View\PasswordManagement\FrmRecoveryMethods.Designer.cs">
       <DependentUpon>FrmRecoveryMethods.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Report\patient\DataSetPatient.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPatient.xsd</DependentUpon>
+    </Compile>
     <Compile Include="View\Report\patient\FrmReportGeneralPatient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Report\patient\FrmReportGeneralPatient.Designer.cs">
       <DependentUpon>FrmReportGeneralPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\School\DataSetSchool.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSchool.xsd</DependentUpon>
     </Compile>
     <Compile Include="View\SectionAdministration\FrmAddUpdateSection.cs">
       <SubType>Form</SubType>
@@ -292,6 +302,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="View\Report\patient\DataSetPatient.xsc">
+      <DependentUpon>DataSetPatient.xsd</DependentUpon>
+    </None>
+    <None Include="View\Report\patient\DataSetPatient.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPatient.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\Report\patient\DataSetPatient.xss">
+      <DependentUpon>DataSetPatient.xsd</DependentUpon>
+    </None>
+    <None Include="View\Report\School\DataSetSchool.xsc">
+      <DependentUpon>DataSetSchool.xsd</DependentUpon>
+    </None>
+    <None Include="View\Report\School\DataSetSchool.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSchool.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\Report\School\DataSetSchool.xss">
+      <DependentUpon>DataSetSchool.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
