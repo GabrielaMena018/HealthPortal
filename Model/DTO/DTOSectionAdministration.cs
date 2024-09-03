@@ -22,7 +22,7 @@ namespace HealthPortal.Model.DTO
         public int IdSeccion { get => idSeccion; set => idSeccion = value; }
         public string GrupoTecnico { get => grupoTecnico; set => grupoTecnico = value; }
         public int IdGrado { get => idGrado; set => idGrado = value; }
-        public string SeccionAcademica { get => SeccionAcademica; set => SeccionAcademica = value; }
+        public string SeccionAcademica { get => seccionAcademica; set => seccionAcademica = value; }
         public string Especialidad { get => especialidad; set => especialidad = value; }
         public int IdEspecialidad { get => idEspecialidad; set => idEspecialidad = value; }
         public int IdSeccionAcademica { get => idSeccionAcademica; set => idSeccionAcademica = value; }

@@ -374,10 +374,12 @@ namespace HealthPortal.Controller.PatientAdministration
             objAddUpdatePatient.cmbSection.DisplayMember = "seccionAcademica";
 
             //Llenar combox tbMedicamento
-            DataSet dsMedicamentoRegistros = daoPatientAdministration.FillCombo("tbMedicamentos", "Medicamentos");
-            objAddUpdatePatient.cmbMedicamentoRegistro.DataSource = dsMedicamentoRegistros.Tables["tbMedicamentos"];
-            objAddUpdatePatient.cmbMedicamentoRegistro.ValueMember = "idMedicamento";
-            objAddUpdatePatient.cmbMedicamentoRegistro.DisplayMember = "nombreMedicamento";
+            DataSet dsMedicamentoRegistros = daoPatientAdministration.FillCombo("tbInventario", "Inventario");
+            objAddUpdatePatient.cmbMedicamentoRegistro.DataSource = dsMedicamentoRegistros.Tables["tbInventario"];
+            objAddUpdatePatient.cmbMedicamentoRegistro.ValueMember = "idInventario";
+            objAddUpdatePatient.cmbMedicamentoRegistro.DisplayMember = "nombreInventario";
+
+            objAddUpdatePatient.txtPersona.Texts = CurrentUserData.FullName;
 
             //La condición sirve para que al actualizar un registro, el valor del registro aparezca seleccionado.
             if (action == 2 || action == 3)
