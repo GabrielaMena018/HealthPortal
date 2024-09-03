@@ -1,4 +1,5 @@
 ﻿using HealthPortal.Controller.SectionAdministration;
+using HealthPortal.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,25 +15,31 @@ namespace HealthPortal.View.SectionAdministration
 {
     public partial class FrmAddUpdateSection : Form
     {
-        public FrmAddUpdateSection(int action, int TabPage)
+        public FrmAddUpdateSection(int action, int tabPage)
         {
             InitializeComponent();
-            ControllerAddUpdateSection control = new ControllerAddUpdateSection(this, action, TabPage);
+            Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            //ControllerAddUpdateSection control = new ControllerAddUpdateSection(this, action, tabPage);
         }
-        public FrmAddUpdateSection(int action, int IdEspecialidad, string Especialidad)
+
+        private void grpGrade_Enter(object sender, EventArgs e)
         {
-            InitializeComponent();
-            ControllerAddUpdateSection control = new ControllerAddUpdateSection(this, action, IdEspecialidad, Especialidad);
+
         }
-        public FrmAddUpdateSection(int action, int IdSecion, string GrupoTecnico, string Especialidad, string Grado, string SeccionAcademica)
-        {
-            InitializeComponent();
-            ControllerAddUpdateSection control = new ControllerAddUpdateSection(this, action, IdSecion, GrupoTecnico, Especialidad, Grado, SeccionAcademica);
-        }
-        public FrmAddUpdateSection(int action, int IdSeccion, string nombreSeccionAcademica, int num)
-        {
-            InitializeComponent();
-            ControllerAddUpdateSection control = new ControllerAddUpdateSection(this, action, IdSeccion, nombreSeccionAcademica, num);
-        }
+        //public FrmAddUpdateSection(int action, int specialtyID, string specialty)
+        //{
+        //    InitializeComponent();
+        //    ControllerAddUpdateSection control = new ControllerAddUpdateSection(this, action, specialtyID, specialty);
+        //}
+        //public FrmAddUpdateSection(int action, int sectionID, string technicalGroup, string specialty, string grade, string academicSection)
+        //{
+        //    InitializeComponent();
+        //    ControllerAddUpdateSection control = new ControllerAddUpdateSection(this, action, sectionID, technicalGroup, specialty, grade, academicSection);
+        //}
+        //public FrmAddUpdateSection(int action, int sectionID, string academicSection, int num)
+        //{
+        //    InitializeComponent();
+        //    ControllerAddUpdateSection control = new ControllerAddUpdateSection(this, action, sectionID, academicSection, num);
+        //}
     }
 }

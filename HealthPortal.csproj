@@ -55,6 +55,7 @@
     <Compile Include="Controller\InventoryAdministration\ControllerInventoryAdministration.cs" />
     <Compile Include="Controller\Login\ControllerLogin.cs" />
     <Compile Include="Controller\MainPage\ControllerMainPage.cs" />
+    <Compile Include="Controller\PasswordManagement\ControllerAdminIntervention.cs" />
     <Compile Include="Controller\PasswordManagement\ControllerPasswordChange.cs" />
     <Compile Include="Controller\PasswordManagement\ControllerRecoveryMethods.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerAddUpdatePatient.cs" />
@@ -116,6 +117,12 @@
     </Compile>
     <Compile Include="View\MainPage\FrmMainPage.Designer.cs">
       <DependentUpon>FrmMainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PasswordManagement\FrmAdminIntervention.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PasswordManagement\FrmAdminIntervention.Designer.cs">
+      <DependentUpon>FrmAdminIntervention.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PasswordManagement\FrmPasswordChange.cs">
       <SubType>Form</SubType>
@@ -214,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainPage\FrmMainPage.resx">
       <DependentUpon>FrmMainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PasswordManagement\FrmAdminIntervention.resx">
+      <DependentUpon>FrmAdminIntervention.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PasswordManagement\FrmPasswordChange.resx">
       <DependentUpon>FrmPasswordChange.cs</DependentUpon>
