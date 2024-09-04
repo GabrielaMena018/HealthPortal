@@ -107,25 +107,68 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public void TemporaryPasswordAssignation(string newPassword)
+        public bool TemporaryPasswordAssignation()
         {
             try
             {
                 command.Connection = getConnection();
                 string query = "UPDATE [Institución].[tbUsuarios] SET [contraseña] = @param1, [contraseñaTemporal] = @param2 WHERE [usuario] = @param3";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", newPassword);
+                cmd.Parameters.AddWithValue("param1", Password);
                 cmd.Parameters.AddWithValue("param2", true);
                 cmd.Parameters.AddWithValue("param3", Username);
                 cmd.ExecuteNonQuery();
+                return true;
             }
             catch (SqlException ex)
             {
                 MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public bool VerifyCredentials()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT * FROM [Vistas].[viewInformacionLogin] WHERE [usuario] = @username AND [contraseña] = @password AND [estadoUsuario] = @userStatus AND [idRol] = @roleID";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("username", Username);
+                cmd.Parameters.AddWithValue("password", Password);
+                cmd.Parameters.AddWithValue("userStatus", true);
+                cmd.Parameters.AddWithValue("roleID", 1);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    CurrentUserData.Username = dr.GetString(0);
+                    CurrentUserData.Password = dr.GetString(1);
+                    CurrentUserData.Token = dr.GetString(2);
+                    CurrentUserData.Status = dr.GetBoolean(3);
+                    CurrentUserData.RoleId = dr.GetInt32(4);
+                    CurrentUserData.FullName = dr.GetString(6);
+                    CurrentUserData.TemporaryPassword = dr.GetBoolean(7);
+                    CurrentUserData.Email = dr.GetString(8);
+                }
+                return dr.HasRows;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             finally
             {

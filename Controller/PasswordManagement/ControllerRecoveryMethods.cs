@@ -49,6 +49,7 @@ namespace HealthPortal.Controller.PasswordManagement
             frmRecoveryMethods.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
 
             frmRecoveryMethods.btnEmailRecoveryMethod.Click += new EventHandler(EmailPasswordRecovery);
+            frmRecoveryMethods.btnAdminIntervention.Click += new EventHandler(AdminInterventionRecovery);
         }
         private void FormMouseDown(object sender, EventArgs e)
         {
@@ -93,10 +94,18 @@ namespace HealthPortal.Controller.PasswordManagement
             {
                 DAOPasswordManagement dao = new DAOPasswordManagement();
                 string temporaryPassword = CommonMethods.GenerateRandomPassword(8);
-                string newPassword = CommonMethods.ComputeSha256Hash(temporaryPassword);
+                dao.Password = CommonMethods.ComputeSha256Hash(temporaryPassword);
                 dao.Username = username;
-                dao.TemporaryPasswordAssignation(newPassword);
+                dao.TemporaryPasswordAssignation();
                 CommonMethods.SendRecoveryEmail(temporaryPassword, dao.VerifyEmail(username));
+            }
+        }
+        private void AdminInterventionRecovery(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea utilizar la recuperación por intervención de administrador? Necesitará que un administrador ingrese sus credenciales para confirmar el cambio de contraseña.", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                FrmAdminIntervention frmAdminIntervention = new FrmAdminIntervention(username);
+                frmAdminIntervention.Show();
             }
         }
     }

@@ -256,7 +256,7 @@ namespace HealthPortal.Controller.FirstUsage
                 }
                 else
                 {
-                    MessageBox.Show("¡Ups! Parece que la contraseña contiene uno o más caracteres no aceptados. Los caracteres aceptados para contraseñas son: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?@#$%^&*", "Contraseña inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("¡Ups! Parece que la contraseña no cuenta con el formato adecuado. Asegúrese de que la contraseña cuente con, como mínimo: Una letra mayúscula, una letra minúscula, un carácter especial (@$#_), un número (1234567890), y 8 caracteres de largo", "Contraseña inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }

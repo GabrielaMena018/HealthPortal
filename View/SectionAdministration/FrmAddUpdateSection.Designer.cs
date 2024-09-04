@@ -28,708 +28,629 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddUpdateSection));
-            this.lblRegistrarSeccion = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CmbSeccionAcademica = new System.Windows.Forms.ComboBox();
-            this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
-            this.CmbGrado = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabAcademicLevel = new System.Windows.Forms.TabControl();
+            this.btnUpdateGrade = new CustomPanel.RJButton();
+            this.btnAddGrade = new CustomPanel.RJButton();
+            this.grpGrade = new System.Windows.Forms.GroupBox();
+            this.txtGrade = new CustomPanel.BorderRadiusTXT();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnUpdateSpecialty = new CustomPanel.RJButton();
+            this.btnAddSpecialty = new CustomPanel.RJButton();
+            this.grpSpecialty = new System.Windows.Forms.GroupBox();
+            this.txtSpecialty = new CustomPanel.BorderRadiusTXT();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtGrupoTecnico = new CustomPanel.BorderRadiusTXT();
-            this.TabControlRegistros = new System.Windows.Forms.TabControl();
-            this.tabPageNewSection = new System.Windows.Forms.TabPage();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.BtnAgregarSeccion = new CustomPanel.RJButton();
-            this.BtnActualizarSeccion = new CustomPanel.RJButton();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tabPageNewSctionAcademy = new System.Windows.Forms.TabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnAgregarSeccionAcademica = new CustomPanel.RJButton();
-            this.btnActualizarSeccionAcademica = new CustomPanel.RJButton();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblRegistrarSeccionAcademica = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cmbSecionAcademicaExistente = new System.Windows.Forms.ComboBox();
-            this.lblSeccionAcademica = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtNuevaSeccionAcademica = new CustomPanel.BorderRadiusTXT();
-            this.tabPageNewEspecialidad = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.lblRegistrarEspecialidad = new System.Windows.Forms.Label();
-            this.btnAgregarEspecialidad = new CustomPanel.RJButton();
-            this.BtnActuzalizarEspecialidad = new CustomPanel.RJButton();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cmbEspecialidadExistente = new System.Windows.Forms.ComboBox();
-            this.lblNuevaEspecialidad = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtNuevaEspecialidad = new CustomPanel.BorderRadiusTXT();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.txtId = new System.Windows.Forms.ToolStripTextBox();
-            this.groupBox1.SuspendLayout();
-            this.TabControlRegistros.SuspendLayout();
-            this.tabPageNewSection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.tabPageNewSctionAcademy.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.tabPageNewEspecialidad.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.btnUpdateAcademicSection = new CustomPanel.RJButton();
+            this.btnAddAcademicSection = new CustomPanel.RJButton();
+            this.grpAcademicSection = new System.Windows.Forms.GroupBox();
+            this.txtAcademicSection = new CustomPanel.BorderRadiusTXT();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnUpdateSection = new CustomPanel.RJButton();
+            this.btnAddSection = new CustomPanel.RJButton();
+            this.grpSection = new System.Windows.Forms.GroupBox();
+            this.txtTechnicalGroup = new CustomPanel.BorderRadiusTXT();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbGrade = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbSpecialty = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbAcademicSection = new System.Windows.Forms.ComboBox();
+            this.tabPage4.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabAcademicLevel.SuspendLayout();
+            this.grpGrade.SuspendLayout();
+            this.grpSpecialty.SuspendLayout();
+            this.grpAcademicSection.SuspendLayout();
+            this.grpSection.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblRegistrarSeccion
+            // tabPage4
             // 
-            this.lblRegistrarSeccion.AutoSize = true;
-            this.lblRegistrarSeccion.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblRegistrarSeccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.lblRegistrarSeccion.Location = new System.Drawing.Point(3, 3);
-            this.lblRegistrarSeccion.Name = "lblRegistrarSeccion";
-            this.lblRegistrarSeccion.Size = new System.Drawing.Size(251, 46);
-            this.lblRegistrarSeccion.TabIndex = 4;
-            this.lblRegistrarSeccion.Text = "Nueva Sección";
+            this.tabPage4.BackColor = System.Drawing.Color.White;
+            this.tabPage4.Controls.Add(this.btnUpdateGrade);
+            this.tabPage4.Controls.Add(this.btnAddGrade);
+            this.tabPage4.Controls.Add(this.grpGrade);
+            this.tabPage4.Controls.Add(this.label1);
+            this.tabPage4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabPage4.ForeColor = System.Drawing.Color.Black;
+            this.tabPage4.Location = new System.Drawing.Point(4, 39);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(526, 317);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Grados";
             // 
-            // groupBox1
+            // tabPage3
             // 
-            this.groupBox1.Controls.Add(this.CmbSeccionAcademica);
-            this.groupBox1.Controls.Add(this.cmbEspecialidad);
-            this.groupBox1.Controls.Add(this.CmbGrado);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtGrupoTecnico);
-            this.groupBox1.Location = new System.Drawing.Point(8, 98);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(524, 205);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nuevo";
+            this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.btnUpdateAcademicSection);
+            this.tabPage3.Controls.Add(this.btnAddAcademicSection);
+            this.tabPage3.Controls.Add(this.grpAcademicSection);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabPage3.Location = new System.Drawing.Point(4, 39);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(526, 317);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Secciones Académicas";
             // 
-            // CmbSeccionAcademica
+            // tabPage2
             // 
-            this.CmbSeccionAcademica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbSeccionAcademica.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbSeccionAcademica.FormattingEnabled = true;
-            this.CmbSeccionAcademica.Location = new System.Drawing.Point(242, 159);
-            this.CmbSeccionAcademica.Name = "CmbSeccionAcademica";
-            this.CmbSeccionAcademica.Size = new System.Drawing.Size(255, 33);
-            this.CmbSeccionAcademica.TabIndex = 15;
+            this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.btnUpdateSpecialty);
+            this.tabPage2.Controls.Add(this.btnAddSpecialty);
+            this.tabPage2.Controls.Add(this.grpSpecialty);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.tabPage2.Location = new System.Drawing.Point(4, 39);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(526, 317);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Especialidades";
             // 
-            // cmbEspecialidad
+            // tabPage1
             // 
-            this.cmbEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEspecialidad.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEspecialidad.FormattingEnabled = true;
-            this.cmbEspecialidad.Location = new System.Drawing.Point(242, 66);
-            this.cmbEspecialidad.Name = "cmbEspecialidad";
-            this.cmbEspecialidad.Size = new System.Drawing.Size(255, 33);
-            this.cmbEspecialidad.TabIndex = 14;
+            this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.btnUpdateSection);
+            this.tabPage1.Controls.Add(this.btnAddSection);
+            this.tabPage1.Controls.Add(this.grpSection);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.tabPage1.Location = new System.Drawing.Point(4, 39);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(526, 317);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Secciones";
             // 
-            // CmbGrade
+            // tabAcademicLevel
             // 
-            this.CmbGrado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbGrado.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbGrado.FormattingEnabled = true;
-            this.CmbGrado.Location = new System.Drawing.Point(22, 63);
-            this.CmbGrado.Name = "CmbGrade";
-            this.CmbGrado.Size = new System.Drawing.Size(177, 33);
-            this.CmbGrado.TabIndex = 13;
+            this.tabAcademicLevel.Controls.Add(this.tabPage1);
+            this.tabAcademicLevel.Controls.Add(this.tabPage2);
+            this.tabAcademicLevel.Controls.Add(this.tabPage3);
+            this.tabAcademicLevel.Controls.Add(this.tabPage4);
+            this.tabAcademicLevel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabAcademicLevel.Location = new System.Drawing.Point(0, 0);
+            this.tabAcademicLevel.Margin = new System.Windows.Forms.Padding(0);
+            this.tabAcademicLevel.Name = "tabAcademicLevel";
+            this.tabAcademicLevel.Padding = new System.Drawing.Point(20, 10);
+            this.tabAcademicLevel.SelectedIndex = 0;
+            this.tabAcademicLevel.Size = new System.Drawing.Size(534, 360);
+            this.tabAcademicLevel.TabIndex = 3;
+            this.tabAcademicLevel.Tag = "AddButton";
             // 
-            // label5
+            // btnUpdateGrade
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(237, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(179, 28);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Seccion Academica";
+            this.btnUpdateGrade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnUpdateGrade.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnUpdateGrade.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpdateGrade.BorderRadius = 30;
+            this.btnUpdateGrade.BorderSize = 0;
+            this.btnUpdateGrade.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateGrade.FlatAppearance.BorderSize = 0;
+            this.btnUpdateGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateGrade.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateGrade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnUpdateGrade.Location = new System.Drawing.Point(190, 260);
+            this.btnUpdateGrade.Margin = new System.Windows.Forms.Padding(10);
+            this.btnUpdateGrade.Name = "btnUpdateGrade";
+            this.btnUpdateGrade.Size = new System.Drawing.Size(141, 39);
+            this.btnUpdateGrade.TabIndex = 38;
+            this.btnUpdateGrade.TabStop = false;
+            this.btnUpdateGrade.Text = "Actualizar";
+            this.btnUpdateGrade.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnUpdateGrade.UseVisualStyleBackColor = false;
             // 
-            // label4
+            // btnAddGrade
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 28);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Grupo Técnico";
+            this.btnAddGrade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddGrade.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddGrade.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddGrade.BorderRadius = 30;
+            this.btnAddGrade.BorderSize = 0;
+            this.btnAddGrade.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddGrade.FlatAppearance.BorderSize = 0;
+            this.btnAddGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddGrade.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddGrade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddGrade.Location = new System.Drawing.Point(351, 260);
+            this.btnAddGrade.Margin = new System.Windows.Forms.Padding(10);
+            this.btnAddGrade.Name = "btnAddGrade";
+            this.btnAddGrade.Size = new System.Drawing.Size(141, 39);
+            this.btnAddGrade.TabIndex = 37;
+            this.btnAddGrade.TabStop = false;
+            this.btnAddGrade.Text = "Agregar";
+            this.btnAddGrade.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddGrade.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // grpGrade
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(237, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 28);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Especidalidad";
+            this.grpGrade.Controls.Add(this.txtGrade);
+            this.grpGrade.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpGrade.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.grpGrade.Location = new System.Drawing.Point(17, 70);
+            this.grpGrade.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
+            this.grpGrade.Name = "grpGrade";
+            this.grpGrade.Size = new System.Drawing.Size(475, 170);
+            this.grpGrade.TabIndex = 36;
+            this.grpGrade.TabStop = false;
+            this.grpGrade.Text = "Información de nuevo grado";
+            // 
+            // txtGrade
+            // 
+            this.txtGrade.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGrade.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtGrade.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtGrade.BorderRadius = 18;
+            this.txtGrade.BorderSize = 2;
+            this.txtGrade.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGrade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtGrade.Location = new System.Drawing.Point(23, 29);
+            this.txtGrade.Margin = new System.Windows.Forms.Padding(20, 10, 20, 20);
+            this.txtGrade.MaxLength = 50;
+            this.txtGrade.Multiline = false;
+            this.txtGrade.Name = "txtGrade";
+            this.txtGrade.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.txtGrade.PasswordChar = false;
+            this.txtGrade.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtGrade.PlaceholderText = "";
+            this.txtGrade.Size = new System.Drawing.Size(429, 118);
+            this.txtGrade.TabIndex = 19;
+            this.txtGrade.Texts = "Grado";
+            this.txtGrade.UnderlinedStyle = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label1.Location = new System.Drawing.Point(10, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(245, 37);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Agregar Grado";
+            // 
+            // btnUpdateSpecialty
+            // 
+            this.btnUpdateSpecialty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnUpdateSpecialty.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnUpdateSpecialty.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpdateSpecialty.BorderRadius = 30;
+            this.btnUpdateSpecialty.BorderSize = 0;
+            this.btnUpdateSpecialty.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateSpecialty.FlatAppearance.BorderSize = 0;
+            this.btnUpdateSpecialty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateSpecialty.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnUpdateSpecialty.Location = new System.Drawing.Point(190, 260);
+            this.btnUpdateSpecialty.Margin = new System.Windows.Forms.Padding(10);
+            this.btnUpdateSpecialty.Name = "btnUpdateSpecialty";
+            this.btnUpdateSpecialty.Size = new System.Drawing.Size(141, 39);
+            this.btnUpdateSpecialty.TabIndex = 42;
+            this.btnUpdateSpecialty.TabStop = false;
+            this.btnUpdateSpecialty.Text = "Actualizar";
+            this.btnUpdateSpecialty.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnUpdateSpecialty.UseVisualStyleBackColor = false;
+            // 
+            // btnAddSpecialty
+            // 
+            this.btnAddSpecialty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddSpecialty.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddSpecialty.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddSpecialty.BorderRadius = 30;
+            this.btnAddSpecialty.BorderSize = 0;
+            this.btnAddSpecialty.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddSpecialty.FlatAppearance.BorderSize = 0;
+            this.btnAddSpecialty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddSpecialty.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddSpecialty.Location = new System.Drawing.Point(351, 260);
+            this.btnAddSpecialty.Margin = new System.Windows.Forms.Padding(10);
+            this.btnAddSpecialty.Name = "btnAddSpecialty";
+            this.btnAddSpecialty.Size = new System.Drawing.Size(141, 39);
+            this.btnAddSpecialty.TabIndex = 41;
+            this.btnAddSpecialty.TabStop = false;
+            this.btnAddSpecialty.Text = "Agregar";
+            this.btnAddSpecialty.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddSpecialty.UseVisualStyleBackColor = false;
+            // 
+            // grpSpecialty
+            // 
+            this.grpSpecialty.Controls.Add(this.txtSpecialty);
+            this.grpSpecialty.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpSpecialty.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.grpSpecialty.Location = new System.Drawing.Point(17, 70);
+            this.grpSpecialty.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
+            this.grpSpecialty.Name = "grpSpecialty";
+            this.grpSpecialty.Size = new System.Drawing.Size(475, 170);
+            this.grpSpecialty.TabIndex = 40;
+            this.grpSpecialty.TabStop = false;
+            this.grpSpecialty.Text = "Información de nueva especialidad";
+            // 
+            // txtSpecialty
+            // 
+            this.txtSpecialty.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSpecialty.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtSpecialty.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtSpecialty.BorderRadius = 18;
+            this.txtSpecialty.BorderSize = 2;
+            this.txtSpecialty.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtSpecialty.Location = new System.Drawing.Point(23, 29);
+            this.txtSpecialty.Margin = new System.Windows.Forms.Padding(20, 10, 20, 20);
+            this.txtSpecialty.MaxLength = 50;
+            this.txtSpecialty.Multiline = false;
+            this.txtSpecialty.Name = "txtSpecialty";
+            this.txtSpecialty.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.txtSpecialty.PasswordChar = false;
+            this.txtSpecialty.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtSpecialty.PlaceholderText = "";
+            this.txtSpecialty.Size = new System.Drawing.Size(429, 118);
+            this.txtSpecialty.TabIndex = 19;
+            this.txtSpecialty.Texts = "Especialidad";
+            this.txtSpecialty.UnderlinedStyle = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 32);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label2.Location = new System.Drawing.Point(10, 13);
+            this.label2.Margin = new System.Windows.Forms.Padding(10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 28);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Grade";
-            // 
-            // txtGrupoTecnico
-            // 
-            this.txtGrupoTecnico.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGrupoTecnico.BorderColor = System.Drawing.Color.Gray;
-            this.txtGrupoTecnico.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtGrupoTecnico.BorderRadius = 20;
-            this.txtGrupoTecnico.BorderSize = 1;
-            this.txtGrupoTecnico.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrupoTecnico.Location = new System.Drawing.Point(20, 152);
-            this.txtGrupoTecnico.Multiline = false;
-            this.txtGrupoTecnico.Name = "txtGrupoTecnico";
-            this.txtGrupoTecnico.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtGrupoTecnico.PasswordChar = false;
-            this.txtGrupoTecnico.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtGrupoTecnico.PlaceholderText = "";
-            this.txtGrupoTecnico.Size = new System.Drawing.Size(179, 40);
-            this.txtGrupoTecnico.TabIndex = 8;
-            this.txtGrupoTecnico.Texts = "";
-            this.txtGrupoTecnico.UnderlinedStyle = false;
-            // 
-            // TabControlRegistros
-            // 
-            this.TabControlRegistros.Controls.Add(this.tabPageNewSection);
-            this.TabControlRegistros.Controls.Add(this.tabPageNewSctionAcademy);
-            this.TabControlRegistros.Controls.Add(this.tabPageNewEspecialidad);
-            this.TabControlRegistros.Location = new System.Drawing.Point(0, -1);
-            this.TabControlRegistros.Name = "TabControlRegistros";
-            this.TabControlRegistros.SelectedIndex = 0;
-            this.TabControlRegistros.Size = new System.Drawing.Size(579, 437);
-            this.TabControlRegistros.TabIndex = 8;
-            // 
-            // tabPageNewSection
-            // 
-            this.tabPageNewSection.Controls.Add(this.pictureBox5);
-            this.tabPageNewSection.Controls.Add(this.pictureBox6);
-            this.tabPageNewSection.Controls.Add(this.BtnAgregarSeccion);
-            this.tabPageNewSection.Controls.Add(this.BtnActualizarSeccion);
-            this.tabPageNewSection.Controls.Add(this.label18);
-            this.tabPageNewSection.Controls.Add(this.lblRegistrarSeccion);
-            this.tabPageNewSection.Controls.Add(this.groupBox1);
-            this.tabPageNewSection.Location = new System.Drawing.Point(4, 25);
-            this.tabPageNewSection.Name = "tabPageNewSection";
-            this.tabPageNewSection.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNewSection.Size = new System.Drawing.Size(571, 408);
-            this.tabPageNewSection.TabIndex = 0;
-            this.tabPageNewSection.Text = "Nueva Sección";
-            this.tabPageNewSection.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(325, 353);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox5.TabIndex = 29;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(482, 353);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox6.TabIndex = 28;
-            this.pictureBox6.TabStop = false;
-            // 
-            // BtnAgregarSeccion
-            // 
-            this.BtnAgregarSeccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnAgregarSeccion.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnAgregarSeccion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnAgregarSeccion.BorderRadius = 40;
-            this.BtnAgregarSeccion.BorderSize = 0;
-            this.BtnAgregarSeccion.Enabled = false;
-            this.BtnAgregarSeccion.FlatAppearance.BorderSize = 0;
-            this.BtnAgregarSeccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAgregarSeccion.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregarSeccion.ForeColor = System.Drawing.Color.Black;
-            this.BtnAgregarSeccion.Location = new System.Drawing.Point(385, 345);
-            this.BtnAgregarSeccion.Name = "BtnAgregarSeccion";
-            this.BtnAgregarSeccion.Size = new System.Drawing.Size(148, 44);
-            this.BtnAgregarSeccion.TabIndex = 27;
-            this.BtnAgregarSeccion.Text = "Agregar";
-            this.BtnAgregarSeccion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAgregarSeccion.TextColor = System.Drawing.Color.Black;
-            this.BtnAgregarSeccion.UseVisualStyleBackColor = false;
-            // 
-            // BtnActualizarSeccion
-            // 
-            this.BtnActualizarSeccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.BtnActualizarSeccion.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.BtnActualizarSeccion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.BtnActualizarSeccion.BorderRadius = 40;
-            this.BtnActualizarSeccion.BorderSize = 0;
-            this.BtnActualizarSeccion.Enabled = false;
-            this.BtnActualizarSeccion.FlatAppearance.BorderSize = 0;
-            this.BtnActualizarSeccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnActualizarSeccion.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActualizarSeccion.ForeColor = System.Drawing.Color.Black;
-            this.BtnActualizarSeccion.Location = new System.Drawing.Point(221, 345);
-            this.BtnActualizarSeccion.Name = "BtnActualizarSeccion";
-            this.BtnActualizarSeccion.Size = new System.Drawing.Size(156, 42);
-            this.BtnActualizarSeccion.TabIndex = 26;
-            this.BtnActualizarSeccion.Text = "Actualizar";
-            this.BtnActualizarSeccion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnActualizarSeccion.TextColor = System.Drawing.Color.Black;
-            this.BtnActualizarSeccion.UseVisualStyleBackColor = false;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label18.Location = new System.Drawing.Point(8, 61);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(230, 23);
-            this.label18.TabIndex = 19;
-            this.label18.Text = "Registrar una nueva Seccion ";
-            // 
-            // tabPageNewSctionAcademy
-            // 
-            this.tabPageNewSctionAcademy.Controls.Add(this.pictureBox2);
-            this.tabPageNewSctionAcademy.Controls.Add(this.pictureBox3);
-            this.tabPageNewSctionAcademy.Controls.Add(this.btnAgregarSeccionAcademica);
-            this.tabPageNewSctionAcademy.Controls.Add(this.btnActualizarSeccionAcademica);
-            this.tabPageNewSctionAcademy.Controls.Add(this.label9);
-            this.tabPageNewSctionAcademy.Controls.Add(this.lblRegistrarSeccionAcademica);
-            this.tabPageNewSctionAcademy.Controls.Add(this.groupBox3);
-            this.tabPageNewSctionAcademy.Location = new System.Drawing.Point(4, 25);
-            this.tabPageNewSctionAcademy.Name = "tabPageNewSctionAcademy";
-            this.tabPageNewSctionAcademy.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNewSctionAcademy.Size = new System.Drawing.Size(571, 408);
-            this.tabPageNewSctionAcademy.TabIndex = 2;
-            this.tabPageNewSctionAcademy.Text = "Registrar Sección Académica";
-            this.tabPageNewSctionAcademy.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(297, 344);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(454, 344);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox3.TabIndex = 28;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btnAgregarSeccionAcademica
-            // 
-            this.btnAgregarSeccionAcademica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarSeccionAcademica.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarSeccionAcademica.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarSeccionAcademica.BorderRadius = 40;
-            this.btnAgregarSeccionAcademica.BorderSize = 0;
-            this.btnAgregarSeccionAcademica.FlatAppearance.BorderSize = 0;
-            this.btnAgregarSeccionAcademica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarSeccionAcademica.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarSeccionAcademica.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarSeccionAcademica.Location = new System.Drawing.Point(357, 336);
-            this.btnAgregarSeccionAcademica.Name = "btnAgregarSeccionAcademica";
-            this.btnAgregarSeccionAcademica.Size = new System.Drawing.Size(148, 44);
-            this.btnAgregarSeccionAcademica.TabIndex = 27;
-            this.btnAgregarSeccionAcademica.Text = "Agregar";
-            this.btnAgregarSeccionAcademica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarSeccionAcademica.TextColor = System.Drawing.Color.Black;
-            this.btnAgregarSeccionAcademica.UseVisualStyleBackColor = false;
-            // 
-            // btnActualizarSeccionAcademica
-            // 
-            this.btnActualizarSeccionAcademica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnActualizarSeccionAcademica.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnActualizarSeccionAcademica.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnActualizarSeccionAcademica.BorderRadius = 40;
-            this.btnActualizarSeccionAcademica.BorderSize = 0;
-            this.btnActualizarSeccionAcademica.Enabled = false;
-            this.btnActualizarSeccionAcademica.FlatAppearance.BorderSize = 0;
-            this.btnActualizarSeccionAcademica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizarSeccionAcademica.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizarSeccionAcademica.ForeColor = System.Drawing.Color.Black;
-            this.btnActualizarSeccionAcademica.Location = new System.Drawing.Point(193, 336);
-            this.btnActualizarSeccionAcademica.Name = "btnActualizarSeccionAcademica";
-            this.btnActualizarSeccionAcademica.Size = new System.Drawing.Size(156, 42);
-            this.btnActualizarSeccionAcademica.TabIndex = 26;
-            this.btnActualizarSeccionAcademica.Text = "Actualizar";
-            this.btnActualizarSeccionAcademica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizarSeccionAcademica.TextColor = System.Drawing.Color.Black;
-            this.btnActualizarSeccionAcademica.UseVisualStyleBackColor = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label9.Location = new System.Drawing.Point(13, 78);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(519, 23);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Registra una nueva sección académica o actualiza una ya existente";
-            // 
-            // lblRegistrarSeccionAcademica
-            // 
-            this.lblRegistrarSeccionAcademica.AutoSize = true;
-            this.lblRegistrarSeccionAcademica.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
-            this.lblRegistrarSeccionAcademica.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.lblRegistrarSeccionAcademica.Location = new System.Drawing.Point(8, 12);
-            this.lblRegistrarSeccionAcademica.Name = "lblRegistrarSeccionAcademica";
-            this.lblRegistrarSeccionAcademica.Size = new System.Drawing.Size(522, 50);
-            this.lblRegistrarSeccionAcademica.TabIndex = 15;
-            this.lblRegistrarSeccionAcademica.Text = "Registrar Sección Académica";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.cmbSecionAcademicaExistente);
-            this.groupBox3.Controls.Add(this.lblSeccionAcademica);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.txtNuevaSeccionAcademica);
-            this.groupBox3.Location = new System.Drawing.Point(17, 121);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(488, 187);
-            this.groupBox3.TabIndex = 16;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = " ";
-            // 
-            // cmbSecionAcademicaExistente
-            // 
-            this.cmbSecionAcademicaExistente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSecionAcademicaExistente.Enabled = false;
-            this.cmbSecionAcademicaExistente.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSecionAcademicaExistente.FormattingEnabled = true;
-            this.cmbSecionAcademicaExistente.Location = new System.Drawing.Point(22, 52);
-            this.cmbSecionAcademicaExistente.Name = "cmbSecionAcademicaExistente";
-            this.cmbSecionAcademicaExistente.Size = new System.Drawing.Size(349, 33);
-            this.cmbSecionAcademicaExistente.TabIndex = 13;
-            // 
-            // lblSeccionAcademica
-            // 
-            this.lblSeccionAcademica.AutoSize = true;
-            this.lblSeccionAcademica.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeccionAcademica.Location = new System.Drawing.Point(17, 97);
-            this.lblSeccionAcademica.Name = "lblSeccionAcademica";
-            this.lblSeccionAcademica.Size = new System.Drawing.Size(239, 28);
-            this.lblSeccionAcademica.TabIndex = 11;
-            this.lblSeccionAcademica.Text = "Nuevo sección Académica";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(17, 21);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(258, 28);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Sección académica existente";
-            // 
-            // txtNuevaSeccionAcademica
-            // 
-            this.txtNuevaSeccionAcademica.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNuevaSeccionAcademica.BorderColor = System.Drawing.Color.Gray;
-            this.txtNuevaSeccionAcademica.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtNuevaSeccionAcademica.BorderRadius = 20;
-            this.txtNuevaSeccionAcademica.BorderSize = 1;
-            this.txtNuevaSeccionAcademica.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNuevaSeccionAcademica.Location = new System.Drawing.Point(22, 128);
-            this.txtNuevaSeccionAcademica.Multiline = false;
-            this.txtNuevaSeccionAcademica.Name = "txtNuevaSeccionAcademica";
-            this.txtNuevaSeccionAcademica.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtNuevaSeccionAcademica.PasswordChar = false;
-            this.txtNuevaSeccionAcademica.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtNuevaSeccionAcademica.PlaceholderText = "";
-            this.txtNuevaSeccionAcademica.Size = new System.Drawing.Size(230, 40);
-            this.txtNuevaSeccionAcademica.TabIndex = 8;
-            this.txtNuevaSeccionAcademica.Texts = "";
-            this.txtNuevaSeccionAcademica.UnderlinedStyle = false;
-            // 
-            // tabPageNewEspecialidad
-            // 
-            this.tabPageNewEspecialidad.Controls.Add(this.pictureBox1);
-            this.tabPageNewEspecialidad.Controls.Add(this.label14);
-            this.tabPageNewEspecialidad.Controls.Add(this.pictureBox4);
-            this.tabPageNewEspecialidad.Controls.Add(this.lblRegistrarEspecialidad);
-            this.tabPageNewEspecialidad.Controls.Add(this.btnAgregarEspecialidad);
-            this.tabPageNewEspecialidad.Controls.Add(this.BtnActuzalizarEspecialidad);
-            this.tabPageNewEspecialidad.Controls.Add(this.groupBox4);
-            this.tabPageNewEspecialidad.Location = new System.Drawing.Point(4, 25);
-            this.tabPageNewEspecialidad.Name = "tabPageNewEspecialidad";
-            this.tabPageNewEspecialidad.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNewEspecialidad.Size = new System.Drawing.Size(571, 408);
-            this.tabPageNewEspecialidad.TabIndex = 3;
-            this.tabPageNewEspecialidad.Text = "Registrar specialty";
-            this.tabPageNewEspecialidad.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(316, 353);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label14.Location = new System.Drawing.Point(18, 84);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(490, 23);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "Registrar una nueva specialty o actuzalizar una ya existente";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(473, 353);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox4.TabIndex = 24;
-            this.pictureBox4.TabStop = false;
-            // 
-            // lblRegistrarEspecialidad
-            // 
-            this.lblRegistrarEspecialidad.AutoSize = true;
-            this.lblRegistrarEspecialidad.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
-            this.lblRegistrarEspecialidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.lblRegistrarEspecialidad.Location = new System.Drawing.Point(13, 18);
-            this.lblRegistrarEspecialidad.Name = "lblRegistrarEspecialidad";
-            this.lblRegistrarEspecialidad.Size = new System.Drawing.Size(405, 50);
-            this.lblRegistrarEspecialidad.TabIndex = 18;
-            this.lblRegistrarEspecialidad.Text = "Registrar specialty";
-            // 
-            // btnAgregarEspecialidad
-            // 
-            this.btnAgregarEspecialidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarEspecialidad.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarEspecialidad.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAgregarEspecialidad.BorderRadius = 40;
-            this.btnAgregarEspecialidad.BorderSize = 0;
-            this.btnAgregarEspecialidad.FlatAppearance.BorderSize = 0;
-            this.btnAgregarEspecialidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarEspecialidad.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarEspecialidad.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarEspecialidad.Location = new System.Drawing.Point(376, 345);
-            this.btnAgregarEspecialidad.Name = "btnAgregarEspecialidad";
-            this.btnAgregarEspecialidad.Size = new System.Drawing.Size(148, 44);
-            this.btnAgregarEspecialidad.TabIndex = 23;
-            this.btnAgregarEspecialidad.Text = "Agregar";
-            this.btnAgregarEspecialidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarEspecialidad.TextColor = System.Drawing.Color.Black;
-            this.btnAgregarEspecialidad.UseVisualStyleBackColor = false;
-            // 
-            // BtnActuzalizarEspecialidad
-            // 
-            this.BtnActuzalizarEspecialidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.BtnActuzalizarEspecialidad.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.BtnActuzalizarEspecialidad.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.BtnActuzalizarEspecialidad.BorderRadius = 40;
-            this.BtnActuzalizarEspecialidad.BorderSize = 0;
-            this.BtnActuzalizarEspecialidad.Enabled = false;
-            this.BtnActuzalizarEspecialidad.FlatAppearance.BorderSize = 0;
-            this.BtnActuzalizarEspecialidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnActuzalizarEspecialidad.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActuzalizarEspecialidad.ForeColor = System.Drawing.Color.Black;
-            this.BtnActuzalizarEspecialidad.Location = new System.Drawing.Point(212, 345);
-            this.BtnActuzalizarEspecialidad.Name = "BtnActuzalizarEspecialidad";
-            this.BtnActuzalizarEspecialidad.Size = new System.Drawing.Size(156, 42);
-            this.BtnActuzalizarEspecialidad.TabIndex = 22;
-            this.BtnActuzalizarEspecialidad.Text = "Actualizar";
-            this.BtnActuzalizarEspecialidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnActuzalizarEspecialidad.TextColor = System.Drawing.Color.Black;
-            this.BtnActuzalizarEspecialidad.UseVisualStyleBackColor = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.cmbEspecialidadExistente);
-            this.groupBox4.Controls.Add(this.lblNuevaEspecialidad);
-            this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.txtNuevaEspecialidad);
-            this.groupBox4.Location = new System.Drawing.Point(22, 127);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(488, 187);
-            this.groupBox4.TabIndex = 19;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = " ";
-            // 
-            // cmbEspecialidadExistente
-            // 
-            this.cmbEspecialidadExistente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEspecialidadExistente.Enabled = false;
-            this.cmbEspecialidadExistente.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEspecialidadExistente.FormattingEnabled = true;
-            this.cmbEspecialidadExistente.Location = new System.Drawing.Point(22, 52);
-            this.cmbEspecialidadExistente.Name = "cmbEspecialidadExistente";
-            this.cmbEspecialidadExistente.Size = new System.Drawing.Size(349, 33);
-            this.cmbEspecialidadExistente.TabIndex = 13;
-            // 
-            // lblNuevaEspecialidad
-            // 
-            this.lblNuevaEspecialidad.AutoSize = true;
-            this.lblNuevaEspecialidad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNuevaEspecialidad.Location = new System.Drawing.Point(17, 97);
-            this.lblNuevaEspecialidad.Name = "lblNuevaEspecialidad";
-            this.lblNuevaEspecialidad.Size = new System.Drawing.Size(181, 28);
-            this.lblNuevaEspecialidad.TabIndex = 11;
-            this.lblNuevaEspecialidad.Text = "Nueva specialty";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(17, 21);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(202, 28);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "specialty Existente";
-            // 
-            // txtNuevaEspecialidad
-            // 
-            this.txtNuevaEspecialidad.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNuevaEspecialidad.BorderColor = System.Drawing.Color.Gray;
-            this.txtNuevaEspecialidad.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtNuevaEspecialidad.BorderRadius = 20;
-            this.txtNuevaEspecialidad.BorderSize = 1;
-            this.txtNuevaEspecialidad.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNuevaEspecialidad.Location = new System.Drawing.Point(22, 128);
-            this.txtNuevaEspecialidad.Multiline = false;
-            this.txtNuevaEspecialidad.Name = "txtNuevaEspecialidad";
-            this.txtNuevaEspecialidad.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtNuevaEspecialidad.PasswordChar = false;
-            this.txtNuevaEspecialidad.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtNuevaEspecialidad.PlaceholderText = "";
-            this.txtNuevaEspecialidad.Size = new System.Drawing.Size(230, 40);
-            this.txtNuevaEspecialidad.TabIndex = 8;
-            this.txtNuevaEspecialidad.Texts = "";
-            this.txtNuevaEspecialidad.UnderlinedStyle = false;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.txtId});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(579, 31);
-            this.menuStrip1.TabIndex = 25;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.Visible = false;
-            // 
-            // txtId
-            // 
-            this.txtId.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(132, 27);
-            // 
-            // FrmAddGrades
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.label2.Size = new System.Drawing.Size(340, 37);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Agregar Especialidad";
+            // 
+            // btnUpdateAcademicSection
+            // 
+            this.btnUpdateAcademicSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnUpdateAcademicSection.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnUpdateAcademicSection.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpdateAcademicSection.BorderRadius = 30;
+            this.btnUpdateAcademicSection.BorderSize = 0;
+            this.btnUpdateAcademicSection.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateAcademicSection.FlatAppearance.BorderSize = 0;
+            this.btnUpdateAcademicSection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateAcademicSection.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateAcademicSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnUpdateAcademicSection.Location = new System.Drawing.Point(190, 260);
+            this.btnUpdateAcademicSection.Margin = new System.Windows.Forms.Padding(10);
+            this.btnUpdateAcademicSection.Name = "btnUpdateAcademicSection";
+            this.btnUpdateAcademicSection.Size = new System.Drawing.Size(141, 39);
+            this.btnUpdateAcademicSection.TabIndex = 46;
+            this.btnUpdateAcademicSection.TabStop = false;
+            this.btnUpdateAcademicSection.Text = "Actualizar";
+            this.btnUpdateAcademicSection.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnUpdateAcademicSection.UseVisualStyleBackColor = false;
+            // 
+            // btnAddAcademicSection
+            // 
+            this.btnAddAcademicSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddAcademicSection.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddAcademicSection.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddAcademicSection.BorderRadius = 30;
+            this.btnAddAcademicSection.BorderSize = 0;
+            this.btnAddAcademicSection.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAcademicSection.FlatAppearance.BorderSize = 0;
+            this.btnAddAcademicSection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAcademicSection.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAcademicSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddAcademicSection.Location = new System.Drawing.Point(351, 260);
+            this.btnAddAcademicSection.Margin = new System.Windows.Forms.Padding(10);
+            this.btnAddAcademicSection.Name = "btnAddAcademicSection";
+            this.btnAddAcademicSection.Size = new System.Drawing.Size(141, 39);
+            this.btnAddAcademicSection.TabIndex = 45;
+            this.btnAddAcademicSection.TabStop = false;
+            this.btnAddAcademicSection.Text = "Agregar";
+            this.btnAddAcademicSection.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddAcademicSection.UseVisualStyleBackColor = false;
+            // 
+            // grpAcademicSection
+            // 
+            this.grpAcademicSection.Controls.Add(this.txtAcademicSection);
+            this.grpAcademicSection.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAcademicSection.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.grpAcademicSection.Location = new System.Drawing.Point(17, 70);
+            this.grpAcademicSection.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
+            this.grpAcademicSection.Name = "grpAcademicSection";
+            this.grpAcademicSection.Size = new System.Drawing.Size(475, 170);
+            this.grpAcademicSection.TabIndex = 44;
+            this.grpAcademicSection.TabStop = false;
+            this.grpAcademicSection.Text = "Información de nueva sección académica";
+            // 
+            // txtAcademicSection
+            // 
+            this.txtAcademicSection.BackColor = System.Drawing.SystemColors.Window;
+            this.txtAcademicSection.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtAcademicSection.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtAcademicSection.BorderRadius = 18;
+            this.txtAcademicSection.BorderSize = 2;
+            this.txtAcademicSection.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAcademicSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtAcademicSection.Location = new System.Drawing.Point(23, 29);
+            this.txtAcademicSection.Margin = new System.Windows.Forms.Padding(20, 10, 20, 20);
+            this.txtAcademicSection.MaxLength = 50;
+            this.txtAcademicSection.Multiline = false;
+            this.txtAcademicSection.Name = "txtAcademicSection";
+            this.txtAcademicSection.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.txtAcademicSection.PasswordChar = false;
+            this.txtAcademicSection.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtAcademicSection.PlaceholderText = "";
+            this.txtAcademicSection.Size = new System.Drawing.Size(429, 118);
+            this.txtAcademicSection.TabIndex = 19;
+            this.txtAcademicSection.Texts = "Sección Académica";
+            this.txtAcademicSection.UnderlinedStyle = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label3.Location = new System.Drawing.Point(10, 13);
+            this.label3.Margin = new System.Windows.Forms.Padding(10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(459, 37);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "Agregar Sección Académica";
+            // 
+            // btnUpdateSection
+            // 
+            this.btnUpdateSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnUpdateSection.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnUpdateSection.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpdateSection.BorderRadius = 30;
+            this.btnUpdateSection.BorderSize = 0;
+            this.btnUpdateSection.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateSection.FlatAppearance.BorderSize = 0;
+            this.btnUpdateSection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateSection.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnUpdateSection.Location = new System.Drawing.Point(195, 260);
+            this.btnUpdateSection.Margin = new System.Windows.Forms.Padding(10);
+            this.btnUpdateSection.Name = "btnUpdateSection";
+            this.btnUpdateSection.Size = new System.Drawing.Size(141, 39);
+            this.btnUpdateSection.TabIndex = 46;
+            this.btnUpdateSection.TabStop = false;
+            this.btnUpdateSection.Text = "Actualizar";
+            this.btnUpdateSection.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnUpdateSection.UseVisualStyleBackColor = false;
+            // 
+            // btnAddSection
+            // 
+            this.btnAddSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddSection.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddSection.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddSection.BorderRadius = 30;
+            this.btnAddSection.BorderSize = 0;
+            this.btnAddSection.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddSection.FlatAppearance.BorderSize = 0;
+            this.btnAddSection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddSection.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddSection.Location = new System.Drawing.Point(356, 260);
+            this.btnAddSection.Margin = new System.Windows.Forms.Padding(10);
+            this.btnAddSection.Name = "btnAddSection";
+            this.btnAddSection.Size = new System.Drawing.Size(141, 39);
+            this.btnAddSection.TabIndex = 45;
+            this.btnAddSection.TabStop = false;
+            this.btnAddSection.Text = "Agregar";
+            this.btnAddSection.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddSection.UseVisualStyleBackColor = false;
+            // 
+            // grpSection
+            // 
+            this.grpSection.Controls.Add(this.label7);
+            this.grpSection.Controls.Add(this.cmbAcademicSection);
+            this.grpSection.Controls.Add(this.label5);
+            this.grpSection.Controls.Add(this.label6);
+            this.grpSection.Controls.Add(this.cmbSpecialty);
+            this.grpSection.Controls.Add(this.cmbGrade);
+            this.grpSection.Controls.Add(this.txtTechnicalGroup);
+            this.grpSection.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpSection.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.grpSection.Location = new System.Drawing.Point(22, 70);
+            this.grpSection.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
+            this.grpSection.Name = "grpSection";
+            this.grpSection.Size = new System.Drawing.Size(475, 170);
+            this.grpSection.TabIndex = 44;
+            this.grpSection.TabStop = false;
+            this.grpSection.Text = "Información de nueva sección";
+            // 
+            // txtTechnicalGroup
+            // 
+            this.txtTechnicalGroup.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTechnicalGroup.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtTechnicalGroup.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtTechnicalGroup.BorderRadius = 18;
+            this.txtTechnicalGroup.BorderSize = 2;
+            this.txtTechnicalGroup.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTechnicalGroup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtTechnicalGroup.Location = new System.Drawing.Point(23, 89);
+            this.txtTechnicalGroup.Margin = new System.Windows.Forms.Padding(20, 10, 20, 20);
+            this.txtTechnicalGroup.MaxLength = 50;
+            this.txtTechnicalGroup.Multiline = false;
+            this.txtTechnicalGroup.Name = "txtTechnicalGroup";
+            this.txtTechnicalGroup.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.txtTechnicalGroup.PasswordChar = false;
+            this.txtTechnicalGroup.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtTechnicalGroup.PlaceholderText = "";
+            this.txtTechnicalGroup.Size = new System.Drawing.Size(204, 58);
+            this.txtTechnicalGroup.TabIndex = 19;
+            this.txtTechnicalGroup.Texts = "Grupo técnico";
+            this.txtTechnicalGroup.UnderlinedStyle = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label4.Location = new System.Drawing.Point(15, 13);
+            this.label4.Margin = new System.Windows.Forms.Padding(10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(271, 37);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Agregar Sección";
+            // 
+            // cmbGrade
+            // 
+            this.cmbGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGrade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.cmbGrade.FormattingEnabled = true;
+            this.cmbGrade.ItemHeight = 17;
+            this.cmbGrade.Location = new System.Drawing.Point(23, 47);
+            this.cmbGrade.Margin = new System.Windows.Forms.Padding(11);
+            this.cmbGrade.Name = "cmbGrade";
+            this.cmbGrade.Size = new System.Drawing.Size(204, 25);
+            this.cmbGrade.TabIndex = 20;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label6.Location = new System.Drawing.Point(20, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 17);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Grado";
+            // 
+            // cmbSpecialty
+            // 
+            this.cmbSpecialty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.cmbSpecialty.FormattingEnabled = true;
+            this.cmbSpecialty.ItemHeight = 17;
+            this.cmbSpecialty.Location = new System.Drawing.Point(257, 47);
+            this.cmbSpecialty.Margin = new System.Windows.Forms.Padding(20);
+            this.cmbSpecialty.Name = "cmbSpecialty";
+            this.cmbSpecialty.Size = new System.Drawing.Size(195, 25);
+            this.cmbSpecialty.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label5.Location = new System.Drawing.Point(254, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 17);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Especialidad";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label7.Location = new System.Drawing.Point(254, 93);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(131, 17);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Sección Académica";
+            // 
+            // cmbAcademicSection
+            // 
+            this.cmbAcademicSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAcademicSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.cmbAcademicSection.FormattingEnabled = true;
+            this.cmbAcademicSection.ItemHeight = 17;
+            this.cmbAcademicSection.Location = new System.Drawing.Point(257, 112);
+            this.cmbAcademicSection.Margin = new System.Windows.Forms.Padding(20);
+            this.cmbAcademicSection.Name = "cmbAcademicSection";
+            this.cmbAcademicSection.Size = new System.Drawing.Size(195, 25);
+            this.cmbAcademicSection.TabIndex = 26;
+            // 
+            // FrmAddUpdateSection
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 439);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.TabControlRegistros);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "FrmAddGrades";
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(530, 357);
+            this.Controls.Add(this.tabAcademicLevel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "FrmAddUpdateSection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Agregar nuevos grados";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.TabControlRegistros.ResumeLayout(false);
-            this.tabPageNewSection.ResumeLayout(false);
-            this.tabPageNewSection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.tabPageNewSctionAcademy.ResumeLayout(false);
-            this.tabPageNewSctionAcademy.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.tabPageNewEspecialidad.ResumeLayout(false);
-            this.tabPageNewEspecialidad.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabAcademicLevel.ResumeLayout(false);
+            this.grpGrade.ResumeLayout(false);
+            this.grpSpecialty.ResumeLayout(false);
+            this.grpAcademicSection.ResumeLayout(false);
+            this.grpSection.ResumeLayout(false);
+            this.grpSection.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.TabPage tabPage1;
+        public System.Windows.Forms.TabControl tabAcademicLevel;
+        public CustomPanel.RJButton btnUpdateGrade;
+        public CustomPanel.RJButton btnAddGrade;
+        private System.Windows.Forms.GroupBox grpGrade;
+        public CustomPanel.BorderRadiusTXT txtGrade;
+        private System.Windows.Forms.Label label1;
+        public CustomPanel.RJButton btnUpdateSpecialty;
+        public CustomPanel.RJButton btnAddSpecialty;
+        private System.Windows.Forms.GroupBox grpSpecialty;
+        public CustomPanel.BorderRadiusTXT txtSpecialty;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        public System.Windows.Forms.PictureBox pictureBox1;
-        public System.Windows.Forms.PictureBox pictureBox4;
-        public CustomPanel.RJButton btnAgregarEspecialidad;
-        public CustomPanel.RJButton BtnActuzalizarEspecialidad;
-        public CustomPanel.BorderRadiusTXT txtGrupoTecnico;
-        public System.Windows.Forms.ComboBox CmbSeccionAcademica;
-        public System.Windows.Forms.ComboBox cmbEspecialidad;
-        public System.Windows.Forms.ComboBox CmbGrado;
-        public System.Windows.Forms.PictureBox pictureBox5;
-        public System.Windows.Forms.PictureBox pictureBox6;
-        public CustomPanel.RJButton BtnAgregarSeccion;
-        public CustomPanel.RJButton BtnActualizarSeccion;
-        public System.Windows.Forms.PictureBox pictureBox2;
-        public System.Windows.Forms.PictureBox pictureBox3;
-        public CustomPanel.RJButton btnAgregarSeccionAcademica;
-        public CustomPanel.RJButton btnActualizarSeccionAcademica;
-        public System.Windows.Forms.ComboBox cmbSecionAcademicaExistente;
-        public CustomPanel.BorderRadiusTXT txtNuevaSeccionAcademica;
-        public System.Windows.Forms.ComboBox cmbEspecialidadExistente;
-        public CustomPanel.BorderRadiusTXT txtNuevaEspecialidad;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        public System.Windows.Forms.ToolStripTextBox txtId;
-        public System.Windows.Forms.TabControl TabControlRegistros;
-        public System.Windows.Forms.TabPage tabPageNewSection;
-        public System.Windows.Forms.TabPage tabPageNewSctionAcademy;
-        public System.Windows.Forms.TabPage tabPageNewEspecialidad;
-        public System.Windows.Forms.Label lblSeccionAcademica;
-        public System.Windows.Forms.Label lblRegistrarSeccion;
-        public System.Windows.Forms.Label lblRegistrarSeccionAcademica;
-        public System.Windows.Forms.Label lblRegistrarEspecialidad;
-        public System.Windows.Forms.Label lblNuevaEspecialidad;
+        public CustomPanel.RJButton btnUpdateAcademicSection;
+        public CustomPanel.RJButton btnAddAcademicSection;
+        private System.Windows.Forms.GroupBox grpAcademicSection;
+        public CustomPanel.BorderRadiusTXT txtAcademicSection;
+        private System.Windows.Forms.Label label3;
+        public CustomPanel.RJButton btnUpdateSection;
+        public CustomPanel.RJButton btnAddSection;
+        private System.Windows.Forms.GroupBox grpSection;
+        public CustomPanel.BorderRadiusTXT txtTechnicalGroup;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.ComboBox cmbGrade;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ComboBox cmbSpecialty;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.ComboBox cmbAcademicSection;
     }
 }

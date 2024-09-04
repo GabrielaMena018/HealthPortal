@@ -1,5 +1,4 @@
-﻿//*3*
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -92,7 +91,7 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int AddSection() 
+        public int AddSection()
         {
             try
             {
@@ -159,7 +158,7 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int UpdateSection() 
+        public int UpdateSection()
         {
             try
             {
@@ -183,7 +182,7 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int DeleteAcademicSection() 
+        public int DeleteAcademicSection()
         {
             try
             {
@@ -204,7 +203,7 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public int DeleteSpecialty() 
+        public int DeleteSpecialty()
         {
             try
             {
@@ -246,7 +245,7 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public DataSet RetrieveGradeData()
+        public DataSet RetrieveSectionData()
         {
             try
             {
@@ -261,7 +260,6 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                //EC_004 = no se puso seleccionar la vista UpdateEstudiantes
                 MessageBox.Show($"EC_004{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
@@ -318,7 +316,33 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
+        public DataSet RetrieveGradeData()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT * FROM [Vistas].[viewGrados]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "viewGrados");
+                return ds;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
     }
 }
-
-

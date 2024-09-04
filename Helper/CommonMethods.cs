@@ -83,7 +83,7 @@ namespace HealthPortal.Helper
         }
         public static bool IsPasswordValid(string password)
         {
-            const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?@#$%^&*";
+            const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@$#_";
             foreach (char a in password)
             {
                 if (!validCharacters.Contains(a))
@@ -91,7 +91,11 @@ namespace HealthPortal.Helper
                     return false;
                 }
             }
-            return true;
+            return AtLeast8Characters(password) &&
+                   AtLeast1Number(password) &&
+                   AtLeast1Uppercase(password) &&
+                   AtLeast1Lowercase(password) &&
+                   AtLeast1SpecialCharacter(password);
         }
         public static bool SendVerificationEmail(string email, string confirmationCode)
         {
@@ -236,6 +240,27 @@ namespace HealthPortal.Helper
                 }
             }
             return null;
+        }
+        private static bool AtLeast8Characters(string password)
+        {
+            return password.Length >= 8;
+        }
+        private static bool AtLeast1Number(string password)
+        {
+            return password.Any(char.IsDigit);
+        }
+        private static bool AtLeast1Uppercase(string password)
+        {
+            return password.Any(char.IsUpper);
+        }
+        private static bool AtLeast1Lowercase(string password)
+        {
+            return password.Any(char.IsLower);
+        }
+        private static bool AtLeast1SpecialCharacter(string password)
+        {
+            string specialCharacters = "@$#_";
+            return password.Any(specialCharacter => specialCharacters.Contains(specialCharacter));
         }
     }
 }
