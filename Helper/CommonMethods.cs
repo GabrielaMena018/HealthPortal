@@ -262,5 +262,9 @@ namespace HealthPortal.Helper
             string specialCharacters = "@$#_";
             return password.Any(specialCharacter => specialCharacters.Contains(specialCharacter));
         }
+        public static void HandleError(string errorCode)
+        {
+            MessageBox.Show($"Un error ha ocurrido. Por favor, consulte el código {errorCode} en el manual técnico.", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

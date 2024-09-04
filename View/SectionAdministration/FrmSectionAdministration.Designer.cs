@@ -36,7 +36,7 @@
             this.cmsUpdateGrade = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsAddGrade = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsAcademicSection = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmsASection = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsDeleteASection = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsUpdateASection = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsAddASection = new System.Windows.Forms.ToolStripMenuItem();
             this.panelCustom2 = new CustomPanel.PanelCustom();
@@ -124,15 +124,15 @@
             this.cmsAcademicSection.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsAddASection,
             this.cmsUpdateASection,
-            this.cmsASection});
+            this.cmsDeleteASection});
             this.cmsAcademicSection.Name = "cmsDataGrid";
-            this.cmsAcademicSection.Size = new System.Drawing.Size(263, 70);
+            this.cmsAcademicSection.Size = new System.Drawing.Size(263, 92);
             // 
-            // cmsASection
+            // cmsDeleteASection
             // 
-            this.cmsASection.Name = "cmsASection";
-            this.cmsASection.Size = new System.Drawing.Size(262, 22);
-            this.cmsASection.Text = "Eliminar Sección Académica";
+            this.cmsDeleteASection.Name = "cmsDeleteASection";
+            this.cmsDeleteASection.Size = new System.Drawing.Size(262, 22);
+            this.cmsDeleteASection.Text = "Eliminar Sección Académica";
             // 
             // cmsUpdateASection
             // 
@@ -219,7 +219,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 39);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1280, 97);
+            this.tabPage4.Size = new System.Drawing.Size(1280, 0);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Grados";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -289,7 +289,7 @@
             this.cmsUpdateSection,
             this.cmsDeleteSection});
             this.cmsSection.Name = "cmsDataGrid";
-            this.cmsSection.Size = new System.Drawing.Size(189, 92);
+            this.cmsSection.Size = new System.Drawing.Size(189, 70);
             // 
             // cmsAddSection
             // 
@@ -352,7 +352,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         public System.Windows.Forms.ContextMenuStrip cmsAcademicSection;
-        public System.Windows.Forms.ToolStripMenuItem cmsASection;
+        public System.Windows.Forms.ToolStripMenuItem cmsDeleteASection;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdateASection;
         public System.Windows.Forms.ToolStripMenuItem cmsAddASection;
         public System.Windows.Forms.ToolStripMenuItem cmsAddGrade;

@@ -62,6 +62,7 @@
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerSectionAdministration.cs" />
+    <Compile Include="Controller\Settings\ControllerSettings.cs" />
     <Compile Include="Controller\UserAdministration\ControllerAddUpdateUser.cs" />
     <Compile Include="Controller\UserAdministration\ControllerUserAdministration.cs" />
     <Compile Include="Helper\CommonMethods.cs" />
@@ -192,6 +193,18 @@
     <Compile Include="Resources\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Settings\FrmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings\FrmSettings.Designer.cs">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Settings\FrmUserSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings\FrmUserSettings.Designer.cs">
+      <DependentUpon>FrmUserSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserAdministration\FrmAddUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +266,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\BorderRadiusTXT.resx">
       <DependentUpon>BorderRadiusTXT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings\FrmSettings.resx">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings\FrmUserSettings.resx">
+      <DependentUpon>FrmUserSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserAdministration\FrmAddUpdateUser.resx">
       <DependentUpon>FrmAddUpdateUser.cs</DependentUpon>
@@ -537,6 +556,29 @@
   <ItemGroup>
     <None Include="Resources\wifi.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\hoverServer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\server.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverSchool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverHealthPortal32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\healthportal32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

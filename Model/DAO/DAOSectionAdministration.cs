@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthPortal.Model.DTO;
+using HealthPortal.Helper;
 
 namespace HealthPortal.Model.DAO
 {
@@ -18,38 +19,29 @@ namespace HealthPortal.Model.DAO
         {
             try
             {
-                //Se crea una conexión para garantizar que efectivamente haya conexión a la base.
                 command.Connection = getConnection();
-                //**
-                //Se crea el query que indica la acción que el sistema desea realizar con la base de datos
-                //En caso sea una consulta parametrizada se deberá respetar la sintaxis sobre como colocar parametros en la instrucción sql (REVISAR LOS DEMÁS MANTENIMIENTOS PARA VER COMO SE CREAN PARAMETROS Y SE LES DA VALORES).
                 string query = $"SELECT * FROM {schema}.{table}";
-                //Se crea un comando de tipo sql al cual se le pasa el query y la conexión, esto para que el sistema sepa que hacer y donde hacerlo.
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                //ExecuteNonQuery indicará cuantos filas fueron afectadas, es decir, cuantas filas de datos se ingresaron o encontraron, por lo general cuando es una consulta su valor puede ser 1 o mayor a 1.
                 cmd.ExecuteNonQuery();
-                //Se crea un objeto SqlDataAdapter para poder llenar el DataSet que posteriormente utilizaremos, además recibe el comando sql
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
-                //Se crea un DataSet que será el objeto de retorno del método
                 DataSet ds = new DataSet();
-                //Rellenamos el DataSet con los datos encontrados con el SqlDataAdapter, además, indicamos de donde provienen los datos
                 adp.Fill(ds, $"{table}");
-                //Retornamos el objeto DataSet
                 return ds;
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_005");
+                return null;
             }
             catch (Exception)
             {
-                //Se retorna null si durate la ejecución del try ocurrió algún error
                 return null;
             }
             finally
             {
-                //Independientemente se haga o no el proceso cerramos la conexión
                 command.Connection.Close();
             }
         }
-
-        //Insertar
         public int AddSpecialty()
         {
             try
@@ -57,12 +49,12 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spIngresarEspecialidad] @param1";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", Especialidad);
+                cmd.Parameters.AddWithValue("param1", Specialty);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_002");
                 return -1;
             }
             finally
@@ -77,12 +69,12 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spIngresarSeccionAcademica] @param1";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", SeccionAcademica);
+                cmd.Parameters.AddWithValue("param1", AcademicSection);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_002");
                 return -1;
 
             }
@@ -98,15 +90,39 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spIngresarSeccion] @param1, @param2, @param3, @param4";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", GrupoTecnico);
-                cmd.Parameters.AddWithValue("param2", IdGrado);
-                cmd.Parameters.AddWithValue("param3", IdSeccionAcademica);
-                cmd.Parameters.AddWithValue("param4", IdEspecialidad);
+                cmd.Parameters.AddWithValue("param1", TechnicalGroup);
+                cmd.Parameters.AddWithValue("param2", GradeID);
+                cmd.Parameters.AddWithValue("param3", AcademicSectionID);
+                cmd.Parameters.AddWithValue("param4", SpecialtyID);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_002");
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public int AddGrade()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "EXEC [ProcedimientosAlmacenados].[spIngresarGrado] @grade";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("grade", Grade);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_002");
+                return -1;
+            }
+            catch (Exception)
+            {
                 return -1;
             }
             finally
@@ -119,15 +135,15 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "EXEC  [ProcedimientosAlmacenados].[spUpdateEspecialidad] @param1, @param2";
+                string query = "EXEC  [ProcedimientosAlmacenados].[spActualizarEspecialidad] @param1, @param2";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("@param1", IdEspecialidad);
-                cmd.Parameters.AddWithValue("@param2", Especialidad);
+                cmd.Parameters.AddWithValue("@param1", Specialty);
+                cmd.Parameters.AddWithValue("@param2", SpecialtyID);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_003");
                 return -1;
 
             }
@@ -143,13 +159,13 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spActualizarSeccionAcademica] @param1, @param2";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("@param1", IdSeccionAcademica);
-                cmd.Parameters.AddWithValue("@param2", SeccionAcademica);
+                cmd.Parameters.AddWithValue("@param1", AcademicSection);
+                cmd.Parameters.AddWithValue("@param2", AcademicSectionID);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_003");
                 return -1;
 
             }
@@ -164,17 +180,43 @@ namespace HealthPortal.Model.DAO
             {
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spActualizarSeccion] @param1, @param2, @param3, @param4, @param5";
+                MessageBox.Show($"{TechnicalGroup} {GradeID} {SpecialtyID} {AcademicSectionID} {SectionID}");
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("@param1", IdSeccion);
-                cmd.Parameters.AddWithValue("@param2", GrupoTecnico);
-                cmd.Parameters.AddWithValue("@param3", IdGrado);
-                cmd.Parameters.AddWithValue("@param4", IdEspecialidad);
-                cmd.Parameters.AddWithValue("@param5", IdSeccionAcademica);
+                cmd.Parameters.AddWithValue("@param1", TechnicalGroup);
+                cmd.Parameters.AddWithValue("@param2", GradeID);
+                cmd.Parameters.AddWithValue("@param3", SpecialtyID);
+                cmd.Parameters.AddWithValue("@param4", AcademicSectionID);
+                cmd.Parameters.AddWithValue("@param5", SectionID);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_003");
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public int UpdateGrade()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "EXEC [ProcedimientosAlmacenados].[spActualizarGrado] @grade, @gradeID";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("grade", Grade);
+                cmd.Parameters.AddWithValue("gradeID", GradeID);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_003");
+                return -1;
+            }
+            catch (Exception)
+            {
                 return -1;
             }
             finally
@@ -189,12 +231,12 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spEliminarSeccionAcademica] @param1";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", IdSeccionAcademica);
+                cmd.Parameters.AddWithValue("param1", AcademicSectionID);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_004");
                 return -1;
 
             }
@@ -210,12 +252,12 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spEliminarEspecialidad] @param1";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", IdEspecialidad);
+                cmd.Parameters.AddWithValue("param1", SpecialtyID);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_004");
                 return -1;
 
             }
@@ -231,14 +273,38 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 string query = "EXEC [ProcedimientosAlmacenados].[spEliminarSeccion] @param1";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", IdSeccion);
+                cmd.Parameters.AddWithValue("param1", SectionID);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_004");
                 return -1;
 
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public int DeleteGrade()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "EXEC [ProcedimientosAlmacenados].[spEliminarGrado] @gradeID";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("gradeID", GradeID);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_004");
+                return -1;
+            }
+            catch (Exception)
+            {
+                return -1;
             }
             finally
             {
@@ -258,9 +324,9 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewGradoSeccion");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"EC_004{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_005");
                 return null;
             }
             finally
@@ -281,10 +347,9 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewEspecialidades");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                //EC_004 = no se puso seleccionar la vista UpdateEstudiantes
-                MessageBox.Show($"EC_004{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_005");
                 return null;
             }
             finally
@@ -305,10 +370,9 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewSeccionesAcademicas");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                //EC_004 = no se puso seleccionar la vista UpdateEstudiantes
-                MessageBox.Show($"EC_004{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_005");
                 return null;
             }
             finally
@@ -329,14 +393,13 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewGrados");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_005");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally

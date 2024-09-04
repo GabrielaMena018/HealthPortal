@@ -231,13 +231,13 @@ namespace HealthPortal.Controller.Login
                 MessageBox.Show("Para poder utilizar los métodos de recuperación disponibles, por favor ingrese su usuario.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        public string GetPlaceholderText(BorderRadiusTXT txt)
+        private string GetPlaceholderText(BorderRadiusTXT txt)
         {
             if (txt == frmLogin.txtUsername) return "Usuario";
             if (txt == frmLogin.txtPassword) return "Contraseña";
             return string.Empty;
         }
-        public void SaveTokenLocally()
+        private void SaveTokenLocally()
         {
             Properties.Settings.Default.RememberMeToken = CurrentUserData.Token;
             Properties.Settings.Default.Save();

@@ -7,324 +7,619 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using CustomPanel;
+using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
+using HealthPortal.Properties;
+using HealthPortal.View.Login;
 using HealthPortal.View.SectionAdministration;
+using static System.Collections.Specialized.BitVector32;
 
 namespace HealthPortal.Controller.SectionAdministration
 {
     public class ControllerAddUpdateSection
     {
-        FrmAddUpdateSection objAddUpdateSection;
-        int action, tabPage;
-        private string Especialidad, SeccionAcademcia, Grado;
+        FrmAddUpdateSection frmAddUpdateSection;
+        int action, tabPage, id;
+        private string specialty, academicSection, grade;
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         public ControllerAddUpdateSection(FrmAddUpdateSection view, int action, int tabPage)
         {
             this.action = action;
             this.tabPage = tabPage;
-            objAddUpdateSection = view;
-            objAddUpdateSection.Load += new EventHandler(InitialCharge);
+            frmAddUpdateSection = view;
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExitS", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnExitE", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnExitSA", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnExitG", Tuple.Create(Resources.quit, Resources.hoverQuit) }
+            };
             VerifyTab();
             VerifyAction();
-            objAddUpdateSection.btnAgregarEspecialidad.Click += new EventHandler(NewSpecialty);
-            objAddUpdateSection.BtnAgregarSeccion.Click += new EventHandler(NewSection);
-            objAddUpdateSection.btnAgregarSeccionAcademica.Click += new EventHandler(NewAcademicSection);
+            frmAddUpdateSection.Load += new EventHandler(InitialLoad);
+            frmAddUpdateSection.btnAddSpecialty.Click += new EventHandler(NewSpecialty);
+            frmAddUpdateSection.btnAddSection.Click += new EventHandler(NewSection);
+            frmAddUpdateSection.btnAddAcademicSection.Click += new EventHandler(NewAcademicSection);
+            frmAddUpdateSection.btnAddGrade.Click += new EventHandler(NewGrade);
+
+            frmAddUpdateSection.MouseDown += new MouseEventHandler(FormMouseDown);
+            frmAddUpdateSection.MouseMove += new MouseEventHandler(FormMouseMove);
+            frmAddUpdateSection.MouseUp += new MouseEventHandler(FormMouseUp);
+
+            frmAddUpdateSection.btnExitS.Click += new EventHandler(CloseForm);
+            frmAddUpdateSection.btnExitE.Click += new EventHandler(CloseForm);
+            frmAddUpdateSection.btnExitSA.Click += new EventHandler(CloseForm);
+            frmAddUpdateSection.btnExitG.Click += new EventHandler(CloseForm);
+
+            frmAddUpdateSection.btnAddAcademicSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnAddSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnAddSpecialty.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnAddGrade.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateAcademicSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateSpecialty.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateGrade.MouseEnter += new EventHandler(MouseEnterTextButton);
+
+            frmAddUpdateSection.btnAddAcademicSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnAddSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnAddSpecialty.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnAddGrade.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateAcademicSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateSpecialty.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateGrade.MouseLeave += new EventHandler(MouseLeaveTextButton);
+
+            frmAddUpdateSection.btnExitS.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateSection.btnExitSA.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateSection.btnExitE.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateSection.btnExitG.MouseEnter += new EventHandler(MouseEnterPictureButton);
+
+            frmAddUpdateSection.btnExitS.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateSection.btnExitSA.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateSection.btnExitE.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateSection.btnExitG.MouseLeave += new EventHandler(MouseLeavePictureButton);
+
+            frmAddUpdateSection.txtGrade.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateSection.txtSpecialty.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateSection.txtAcademicSection.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateSection.txtTechnicalGroup.Enter += new EventHandler(EnterTextBox);
+
+            frmAddUpdateSection.txtGrade.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateSection.txtSpecialty.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateSection.txtAcademicSection.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateSection.txtTechnicalGroup.Leave += new EventHandler(LeaveTextBox);
+        }
+        public ControllerAddUpdateSection(FrmAddUpdateSection view, int action, int sectionID, string technicalGroup, string specialty, string grade, string academicSection)
+        {
+            id = sectionID;
+            this.action = action;
+            frmAddUpdateSection = view;
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExitS", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnExitE", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnExitSA", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnExitG", Tuple.Create(Resources.quit, Resources.hoverQuit) }
+            };
+            this.grade = grade;
+            this.academicSection = academicSection;
+            this.specialty = specialty;
+            frmAddUpdateSection.Load += new EventHandler(InitialLoad);
+            VerifyTab();
+            VerifyAction();
+            LoadSectionTab(technicalGroup);
+            frmAddUpdateSection.btnUpdateSection.Click += new EventHandler(UpdateSection);
+
+            frmAddUpdateSection.MouseDown += new MouseEventHandler(FormMouseDown);
+            frmAddUpdateSection.MouseMove += new MouseEventHandler(FormMouseMove);
+            frmAddUpdateSection.MouseUp += new MouseEventHandler(FormMouseUp);
+
+            frmAddUpdateSection.btnExitS.Click += new EventHandler(CloseForm);
+            frmAddUpdateSection.btnExitE.Click += new EventHandler(CloseForm);
+            frmAddUpdateSection.btnExitSA.Click += new EventHandler(CloseForm);
+            frmAddUpdateSection.btnExitG.Click += new EventHandler(CloseForm);
+
+            frmAddUpdateSection.btnAddAcademicSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnAddSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnAddSpecialty.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnAddGrade.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateAcademicSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateSpecialty.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateGrade.MouseEnter += new EventHandler(MouseEnterTextButton);
+
+            frmAddUpdateSection.btnAddAcademicSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnAddSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnAddSpecialty.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnAddGrade.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateAcademicSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateSpecialty.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateGrade.MouseLeave += new EventHandler(MouseLeaveTextButton);
+
+            frmAddUpdateSection.btnExitS.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateSection.btnExitSA.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateSection.btnExitE.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateSection.btnExitG.MouseEnter += new EventHandler(MouseEnterPictureButton);
+
+            frmAddUpdateSection.btnExitS.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateSection.btnExitSA.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateSection.btnExitE.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateSection.btnExitG.MouseLeave += new EventHandler(MouseLeavePictureButton);
+
+            frmAddUpdateSection.txtGrade.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateSection.txtSpecialty.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateSection.txtAcademicSection.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateSection.txtTechnicalGroup.Enter += new EventHandler(EnterTextBox);
+
+            frmAddUpdateSection.txtGrade.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateSection.txtSpecialty.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateSection.txtAcademicSection.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateSection.txtTechnicalGroup.Leave += new EventHandler(LeaveTextBox);
+        }
+        public ControllerAddUpdateSection(FrmAddUpdateSection view, int action, int id, string argument, int option)
+        {
+            this.action = action;
+            this.id = id;
+            frmAddUpdateSection = view;
+            VerifyTab();
+            VerifyAction();
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExitS", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnExitE", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnExitSA", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnExitG", Tuple.Create(Resources.quit, Resources.hoverQuit) }
+            };
+
+            frmAddUpdateSection.MouseDown += new MouseEventHandler(FormMouseDown);
+            frmAddUpdateSection.MouseMove += new MouseEventHandler(FormMouseMove);
+            frmAddUpdateSection.MouseUp += new MouseEventHandler(FormMouseUp);
+
+            frmAddUpdateSection.btnExitS.Click += new EventHandler(CloseForm);
+            frmAddUpdateSection.btnExitE.Click += new EventHandler(CloseForm);
+            frmAddUpdateSection.btnExitSA.Click += new EventHandler(CloseForm);
+            frmAddUpdateSection.btnExitG.Click += new EventHandler(CloseForm);
+
+            frmAddUpdateSection.btnAddAcademicSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnAddSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnAddSpecialty.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnAddGrade.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateAcademicSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateSection.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateSpecialty.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmAddUpdateSection.btnUpdateGrade.MouseEnter += new EventHandler(MouseEnterTextButton);
+
+            frmAddUpdateSection.btnAddAcademicSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnAddSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnAddSpecialty.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnAddGrade.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateAcademicSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateSection.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateSpecialty.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmAddUpdateSection.btnUpdateGrade.MouseLeave += new EventHandler(MouseLeaveTextButton);
+
+            frmAddUpdateSection.btnExitS.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateSection.btnExitSA.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateSection.btnExitE.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateSection.btnExitG.MouseEnter += new EventHandler(MouseEnterPictureButton);
+
+            frmAddUpdateSection.btnExitS.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateSection.btnExitSA.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateSection.btnExitE.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateSection.btnExitG.MouseLeave += new EventHandler(MouseLeavePictureButton);
+
+            frmAddUpdateSection.txtGrade.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateSection.txtSpecialty.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateSection.txtAcademicSection.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateSection.txtTechnicalGroup.Enter += new EventHandler(EnterTextBox);
+
+            frmAddUpdateSection.txtGrade.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateSection.txtSpecialty.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateSection.txtAcademicSection.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateSection.txtTechnicalGroup.Leave += new EventHandler(LeaveTextBox);
+
+            if (option == 1)
+            {
+                specialty = argument;
+                frmAddUpdateSection.Load += new EventHandler(InitialLoad);
+                frmAddUpdateSection.tabAcademicLevel.SelectedIndex = 1;
+                LoadSpecialtyTab();
+                frmAddUpdateSection.btnUpdateSpecialty.Click += new EventHandler(UpdateSpecialty);
+            }
+            else if (option == 2)
+            {
+                academicSection = argument;
+                frmAddUpdateSection.Load += new EventHandler(InitialLoad);
+                frmAddUpdateSection.tabAcademicLevel.SelectedIndex = 2;
+                LoadAcademicSectionTab();
+                frmAddUpdateSection.btnUpdateAcademicSection.Click += new EventHandler(UpdateAcademicSection);
+            }
+            else
+            {
+                grade = argument;
+                frmAddUpdateSection.Load += new EventHandler(InitialLoad);
+                frmAddUpdateSection.tabAcademicLevel.SelectedIndex = 3;
+                LoadGradeTab();
+                frmAddUpdateSection.btnUpdateGrade.Click += new EventHandler(UpdateGrade);
+            }
+        }
+        private void FormMouseDown(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseDown(sender);
+        }
+        private void FormMouseMove(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseMove(sender);
+        }
+        private void FormMouseUp(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseUp(sender);
+        }
+        private void MouseEnterTextButton(object sender, EventArgs e)
+        {
+            RJButton btn = sender as RJButton;
+            btn.BackColor = Color.FromArgb(31, 43, 91);
+            btn.ForeColor = Color.White;
+        }
+        private void MouseLeaveTextButton(object sender, EventArgs e)
+        {
+            RJButton btn = sender as RJButton;
+            btn.BackColor = Color.FromArgb(142, 202, 230);
+            btn.ForeColor = Color.FromArgb(31, 43, 91);
+        }
+        private void EnterTextBox(object sender, EventArgs e)
+        {
+            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            if (txt != null)
+            {
+                if (txt.Texts.Trim() == GetPlaceholderText(txt))
+                {
+                    txt.Clear();
+                    txt.ForeColor = Color.FromArgb(31, 43, 91);
+                }
+            }
+        }
+        private void LeaveTextBox(object sender, EventArgs e)
+        {
+            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            if (txt != null)
+            {
+                if (string.IsNullOrEmpty(txt.Texts))
+                {
+                    txt.Texts = GetPlaceholderText(txt);
+                    txt.ForeColor = Color.FromArgb(142, 202, 230);
+                }
+            }
+        }
+        private string GetPlaceholderText(BorderRadiusTXT txt)
+        {
+            if (txt == frmAddUpdateSection.txtGrade) return "Grado";
+            if (txt == frmAddUpdateSection.txtSpecialty) return "Especialidad";
+            if (txt == frmAddUpdateSection.txtTechnicalGroup) return "Grupo técnico";
+            if (txt == frmAddUpdateSection.txtAcademicSection) return "Sección Académica";
+            return string.Empty;
+        }
+        private void MouseEnterPictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item2;
+                btn.ForeColor = Color.FromArgb(31, 43, 91);
+            }
+        }
+        private void MouseLeavePictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item1;
+                btn.ForeColor = Color.FromArgb(142, 202, 230);
+            }
+        }
+        private void CloseForm(object sender, EventArgs e)
+        {
+            frmAddUpdateSection.Hide();
+            frmAddUpdateSection.Dispose();
         }
         private void VerifyTab()
         {
             if (tabPage == 0)
             {
-
-                objAddUpdateSection.TabControlRegistros.SelectedIndex = 0;
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSpecialty);
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageAcademicSection);
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageGrade);
+                frmAddUpdateSection.tabAcademicLevel.SelectedIndex = 0;
             }
             else if (tabPage == 1)
             {
-                objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewSection);
-                objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewEspecialidad);
-                objAddUpdateSection.TabControlRegistros.SelectedIndex = 1;
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSection);
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageAcademicSection);
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageGrade);
+                frmAddUpdateSection.tabAcademicLevel.SelectedIndex = 1;
             }
             else if (tabPage == 2)
             {
-                objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewSctionAcademy);
-                objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewSection);
-                objAddUpdateSection.TabControlRegistros.SelectedIndex = 2;
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSection);
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSpecialty);
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageGrade);
+                frmAddUpdateSection.tabAcademicLevel.SelectedIndex = 2;
+            }
+            else if (tabPage == 3)
+            {
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSection);
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSpecialty);
+                frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageAcademicSection);
+                frmAddUpdateSection.tabAcademicLevel.SelectedIndex = 3;
             }
         }
-        public ControllerAddUpdateSection(FrmAddUpdateSection view, int action, int IdEspecialidad, string Especialidad)
+        private void LoadSectionTab(string technicalGroup)
         {
-            this.action = action;
-            this.Especialidad = Especialidad;
-            objAddUpdateSection = view;
-            objAddUpdateSection.Load += new EventHandler(InitialCharge);
-            objAddUpdateSection.TabControlRegistros.SelectedIndex = 2;
-            VerifyAction();
-            ChargueValueEspecialidad(IdEspecialidad);
-            objAddUpdateSection.BtnActuzalizarEspecialidad.Click += new EventHandler(UpdateEspecialidad);
+            frmAddUpdateSection.txtTechnicalGroup.Texts = technicalGroup.ToString();
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSpecialty);
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageAcademicSection);
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageGrade);
         }
-        public ControllerAddUpdateSection(FrmAddUpdateSection view, int action, int IdSeccion, string GrupoTecnico, string Especialidad, string Grado, string SeccionAcademica)
+        private void LoadSpecialtyTab()
         {
-            this.action = action;
-            objAddUpdateSection = view;
-            this.Grado = Grado;
-            this.SeccionAcademcia = SeccionAcademica;
-            this.Especialidad = Especialidad;
-            objAddUpdateSection.Load += new EventHandler(InitialCharge);
-            VerifyAction();
-            ChargueValueSeccion(IdSeccion, GrupoTecnico);
-            objAddUpdateSection.BtnActualizarSeccion.Click += new EventHandler(UpdateSeccion);
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSection);
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageAcademicSection);
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageGrade);
         }
-        public ControllerAddUpdateSection(FrmAddUpdateSection view, int action, int IdSeccionAcademica, string nombreSeccionAcademica, int num)
+        private void LoadAcademicSectionTab()
         {
-            this.action = action;
-            this.SeccionAcademcia = nombreSeccionAcademica;
-            objAddUpdateSection = view;
-            objAddUpdateSection.Load += new EventHandler(InitialCharge);
-            objAddUpdateSection.TabControlRegistros.SelectedIndex = 1;
-            VerifyAction();
-            ChargueValueSeccionAcademica(IdSeccionAcademica);
-            objAddUpdateSection.btnActualizarSeccionAcademica.Click += new EventHandler(UpdateSeccionAcademica);
+            // frmAddUpdateSection.txtId.Text = IdSeccion.ToString();
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSection);
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSpecialty);
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageGrade);
         }
-        private void ChargueValueEspecialidad(int IdEspecialidad)
+        private void LoadGradeTab()
         {
-            objAddUpdateSection.txtId.Text = IdEspecialidad.ToString();
-            objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewSctionAcademy);
-            objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewSection);
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSection);
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSpecialty);
+            frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageAcademicSection);
         }
-        private void ChargueValueSeccion(int IdSeccion, string GrupoTecnico)
-        {
-            objAddUpdateSection.txtId.Text = IdSeccion.ToString();
-            objAddUpdateSection.txtGrupoTecnico.Texts = GrupoTecnico.ToString();
-            objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewSctionAcademy);
-            objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewEspecialidad);
-        }
-        private void ChargueValueSeccionAcademica(int IdSeccion)
-        {
-            objAddUpdateSection.txtId.Text = IdSeccion.ToString();
-            objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewSection);
-            objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewEspecialidad);
-        }
-
-        //Verificar action
-        public void VerifyAction()
+        private void VerifyAction()
         {
             if (action == 1)
             {
-                objAddUpdateSection.btnAgregarEspecialidad.Enabled = true;
-                objAddUpdateSection.BtnActuzalizarEspecialidad.Enabled = false;
-                objAddUpdateSection.btnAgregarSeccionAcademica.Enabled = true;
-                objAddUpdateSection.btnActualizarSeccionAcademica.Enabled = false;
-                objAddUpdateSection.cmbEspecialidadExistente.Enabled = false;
-                objAddUpdateSection.BtnAgregarSeccion.Enabled = true;
-                objAddUpdateSection.BtnActualizarSeccion.Enabled = false;
-
+                frmAddUpdateSection.lblSection.Text = "Agregar Sección";
+                frmAddUpdateSection.btnAddSection.Enabled = true;
+                frmAddUpdateSection.btnUpdateSection.Enabled = false;
+                frmAddUpdateSection.lblSpecialty.Text = "Agregar Especialidad";
+                frmAddUpdateSection.btnAddSpecialty.Enabled = true;
+                frmAddUpdateSection.btnUpdateSpecialty.Enabled = false;
+                frmAddUpdateSection.lblAcademicSection.Text = "Agregar Sección Académica";
+                frmAddUpdateSection.btnAddAcademicSection.Enabled = true;
+                frmAddUpdateSection.btnUpdateAcademicSection.Enabled = false;
+                frmAddUpdateSection.lblGrade.Text = "Agregar Grado";
+                frmAddUpdateSection.btnAddGrade.Enabled = true;
+                frmAddUpdateSection.btnUpdateGrade.Enabled = false;
             }
-            else if (action == 2)
+            else if (action == 2 && frmAddUpdateSection.tabAcademicLevel.SelectedIndex == 0)
             {
-                objAddUpdateSection.lblRegistrarEspecialidad.Text = "Actualizar Especialidad";
-                objAddUpdateSection.lblNuevaEspecialidad.Text = "Nuevo Nombre de la Especialidad";
-                objAddUpdateSection.btnAgregarEspecialidad.Enabled = false;
-                objAddUpdateSection.BtnActuzalizarEspecialidad.Enabled = true;
-                objAddUpdateSection.cmbEspecialidadExistente.Enabled = true;
-                objAddUpdateSection.lblRegistrarSeccionAcademica.Text = "Actualizar Sección Académica";
-                objAddUpdateSection.lblSeccionAcademica.Text = "Nuevo nombre de la Sección";
-                objAddUpdateSection.btnAgregarSeccionAcademica.Enabled = false;
-                objAddUpdateSection.btnActualizarSeccionAcademica.Enabled = true;
-                objAddUpdateSection.cmbSecionAcademicaExistente.Enabled = true;
-                objAddUpdateSection.lblRegistrarSeccion.Text = "Actualizar Sección";
-                objAddUpdateSection.BtnAgregarSeccion.Enabled = false;
-                objAddUpdateSection.BtnActualizarSeccion.Enabled = true;
+                frmAddUpdateSection.lblSection.Text = "Actualizar Sección";
+                frmAddUpdateSection.btnAddSection.Enabled = false;
+                frmAddUpdateSection.btnUpdateSection.Enabled = true;
+                frmAddUpdateSection.lblSpecialty.Text = "Actualizar Especialidad";
+                frmAddUpdateSection.btnAddSpecialty.Enabled = false;
+                frmAddUpdateSection.btnUpdateSpecialty.Enabled = true;
+                frmAddUpdateSection.lblAcademicSection.Text = "Actualizar Sección Académica";
+                frmAddUpdateSection.btnAddAcademicSection.Enabled = false;
+                frmAddUpdateSection.btnUpdateAcademicSection.Enabled = true;
+                frmAddUpdateSection.lblGrade.Text = "Actualizar Grado";
+                frmAddUpdateSection.btnAddGrade.Enabled = false;
+                frmAddUpdateSection.btnUpdateGrade.Enabled = true;
             }
-            else if (action == 3)
+            else if (action == 2 && frmAddUpdateSection.tabAcademicLevel.SelectedIndex == 1)
             {
-                //Seccion
-                objAddUpdateSection.lblRegistrarSeccion.Text = "Ficha de la Sección";
-                objAddUpdateSection.CmbGrado.Enabled = false;
-                objAddUpdateSection.cmbEspecialidad.Enabled = false;
-                objAddUpdateSection.CmbSeccionAcademica.Enabled = false;
-                objAddUpdateSection.txtGrupoTecnico.Enabled = false;
-                objAddUpdateSection.CmbGrado.BackColor = Color.WhiteSmoke;
-                objAddUpdateSection.cmbEspecialidad.BackColor = Color.WhiteSmoke;
-                objAddUpdateSection.CmbSeccionAcademica.BackColor = Color.WhiteSmoke;
-                objAddUpdateSection.txtGrupoTecnico.BackColor = Color.WhiteSmoke;
-                //Quita los tabsPages para que no se muestren
-                objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewSctionAcademy);
-                objAddUpdateSection.TabControlRegistros.TabPages.Remove(objAddUpdateSection.tabPageNewEspecialidad);
+                frmAddUpdateSection.lblSpecialty.Text = "Actualizar Especialidad";
+                frmAddUpdateSection.btnAddSpecialty.Enabled = false;
+                frmAddUpdateSection.btnUpdateSpecialty.Enabled = true;
+            }
+            else if (action == 2 && frmAddUpdateSection.tabAcademicLevel.SelectedIndex == 2)
+            {
+                frmAddUpdateSection.lblAcademicSection.Text = "Actualizar Sección Académica";
+                frmAddUpdateSection.btnAddAcademicSection.Enabled = false;
+                frmAddUpdateSection.btnUpdateAcademicSection.Enabled = true;
+            }
+            else if (action == 2 && frmAddUpdateSection.tabAcademicLevel.SelectedIndex == 3)
+            {
+                frmAddUpdateSection.lblGrade.Text = "Actualizar Grado";
+                frmAddUpdateSection.btnAddGrade.Enabled = false;
+                frmAddUpdateSection.btnUpdateGrade.Enabled = true;
             }
         }
-        private void InitialCharge(object sender, EventArgs e)
+        private void InitialLoad(object sender, EventArgs e)
         {
-            //Objeto de la clase DAOAdminUsuarios
-            DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
-            //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombo
-            DataSet dsGrados = daoSectionAdministration.FillCombo("tbGrados", "Secciones");
+            DAOSectionAdministration dao = new DAOSectionAdministration();
 
-            //Llenar combobox tcmbGrado
-            objAddUpdateSection.CmbGrado.DataSource = dsGrados.Tables["tbGrados"];
-            objAddUpdateSection.CmbGrado.ValueMember = "IdGrado";
-            objAddUpdateSection.CmbGrado.DisplayMember = "Grado";
+            DataSet dsGrades = dao.FillCombo("tbGrados", "Secciones");
+            frmAddUpdateSection.cmbGrade.DataSource = dsGrades.Tables["tbGrados"];
+            frmAddUpdateSection.cmbGrade.ValueMember = "idGrado";
+            frmAddUpdateSection.cmbGrade.DisplayMember = "grado";
 
-            DataSet dsEspecialidad = daoSectionAdministration.FillCombo("tbEspecialidades", "Secciones");
-            //Llenar combobox cmbEspecialidad
-            objAddUpdateSection.cmbEspecialidad.DataSource = dsEspecialidad.Tables["tbEspecialidades"];
-            objAddUpdateSection.cmbEspecialidad.ValueMember = "IdEspecialidad";
-            objAddUpdateSection.cmbEspecialidad.DisplayMember = "Especialidad";
+            DataSet dsSpecialties = dao.FillCombo("tbEspecialidades", "Secciones");
+            frmAddUpdateSection.cmbSpecialty.DataSource = dsSpecialties.Tables["tbEspecialidades"];
+            frmAddUpdateSection.cmbSpecialty.ValueMember = "idEspecialidad";
+            frmAddUpdateSection.cmbSpecialty.DisplayMember = "especialidad";
 
-
-            DataSet dsSeccionAcademica = daoSectionAdministration.FillCombo("tbSeccionAcademica", "Secciones");
-            //Llenar combobox cmbSeccionAcademica
-            objAddUpdateSection.CmbSeccionAcademica.DataSource = dsSeccionAcademica.Tables["tbSeccionAcademica"];
-            objAddUpdateSection.CmbSeccionAcademica.ValueMember = "IdSeccionAcademica";
-            objAddUpdateSection.CmbSeccionAcademica.DisplayMember = "SeccionAcademica";
-
-            //Llenar el combo box de especialidad existente
-            objAddUpdateSection.cmbEspecialidadExistente.DataSource = dsEspecialidad.Tables["tbEspecialidades"];
-            objAddUpdateSection.cmbEspecialidadExistente.ValueMember = "IdEspecialidad";
-            objAddUpdateSection.cmbEspecialidadExistente.DisplayMember = "Especialidad";
-
-            //Lenar el combobox de Seccion Academica Existente 
-            objAddUpdateSection.cmbSecionAcademicaExistente.DataSource = dsSeccionAcademica.Tables["tbSeccionAcademica"];
-            objAddUpdateSection.cmbSecionAcademicaExistente.ValueMember = "IdSeccionAcademica";
-            objAddUpdateSection.cmbSecionAcademicaExistente.DisplayMember = "SeccionAcademica";
-            if (action == 2 || action == 3)
-            {
-                objAddUpdateSection.cmbEspecialidad.Text = Especialidad;
-                objAddUpdateSection.CmbGrado.Text = Grado;
-                objAddUpdateSection.CmbSeccionAcademica.Text = SeccionAcademcia;
-            }
+            DataSet dsAcademicSections = dao.FillCombo("tbSeccionAcademica", "Secciones");
+            frmAddUpdateSection.cmbAcademicSection.DataSource = dsAcademicSections.Tables["tbSeccionAcademica"];
+            frmAddUpdateSection.cmbAcademicSection.ValueMember = "idSeccionAcademica";
+            frmAddUpdateSection.cmbAcademicSection.DisplayMember = "seccionAcademica";
         }
-
-        //Agregar Nuevas secciones, especialidades y secciones academicasd
         private void NewAcademicSection(object sender, EventArgs e)
         {
-            DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
-
-            daoSectionAdministration.SeccionAcademica = objAddUpdateSection.txtNuevaSeccionAcademica.Texts;
-            int retorno = daoSectionAdministration.AddSpecialty();
-            if (retorno == 1)
+            if (!string.IsNullOrEmpty(frmAddUpdateSection.txtAcademicSection.Texts.Trim()))
             {
-                MessageBox.Show("Datos ingresados correctamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("No se pudieron ingresar los datos", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DAOSectionAdministration dao = new DAOSectionAdministration();
+                dao.AcademicSection = frmAddUpdateSection.txtAcademicSection.Texts.Trim();
+                if (dao.AddAcademicSection() == 1)
+                {
+                    MessageBox.Show("Datos ingresados correctamente.", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CloseForm(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudieron ingresar los datos.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-
         private void NewSpecialty(object sender, EventArgs e)
         {
-            //Enviar los datos de los componentes del DTO
-            DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
-
-            daoSectionAdministration.Especialidad = objAddUpdateSection.txtNuevaEspecialidad.Texts;
-            int retorno = daoSectionAdministration.AddSpecialty();
-            if (retorno == 1)
+            if (!string.IsNullOrEmpty(frmAddUpdateSection.txtSpecialty.Texts.Trim()))
             {
-                MessageBox.Show("Datos ingresados correctamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DAOSectionAdministration dao = new DAOSectionAdministration();
+                dao.Specialty = frmAddUpdateSection.txtSpecialty.Texts.Trim();
+                if (dao.AddSpecialty() == 1)
+                {
+                    MessageBox.Show("Datos ingresados correctamente.", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CloseForm(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudieron ingresar los datos.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                MessageBox.Show("No se pudieron ingresar los datos", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
-
         private void NewSection(object sender, EventArgs e)
         {
-            //Enviar los datos de los componentes del DTO
-            DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
-
-            daoSectionAdministration.IdGrado = (int)objAddUpdateSection.CmbGrado.SelectedValue;
-            daoSectionAdministration.IdEspecialidad = (int)objAddUpdateSection.cmbEspecialidad.SelectedValue;
-            daoSectionAdministration.IdSeccionAcademica = (int)objAddUpdateSection.CmbSeccionAcademica.SelectedValue;
-            daoSectionAdministration.GrupoTecnico = objAddUpdateSection.txtGrupoTecnico.Texts;
-            int retorno = daoSectionAdministration.AddSection();
-            if (retorno == 1)
+            if (!string.IsNullOrEmpty(frmAddUpdateSection.txtTechnicalGroup.Texts.Trim()))
             {
-                MessageBox.Show("Datos ingresados correctamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("No se pudieron ingresar los datos", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DAOSectionAdministration dao = new DAOSectionAdministration();
+                dao.GradeID = (int)frmAddUpdateSection.cmbGrade.SelectedValue;
+                dao.SpecialtyID = (int)frmAddUpdateSection.cmbSpecialty.SelectedValue;
+                dao.AcademicSectionID = (int)frmAddUpdateSection.cmbAcademicSection.SelectedValue;
+                dao.TechnicalGroup = frmAddUpdateSection.txtTechnicalGroup.Texts.Trim();
+                if (dao.AddSection() == 1)
+                {
+                    MessageBox.Show("Datos ingresados correctamente.", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CloseForm(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudieron ingresar los datos.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-
-        //Actualizar
-        private void UpdateEspecialidad(object sender, EventArgs e)
+        private void NewGrade(object sender, EventArgs e)
         {
-
-            DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
-
-            daoSectionAdministration.IdEspecialidad = int.Parse(objAddUpdateSection.txtId.Text.Trim());
-            daoSectionAdministration.Especialidad = objAddUpdateSection.txtNuevaEspecialidad.Texts.Trim();
-
-            int valorRetornado = daoSectionAdministration.UpdateSpecialty();
-            if (valorRetornado == 1)
+            if (!string.IsNullOrEmpty(frmAddUpdateSection.txtGrade.Texts.Trim()))
             {
-                MessageBox.Show("Los datos han sido actualizado exitosamente",
-                           "Proceso completado",
-                           MessageBoxButtons.OK,
-                           MessageBoxIcon.Information);
+                DAOSectionAdministration dao = new DAOSectionAdministration();
+                dao.Grade = frmAddUpdateSection.txtGrade.Texts.Trim();
+                if (dao.AddGrade() == 1)
+                {
+                    MessageBox.Show("Datos ingresados correctamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CloseForm(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudieron ingresar los datos", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (valorRetornado == 0)
-            {
-                MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
-                             "Proceso interrumpido",
-                             MessageBoxButtons.OK,
-                             MessageBoxIcon.Error);
-            }
-
-
         }
-
-        private void UpdateSeccionAcademica(object sender, EventArgs e)
+        private void UpdateSpecialty(object sender, EventArgs e)
         {
-            DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
-
-            daoSectionAdministration.IdSeccionAcademica = int.Parse(objAddUpdateSection.txtId.Text.Trim());
-            daoSectionAdministration.SeccionAcademica = objAddUpdateSection.txtNuevaSeccionAcademica.Texts.Trim();
-
-            int valorRetornado = daoSectionAdministration.UpdateAcademicSection();
-            if (valorRetornado == 1)
+            if (!string.IsNullOrEmpty(frmAddUpdateSection.txtSpecialty.Texts.Trim()))
             {
-                MessageBox.Show("Los datos han sido actualizado exitosamente",
-                           "Proceso completado",
-                           MessageBoxButtons.OK,
-                           MessageBoxIcon.Information);
-            }
-            else if (valorRetornado == 0)
-            {
-                MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
-                             "Proceso interrumpido",
-                             MessageBoxButtons.OK,
-                             MessageBoxIcon.Error);
+                DAOSectionAdministration dao = new DAOSectionAdministration();
+                dao.SpecialtyID = id;
+                dao.Specialty = frmAddUpdateSection.txtSpecialty.Texts.Trim();
+                if (dao.UpdateSpecialty() == 1)
+                {
+                    MessageBox.Show("Los datos han sido actualizado exitosamente",
+                               "Proceso completado",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+                    CloseForm(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
+                                 "Proceso interrumpido",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+                }
             }
         }
-
-        private void UpdateSeccion(object sender, EventArgs e)
+        private void UpdateAcademicSection(object sender, EventArgs e)
         {
-            DAOSectionAdministration daoSectionAdministration = new DAOSectionAdministration();
-
-            daoSectionAdministration.IdSeccion = int.Parse(objAddUpdateSection.txtId.Text.Trim());
-            daoSectionAdministration.GrupoTecnico = objAddUpdateSection.txtGrupoTecnico.Texts.Trim();
-            daoSectionAdministration.IdEspecialidad = (int)(objAddUpdateSection.cmbEspecialidad.SelectedValue);
-            daoSectionAdministration.IdGrado = (int)(objAddUpdateSection.CmbGrado.SelectedValue);
-            daoSectionAdministration.IdSeccionAcademica = (int)(objAddUpdateSection.CmbSeccionAcademica.SelectedValue);
-
-            int valorRetornado = daoSectionAdministration.UpdateSection();
-            if (valorRetornado == 1)
+            if (!string.IsNullOrEmpty(frmAddUpdateSection.txtAcademicSection.Texts.Trim()))
             {
-                MessageBox.Show("Los datos han sido actualizado exitosamente",
-                           "Proceso completado",
-                           MessageBoxButtons.OK,
-                           MessageBoxIcon.Information);
-            }
-            else if (valorRetornado == 0)
-            {
-                MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
-                             "Proceso interrumpido",
-                             MessageBoxButtons.OK,
-                             MessageBoxIcon.Error);
+                DAOSectionAdministration dao = new DAOSectionAdministration();
+                dao.AcademicSectionID = id;
+                dao.AcademicSection = frmAddUpdateSection.txtAcademicSection.Texts.Trim();
+                if (dao.UpdateAcademicSection() == 1)
+                {
+                    MessageBox.Show("Los datos han sido actualizado exitosamente",
+                               "Proceso completado",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+                    CloseForm(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
+                                 "Proceso interrumpido",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+                }
             }
         }
-
+        private void UpdateGrade(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(frmAddUpdateSection.txtGrade.Texts.Trim()))
+            {
+                DAOSectionAdministration dao = new DAOSectionAdministration();
+                dao.GradeID = id;
+                dao.Grade = frmAddUpdateSection.txtGrade.Texts.Trim();
+                if (dao.UpdateGrade() == 1)
+                {
+                    MessageBox.Show("Los datos han sido actualizado exitosamente",
+                               "Proceso completado",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+                    CloseForm(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
+                                 "Proceso interrumpido",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void UpdateSection(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(frmAddUpdateSection.txtTechnicalGroup.Texts.Trim()))
+            {
+                DAOSectionAdministration dao = new DAOSectionAdministration();
+                dao.SectionID = id;
+                dao.TechnicalGroup = frmAddUpdateSection.txtTechnicalGroup.Texts.Trim();
+                dao.SpecialtyID = (int)frmAddUpdateSection.cmbSpecialty.SelectedValue;
+                dao.GradeID = (int)frmAddUpdateSection.cmbGrade.SelectedValue;
+                dao.AcademicSectionID = (int)frmAddUpdateSection.cmbAcademicSection.SelectedValue;
+                if (dao.UpdateSection() == 1)
+                {
+                    MessageBox.Show("Los datos han sido actualizado exitosamente",
+                               "Proceso completado",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+                    CloseForm(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
+                                 "Proceso interrumpido",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

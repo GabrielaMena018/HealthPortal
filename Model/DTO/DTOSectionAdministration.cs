@@ -10,21 +10,22 @@ namespace HealthPortal.Model.DTO
 {
      class DTOSectionAdministration : dbContext
     {
-        //Atributos
-        private int idSeccion;
-        private string grupoTecnico;
-        private int idGrado;
-        private string seccionAcademica;
-        private string especialidad;
-        private int idEspecialidad;
-        private int idSeccionAcademica;
+        private int sectionID;
+        private string technicalGroup;
+        private string grade;
+        private int gradeID;
+        private string academicSection;
+        private string specialty;
+        private int specialtyID;
+        private int academicSectionID;
 
-        public int IdSeccion { get => idSeccion; set => idSeccion = value; }
-        public string GrupoTecnico { get => grupoTecnico; set => grupoTecnico = value; }
-        public int IdGrado { get => idGrado; set => idGrado = value; }
-        public string SeccionAcademica { get => SeccionAcademica; set => SeccionAcademica = value; }
-        public string Especialidad { get => especialidad; set => especialidad = value; }
-        public int IdEspecialidad { get => idEspecialidad; set => idEspecialidad = value; }
-        public int IdSeccionAcademica { get => idSeccionAcademica; set => idSeccionAcademica = value; }
+        public int SectionID { get => sectionID; set => sectionID = value; }
+        public string TechnicalGroup { get => technicalGroup; set => technicalGroup = value; }
+        public string Grade { get => grade; set => grade = value; }
+        public int GradeID { get => gradeID; set => gradeID = value; }
+        public string AcademicSection { get => academicSection; set => academicSection = value; }
+        public string Specialty { get => specialty; set => specialty = value; }
+        public int SpecialtyID { get => specialtyID; set => specialtyID = value; }
+        public int AcademicSectionID { get => academicSectionID; set => academicSectionID = value; }
     }
 }

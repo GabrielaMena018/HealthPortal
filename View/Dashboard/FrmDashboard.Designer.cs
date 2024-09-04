@@ -39,8 +39,8 @@
             this.btnVisits = new System.Windows.Forms.Button();
             this.pnlInventory = new System.Windows.Forms.Panel();
             this.btnInventory = new System.Windows.Forms.Button();
-            this.pnlStatistics = new System.Windows.Forms.Panel();
-            this.btnStatistics = new System.Windows.Forms.Button();
+            this.pnlSettings = new System.Windows.Forms.Panel();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.pnlSections = new System.Windows.Forms.Panel();
             this.btnSections = new System.Windows.Forms.Button();
             this.pnlUsers = new System.Windows.Forms.Panel();
@@ -54,7 +54,7 @@
             this.pnlMainPage.SuspendLayout();
             this.pnlVisits.SuspendLayout();
             this.pnlInventory.SuspendLayout();
-            this.pnlStatistics.SuspendLayout();
+            this.pnlSettings.SuspendLayout();
             this.pnlSections.SuspendLayout();
             this.pnlUsers.SuspendLayout();
             this.pnlLogout.SuspendLayout();
@@ -77,7 +77,7 @@
             this.flpTabs.Controls.Add(this.pnlMainPage);
             this.flpTabs.Controls.Add(this.pnlVisits);
             this.flpTabs.Controls.Add(this.pnlInventory);
-            this.flpTabs.Controls.Add(this.pnlStatistics);
+            this.flpTabs.Controls.Add(this.pnlSettings);
             this.flpTabs.Controls.Add(this.pnlSections);
             this.flpTabs.Controls.Add(this.pnlUsers);
             this.flpTabs.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -220,39 +220,39 @@
             this.btnInventory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInventory.UseVisualStyleBackColor = false;
             // 
-            // pnlStatistics
+            // pnlSettings
             // 
-            this.pnlStatistics.Controls.Add(this.btnStatistics);
-            this.pnlStatistics.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlStatistics.Location = new System.Drawing.Point(0, 405);
-            this.pnlStatistics.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlStatistics.Name = "pnlStatistics";
-            this.pnlStatistics.Size = new System.Drawing.Size(280, 85);
-            this.pnlStatistics.TabIndex = 13;
+            this.pnlSettings.Controls.Add(this.btnSettings);
+            this.pnlSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSettings.Location = new System.Drawing.Point(0, 405);
+            this.pnlSettings.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlSettings.Name = "pnlSettings";
+            this.pnlSettings.Size = new System.Drawing.Size(280, 85);
+            this.pnlSettings.TabIndex = 13;
             // 
-            // btnStatistics
+            // btnSettings
             // 
-            this.btnStatistics.BackColor = System.Drawing.Color.Transparent;
-            this.btnStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStatistics.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnStatistics.FlatAppearance.BorderSize = 0;
-            this.btnStatistics.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnStatistics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnStatistics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatistics.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnStatistics.Image = global::HealthPortal.Properties.Resources.statistics;
-            this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatistics.Location = new System.Drawing.Point(34, 26);
-            this.btnStatistics.Margin = new System.Windows.Forms.Padding(34, 27, 34, 27);
-            this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.Size = new System.Drawing.Size(208, 32);
-            this.btnStatistics.TabIndex = 1;
-            this.btnStatistics.TabStop = false;
-            this.btnStatistics.Text = "Estadísticas";
-            this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnStatistics.UseVisualStyleBackColor = false;
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnSettings.Image = global::HealthPortal.Properties.Resources.settings;
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(34, 26);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(34, 27, 34, 27);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(208, 32);
+            this.btnSettings.TabIndex = 1;
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Text = "Configuración";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSettings.UseVisualStyleBackColor = false;
             // 
             // pnlSections
             // 
@@ -382,7 +382,7 @@
             this.pnlMainPage.ResumeLayout(false);
             this.pnlVisits.ResumeLayout(false);
             this.pnlInventory.ResumeLayout(false);
-            this.pnlStatistics.ResumeLayout(false);
+            this.pnlSettings.ResumeLayout(false);
             this.pnlSections.ResumeLayout(false);
             this.pnlUsers.ResumeLayout(false);
             this.pnlLogout.ResumeLayout(false);
@@ -397,7 +397,7 @@
         public System.Windows.Forms.Panel pnlContainer;
         public System.Windows.Forms.Panel pnlMenu;
         public System.Windows.Forms.Button btnInventory;
-        public System.Windows.Forms.Button btnStatistics;
+        public System.Windows.Forms.Button btnSettings;
         public System.Windows.Forms.Button btnSections;
         public System.Windows.Forms.Button btnUsers;
         public System.Windows.Forms.Button btnLogout;
@@ -405,7 +405,7 @@
         public System.Windows.Forms.Button btnVisits;
         public System.Windows.Forms.Button btnMenu;
         public System.Windows.Forms.Panel pnlInventory;
-        public System.Windows.Forms.Panel pnlStatistics;
+        public System.Windows.Forms.Panel pnlSettings;
         public System.Windows.Forms.Panel pnlSections;
         public System.Windows.Forms.Panel pnlUsers;
         public System.Windows.Forms.Panel pnlMainPage;
