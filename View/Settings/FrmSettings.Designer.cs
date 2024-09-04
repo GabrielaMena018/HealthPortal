@@ -220,7 +220,7 @@
             this.btnProgramSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProgramSettings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProgramSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnProgramSettings.Image = global::HealthPortal.Properties.Resources.healthportal32;
+            this.btnProgramSettings.Image = global::HealthPortal.Properties.Resources.healthPortal;
             this.btnProgramSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProgramSettings.Location = new System.Drawing.Point(34, 26);
             this.btnProgramSettings.Margin = new System.Windows.Forms.Padding(34, 27, 34, 27);

@@ -143,9 +143,9 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap healthportal32 {
+        internal static System.Drawing.Bitmap healthPortal {
             get {
-                object obj = ResourceManager.GetObject("healthportal32", resourceCulture);
+                object obj = ResourceManager.GetObject("healthPortal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +223,9 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hoverHealthPortal32 {
+        internal static System.Drawing.Bitmap hoverHealthPortal {
             get {
-                object obj = ResourceManager.GetObject("hoverHealthPortal32", resourceCulture);
+                object obj = ResourceManager.GetObject("hoverHealthPortal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

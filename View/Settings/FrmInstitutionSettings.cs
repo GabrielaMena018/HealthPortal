@@ -12,13 +12,13 @@ using HealthPortal.Controller.Settings;
 
 namespace HealthPortal.View.Settings
 {
-    public partial class FrmUserSettings : Form
+    public partial class FrmInstitutionSettings : Form
     {
-        public FrmUserSettings()
+        public FrmInstitutionSettings()
         {
             InitializeComponent();
             Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            ControllerUserSettings control = new ControllerUserSettings(this);
+            ControllerInstitutionSettings control = new ControllerInstitutionSettings(this);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace HealthPortal.Controller.Settings
                 { "btnUserSettings", Tuple.Create(Resources.users, Resources.hoverUsers)},
                 { "btnInstitutionSettings", Tuple.Create(Resources.school, Resources.hoverSchool) },
                 { "btnServerSettings", Tuple.Create(Resources.server, Resources.hoverServer) },
-                { "btnProgramSettings", Tuple.Create(Resources.healthportal32, Resources.hoverHealthPortal32) }
+                { "btnProgramSettings", Tuple.Create(Resources.healthPortal, Resources.hoverHealthPortal) }
             };
             frmSettings.Load += new EventHandler(OpenUserSettingsForm);
             frmSettings.btnUserSettings.Click += new EventHandler(OpenUserSettingsForm);
@@ -71,7 +71,7 @@ namespace HealthPortal.Controller.Settings
             frmSettings.btnUserSettings.Image = Resources.hoverUsers;
             frmSettings.btnInstitutionSettings.Image = Resources.school;
             frmSettings.btnServerSettings.Image = Resources.server;
-            frmSettings.btnProgramSettings.Image = Resources.healthportal32;
+            frmSettings.btnProgramSettings.Image = Resources.healthPortal;
 
             frmSettings.btnUserSettings.ForeColor = Color.FromArgb(31, 43, 91);
             frmSettings.btnInstitutionSettings.ForeColor = Color.FromArgb(142, 202, 230);
@@ -95,7 +95,7 @@ namespace HealthPortal.Controller.Settings
             frmSettings.btnUserSettings.Image = Resources.users;
             frmSettings.btnInstitutionSettings.Image = Resources.hoverSchool;
             frmSettings.btnServerSettings.Image = Resources.server;
-            frmSettings.btnProgramSettings.Image = Resources.healthportal32;
+            frmSettings.btnProgramSettings.Image = Resources.healthPortal;
 
             frmSettings.btnUserSettings.ForeColor = Color.FromArgb(142, 202, 230);
             frmSettings.btnInstitutionSettings.ForeColor = Color.FromArgb(31, 43, 91);
@@ -112,14 +112,14 @@ namespace HealthPortal.Controller.Settings
             frmSettings.btnServerSettings.FlatAppearance.BorderColor = Color.White;
             frmSettings.btnProgramSettings.FlatAppearance.BorderColor = Color.White;
 
-            //OpenForm<FrmInstitutionSettings>(frmSettings.btnInstitutionSettings);
+            OpenForm<FrmInstitutionSettings>(frmSettings.btnInstitutionSettings);
         }
         private void OpenServerSettingsForm(object sender, EventArgs e)
         {
             frmSettings.btnUserSettings.Image = Resources.users;
             frmSettings.btnInstitutionSettings.Image = Resources.school;
             frmSettings.btnServerSettings.Image = Resources.hoverServer;
-            frmSettings.btnProgramSettings.Image = Resources.healthportal32;
+            frmSettings.btnProgramSettings.Image = Resources.healthPortal;
 
             frmSettings.btnUserSettings.ForeColor = Color.FromArgb(142, 202, 230);
             frmSettings.btnInstitutionSettings.ForeColor = Color.FromArgb(142, 202, 230);
@@ -136,14 +136,14 @@ namespace HealthPortal.Controller.Settings
             frmSettings.btnServerSettings.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
             frmSettings.btnProgramSettings.FlatAppearance.BorderColor = Color.White;
 
-            //OpenForm<FrmServerSettings>(frmSettings.btnServerSettings);
+            OpenForm<FrmServerSettings>(frmSettings.btnServerSettings);
         }
         private void OpenProgramSettingsForm(object sender, EventArgs e)
         {
             frmSettings.btnUserSettings.Image = Resources.users;
             frmSettings.btnInstitutionSettings.Image = Resources.school;
             frmSettings.btnServerSettings.Image = Resources.server;
-            frmSettings.btnProgramSettings.Image = Resources.hoverHealthPortal32;
+            frmSettings.btnProgramSettings.Image = Resources.hoverHealthPortal;
 
             frmSettings.btnUserSettings.ForeColor = Color.FromArgb(142, 202, 230);
             frmSettings.btnInstitutionSettings.ForeColor = Color.FromArgb(142, 202, 230);
@@ -160,7 +160,7 @@ namespace HealthPortal.Controller.Settings
             frmSettings.btnServerSettings.FlatAppearance.BorderColor = Color.White;
             frmSettings.btnProgramSettings.FlatAppearance.BorderColor = Color.FromArgb(142, 202, 230);
 
-            //OpenForm<FrmProgramSettings>(frmSettings.btnProgramSettings);
+            OpenForm<FrmProgramSettings>(frmSettings.btnProgramSettings);
         }
         private void OpenForm<NewForm>(Button associatedBtn) where NewForm : Form, new()
         {

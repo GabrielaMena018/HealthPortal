@@ -1,6 +1,6 @@
 ﻿namespace HealthPortal.View.Settings
 {
-    partial class FrmUserSettings
+    partial class FrmProgramSettings
     {
         /// <summary>
         /// Required designer variable.

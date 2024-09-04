@@ -1,6 +1,6 @@
 ﻿namespace HealthPortal.View.Settings
 {
-    partial class FrmUserSettings
+    partial class FrmInstitutionSettings
     {
         /// <summary>
         /// Required designer variable.
@@ -54,9 +54,9 @@
             this.lblTitle.Location = new System.Drawing.Point(41, 39);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(32, 39, 32, 32);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(452, 41);
+            this.lblTitle.Size = new System.Drawing.Size(531, 41);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Configuración del Usuario";
+            this.lblTitle.Text = "Configuración de la Institución";
             // 
             // panel2
             // 
@@ -66,7 +66,7 @@
             this.panel2.Size = new System.Drawing.Size(986, 585);
             this.panel2.TabIndex = 2;
             // 
-            // FrmUserSettings
+            // FrmInstitutionSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -77,7 +77,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(1090, 705);
-            this.Name = "FrmUserSettings";
+            this.Name = "FrmInstitutionSettings";
             this.Text = "FrmUserAdministration";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

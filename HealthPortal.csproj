@@ -62,7 +62,9 @@
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerSectionAdministration.cs" />
+    <Compile Include="Controller\Settings\ControllerInstitutionSettings.cs" />
     <Compile Include="Controller\Settings\ControllerSettings.cs" />
+    <Compile Include="Controller\Settings\ControllerUserSettings.cs" />
     <Compile Include="Controller\UserAdministration\ControllerAddUpdateUser.cs" />
     <Compile Include="Controller\UserAdministration\ControllerUserAdministration.cs" />
     <Compile Include="Helper\CommonMethods.cs" />
@@ -193,6 +195,24 @@
     <Compile Include="Resources\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Settings\FrmInstitutionSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings\FrmInstitutionSettings.Designer.cs">
+      <DependentUpon>FrmInstitutionSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Settings\FrmProgramSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings\FrmProgramSettings.Designer.cs">
+      <DependentUpon>FrmProgramSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Settings\FrmServerSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings\FrmServerSettings.Designer.cs">
+      <DependentUpon>FrmServerSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Settings\FrmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +286,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\BorderRadiusTXT.resx">
       <DependentUpon>BorderRadiusTXT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings\FrmInstitutionSettings.resx">
+      <DependentUpon>FrmInstitutionSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings\FrmServerSettings.resx">
+      <DependentUpon>FrmServerSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Settings\FrmSettings.resx">
       <DependentUpon>FrmSettings.cs</DependentUpon>
@@ -579,6 +605,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\healthportal32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverHealthPortal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\healthPortal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

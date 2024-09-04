@@ -17,7 +17,7 @@ namespace HealthPortal.Controller.SectionAdministration
     internal class ControllerSectionAdministration
     {
         FrmSectionAdministration frmSectionAdministration;
-        int expanedFormWidth = 1370;
+        int expandedFormWidth = 1370;
         int collapsedFormWidth = 1240;
         public ControllerSectionAdministration(FrmSectionAdministration view)
         {
@@ -69,7 +69,7 @@ namespace HealthPortal.Controller.SectionAdministration
         }
         private void ResizeControls(object sender, EventArgs e)
         {
-            if (frmSectionAdministration.Width == expanedFormWidth)
+            if (frmSectionAdministration.Width == expandedFormWidth)
             {
                 frmSectionAdministration.panelCustom2.Width = 1288;
             }
