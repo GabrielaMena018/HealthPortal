@@ -37,27 +37,39 @@ namespace HealthPortal.Controller.Login
             frmLogin.MouseDown += new MouseEventHandler(FormMouseDown);
             frmLogin.MouseMove += new MouseEventHandler(FormMouseMove);
             frmLogin.MouseUp += new MouseEventHandler(FormMouseUp);
+
             frmLogin.Load += new EventHandler(ShowPassword);
+
             frmLogin.txtUsername.Enter += new EventHandler(ExistingToken);
-            frmLogin.txtUsername.Enter += new EventHandler(EnterTextBox);
-            frmLogin.txtUsername.Leave += new EventHandler(LeaveTextBox);
+
             frmLogin.txtPassword.Enter += new EventHandler(EnterTextBox);
+            frmLogin.txtUsername.Enter += new EventHandler(EnterTextBox);
+
+            frmLogin.txtUsername.Leave += new EventHandler(LeaveTextBox);
             frmLogin.txtPassword.Leave += new EventHandler(LeaveTextBox);
+
             frmLogin.btnTestConnection.Click += new EventHandler(TestConnection);
+
             frmLogin.btnExit.Click += new EventHandler(ExitApplication);
+
             frmLogin.btnLogin.Click += new EventHandler(AttemptLogin);
+
             frmLogin.btnHidePassword.Click += new EventHandler(ShowPassword);
             frmLogin.btnShowPassword.Click += new EventHandler(HidePassword);
+
             frmLogin.llbForgotPassword.Click += new EventHandler(OpenPasswordRecoveryForm);
+
             frmLogin.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmLogin.btnHidePassword.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmLogin.btnShowPassword.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmLogin.btnTestConnection.MouseEnter += new EventHandler(MouseEnterPictureButton);
-            frmLogin.btnLogin.MouseEnter += new EventHandler(MouseEnterTextButton);
+
             frmLogin.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmLogin.btnHidePassword.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmLogin.btnShowPassword.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmLogin.btnTestConnection.MouseLeave += new EventHandler(MouseLeavePictureButton);
+
+            frmLogin.btnLogin.MouseEnter += new EventHandler(MouseEnterTextButton);
             frmLogin.btnLogin.MouseLeave += new EventHandler(MouseLeaveTextButton);
         }
         private void FormMouseDown(object sender, EventArgs e)
@@ -156,6 +168,7 @@ namespace HealthPortal.Controller.Login
         }
         private void TestConnection(object sender, EventArgs e)
         {
+            dbContext dbContext = new dbContext();
             if (dbContext.getConnection() == null)
             {
                 MessageBox.Show("No fue posible realizar la conexión al servidor y/o la base de datos.", "Conexión fallida", MessageBoxButtons.OK, MessageBoxIcon.Error);

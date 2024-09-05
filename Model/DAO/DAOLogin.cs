@@ -147,14 +147,13 @@ namespace HealthPortal.Model.DAO
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 return (int)cmd.ExecuteScalar();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_005");
                 return 0;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
             finally

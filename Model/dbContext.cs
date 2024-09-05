@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HealthPortal.Helper;
+using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,28 +12,53 @@ namespace HealthPortal.Model
 {
     public class dbContext
     {
-        public static SqlConnection getConnection()
+        private static dbContext instance;
+        private SqlConnection connection;
+        private static bool connectionDetailsChanged = false;
+        private static string server;
+        private static string database;
+        private static string user;
+        private static string password;
+        public void SetConnectionDetails(string server, string database, string user = null, string password = null)
+        {
+            dbContext.server = server;
+            dbContext.database = database;
+            dbContext.user = user;
+            dbContext.password = password;
+            dbContext.connectionDetailsChanged = true;
+        }
+        public SqlConnection getConnection()
         {
             try
             {
-                //string server = "DESKTOP-QR03KRF";
-                //string server = "LAPTOP-KGGOS1AD\\SQLEXPRESS";
-                string server = "FAMILIAPORTILLO\\SQLEXPRESS";
-                string database = "HealthPortal";
-                SqlConnection conexion = new SqlConnection("Server =" + server +
-                                                                 "; DataBase = " + database +
-                                                                 "; Integrated Security = true");
-                conexion.Open();
-                return conexion;
+                if (connection == null || connection.State == ConnectionState.Closed)
+                {
+                    string connectionString;
+                    if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(password) && connectionDetailsChanged)
+                    {
+                        connectionString = $"Server={server};Database={database};User Id={user};Password={password};";
+                    }
+                    else if (connectionDetailsChanged)
+                    {
+                        connectionString = $"Server={server};Database={database};Integrated Security=True;";
+                    }
+                    else
+                    {
+                        // ESTO CAMBIAN PARA PONER LA DE SUS COMPUTADORAS, NO LAS DE ARRIBA
+                        connectionString = $"Server=FAMILIAPORTILLO\\SQLEXPRESS;Database=HealthPortal;Integrated Security=True;";
+                    }
+                    connection = new SqlConnection(connectionString);
+                    connection.Open();
+                }
+                return connection;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_401");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"{ex.Message} EC-400 No se pudo establecer la conexión con la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }

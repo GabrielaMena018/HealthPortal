@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthPortal.Controller.Settings;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace HealthPortal.View.Settings
         public FrmServerSettings()
         {
             InitializeComponent();
+            ControllerServerSettings control = new ControllerServerSettings(this);
         }
     }
 }

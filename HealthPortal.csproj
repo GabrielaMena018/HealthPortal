@@ -63,6 +63,7 @@
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerSectionAdministration.cs" />
     <Compile Include="Controller\Settings\ControllerInstitutionSettings.cs" />
+    <Compile Include="Controller\Settings\ControllerServerSettings.cs" />
     <Compile Include="Controller\Settings\ControllerSettings.cs" />
     <Compile Include="Controller\Settings\ControllerUserSettings.cs" />
     <Compile Include="Controller\UserAdministration\ControllerAddUpdateUser.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Model\DTO\DTOSectionAdministration.cs" />
     <Compile Include="Model\DTO\DTOPatientAdministration.cs" />
     <Compile Include="Model\DTO\DTOInventoryAdministration.cs" />
+    <Compile Include="Model\DTO\DTOSettings.cs" />
     <Compile Include="Model\DTO\DTOUserAdministration.cs" />
     <Compile Include="Properties\Resources1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -611,6 +613,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\healthPortal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\serverSettings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
