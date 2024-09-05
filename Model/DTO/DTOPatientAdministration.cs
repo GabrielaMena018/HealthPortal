@@ -7,7 +7,7 @@ using HealthPortal.Model;
 
 namespace HealthPortal.Model.DTO
 {
-     internal class DTOPatientAdministration : dbContext
+    internal class DTOPatientAdministration : dbContext
     {
         //Atributos
 
@@ -16,6 +16,7 @@ namespace HealthPortal.Model.DTO
         private string name;
         private string lastName;
         private int role;
+
 
         //Estudiante
         private string code;
@@ -36,6 +37,13 @@ namespace HealthPortal.Model.DTO
         private int idPersona;
         private string personName;
         private string username;
+        private int idVisit;
+
+        //Inventario
+        private int idInventary;
+        private int quantityPackage;
+        private int newQuantity;
+        private int Package;
 
         //Metodos
         public string Name { get => name; set => name = value; }
@@ -55,5 +63,10 @@ namespace HealthPortal.Model.DTO
         public int IdPersona { get => idPersona; set => idPersona = value; }
         public string PersonName { get => personName; set => personName = value; }
         public string Username { get => username; set => username = value; }
+        public int IdInventary { get => idInventary; set => idInventary = value; }
+        public int QuantityPackage { get => quantityPackage; set => quantityPackage = value; }
+        public int NewQuantity { get => newQuantity; set => newQuantity = value; }
+        public int IdVisit { get => idVisit; set => idVisit = value; }
+        public int Package1 { get => Package; set => Package = value; }
     }
 }

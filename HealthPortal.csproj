@@ -62,7 +62,9 @@
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerSectionAdministration.cs" />
+    <Compile Include="Controller\Settings\ControllerAddUpdateSecurityQuestion.cs" />
     <Compile Include="Controller\Settings\ControllerInstitutionSettings.cs" />
+    <Compile Include="Controller\Settings\ControllerProgramSettings.cs" />
     <Compile Include="Controller\Settings\ControllerServerSettings.cs" />
     <Compile Include="Controller\Settings\ControllerSettings.cs" />
     <Compile Include="Controller\Settings\ControllerUserSettings.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Model\DAO\DAOPatientAdministration.cs" />
     <Compile Include="Model\DAO\DAOInventoryAdministration.cs" />
     <Compile Include="Model\DAO\DAOLogin.cs" />
+    <Compile Include="Model\DAO\DAOSettings.cs" />
     <Compile Include="Model\DAO\DAOUserAdministration.cs" />
     <Compile Include="Model\dbContext.cs" />
     <Compile Include="Model\DTO\DTOFirstUsage.cs" />
@@ -197,6 +200,12 @@
     <Compile Include="Resources\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Settings\FrmAddUpdateSecurityQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings\FrmAddUpdateSecurityQuestion.Designer.cs">
+      <DependentUpon>FrmAddUpdateSecurityQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Settings\FrmInstitutionSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,8 +298,14 @@
     <EmbeddedResource Include="Resources\BorderRadiusTXT.resx">
       <DependentUpon>BorderRadiusTXT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings\FrmAddUpdateSecurityQuestion.resx">
+      <DependentUpon>FrmAddUpdateSecurityQuestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Settings\FrmInstitutionSettings.resx">
       <DependentUpon>FrmInstitutionSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings\FrmProgramSettings.resx">
+      <DependentUpon>FrmProgramSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Settings\FrmServerSettings.resx">
       <DependentUpon>FrmServerSettings.cs</DependentUpon>

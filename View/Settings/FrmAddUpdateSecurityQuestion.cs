@@ -1,4 +1,5 @@
 ﻿using HealthPortal.Controller.Settings;
+using HealthPortal.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,12 +12,13 @@ using System.Windows.Forms;
 
 namespace HealthPortal.View.Settings
 {
-    public partial class FrmProgramSettings : Form
+    public partial class FrmAddUpdateSecurityQuestion : Form
     {
-        public FrmProgramSettings()
+        public FrmAddUpdateSecurityQuestion()
         {
             InitializeComponent();
-            ControllerProgramSettings control = new ControllerProgramSettings(this);
+            Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            ControllerAddUpdateSecurityQuestion control = new ControllerAddUpdateSecurityQuestion(this);
         }
     }
 }

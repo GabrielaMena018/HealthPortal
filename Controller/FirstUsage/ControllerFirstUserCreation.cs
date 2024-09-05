@@ -226,9 +226,9 @@ namespace HealthPortal.Controller.FirstUsage
                         else
                         {
                             // Si el correo se envió de manera exitosa, se oculta el formulario actual y se muestra el formulario en el que se tendrá que ingresar el código de confirmación recién generado
-                            FrmEmailVerification objEmailVerification = new FrmEmailVerification(confirmationCode);
+                            FrmEmailVerification frmEmailVerification = new FrmEmailVerification(confirmationCode);
                             frmFirstUserCreation.Hide();
-                            objEmailVerification.Show();
+                            frmEmailVerification.ShowDialog();
                         }
                     }
                     else

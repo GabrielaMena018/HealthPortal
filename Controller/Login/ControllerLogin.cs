@@ -94,7 +94,7 @@ namespace HealthPortal.Controller.Login
                 dao.Username = dao.ValidateToken();
                 if (dao.Username != null && acceptAutomaticLogin)
                 {
-                    if (MessageBox.Show($"Se encontró información de inicio de sesión en esta computadora. ¿Desea iniciar sesión como '{dao.Username}''?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show($"Se encontró información de inicio de sesión en esta computadora. ¿Desea iniciar sesión como '{dao.Username}'?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         dao.TokenLogin();
                         FrmDashboard frmDashboard = new FrmDashboard();

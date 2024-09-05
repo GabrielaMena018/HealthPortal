@@ -1,4 +1,5 @@
 ﻿using CustomPanel;
+using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
 using HealthPortal.Properties;
 using HealthPortal.View.FirstUsage;
@@ -15,36 +16,51 @@ namespace HealthPortal.Controller.FirstUsage
 {
     internal class ControllerEmailVerification
     {
-        FrmEmailVerification objEmailVerification;
+        FrmEmailVerification frmEmailVerification;
         string confirmationCode;
         public ControllerEmailVerification(FrmEmailVerification view, string confirmationCode)
         {
-            objEmailVerification = view;
+            frmEmailVerification = view;
             this.confirmationCode = confirmationCode;
 
-            objEmailVerification.txtConfirmationCode.Enter += new EventHandler(EnterTxtConfirmationCode);
-            objEmailVerification.txtConfirmationCode.Leave += new EventHandler(LeaveTxtConfirmationCode);
-            objEmailVerification.btnExit.MouseEnter += new EventHandler(MouseEnterControl);
-            objEmailVerification.btnExit.MouseLeave += new EventHandler(MouseLeaveControl);
-            objEmailVerification.btnConfirmEmail.MouseEnter += new EventHandler(MouseEnterButton);
-            objEmailVerification.btnConfirmEmail.MouseLeave += new EventHandler(MouseLeaveButton);
-            objEmailVerification.btnExit.Click += new EventHandler(ExitForm);
-            objEmailVerification.btnConfirmEmail.Click += new EventHandler(CompareConfirmationCode);
+            frmEmailVerification.MouseDown += new MouseEventHandler(FormMouseDown);
+            frmEmailVerification.MouseMove += new MouseEventHandler(FormMouseMove);
+            frmEmailVerification.MouseUp += new MouseEventHandler(FormMouseUp);
+            frmEmailVerification.txtConfirmationCode.Enter += new EventHandler(EnterTxtConfirmationCode);
+            frmEmailVerification.txtConfirmationCode.Leave += new EventHandler(LeaveTxtConfirmationCode);
+            frmEmailVerification.btnExit.MouseEnter += new EventHandler(MouseEnterControl);
+            frmEmailVerification.btnExit.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmEmailVerification.btnConfirmEmail.MouseEnter += new EventHandler(MouseEnterButton);
+            frmEmailVerification.btnConfirmEmail.MouseLeave += new EventHandler(MouseLeaveButton);
+            frmEmailVerification.btnExit.Click += new EventHandler(ExitForm);
+            frmEmailVerification.btnConfirmEmail.Click += new EventHandler(CompareConfirmationCode);
+        }
+        private void FormMouseDown(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseDown(sender);
+        }
+        private void FormMouseMove(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseMove(sender);
+        }
+        private void FormMouseUp(object sender, EventArgs e)
+        {
+            CommonMethods.FormMouseUp(sender);
         }
         private void EnterTxtConfirmationCode(object sender, EventArgs e)
         {
-            if (objEmailVerification.txtConfirmationCode.Texts.Trim().Equals("Código de Confirmación"))
+            if (frmEmailVerification.txtConfirmationCode.Texts.Trim().Equals("Código de Confirmación"))
             {
-                objEmailVerification.txtConfirmationCode.Clear();
-                objEmailVerification.txtConfirmationCode.ForeColor = Color.FromArgb(31, 43, 91);
+                frmEmailVerification.txtConfirmationCode.Clear();
+                frmEmailVerification.txtConfirmationCode.ForeColor = Color.FromArgb(31, 43, 91);
             }
         }
         private void LeaveTxtConfirmationCode(object sender, EventArgs e)
         {
-            if (objEmailVerification.txtConfirmationCode.Texts.Trim().Equals(""))
+            if (frmEmailVerification.txtConfirmationCode.Texts.Trim().Equals(""))
             {
-                objEmailVerification.txtConfirmationCode.Texts = "Código de Confirmación";
-                objEmailVerification.txtConfirmationCode.ForeColor = Color.FromArgb(142, 202, 230);
+                frmEmailVerification.txtConfirmationCode.Texts = "Código de Confirmación";
+                frmEmailVerification.txtConfirmationCode.ForeColor = Color.FromArgb(142, 202, 230);
             }
         }
         private void MouseEnterButton(object sender, EventArgs e)
@@ -82,11 +98,11 @@ namespace HealthPortal.Controller.FirstUsage
         }
         private void CompareConfirmationCode(object sender, EventArgs e)
         {
-            if (confirmationCode == objEmailVerification.txtConfirmationCode.Texts.Trim())
+            if (confirmationCode == frmEmailVerification.txtConfirmationCode.Texts.Trim())
             {
                 MessageBox.Show("Correo confirmado de manera exitosa. Registro de primer usuario finalizado exitosamente. De nuevo, ¡bienvenid@ a HealthPortal!", "Correo confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                objEmailVerification.Hide();
-                objEmailVerification.Dispose();
+                frmEmailVerification.Hide();
+                frmEmailVerification.Dispose();
                 FrmLogin objLogin = new FrmLogin();
                 objLogin.Show();
             }

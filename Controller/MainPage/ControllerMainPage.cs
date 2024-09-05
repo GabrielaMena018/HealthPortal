@@ -15,11 +15,17 @@ namespace HealthPortal.Controller.MainPage
         {
             frmMainPage = view;
             frmMainPage.Load += new EventHandler(LoadInstitutionName);
+            frmMainPage.timerDateTime.Tick += new EventHandler(Tick);
         }
         private void LoadInstitutionName(object sender, EventArgs e)
         {
             DAOMainPage dao = new DAOMainPage();
             frmMainPage.lblTitle.Text = $"Página Principal - {dao.GetInstitutionName()}";
+        }
+        private void Tick(object sender, EventArgs e)
+        {
+            frmMainPage.lblTime.Text = DateTime.Now.ToShortTimeString();
+            frmMainPage.lblDate.Text = DateTime.Now.ToLongDateString();
         }
     }
 }

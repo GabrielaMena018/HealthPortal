@@ -20,7 +20,7 @@ namespace HealthPortal.Controller.PatientAdministration
         public ControllerPatientAdministration(FrmPatientAdministration view)
         {
             objPatientAdministration = view;
-            objPatientAdministration.btnNew.Click += new EventHandler(NewStudentPatient);
+            //objPatientAdministration.btnPrint.Click += new EventHandler(NewStudentPatient);
             objPatientAdministration.Load += new EventHandler(InitialCharge);
             objPatientAdministration.cmsActualizar.Click += new EventHandler(UpdatePatient);
             objPatientAdministration.cmsVer.Click += new EventHandler(ViewPatientFile);
@@ -33,9 +33,17 @@ namespace HealthPortal.Controller.PatientAdministration
             objPatientAdministration.CmbGrade.SelectedIndexChanged += new EventHandler(SearchGrado);
             objPatientAdministration.cmbRol.SelectedIndexChanged += new EventHandler(SearchRole);
             objPatientAdministration.btnShowAll.Click += new EventHandler(RefreshStudentData);
+            //objPatientAdministration.btnPDF.Click += new EventHandler(VisitReport);
             objPatientAdministration.PickFechaVisita.Value = DateTime.Now;
 
         }
+
+        //private void VisitReport(object sender, EventArgs e)
+        //{
+        //    FrmReportGeneralPatient openForm = new FrmReportGeneralPatient();
+        //    openForm.ShowDialog();
+        //}
+
         private void CheckUserAccessLevel()
         {
             if (CurrentUserData.RoleId == 4 && CurrentUserData.RoleId == 5)
@@ -82,11 +90,11 @@ namespace HealthPortal.Controller.PatientAdministration
         //Buscar paciente
         private void SearchPatient(object sender, EventArgs e)
         {
-                RefreshPatientData();
-                DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
-                string search = objPatientAdministration.txtSearch.Texts;
-                DataSet ds = daoPatientAdministration.SearchPatient(search);
-                objPatientAdministration.GridViewPatient.DataSource = ds.Tables["viewAdminPacientes"];
+            RefreshPatientData();
+            DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
+            string search = objPatientAdministration.txtSearch.Texts;
+            DataSet ds = daoPatientAdministration.SearchPatient(search);
+            objPatientAdministration.GridViewPatient.DataSource = ds.Tables["viewAdminPacientes"];
         }
 
         private void TextTxt(object sender, EventArgs e)
@@ -143,7 +151,7 @@ namespace HealthPortal.Controller.PatientAdministration
             //Objeto de la clase DAOAdminUsuarios
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
             //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombo
-            
+
             DataSet ds = daoPatientAdministration.FillCombo("tbEspecialidades", "Secciones");
             //Llenar combobox tbRole
             objPatientAdministration.CmbSpecialty.DataSource = ds.Tables["tbEspecialidades"];
@@ -255,8 +263,8 @@ namespace HealthPortal.Controller.PatientAdministration
             if (MessageBox.Show($"¿Esta seguro que desea elimar a:\n {objPatientAdministration.GridViewPatient[1, pos].Value.ToString()} {objPatientAdministration.GridViewPatient[2, pos].Value.ToString()}.\nConsidere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
-                daoPatientAdministration.IdPatient = int.Parse(objPatientAdministration.GridViewPatient[0, pos].Value.ToString());
-                int ValorRetornado = daoPatientAdministration.DeleteRegistrationPatient();
+                daoPatientAdministration.IdVisit = int.Parse(objPatientAdministration.GridViewPatient[0, pos].Value.ToString());
+                int ValorRetornado = daoPatientAdministration.DeleteVisit();
                 if (ValorRetornado == 1)
                 {
                     MessageBox.Show("Registro eliminado", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -269,7 +277,7 @@ namespace HealthPortal.Controller.PatientAdministration
             }
         }
 
-        
-        
+
+
     }
 }

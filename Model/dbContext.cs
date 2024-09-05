@@ -12,7 +12,6 @@ namespace HealthPortal.Model
 {
     public class dbContext
     {
-        private static dbContext instance;
         private SqlConnection connection;
         private static bool connectionDetailsChanged = false;
         private static string server;

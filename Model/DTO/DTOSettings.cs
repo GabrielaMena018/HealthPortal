@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace HealthPortal.Model.DTO
 {
-    internal class DTOSettings
+    internal class DTOSettings : dbContext
     {
-        private string customServer;
-        private string customDataBase;
-        private string customUsername;
-        private string customPassword;
+        private int questionID;
+        private string question;
 
-        public string CustomServer { get => customServer; set => customServer = value; }
-        public string CustomDataBase { get => customDataBase; set => customDataBase = value; }
-        public string CustomUsername { get => customUsername; set => customUsername = value; }
-        public string CustomPassword { get => customPassword; set => customPassword = value; }
+        public int QuestionID { get => questionID; set => questionID = value; }
+        public string Question { get => question; set => question = value; }
     }
 }

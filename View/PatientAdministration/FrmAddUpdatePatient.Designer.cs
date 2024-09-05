@@ -57,13 +57,16 @@
             this.cmbSection = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.txtId = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.txtIdPerson = new System.Windows.Forms.ToolStripTextBox();
             this.txtPatientLastName = new CustomPanel.BorderRadiusTXT();
             this.btnAddPatient = new CustomPanel.RJButton();
             this.btnUpdate = new CustomPanel.RJButton();
             this.txtPatientName = new CustomPanel.BorderRadiusTXT();
             this.pic2 = new System.Windows.Forms.PictureBox();
             this.btnPDF = new CustomPanel.RJButton();
+            this.txtPersona = new CustomPanel.BorderRadiusTXT();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -151,7 +154,7 @@
             this.txtObservations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtObservations.Multiline = true;
             this.txtObservations.Name = "txtObservations";
-            this.txtObservations.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtObservations.Padding = new System.Windows.Forms.Padding(5);
             this.txtObservations.PasswordChar = false;
             this.txtObservations.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtObservations.PlaceholderText = "";
@@ -214,9 +217,9 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label9.Location = new System.Drawing.Point(369, 28);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 28);
+            this.label9.Size = new System.Drawing.Size(55, 28);
             this.label9.TabIndex = 18;
-            this.label9.Text = "Time ";
+            this.label9.Text = "Hora";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dtpRegisterDate
@@ -236,9 +239,9 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(11, 28);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 28);
+            this.label8.Size = new System.Drawing.Size(62, 28);
             this.label8.TabIndex = 16;
-            this.label8.Text = "date ";
+            this.label8.Text = "Fecha";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox4
@@ -437,20 +440,27 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.txtId});
+            this.toolStripTextBox1,
+            this.txtIdPerson});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 31);
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
             // 
-            // txtId
+            // toolStripTextBox1
             // 
-            this.txtId.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(132, 29);
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(132, 27);
+            // 
+            // txtIdPerson
+            // 
+            this.txtIdPerson.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtIdPerson.Name = "txtIdPerson";
+            this.txtIdPerson.Size = new System.Drawing.Size(132, 27);
             // 
             // txtPatientLastName
             // 
@@ -525,7 +535,7 @@
             this.txtPatientName.BorderRadius = 20;
             this.txtPatientName.BorderSize = 1;
             this.txtPatientName.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPatientName.Location = new System.Drawing.Point(36, 110);
+            this.txtPatientName.Location = new System.Drawing.Point(37, 109);
             this.txtPatientName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPatientName.Multiline = false;
             this.txtPatientName.Name = "txtPatientName";
@@ -570,6 +580,40 @@
             this.btnPDF.TextColor = System.Drawing.Color.White;
             this.btnPDF.UseVisualStyleBackColor = false;
             // 
+            // txtPersona
+            // 
+            this.txtPersona.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPersona.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtPersona.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtPersona.BorderRadius = 0;
+            this.txtPersona.BorderSize = 1;
+            this.txtPersona.Enabled = false;
+            this.txtPersona.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPersona.Location = new System.Drawing.Point(487, 27);
+            this.txtPersona.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPersona.Multiline = false;
+            this.txtPersona.Name = "txtPersona";
+            this.txtPersona.Padding = new System.Windows.Forms.Padding(11, 7, 11, 7);
+            this.txtPersona.PasswordChar = false;
+            this.txtPersona.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPersona.PlaceholderText = "";
+            this.txtPersona.Size = new System.Drawing.Size(281, 32);
+            this.txtPersona.TabIndex = 25;
+            this.txtPersona.Texts = "";
+            this.txtPersona.UnderlinedStyle = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(382, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 20);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Atendido Por:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmAddUpdatePatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -577,6 +621,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 860);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtPersona);
             this.Controls.Add(this.pic2);
             this.Controls.Add(this.groupStudent);
             this.Controls.Add(this.btnPDF);
@@ -594,10 +640,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmAddUpdatePatient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Nuevo Paciente";
+            this.Text = "Nueva visita";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -642,11 +689,14 @@
         public System.Windows.Forms.GroupBox groupStudent;
         public CustomPanel.RJButton btnUpdate;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        public System.Windows.Forms.ToolStripTextBox txtId;
+        public System.Windows.Forms.ToolStripTextBox txtIdPerson;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.PictureBox pictureBox4;
         public System.Windows.Forms.PictureBox pictureBox1;
         public CustomPanel.RJButton btnPDF;
         public System.Windows.Forms.PictureBox pic2;
+        public CustomPanel.BorderRadiusTXT txtPersona;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }

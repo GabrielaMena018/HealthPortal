@@ -24,7 +24,7 @@ namespace HealthPortal.View.PatientAdministration
         public FrmAddUpdatePatient(int accion, int IdPaciente, string nombrePaciente, string apellidoPaciente, string TipoPersona, string codigo, string grupoTecnico, string grado, string seccionAcademica, string Especialidad, DateTime FechaVisita, string horaVisita, string nombreMedicamento, string Observaciones)
         {
             InitializeComponent();
-            ControllerAddUpdatePatient control = new ControllerAddUpdatePatient(this,  accion, IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, Especialidad, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
+            ControllerAddUpdatePatient control = new ControllerAddUpdatePatient(this, accion, IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, Especialidad, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
         }
 
 

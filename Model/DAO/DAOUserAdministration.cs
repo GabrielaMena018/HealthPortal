@@ -19,7 +19,6 @@ namespace HealthPortal.Model.DAO
     internal class DAOUserAdministration : DTOUserAdministration
     {
         readonly SqlCommand command = new SqlCommand();
-        CommonMethods commonMethods = new CommonMethods();
         public DataSet GetUserInfo()
         {
             try

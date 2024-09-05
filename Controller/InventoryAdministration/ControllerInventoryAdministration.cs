@@ -30,11 +30,13 @@ namespace HealthPortal.Controller.InventoryAdministration
             objInventoryAdministration.cmsDelete.Click += new EventHandler(DeleteMedicineInventory);
             objInventoryAdministration.cmsView.Click += new EventHandler(ViewMedicineInventory);
             objInventoryAdministration.btnSearch.Click += new EventHandler(SearchMedicineInventory);
-            //objInventoryAdministration.cmsPDF.Click += new EventHandler(printPDF);
-            //DataGridView
-            //objAdminInventory.dgvInventory.CellPainting += new DataGridViewCellPaintingEventHandler(FormatoColumnaGrid);
+            //objInventoryAdministration.btnPrintReport.Click += new EventHandler(ReportInventary);
         }
-
+        //private void ReportInventary(object sender, EventArgs e)
+        //{
+        //    FrmGeneralReportInventory openForm = new FrmGeneralReportInventory();
+        //    openForm.ShowDialog();
+        //}
         public void LoadData(object sender, EventArgs e)
         {
             DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();

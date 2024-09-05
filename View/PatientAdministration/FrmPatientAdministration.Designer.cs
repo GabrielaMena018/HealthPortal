@@ -66,9 +66,9 @@
             this.panelCustumPequeño = new CustomPanel.PanelCustom();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.rjButton4 = new CustomPanel.RJButton();
+            this.btnPDF = new CustomPanel.RJButton();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.rjButton1 = new CustomPanel.RJButton();
+            this.btnPrint = new CustomPanel.RJButton();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -466,9 +466,9 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Controls.Add(this.rjButton4);
+            this.panel6.Controls.Add(this.btnPDF);
             this.panel6.Controls.Add(this.pictureBox6);
-            this.panel6.Controls.Add(this.rjButton1);
+            this.panel6.Controls.Add(this.btnPrint);
             this.panel6.Controls.Add(this.chart1);
             this.panel6.Controls.Add(this.panel4);
             this.panel6.Location = new System.Drawing.Point(0, 0);
@@ -486,25 +486,25 @@
             this.pictureBox7.TabIndex = 17;
             this.pictureBox7.TabStop = false;
             // 
-            // rjButton4
+            // btnPDF
             // 
-            this.rjButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton4.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rjButton4.BorderRadius = 40;
-            this.rjButton4.BorderSize = 0;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(43, 489);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Size = new System.Drawing.Size(96, 46);
-            this.rjButton4.TabIndex = 16;
-            this.rjButton4.Text = "PDF";
-            this.rjButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton4.TextColor = System.Drawing.Color.White;
-            this.rjButton4.UseVisualStyleBackColor = false;
+            this.btnPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPDF.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPDF.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPDF.BorderRadius = 40;
+            this.btnPDF.BorderSize = 0;
+            this.btnPDF.FlatAppearance.BorderSize = 0;
+            this.btnPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPDF.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnPDF.ForeColor = System.Drawing.Color.White;
+            this.btnPDF.Location = new System.Drawing.Point(43, 489);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(96, 46);
+            this.btnPDF.TabIndex = 16;
+            this.btnPDF.Text = "PDF";
+            this.btnPDF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPDF.TextColor = System.Drawing.Color.White;
+            this.btnPDF.UseVisualStyleBackColor = false;
             // 
             // pictureBox6
             // 
@@ -516,25 +516,25 @@
             this.pictureBox6.TabIndex = 15;
             this.pictureBox6.TabStop = false;
             // 
-            // rjButton1
+            // btnPrint
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton1.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.rjButton1.BorderRadius = 40;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(157, 489);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(129, 46);
-            this.rjButton1.TabIndex = 14;
-            this.rjButton1.Text = "Imprimir";
-            this.rjButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.btnPrint.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.btnPrint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
+            this.btnPrint.BorderRadius = 40;
+            this.btnPrint.BorderSize = 0;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Location = new System.Drawing.Point(157, 489);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(129, 46);
+            this.btnPrint.TabIndex = 14;
+            this.btnPrint.Text = "Imprimir";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.TextColor = System.Drawing.Color.White;
+            this.btnPrint.UseVisualStyleBackColor = false;
             // 
             // chart1
             // 
@@ -545,8 +545,16 @@
             this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(0, 157);
             this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.PaleTurquoise,
+        System.Drawing.Color.Gold,
+        System.Drawing.Color.Turquoise,
+        System.Drawing.Color.PowderBlue,
+        System.Drawing.Color.Khaki,
+        System.Drawing.Color.Goldenrod};
             series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart1.Series.Add(series2);
@@ -682,7 +690,7 @@
             this.txtSearch.PasswordChar = false;
             this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSearch.PlaceholderText = "";
-            this.txtSearch.Size = new System.Drawing.Size(219, 43);
+            this.txtSearch.Size = new System.Drawing.Size(219, 55);
             this.txtSearch.TabIndex = 3;
             this.txtSearch.Texts = "Búscar";
             this.txtSearch.UnderlinedStyle = false;
@@ -748,9 +756,9 @@
         private CustomPanel.PanelCustom panelCustumPequeño;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox7;
-        public CustomPanel.RJButton rjButton4;
+        public CustomPanel.RJButton btnPDF;
         private System.Windows.Forms.PictureBox pictureBox6;
-        public CustomPanel.RJButton rjButton1;
+        public CustomPanel.RJButton btnPrint;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
@@ -783,4 +791,3 @@
         public System.Windows.Forms.ComboBox cmbRol;
     }
 }
-

@@ -36,6 +36,9 @@
             this.cmsReestablishPassword = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsViewUser = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsUpdateUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.timerDateTime = new System.Windows.Forms.Timer(this.components);
+            this.lblDate = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.cmsDataGrid.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +102,34 @@
             this.cmsUpdateUser.Size = new System.Drawing.Size(278, 22);
             this.cmsUpdateUser.Text = "Actualizar Información del Usuario";
             // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.lblTime.Location = new System.Drawing.Point(69, 205);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(60);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(174, 77);
+            this.lblTime.TabIndex = 1;
+            this.lblTime.Text = "hora";
+            // 
+            // timerDateTime
+            // 
+            this.timerDateTime.Enabled = true;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.lblDate.Location = new System.Drawing.Point(75, 180);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(60);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(54, 19);
+            this.lblDate.TabIndex = 2;
+            this.lblDate.Text = "fecha";
+            // 
             // FrmMainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,6 +137,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1370, 825);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(1240, 825);
@@ -115,6 +148,7 @@
             this.panel1.PerformLayout();
             this.cmsDataGrid.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -127,5 +161,8 @@
         public System.Windows.Forms.ToolStripMenuItem cmsViewUser;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdateUser;
         public System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.Timer timerDateTime;
+        public System.Windows.Forms.Label lblTime;
+        public System.Windows.Forms.Label lblDate;
     }
 }
