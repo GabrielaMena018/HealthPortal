@@ -88,6 +88,20 @@ namespace HealthPortal.Model.DAO
                         AddVisit();
                         if (respuesta == 1)
                         {
+                            if (respuesta == 1)
+                            {
+                                newInventary();
+                                UpdateInventary();
+                                if (RespuestaUpdate == 1)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    RollBack();
+                                    return 0;
+                                }
+                            }
                             return 1;
                         }
                         else
@@ -202,7 +216,40 @@ namespace HealthPortal.Model.DAO
             }
             consulta.Close();
         }
-        //Este metodo sirve para ingresar la visita
+       
+        public int GetQuantityInventary()
+        {
+            string QueryIdPerson = "SELECT cantidadInventario, cantidadEnvasesInventario FROM [Inventario].[tbEntradaSalidaInventario] WHERE idInventario = @param1";
+            SqlCommand cmdIdPerson = new SqlCommand(QueryIdPerson, command.Connection);
+            cmdIdPerson.Parameters.AddWithValue("param1", Medicine);
+            SqlDataReader consulta = cmdIdPerson.ExecuteReader();
+
+            while (consulta.Read())
+            {
+                QuantityPackage = consulta.GetInt32(0);
+                Package1 = consulta.GetInt32(1);
+                // Suponiendo que IdGrado_Seccion está en el índice 0
+            }
+            consulta.Close();
+
+            return QuantityPackage;
+        }
+
+        public int GetIdVisit()
+        {
+            command.Connection = getConnection();
+            string queryIdVisit = "Select MAX (idVisita) FROM [Visitas].[tbVisitas]";
+            SqlCommand cmdIdVisit = new SqlCommand(queryIdVisit, command.Connection);
+            SqlDataReader consulta = cmdIdVisit.ExecuteReader();
+
+            while (consulta.Read())
+            {
+                IdVisit = consulta.GetInt32(0); // Suponiendo que IdGrado_Seccion está en el índice 0
+            }
+            consulta.Close();
+
+            return IdVisit;
+        }
 
         //Administrar o llenar Data Grid View
 
@@ -323,6 +370,39 @@ namespace HealthPortal.Model.DAO
             }
 
         }
+
+        public int UpdateInventary()
+        {
+            try
+            {
+                string queryUpdateVisita = "UPDATE [Inventario].[tbEntradaSalidaInventario] SET " +
+                                            " cantidadInventario = @param1," +
+                                            " cantidadEnvasesInventario = @param2 " +
+                                            "Where idInventario = @param3";
+                                            
+                SqlCommand cmdUpdateVisita = new SqlCommand(queryUpdateVisita, command.Connection);
+                cmdUpdateVisita.Parameters.AddWithValue("param1", NewQuantity);
+                cmdUpdateVisita.Parameters.AddWithValue("param2", Package1);
+                cmdUpdateVisita.Parameters.AddWithValue("param3", Medicine);
+
+                RespuestaUpdate = cmdUpdateVisita.ExecuteNonQuery();
+                return RespuestaUpdate;
+
+            }
+            catch (SqlException ex)
+            {
+                //EC_003 = No se pudo actualizar la información del apartado o tabla visita
+                MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+
+        }
+
         //DELETE
 
         //Eliminar la tabla de pacientes para asi eliminar el registro de este
@@ -345,7 +425,8 @@ namespace HealthPortal.Model.DAO
             finally { command.Connection.Close(); }
 
         }
-        //eliminar registro de la tabla estudiantes
+       
+   
 
         //Eliminar registro de la tabla visita
         public int DeleteVisit()
@@ -353,9 +434,9 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "DELETE FROM [Visitas].[tbVisitas] WHERE idPaciente = @param1";
+                string query = "DELETE FROM [Visitas].[tbVisitas] WHERE idVisita = @param1";
                 SqlCommand cmdDelete = new SqlCommand(query, command.Connection);
-                cmdDelete.Parameters.AddWithValue("param1", IdPatient);
+                cmdDelete.Parameters.AddWithValue("param1", IdVisit);
                 RespuestaDelete = cmdDelete.ExecuteNonQuery();
                 return RespuestaDelete;
             }
@@ -416,7 +497,7 @@ namespace HealthPortal.Model.DAO
             {
                 command.Connection = getConnection();
                 string query = $"SELECT * FROM [Vistas].[viewAdminPacientes] " +
-                               $"WHERE idPaciente LIKE '%{search}%' " +
+                               $"WHERE idVisita LIKE '%{search}%' " +
                                $"OR nombrePaciente LIKE '%{search}%' " +
                                $"OR apellidoPaciente LIKE '%{search}%' " +
                                $"OR tipoPersona LIKE '%{search}%' " +
@@ -688,6 +769,14 @@ namespace HealthPortal.Model.DAO
             int retorno = cmddel.ExecuteNonQuery();
         }
 
+        public void RollBackVisit()
+        {
+            string query = "DELETE FROM [Visitas].[tbVisitas] WHERE idVisita = @param1";
+            SqlCommand cmddel = new SqlCommand(query, command.Connection);
+            cmddel.Parameters.AddWithValue("param1", IdVisit);
+            int retorno = cmddel.ExecuteNonQuery();
+        }
+
         public int GetCodeIdPatient()
         {
             command.Connection = getConnection();
@@ -711,7 +800,20 @@ namespace HealthPortal.Model.DAO
             AddVisit();
             if (respuesta == 1)
             {
-                return 1;
+                newInventary();
+                UpdateInventary();
+                if (RespuestaUpdate == 1)
+                {
+
+                    return 1;
+                }
+                else
+                {
+                    GetIdVisit();
+                    RollBackVisit();
+                    return 0;
+                 
+                 }
             }
             else if (respuesta == 0)
             {
@@ -723,6 +825,24 @@ namespace HealthPortal.Model.DAO
             }
               
              
+        }
+
+        //Inventario
+        public int newInventary()
+        {
+            GetQuantityInventary();
+            if (QuantityPackage > 0)
+            {
+                NewQuantity = QuantityPackage - 1;
+                return NewQuantity;
+            }
+            else if (QuantityPackage < 0 )
+            {
+                Package1 = Package1 - 1;
+                return Package1;
+            }
+            else { return 0; }
+            
         }
 
     }

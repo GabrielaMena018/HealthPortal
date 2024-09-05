@@ -264,8 +264,8 @@ namespace HealthPortal.Controller.PatientAdministration
             if (MessageBox.Show($"¿Esta seguro que desea elimar a:\n {objPatientAdministration.GridViewPatient[1, pos].Value.ToString()} {objPatientAdministration.GridViewPatient[2, pos].Value.ToString()}.\nConsidere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
-                daoPatientAdministration.IdPatient = int.Parse(objPatientAdministration.GridViewPatient[0, pos].Value.ToString());
-                int ValorRetornado = daoPatientAdministration.DeleteRegistrationPatient();
+                daoPatientAdministration.IdVisit = int.Parse(objPatientAdministration.GridViewPatient[0, pos].Value.ToString());
+                int ValorRetornado = daoPatientAdministration.DeleteVisit();
                 if (ValorRetornado == 1)
                 {
                     MessageBox.Show("Registro eliminado", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -23,6 +23,7 @@ namespace HealthPortal.View.Report.patient
             this.viewGeneralReportPatientTableAdapter.GeneralPatientReport(this.dataSetReportPatient.ViewGeneralReportPatient);
             // TODO: esta línea de código carga datos en la tabla 'dataSet1.viewAdminPacientes' Puede moverla o quitarla según sea 
             this.reportViewer1.RefreshReport();
+
         }
 
         private void btnNew_Click(object sender, EventArgs e)
