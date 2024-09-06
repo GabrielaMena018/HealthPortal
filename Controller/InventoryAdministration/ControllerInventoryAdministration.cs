@@ -124,7 +124,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             {
                 int pos = objInventoryAdministration.dgvInventory.CurrentRow.Index;
                 int id;
-                string nameMedicine, categoryMedicine, stock, description;
+                string nameMedicine, categoryMedicine, stock, stockPackages, description;
                 DateTime expirationDate, income, exit;
                 id = int.Parse(objInventoryAdministration.dgvInventory[0, pos].Value.ToString());
                 nameMedicine = objInventoryAdministration.dgvInventory[1, pos].Value.ToString();
@@ -134,9 +134,10 @@ namespace HealthPortal.Controller.InventoryAdministration
                 income = DateTime.Parse(objInventoryAdministration.dgvInventory[5, pos].Value.ToString());
                 exit = DateTime.Parse(objInventoryAdministration.dgvInventory[6, pos].Value.ToString());
                 stock = objInventoryAdministration.dgvInventory[7, pos].Value.ToString();
+                stockPackages = objInventoryAdministration.dgvInventory[8,pos].Value.ToString();
 
 
-                FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(2, id, nameMedicine, categoryMedicine, expirationDate, stock, income, exit, description);
+                FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(2, id, nameMedicine, categoryMedicine, expirationDate, stock, stockPackages, income, exit, description);
                 openForm.ShowDialog();
                 RefreshData();
             }
@@ -188,7 +189,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             {
                 int pos = objInventoryAdministration.dgvInventory.CurrentRow.Index;
                 int id;
-                string nameMedicine, categoryMedicine, stock, description;
+                string nameMedicine, categoryMedicine, stock, stockPackages, description;
                 DateTime expirationDate, income, exit;
                 id = int.Parse(objInventoryAdministration.dgvInventory[0, pos].Value.ToString());
                 nameMedicine = objInventoryAdministration.dgvInventory[1, pos].Value.ToString();
@@ -198,39 +199,13 @@ namespace HealthPortal.Controller.InventoryAdministration
                 income = DateTime.Parse(objInventoryAdministration.dgvInventory[5, pos].Value.ToString());
                 exit = DateTime.Parse(objInventoryAdministration.dgvInventory[6, pos].Value.ToString());
                 stock = objInventoryAdministration.dgvInventory[7, pos].Value.ToString();
+                stockPackages = objInventoryAdministration.dgvInventory[8,pos].Value.ToString();
 
 
-                FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(3, id, nameMedicine, categoryMedicine, expirationDate, stock, income, exit, description);
+                FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(3, id, nameMedicine, categoryMedicine, expirationDate, stock, stockPackages, income, exit, description);
                 openForm.ShowDialog();
                 RefreshData();
             }
         }
-
-        //private void printPDF(object sender, EventArgs e)
-        //{
-        //    SaveFileDialog save = new SaveFileDialog();
-        //    save.FileName = DateTime.Now.ToString("ddMMyyyy") + ".pdf";
-        //    save.ShowDialog();
-
-        //    string html = "<table border = 1> <tr> <td> HOLA </td> </tr> </table>";
-        //    if (save.ShowDialog() == DialogResult.OK)
-        //    {
-        //        using(FileStream stream = new FileStream(save.FileName, FileMode.Create))
-        //        {
-        //            Document pdf = new Document(PageSize.A4,25, 25, 25, 25);
-
-        //            PdfWriter writter = PdfWriter.GetInstance(pdf, stream);
-        //            pdf.Open();
-        //            pdf.Add(new Phrase(""));
-        //            using (StringReader sr = new StringReader(html))
-        //            {
-        //                XMLWorkerHelper.GetInstance().ParseXHtml(writter, pdf, sr);
-
-        //            }
-        //            pdf.Close();
-        //            stream.Close();
-        //        }
-        //    }
-        //}
     }
 }

@@ -92,7 +92,7 @@ namespace HealthPortal.Controller.Login
             if (!string.IsNullOrEmpty(dao.Token))
             {
                 dao.Username = dao.ValidateToken();
-                if (dao.Username != null && acceptAutomaticLogin)
+                if (!string.IsNullOrEmpty(dao.Username) && acceptAutomaticLogin)
                 {
                     if (MessageBox.Show($"Se encontró información de inicio de sesión en esta computadora. ¿Desea iniciar sesión como '{dao.Username}'?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {

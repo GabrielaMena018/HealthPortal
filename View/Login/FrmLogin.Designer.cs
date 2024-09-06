@@ -81,7 +81,8 @@ namespace HealthPortal.View.Login
             this.llbForgotPassword.Location = new System.Drawing.Point(23, 219);
             this.llbForgotPassword.Name = "llbForgotPassword";
             this.llbForgotPassword.Size = new System.Drawing.Size(124, 16);
-            this.llbForgotPassword.TabIndex = 31;
+            this.llbForgotPassword.TabIndex = 3;
+            this.llbForgotPassword.TabStop = true;
             this.llbForgotPassword.Text = "Olvidé mi contraseña";
             // 
             // btnShowPassword
@@ -135,7 +136,7 @@ namespace HealthPortal.View.Login
             this.btnLogin.Margin = new System.Windows.Forms.Padding(10);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(141, 39);
-            this.btnLogin.TabIndex = 32;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.TabStop = false;
             this.btnLogin.Text = "Iniciar Sesión";
             this.btnLogin.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));

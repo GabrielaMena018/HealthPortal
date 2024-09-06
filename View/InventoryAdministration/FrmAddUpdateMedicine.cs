@@ -19,11 +19,12 @@ namespace HealthPortal.View.InventoryAdministration
             ControllerAddUpdateMedicine control = new ControllerAddUpdateMedicine(this, action);
         }
 
-        public FrmAddUpdateMedicine(int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
+        public FrmAddUpdateMedicine(int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, string stockPackages, DateTime entryDate, DateTime exit, string description)
         {
             InitializeComponent();
-            ControllerAddUpdateMedicine control = new ControllerAddUpdateMedicine(this, action, id, medicineName, medicineCategory, expirationDate, stock, entryDate, exit, description);
+            ControllerAddUpdateMedicine control = new ControllerAddUpdateMedicine(this, action, id, medicineName, medicineCategory, expirationDate, stock, stockPackages, entryDate, exit, description);
         }
 
+   
     }
 }

@@ -57,7 +57,7 @@ namespace HealthPortal.Controller.InventoryAdministration
         /// <param name="exit"></param>
         /// <param name="description"></param>
 
-        public ControllerAddUpdateMedicine(FrmAddUpdateMedicine vista, int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
+        public ControllerAddUpdateMedicine(FrmAddUpdateMedicine vista, int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock,string stockPackages, DateTime entryDate, DateTime exit, string description)
         {
             //Acciones iniciales
             objAddUpdateMedicine = vista;
@@ -66,7 +66,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             //Metodos iniciales ejecutados cuando el formulario esta cargando
             objAddUpdateMedicine.Load += new EventHandler(InitialCharge);
             CheckAction();
-            ChargeValues(id, medicineName, medicineCategory, expirationDate, stock, entryDate, exit, description);
+            ChargeValues(id, medicineName, medicineCategory, expirationDate, stock, stockPackages, entryDate, exit, description);
 
             //Metodos que se ejecutan al ocurrir eventos
             objAddUpdateMedicine.btnUpdateInventory.Click += new EventHandler(UpdateInventory);
@@ -112,12 +112,15 @@ namespace HealthPortal.Controller.InventoryAdministration
             daoInventoryAdministration.IdCategoria = int.Parse(objAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
             daoInventoryAdministration.FechaVencimiento = objAddUpdateMedicine.dtpExpirationDate.Value.Date;
             daoInventoryAdministration.Existencia = int.Parse(objAddUpdateMedicine.numStock.Text.Trim());
-            daoInventoryAdministration.Envases = 1;
+            daoInventoryAdministration.Envases = int.Parse(objAddUpdateMedicine.numStockPackages.Text.Trim());
             daoInventoryAdministration.Ingreso = objAddUpdateMedicine.dtpEntryDate.Value.Date;
             daoInventoryAdministration.Salida = objAddUpdateMedicine.dtpEntryTime.Value.ToString("HH:mm");
             MemoryStream memoryStream = new MemoryStream();
             Image img = objAddUpdateMedicine.picImage.Image;
-            if (objAddUpdateMedicine.txtMedicineName.Texts == "" || objAddUpdateMedicine.dtpExpirationDate.Value.Date <= vencimiento || int.Parse(objAddUpdateMedicine.numStock.Text) == 0 || objAddUpdateMedicine.picImage.Image == null)
+            if ((string.IsNullOrEmpty(objAddUpdateMedicine.txtMedicineName.Text)  ||
+                 objAddUpdateMedicine.dtpExpirationDate.Value.Date <= vencimiento ||
+                 int.Parse(objAddUpdateMedicine.numStock.Text) == 0               ||
+                 int.Parse(objAddUpdateMedicine.numStockPackages.Text) == 0))
             {
                 MessageBox.Show("La fecha de vencimineto debe de ser de 31 dias despues de la fecha de hoy, la cantidad de medicamentos ingreados no es valida o hay campos vacios dentro del formulario, favor revisar de nuevo el ingreso de datos para continuar la inserción", "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -155,6 +158,8 @@ namespace HealthPortal.Controller.InventoryAdministration
 
         public void UpdateInventory(object sender, EventArgs e)
         {
+            DateTime fecha = DateTime.Today;
+            DateTime vencimiento = fecha.AddDays(31);
             DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
             daoInventoryAdministration.IdMedicamento = int.Parse(objAddUpdateMedicine.txtID.Text.Trim());
             daoInventoryAdministration.NombreMedicamento = objAddUpdateMedicine.txtMedicineName.Texts.Trim();
@@ -164,6 +169,13 @@ namespace HealthPortal.Controller.InventoryAdministration
             daoInventoryAdministration.Ingreso = objAddUpdateMedicine.dtpEntryDate.Value.Date;
             daoInventoryAdministration.Salida = objAddUpdateMedicine.dtpEntryTime.Value.ToString("HH:mm");
             daoInventoryAdministration.Descripcion = objAddUpdateMedicine.txtDescription.Texts.Trim();
+            if((string.IsNullOrEmpty(objAddUpdateMedicine.txtMedicineName.Text) ||
+                 objAddUpdateMedicine.dtpExpirationDate.Value.Date <= vencimiento ||
+                 int.Parse(objAddUpdateMedicine.numStock.Text) == 0 ||
+                 int.Parse(objAddUpdateMedicine.numStockPackages.Text) == 0))
+            {
+                MessageBox.Show("Error");
+            }
 
             int returnedValue = daoInventoryAdministration.UpdateInventory();
             if (returnedValue == 2)
@@ -190,7 +202,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             }
         }
 
-        public void ChargeValues(int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
+        public void ChargeValues(int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, string stockPackages, DateTime entryDate, DateTime exit, string description)
         {
             DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
             daoInventoryAdministration.IdMedicamento = id;
@@ -200,6 +212,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             objAddUpdateMedicine.cmbCategory.Text = medicineCategory;
             objAddUpdateMedicine.dtpExpirationDate.Value = expirationDate;
             objAddUpdateMedicine.numStock.Text = stock;
+            objAddUpdateMedicine.numStockPackages.Text = stockPackages;
             objAddUpdateMedicine.dtpEntryDate.Value = entryDate;
             objAddUpdateMedicine.dtpEntryTime.Value = exit;
             objAddUpdateMedicine.txtDescription.Texts = description;
@@ -213,8 +226,6 @@ namespace HealthPortal.Controller.InventoryAdministration
                 objAddUpdateMedicine.btnAddInventory.Enabled = true;
                 objAddUpdateMedicine.btnUpdateInventory.Enabled = false;
                 objAddUpdateMedicine.txtMedicineName.Text = "Nombre del Medicamento";
-                objAddUpdateMedicine.txtMedicineName.Enter += new EventHandler(EnterTxtMedicineName);
-                objAddUpdateMedicine.txtMedicineName.Leave += new EventHandler(LeaveTxtMedicineName);
             }
             else if (action == 2)
             {
@@ -242,29 +253,12 @@ namespace HealthPortal.Controller.InventoryAdministration
                 objAddUpdateMedicine.dtpEntryDate.CalendarTitleBackColor = Color.White;
                 objAddUpdateMedicine.numStock.Enabled = false;
                 objAddUpdateMedicine.numStock.BackColor = Color.White;
+                objAddUpdateMedicine.numStockPackages.Enabled = false;
+                objAddUpdateMedicine.numStockPackages.BackColor = Color.White;
                 objAddUpdateMedicine.btnAddImage.Visible = false;
                 objAddUpdateMedicine.cmbCategory.Enabled = false;
                 objAddUpdateMedicine.cmbCategory.BackColor = Color.White;
 
-            }
-        }
-
-        public void EnterTxtMedicineName(object sender, EventArgs e)
-        {
-            if (objAddUpdateMedicine.txtMedicineName.Texts.Trim().Equals("Nombre del medicamento"))
-            {
-                objAddUpdateMedicine.txtMedicineName.Clear();
-                objAddUpdateMedicine.BackColor = Color.White;
-                objAddUpdateMedicine.lblName.Visible = true;
-            }
-        }
-
-        public void LeaveTxtMedicineName(object sender, EventArgs e)
-        {
-            if (objAddUpdateMedicine.txtMedicineName.Texts.Trim().Equals(" "))
-            {
-                objAddUpdateMedicine.txtMedicineName.Texts = "Tato";
-                objAddUpdateMedicine.txtMedicineName.ForeColor = Color.FromArgb(142, 202, 230);
             }
         }
     }

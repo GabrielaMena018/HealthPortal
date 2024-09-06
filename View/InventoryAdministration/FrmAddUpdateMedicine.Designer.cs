@@ -48,8 +48,11 @@
             this.btnAddInventory = new CustomPanel.RJButton();
             this.txtDescription = new CustomPanel.BorderRadiusTXT();
             this.txtMedicineName = new CustomPanel.BorderRadiusTXT();
+            this.numStockPackages = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStockPackages)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -57,9 +60,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.lblTitle.Location = new System.Drawing.Point(14, 25);
+            this.lblTitle.Location = new System.Drawing.Point(9, 16);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(479, 61);
+            this.lblTitle.Size = new System.Drawing.Size(320, 41);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "Ingreso de Inventario";
             // 
@@ -68,9 +72,10 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label12.Location = new System.Drawing.Point(370, 432);
+            this.label12.Location = new System.Drawing.Point(419, 307);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(249, 32);
+            this.label12.Size = new System.Drawing.Size(160, 21);
             this.label12.TabIndex = 28;
             this.label12.Text = "Fecha de vencimineto";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -80,9 +85,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(651, 322);
+            this.label3.Location = new System.Drawing.Point(410, 214);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(231, 32);
+            this.label3.Size = new System.Drawing.Size(152, 21);
             this.label3.TabIndex = 25;
             this.label3.Text = "Capsulas por envase";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,9 +98,10 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblName.Location = new System.Drawing.Point(376, 105);
+            this.lblName.Location = new System.Drawing.Point(251, 68);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(297, 32);
+            this.lblName.Size = new System.Drawing.Size(192, 21);
             this.lblName.TabIndex = 24;
             this.lblName.Text = "Nombre del Medicamento";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -103,11 +110,11 @@
             // 
             this.dtpExpirationDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpExpirationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpExpirationDate.Location = new System.Drawing.Point(382, 469);
-            this.dtpExpirationDate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.dtpExpirationDate.Location = new System.Drawing.Point(424, 337);
+            this.dtpExpirationDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtpExpirationDate.Name = "dtpExpirationDate";
-            this.dtpExpirationDate.Size = new System.Drawing.Size(206, 35);
-            this.dtpExpirationDate.TabIndex = 30;
+            this.dtpExpirationDate.Size = new System.Drawing.Size(139, 26);
+            this.dtpExpirationDate.TabIndex = 6;
             this.dtpExpirationDate.Value = new System.DateTime(2024, 6, 24, 12, 39, 57, 0);
             // 
             // label4
@@ -115,9 +122,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(651, 432);
+            this.label4.Location = new System.Drawing.Point(335, 379);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(185, 32);
+            this.label4.Size = new System.Drawing.Size(121, 21);
             this.label4.TabIndex = 31;
             this.label4.Text = "Hora de Ingreso";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -127,9 +135,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(376, 322);
+            this.label5.Location = new System.Drawing.Point(251, 307);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(196, 32);
+            this.label5.Size = new System.Drawing.Size(127, 21);
             this.label5.TabIndex = 32;
             this.label5.Text = "Fecha de ingreso";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -139,9 +148,10 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblDescription.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDescription.Location = new System.Drawing.Point(26, 532);
+            this.lblDescription.Location = new System.Drawing.Point(17, 423);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(138, 32);
+            this.lblDescription.Size = new System.Drawing.Size(91, 21);
             this.lblDescription.TabIndex = 35;
             this.lblDescription.Text = "Descripción";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -151,30 +161,32 @@
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblCategory.Location = new System.Drawing.Point(376, 222);
+            this.lblCategory.Location = new System.Drawing.Point(251, 144);
+            this.lblCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(311, 32);
+            this.lblCategory.Size = new System.Drawing.Size(201, 21);
             this.lblCategory.TabIndex = 41;
             this.lblCategory.Text = "Categoría del Medicamento";
             this.lblCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmbCategory
             // 
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(374, 257);
+            this.cmbCategory.Location = new System.Drawing.Point(249, 167);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(506, 37);
-            this.cmbCategory.TabIndex = 42;
+            this.cmbCategory.Size = new System.Drawing.Size(339, 28);
+            this.cmbCategory.TabIndex = 2;
             // 
             // txtID
             // 
-            this.txtID.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.txtID.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.txtID.Location = new System.Drawing.Point(0, 0);
             this.txtID.Name = "txtID";
-            this.txtID.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
-            this.txtID.Size = new System.Drawing.Size(904, 24);
+            this.txtID.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.txtID.Size = new System.Drawing.Size(603, 24);
             this.txtID.TabIndex = 45;
             this.txtID.Text = "menuStrip1";
             // 
@@ -182,34 +194,38 @@
             // 
             this.dtpEntryTime.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEntryTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEntryTime.Location = new System.Drawing.Point(657, 471);
+            this.dtpEntryTime.Location = new System.Drawing.Point(339, 404);
+            this.dtpEntryTime.Margin = new System.Windows.Forms.Padding(2);
             this.dtpEntryTime.Name = "dtpEntryTime";
-            this.dtpEntryTime.Size = new System.Drawing.Size(205, 34);
-            this.dtpEntryTime.TabIndex = 47;
+            this.dtpEntryTime.Size = new System.Drawing.Size(138, 25);
+            this.dtpEntryTime.TabIndex = 7;
             // 
             // dtpEntryDate
             // 
             this.dtpEntryDate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEntryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEntryDate.Location = new System.Drawing.Point(382, 357);
+            this.dtpEntryDate.Location = new System.Drawing.Point(256, 338);
+            this.dtpEntryDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpEntryDate.Name = "dtpEntryDate";
-            this.dtpEntryDate.Size = new System.Drawing.Size(216, 34);
-            this.dtpEntryDate.TabIndex = 46;
+            this.dtpEntryDate.Size = new System.Drawing.Size(145, 25);
+            this.dtpEntryDate.TabIndex = 5;
             // 
             // numStock
             // 
             this.numStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numStock.Location = new System.Drawing.Point(670, 357);
+            this.numStock.Location = new System.Drawing.Point(423, 250);
+            this.numStock.Margin = new System.Windows.Forms.Padding(2);
             this.numStock.Name = "numStock";
-            this.numStock.Size = new System.Drawing.Size(192, 35);
-            this.numStock.TabIndex = 52;
+            this.numStock.Size = new System.Drawing.Size(128, 26);
+            this.numStock.TabIndex = 4;
             // 
             // picImage
             // 
             this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picImage.Location = new System.Drawing.Point(32, 105);
+            this.picImage.Location = new System.Drawing.Point(21, 68);
+            this.picImage.Margin = new System.Windows.Forms.Padding(2);
             this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(314, 347);
+            this.picImage.Size = new System.Drawing.Size(210, 295);
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picImage.TabIndex = 53;
             this.picImage.TabStop = false;
@@ -225,11 +241,11 @@
             this.btnUpdateInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateInventory.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateInventory.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdateInventory.Location = new System.Drawing.Point(522, 848);
-            this.btnUpdateInventory.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnUpdateInventory.Location = new System.Drawing.Point(367, 623);
+            this.btnUpdateInventory.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUpdateInventory.Name = "btnUpdateInventory";
-            this.btnUpdateInventory.Size = new System.Drawing.Size(165, 49);
-            this.btnUpdateInventory.TabIndex = 43;
+            this.btnUpdateInventory.Size = new System.Drawing.Size(110, 32);
+            this.btnUpdateInventory.TabIndex = 11;
             this.btnUpdateInventory.Text = "Actualizar";
             this.btnUpdateInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateInventory.TextColor = System.Drawing.Color.Black;
@@ -246,11 +262,11 @@
             this.btnAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddImage.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddImage.ForeColor = System.Drawing.Color.Black;
-            this.btnAddImage.Location = new System.Drawing.Point(32, 457);
-            this.btnAddImage.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnAddImage.Location = new System.Drawing.Point(17, 375);
+            this.btnAddImage.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddImage.Name = "btnAddImage";
-            this.btnAddImage.Size = new System.Drawing.Size(153, 48);
-            this.btnAddImage.TabIndex = 38;
+            this.btnAddImage.Size = new System.Drawing.Size(102, 31);
+            this.btnAddImage.TabIndex = 9;
             this.btnAddImage.Text = "Agregar";
             this.btnAddImage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddImage.TextColor = System.Drawing.Color.Black;
@@ -267,11 +283,11 @@
             this.btnAddInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddInventory.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddInventory.ForeColor = System.Drawing.Color.Black;
-            this.btnAddInventory.Location = new System.Drawing.Point(722, 840);
-            this.btnAddInventory.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnAddInventory.Location = new System.Drawing.Point(481, 623);
+            this.btnAddInventory.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddInventory.Name = "btnAddInventory";
-            this.btnAddInventory.Size = new System.Drawing.Size(141, 49);
-            this.btnAddInventory.TabIndex = 37;
+            this.btnAddInventory.Size = new System.Drawing.Size(94, 32);
+            this.btnAddInventory.TabIndex = 10;
             this.btnAddInventory.Text = "Agregar";
             this.btnAddInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddInventory.TextColor = System.Drawing.Color.Black;
@@ -285,16 +301,17 @@
             this.txtDescription.BorderRadius = 20;
             this.txtDescription.BorderSize = 1;
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtDescription.Location = new System.Drawing.Point(26, 569);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtDescription.Location = new System.Drawing.Point(17, 447);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtDescription.MaxLength = 32767;
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.txtDescription.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtDescription.PasswordChar = false;
             this.txtDescription.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDescription.PlaceholderText = "";
-            this.txtDescription.Size = new System.Drawing.Size(856, 248);
-            this.txtDescription.TabIndex = 36;
+            this.txtDescription.Size = new System.Drawing.Size(571, 161);
+            this.txtDescription.TabIndex = 8;
             this.txtDescription.Texts = "";
             this.txtDescription.UnderlinedStyle = false;
             // 
@@ -306,26 +323,51 @@
             this.txtMedicineName.BorderRadius = 20;
             this.txtMedicineName.BorderSize = 1;
             this.txtMedicineName.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtMedicineName.Location = new System.Drawing.Point(375, 152);
-            this.txtMedicineName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtMedicineName.Location = new System.Drawing.Point(250, 99);
+            this.txtMedicineName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtMedicineName.MaxLength = 32767;
             this.txtMedicineName.Multiline = false;
             this.txtMedicineName.Name = "txtMedicineName";
-            this.txtMedicineName.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.txtMedicineName.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtMedicineName.PasswordChar = false;
             this.txtMedicineName.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMedicineName.PlaceholderText = "";
-            this.txtMedicineName.Size = new System.Drawing.Size(514, 63);
-            this.txtMedicineName.TabIndex = 26;
+            this.txtMedicineName.Size = new System.Drawing.Size(343, 32);
+            this.txtMedicineName.TabIndex = 1;
             this.txtMedicineName.Texts = "";
             this.txtMedicineName.UnderlinedStyle = false;
             // 
+            // numStockPackages
+            // 
+            this.numStockPackages.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numStockPackages.Location = new System.Drawing.Point(255, 250);
+            this.numStockPackages.Margin = new System.Windows.Forms.Padding(2);
+            this.numStockPackages.Name = "numStockPackages";
+            this.numStockPackages.Size = new System.Drawing.Size(128, 26);
+            this.numStockPackages.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(245, 214);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(152, 21);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Cantidad de Envases";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmAddUpdateMedicine
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(904, 922);
+            this.ClientSize = new System.Drawing.Size(603, 669);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numStockPackages);
             this.Controls.Add(this.picImage);
             this.Controls.Add(this.numStock);
             this.Controls.Add(this.dtpEntryTime);
@@ -348,11 +390,13 @@
             this.Controls.Add(this.txtID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.txtID;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmAddUpdateMedicine";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmAddUpdateMedicine";
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStockPackages)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,5 +423,7 @@
         public System.Windows.Forms.Label lblName;
         public System.Windows.Forms.Label lblCategory;
         public System.Windows.Forms.Label lblDescription;
+        public System.Windows.Forms.NumericUpDown numStockPackages;
+        private System.Windows.Forms.Label label1;
     }
 }
