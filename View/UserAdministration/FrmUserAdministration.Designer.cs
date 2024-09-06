@@ -140,9 +140,11 @@
             this.dgvUserDisplay.BackgroundColor = System.Drawing.Color.White;
             this.dgvUserDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUserDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserDisplay.ContextMenuStrip = this.cmsDataGrid;
             this.dgvUserDisplay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.dgvUserDisplay.Location = new System.Drawing.Point(0, 0);
             this.dgvUserDisplay.Name = "dgvUserDisplay";
+            this.dgvUserDisplay.ReadOnly = true;
             this.dgvUserDisplay.Size = new System.Drawing.Size(908, 641);
             this.dgvUserDisplay.TabIndex = 0;
             // 

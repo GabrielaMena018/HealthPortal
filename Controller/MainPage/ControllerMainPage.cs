@@ -24,7 +24,7 @@ namespace HealthPortal.Controller.MainPage
         }
         private void Tick(object sender, EventArgs e)
         {
-            frmMainPage.lblTime.Text = DateTime.Now.ToShortTimeString();
+            frmMainPage.lblTime.Text = DateTime.Now.ToLongTimeString();
             frmMainPage.lblDate.Text = DateTime.Now.ToLongDateString();
         }
     }

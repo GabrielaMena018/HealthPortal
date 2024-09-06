@@ -24,7 +24,7 @@ namespace HealthPortal.Model
             dbContext.database = database;
             dbContext.user = user;
             dbContext.password = password;
-            dbContext.connectionDetailsChanged = true;
+            connectionDetailsChanged = true;
         }
         public SqlConnection getConnection()
         {
@@ -44,7 +44,8 @@ namespace HealthPortal.Model
                     else
                     {
                         // ESTO CAMBIAN PARA PONER LA DE SUS COMPUTADORAS, NO LAS DE ARRIBA
-                        connectionString = $"Server=FAMILIAPORTILLO\\SQLEXPRESS;Database=HealthPortal;Integrated Security=True;";
+                        connectionString = $"Server=DESKTOP-QR03KRF;Database=HealthPortal;Integrated Security=True;";
+                        // connectionString = $"Server=FAMILIAPORTILLO\\SQLEXPRESS;Database=HealthPortal;Integrated Security=True;";
                     }
                     connection = new SqlConnection(connectionString);
                     connection.Open();
