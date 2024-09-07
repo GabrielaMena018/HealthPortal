@@ -1,14 +1,18 @@
 ﻿using CustomPanel;
+using HealthPortal.Helper;
 using HealthPortal.Model;
+using HealthPortal.Model.DTO;
 using HealthPortal.View.Login;
 using HealthPortal.View.Settings;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace HealthPortal.Controller.Settings
 {
@@ -45,6 +49,24 @@ namespace HealthPortal.Controller.Settings
 
             frmServerSettings.btnSaveConfig.MouseEnter += new EventHandler(MouseEnterTextButton);
             frmServerSettings.btnSaveConfig.MouseLeave += new EventHandler(MouseLeaveTextButton);
+
+            VerifyOrigin();
+        }
+        private void VerifyOrigin()
+        {
+            if (CurrentUserData.ServerSettingsOrigin == 1)
+            {
+                CommonMethods.EnableFormDrag(frmServerSettings, frmServerSettings);
+                CommonMethods.EnableFormDrag(frmServerSettings, frmServerSettings.picImage);
+                CommonMethods.EnableFormDrag(frmServerSettings, frmServerSettings.pnlTitle);
+            }
+            else
+            {
+                frmServerSettings.txtServerURL.Texts = DTOdbContext.Server;
+                frmServerSettings.txtDataBase.Texts = DTOdbContext.Database;
+                frmServerSettings.txtSQLAuth.Texts = DTOdbContext.User;
+                frmServerSettings.txtPassword.Texts = DTOdbContext.Password;
+            }
         }
         private void MouseEnterTextButton(object sender, EventArgs e)
         {
@@ -79,21 +101,65 @@ namespace HealthPortal.Controller.Settings
         }
         private void SaveDataBaseConfiguration(object sender, EventArgs e)
         {
-            if ((!string.IsNullOrEmpty(frmServerSettings.txtServerURL.Texts.Trim()) || !string.IsNullOrEmpty(frmServerSettings.txtDataBase.Texts.Trim()) || !string.IsNullOrEmpty(frmServerSettings.txtSQLAuth.Texts.Trim()) || !string.IsNullOrEmpty(frmServerSettings.txtPassword.Texts.Trim()) || !(frmServerSettings.txtServerURL.Texts.Trim() == "URL del servidor") || !(frmServerSettings.txtDataBase.Texts.Trim() == "Nombre de la base de datos") || !(frmServerSettings.txtSQLAuth.Texts.Trim() == "Autenticación SQL") || !(frmServerSettings.txtPassword.Texts.Trim() == "Contraseña")) && MessageBox.Show("¿Seguro que desea cambiar la información de conexión? Esto podría, potencialmente, inhabilitar completamente el funcionamiento del programa. Asegúrese de haber ingresado información correcta.", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                dbContext dbContext = new dbContext();
-                dbContext.SetConnectionDetails(frmServerSettings.txtServerURL.Texts.Trim(), frmServerSettings.txtDataBase.Texts.Trim(), frmServerSettings.txtSQLAuth.Texts.Trim(), frmServerSettings.txtPassword.Texts.Trim());
+                XmlDocument doc = new XmlDocument();
+                XmlDeclaration decl = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+                doc.AppendChild(decl);
+                XmlElement root = doc.CreateElement("connection");
+                doc.AppendChild(root);
+                XmlElement server = doc.CreateElement("server");
+                string codedServer = CommonMethods.CodeString(frmServerSettings.txtServerURL.Texts.Trim());
+
+                server.InnerText = codedServer;
+                root.AppendChild(server);
+
+                XmlElement Database = doc.CreateElement("database");
+                string codedDatabase = CommonMethods.CodeString(frmServerSettings.txtDataBase.Texts.Trim());
+                Database.InnerText = codedDatabase;
+                root.AppendChild(Database);
+                XmlElement SqlAuth = doc.CreateElement("sqlAuth");
+                XmlElement SqlPassword = doc.CreateElement("SqlPassword");
+
+                if (frmServerSettings.rdoTrue.Checked == true)
+                {
+                    string codedSqlAuth = CommonMethods.CodeString(frmServerSettings.txtSQLAuth.Texts.Trim());
+                    SqlAuth.InnerText = codedSqlAuth;
+
+                    string codedSqlPassword = CommonMethods.CodeString(frmServerSettings.txtPassword.Texts.Trim());
+                    SqlPassword.InnerText = codedSqlPassword;
+                }
+                else
+                {
+                    SqlAuth.InnerText = string.Empty;
+
+                    SqlPassword.InnerText = string.Empty;
+                }
+
+                root.AppendChild(SqlAuth);
+                root.AppendChild(SqlPassword);
+
+                SqlConnection connection = dbContext.testConnection(frmServerSettings.txtServerURL.Texts.Trim(), frmServerSettings.txtDataBase.Texts.Trim(), frmServerSettings.txtSQLAuth.Texts.Trim(), frmServerSettings.txtPassword.Texts.Trim());
+                if (connection != null)
+                {
+                    doc.Save("config_server.xml");
+                    DTOdbContext.Server = frmServerSettings.txtServerURL.Texts.Trim();
+                    DTOdbContext.Database = frmServerSettings.txtDataBase.Texts.Trim();
+                    DTOdbContext.User = frmServerSettings.txtSQLAuth.Texts.Trim();
+                    DTOdbContext.Password = frmServerSettings.txtPassword.Texts.Trim();
+                    MessageBox.Show($"El archivo fue creado exitosamente.", "Archivo de configuración", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmServerSettings.Dispose();
+                }
             }
-            else
+            catch (XmlException)
             {
-                MessageBox.Show("Parece que algunos campos están vacíos. Asegúrese de llenar todos los campos e intente de nuevo.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pudo crear el archivo de configuración.", "Consulte el manual técnico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void ResizeControls(object sender, EventArgs e)
         {
             if (frmServerSettings.Width == expandedFormWidth)
             {
-                // frmServerSettings.panel2.Location = new Point(48, 120);
                 frmServerSettings.panel2.Size = expandedPnlSize;
                 frmServerSettings.grpConnectionInfo.Size = expandedGrpSize;
                 frmServerSettings.grpLocalConfig.Size = expandedGrpSize;
@@ -104,7 +170,6 @@ namespace HealthPortal.Controller.Settings
             }
             else
             {
-                // frmServerSettings.panel2.Location = new Point(0, 120);
                 frmServerSettings.panel2.Size = collapsedPnlSize;
                 frmServerSettings.grpConnectionInfo.Size = collapsedGrpSize;
                 frmServerSettings.grpLocalConfig.Size = collapsedGrpSize;

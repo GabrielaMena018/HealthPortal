@@ -34,9 +34,9 @@ namespace HealthPortal.Controller.Login
                 { "btnTestConnection", Tuple.Create(Resources.wifi, Resources.hoverWifi) }
             };
 
-            frmLogin.MouseDown += new MouseEventHandler(FormMouseDown);
-            frmLogin.MouseMove += new MouseEventHandler(FormMouseMove);
-            frmLogin.MouseUp += new MouseEventHandler(FormMouseUp);
+            frmLogin.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
+            frmLogin.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
+            frmLogin.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
 
             frmLogin.Load += new EventHandler(ShowPassword);
 
@@ -71,18 +71,6 @@ namespace HealthPortal.Controller.Login
 
             frmLogin.btnLogin.MouseEnter += new EventHandler(MouseEnterTextButton);
             frmLogin.btnLogin.MouseLeave += new EventHandler(MouseLeaveTextButton);
-        }
-        private void FormMouseDown(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseDown(sender);
-        }
-        private void FormMouseMove(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseMove(sender);
-        }
-        private void FormMouseUp(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseUp(sender);
         }
         private async void ExistingToken(object sender, EventArgs e)
         {

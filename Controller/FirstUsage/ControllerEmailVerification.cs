@@ -23,9 +23,9 @@ namespace HealthPortal.Controller.FirstUsage
             frmEmailVerification = view;
             this.confirmationCode = confirmationCode;
 
-            frmEmailVerification.MouseDown += new MouseEventHandler(FormMouseDown);
-            frmEmailVerification.MouseMove += new MouseEventHandler(FormMouseMove);
-            frmEmailVerification.MouseUp += new MouseEventHandler(FormMouseUp);
+            frmEmailVerification.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
+            frmEmailVerification.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
+            frmEmailVerification.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
             frmEmailVerification.txtConfirmationCode.Enter += new EventHandler(EnterTxtConfirmationCode);
             frmEmailVerification.txtConfirmationCode.Leave += new EventHandler(LeaveTxtConfirmationCode);
             frmEmailVerification.btnExit.MouseEnter += new EventHandler(MouseEnterControl);
@@ -34,18 +34,6 @@ namespace HealthPortal.Controller.FirstUsage
             frmEmailVerification.btnConfirmEmail.MouseLeave += new EventHandler(MouseLeaveButton);
             frmEmailVerification.btnExit.Click += new EventHandler(ExitForm);
             frmEmailVerification.btnConfirmEmail.Click += new EventHandler(CompareConfirmationCode);
-        }
-        private void FormMouseDown(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseDown(sender);
-        }
-        private void FormMouseMove(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseMove(sender);
-        }
-        private void FormMouseUp(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseUp(sender);
         }
         private void EnterTxtConfirmationCode(object sender, EventArgs e)
         {

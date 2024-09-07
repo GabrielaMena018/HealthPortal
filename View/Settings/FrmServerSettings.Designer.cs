@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServerSettings));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelCustom1 = new CustomPanel.PanelCustom();
             this.grpLocalConfig = new System.Windows.Forms.GroupBox();
             this.pnlAuth = new System.Windows.Forms.Panel();
@@ -47,29 +45,31 @@
             this.grpConnectionInfo = new System.Windows.Forms.GroupBox();
             this.txtDataBase = new CustomPanel.BorderRadiusTXT();
             this.txtServerURL = new CustomPanel.BorderRadiusTXT();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnSaveConfig = new CustomPanel.RJButton();
-            this.panel1.SuspendLayout();
+            this.picImage = new System.Windows.Forms.PictureBox();
+            this.pnlTitle.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelCustom1.SuspendLayout();
             this.grpLocalConfig.SuspendLayout();
             this.pnlAuth.SuspendLayout();
             this.panel5.SuspendLayout();
             this.grpConnectionInfo.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlTitle
             // 
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1090, 120);
-            this.panel1.TabIndex = 1;
+            this.pnlTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.pnlTitle.Controls.Add(this.lblTitle);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlTitle.Name = "pnlTitle";
+            this.pnlTitle.Size = new System.Drawing.Size(1090, 120);
+            this.pnlTitle.TabIndex = 1;
             // 
             // lblTitle
             // 
@@ -92,26 +92,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1034, 528);
             this.panel2.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnSaveConfig);
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(400, 528);
-            this.panel3.TabIndex = 5;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 528);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // panelCustom1
             // 
@@ -322,6 +302,16 @@
             this.txtServerURL.Texts = "URL del servidor";
             this.txtServerURL.UnderlinedStyle = false;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnSaveConfig);
+            this.panel3.Controls.Add(this.picImage);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(400, 528);
+            this.panel3.TabIndex = 5;
+            // 
             // btnSaveConfig
             // 
             this.btnSaveConfig.BackColor = System.Drawing.Color.White;
@@ -345,6 +335,16 @@
             this.btnSaveConfig.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnSaveConfig.UseVisualStyleBackColor = false;
             // 
+            // picImage
+            // 
+            this.picImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picImage.Image = ((System.Drawing.Image)(resources.GetObject("picImage.Image")));
+            this.picImage.Location = new System.Drawing.Point(0, 0);
+            this.picImage.Name = "picImage";
+            this.picImage.Size = new System.Drawing.Size(400, 528);
+            this.picImage.TabIndex = 1;
+            this.picImage.TabStop = false;
+            // 
             // FrmServerSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,33 +353,31 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1090, 705);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(986, 705);
             this.Name = "FrmServerSettings";
-            this.Text = "FrmUserAdministration";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Configuración de Servidor";
+            this.pnlTitle.ResumeLayout(false);
+            this.pnlTitle.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelCustom1.ResumeLayout(false);
             this.grpLocalConfig.ResumeLayout(false);
             this.pnlAuth.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.grpConnectionInfo.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitle;
         public System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.GroupBox grpLocalConfig;
         public System.Windows.Forms.GroupBox grpConnectionInfo;
         public CustomPanel.PanelCustom panelCustom1;
@@ -394,5 +392,7 @@
         public System.Windows.Forms.Panel pnlAuth;
         public System.Windows.Forms.RadioButton rdoFalse;
         public System.Windows.Forms.RadioButton rdoTrue;
+        public System.Windows.Forms.PictureBox picImage;
+        public System.Windows.Forms.Panel pnlTitle;
     }
 }

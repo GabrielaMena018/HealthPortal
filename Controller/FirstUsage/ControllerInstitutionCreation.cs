@@ -36,9 +36,9 @@ namespace HealthPortal.Controller.FirstUsage
             };
 
             // Eventos para mover el formulario
-            frmInstitutionCreation.MouseDown += new MouseEventHandler(FormMouseDown);
-            frmInstitutionCreation.MouseMove += new MouseEventHandler(FormMouseMove);
-            frmInstitutionCreation.MouseUp += new MouseEventHandler(FormMouseUp);
+            frmInstitutionCreation.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
+            frmInstitutionCreation.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
+            frmInstitutionCreation.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
 
             // Eventos "por defecto"
             frmInstitutionCreation.Load += new EventHandler(LoadCombobox);
@@ -82,18 +82,6 @@ namespace HealthPortal.Controller.FirstUsage
             frmInstitutionCreation.cmbInstitutionType.DataSource = ds.Tables["tbCategoríaInstitución"];
             frmInstitutionCreation.cmbInstitutionType.ValueMember = "idCategoríaInstitución";
             frmInstitutionCreation.cmbInstitutionType.DisplayMember = "categoríaInstitución";
-        }
-        private void FormMouseDown(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseDown(sender);
-        }
-        private void FormMouseMove(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseMove(sender);
-        }
-        private void FormMouseUp(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseUp(sender);
         }
 
         /// <summary>

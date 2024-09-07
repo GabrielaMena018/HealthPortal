@@ -82,6 +82,7 @@
     <Compile Include="Model\DAO\DAOSettings.cs" />
     <Compile Include="Model\DAO\DAOUserAdministration.cs" />
     <Compile Include="Model\dbContext.cs" />
+    <Compile Include="Model\DTO\DTOdbContext.cs" />
     <Compile Include="Model\DTO\DTOFirstUsage.cs" />
     <Compile Include="Model\DTO\DTOLogin.cs" />
     <Compile Include="Model\DTO\DTOMainPage.cs" />

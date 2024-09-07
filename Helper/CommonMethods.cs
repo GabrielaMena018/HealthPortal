@@ -10,11 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthPortal.Model.DAO;
+using HealthPortal.Model.DTO;
 using HealthPortal.View.FirstUsage;
 using HealthPortal.View.Login;
 using System.Drawing;
 using System.IO;
 using CustomPanel;
+using System.Xml;
+using HealthPortal.View.Settings;
+using System.Runtime.CompilerServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace HealthPortal.Helper
 {
@@ -22,6 +27,9 @@ namespace HealthPortal.Helper
     {
         static bool dragging = false;
         static Point dragCursorPoint, dragFormPoint;
+        const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         public static extern IntPtr CreateRoundRectRgn
         (
@@ -32,9 +40,76 @@ namespace HealthPortal.Helper
             int nWidthEllipse, // width of ellipse
             int nHeightEllipse // height of ellipse
         );
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        public static void ReadXMLConnectionFile()
+        {
+            string path = Path.Combine(Directory.GetCurrentDirectory().ToString(), "config_server.xml");
+            if (File.Exists(path))
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(path);
+
+                XmlNode root = doc.DocumentElement;
+                XmlNode servernode = root.SelectSingleNode("Server/text()");
+                XmlNode databaseNode = root.SelectSingleNode("Database/text()");
+                XmlNode sqlAuthNode = root.SelectSingleNode("SqlAuth/text()");
+                XmlNode sqlPassNode = root.SelectSingleNode("SqlPass/text()");
+
+                string serverCode = servernode.Value;
+                string databaseCode = databaseNode.Value;
+                string userCode = sqlAuthNode.Value;
+                string passwordCode = sqlPassNode.Value;
+
+                DTOdbContext.Server = DecodeString(serverCode);
+                DTOdbContext.Database = DecodeString(databaseCode);
+                DTOdbContext.User = DecodeString(userCode);
+                DTOdbContext.Password = DecodeString(passwordCode);
+                //MessageBox.Show($"{DTOdbContext.Server}, {DTOdbContext.Database}, {DTOdbContext.User}, {DTOdbContext.Password}");
+            }
+            else
+            {
+                CurrentUserData.ServerSettingsOrigin = 1;
+                FrmServerSettings frmServerSettings = new FrmServerSettings();
+                frmServerSettings.ShowDialog();
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.Show();
+            }
+        }
+        public static string CodeString(string stringToCode)
+        {
+            try
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(stringToCode);
+                string base64String = Convert.ToBase64String(bytes);
+                return base64String;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
+        private static string DecodeString(string codedString)
+        {
+            try
+            {
+                byte[] decodedBytes = Convert.FromBase64String(codedString);
+                string decodedString = Encoding.UTF8.GetString(decodedBytes);
+                return decodedString.ToString();
+            }
+            catch (Exception ex)
+            {
+                return $"Error al descifrar: {ex.Message}";
+            }
+        }
         public static void DetermineInitialForm()
         {
             DAOLogin daoLogin = new DAOLogin();
+            ReadXMLConnectionFile();
             if (daoLogin.GetAmountOfUsers() == 0)
             {
                 if (daoLogin.GetInstitutionInfo() == 0)
@@ -188,28 +263,18 @@ namespace HealthPortal.Helper
             CurrentUserData.TemporaryPassword = false;
             CurrentUserData.Email = string.Empty;
         }
-        public static void FormMouseDown(object sender)
+        public static void EnableFormDrag(Form frm, Control control)
         {
-            Form frm = sender as Form;
-            dragging = true;
-            dragCursorPoint = Cursor.Position;
-            dragFormPoint = frm.Location;
-            frm.Cursor = Cursors.Hand;
-        }
-        public static void FormMouseMove(object sender)
-        {
-            Form frm = sender as Form;
-            if (dragging)
+            control.MouseDown += (sender, e) =>
             {
-                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                frm.Location = Point.Add(dragFormPoint, new Size(diff));
-            }
-        }
-        public static void FormMouseUp(object sender)
-        {
-            Form frm = sender as Form;
-            dragging = false;
-            frm.Cursor = Cursors.Default;
+                if (e.Button == MouseButtons.Left)
+                {
+                    control.Cursor = Cursors.Hand;
+                    ReleaseCapture();
+                    SendMessage(frm.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                    control.Cursor = Cursors.Default;
+                }
+            };
         }
         public static byte[] ImageToByteArray(Image img)
         {
@@ -227,17 +292,6 @@ namespace HealthPortal.Helper
             {
                 MemoryStream memoryStream = new MemoryStream(byteArray);
                 return Image.FromStream(memoryStream);
-            }
-            return null;
-        }
-        public static RJButton FindMainButton(Control frm)
-        {
-            foreach (Control control in frm.Controls)
-            {
-                if (control is RJButton btn && btn.Tag != null && btn.Tag.ToString() == "LastButton")
-                {
-                    return btn;
-                }
             }
             return null;
         }

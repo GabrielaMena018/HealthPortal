@@ -21,9 +21,9 @@ namespace HealthPortal.Controller.Settings
         {
             frmAddUpdateSecurityQuestion = view;
 
-            frmAddUpdateSecurityQuestion.MouseDown += new MouseEventHandler(FormMouseDown);
-            frmAddUpdateSecurityQuestion.MouseMove += new MouseEventHandler(FormMouseMove);
-            frmAddUpdateSecurityQuestion.MouseUp += new MouseEventHandler(FormMouseUp);
+            frmAddUpdateSecurityQuestion.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
+            frmAddUpdateSecurityQuestion.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
+            frmAddUpdateSecurityQuestion.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
 
             frmAddUpdateSecurityQuestion.txtQuestion.Enter += new EventHandler(EnterTxtQuestion);
             frmAddUpdateSecurityQuestion.txtQuestion.Leave += new EventHandler(LeaveTxtQuestion);
@@ -50,18 +50,6 @@ namespace HealthPortal.Controller.Settings
                 frmAddUpdateSecurityQuestion.Hide();
                 frmAddUpdateSecurityQuestion.Dispose();
             }
-        }
-        private void FormMouseDown(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseDown(sender);
-        }
-        private void FormMouseMove(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseMove(sender);
-        }
-        private void FormMouseUp(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseUp(sender);
         }
         private void EnterTxtQuestion(object sender, EventArgs e)
         {

@@ -36,7 +36,7 @@ namespace HealthPortal.Controller.PatientAdministration
             this.action = action;
             //Verificar action
             VerifyAction();
-            objAddUpdatePatient.Load += new EventHandler(InitialCharge);
+            objAddUpdatePatient.Load += new EventHandler(InitialLoad);
             //agregar un nuevo paciente
             objAddUpdatePatient.btnAddPatient.Click += new EventHandler(VerifyInsert);
             //Opcion del comboBox en este se puede cambiar si es uin estudiante o un alumno para mostrar los datos que se tienen que llenar
@@ -53,7 +53,7 @@ namespace HealthPortal.Controller.PatientAdministration
             this.AcademicSection = seccionAcademica;
             this.specialty = Especialidad;
             this.namemedication = nombreMedicamento;
-            objAddUpdatePatient.Load += new EventHandler(InitialCharge);
+            objAddUpdatePatient.Load += new EventHandler(InitialLoad);
             VerifyAction();
             ChargeValues(IdPatient, PatientName, PatientLastName, codigo, grupoTecnico, VisitDate, TimeVisit, Observaciones);
             objAddUpdatePatient.btnUpdate.Click += new EventHandler(UpdatePatient);
@@ -345,7 +345,7 @@ namespace HealthPortal.Controller.PatientAdministration
         }
 
         //Carga Inicial
-        public void InitialCharge(object sender, EventArgs e)
+        public void InitialLoad(object sender, EventArgs e)
         {
             //Objeto de la clase DAOAdminUsuarios
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();

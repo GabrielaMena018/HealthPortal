@@ -34,6 +34,7 @@ namespace HealthPortal.Model.DAO
                     CurrentUserData.FullName = dr.GetString(6);
                     CurrentUserData.TemporaryPassword = dr.GetBoolean(7);
                     CurrentUserData.Email = dr.GetString(8);
+                    CurrentUserData.ServerSettingsOrigin = 2;
                 }
                 return dr.HasRows;
             }
@@ -73,6 +74,7 @@ namespace HealthPortal.Model.DAO
                     CurrentUserData.FullName = dr.GetString(6);
                     CurrentUserData.TemporaryPassword = dr.GetBoolean(7);
                     CurrentUserData.Email = dr.GetString(8);
+                    CurrentUserData.ServerSettingsOrigin = 2;
                 }
             }
             catch (SqlException ex)

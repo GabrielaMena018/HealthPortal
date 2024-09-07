@@ -17,6 +17,7 @@ namespace HealthPortal.Helper
         private static bool temporaryPassword = false;
         private static string email = string.Empty;
         private static int idPersona = 0;
+        private static int serverSettingsOrigin = 1;
 
         public static string Username { get => username; set => username = value; }
         public static bool Status { get => status; set => status = value; }
@@ -27,5 +28,6 @@ namespace HealthPortal.Helper
         public static bool TemporaryPassword { get => temporaryPassword; set => temporaryPassword = value; }
         public static string Email { get => email; set => email = value; }
         public static int IdPersona { get => idPersona; set => idPersona = value; }
+        public static int ServerSettingsOrigin { get => serverSettingsOrigin; set => serverSettingsOrigin = value; }
     }
 }

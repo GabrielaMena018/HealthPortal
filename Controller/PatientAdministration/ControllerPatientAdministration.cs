@@ -21,7 +21,7 @@ namespace HealthPortal.Controller.PatientAdministration
         {
             objPatientAdministration = view;
             //objPatientAdministration.btnPrint.Click += new EventHandler(NewStudentPatient);
-            objPatientAdministration.Load += new EventHandler(InitialCharge);
+            objPatientAdministration.Load += new EventHandler(InitialLoad);
             objPatientAdministration.cmsActualizar.Click += new EventHandler(UpdatePatient);
             objPatientAdministration.cmsVer.Click += new EventHandler(ViewPatientFile);
             objPatientAdministration.cmsEliminar.Click += new EventHandler(DeletePatient);
@@ -144,7 +144,7 @@ namespace HealthPortal.Controller.PatientAdministration
             RefreshPatientData();
         }
         //Esta es la carga inicial la cual se encarga de llenar los combobox
-        private void InitialCharge(object sender, EventArgs e)
+        private void InitialLoad(object sender, EventArgs e)
         {
             CheckUserAccessLevel();
 

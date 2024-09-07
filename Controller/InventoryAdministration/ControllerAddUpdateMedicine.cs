@@ -28,7 +28,7 @@ namespace HealthPortal.Controller.InventoryAdministration
         {
             objAddUpdateMedicine = vista;
             this.action = action;
-            objAddUpdateMedicine.Load += new EventHandler(InitialCharge);
+            objAddUpdateMedicine.Load += new EventHandler(InitialLoad);
 
             //Metodos que se ejecutan cuando el programa esta cargando
             CheckAction();
@@ -64,7 +64,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             this.action = action;
             this.medicineCategory = medicineCategory;
             //Metodos iniciales ejecutados cuando el formulario esta cargando
-            objAddUpdateMedicine.Load += new EventHandler(InitialCharge);
+            objAddUpdateMedicine.Load += new EventHandler(InitialLoad);
             CheckAction();
             ChargeValues(id, medicineName, medicineCategory, expirationDate, stock, entryDate, exit, description);
 
@@ -82,7 +82,7 @@ namespace HealthPortal.Controller.InventoryAdministration
                 objAddUpdateMedicine.picImage.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
-        public void InitialCharge(object sender, EventArgs e)
+        public void InitialLoad(object sender, EventArgs e)
         {
             //Objeto de la clase DAOAdminInventory
             DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
