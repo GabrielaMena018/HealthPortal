@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using CustomPanel;
+using CustomControls;
 using HealthPortal.Model.DAO;
 using HealthPortal.View.SectionAdministration;
 using HealthPortal.View.UserAdministration;

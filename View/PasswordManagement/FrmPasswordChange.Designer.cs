@@ -32,11 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.grpPreviousPassword = new System.Windows.Forms.GroupBox();
-            this.txtPreviousPassword = new CustomPanel.BorderRadiusTXT();
+            this.txtPreviousPassword = new CustomControls.CustomTextBox();
             this.grpNewPassword = new System.Windows.Forms.GroupBox();
-            this.txtNewPassword = new CustomPanel.BorderRadiusTXT();
-            this.btnChangePassword = new CustomPanel.RJButton();
-            this.txtNewPasswordConfirmation = new CustomPanel.BorderRadiusTXT();
+            this.txtNewPassword = new CustomControls.CustomTextBox();
+            this.btnChangePassword = new CustomControls.RJButton();
+            this.txtNewPasswordConfirmation = new CustomControls.CustomTextBox();
             this.grpPreviousPassword.SuspendLayout();
             this.grpNewPassword.SuspendLayout();
             this.SuspendLayout();
@@ -212,10 +212,10 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.GroupBox grpPreviousPassword;
-        public CustomPanel.BorderRadiusTXT txtPreviousPassword;
+        public CustomControls.CustomTextBox txtPreviousPassword;
         private System.Windows.Forms.GroupBox grpNewPassword;
-        public CustomPanel.BorderRadiusTXT txtNewPassword;
-        public CustomPanel.BorderRadiusTXT txtNewPasswordConfirmation;
-        public CustomPanel.RJButton btnChangePassword;
+        public CustomControls.CustomTextBox txtNewPassword;
+        public CustomControls.CustomTextBox txtNewPasswordConfirmation;
+        public CustomControls.RJButton btnChangePassword;
     }
 }

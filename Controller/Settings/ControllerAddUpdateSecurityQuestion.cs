@@ -1,4 +1,4 @@
-﻿using CustomPanel;
+﻿using CustomControls;
 using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
 using HealthPortal.Properties;
@@ -21,9 +21,7 @@ namespace HealthPortal.Controller.Settings
         {
             frmAddUpdateSecurityQuestion = view;
 
-            frmAddUpdateSecurityQuestion.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
-            frmAddUpdateSecurityQuestion.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
-            frmAddUpdateSecurityQuestion.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
+            CommonMethods.EnableFormDrag(frmAddUpdateSecurityQuestion, frmAddUpdateSecurityQuestion);
 
             frmAddUpdateSecurityQuestion.txtQuestion.Enter += new EventHandler(EnterTxtQuestion);
             frmAddUpdateSecurityQuestion.txtQuestion.Leave += new EventHandler(LeaveTxtQuestion);

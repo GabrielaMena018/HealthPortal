@@ -33,15 +33,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.grpLogo = new System.Windows.Forms.GroupBox();
-            this.btnAddLogo = new CustomPanel.RJButton();
+            this.btnAddLogo = new CustomControls.RJButton();
             this.grpInstitutionInfo = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbInstitutionType = new System.Windows.Forms.ComboBox();
-            this.txtEmail = new CustomPanel.BorderRadiusTXT();
-            this.txtPhoneNumber = new CustomPanel.BorderRadiusTXT();
-            this.txtInstitutionName = new CustomPanel.BorderRadiusTXT();
-            this.txtInstitutionAddress = new CustomPanel.BorderRadiusTXT();
-            this.btnRegisterInstitution = new CustomPanel.RJButton();
+            this.txtEmail = new CustomControls.CustomTextBox();
+            this.txtPhoneNumber = new CustomControls.CustomTextBox();
+            this.txtInstitutionName = new CustomControls.CustomTextBox();
+            this.txtInstitutionAddress = new CustomControls.CustomTextBox();
+            this.btnRegisterInstitution = new CustomControls.RJButton();
             this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.grpLogo.SuspendLayout();
@@ -317,17 +317,17 @@
         }
 
         #endregion
-        public CustomPanel.RJButton btnRegisterInstitution;
+        public CustomControls.RJButton btnRegisterInstitution;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        public CustomPanel.BorderRadiusTXT txtInstitutionAddress;
-        public CustomPanel.RJButton btnAddLogo;
+        public CustomControls.CustomTextBox txtInstitutionAddress;
+        public CustomControls.RJButton btnAddLogo;
         private System.Windows.Forms.GroupBox grpLogo;
         private System.Windows.Forms.GroupBox grpInstitutionInfo;
         public System.Windows.Forms.PictureBox picLogo;
-        public CustomPanel.BorderRadiusTXT txtEmail;
-        public CustomPanel.BorderRadiusTXT txtPhoneNumber;
-        public CustomPanel.BorderRadiusTXT txtInstitutionName;
+        public CustomControls.CustomTextBox txtEmail;
+        public CustomControls.CustomTextBox txtPhoneNumber;
+        public CustomControls.CustomTextBox txtInstitutionName;
         public System.Windows.Forms.ComboBox cmbInstitutionType;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button btnExit;

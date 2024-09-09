@@ -39,13 +39,13 @@
             this.cmsDeleteASection = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsUpdateASection = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsAddASection = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelCustom2 = new CustomPanel.PanelCustom();
+            this.panelCustom2 = new CustomControls.PanelCustom();
             this.tabAcademicLevel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.panelCustom1 = new CustomPanel.PanelCustom();
+            this.panelCustom1 = new CustomControls.PanelCustom();
             this.dgvAcademicLevelDisplay = new System.Windows.Forms.DataGridView();
             this.cmsSpecialty = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsAddSpecialty = new System.Windows.Forms.ToolStripMenuItem();
@@ -343,8 +343,8 @@
         public System.Windows.Forms.ContextMenuStrip cmsGrade;
         public System.Windows.Forms.ToolStripMenuItem cmsDeleteGrade;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdateGrade;
-        public CustomPanel.PanelCustom panelCustom2;
-        public CustomPanel.PanelCustom panelCustom1;
+        public CustomControls.PanelCustom panelCustom2;
+        public CustomControls.PanelCustom panelCustom1;
         public System.Windows.Forms.DataGridView dgvAcademicLevelDisplay;
         public System.Windows.Forms.TabControl tabAcademicLevel;
         public System.Windows.Forms.TabPage tabPage1;

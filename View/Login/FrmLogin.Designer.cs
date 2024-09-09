@@ -38,9 +38,9 @@ namespace HealthPortal.View.Login
             this.llbForgotPassword = new System.Windows.Forms.LinkLabel();
             this.btnShowPassword = new System.Windows.Forms.Button();
             this.btnHidePassword = new System.Windows.Forms.Button();
-            this.btnLogin = new CustomPanel.RJButton();
-            this.txtPassword = new CustomPanel.BorderRadiusTXT();
-            this.txtUsername = new CustomPanel.BorderRadiusTXT();
+            this.btnLogin = new CustomControls.RJButton();
+            this.txtPassword = new CustomControls.CustomTextBox();
+            this.txtUsername = new CustomControls.CustomTextBox();
             this.btnTestConnection = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -82,6 +82,7 @@ namespace HealthPortal.View.Login
             this.llbForgotPassword.Name = "llbForgotPassword";
             this.llbForgotPassword.Size = new System.Drawing.Size(124, 16);
             this.llbForgotPassword.TabIndex = 31;
+            this.llbForgotPassword.TabStop = true;
             this.llbForgotPassword.Text = "Olvidé mi contraseña";
             // 
             // btnShowPassword
@@ -161,6 +162,7 @@ namespace HealthPortal.View.Login
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.Size = new System.Drawing.Size(326, 38);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.Tag = "password";
             this.txtPassword.Texts = "Contraseña";
             this.txtPassword.UnderlinedStyle = false;
             // 
@@ -184,6 +186,7 @@ namespace HealthPortal.View.Login
             this.txtUsername.PlaceholderText = "";
             this.txtUsername.Size = new System.Drawing.Size(326, 38);
             this.txtUsername.TabIndex = 1;
+            this.txtUsername.Tag = "username";
             this.txtUsername.Texts = "Usuario";
             this.txtUsername.UnderlinedStyle = false;
             // 
@@ -257,9 +260,9 @@ namespace HealthPortal.View.Login
         #endregion
 
         private System.Windows.Forms.Label label1;
-        public CustomPanel.BorderRadiusTXT txtUsername;
-        public CustomPanel.BorderRadiusTXT txtPassword;
-        public CustomPanel.RJButton btnLogin;
+        public CustomControls.CustomTextBox txtUsername;
+        public CustomControls.CustomTextBox txtPassword;
+        public CustomControls.RJButton btnLogin;
         public System.Windows.Forms.Button btnShowPassword;
         public System.Windows.Forms.Button btnHidePassword;
         public System.Windows.Forms.RadioButton rdoRememberMe;

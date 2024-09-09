@@ -8,14 +8,6 @@ namespace HealthPortal.Model.DTO
 {
     internal class DTOdbContext
     {
-        private static string clave;
-        private static string vectorInicial;
-        private static int saltos;
-
-        public static string Clave { get => clave; set => clave = value; }
-        public static string VectorInicial { get => vectorInicial; set => vectorInicial = value; }
-        public static int Saltos { get => saltos; set => saltos = value; }
-
         private static string server;
         private static string database;
         private static string user;

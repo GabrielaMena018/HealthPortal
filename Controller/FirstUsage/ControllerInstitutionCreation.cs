@@ -1,4 +1,4 @@
-﻿using CustomPanel;
+﻿using CustomControls;
 using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
 using HealthPortal.Properties;
@@ -35,10 +35,7 @@ namespace HealthPortal.Controller.FirstUsage
                 { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) }
             };
 
-            // Eventos para mover el formulario
-            frmInstitutionCreation.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
-            frmInstitutionCreation.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
-            frmInstitutionCreation.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
+            CommonMethods.EnableFormDrag(frmInstitutionCreation, frmInstitutionCreation);
 
             // Eventos "por defecto"
             frmInstitutionCreation.Load += new EventHandler(LoadCombobox);
@@ -103,7 +100,7 @@ namespace HealthPortal.Controller.FirstUsage
         }
         private void EnterTextBox(object sender, EventArgs e)
         {
-            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            CustomTextBox txt = sender as CustomTextBox;
             if (txt != null)
             {
                 if (txt.Texts.Trim() == GetPlaceholderText(txt))
@@ -115,7 +112,7 @@ namespace HealthPortal.Controller.FirstUsage
         }
         private void LeaveTextBox(object sender, EventArgs e)
         {
-            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            CustomTextBox txt = sender as CustomTextBox;
             if (txt != null)
             {
                 if (string.IsNullOrEmpty(txt.Texts))
@@ -196,7 +193,7 @@ namespace HealthPortal.Controller.FirstUsage
         {
             Application.Exit();
         }
-        private string GetPlaceholderText(BorderRadiusTXT txt)
+        private string GetPlaceholderText(CustomTextBox txt)
         {
             if (txt == frmInstitutionCreation.txtInstitutionName) return "Nombre de la Institución";
             if (txt == frmInstitutionCreation.txtInstitutionAddress) return "Dirección de la Institución";

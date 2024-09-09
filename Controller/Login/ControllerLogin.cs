@@ -13,7 +13,7 @@ using HealthPortal.View.Dashboard;
 using System.Windows.Forms;
 using System.Drawing;
 using HealthPortal.Properties;
-using CustomPanel;
+using CustomControls;
 
 namespace HealthPortal.Controller.Login
 {
@@ -34,9 +34,7 @@ namespace HealthPortal.Controller.Login
                 { "btnTestConnection", Tuple.Create(Resources.wifi, Resources.hoverWifi) }
             };
 
-            frmLogin.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
-            frmLogin.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
-            frmLogin.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
+            CommonMethods.EnableFormDrag(frmLogin, frmLogin);
 
             frmLogin.Load += new EventHandler(ShowPassword);
 
@@ -47,6 +45,12 @@ namespace HealthPortal.Controller.Login
 
             frmLogin.txtUsername.Leave += new EventHandler(LeaveTextBox);
             frmLogin.txtPassword.Leave += new EventHandler(LeaveTextBox);
+
+            frmLogin.txtUsername.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmLogin.txtPassword.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+
+            frmLogin.txtUsername.KeyDown += new KeyEventHandler(CommonMethods.TextBoxKeyDown);
+            frmLogin.txtPassword.KeyDown += new KeyEventHandler(CommonMethods.TextBoxKeyDown);
 
             frmLogin.btnTestConnection.Click += new EventHandler(TestConnection);
 
@@ -132,7 +136,7 @@ namespace HealthPortal.Controller.Login
         }
         private void EnterTextBox(object sender, EventArgs e)
         {
-            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            CustomTextBox txt = sender as CustomTextBox;
             if (txt != null)
             {
                 if (txt.Texts.Trim() == GetPlaceholderText(txt))
@@ -144,7 +148,7 @@ namespace HealthPortal.Controller.Login
         }
         private void LeaveTextBox(object sender, EventArgs e)
         {
-            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            CustomTextBox txt = sender as CustomTextBox;
             if (txt != null)
             {
                 if (string.IsNullOrEmpty(txt.Texts))
@@ -232,7 +236,7 @@ namespace HealthPortal.Controller.Login
                 MessageBox.Show("Para poder utilizar los métodos de recuperación disponibles, por favor ingrese su usuario.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        private string GetPlaceholderText(BorderRadiusTXT txt)
+        private string GetPlaceholderText(CustomTextBox txt)
         {
             if (txt == frmLogin.txtUsername) return "Usuario";
             if (txt == frmLogin.txtPassword) return "Contraseña";

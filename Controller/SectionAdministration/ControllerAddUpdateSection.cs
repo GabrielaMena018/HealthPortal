@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using CustomPanel;
+using CustomControls;
 using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
 using HealthPortal.Properties;
@@ -43,9 +43,7 @@ namespace HealthPortal.Controller.SectionAdministration
             frmAddUpdateSection.btnAddAcademicSection.Click += new EventHandler(NewAcademicSection);
             frmAddUpdateSection.btnAddGrade.Click += new EventHandler(NewGrade);
 
-            frmAddUpdateSection.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
-            frmAddUpdateSection.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
-            frmAddUpdateSection.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
+            CommonMethods.EnableFormDrag(frmAddUpdateSection, frmAddUpdateSection);
 
             frmAddUpdateSection.btnExitS.Click += new EventHandler(CloseForm);
             frmAddUpdateSection.btnExitE.Click += new EventHandler(CloseForm);
@@ -111,9 +109,7 @@ namespace HealthPortal.Controller.SectionAdministration
             LoadSectionTab(technicalGroup);
             frmAddUpdateSection.btnUpdateSection.Click += new EventHandler(UpdateSection);
 
-            frmAddUpdateSection.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
-            frmAddUpdateSection.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
-            frmAddUpdateSection.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
+            CommonMethods.EnableFormDrag(frmAddUpdateSection, frmAddUpdateSection);
 
             frmAddUpdateSection.btnExitS.Click += new EventHandler(CloseForm);
             frmAddUpdateSection.btnExitE.Click += new EventHandler(CloseForm);
@@ -173,9 +169,7 @@ namespace HealthPortal.Controller.SectionAdministration
                 { "btnExitG", Tuple.Create(Resources.quit, Resources.hoverQuit) }
             };
 
-            frmAddUpdateSection.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
-            frmAddUpdateSection.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
-            frmAddUpdateSection.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
+            CommonMethods.EnableFormDrag(frmAddUpdateSection, frmAddUpdateSection);
 
             frmAddUpdateSection.btnExitS.Click += new EventHandler(CloseForm);
             frmAddUpdateSection.btnExitE.Click += new EventHandler(CloseForm);
@@ -259,7 +253,7 @@ namespace HealthPortal.Controller.SectionAdministration
         }
         private void EnterTextBox(object sender, EventArgs e)
         {
-            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            CustomTextBox txt = sender as CustomTextBox;
             if (txt != null)
             {
                 if (txt.Texts.Trim() == GetPlaceholderText(txt))
@@ -271,7 +265,7 @@ namespace HealthPortal.Controller.SectionAdministration
         }
         private void LeaveTextBox(object sender, EventArgs e)
         {
-            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            CustomTextBox txt = sender as CustomTextBox;
             if (txt != null)
             {
                 if (string.IsNullOrEmpty(txt.Texts))
@@ -281,7 +275,7 @@ namespace HealthPortal.Controller.SectionAdministration
                 }
             }
         }
-        private string GetPlaceholderText(BorderRadiusTXT txt)
+        private string GetPlaceholderText(CustomTextBox txt)
         {
             if (txt == frmAddUpdateSection.txtGrade) return "Grado";
             if (txt == frmAddUpdateSection.txtSpecialty) return "Especialidad";

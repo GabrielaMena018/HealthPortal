@@ -32,21 +32,21 @@
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panelCustom1 = new CustomPanel.PanelCustom();
+            this.panelCustom1 = new CustomControls.PanelCustom();
             this.grpLocalConfig = new System.Windows.Forms.GroupBox();
             this.pnlAuth = new System.Windows.Forms.Panel();
-            this.txtPassword = new CustomPanel.BorderRadiusTXT();
-            this.txtSQLAuth = new CustomPanel.BorderRadiusTXT();
+            this.txtPassword = new CustomControls.CustomTextBox();
+            this.txtSQLAuth = new CustomControls.CustomTextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.rdoFalse = new System.Windows.Forms.RadioButton();
             this.rdoTrue = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.grpConnectionInfo = new System.Windows.Forms.GroupBox();
-            this.txtDataBase = new CustomPanel.BorderRadiusTXT();
-            this.txtServerURL = new CustomPanel.BorderRadiusTXT();
+            this.txtDataBase = new CustomControls.CustomTextBox();
+            this.txtServerURL = new CustomControls.CustomTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnSaveConfig = new CustomPanel.RJButton();
+            this.btnSaveConfig = new CustomControls.RJButton();
             this.picImage = new System.Windows.Forms.PictureBox();
             this.pnlTitle.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -147,12 +147,13 @@
             this.txtPassword.MaxLength = 50;
             this.txtPassword.Multiline = false;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Padding = new System.Windows.Forms.Padding(15, 10, 10, 10);
+            this.txtPassword.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
             this.txtPassword.PasswordChar = false;
             this.txtPassword.PlaceholderColor = System.Drawing.Color.White;
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.Size = new System.Drawing.Size(200, 38);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.Tag = "sql";
             this.txtPassword.Texts = "Contraseña";
             this.txtPassword.UnderlinedStyle = false;
             // 
@@ -171,12 +172,13 @@
             this.txtSQLAuth.MaxLength = 50;
             this.txtSQLAuth.Multiline = false;
             this.txtSQLAuth.Name = "txtSQLAuth";
-            this.txtSQLAuth.Padding = new System.Windows.Forms.Padding(15, 10, 10, 10);
+            this.txtSQLAuth.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
             this.txtSQLAuth.PasswordChar = false;
             this.txtSQLAuth.PlaceholderColor = System.Drawing.Color.White;
             this.txtSQLAuth.PlaceholderText = "";
             this.txtSQLAuth.Size = new System.Drawing.Size(200, 38);
             this.txtSQLAuth.TabIndex = 3;
+            this.txtSQLAuth.Tag = "sql";
             this.txtSQLAuth.Texts = "Autenticación SQL";
             this.txtSQLAuth.UnderlinedStyle = false;
             // 
@@ -276,6 +278,7 @@
             this.txtDataBase.PlaceholderText = "";
             this.txtDataBase.Size = new System.Drawing.Size(525, 68);
             this.txtDataBase.TabIndex = 2;
+            this.txtDataBase.Tag = "sql";
             this.txtDataBase.Texts = "Nombre de la base de datos";
             this.txtDataBase.UnderlinedStyle = false;
             // 
@@ -299,6 +302,7 @@
             this.txtServerURL.PlaceholderText = "";
             this.txtServerURL.Size = new System.Drawing.Size(525, 68);
             this.txtServerURL.TabIndex = 1;
+            this.txtServerURL.Tag = "sql";
             this.txtServerURL.Texts = "URL del servidor";
             this.txtServerURL.UnderlinedStyle = false;
             // 
@@ -380,15 +384,15 @@
         private System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.GroupBox grpLocalConfig;
         public System.Windows.Forms.GroupBox grpConnectionInfo;
-        public CustomPanel.PanelCustom panelCustom1;
-        public CustomPanel.BorderRadiusTXT txtServerURL;
-        public CustomPanel.BorderRadiusTXT txtDataBase;
+        public CustomControls.PanelCustom panelCustom1;
+        public CustomControls.CustomTextBox txtServerURL;
+        public CustomControls.CustomTextBox txtDataBase;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        public CustomPanel.BorderRadiusTXT txtPassword;
-        public CustomPanel.BorderRadiusTXT txtSQLAuth;
-        public CustomPanel.RJButton btnSaveConfig;
+        public CustomControls.CustomTextBox txtPassword;
+        public CustomControls.CustomTextBox txtSQLAuth;
+        public CustomControls.RJButton btnSaveConfig;
         public System.Windows.Forms.Panel pnlAuth;
         public System.Windows.Forms.RadioButton rdoFalse;
         public System.Windows.Forms.RadioButton rdoTrue;

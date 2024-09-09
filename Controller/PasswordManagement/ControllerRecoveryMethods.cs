@@ -30,9 +30,8 @@ namespace HealthPortal.Controller.PasswordManagement
                 { "btnAdminIntervention", Tuple.Create(Resources.adminIntervention, Resources.hoverAdminIntervention) },
                 { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) }
             };
-            frmRecoveryMethods.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
-            frmRecoveryMethods.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
-            frmRecoveryMethods.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
+
+            CommonMethods.EnableFormDrag(frmRecoveryMethods, frmRecoveryMethods);
 
             frmRecoveryMethods.btnExit.Click += new EventHandler(GoBackToLogin);
 

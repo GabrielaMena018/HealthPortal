@@ -32,9 +32,9 @@ namespace HealthPortal.View.PasswordManagement
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnShowPassword = new System.Windows.Forms.Button();
-            this.btnConfirmPasswordChange = new CustomPanel.RJButton();
-            this.txtPassword = new CustomPanel.BorderRadiusTXT();
-            this.txtUsername = new CustomPanel.BorderRadiusTXT();
+            this.btnConfirmPasswordChange = new CustomControls.RJButton();
+            this.txtPassword = new CustomControls.CustomTextBox();
+            this.txtUsername = new CustomControls.CustomTextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnHidePassword = new System.Windows.Forms.Button();
@@ -213,9 +213,9 @@ namespace HealthPortal.View.PasswordManagement
         #endregion
 
         private System.Windows.Forms.Label label1;
-        public CustomPanel.BorderRadiusTXT txtUsername;
-        public CustomPanel.BorderRadiusTXT txtPassword;
-        public CustomPanel.RJButton btnConfirmPasswordChange;
+        public CustomControls.CustomTextBox txtUsername;
+        public CustomControls.CustomTextBox txtPassword;
+        public CustomControls.RJButton btnConfirmPasswordChange;
         public System.Windows.Forms.Button btnShowPassword;
         public System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label2;

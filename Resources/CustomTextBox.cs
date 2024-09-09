@@ -11,25 +11,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CustomPanel
+namespace CustomControls
 {
-    [DefaultEvent("_TextChanged")]
-    public partial class BorderRadiusTXT : UserControl
+    [DefaultEvent("TextChangedEvent")]
+    public partial class CustomTextBox : UserControl
     {
-        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if ((e.Control && e.KeyCode == Keys.C) || (e.Control && e.KeyCode == Keys.V))
-            {
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        public event EventHandler _TextChanged;
+        public event EventHandler TextChangedEvent;
+        public event KeyPressEventHandler KeyPressEvent;
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (_TextChanged != null)
-                _TextChanged.Invoke(sender, e);
+            if (TextChangedEvent != null)
+                TextChangedEvent.Invoke(sender, e);
+        }
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.OnKeyPress(e);
+            KeyPressEvent?.Invoke(this, e);
         }
 
         //Fields
@@ -207,14 +205,13 @@ namespace CustomPanel
             }
         }
         #endregion
-        public BorderRadiusTXT()
+        public CustomTextBox()
         {
             InitializeComponent();
-            textBox1.KeyDown += TextBox1_KeyDown;
             textBox1.ContextMenuStrip = new ContextMenuStrip();
             textBox1.ContextMenuStrip.Items.Clear();
+            textBox1.KeyPress += new KeyPressEventHandler(textBox1_KeyPress);
         }
-
         private void textBox1_Click(object sender, EventArgs e)
         {
             this.OnClick(e);
@@ -227,11 +224,6 @@ namespace CustomPanel
         {
             this.OnMouseLeave(e);
         }
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            this.OnKeyPress(e);
-        }
-
         private void textBox1_Enter(object sender, EventArgs e)
         {
             isFocused = true;

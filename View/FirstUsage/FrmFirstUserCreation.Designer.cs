@@ -35,14 +35,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnRegisterFirstUser = new CustomPanel.RJButton();
-            this.txtConfirmPassword = new CustomPanel.BorderRadiusTXT();
-            this.txtPassword = new CustomPanel.BorderRadiusTXT();
-            this.txtUsername = new CustomPanel.BorderRadiusTXT();
-            this.txtPhoneNumber = new CustomPanel.BorderRadiusTXT();
-            this.txtEmail = new CustomPanel.BorderRadiusTXT();
-            this.txtLastName = new CustomPanel.BorderRadiusTXT();
-            this.txtName = new CustomPanel.BorderRadiusTXT();
+            this.btnRegisterFirstUser = new CustomControls.RJButton();
+            this.txtConfirmPassword = new CustomControls.CustomTextBox();
+            this.txtPassword = new CustomControls.CustomTextBox();
+            this.txtUsername = new CustomControls.CustomTextBox();
+            this.txtPhoneNumber = new CustomControls.CustomTextBox();
+            this.txtEmail = new CustomControls.CustomTextBox();
+            this.txtLastName = new CustomControls.CustomTextBox();
+            this.txtName = new CustomControls.CustomTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -352,15 +352,15 @@
         }
 
         #endregion
-        public CustomPanel.RJButton btnRegisterFirstUser;
+        public CustomControls.RJButton btnRegisterFirstUser;
         private System.Windows.Forms.GroupBox groupBox1;
-        public CustomPanel.BorderRadiusTXT txtConfirmPassword;
-        public CustomPanel.BorderRadiusTXT txtPassword;
-        public CustomPanel.BorderRadiusTXT txtUsername;
-        public CustomPanel.BorderRadiusTXT txtPhoneNumber;
-        public CustomPanel.BorderRadiusTXT txtEmail;
-        public CustomPanel.BorderRadiusTXT txtLastName;
-        public CustomPanel.BorderRadiusTXT txtName;
+        public CustomControls.CustomTextBox txtConfirmPassword;
+        public CustomControls.CustomTextBox txtPassword;
+        public CustomControls.CustomTextBox txtUsername;
+        public CustomControls.CustomTextBox txtPhoneNumber;
+        public CustomControls.CustomTextBox txtEmail;
+        public CustomControls.CustomTextBox txtLastName;
+        public CustomControls.CustomTextBox txtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnExit;

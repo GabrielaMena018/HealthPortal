@@ -1,4 +1,4 @@
-﻿using CustomPanel;
+﻿using CustomControls;
 using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
 using HealthPortal.Properties;
@@ -22,10 +22,7 @@ namespace HealthPortal.Controller.FirstUsage
         {
             frmEmailVerification = view;
             this.confirmationCode = confirmationCode;
-
-            frmEmailVerification.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
-            frmEmailVerification.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
-            frmEmailVerification.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
+            CommonMethods.EnableFormDrag(frmEmailVerification, frmEmailVerification);
             frmEmailVerification.txtConfirmationCode.Enter += new EventHandler(EnterTxtConfirmationCode);
             frmEmailVerification.txtConfirmationCode.Leave += new EventHandler(LeaveTxtConfirmationCode);
             frmEmailVerification.btnExit.MouseEnter += new EventHandler(MouseEnterControl);

@@ -1,4 +1,4 @@
-﻿using CustomPanel;
+﻿using CustomControls;
 using HealthPortal.Helper;
 using HealthPortal.Model;
 using HealthPortal.Model.DTO;
@@ -66,6 +66,7 @@ namespace HealthPortal.Controller.Settings
                 frmServerSettings.txtDataBase.Texts = DTOdbContext.Database;
                 frmServerSettings.txtSQLAuth.Texts = DTOdbContext.User;
                 frmServerSettings.txtPassword.Texts = DTOdbContext.Password;
+                if (string.IsNullOrEmpty(DTOdbContext.User) && string.IsNullOrEmpty(DTOdbContext.Password)) frmServerSettings.rdoFalse.Checked = true;
             }
         }
         private void MouseEnterTextButton(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace HealthPortal.Controller.Settings
                 Database.InnerText = codedDatabase;
                 root.AppendChild(Database);
                 XmlElement SqlAuth = doc.CreateElement("sqlAuth");
-                XmlElement SqlPassword = doc.CreateElement("SqlPassword");
+                XmlElement SqlPassword = doc.CreateElement("sqlPassword");
 
                 if (frmServerSettings.rdoTrue.Checked == true)
                 {
@@ -140,6 +141,7 @@ namespace HealthPortal.Controller.Settings
                 root.AppendChild(SqlPassword);
 
                 SqlConnection connection = dbContext.testConnection(frmServerSettings.txtServerURL.Texts.Trim(), frmServerSettings.txtDataBase.Texts.Trim(), frmServerSettings.txtSQLAuth.Texts.Trim(), frmServerSettings.txtPassword.Texts.Trim());
+
                 if (connection != null)
                 {
                     doc.Save("config_server.xml");
@@ -182,7 +184,7 @@ namespace HealthPortal.Controller.Settings
         }
         private void EnterTextBox(object sender, EventArgs e)
         {
-            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            CustomTextBox txt = sender as CustomTextBox;
             if (txt != null)
             {
                 if (txt.Texts.Trim() == GetPlaceholderText(txt))
@@ -194,7 +196,7 @@ namespace HealthPortal.Controller.Settings
         }
         private void LeaveTextBox(object sender, EventArgs e)
         {
-            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            CustomTextBox txt = sender as CustomTextBox;
             if (txt != null)
             {
                 if (string.IsNullOrEmpty(txt.Texts))
@@ -204,7 +206,7 @@ namespace HealthPortal.Controller.Settings
                 }
             }
         }
-        private string GetPlaceholderText(BorderRadiusTXT txt)
+        private string GetPlaceholderText(CustomTextBox txt)
         {
             if (txt == frmServerSettings.txtServerURL) return "URL del servidor";
             if (txt == frmServerSettings.txtDataBase) return "Nombre de la base de datos";

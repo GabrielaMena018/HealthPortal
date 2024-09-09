@@ -36,7 +36,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.panelTitulo = new System.Windows.Forms.Panel();
-            this.panelCustumPequeño = new CustomPanel.PanelCustom();
+            this.panelCustumPequeño = new CustomControls.PanelCustom();
             this.panel6 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -44,25 +44,25 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panelButton = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.rjButton3 = new CustomPanel.RJButton();
+            this.rjButton3 = new CustomControls.RJButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelbuscador = new System.Windows.Forms.Panel();
-            this.btnSearch = new CustomPanel.RJButton();
-            this.txtSearch = new CustomPanel.BorderRadiusTXT();
+            this.btnSearch = new CustomControls.RJButton();
+            this.txtSearch = new CustomControls.CustomTextBox();
             this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsView = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsPDF = new System.Windows.Forms.ToolStripMenuItem();
-            this.PanelContenedor = new CustomPanel.PanelCustom();
+            this.PanelContenedor = new CustomControls.PanelCustom();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
             this.ContenedorFiltros = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnNew = new CustomPanel.RJButton();
+            this.btnNew = new CustomControls.RJButton();
             this.CmbCategoria = new System.Windows.Forms.ComboBox();
             this.panelGrafica.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -500,15 +500,15 @@
 
         #endregion
 
-        private CustomPanel.PanelCustom PanelContenedor;
+        private CustomControls.PanelCustom PanelContenedor;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel ContenedorFiltros;
         private System.Windows.Forms.Label label6;
-        public CustomPanel.RJButton btnNew;
+        public CustomControls.RJButton btnNew;
         public System.Windows.Forms.ComboBox CmbCategoria;
         private System.Windows.Forms.Panel panelGrafica;
         private System.Windows.Forms.Panel panelTitulo;
-        private CustomPanel.PanelCustom panelCustumPequeño;
+        private CustomControls.PanelCustom panelCustumPequeño;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panel4;
@@ -516,7 +516,7 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Panel panelButton;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private CustomPanel.RJButton rjButton3;
+        private CustomControls.RJButton rjButton3;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -527,8 +527,8 @@
         public System.Windows.Forms.ToolStripMenuItem cmsDelete;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdate;
         public System.Windows.Forms.ToolStripMenuItem cmsView;
-        public CustomPanel.RJButton btnSearch;
-        public CustomPanel.BorderRadiusTXT txtSearch;
+        public CustomControls.RJButton btnSearch;
+        public CustomControls.CustomTextBox txtSearch;
         public System.Windows.Forms.ToolStripMenuItem cmsPDF;
     }
 }

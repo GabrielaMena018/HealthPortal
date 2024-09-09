@@ -17,10 +17,17 @@ namespace HealthPortal.Model
         {
             try
             {
-                //MessageBox.Show($"{DTOdbContext.Server}, {DTOdbContext.Database}, {DTOdbContext.User}, {DTOdbContext.Password}");
-                SqlConnection conexion = new SqlConnection($"Server = {DTOdbContext.Server}; DataBase = {DTOdbContext.Database}; User Id = {DTOdbContext.User}; Password = {DTOdbContext.Password}");
-                conexion.Open();
-                return conexion;
+                SqlConnection connection;
+                if (string.IsNullOrEmpty(DTOdbContext.User) && string.IsNullOrEmpty(DTOdbContext.Password))
+                {
+                    connection = new SqlConnection($"Server = {DTOdbContext.Server}; DataBase = {DTOdbContext.Database}; Integrated Security = true");
+                }
+                else
+                {
+                    connection = new SqlConnection($"Server = {DTOdbContext.Server}; DataBase = {DTOdbContext.Database}; User Id = {DTOdbContext.User}; Password = {DTOdbContext.Password}");
+                }
+                connection.Open();
+                return connection;
             }
             catch (SqlException)
             {
@@ -36,7 +43,15 @@ namespace HealthPortal.Model
         {
             try
             {
-                SqlConnection connection = new SqlConnection($"Server = {server}; DataBase = {database}; User Id = {user}; Password = {password}");
+                SqlConnection connection;
+                if (string.IsNullOrEmpty(user) && string.IsNullOrEmpty(password))
+                {
+                    connection = new SqlConnection($"Server = {server}; DataBase = {database}; Integrated Security = true");
+                }
+                else
+                {
+                    connection = new SqlConnection($"Server = {server}; DataBase = {database}; User Id = {user}; Password = {password}");
+                }
                 connection.Open();
                 return connection;
             }

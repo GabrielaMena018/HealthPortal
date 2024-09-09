@@ -43,11 +43,11 @@
             this.dtpEntryDate = new System.Windows.Forms.DateTimePicker();
             this.numStock = new System.Windows.Forms.NumericUpDown();
             this.picImage = new System.Windows.Forms.PictureBox();
-            this.btnUpdateInventory = new CustomPanel.RJButton();
-            this.btnAddImage = new CustomPanel.RJButton();
-            this.btnAddInventory = new CustomPanel.RJButton();
-            this.txtDescription = new CustomPanel.BorderRadiusTXT();
-            this.txtMedicineName = new CustomPanel.BorderRadiusTXT();
+            this.btnUpdateInventory = new CustomControls.RJButton();
+            this.btnAddImage = new CustomControls.RJButton();
+            this.btnAddInventory = new CustomControls.RJButton();
+            this.txtDescription = new CustomControls.CustomTextBox();
+            this.txtMedicineName = new CustomControls.CustomTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
@@ -360,14 +360,14 @@
 
         #endregion
         private System.Windows.Forms.Label label12;
-        public CustomPanel.BorderRadiusTXT txtMedicineName;
+        public CustomControls.CustomTextBox txtMedicineName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        public CustomPanel.BorderRadiusTXT txtDescription;
-        public CustomPanel.RJButton btnAddImage;
-        public CustomPanel.RJButton btnAddInventory;
-        public CustomPanel.RJButton btnUpdateInventory;
+        public CustomControls.CustomTextBox txtDescription;
+        public CustomControls.RJButton btnAddImage;
+        public CustomControls.RJButton btnAddInventory;
+        public CustomControls.RJButton btnUpdateInventory;
         public System.Windows.Forms.DateTimePicker dtpExpirationDate;
         public System.Windows.Forms.ComboBox cmbCategory;
         public System.Windows.Forms.MenuStrip txtID;

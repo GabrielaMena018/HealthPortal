@@ -32,10 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.grpRecoveryMethods = new System.Windows.Forms.GroupBox();
-            this.btnSecurityPIN = new CustomPanel.RJButton();
-            this.btnSecurityQuestions = new CustomPanel.RJButton();
-            this.btnAdminIntervention = new CustomPanel.RJButton();
-            this.btnEmailRecoveryMethod = new CustomPanel.RJButton();
+            this.btnSecurityPIN = new CustomControls.RJButton();
+            this.btnSecurityQuestions = new CustomControls.RJButton();
+            this.btnAdminIntervention = new CustomControls.RJButton();
+            this.btnEmailRecoveryMethod = new CustomControls.RJButton();
             this.grpRecoveryMethods.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -190,9 +190,9 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.GroupBox grpRecoveryMethods;
-        public CustomPanel.RJButton btnEmailRecoveryMethod;
-        public CustomPanel.RJButton btnSecurityPIN;
-        public CustomPanel.RJButton btnSecurityQuestions;
-        public CustomPanel.RJButton btnAdminIntervention;
+        public CustomControls.RJButton btnEmailRecoveryMethod;
+        public CustomControls.RJButton btnSecurityPIN;
+        public CustomControls.RJButton btnSecurityQuestions;
+        public CustomControls.RJButton btnAdminIntervention;
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CustomPanel;
+using CustomControls;
 using HealthPortal.Model.DAO;
 using HealthPortal.Helper;
 using HealthPortal.Model.DTO;
@@ -36,10 +36,7 @@ namespace HealthPortal.Controller.FirstUsage
             // Evento de carga del formulario, se oculta automáticamente la contraseña
             frmFirstUserCreation.Load += new EventHandler(ShowPassword);
 
-            // Eventos para mover el formulario
-            frmFirstUserCreation.MouseDown += new MouseEventHandler(CommonMethods.FormMouseDown);
-            frmFirstUserCreation.MouseMove += new MouseEventHandler(CommonMethods.FormMouseMove);
-            frmFirstUserCreation.MouseUp += new MouseEventHandler(CommonMethods.FormMouseUp);
+            CommonMethods.EnableFormDrag(frmFirstUserCreation, frmFirstUserCreation);
 
             // Eventos .Enter de los textbox; se verifica si la propiedad .Texts de los textbox corresponde a lo que viene siendo el texto "placeholder", y si sí lo es, se vacían
             frmFirstUserCreation.txtName.Enter += new EventHandler(EnterTextBox);
@@ -116,7 +113,7 @@ namespace HealthPortal.Controller.FirstUsage
         }
         private void EnterTextBox(object sender, EventArgs e)
         {
-            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            CustomTextBox txt = sender as CustomTextBox;
             if (txt != null)
             {
                 if (txt.Texts.Trim() == GetPlaceholderText(txt))
@@ -128,7 +125,7 @@ namespace HealthPortal.Controller.FirstUsage
         }
         private void LeaveTextBox(object sender, EventArgs e)
         {
-            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            CustomTextBox txt = sender as CustomTextBox;
             if (txt != null)
             {
                 if (string.IsNullOrEmpty(txt.Texts))
@@ -287,7 +284,7 @@ namespace HealthPortal.Controller.FirstUsage
             // Si la condición no se cumple quiere decir que el array si contiene la extensión, por lo que el correo es, en su totalidad, válido. Se retorna TRUE
             return true;
         }
-        string GetPlaceholderText(BorderRadiusTXT txt)
+        string GetPlaceholderText(CustomTextBox txt)
         {
             if (txt == frmFirstUserCreation.txtName) return "Nombres";
             if (txt == frmFirstUserCreation.txtLastName) return "Apellidos";

@@ -31,12 +31,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panelCustom1 = new CustomPanel.PanelCustom();
+            this.panelCustom1 = new CustomControls.PanelCustom();
             this.grpSecurityQuestions = new System.Windows.Forms.GroupBox();
             this.lblInfo = new System.Windows.Forms.Label();
-            this.panelCustom2 = new CustomPanel.PanelCustom();
+            this.panelCustom2 = new CustomControls.PanelCustom();
             this.dgvSecurityQuestions = new System.Windows.Forms.DataGridView();
-            this.btnAddSecurityQuestion = new CustomPanel.RJButton();
+            this.btnAddSecurityQuestion = new CustomControls.RJButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelCustom1.SuspendLayout();
@@ -200,9 +200,9 @@
         private System.Windows.Forms.Label lblTitle;
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.GroupBox grpSecurityQuestions;
-        public CustomPanel.PanelCustom panelCustom1;
-        public CustomPanel.RJButton btnAddSecurityQuestion;
-        private CustomPanel.PanelCustom panelCustom2;
+        public CustomControls.PanelCustom panelCustom1;
+        public CustomControls.RJButton btnAddSecurityQuestion;
+        private CustomControls.PanelCustom panelCustom2;
         public System.Windows.Forms.DataGridView dgvSecurityQuestions;
         public System.Windows.Forms.Label lblInfo;
     }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtQuestion = new CustomPanel.BorderRadiusTXT();
-            this.btnConfirmQuestion = new CustomPanel.RJButton();
+            this.txtQuestion = new CustomControls.CustomTextBox();
+            this.btnConfirmQuestion = new CustomControls.RJButton();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -131,8 +131,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        public CustomPanel.BorderRadiusTXT txtQuestion;
-        public CustomPanel.RJButton btnConfirmQuestion;
+        public CustomControls.CustomTextBox txtQuestion;
+        public CustomControls.RJButton btnConfirmQuestion;
         public System.Windows.Forms.Button btnExit;
     }
 }

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using CustomPanel;
+using CustomControls;
 
 namespace HealthPortal.Controller.Settings
 {

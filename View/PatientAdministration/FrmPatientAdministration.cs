@@ -19,7 +19,5 @@ namespace HealthPortal.View.PatientAdministration
             InitializeComponent();
             ControllerPatientAdministration control = new ControllerPatientAdministration(this);
         }
-
-
     }
 }

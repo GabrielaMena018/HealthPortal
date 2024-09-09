@@ -3,14 +3,14 @@
     partial class FrmPatientAdministration
     {
         /// <summary>
-        /// Variable del diseñador necesaria.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpiar los recursos que se estén usando.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,774 +20,506 @@
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de Windows Forms
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPatientAdministration));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.contextDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmsVer = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsActualizar = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsEliminar = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnShowAll = new CustomPanel.RJButton();
-            this.GridViewPatient = new System.Windows.Forms.DataGridView();
-            this.ContenedorFiltros = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbRol = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btnNew = new CustomPanel.RJButton();
-            this.BtnFiltrar = new CustomPanel.RJButton();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.CmbSpecialty = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.CmbGrade = new System.Windows.Forms.ComboBox();
-            this.PickFechaVisita = new System.Windows.Forms.DateTimePicker();
-            this.panelGrafica = new System.Windows.Forms.Panel();
-            this.panelTitulo = new System.Windows.Forms.Panel();
-            this.panelCustumPequeño = new CustomPanel.PanelCustom();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.btnPDF = new CustomPanel.RJButton();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.btnPrint = new CustomPanel.RJButton();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsView = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelCustom2 = new CustomControls.PanelCustom();
+            this.dgvPatientInfo = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFilter = new CustomControls.RJButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpVisitDate = new System.Windows.Forms.DateTimePicker();
+            this.cmbSpecialty = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.panelButton = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cmbGrade = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelbuscador = new System.Windows.Forms.Panel();
-            this.BtnBuscar = new CustomPanel.RJButton();
-            this.txtSearch = new CustomPanel.BorderRadiusTXT();
-            this.contextDataGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewPatient)).BeginInit();
-            this.ContenedorFiltros.SuspendLayout();
+            this.cmbRole = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnShowAll = new CustomControls.RJButton();
+            this.panelCustom1 = new CustomControls.PanelCustom();
+            this.grpPatients = new System.Windows.Forms.GroupBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblPatientTotal = new System.Windows.Forms.Label();
+            this.btnSearch = new CustomControls.RJButton();
+            this.txtSearch = new CustomControls.CustomTextBox();
+            this.lblUserAdministrationSearch = new System.Windows.Forms.Label();
+            this.grpNewUser = new System.Windows.Forms.GroupBox();
+            this.btnNew = new CustomControls.RJButton();
+            this.cmsShowAll = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panelGrafica.SuspendLayout();
-            this.panelTitulo.SuspendLayout();
-            this.panelCustumPequeño.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.cmsDataGrid.SuspendLayout();
+            this.panelCustom2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatientInfo)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panelCustom1.SuspendLayout();
+            this.grpPatients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panelbuscador.SuspendLayout();
+            this.grpNewUser.SuspendLayout();
             this.SuspendLayout();
             // 
-            // contextDataGrid
+            // panel1
             // 
-            this.contextDataGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmsVer,
-            this.cmsActualizar,
-            this.cmsEliminar});
-            this.contextDataGrid.Name = "contextDataGrid";
-            this.contextDataGrid.Size = new System.Drawing.Size(226, 82);
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1370, 120);
+            this.panel1.TabIndex = 0;
             // 
-            // cmsVer
+            // lblTitle
             // 
-            this.cmsVer.Image = ((System.Drawing.Image)(resources.GetObject("cmsVer.Image")));
-            this.cmsVer.Name = "cmsVer";
-            this.cmsVer.Size = new System.Drawing.Size(225, 26);
-            this.cmsVer.Text = "Ver Ficha del Paciente";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.lblTitle.Location = new System.Drawing.Point(32, 39);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(122, 41);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Visitas";
             // 
-            // cmsActualizar
+            // cmsDataGrid
             // 
-            this.cmsActualizar.Image = ((System.Drawing.Image)(resources.GetObject("cmsActualizar.Image")));
-            this.cmsActualizar.Name = "cmsActualizar";
-            this.cmsActualizar.Size = new System.Drawing.Size(225, 26);
-            this.cmsActualizar.Text = "Actualizar Paciente";
+            this.cmsDataGrid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsDelete,
+            this.cmsView,
+            this.cmsUpdate,
+            this.cmsShowAll});
+            this.cmsDataGrid.Name = "cmsDataGrid";
+            this.cmsDataGrid.Size = new System.Drawing.Size(280, 114);
             // 
-            // cmsEliminar
+            // cmsDelete
             // 
-            this.cmsEliminar.Image = ((System.Drawing.Image)(resources.GetObject("cmsEliminar.Image")));
-            this.cmsEliminar.Name = "cmsEliminar";
-            this.cmsEliminar.Size = new System.Drawing.Size(225, 26);
-            this.cmsEliminar.Text = "Eliminar Paciente";
+            this.cmsDelete.Name = "cmsDelete";
+            this.cmsDelete.Size = new System.Drawing.Size(279, 22);
+            this.cmsDelete.Text = "Eliminar Visita";
             // 
-            // pictureBox5
+            // cmsView
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(255, 70);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox5.TabIndex = 13;
-            this.pictureBox5.TabStop = false;
+            this.cmsView.Name = "cmsView";
+            this.cmsView.Size = new System.Drawing.Size(279, 22);
+            this.cmsView.Text = "Ver Información de la Visita";
             // 
-            // pictureBox3
+            // cmsUpdate
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(65, 70);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
+            this.cmsUpdate.Name = "cmsUpdate";
+            this.cmsUpdate.Size = new System.Drawing.Size(279, 22);
+            this.cmsUpdate.Text = "Actualizar Información de la Visita";
             // 
-            // panel3
+            // panelCustom2
             // 
-            this.panel3.Controls.Add(this.panel8);
-            this.panel3.Controls.Add(this.ContenedorFiltros);
-            this.panel3.Controls.Add(this.panelGrafica);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(20, 20);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1340, 710);
-            this.panel3.TabIndex = 3;
+            this.panelCustom2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelCustom2.BackColor = System.Drawing.Color.White;
+            this.panelCustom2.BorderRadius = 30;
+            this.panelCustom2.Controls.Add(this.dgvPatientInfo);
+            this.panelCustom2.Controls.Add(this.panel2);
+            this.panelCustom2.ForeColor = System.Drawing.Color.Black;
+            this.panelCustom2.GradientAngle = 90F;
+            this.panelCustom2.GradientBottomColor = System.Drawing.Color.White;
+            this.panelCustom2.GradientTopColor = System.Drawing.Color.White;
+            this.panelCustom2.Location = new System.Drawing.Point(421, 152);
+            this.panelCustom2.Margin = new System.Windows.Forms.Padding(0, 32, 32, 32);
+            this.panelCustom2.Name = "panelCustom2";
+            this.panelCustom2.Size = new System.Drawing.Size(908, 641);
+            this.panelCustom2.TabIndex = 1;
             // 
-            // panel8
+            // dgvPatientInfo
             // 
-            this.panel8.ContextMenuStrip = this.contextDataGrid;
-            this.panel8.Controls.Add(this.panel2);
-            this.panel8.Controls.Add(this.GridViewPatient);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(338, 100);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1002, 610);
-            this.panel8.TabIndex = 15;
+            this.dgvPatientInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPatientInfo.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPatientInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPatientInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPatientInfo.ContextMenuStrip = this.cmsDataGrid;
+            this.dgvPatientInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPatientInfo.Location = new System.Drawing.Point(0, 100);
+            this.dgvPatientInfo.Name = "dgvPatientInfo";
+            this.dgvPatientInfo.ReadOnly = true;
+            this.dgvPatientInfo.Size = new System.Drawing.Size(908, 541);
+            this.dgvPatientInfo.TabIndex = 1;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 541);
+            this.panel2.Controls.Add(this.btnFilter);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.dtpVisitDate);
+            this.panel2.Controls.Add(this.cmbSpecialty);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.cmbGrade);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.cmbRole);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btnShowAll);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1002, 69);
-            this.panel2.TabIndex = 1;
+            this.panel2.Size = new System.Drawing.Size(908, 100);
+            this.panel2.TabIndex = 0;
             // 
-            // panel5
+            // btnFilter
             // 
-            this.panel5.Controls.Add(this.btnShowAll);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(783, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(219, 69);
-            this.panel5.TabIndex = 19;
+            this.btnFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnFilter.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnFilter.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnFilter.BorderRadius = 40;
+            this.btnFilter.BorderSize = 0;
+            this.btnFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFilter.FlatAppearance.BorderSize = 0;
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnFilter.Location = new System.Drawing.Point(26, 26);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(26);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(117, 48);
+            this.btnFilter.TabIndex = 10;
+            this.btnFilter.Text = "Filtrar";
+            this.btnFilter.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnFilter.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.label4.Location = new System.Drawing.Point(172, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 15);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Fecha de la visita";
+            // 
+            // dtpVisitDate
+            // 
+            this.dtpVisitDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVisitDate.Location = new System.Drawing.Point(175, 54);
+            this.dtpVisitDate.Margin = new System.Windows.Forms.Padding(26);
+            this.dtpVisitDate.Name = "dtpVisitDate";
+            this.dtpVisitDate.Size = new System.Drawing.Size(118, 20);
+            this.dtpVisitDate.TabIndex = 8;
+            // 
+            // cmbSpecialty
+            // 
+            this.cmbSpecialty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.cmbSpecialty.FormattingEnabled = true;
+            this.cmbSpecialty.Location = new System.Drawing.Point(324, 53);
+            this.cmbSpecialty.Margin = new System.Windows.Forms.Padding(5);
+            this.cmbSpecialty.Name = "cmbSpecialty";
+            this.cmbSpecialty.Size = new System.Drawing.Size(118, 21);
+            this.cmbSpecialty.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.label3.Location = new System.Drawing.Point(321, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 15);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Especialidad";
+            // 
+            // cmbGrade
+            // 
+            this.cmbGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGrade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.cmbGrade.FormattingEnabled = true;
+            this.cmbGrade.Location = new System.Drawing.Point(473, 53);
+            this.cmbGrade.Margin = new System.Windows.Forms.Padding(26);
+            this.cmbGrade.Name = "cmbGrade";
+            this.cmbGrade.Size = new System.Drawing.Size(65, 21);
+            this.cmbGrade.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.label1.Location = new System.Drawing.Point(470, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Grado";
+            // 
+            // cmbRole
+            // 
+            this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Location = new System.Drawing.Point(569, 53);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(5);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(118, 21);
+            this.cmbRole.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.label2.Location = new System.Drawing.Point(566, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 15);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Tipo de persona";
             // 
             // btnShowAll
             // 
             this.btnShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
             this.btnShowAll.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnShowAll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnShowAll.BorderColor = System.Drawing.Color.CornflowerBlue;
             this.btnShowAll.BorderRadius = 40;
             this.btnShowAll.BorderSize = 0;
+            this.btnShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShowAll.FlatAppearance.BorderSize = 0;
             this.btnShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowAll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnShowAll.ForeColor = System.Drawing.Color.Black;
-            this.btnShowAll.Location = new System.Drawing.Point(22, 10);
+            this.btnShowAll.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnShowAll.Location = new System.Drawing.Point(718, 26);
+            this.btnShowAll.Margin = new System.Windows.Forms.Padding(26);
             this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(173, 46);
-            this.btnShowAll.TabIndex = 18;
-            this.btnShowAll.Text = "Mostrar Todo";
-            this.btnShowAll.TextColor = System.Drawing.Color.Black;
+            this.btnShowAll.Size = new System.Drawing.Size(164, 48);
+            this.btnShowAll.TabIndex = 1;
+            this.btnShowAll.Text = "Mostrar Todos";
+            this.btnShowAll.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnShowAll.UseVisualStyleBackColor = false;
             // 
-            // GridViewPatient
+            // panelCustom1
             // 
-            this.GridViewPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.GridViewPatient.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.GridViewPatient.BackgroundColor = System.Drawing.Color.White;
-            this.GridViewPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.GridViewPatient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.GridViewPatient.ColumnHeadersHeight = 40;
-            this.GridViewPatient.ContextMenuStrip = this.contextDataGrid;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewPatient.DefaultCellStyle = dataGridViewCellStyle4;
-            this.GridViewPatient.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridViewPatient.EnableHeadersVisualStyles = false;
-            this.GridViewPatient.Location = new System.Drawing.Point(0, 0);
-            this.GridViewPatient.MultiSelect = false;
-            this.GridViewPatient.Name = "GridViewPatient";
-            this.GridViewPatient.ReadOnly = true;
-            this.GridViewPatient.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.GridViewPatient.RowHeadersVisible = false;
-            this.GridViewPatient.RowHeadersWidth = 25;
-            this.GridViewPatient.RowTemplate.Height = 24;
-            this.GridViewPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridViewPatient.Size = new System.Drawing.Size(1002, 610);
-            this.GridViewPatient.TabIndex = 0;
+            this.panelCustom1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelCustom1.BackColor = System.Drawing.Color.White;
+            this.panelCustom1.BorderRadius = 30;
+            this.panelCustom1.Controls.Add(this.grpPatients);
+            this.panelCustom1.Controls.Add(this.grpNewUser);
+            this.panelCustom1.ForeColor = System.Drawing.Color.Black;
+            this.panelCustom1.GradientAngle = 90F;
+            this.panelCustom1.GradientBottomColor = System.Drawing.Color.White;
+            this.panelCustom1.GradientTopColor = System.Drawing.Color.White;
+            this.panelCustom1.Location = new System.Drawing.Point(39, 152);
+            this.panelCustom1.Margin = new System.Windows.Forms.Padding(32);
+            this.panelCustom1.Name = "panelCustom1";
+            this.panelCustom1.Size = new System.Drawing.Size(350, 641);
+            this.panelCustom1.TabIndex = 0;
             // 
-            // ContenedorFiltros
+            // grpPatients
             // 
-            this.ContenedorFiltros.BackColor = System.Drawing.Color.White;
-            this.ContenedorFiltros.Controls.Add(this.label6);
-            this.ContenedorFiltros.Controls.Add(this.cmbRol);
-            this.ContenedorFiltros.Controls.Add(this.panel1);
-            this.ContenedorFiltros.Controls.Add(this.BtnFiltrar);
-            this.ContenedorFiltros.Controls.Add(this.label8);
-            this.ContenedorFiltros.Controls.Add(this.label7);
-            this.ContenedorFiltros.Controls.Add(this.CmbSpecialty);
-            this.ContenedorFiltros.Controls.Add(this.label5);
-            this.ContenedorFiltros.Controls.Add(this.CmbGrade);
-            this.ContenedorFiltros.Controls.Add(this.PickFechaVisita);
-            this.ContenedorFiltros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ContenedorFiltros.Location = new System.Drawing.Point(338, 0);
-            this.ContenedorFiltros.Name = "ContenedorFiltros";
-            this.ContenedorFiltros.Size = new System.Drawing.Size(1002, 100);
-            this.ContenedorFiltros.TabIndex = 14;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(567, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 23);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Tipo Persona";
-            // 
-            // cmbRol
-            // 
-            this.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRol.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Items.AddRange(new object[] {
-            "Todos"});
-            this.cmbRol.Location = new System.Drawing.Point(571, 48);
-            this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(183, 33);
-            this.cmbRol.TabIndex = 19;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.btnNew);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(822, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 100);
-            this.panel1.TabIndex = 18;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(128, 48);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(26, 28);
-            this.pictureBox4.TabIndex = 14;
-            this.pictureBox4.TabStop = false;
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnNew.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnNew.BorderRadius = 40;
-            this.btnNew.BorderSize = 0;
-            this.btnNew.FlatAppearance.BorderSize = 0;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnNew.ForeColor = System.Drawing.Color.Black;
-            this.btnNew.Location = new System.Drawing.Point(3, 35);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(163, 46);
-            this.btnNew.TabIndex = 2;
-            this.btnNew.Text = "Nueva Visita";
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNew.TextColor = System.Drawing.Color.Black;
-            this.btnNew.UseVisualStyleBackColor = false;
-            // 
-            // BtnFiltrar
-            // 
-            this.BtnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnFiltrar.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnFiltrar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnFiltrar.BorderRadius = 40;
-            this.BtnFiltrar.BorderSize = 0;
-            this.BtnFiltrar.FlatAppearance.BorderSize = 0;
-            this.BtnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFiltrar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.BtnFiltrar.Location = new System.Drawing.Point(15, 35);
-            this.BtnFiltrar.Name = "BtnFiltrar";
-            this.BtnFiltrar.Size = new System.Drawing.Size(85, 46);
-            this.BtnFiltrar.TabIndex = 17;
-            this.BtnFiltrar.Text = "Filtrar";
-            this.BtnFiltrar.TextColor = System.Drawing.Color.Black;
-            this.BtnFiltrar.UseVisualStyleBackColor = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label8.Location = new System.Drawing.Point(483, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 23);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Grado";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(280, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 23);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Especialidad";
-            // 
-            // CmbSpecialty
-            // 
-            this.CmbSpecialty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbSpecialty.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CmbSpecialty.FormattingEnabled = true;
-            this.CmbSpecialty.Items.AddRange(new object[] {
-            "Todos"});
-            this.CmbSpecialty.Location = new System.Drawing.Point(284, 47);
-            this.CmbSpecialty.Name = "CmbSpecialty";
-            this.CmbSpecialty.Size = new System.Drawing.Size(185, 33);
-            this.CmbSpecialty.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(114, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 23);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Fecha de la Visita";
-            // 
-            // CmbGrade
-            // 
-            this.CmbGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbGrade.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CmbGrade.FormattingEnabled = true;
-            this.CmbGrade.Items.AddRange(new object[] {
-            "Todos"});
-            this.CmbGrade.Location = new System.Drawing.Point(487, 47);
-            this.CmbGrade.Name = "CmbGrade";
-            this.CmbGrade.Size = new System.Drawing.Size(65, 33);
-            this.CmbGrade.TabIndex = 3;
-            // 
-            // PickFechaVisita
-            // 
-            this.PickFechaVisita.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.PickFechaVisita.CustomFormat = "yyyy-MM-dd";
-            this.PickFechaVisita.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.PickFechaVisita.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.PickFechaVisita.Location = new System.Drawing.Point(118, 47);
-            this.PickFechaVisita.Name = "PickFechaVisita";
-            this.PickFechaVisita.Size = new System.Drawing.Size(150, 32);
-            this.PickFechaVisita.TabIndex = 6;
-            // 
-            // panelGrafica
-            // 
-            this.panelGrafica.Controls.Add(this.panelTitulo);
-            this.panelGrafica.Controls.Add(this.flowLayoutPanel1);
-            this.panelGrafica.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelGrafica.Location = new System.Drawing.Point(0, 0);
-            this.panelGrafica.Margin = new System.Windows.Forms.Padding(30);
-            this.panelGrafica.MaximumSize = new System.Drawing.Size(800, 0);
-            this.panelGrafica.Name = "panelGrafica";
-            this.panelGrafica.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
-            this.panelGrafica.Size = new System.Drawing.Size(338, 710);
-            this.panelGrafica.TabIndex = 2;
-            // 
-            // panelTitulo
-            // 
-            this.panelTitulo.Controls.Add(this.panelCustumPequeño);
-            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTitulo.Location = new System.Drawing.Point(0, 139);
-            this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(308, 571);
-            this.panelTitulo.TabIndex = 1;
-            // 
-            // panelCustumPequeño
-            // 
-            this.panelCustumPequeño.BackColor = System.Drawing.Color.White;
-            this.panelCustumPequeño.BorderRadius = 30;
-            this.panelCustumPequeño.Controls.Add(this.panel6);
-            this.panelCustumPequeño.Controls.Add(this.panelButton);
-            this.panelCustumPequeño.Controls.Add(this.pictureBox2);
-            this.panelCustumPequeño.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelCustumPequeño.ForeColor = System.Drawing.Color.Black;
-            this.panelCustumPequeño.GradientAngle = 90F;
-            this.panelCustumPequeño.GradientBottomColor = System.Drawing.Color.White;
-            this.panelCustumPequeño.GradientTopColor = System.Drawing.Color.White;
-            this.panelCustumPequeño.Location = new System.Drawing.Point(0, 0);
-            this.panelCustumPequeño.Name = "panelCustumPequeño";
-            this.panelCustumPequeño.Size = new System.Drawing.Size(308, 571);
-            this.panelCustumPequeño.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Controls.Add(this.btnPDF);
-            this.panel6.Controls.Add(this.pictureBox6);
-            this.panel6.Controls.Add(this.btnPrint);
-            this.panel6.Controls.Add(this.chart1);
-            this.panel6.Controls.Add(this.panel4);
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(308, 558);
-            this.panel6.TabIndex = 15;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(101, 502);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(26, 28);
-            this.pictureBox7.TabIndex = 17;
-            this.pictureBox7.TabStop = false;
-            // 
-            // btnPDF
-            // 
-            this.btnPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnPDF.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnPDF.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnPDF.BorderRadius = 40;
-            this.btnPDF.BorderSize = 0;
-            this.btnPDF.FlatAppearance.BorderSize = 0;
-            this.btnPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPDF.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnPDF.ForeColor = System.Drawing.Color.White;
-            this.btnPDF.Location = new System.Drawing.Point(43, 489);
-            this.btnPDF.Name = "btnPDF";
-            this.btnPDF.Size = new System.Drawing.Size(96, 46);
-            this.btnPDF.TabIndex = 16;
-            this.btnPDF.Text = "PDF";
-            this.btnPDF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPDF.TextColor = System.Drawing.Color.White;
-            this.btnPDF.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(248, 502);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(26, 28);
-            this.pictureBox6.TabIndex = 15;
-            this.pictureBox6.TabStop = false;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.btnPrint.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.btnPrint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.btnPrint.BorderRadius = 40;
-            this.btnPrint.BorderSize = 0;
-            this.btnPrint.FlatAppearance.BorderSize = 0;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(157, 489);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(129, 46);
-            this.btnPrint.TabIndex = 14;
-            this.btnPrint.Text = "Imprimir";
-            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.TextColor = System.Drawing.Color.White;
-            this.btnPrint.UseVisualStyleBackColor = false;
+            this.grpPatients.Controls.Add(this.chart1);
+            this.grpPatients.Controls.Add(this.lblPatientTotal);
+            this.grpPatients.Controls.Add(this.btnSearch);
+            this.grpPatients.Controls.Add(this.txtSearch);
+            this.grpPatients.Controls.Add(this.lblUserAdministrationSearch);
+            this.grpPatients.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpPatients.ForeColor = System.Drawing.Color.DarkGray;
+            this.grpPatients.Location = new System.Drawing.Point(45, 45);
+            this.grpPatients.Margin = new System.Windows.Forms.Padding(45);
+            this.grpPatients.Name = "grpPatients";
+            this.grpPatients.Size = new System.Drawing.Size(260, 418);
+            this.grpPatients.TabIndex = 2;
+            this.grpPatients.TabStop = false;
+            this.grpPatients.Text = "Información de Pacientes";
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Top;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(0, 157);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(8, 166);
+            this.chart1.Margin = new System.Windows.Forms.Padding(5);
             this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.PaleTurquoise,
-        System.Drawing.Color.Gold,
-        System.Drawing.Color.Turquoise,
-        System.Drawing.Color.PowderBlue,
-        System.Drawing.Color.Khaki,
-        System.Drawing.Color.Goldenrod};
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(308, 245);
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(244, 244);
+            this.chart1.SuppressExceptions = true;
             this.chart1.TabIndex = 7;
-            this.chart1.Text = "chart1";
+            this.chart1.TabStop = false;
+            this.chart1.Text = "hola";
             // 
-            // panel4
+            // lblPatientTotal
             // 
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.comboBox2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(308, 157);
-            this.panel4.TabIndex = 13;
+            this.lblPatientTotal.AutoSize = true;
+            this.lblPatientTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.lblPatientTotal.Location = new System.Drawing.Point(21, 140);
+            this.lblPatientTotal.Name = "lblPatientTotal";
+            this.lblPatientTotal.Size = new System.Drawing.Size(161, 15);
+            this.lblPatientTotal.TabIndex = 6;
+            this.lblPatientTotal.Text = "Total de pacientes atendidos";
             // 
-            // label2
+            // btnSearch
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(10, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(250, 37);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Total de pacientes";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(10, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 37);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "atendidos";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(17, 101);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 36);
-            this.comboBox2.TabIndex = 6;
-            // 
-            // panelButton
-            // 
-            this.panelButton.Location = new System.Drawing.Point(0, 0);
-            this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(200, 100);
-            this.panelButton.TabIndex = 16;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(133)))), ((int)(((byte)(0)))));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(340, 447);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.panelbuscador);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(308, 139);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 81);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Visitas";
-            // 
-            // panelbuscador
-            // 
-            this.panelbuscador.Controls.Add(this.BtnBuscar);
-            this.panelbuscador.Controls.Add(this.txtSearch);
-            this.panelbuscador.Location = new System.Drawing.Point(3, 84);
-            this.panelbuscador.Name = "panelbuscador";
-            this.panelbuscador.Size = new System.Drawing.Size(319, 55);
-            this.panelbuscador.TabIndex = 0;
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnBuscar.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnBuscar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.BtnBuscar.BorderRadius = 20;
-            this.BtnBuscar.BorderSize = 0;
-            this.BtnBuscar.FlatAppearance.BorderSize = 0;
-            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.BtnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("BtnBuscar.Image")));
-            this.BtnBuscar.Location = new System.Drawing.Point(245, 6);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(49, 43);
-            this.BtnBuscar.TabIndex = 17;
-            this.BtnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBuscar.TextColor = System.Drawing.Color.Black;
-            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnSearch.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnSearch.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSearch.BorderRadius = 30;
+            this.btnSearch.BorderSize = 0;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnSearch.Location = new System.Drawing.Point(161, 82);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 32);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // txtSearch
             // 
-            this.txtSearch.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSearch.BorderColor = System.Drawing.Color.White;
-            this.txtSearch.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.txtSearch.BorderRadius = 20;
+            this.txtSearch.BackColor = System.Drawing.Color.White;
+            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtSearch.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtSearch.BorderRadius = 15;
             this.txtSearch.BorderSize = 2;
-            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtSearch.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSearch.Location = new System.Drawing.Point(0, 0);
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtSearch.Location = new System.Drawing.Point(24, 46);
+            this.txtSearch.MaxLength = 32767;
             this.txtSearch.Multiline = false;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtSearch.PasswordChar = false;
             this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSearch.PlaceholderText = "";
-            this.txtSearch.Size = new System.Drawing.Size(219, 55);
-            this.txtSearch.TabIndex = 3;
-            this.txtSearch.Texts = "Búscar";
+            this.txtSearch.Size = new System.Drawing.Size(212, 30);
+            this.txtSearch.TabIndex = 4;
+            this.txtSearch.Texts = "";
             this.txtSearch.UnderlinedStyle = false;
+            // 
+            // lblUserAdministrationSearch
+            // 
+            this.lblUserAdministrationSearch.AutoSize = true;
+            this.lblUserAdministrationSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.lblUserAdministrationSearch.Location = new System.Drawing.Point(21, 28);
+            this.lblUserAdministrationSearch.Name = "lblUserAdministrationSearch";
+            this.lblUserAdministrationSearch.Size = new System.Drawing.Size(100, 15);
+            this.lblUserAdministrationSearch.TabIndex = 3;
+            this.lblUserAdministrationSearch.Text = "Buscar pacientes";
+            // 
+            // grpNewUser
+            // 
+            this.grpNewUser.Controls.Add(this.btnNew);
+            this.grpNewUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpNewUser.ForeColor = System.Drawing.Color.DarkGray;
+            this.grpNewUser.Location = new System.Drawing.Point(45, 496);
+            this.grpNewUser.Margin = new System.Windows.Forms.Padding(45);
+            this.grpNewUser.Name = "grpNewUser";
+            this.grpNewUser.Size = new System.Drawing.Size(260, 100);
+            this.grpNewUser.TabIndex = 1;
+            this.grpNewUser.TabStop = false;
+            this.grpNewUser.Text = "Nueva Visita";
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnNew.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnNew.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnNew.BorderRadius = 40;
+            this.btnNew.BorderSize = 0;
+            this.btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnNew.Location = new System.Drawing.Point(24, 28);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(21);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(212, 48);
+            this.btnNew.TabIndex = 0;
+            this.btnNew.Text = "Nueva Visita";
+            this.btnNew.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnNew.UseVisualStyleBackColor = false;
+            // 
+            // cmsShowAll
+            // 
+            this.cmsShowAll.Name = "cmsShowAll";
+            this.cmsShowAll.Size = new System.Drawing.Size(279, 22);
+            this.cmsShowAll.Text = "Mostrar Todos";
             // 
             // FrmPatientAdministration
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1380, 750);
-            this.Controls.Add(this.panel3);
-            this.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.ClientSize = new System.Drawing.Size(1370, 825);
+            this.Controls.Add(this.panelCustom2);
+            this.Controls.Add(this.panelCustom1);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1330, 750);
+            this.MinimumSize = new System.Drawing.Size(1240, 825);
             this.Name = "FrmPatientAdministration";
-            this.Padding = new System.Windows.Forms.Padding(20);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.contextDataGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewPatient)).EndInit();
-            this.ContenedorFiltros.ResumeLayout(false);
-            this.ContenedorFiltros.PerformLayout();
+            this.Text = "FrmUserAdministration";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panelGrafica.ResumeLayout(false);
-            this.panelTitulo.ResumeLayout(false);
-            this.panelCustumPequeño.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel1.PerformLayout();
+            this.cmsDataGrid.ResumeLayout(false);
+            this.panelCustom2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatientInfo)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panelCustom1.ResumeLayout(false);
+            this.grpPatients.ResumeLayout(false);
+            this.grpPatients.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            this.panelbuscador.ResumeLayout(false);
+            this.grpNewUser.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private CustomPanel.RJButton rjButton3;
-        private CustomPanel.RJButton rjButton2;
-        private CustomPanel.BorderRadiusTXT borderRadiusTXT2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.ColorDialog colorDialog1;
-        public System.Windows.Forms.ContextMenuStrip contextDataGrid;
-        public System.Windows.Forms.ToolStripMenuItem cmsVer;
-        public System.Windows.Forms.ToolStripMenuItem cmsActualizar;
-        public System.Windows.Forms.ToolStripMenuItem cmsEliminar;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panelGrafica;
-        private System.Windows.Forms.Panel panelTitulo;
-        private CustomPanel.PanelCustom panelCustumPequeño;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        public CustomPanel.RJButton btnPDF;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        public CustomPanel.RJButton btnPrint;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Panel panelButton;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panelbuscador;
-        public CustomPanel.RJButton BtnBuscar;
-        public CustomPanel.BorderRadiusTXT txtSearch;
-        private System.Windows.Forms.Panel panel8;
-        public System.Windows.Forms.DataGridView GridViewPatient;
-        private System.Windows.Forms.Panel ContenedorFiltros;
-        public CustomPanel.RJButton BtnFiltrar;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.ComboBox CmbSpecialty;
-        private System.Windows.Forms.Label label5;
-        public CustomPanel.RJButton btnNew;
-        public System.Windows.Forms.ComboBox CmbGrade;
-        public System.Windows.Forms.DateTimePicker PickFechaVisita;
+
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.ContextMenuStrip cmsDataGrid;
+        public System.Windows.Forms.ToolStripMenuItem cmsDelete;
+        public System.Windows.Forms.ToolStripMenuItem cmsView;
+        public System.Windows.Forms.ToolStripMenuItem cmsUpdate;
+        public CustomControls.PanelCustom panelCustom1;
+        private System.Windows.Forms.GroupBox grpPatients;
+        public CustomControls.RJButton btnSearch;
+        public CustomControls.CustomTextBox txtSearch;
+        private System.Windows.Forms.Label lblUserAdministrationSearch;
+        private System.Windows.Forms.GroupBox grpNewUser;
+        public CustomControls.RJButton btnNew;
+        public CustomControls.PanelCustom panelCustom2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label lblPatientTotal;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel5;
-        public CustomPanel.RJButton btnShowAll;
-        private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.ComboBox cmbRol;
+        public System.Windows.Forms.DataGridView dgvPatientInfo;
+        public CustomControls.RJButton btnShowAll;
+        public System.Windows.Forms.ComboBox cmbRole;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.ComboBox cmbGrade;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ComboBox cmbSpecialty;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        public CustomControls.RJButton btnFilter;
+        public System.Windows.Forms.DateTimePicker dtpVisitDate;
+        public System.Windows.Forms.ToolStripMenuItem cmsShowAll;
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace CustomPanel
+﻿namespace CustomControls
 {
-    partial class BorderRadiusTXT
+    partial class CustomTextBox
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -40,12 +40,12 @@
             this.textBox1.Size = new System.Drawing.Size(230, 13);
             this.textBox1.TabIndex = 0;
             // 
-            // BorderRadiusTXT
+            // CustomTextBox
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.textBox1);
-            this.Name = "BorderRadiusTXT";
+            this.Name = "CustomTextBox";
             this.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.Size = new System.Drawing.Size(250, 30);
             this.ResumeLayout(false);

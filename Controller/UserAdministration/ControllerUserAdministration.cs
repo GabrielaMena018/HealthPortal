@@ -1,4 +1,5 @@
-﻿using HealthPortal.Helper;
+﻿using CustomControls;
+using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
 using HealthPortal.View.PasswordManagement;
 using HealthPortal.View.UserAdministration;
@@ -25,13 +26,36 @@ namespace HealthPortal.Controller.UserAdministration
             frmUserAdministration.Load += new EventHandler(LoadData);
             frmUserAdministration.Load += new EventHandler(VerifyAccessLevel);
             frmUserAdministration.Resize += new EventHandler(ResizeControls);
+
             frmUserAdministration.btnFilter.Click += new EventHandler(SortData);
+
             frmUserAdministration.btnSearchForUser.Click += new EventHandler(SearchDatabase);
             frmUserAdministration.btnAddNewUser.Click += new EventHandler(AddUser);
             frmUserAdministration.cmsUpdateUser.Click += new EventHandler(UpdateUser);
             frmUserAdministration.cmsDeleteUser.Click += new EventHandler(DeleteUser);
             frmUserAdministration.cmsViewUser.Click += new EventHandler(ViewUser);
+
             frmUserAdministration.cmsReestablishPassword.Click += new EventHandler(ChangeUserPassword);
+
+            frmUserAdministration.btnAddNewUser.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmUserAdministration.btnFilter.MouseEnter += new EventHandler(MouseEnterTextButton);
+            frmUserAdministration.btnSearchForUser.MouseEnter += new EventHandler(MouseEnterTextButton);
+
+            frmUserAdministration.btnAddNewUser.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmUserAdministration.btnFilter.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmUserAdministration.btnSearchForUser.MouseLeave += new EventHandler(MouseLeaveTextButton);
+        }
+        private void MouseEnterTextButton(object sender, EventArgs e)
+        {
+            RJButton btn = sender as RJButton;
+            btn.BackColor = Color.FromArgb(31, 43, 91);
+            btn.ForeColor = Color.White;
+        }
+        private void MouseLeaveTextButton(object sender, EventArgs e)
+        {
+            RJButton btn = sender as RJButton;
+            btn.BackColor = Color.FromArgb(255, 183, 3);
+            btn.ForeColor = Color.FromArgb(31, 43, 91);
         }
         private void LoadData(object sender, EventArgs e)
         {
