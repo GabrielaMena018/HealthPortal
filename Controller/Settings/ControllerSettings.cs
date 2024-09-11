@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HealthPortal.Controller.Settings
 {
@@ -29,7 +30,9 @@ namespace HealthPortal.Controller.Settings
                 { "btnServerSettings", Tuple.Create(Resources.server, Resources.hoverServer) },
                 { "btnProgramSettings", Tuple.Create(Resources.healthPortal, Resources.hoverHealthPortal) }
             };
+
             frmSettings.Load += new EventHandler(OpenUserSettingsForm);
+            frmSettings.Resize += new EventHandler(ResizeControls);
             frmSettings.btnUserSettings.Click += new EventHandler(OpenUserSettingsForm);
             frmSettings.btnInstitutionSettings.Click += new EventHandler(OpenInstitutionSettingsForm);
             frmSettings.btnServerSettings.Click += new EventHandler(OpenServerSettingsForm);
@@ -193,6 +196,12 @@ namespace HealthPortal.Controller.Settings
         private void InitialLoad(object sender, EventArgs e)
         {
             CheckUserAccessRole();
+            frmSettings.pnlSideBar.Width = CurrentUserData.MaxSidePanelWidth;
+        }
+        private void ResizeControls(object sender, EventArgs e)
+        {
+            frmSettings.Width = frmSettings.Parent.Width;
+            frmSettings.pnlSideBar.Width = CurrentUserData.MaxSidePanelWidth;
         }
         private void CheckUserAccessRole()
         {

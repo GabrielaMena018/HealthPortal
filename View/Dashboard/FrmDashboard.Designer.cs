@@ -138,7 +138,7 @@
             this.btnMainPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnMainPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnMainPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMainPage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainPage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMainPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnMainPage.Image = global::HealthPortal.Properties.Resources.main;
             this.btnMainPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -172,7 +172,7 @@
             this.btnVisits.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnVisits.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnVisits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVisits.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisits.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnVisits.Image = global::HealthPortal.Properties.Resources.visits;
             this.btnVisits.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -206,7 +206,7 @@
             this.btnInventory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnInventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventory.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventory.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnInventory.Image")));
             this.btnInventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -240,7 +240,7 @@
             this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnSettings.Image = global::HealthPortal.Properties.Resources.settings;
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -274,7 +274,7 @@
             this.btnSections.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSections.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnSections.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSections.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSections.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSections.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnSections.Image = global::HealthPortal.Properties.Resources.sections;
             this.btnSections.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -308,7 +308,7 @@
             this.btnUsers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
             this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -341,7 +341,7 @@
             this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

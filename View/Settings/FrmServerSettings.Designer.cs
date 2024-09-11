@@ -31,7 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServerSettings));
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlSub = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.picImage = new System.Windows.Forms.PictureBox();
             this.panelCustom1 = new CustomControls.PanelCustom();
             this.grpLocalConfig = new System.Windows.Forms.GroupBox();
             this.pnlAuth = new System.Windows.Forms.Panel();
@@ -45,18 +48,17 @@
             this.grpConnectionInfo = new System.Windows.Forms.GroupBox();
             this.txtDataBase = new CustomControls.CustomTextBox();
             this.txtServerURL = new CustomControls.CustomTextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.btnSaveConfig = new CustomControls.RJButton();
-            this.picImage = new System.Windows.Forms.PictureBox();
             this.pnlTitle.SuspendLayout();
+            this.pnlSub.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.panelCustom1.SuspendLayout();
             this.grpLocalConfig.SuspendLayout();
             this.pnlAuth.SuspendLayout();
             this.panel5.SuspendLayout();
             this.grpConnectionInfo.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitle
@@ -83,15 +85,44 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Configuración de Servidor";
             // 
+            // pnlSub
+            // 
+            this.pnlSub.Controls.Add(this.panel2);
+            this.pnlSub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSub.Location = new System.Drawing.Point(0, 120);
+            this.pnlSub.Name = "pnlSub";
+            this.pnlSub.Size = new System.Drawing.Size(1090, 585);
+            this.pnlSub.TabIndex = 2;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panelCustom1);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(0, 120);
+            this.panel2.Location = new System.Drawing.Point(28, 28);
             this.panel2.Margin = new System.Windows.Forms.Padding(48, 0, 48, 48);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1034, 528);
-            this.panel2.TabIndex = 2;
+            this.panel2.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnSaveConfig);
+            this.panel3.Controls.Add(this.picImage);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(400, 528);
+            this.panel3.TabIndex = 5;
+            // 
+            // picImage
+            // 
+            this.picImage.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picImage.Image = ((System.Drawing.Image)(resources.GetObject("picImage.Image")));
+            this.picImage.Location = new System.Drawing.Point(0, 0);
+            this.picImage.Name = "picImage";
+            this.picImage.Size = new System.Drawing.Size(400, 528);
+            this.picImage.TabIndex = 1;
+            this.picImage.TabStop = false;
             // 
             // panelCustom1
             // 
@@ -306,16 +337,6 @@
             this.txtServerURL.Texts = "URL del servidor";
             this.txtServerURL.UnderlinedStyle = false;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnSaveConfig);
-            this.panel3.Controls.Add(this.picImage);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(400, 528);
-            this.panel3.TabIndex = 5;
-            // 
             // btnSaveConfig
             // 
             this.btnSaveConfig.BackColor = System.Drawing.Color.White;
@@ -339,64 +360,58 @@
             this.btnSaveConfig.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnSaveConfig.UseVisualStyleBackColor = false;
             // 
-            // picImage
-            // 
-            this.picImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picImage.Image = ((System.Drawing.Image)(resources.GetObject("picImage.Image")));
-            this.picImage.Location = new System.Drawing.Point(0, 0);
-            this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(400, 528);
-            this.picImage.TabIndex = 1;
-            this.picImage.TabStop = false;
-            // 
             // FrmServerSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1090, 705);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlSub);
             this.Controls.Add(this.pnlTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(986, 705);
             this.Name = "FrmServerSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuración de Servidor";
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
+            this.pnlSub.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.panelCustom1.ResumeLayout(false);
             this.grpLocalConfig.ResumeLayout(false);
             this.pnlAuth.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.grpConnectionInfo.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.Panel pnlTitle;
+        private System.Windows.Forms.Panel pnlSub;
         public System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        public System.Windows.Forms.GroupBox grpLocalConfig;
-        public System.Windows.Forms.GroupBox grpConnectionInfo;
         public CustomControls.PanelCustom panelCustom1;
-        public CustomControls.CustomTextBox txtServerURL;
-        public CustomControls.CustomTextBox txtDataBase;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.GroupBox grpLocalConfig;
+        public System.Windows.Forms.Panel pnlAuth;
         public CustomControls.CustomTextBox txtPassword;
         public CustomControls.CustomTextBox txtSQLAuth;
-        public CustomControls.RJButton btnSaveConfig;
-        public System.Windows.Forms.Panel pnlAuth;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.RadioButton rdoFalse;
         public System.Windows.Forms.RadioButton rdoTrue;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.GroupBox grpConnectionInfo;
+        public CustomControls.CustomTextBox txtDataBase;
+        public CustomControls.CustomTextBox txtServerURL;
+        private System.Windows.Forms.Panel panel3;
+        public CustomControls.RJButton btnSaveConfig;
         public System.Windows.Forms.PictureBox picImage;
-        public System.Windows.Forms.Panel pnlTitle;
     }
 }

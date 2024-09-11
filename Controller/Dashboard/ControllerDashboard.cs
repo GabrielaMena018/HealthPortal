@@ -24,17 +24,13 @@ namespace HealthPortal.Controller.Dashboard
         Form currentForm;
         Button currentButton;
         private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
-        bool isSideBarExpanded = true;
-        const int collapsedWidth = 150;
-        const int expandedWidth = 280;
         const int collapsedLogoX = 43;
         const int expandedLogoX = 108;
-        readonly int[] collapsedButtonX = {59, 51};
-        const int expandedButtonX = 34;
         const int logoY = 43;
         public ControllerDashboard(FrmDashboard view)
         {
             frmDashboard = view;
+            frmDashboard.Size = new Size((int)(CurrentUserData.ScreenWidth * .75), (int)(CurrentUserData.ScreenHeight * .75));
             frmDashboard.Load += new EventHandler(InitialLoad);
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
             {
@@ -47,6 +43,8 @@ namespace HealthPortal.Controller.Dashboard
                 { "btnUsers", Tuple.Create(Resources.users, Resources.hoverUsers) },
                 { "btnLogout", Tuple.Create(Resources.logout, Resources.hoverLogout) }
             };
+
+            CommonMethods.EnableFormDrag(frmDashboard, frmDashboard.pnlMenu);
 
             // Expandir / Colapsar la sidebar
             frmDashboard.btnMenu.Click += new EventHandler(MorphSideBar);
@@ -84,15 +82,24 @@ namespace HealthPortal.Controller.Dashboard
             frmDashboard.btnLogout.Click += new EventHandler(Logout);
             frmDashboard.FormClosing += new FormClosingEventHandler(CloseProgram);
         }
+        private void AdjustControlSizes()
+        {
+            int formWidth = frmDashboard.ClientSize.Width;
+            frmDashboard.pnlSideBar.Width = CurrentUserData.IsSideBarExpanded ? (int)(formWidth * (280.0 / 1520.0)) : (int)(formWidth * (150.0 / 1520.0));
+        }
         private void InitialLoad(object sender, EventArgs e)
         {
+            CurrentUserData.IsSideBarExpanded = true;
+            CurrentUserData.MaxSidePanelWidth = frmDashboard.pnlSideBar.Width > CurrentUserData.MaxSidePanelWidth ? frmDashboard.pnlSideBar.Width : CurrentUserData.MaxSidePanelWidth;
             CheckUserAccessRole();
+            AdjustControlSizes();
         }
         private void MorphSideBar(object sender, EventArgs e)
         {
             // Se actualiza el ancho del panel lateral donde están los botoncitos
-            frmDashboard.pnlSideBar.Width = isSideBarExpanded ? collapsedWidth : expandedWidth;
-            frmDashboard.btnMenu.Location = new Point(isSideBarExpanded ? collapsedLogoX : expandedLogoX, logoY);
+            frmDashboard.pnlSideBar.Width = CurrentUserData.IsSideBarExpanded ? (int)(frmDashboard.Width * (150.0 / 1520.0)) : (int)(frmDashboard.Width * (280.0 / 1520.0));
+            CurrentUserData.ScaleFactor = (float)(frmDashboard.ClientSize.Width / 1520.0);
+            frmDashboard.btnMenu.Location = new Point(CurrentUserData.IsSideBarExpanded ? (int)(collapsedLogoX * CurrentUserData.ScaleFactor) : (int)(expandedLogoX * CurrentUserData.ScaleFactor), (int)(logoY * CurrentUserData.ScaleFactor));
 
             // Se actualizan todos los paneles para que tengan el mismo ancho del recién cambiado panel lateral
             foreach (Panel pnl in new Panel[] { frmDashboard.pnlMenu, frmDashboard.flpTabs, frmDashboard.pnlMainPage, frmDashboard.pnlVisits, frmDashboard.pnlInventory, frmDashboard.pnlSettings, frmDashboard.pnlSections, frmDashboard.pnlUsers, frmDashboard.pnlLogout })
@@ -103,27 +110,31 @@ namespace HealthPortal.Controller.Dashboard
             // Se actualizan todos los botones basándose en el estado del panel lateral
             foreach (Button btn in new Button[] { frmDashboard.btnMainPage, frmDashboard.btnVisits, frmDashboard.btnInventory, frmDashboard.btnSettings, frmDashboard.btnSections, frmDashboard.btnUsers, frmDashboard.btnLogout })
             {
-                if (isSideBarExpanded)
+                if (CurrentUserData.IsSideBarExpanded)
                 {
                     btn.Text = "";
                     btn.ImageAlign = ContentAlignment.MiddleCenter;
                     if(!(btn == frmDashboard.btnLogout)) btn.Size = new Size(32, 32);
                     else btn.Size = new Size(48, 48);
-                    btn.Location = new Point(btn == frmDashboard.btnLogout ? collapsedButtonX[1] : collapsedButtonX[0], btn.Location.Y);
                 }
                 else
                 {
                     btn.Text = GetButtonText(btn);
                     btn.Visible = true;
                     btn.ImageAlign = ContentAlignment.MiddleLeft;
-                    if (!(btn == frmDashboard.btnLogout)) btn.Size = new Size(208, 32);
-                    else btn.Size = new Size(208, 48);
-                    btn.Location = new Point(expandedButtonX, btn.Location.Y);
+                    if (!(btn == frmDashboard.btnLogout)) btn.Size = new Size((int)(208 * CurrentUserData.ScaleFactor), 32);
+                    else btn.Size = new Size((int)(208 * CurrentUserData.ScaleFactor), 48);
                 }
+                int diff = (frmDashboard.pnlSideBar.Width - btn.Width) / 2;
+                btn.Location = new Point(diff, btn.Location.Y);
+
                 // Se refresca el botón que acaba de ser actualizado, por qué no :)
                 btn.Refresh();
             }
-            isSideBarExpanded = !isSideBarExpanded;
+            frmDashboard.pnlContainer.Refresh();
+            frmDashboard.pnlContainer.Invalidate();
+            CurrentUserData.IsSideBarExpanded = !CurrentUserData.IsSideBarExpanded;
+            MessageBox.Show("1. " + frmDashboard.pnlContainer.Width.ToString());
         }
         private void OpenMainPageForm(object sender, EventArgs e)
         {
@@ -343,8 +354,8 @@ namespace HealthPortal.Controller.Dashboard
             if (MessageBox.Show("¿Seguro que desea cerrar sesión?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 CommonMethods.DisposeOfCurrentUserData();
-                FrmLogin objLogin = new FrmLogin();
-                objLogin.Show();
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.Show();
                 frmDashboard.Dispose();
             }
         }

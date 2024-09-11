@@ -197,6 +197,8 @@ namespace HealthPortal.Helper
         }
         public static void DetermineInitialForm()
         {
+            CurrentUserData.ScreenWidth = Screen.PrimaryScreen.Bounds.Width;
+            CurrentUserData.ScreenHeight = Screen.PrimaryScreen.Bounds.Height;
             DAOLogin daoLogin = new DAOLogin();
             ReadXMLConnectionFile();
             if (daoLogin.GetAmountOfUsers() == 0)

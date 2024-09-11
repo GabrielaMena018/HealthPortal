@@ -116,7 +116,7 @@
             this.btnUserSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnUserSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnUserSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserSettings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserSettings.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnUserSettings.Image = global::HealthPortal.Properties.Resources.users;
             this.btnUserSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -150,7 +150,7 @@
             this.btnInstitutionSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnInstitutionSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnInstitutionSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInstitutionSettings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInstitutionSettings.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInstitutionSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnInstitutionSettings.Image = global::HealthPortal.Properties.Resources.school;
             this.btnInstitutionSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -184,7 +184,7 @@
             this.btnServerSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnServerSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnServerSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServerSettings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServerSettings.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServerSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnServerSettings.Image = global::HealthPortal.Properties.Resources.server;
             this.btnServerSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -218,7 +218,7 @@
             this.btnProgramSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnProgramSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnProgramSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProgramSettings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProgramSettings.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProgramSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.btnProgramSettings.Image = global::HealthPortal.Properties.Resources.healthPortal;
             this.btnProgramSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -251,7 +251,6 @@
             this.Controls.Add(this.pnlSideBar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1240, 825);
             this.Name = "FrmSettings";
             this.Text = "FrmUserAdministration";
             this.panel1.ResumeLayout(false);
@@ -270,8 +269,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Panel pnlSideBar;
-        private System.Windows.Forms.FlowLayoutPanel flpButtons;
         public System.Windows.Forms.Panel pnlUserSettings;
         public System.Windows.Forms.Button btnUserSettings;
         public System.Windows.Forms.Panel pnlInstitutionSettings;
@@ -281,5 +278,7 @@
         public System.Windows.Forms.Panel pnlProgramSettings;
         public System.Windows.Forms.Button btnProgramSettings;
         public System.Windows.Forms.Panel pnlContainer;
+        public System.Windows.Forms.Panel pnlSideBar;
+        public System.Windows.Forms.FlowLayoutPanel flpButtons;
     }
 }
