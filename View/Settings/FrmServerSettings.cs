@@ -17,9 +17,9 @@ namespace HealthPortal.View.Settings
         public FrmServerSettings()
         {
             InitializeComponent();
+            ControllerServerSettings control = new ControllerServerSettings(this);
             if (CurrentUserData.ServerSettingsOrigin == 1)
                 Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            ControllerServerSettings control = new ControllerServerSettings(this);
         }
     }
 }

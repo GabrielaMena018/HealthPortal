@@ -19,18 +19,9 @@ namespace HealthPortal.Controller.Settings
     internal class ControllerServerSettings
     {
         FrmServerSettings frmServerSettings;
-        int expandedFormWidth = (int)(1090 * CurrentUserData.ScaleFactor);
-        Size expandedGrpSize = new Size((int)(571 * CurrentUserData.ScaleFactor), (int)(219 * CurrentUserData.ScaleFactor));
-        Size collapsedGrpSize = new Size((int)(467 * CurrentUserData.ScaleFactor), (int)(219 * CurrentUserData.ScaleFactor));
-        Size expandedPnlSize = new Size((int)(1034 * CurrentUserData.ScaleFactor), (int)(528 * CurrentUserData.ScaleFactor));
-        Size collapsedPnlSize = new Size((int)(930 * CurrentUserData.ScaleFactor), (int)(528 * CurrentUserData.ScaleFactor));
-        Size expandedTxtSize = new Size((int)(525 * CurrentUserData.ScaleFactor), (int)(68 * CurrentUserData.ScaleFactor));
-        Size collapsedTxtSize = new Size((int)(421 * CurrentUserData.ScaleFactor), (int)(68 * CurrentUserData.ScaleFactor));
-        int expandedAuthTxtXLocation = (int)(66 * CurrentUserData.ScaleFactor);
         public ControllerServerSettings(FrmServerSettings view)
         {
             frmServerSettings = view;
-            frmServerSettings.Resize += new EventHandler(ResizeControls);
 
             frmServerSettings.txtServerURL.Enter += new EventHandler(EnterTextBox);
             frmServerSettings.txtDataBase.Enter += new EventHandler(EnterTextBox);
@@ -157,32 +148,6 @@ namespace HealthPortal.Controller.Settings
             {
                 MessageBox.Show("No se pudo crear el archivo de configuración.", "Consulte el manual técnico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        private void ResizeControls(object sender, EventArgs e)
-        {
-            if (frmServerSettings.Width == expandedFormWidth)
-            {
-                MessageBox.Show(expandedPnlSize.ToString());
-                frmServerSettings.panel2.Size = expandedPnlSize;
-                frmServerSettings.grpConnectionInfo.Size = expandedGrpSize;
-                frmServerSettings.grpLocalConfig.Size = expandedGrpSize;
-                frmServerSettings.txtSQLAuth.Location = new Point(expandedAuthTxtXLocation, frmServerSettings.txtSQLAuth.Location.Y);
-                frmServerSettings.txtPassword.Location = new Point(expandedAuthTxtXLocation, frmServerSettings.txtPassword.Location.Y);
-                frmServerSettings.txtServerURL.Size = expandedTxtSize;
-                frmServerSettings.txtDataBase.Size = expandedTxtSize;
-            }
-            else
-            {
-                MessageBox.Show(expandedPnlSize.ToString());
-                frmServerSettings.panel2.Size = collapsedPnlSize;
-                frmServerSettings.grpConnectionInfo.Size = collapsedGrpSize;
-                frmServerSettings.grpLocalConfig.Size = collapsedGrpSize;
-                frmServerSettings.txtSQLAuth.Location = new Point(0, frmServerSettings.txtSQLAuth.Location.Y);
-                frmServerSettings.txtPassword.Location = new Point(0, frmServerSettings.txtPassword.Location.Y);
-                frmServerSettings.txtServerURL.Size = collapsedTxtSize;
-                frmServerSettings.txtDataBase.Size = collapsedTxtSize;
-            }
-            frmServerSettings.Refresh();
         }
         private void EnterTextBox(object sender, EventArgs e)
         {

@@ -29,49 +29,52 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServerSettings));
+            this.tlpServerConfig = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.pnlSub = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.tlpSub = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.picImage = new System.Windows.Forms.PictureBox();
-            this.panelCustom1 = new CustomControls.PanelCustom();
-            this.grpLocalConfig = new System.Windows.Forms.GroupBox();
-            this.pnlAuth = new System.Windows.Forms.Panel();
-            this.txtPassword = new CustomControls.CustomTextBox();
-            this.txtSQLAuth = new CustomControls.CustomTextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rdoFalse = new System.Windows.Forms.RadioButton();
-            this.rdoTrue = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.grpConnectionInfo = new System.Windows.Forms.GroupBox();
-            this.txtDataBase = new CustomControls.CustomTextBox();
-            this.txtServerURL = new CustomControls.CustomTextBox();
-            this.btnSaveConfig = new CustomControls.RJButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpServerConfig.SuspendLayout();
             this.pnlTitle.SuspendLayout();
-            this.pnlSub.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.tlpSub.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
-            this.panelCustom1.SuspendLayout();
-            this.grpLocalConfig.SuspendLayout();
-            this.pnlAuth.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.grpConnectionInfo.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tlpServerConfig
+            // 
+            this.tlpServerConfig.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlpServerConfig.ColumnCount = 3;
+            this.tlpServerConfig.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.13F));
+            this.tlpServerConfig.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.74001F));
+            this.tlpServerConfig.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.13F));
+            this.tlpServerConfig.Controls.Add(this.pnlTitle, 0, 0);
+            this.tlpServerConfig.Controls.Add(this.tlpSub, 1, 2);
+            this.tlpServerConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpServerConfig.Location = new System.Drawing.Point(0, 0);
+            this.tlpServerConfig.Name = "tlpServerConfig";
+            this.tlpServerConfig.RowCount = 4;
+            this.tlpServerConfig.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02F));
+            this.tlpServerConfig.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.38F));
+            this.tlpServerConfig.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.22F));
+            this.tlpServerConfig.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.38F));
+            this.tlpServerConfig.Size = new System.Drawing.Size(1090, 705);
+            this.tlpServerConfig.TabIndex = 0;
             // 
             // pnlTitle
             // 
             this.pnlTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.tlpServerConfig.SetColumnSpan(this.pnlTitle, 3);
             this.pnlTitle.Controls.Add(this.lblTitle);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1090, 120);
-            this.pnlTitle.TabIndex = 1;
+            this.pnlTitle.Size = new System.Drawing.Size(1090, 119);
+            this.pnlTitle.TabIndex = 4;
             // 
             // lblTitle
             // 
@@ -85,280 +88,60 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Configuración de Servidor";
             // 
-            // pnlSub
+            // tlpSub
             // 
-            this.pnlSub.Controls.Add(this.panel2);
-            this.pnlSub.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSub.Location = new System.Drawing.Point(0, 120);
-            this.pnlSub.Name = "pnlSub";
-            this.pnlSub.Size = new System.Drawing.Size(1090, 585);
-            this.pnlSub.TabIndex = 2;
+            this.tlpSub.ColumnCount = 2;
+            this.tlpSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tlpSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tlpSub.Controls.Add(this.panel1, 0, 0);
+            this.tlpSub.Controls.Add(this.tableLayoutPanel1, 1, 0);
+            this.tlpSub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpSub.Location = new System.Drawing.Point(45, 163);
+            this.tlpSub.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpSub.Name = "tlpSub";
+            this.tlpSub.RowCount = 1;
+            this.tlpSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpSub.Size = new System.Drawing.Size(999, 495);
+            this.tlpSub.TabIndex = 5;
             // 
-            // panel2
+            // panel1
             // 
-            this.panel2.Controls.Add(this.panelCustom1);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(28, 28);
-            this.panel2.Margin = new System.Windows.Forms.Padding(48, 0, 48, 48);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1034, 528);
-            this.panel2.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnSaveConfig);
-            this.panel3.Controls.Add(this.picImage);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(400, 528);
-            this.panel3.TabIndex = 5;
+            this.panel1.Controls.Add(this.picImage);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(299, 495);
+            this.panel1.TabIndex = 0;
             // 
             // picImage
             // 
-            this.picImage.Dock = System.Windows.Forms.DockStyle.Left;
-            this.picImage.Image = ((System.Drawing.Image)(resources.GetObject("picImage.Image")));
+            this.picImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picImage.Image = global::HealthPortal.Properties.Resources.serverSettings;
             this.picImage.Location = new System.Drawing.Point(0, 0);
             this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(400, 528);
-            this.picImage.TabIndex = 1;
+            this.picImage.Size = new System.Drawing.Size(299, 495);
+            this.picImage.TabIndex = 0;
             this.picImage.TabStop = false;
             // 
-            // panelCustom1
+            // tableLayoutPanel1
             // 
-            this.panelCustom1.BackColor = System.Drawing.Color.White;
-            this.panelCustom1.BorderRadius = 30;
-            this.panelCustom1.Controls.Add(this.grpLocalConfig);
-            this.panelCustom1.Controls.Add(this.grpConnectionInfo);
-            this.panelCustom1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCustom1.ForeColor = System.Drawing.Color.Black;
-            this.panelCustom1.GradientAngle = 90F;
-            this.panelCustom1.GradientBottomColor = System.Drawing.Color.White;
-            this.panelCustom1.GradientTopColor = System.Drawing.Color.White;
-            this.panelCustom1.Location = new System.Drawing.Point(400, 0);
-            this.panelCustom1.Name = "panelCustom1";
-            this.panelCustom1.Size = new System.Drawing.Size(634, 528);
-            this.panelCustom1.TabIndex = 6;
-            // 
-            // grpLocalConfig
-            // 
-            this.grpLocalConfig.Controls.Add(this.pnlAuth);
-            this.grpLocalConfig.Controls.Add(this.panel5);
-            this.grpLocalConfig.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpLocalConfig.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.grpLocalConfig.Location = new System.Drawing.Point(33, 279);
-            this.grpLocalConfig.Margin = new System.Windows.Forms.Padding(30, 15, 30, 30);
-            this.grpLocalConfig.Name = "grpLocalConfig";
-            this.grpLocalConfig.Size = new System.Drawing.Size(571, 219);
-            this.grpLocalConfig.TabIndex = 7;
-            this.grpLocalConfig.TabStop = false;
-            this.grpLocalConfig.Text = "Configuración local";
-            // 
-            // pnlAuth
-            // 
-            this.pnlAuth.Controls.Add(this.txtPassword);
-            this.pnlAuth.Controls.Add(this.txtSQLAuth);
-            this.pnlAuth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlAuth.Location = new System.Drawing.Point(236, 19);
-            this.pnlAuth.Name = "pnlAuth";
-            this.pnlAuth.Size = new System.Drawing.Size(332, 197);
-            this.pnlAuth.TabIndex = 5;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtPassword.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtPassword.BorderRadius = 18;
-            this.txtPassword.BorderSize = 2;
-            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtPassword.Location = new System.Drawing.Point(66, 113);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(66, 20, 66, 20);
-            this.txtPassword.MaxLength = 50;
-            this.txtPassword.Multiline = false;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.txtPassword.PasswordChar = false;
-            this.txtPassword.PlaceholderColor = System.Drawing.Color.White;
-            this.txtPassword.PlaceholderText = "";
-            this.txtPassword.Size = new System.Drawing.Size(200, 38);
-            this.txtPassword.TabIndex = 4;
-            this.txtPassword.Tag = "sql";
-            this.txtPassword.Texts = "Contraseña";
-            this.txtPassword.UnderlinedStyle = false;
-            // 
-            // txtSQLAuth
-            // 
-            this.txtSQLAuth.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.txtSQLAuth.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSQLAuth.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtSQLAuth.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtSQLAuth.BorderRadius = 18;
-            this.txtSQLAuth.BorderSize = 2;
-            this.txtSQLAuth.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSQLAuth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtSQLAuth.Location = new System.Drawing.Point(66, 46);
-            this.txtSQLAuth.Margin = new System.Windows.Forms.Padding(66, 20, 66, 20);
-            this.txtSQLAuth.MaxLength = 50;
-            this.txtSQLAuth.Multiline = false;
-            this.txtSQLAuth.Name = "txtSQLAuth";
-            this.txtSQLAuth.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.txtSQLAuth.PasswordChar = false;
-            this.txtSQLAuth.PlaceholderColor = System.Drawing.Color.White;
-            this.txtSQLAuth.PlaceholderText = "";
-            this.txtSQLAuth.Size = new System.Drawing.Size(200, 38);
-            this.txtSQLAuth.TabIndex = 3;
-            this.txtSQLAuth.Tag = "sql";
-            this.txtSQLAuth.Texts = "Autenticación SQL";
-            this.txtSQLAuth.UnderlinedStyle = false;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.rdoFalse);
-            this.panel5.Controls.Add(this.rdoTrue);
-            this.panel5.Controls.Add(this.label1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(3, 19);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(233, 197);
-            this.panel5.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.label2.Location = new System.Drawing.Point(36, 67);
-            this.label2.Margin = new System.Windows.Forms.Padding(20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 17);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "de Windows";
-            // 
-            // rdoFalse
-            // 
-            this.rdoFalse.AutoSize = true;
-            this.rdoFalse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rdoFalse.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoFalse.Location = new System.Drawing.Point(54, 134);
-            this.rdoFalse.Name = "rdoFalse";
-            this.rdoFalse.Size = new System.Drawing.Size(88, 20);
-            this.rdoFalse.TabIndex = 7;
-            this.rdoFalse.Text = "Deshabilitar";
-            this.rdoFalse.UseVisualStyleBackColor = true;
-            // 
-            // rdoTrue
-            // 
-            this.rdoTrue.AutoSize = true;
-            this.rdoTrue.Checked = true;
-            this.rdoTrue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rdoTrue.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoTrue.Location = new System.Drawing.Point(54, 107);
-            this.rdoTrue.Name = "rdoTrue";
-            this.rdoTrue.Size = new System.Drawing.Size(70, 20);
-            this.rdoTrue.TabIndex = 6;
-            this.rdoTrue.TabStop = true;
-            this.rdoTrue.Text = "Habilitar";
-            this.rdoTrue.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.label1.Location = new System.Drawing.Point(36, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Seguridad integrada";
-            // 
-            // grpConnectionInfo
-            // 
-            this.grpConnectionInfo.Controls.Add(this.txtDataBase);
-            this.grpConnectionInfo.Controls.Add(this.txtServerURL);
-            this.grpConnectionInfo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpConnectionInfo.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.grpConnectionInfo.Location = new System.Drawing.Point(33, 30);
-            this.grpConnectionInfo.Margin = new System.Windows.Forms.Padding(30);
-            this.grpConnectionInfo.Name = "grpConnectionInfo";
-            this.grpConnectionInfo.Size = new System.Drawing.Size(571, 219);
-            this.grpConnectionInfo.TabIndex = 5;
-            this.grpConnectionInfo.TabStop = false;
-            this.grpConnectionInfo.Text = "Conexión con la base de datos";
-            // 
-            // txtDataBase
-            // 
-            this.txtDataBase.BackColor = System.Drawing.SystemColors.Window;
-            this.txtDataBase.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtDataBase.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtDataBase.BorderRadius = 18;
-            this.txtDataBase.BorderSize = 2;
-            this.txtDataBase.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataBase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtDataBase.Location = new System.Drawing.Point(23, 128);
-            this.txtDataBase.Margin = new System.Windows.Forms.Padding(20);
-            this.txtDataBase.MaxLength = 128;
-            this.txtDataBase.Multiline = false;
-            this.txtDataBase.Name = "txtDataBase";
-            this.txtDataBase.Padding = new System.Windows.Forms.Padding(30, 25, 25, 25);
-            this.txtDataBase.PasswordChar = false;
-            this.txtDataBase.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtDataBase.PlaceholderText = "";
-            this.txtDataBase.Size = new System.Drawing.Size(525, 68);
-            this.txtDataBase.TabIndex = 2;
-            this.txtDataBase.Tag = "sql";
-            this.txtDataBase.Texts = "Nombre de la base de datos";
-            this.txtDataBase.UnderlinedStyle = false;
-            // 
-            // txtServerURL
-            // 
-            this.txtServerURL.BackColor = System.Drawing.SystemColors.Window;
-            this.txtServerURL.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtServerURL.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtServerURL.BorderRadius = 18;
-            this.txtServerURL.BorderSize = 2;
-            this.txtServerURL.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtServerURL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtServerURL.Location = new System.Drawing.Point(23, 39);
-            this.txtServerURL.Margin = new System.Windows.Forms.Padding(20);
-            this.txtServerURL.MaxLength = 255;
-            this.txtServerURL.Multiline = false;
-            this.txtServerURL.Name = "txtServerURL";
-            this.txtServerURL.Padding = new System.Windows.Forms.Padding(30, 25, 25, 25);
-            this.txtServerURL.PasswordChar = false;
-            this.txtServerURL.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtServerURL.PlaceholderText = "";
-            this.txtServerURL.Size = new System.Drawing.Size(525, 68);
-            this.txtServerURL.TabIndex = 1;
-            this.txtServerURL.Tag = "sql";
-            this.txtServerURL.Texts = "URL del servidor";
-            this.txtServerURL.UnderlinedStyle = false;
-            // 
-            // btnSaveConfig
-            // 
-            this.btnSaveConfig.BackColor = System.Drawing.Color.White;
-            this.btnSaveConfig.BackGroundColor = System.Drawing.Color.White;
-            this.btnSaveConfig.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSaveConfig.BorderRadius = 30;
-            this.btnSaveConfig.BorderSize = 0;
-            this.btnSaveConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveConfig.FlatAppearance.BorderSize = 0;
-            this.btnSaveConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveConfig.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSaveConfig.Location = new System.Drawing.Point(202, 49);
-            this.btnSaveConfig.Margin = new System.Windows.Forms.Padding(10);
-            this.btnSaveConfig.Name = "btnSaveConfig";
-            this.btnSaveConfig.Padding = new System.Windows.Forms.Padding(5);
-            this.btnSaveConfig.Size = new System.Drawing.Size(163, 72);
-            this.btnSaveConfig.TabIndex = 5;
-            this.btnSaveConfig.TabStop = false;
-            this.btnSaveConfig.Text = "Guardar configuración";
-            this.btnSaveConfig.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSaveConfig.UseVisualStyleBackColor = false;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.499108F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.00179F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.499108F));
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(299, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.1236F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.25843F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.24719F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.24719F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.1236F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(700, 495);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // FrmServerSettings
             // 
@@ -368,50 +151,31 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1090, 705);
-            this.Controls.Add(this.pnlSub);
-            this.Controls.Add(this.pnlTitle);
+            this.Controls.Add(this.tlpServerConfig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(986, 705);
             this.Name = "FrmServerSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuración de Servidor";
+            this.tlpServerConfig.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
-            this.pnlSub.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.tlpSub.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
-            this.panelCustom1.ResumeLayout(false);
-            this.grpLocalConfig.ResumeLayout(false);
-            this.pnlAuth.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.grpConnectionInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblTitle;
+
+        private System.Windows.Forms.TableLayoutPanel tlpServerConfig;
         public System.Windows.Forms.Panel pnlTitle;
-        private System.Windows.Forms.Panel pnlSub;
-        public System.Windows.Forms.Panel panel2;
-        public CustomControls.PanelCustom panelCustom1;
-        public System.Windows.Forms.GroupBox grpLocalConfig;
-        public System.Windows.Forms.Panel pnlAuth;
-        public CustomControls.CustomTextBox txtPassword;
-        public CustomControls.CustomTextBox txtSQLAuth;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.RadioButton rdoFalse;
-        public System.Windows.Forms.RadioButton rdoTrue;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.GroupBox grpConnectionInfo;
-        public CustomControls.CustomTextBox txtDataBase;
-        public CustomControls.CustomTextBox txtServerURL;
-        private System.Windows.Forms.Panel panel3;
-        public CustomControls.RJButton btnSaveConfig;
-        public System.Windows.Forms.PictureBox picImage;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.TableLayoutPanel tlpSub;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox picImage;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
