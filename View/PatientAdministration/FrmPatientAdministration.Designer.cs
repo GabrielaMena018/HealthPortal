@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsView = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsShowAll = new System.Windows.Forms.ToolStripMenuItem();
             this.panelCustom2 = new CustomControls.PanelCustom();
             this.dgvPatientInfo = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -60,7 +61,6 @@
             this.lblUserAdministrationSearch = new System.Windows.Forms.Label();
             this.grpNewUser = new System.Windows.Forms.GroupBox();
             this.btnNew = new CustomControls.RJButton();
-            this.cmsShowAll = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.cmsDataGrid.SuspendLayout();
             this.panelCustom2.SuspendLayout();
@@ -105,7 +105,7 @@
             this.cmsUpdate,
             this.cmsShowAll});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(280, 114);
+            this.cmsDataGrid.Size = new System.Drawing.Size(280, 92);
             // 
             // cmsDelete
             // 
@@ -124,6 +124,12 @@
             this.cmsUpdate.Name = "cmsUpdate";
             this.cmsUpdate.Size = new System.Drawing.Size(279, 22);
             this.cmsUpdate.Text = "Actualizar Información de la Visita";
+            // 
+            // cmsShowAll
+            // 
+            this.cmsShowAll.Name = "cmsShowAll";
+            this.cmsShowAll.Size = new System.Drawing.Size(279, 22);
+            this.cmsShowAll.Text = "Mostrar Todos";
             // 
             // panelCustom2
             // 
@@ -338,21 +344,21 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(8, 166);
             this.chart1.Margin = new System.Windows.Forms.Padding(5);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(244, 244);
             this.chart1.SuppressExceptions = true;
             this.chart1.TabIndex = 7;
@@ -453,12 +459,6 @@
             this.btnNew.Text = "Nueva Visita";
             this.btnNew.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnNew.UseVisualStyleBackColor = false;
-            // 
-            // cmsShowAll
-            // 
-            this.cmsShowAll.Name = "cmsShowAll";
-            this.cmsShowAll.Size = new System.Drawing.Size(279, 22);
-            this.cmsShowAll.Text = "Mostrar Todos";
             // 
             // FrmPatientAdministration
             // 

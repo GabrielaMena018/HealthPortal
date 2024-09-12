@@ -44,9 +44,9 @@ namespace HealthPortal.Controller.InventoryAdministration
             //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombosInventario
             DataSet ds = daoInventoryAdministration.FillCombo();
             //Llenar comboBox de la tabla tbCategoriaMedicamento
-            objInventoryAdministration.CmbCategoria.DataSource = ds.Tables["tbCategoriaMedicamento"];
-            objInventoryAdministration.CmbCategoria.ValueMember = "idCategoriaMedicamento";
-            objInventoryAdministration.CmbCategoria.DisplayMember = "categoriaMedicamento";
+            objInventoryAdministration.cmbCategory.DataSource = ds.Tables["tbCategoriaMedicamento"];
+            objInventoryAdministration.cmbCategory.ValueMember = "idCategoriaMedicamento";
+            objInventoryAdministration.cmbCategory.DisplayMember = "categoriaMedicamento";
             RefreshData();
         }
 

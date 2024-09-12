@@ -177,7 +177,7 @@
             this.grpFilterSearchUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpFilterSearchUser.ForeColor = System.Drawing.Color.DarkGray;
             this.grpFilterSearchUser.Location = new System.Drawing.Point(45, 45);
-            this.grpFilterSearchUser.Margin = new System.Windows.Forms.Padding(45);
+            this.grpFilterSearchUser.Margin = new System.Windows.Forms.Padding(45, 45, 45, 0);
             this.grpFilterSearchUser.Name = "grpFilterSearchUser";
             this.grpFilterSearchUser.Size = new System.Drawing.Size(260, 418);
             this.grpFilterSearchUser.TabIndex = 2;
@@ -258,6 +258,7 @@
             this.btnFilter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnFilter.Location = new System.Drawing.Point(161, 79);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(75, 32);
             this.btnFilter.TabIndex = 2;
@@ -292,7 +293,7 @@
             this.grpNewUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpNewUser.ForeColor = System.Drawing.Color.DarkGray;
             this.grpNewUser.Location = new System.Drawing.Point(45, 496);
-            this.grpNewUser.Margin = new System.Windows.Forms.Padding(45);
+            this.grpNewUser.Margin = new System.Windows.Forms.Padding(45, 0, 45, 45);
             this.grpNewUser.Name = "grpNewUser";
             this.grpNewUser.Size = new System.Drawing.Size(260, 100);
             this.grpNewUser.TabIndex = 1;

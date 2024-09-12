@@ -19,14 +19,14 @@ namespace HealthPortal.Controller.Settings
     internal class ControllerServerSettings
     {
         FrmServerSettings frmServerSettings;
-        int expandedFormWidth = 1090;
-        Size expandedGrpSize = new Size(571, 219);
-        Size collapsedGrpSize = new Size(467, 219);
-        Size expandedPnlSize = new Size(1034, 528);
-        Size collapsedPnlSize = new Size(930, 528);
-        Size expandedTxtSize = new Size(525, 68);
-        Size collapsedTxtSize = new Size(421, 68);
-        int expandedAuthTxtXLocation = 66;
+        int expandedFormWidth = (int)(1090 * CurrentUserData.ScaleFactor);
+        Size expandedGrpSize = new Size((int)(571 * CurrentUserData.ScaleFactor), (int)(219 * CurrentUserData.ScaleFactor));
+        Size collapsedGrpSize = new Size((int)(467 * CurrentUserData.ScaleFactor), (int)(219 * CurrentUserData.ScaleFactor));
+        Size expandedPnlSize = new Size((int)(1034 * CurrentUserData.ScaleFactor), (int)(528 * CurrentUserData.ScaleFactor));
+        Size collapsedPnlSize = new Size((int)(930 * CurrentUserData.ScaleFactor), (int)(528 * CurrentUserData.ScaleFactor));
+        Size expandedTxtSize = new Size((int)(525 * CurrentUserData.ScaleFactor), (int)(68 * CurrentUserData.ScaleFactor));
+        Size collapsedTxtSize = new Size((int)(421 * CurrentUserData.ScaleFactor), (int)(68 * CurrentUserData.ScaleFactor));
+        int expandedAuthTxtXLocation = (int)(66 * CurrentUserData.ScaleFactor);
         public ControllerServerSettings(FrmServerSettings view)
         {
             frmServerSettings = view;
@@ -162,6 +162,7 @@ namespace HealthPortal.Controller.Settings
         {
             if (frmServerSettings.Width == expandedFormWidth)
             {
+                MessageBox.Show(expandedPnlSize.ToString());
                 frmServerSettings.panel2.Size = expandedPnlSize;
                 frmServerSettings.grpConnectionInfo.Size = expandedGrpSize;
                 frmServerSettings.grpLocalConfig.Size = expandedGrpSize;
@@ -172,6 +173,7 @@ namespace HealthPortal.Controller.Settings
             }
             else
             {
+                MessageBox.Show(expandedPnlSize.ToString());
                 frmServerSettings.panel2.Size = collapsedPnlSize;
                 frmServerSettings.grpConnectionInfo.Size = collapsedGrpSize;
                 frmServerSettings.grpLocalConfig.Size = collapsedGrpSize;
