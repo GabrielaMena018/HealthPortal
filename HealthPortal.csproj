@@ -62,6 +62,7 @@
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerSectionAdministration.cs" />
+    <Compile Include="Controller\Settings\ControllerAddUpdateSecurityAnswer.cs" />
     <Compile Include="Controller\Settings\ControllerAddUpdateSecurityQuestion.cs" />
     <Compile Include="Controller\Settings\ControllerInstitutionSettings.cs" />
     <Compile Include="Controller\Settings\ControllerProgramSettings.cs" />
@@ -201,6 +202,12 @@
     <Compile Include="Resources\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Settings\FrmAddUpdateSecurityAnswer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings\FrmAddUpdateSecurityAnswer.Designer.cs">
+      <DependentUpon>FrmAddUpdateSecurityAnswer.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Settings\FrmAddUpdateSecurityQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\CustomTextBox.resx">
       <DependentUpon>CustomTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings\FrmAddUpdateSecurityAnswer.resx">
+      <DependentUpon>FrmAddUpdateSecurityAnswer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Settings\FrmAddUpdateSecurityQuestion.resx">
       <DependentUpon>FrmAddUpdateSecurityQuestion.cs</DependentUpon>
@@ -632,6 +642,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\serverSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gquit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverMaximize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximize.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

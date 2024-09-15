@@ -1,4 +1,5 @@
 ﻿using HealthPortal.Controller.UserAdministration;
+using HealthPortal.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +17,14 @@ namespace HealthPortal.View.UserAdministration
         public FrmAddUpdateUser(int procedure)
         {
             InitializeComponent();
+            Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             ControllerAddUpdateUser control = new ControllerAddUpdateUser(this, procedure);
         }
-        public FrmAddUpdateUser(int procedure, int personId, string firstName, string lastName, string email, string phoneNumber, string username, string role)
+        public FrmAddUpdateUser(int procedure, int personID, string firstName, string lastName, string email, string phoneNumber, string username, string role)
         {
             InitializeComponent();
-            ControllerAddUpdateUser control = new ControllerAddUpdateUser(this, procedure, personId ,firstName, lastName, email, phoneNumber, username, role);
+            Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            ControllerAddUpdateUser control = new ControllerAddUpdateUser(this, procedure, personID, firstName, lastName, email, phoneNumber, username, role);
         }
     }
 }

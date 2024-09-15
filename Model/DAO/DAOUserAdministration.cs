@@ -34,12 +34,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -62,12 +62,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -91,12 +91,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -119,12 +119,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -156,12 +156,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_103");
                 return -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_103");
                 return -1;
             }
             finally
@@ -195,12 +195,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_303");
                 return -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-402 No se pudo eliminar al usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_303");
                 return -1;
             }
             finally
@@ -221,12 +221,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_403");
                 return -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-402 No se pudo eliminar al usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_403");
                 return -1;
             }
             finally
@@ -245,12 +245,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-402 No se pudo eliminar al usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return -1;
             }
             finally
@@ -279,12 +279,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_302");
                 return false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_302");
                 return false;
             }
             finally

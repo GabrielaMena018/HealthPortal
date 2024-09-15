@@ -12,6 +12,7 @@ using System.Collections;
 using System.Windows.Input;
 using System.Diagnostics.Eventing.Reader;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using HealthPortal.Helper;
 
 namespace HealthPortal.Model.DAO
 {
@@ -49,6 +50,7 @@ namespace HealthPortal.Model.DAO
             catch (Exception)
             {
                 //Se retorna null si durate la ejecución del try ocurrió algún error
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -124,7 +126,7 @@ namespace HealthPortal.Model.DAO
             {
                 RollBack();
                 //Codificación de errores: esta sale del catch EC = error critico, EC_001 = no se pudo ingresar al paciente
-                MessageBox.Show($"EC_001{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_108");
                 return -1;
 
             }
@@ -153,7 +155,7 @@ namespace HealthPortal.Model.DAO
             catch (SqlException ex)
             {
                 //EC_002 = no se pudo agregar la visita
-                MessageBox.Show($"EC_002{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_109");
                 return returnedValue = -1;
             }
 
@@ -265,7 +267,7 @@ namespace HealthPortal.Model.DAO
             catch (SqlException ex)
             {
                 //EC_004 = no se puso seleccionar la vista UpdateEstudiantes
-                MessageBox.Show($"EC_004{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -321,7 +323,8 @@ namespace HealthPortal.Model.DAO
             catch (SqlException Ex)
             {
                 //EC_006 No se pudo actuzalizar el registro del paciente
-                MessageBox.Show($"EC_006{Ex.Message}", "Error critico ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                CommonMethods.HandleError("EC_308");
                 return -1;
             }
             finally
@@ -355,7 +358,7 @@ namespace HealthPortal.Model.DAO
             catch (SqlException ex)
             {
                 //EC_003 = No se pudo actualizar la información del apartado o tabla visita
-                MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_309");
                 return -1;
 
             }
@@ -413,7 +416,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"EC_006{ex.Message}", "Error critico ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_408");
                 return -1;
             }
             finally { command.Connection.Close(); }
@@ -437,7 +440,7 @@ namespace HealthPortal.Model.DAO
             catch (SqlException ex)
             {
                 //EC_008 = No se pudo eleiminar la información de la visita que el paciente realizo
-                MessageBox.Show($"EC_008{ex.Message}", "Error critico ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_409");
                 return -1;
             }
             finally
@@ -474,7 +477,7 @@ namespace HealthPortal.Model.DAO
             catch (SqlException ex)
             {
                 //EC_009 = No se pudo eliminar la información del paciente
-                MessageBox.Show($"EC_009{ex.Message}", "Error critico ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_410");
                 return -1;
             }
             finally { getConnection().Close(); }
@@ -510,12 +513,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException sqlEx)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_506");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_506");
                 return null;
             }
             finally
@@ -543,12 +546,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException sqlEx)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_505");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_505");
                 return null;
             }
             finally
@@ -574,12 +577,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException sqlEx)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_504");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_504");
                 return null;
             }
             finally
@@ -605,12 +608,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException sqlEx)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_503");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_503");
                 return null;
             }
             finally
@@ -636,12 +639,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException sqlEx)
             {
-                MessageBox.Show($"Error de SQL: {sqlEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_501");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_501");
                 return null;
             }
             finally
@@ -683,13 +686,13 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException sqlex)
             {
-                MessageBox.Show(sqlex.Message);
+                CommonMethods.HandleError("EC_201");
                 return -1;
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CommonMethods.HandleError("EC_201");
                 return -1;
 
             }
@@ -737,13 +740,13 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException sqlex)
             {
-                MessageBox.Show(sqlex.Message);
+                CommonMethods.HandleError("EC_502");
                 return null;
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CommonMethods.HandleError("EC_502");
                 return null;
 
             }
@@ -785,38 +788,52 @@ namespace HealthPortal.Model.DAO
             }
             consulta.Close();
 
+            CommonMethods.HandleError("EC_201");
             return IdPatient;
         }
 
         public int InsertVisit()
         {
-            GetCodeIdPatient();
-            AddVisit();
-            if (returnedValue == 1)
+            try
             {
-                NewInventory();
-                UpdateInventory();
-                if (updateReturn == 1)
+                GetCodeIdPatient();
+                AddVisit();
+                if (returnedValue == 1)
                 {
+                    NewInventory();
+                    UpdateInventory();
+                    if (updateReturn == 1)
+                    {
 
-                    return 1;
+                        return 1;
+                    }
+                    else
+                    {
+                        GetIdVisit();
+                        RollBackVisit();
+                        return 0;
+
+                    }
+                }
+                else if (returnedValue == 0)
+                {
+                    return 0;
                 }
                 else
                 {
-                    GetIdVisit();
-                    RollBackVisit();
-                    return 0;
-
+                    return -1;
                 }
             }
-            else if (returnedValue == 0)
+            catch (Exception)
             {
-                return 0;
+                CommonMethods.HandleError("EC_110");
+                throw;
             }
-            else
+            finally
             {
-                return -1;
+                command.Connection.Close();
             }
+
 
 
         }

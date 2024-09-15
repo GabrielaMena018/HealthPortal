@@ -17,14 +17,10 @@ namespace HealthPortal.Controller.SectionAdministration
     internal class ControllerSectionAdministration
     {
         FrmSectionAdministration frmSectionAdministration;
-        int expandedFormWidth = 1370;
-        int collapsedFormWidth = 1240;
         public ControllerSectionAdministration(FrmSectionAdministration view)
         {
             frmSectionAdministration = view;
             frmSectionAdministration.Load += new EventHandler(InitialLoad);
-            frmSectionAdministration.Load += new EventHandler(ResizeControls);
-            frmSectionAdministration.Resize += new EventHandler(ResizeControls);
 
             frmSectionAdministration.cmsAddSection.Click += new EventHandler(AddSection);
             frmSectionAdministration.cmsAddGrade.Click += new EventHandler(AddGrade);
@@ -67,20 +63,6 @@ namespace HealthPortal.Controller.SectionAdministration
                     break;
             }
         }
-        private void ResizeControls(object sender, EventArgs e)
-        {
-            if (frmSectionAdministration.Width == expandedFormWidth)
-            {
-                frmSectionAdministration.panelCustom2.Width = 1288;
-            }
-            else if (frmSectionAdministration.Width == collapsedFormWidth)
-            {
-                frmSectionAdministration.panelCustom2.Width = 1166;
-            }
-            frmSectionAdministration.dgvAcademicLevelDisplay.Dock = DockStyle.Fill;
-            SetDataGridViewColumnSize();
-            frmSectionAdministration.Refresh();
-        }
         private void InitialLoad(object sender, EventArgs e)
         {
             RefreshSectionDataGridView();
@@ -112,113 +94,170 @@ namespace HealthPortal.Controller.SectionAdministration
         }
         private void UpdateSpecialty(object sender, EventArgs e)
         {
-            int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
-            int specialtyID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
-            string specialty = frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString();
-            FrmAddUpdateSection frmAddUpdateSection = new FrmAddUpdateSection(2, specialtyID, specialty, 1);
-            frmAddUpdateSection.ShowDialog();
-            RefreshSpecialtyDataGridView();
+            if (frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow != null && !frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.IsNewRow)
+            {
+                int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
+                int specialtyID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
+                string specialty = frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString();
+                FrmAddUpdateSection frmAddUpdateSection = new FrmAddUpdateSection(2, specialtyID, specialty, 1);
+                frmAddUpdateSection.ShowDialog();
+
+                RefreshSpecialtyDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una celda válida.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private void UpdateSection(object sender, EventArgs e)
         {
-            int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
-            int sectionID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
-            string technicalGroup = frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString();
-            string grade = frmSectionAdministration.dgvAcademicLevelDisplay[2, pos].Value.ToString();
-            string academicSection = frmSectionAdministration.dgvAcademicLevelDisplay[3, pos].Value.ToString();
-            string specialty = frmSectionAdministration.dgvAcademicLevelDisplay[4, pos].Value.ToString();
-            FrmAddUpdateSection frmAddUpdateSection = new FrmAddUpdateSection(2, sectionID, technicalGroup, specialty, grade, academicSection);
-            frmAddUpdateSection.ShowDialog();
-            RefreshSectionDataGridView();
+            if (frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow != null && !frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.IsNewRow)
+            {
+                int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
+                int sectionID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
+                string technicalGroup = frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString();
+                string grade = frmSectionAdministration.dgvAcademicLevelDisplay[2, pos].Value.ToString();
+                string academicSection = frmSectionAdministration.dgvAcademicLevelDisplay[3, pos].Value.ToString();
+                string specialty = frmSectionAdministration.dgvAcademicLevelDisplay[4, pos].Value.ToString();
+                FrmAddUpdateSection frmAddUpdateSection = new FrmAddUpdateSection(2, sectionID, technicalGroup, specialty, grade, academicSection);
+                frmAddUpdateSection.ShowDialog();
+                RefreshSectionDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una celda válida.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private void UpdateAcademicSection(object sender, EventArgs e)
         {
-            int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
-            int academicSectionID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
-            string academicSection = frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString();
-            FrmAddUpdateSection frmAddUpdateSection = new FrmAddUpdateSection(2, academicSectionID, academicSection, 2);
-            frmAddUpdateSection.ShowDialog();
-            RefreshAcademicSectionDataGridView();
+            if (frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow != null && !frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.IsNewRow)
+            {
+                int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
+                int academicSectionID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
+                string academicSection = frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString();
+                FrmAddUpdateSection frmAddUpdateSection = new FrmAddUpdateSection(2, academicSectionID, academicSection, 2);
+                frmAddUpdateSection.ShowDialog();
+                RefreshAcademicSectionDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una celda válida.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private void UpdateGrade(object sender, EventArgs e)
         {
-            int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
-            int gradeID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
-            string academicSection = frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString();
-            FrmAddUpdateSection frmAddUpdateSection = new FrmAddUpdateSection(2, gradeID, academicSection, 3);
-            frmAddUpdateSection.ShowDialog();
-            RefreshGradeDataGridView();
+            if (frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow != null && !frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.IsNewRow)
+            {
+                int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
+                int gradeID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
+                string academicSection = frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString();
+                FrmAddUpdateSection frmAddUpdateSection = new FrmAddUpdateSection(2, gradeID, academicSection, 3);
+                frmAddUpdateSection.ShowDialog();
+                RefreshGradeDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una celda válida.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private void DeleteAcademicSection(object sender, EventArgs e)
         {
-            int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
-            if (MessageBox.Show($"¿Está seguro que desea eliminar a la sección académica:{frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString()}.\nConsidere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow != null && !frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.IsNewRow)
             {
-                DAOSectionAdministration dao = new DAOSectionAdministration();
-                dao.AcademicSectionID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
-                if (dao.DeleteAcademicSection() == 1)
+                int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
+                if (MessageBox.Show($"¿Está seguro que desea eliminar a la sección académica:{frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString()}.\nConsidere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Registro eliminado.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshAcademicSectionDataGridView();
+                    DAOSectionAdministration dao = new DAOSectionAdministration();
+                    dao.AcademicSectionID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
+                    if (dao.DeleteAcademicSection() == 1)
+                    {
+                        MessageBox.Show("Registro eliminado.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefreshAcademicSectionDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una celda válida.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void DeleteSpecialty(object sender, EventArgs e)
         {
-            int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
-            if (MessageBox.Show($"¿Está seguro que desea eliminar a la especialidad:{frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString()}.\nConsidere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow != null && !frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.IsNewRow)
             {
-                DAOSectionAdministration dao = new DAOSectionAdministration();
-                dao.SpecialtyID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
-                if (dao.DeleteSpecialty() == 1)
+                int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
+                if (MessageBox.Show($"¿Está seguro que desea eliminar a la especialidad:{frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString()}.\nConsidere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Registro eliminado.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshSpecialtyDataGridView();
+                    DAOSectionAdministration dao = new DAOSectionAdministration();
+                    dao.SpecialtyID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
+                    if (dao.DeleteSpecialty() == 1)
+                    {
+                        MessageBox.Show("Registro eliminado.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefreshSpecialtyDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una celda válida.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void DeleteSection(object sender, EventArgs e)
         {
-            int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
-            if (MessageBox.Show($"¿Está seguro que desea eliminar a la sección:{frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString()}.\nConsidere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow != null && !frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.IsNewRow)
             {
-                DAOSectionAdministration dao = new DAOSectionAdministration();
-                dao.SectionID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
-                if (dao.DeleteSection() == 1)
+                int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
+                if (MessageBox.Show($"¿Está seguro que desea eliminar a la sección:{frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString()}.\nConsidere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Registro eliminado.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshSectionDataGridView();
+                    DAOSectionAdministration dao = new DAOSectionAdministration();
+                    dao.SectionID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
+                    if (dao.DeleteSection() == 1)
+                    {
+                        MessageBox.Show("Registro eliminado.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefreshSectionDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una celda válida.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void DeleteGrade(object sender, EventArgs e)
         {
-            int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
-            if (MessageBox.Show($"¿Está seguro que desea eliminar al grado:{frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString()}.\nConsidere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow != null && !frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.IsNewRow)
             {
-                DAOSectionAdministration dao = new DAOSectionAdministration();
-                dao.GradeID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
-                if (dao.DeleteGrade() == 1)
+                int pos = frmSectionAdministration.dgvAcademicLevelDisplay.CurrentRow.Index;
+                if (MessageBox.Show($"¿Está seguro que desea eliminar al grado:{frmSectionAdministration.dgvAcademicLevelDisplay[1, pos].Value.ToString()}.\nConsidere que dicha acción no se podrá revertir.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Registro eliminado.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshGradeDataGridView();
+                    DAOSectionAdministration dao = new DAOSectionAdministration();
+                    dao.GradeID = int.Parse(frmSectionAdministration.dgvAcademicLevelDisplay[0, pos].Value.ToString());
+                    if (dao.DeleteGrade() == 1)
+                    {
+                        MessageBox.Show("Registro eliminado.", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefreshGradeDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una celda válida.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void RefreshSectionDataGridView()
@@ -255,7 +294,7 @@ namespace HealthPortal.Controller.SectionAdministration
         }
         private void SetDataGridViewColumnSize()
         {
-            frmSectionAdministration.dgvAcademicLevelDisplay.Columns[0].Width = 32;
+            frmSectionAdministration.dgvAcademicLevelDisplay.Columns[0].Width = 64;
         }
     }
 }

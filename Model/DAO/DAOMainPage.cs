@@ -25,12 +25,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message} EC-401 No se pudieron obtener los datos necesarios de la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally

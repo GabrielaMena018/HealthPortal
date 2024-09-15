@@ -17,7 +17,6 @@ namespace HealthPortal.View.Settings
         public FrmSettings()
         {
             InitializeComponent();
-            Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             ControllerSettings control = new ControllerSettings(this);
         }
     }

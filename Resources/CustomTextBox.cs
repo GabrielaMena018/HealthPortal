@@ -56,6 +56,26 @@ namespace CustomControls
         }
 
         [Category("RJ Code Advance")]
+        public int SelectionStart
+        {
+            get { return textBox1.SelectionStart; }
+            set { textBox1.SelectionStart = value; }
+        }
+
+        [Category("RJ Code Advance")]
+        public int SelectionLength
+        {
+            get { return textBox1.SelectionLength; }
+            set { textBox1.SelectionLength = value; }
+        }
+
+        [Category("RJ Code Advance")]
+        public void Select(int start, int length)
+        {
+            textBox1.Select(start, length);
+        }
+
+        [Category("RJ Code Advance")]
         public Color BorderFocusColor
         {
             get { return borderFocusColor; }
@@ -211,6 +231,7 @@ namespace CustomControls
             textBox1.ContextMenuStrip = new ContextMenuStrip();
             textBox1.ContextMenuStrip.Items.Clear();
             textBox1.KeyPress += new KeyPressEventHandler(textBox1_KeyPress);
+            textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
         }
         private void textBox1_Click(object sender, EventArgs e)
         {

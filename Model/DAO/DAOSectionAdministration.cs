@@ -30,11 +30,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_005");
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             catch (Exception)
             {
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -54,7 +55,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_002");
+                CommonMethods.HandleError("EC_104");
                 return -1;
             }
             finally
@@ -74,7 +75,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_002");
+                CommonMethods.HandleError("EC_105");
                 return -1;
 
             }
@@ -98,7 +99,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_002");
+                CommonMethods.HandleError("EC_107");
                 return -1;
             }
             finally
@@ -118,11 +119,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_002");
+                CommonMethods.HandleError("EC_106");
                 return -1;
             }
             catch (Exception)
             {
+                CommonMethods.HandleError("EC_106");
                 return -1;
             }
             finally
@@ -143,7 +145,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_003");
+                CommonMethods.HandleError("EC_104");
                 return -1;
 
             }
@@ -165,7 +167,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_003");
+                CommonMethods.HandleError("EC_305");
                 return -1;
 
             }
@@ -191,7 +193,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_003");
+                CommonMethods.HandleError("EC_307");
                 return -1;
             }
             finally
@@ -212,7 +214,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_003");
+                CommonMethods.HandleError("EC_306");
                 return -1;
             }
             catch (Exception)
@@ -236,7 +238,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_004");
+                CommonMethods.HandleError("EC_405");
                 return -1;
 
             }
@@ -257,7 +259,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_004");
+                CommonMethods.HandleError("EC_404");
                 return -1;
 
             }
@@ -278,7 +280,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_004");
+                CommonMethods.HandleError("EC_407");
                 return -1;
 
             }
@@ -299,7 +301,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_004");
+                CommonMethods.HandleError("EC_406");
                 return -1;
             }
             catch (Exception)
@@ -326,7 +328,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_005");
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -349,7 +351,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_005");
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -372,7 +374,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_005");
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -395,11 +397,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_005");
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             catch (Exception)
             {
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally

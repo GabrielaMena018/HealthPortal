@@ -41,6 +41,13 @@ namespace HealthPortal.Controller.FirstUsage
             frmInstitutionCreation.Load += new EventHandler(LoadCombobox);
             frmInstitutionCreation.picLogo.Paint += new PaintEventHandler(GeneratePictureBoxBorder);
 
+            // Eventos de validación
+            frmInstitutionCreation.txtInstitutionName.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmInstitutionCreation.txtInstitutionAddress.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmInstitutionCreation.txtPhoneNumber.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmInstitutionCreation.txtPhoneNumber.TextChangedEvent += new EventHandler(TextBoxTextChanged);
+            frmInstitutionCreation.txtEmail.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+
             // Eventos .Enter de los textbox; se verifica si la propiedad .Texts de los textbox corresponde a lo que viene siendo el texto "placeholder", y si sí lo es, se vacían
             frmInstitutionCreation.txtInstitutionName.Enter += new EventHandler(EnterTextBox);
             frmInstitutionCreation.txtInstitutionAddress.Enter += new EventHandler(EnterTextBox);
@@ -71,6 +78,26 @@ namespace HealthPortal.Controller.FirstUsage
 
             // Evento .Click que lo único que hace es cerrar el programa xd
             frmInstitutionCreation.btnExit.Click += new EventHandler(ExitApplication);
+        }
+
+        /// <summary>
+        ///     Se llama al método "AutoInsertDash", que cumple la función
+        ///     de colocar automáticamente un '-' cuando el usuario ha ingresado 4 dígitos, y,
+        ///     posteriormente, mover el cursor para que el usuario pueda seguir escribiendo sin problema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxTextChanged(object sender, EventArgs e)
+        {
+            AutoInsertDash();
+        }
+        private void AutoInsertDash()
+        {
+            if (frmInstitutionCreation.txtPhoneNumber.Texts.Length == 4 && !frmInstitutionCreation.txtPhoneNumber.Texts.Contains("-"))
+            {
+                frmInstitutionCreation.txtPhoneNumber.Texts += "-";
+                frmInstitutionCreation.txtPhoneNumber.SelectionStart = frmInstitutionCreation.txtPhoneNumber.Texts.Length;
+            }
         }
         private void LoadCombobox(object sender, EventArgs e)
         {
@@ -139,7 +166,7 @@ namespace HealthPortal.Controller.FirstUsage
             Button btn = sender as Button;
             if (btn != null && imageMapping.ContainsKey(btn.Name))
             {
-                btn.BackgroundImage = imageMapping[btn.Name].Item2;
+                btn.Image = imageMapping[btn.Name].Item2;
             }
         }
         private void MouseLeavePictureButton(object sender, EventArgs e)
@@ -147,7 +174,7 @@ namespace HealthPortal.Controller.FirstUsage
             Button btn = sender as Button;
             if (btn != null && imageMapping.ContainsKey(btn.Name))
             {
-                btn.BackgroundImage = imageMapping[btn.Name].Item1;
+                btn.Image = imageMapping[btn.Name].Item1;
             }
         }
         private void AddLogo(object sender, EventArgs e)

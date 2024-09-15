@@ -7,7 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthPortal.Controller.Dashboard;
+using HealthPortal.Helper;
 using HealthPortal.Model.DTO;
+using HealthPortal.Helper;
 
 namespace HealthPortal.Model.DAO
 {
@@ -30,12 +32,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"{ex.Message}");
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}");
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -55,12 +57,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -98,12 +100,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                CommonMethods.HandleError("EC_111");
                 return -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CommonMethods.HandleError("EC_111");
                 return -1;
             }
             finally
@@ -132,12 +134,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"{ex.Message}");
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}");
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally
@@ -171,12 +173,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"{ex.Message}");
+                CommonMethods.HandleError("EC_311");
                 return -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}");
+                CommonMethods.HandleError("EC_311");
                 return -1;
             }
             finally
@@ -203,12 +205,14 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"{ex.Message}");
+
+                CommonMethods.HandleError("EC_411");
                 return -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}");
+
+                CommonMethods.HandleError("EC_411");
                 return -1;
             }
             finally
@@ -230,12 +234,12 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"{ex.Message}");
+                CommonMethods.HandleError("EC_507");
                 return null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}");
+                CommonMethods.HandleError("EC_507");
                 return null;
             }
             finally

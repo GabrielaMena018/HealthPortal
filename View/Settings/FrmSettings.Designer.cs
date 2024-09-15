@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.tlpSettings = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.pnlSideBar = new System.Windows.Forms.Panel();
+            this.pnlSide = new System.Windows.Forms.Panel();
             this.flpButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlUserSettings = new System.Windows.Forms.Panel();
             this.btnUserSettings = new System.Windows.Forms.Button();
@@ -41,8 +42,9 @@
             this.pnlProgramSettings = new System.Windows.Forms.Panel();
             this.btnProgramSettings = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.pnlSideBar.SuspendLayout();
+            this.tlpSettings.SuspendLayout();
+            this.pnlTitle.SuspendLayout();
+            this.pnlSide.SuspendLayout();
             this.flpButtons.SuspendLayout();
             this.pnlUserSettings.SuspendLayout();
             this.pnlInstitutionSettings.SuspendLayout();
@@ -50,17 +52,37 @@
             this.pnlProgramSettings.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // tlpSettings
             // 
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1370, 120);
-            this.panel1.TabIndex = 0;
+            this.tlpSettings.ColumnCount = 2;
+            this.tlpSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.92701F));
+            this.tlpSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.07299F));
+            this.tlpSettings.Controls.Add(this.pnlTitle, 0, 0);
+            this.tlpSettings.Controls.Add(this.pnlSide, 1, 1);
+            this.tlpSettings.Controls.Add(this.pnlContainer, 0, 1);
+            this.tlpSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpSettings.Location = new System.Drawing.Point(0, 0);
+            this.tlpSettings.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpSettings.Name = "tlpSettings";
+            this.tlpSettings.RowCount = 1;
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.71F));
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpSettings.Size = new System.Drawing.Size(1370, 825);
+            this.tlpSettings.TabIndex = 0;
+            // 
+            // pnlTitle
+            // 
+            this.pnlTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlTitle.BackColor = System.Drawing.Color.White;
+            this.tlpSettings.SetColumnSpan(this.pnlTitle, 2);
+            this.pnlTitle.Controls.Add(this.lblTitle);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlTitle.Name = "pnlTitle";
+            this.pnlTitle.Size = new System.Drawing.Size(1370, 117);
+            this.pnlTitle.TabIndex = 5;
             // 
             // lblTitle
             // 
@@ -74,15 +96,16 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Configuración";
             // 
-            // pnlSideBar
+            // pnlSide
             // 
-            this.pnlSideBar.BackColor = System.Drawing.Color.White;
-            this.pnlSideBar.Controls.Add(this.flpButtons);
-            this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlSideBar.Location = new System.Drawing.Point(1090, 120);
-            this.pnlSideBar.Name = "pnlSideBar";
-            this.pnlSideBar.Size = new System.Drawing.Size(280, 705);
-            this.pnlSideBar.TabIndex = 1;
+            this.pnlSide.BackColor = System.Drawing.Color.White;
+            this.pnlSide.Controls.Add(this.flpButtons);
+            this.pnlSide.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlSide.Location = new System.Drawing.Point(1096, 117);
+            this.pnlSide.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlSide.Name = "pnlSide";
+            this.pnlSide.Size = new System.Drawing.Size(274, 708);
+            this.pnlSide.TabIndex = 2;
             // 
             // flpButtons
             // 
@@ -92,9 +115,10 @@
             this.flpButtons.Controls.Add(this.pnlProgramSettings);
             this.flpButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpButtons.Location = new System.Drawing.Point(0, 0);
+            this.flpButtons.Margin = new System.Windows.Forms.Padding(0);
             this.flpButtons.Name = "flpButtons";
-            this.flpButtons.Size = new System.Drawing.Size(280, 705);
-            this.flpButtons.TabIndex = 0;
+            this.flpButtons.Size = new System.Drawing.Size(274, 708);
+            this.flpButtons.TabIndex = 3;
             // 
             // pnlUserSettings
             // 
@@ -234,11 +258,13 @@
             // 
             // pnlContainer
             // 
+            this.pnlContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer.Location = new System.Drawing.Point(0, 120);
+            this.pnlContainer.Location = new System.Drawing.Point(0, 117);
+            this.pnlContainer.Margin = new System.Windows.Forms.Padding(0);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(1090, 705);
-            this.pnlContainer.TabIndex = 2;
+            this.pnlContainer.Size = new System.Drawing.Size(1095, 708);
+            this.pnlContainer.TabIndex = 4;
             // 
             // FrmSettings
             // 
@@ -247,15 +273,14 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1370, 825);
-            this.Controls.Add(this.pnlContainer);
-            this.Controls.Add(this.pnlSideBar);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tlpSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSettings";
             this.Text = "FrmUserAdministration";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.pnlSideBar.ResumeLayout(false);
+            this.tlpSettings.ResumeLayout(false);
+            this.pnlTitle.ResumeLayout(false);
+            this.pnlTitle.PerformLayout();
+            this.pnlSide.ResumeLayout(false);
             this.flpButtons.ResumeLayout(false);
             this.pnlUserSettings.ResumeLayout(false);
             this.pnlInstitutionSettings.ResumeLayout(false);
@@ -266,9 +291,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.Panel pnlSide;
+        public System.Windows.Forms.FlowLayoutPanel flpButtons;
         public System.Windows.Forms.Panel pnlUserSettings;
         public System.Windows.Forms.Button btnUserSettings;
         public System.Windows.Forms.Panel pnlInstitutionSettings;
@@ -278,7 +302,8 @@
         public System.Windows.Forms.Panel pnlProgramSettings;
         public System.Windows.Forms.Button btnProgramSettings;
         public System.Windows.Forms.Panel pnlContainer;
-        public System.Windows.Forms.Panel pnlSideBar;
-        public System.Windows.Forms.FlowLayoutPanel flpButtons;
+        private System.Windows.Forms.Panel pnlTitle;
+        private System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.TableLayoutPanel tlpSettings;
     }
 }

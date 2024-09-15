@@ -36,7 +36,18 @@ namespace HealthPortal.Controller.FirstUsage
             // Evento de carga del formulario, se oculta automáticamente la contraseña
             frmFirstUserCreation.Load += new EventHandler(ShowPassword);
 
+            // Extra
             CommonMethods.EnableFormDrag(frmFirstUserCreation, frmFirstUserCreation);
+
+            // Eventos de validación
+            frmFirstUserCreation.txtName.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmFirstUserCreation.txtLastName.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmFirstUserCreation.txtEmail.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmFirstUserCreation.txtPhoneNumber.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmFirstUserCreation.txtPhoneNumber.TextChangedEvent += new EventHandler(TextBoxTextChanged);
+            frmFirstUserCreation.txtUsername.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmFirstUserCreation.txtPassword.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmFirstUserCreation.txtConfirmPassword.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
 
             // Eventos .Enter de los textbox; se verifica si la propiedad .Texts de los textbox corresponde a lo que viene siendo el texto "placeholder", y si sí lo es, se vacían
             frmFirstUserCreation.txtName.Enter += new EventHandler(EnterTextBox);
@@ -77,6 +88,26 @@ namespace HealthPortal.Controller.FirstUsage
 
             // Evento .Click que lo único que hace es cerrar el programa xd
             frmFirstUserCreation.btnExit.Click += new EventHandler(ExitApplication);
+        }
+
+        /// <summary>
+        ///     Se llama al método "AutoInsertDash", que cumple la función
+        ///     de colocar automáticamente un '-' cuando el usuario ha ingresado 4 dígitos, y,
+        ///     posteriormente, mover el cursor para que el usuario pueda seguir escribiendo sin problema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxTextChanged(object sender, EventArgs e)
+        {
+            AutoInsertDash();
+        }
+        private void AutoInsertDash()
+        {
+            if (frmFirstUserCreation.txtPhoneNumber.Texts.Length == 4 && !frmFirstUserCreation.txtPhoneNumber.Texts.Contains("-"))
+            {
+                frmFirstUserCreation.txtPhoneNumber.Texts += "-";
+                frmFirstUserCreation.txtPhoneNumber.SelectionStart = frmFirstUserCreation.txtPhoneNumber.Texts.Length;
+            }
         }
 
         /// <summary>
@@ -167,6 +198,7 @@ namespace HealthPortal.Controller.FirstUsage
                 btn.Image = imageMapping[btn.Name].Item1;
             }
         }
+
         /// <summary>
         ///     Proceso para registrar al primer usuario
         /// </summary>
@@ -204,14 +236,15 @@ namespace HealthPortal.Controller.FirstUsage
                         // Se evalua si el correo logró ser enviado
                         if (CommonMethods.SendVerificationEmail(dao.Email, confirmationCode) == false)
                         {
-                            // Si no se envió, se recupera el ID de este primer             usuario y posteriormente se elimina el registro,              pues es de suma importancia que el correo sí                  exista
+                            // Si no se envió, se recupera el ID de este primer usuario y posteriormente se elimina el registro, pues es de suma importancia que el correo síexista
                             dao.PersonID = dao.GetMaxID();
                             dao.DeleteUser();
                         }
                         else
                         {
                             // Si el correo se envió de manera exitosa, se oculta el formulario actual y se muestra el formulario en el que se tendrá que ingresar el código de confirmación recién generado
-                            FrmEmailVerification frmEmailVerification = new FrmEmailVerification(confirmationCode);
+                            int personID = dao.GetMaxID();
+                            FrmEmailVerification frmEmailVerification = new FrmEmailVerification(confirmationCode, personID, frmFirstUserCreation.txtUsername.Texts.Trim());
                             frmFirstUserCreation.Hide();
                             frmEmailVerification.ShowDialog();
                         }

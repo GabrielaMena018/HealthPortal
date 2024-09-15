@@ -21,6 +21,7 @@ using HealthPortal.View.Settings;
 using System.Runtime.CompilerServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using HealthPortal.View.Dashboard;
 
 namespace HealthPortal.Helper
 {
@@ -84,8 +85,6 @@ namespace HealthPortal.Helper
                 CurrentUserData.ServerSettingsOrigin = 1;
                 FrmServerSettings frmServerSettings = new FrmServerSettings();
                 frmServerSettings.ShowDialog();
-                FrmLogin frmLogin = new FrmLogin();
-                frmLogin.Show();
             }
         }
         public static string CodeString(string stringToCode)
@@ -138,9 +137,6 @@ namespace HealthPortal.Helper
                 case "name":
                     ValidateNameTextBox(e);
                     break;
-                case "number":
-                    ValidatePhoneNumberTextBox(e);
-                    break;
                 case "email":
                     ValidateEmailTextBox(e);
                     break;
@@ -149,6 +145,12 @@ namespace HealthPortal.Helper
                     break;
                 case "password":
                     ValidatePasswordTextBox(e);
+                    break;
+                case "phoneNumber":
+                    ValidatePhoneNumberTextBox(txt, e);
+                    break;
+                case "confirmationCode":
+                    ValidateConfirmationCodeTextBox(e);
                     break;
                 case "sql":
                     // Nada xd
@@ -165,21 +167,20 @@ namespace HealthPortal.Helper
                 e.Handled = true;
             }
         }
-        private static void ValidatePhoneNumberTextBox(KeyPressEventArgs e)
+        private static void ValidatePhoneNumberTextBox(CustomTextBox txt, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
             {
                 e.Handled = true;
             }
         }
         private static void ValidateEmailTextBox(KeyPressEventArgs e)
         {
-            if (!char.IsLower(e.KeyChar) && e.KeyChar != '@' && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
+            if (!char.IsLower(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '@' && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
             {
                 e.Handled = true;
             }
         }
-
         private static void ValidateUsernameTextBox(KeyPressEventArgs e)
         {
             if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
@@ -187,7 +188,6 @@ namespace HealthPortal.Helper
                 e.Handled = true;
             }
         }
-
         private static void ValidatePasswordTextBox(KeyPressEventArgs e)
         {
             if (!char.IsLetterOrDigit(e.KeyChar) && !@"@$#_".Contains(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
@@ -195,10 +195,20 @@ namespace HealthPortal.Helper
                 e.Handled = true;
             }
         }
+        private static void ValidateConfirmationCodeTextBox(KeyPressEventArgs e)
+        {
+            if (Control.ModifierKeys == Keys.Control && (e.KeyChar == 3 || e.KeyChar == 22 || e.KeyChar == 24))
+            {
+                // El 3 es Ctrl + C, el 22 es Ctrl + V, y el 24 es Ctrl + X
+                return;
+            }
+            if (!char.IsLetterOrDigit(e.KeyChar) && !@"@$#_".Contains(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
+            {
+                e.Handled = true;
+            }
+        }
         public static void DetermineInitialForm()
         {
-            CurrentUserData.ScreenWidth = Screen.PrimaryScreen.Bounds.Width;
-            CurrentUserData.ScreenHeight = Screen.PrimaryScreen.Bounds.Height;
             DAOLogin daoLogin = new DAOLogin();
             ReadXMLConnectionFile();
             if (daoLogin.GetAmountOfUsers() == 0)
@@ -236,7 +246,7 @@ namespace HealthPortal.Helper
         }
         public static string GenerateRandomPassword(int length)
         {
-            const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?@#$%^&*";
+            const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@$#_";
             StringBuilder password = new StringBuilder();
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
             byte[] data = new byte[length];
@@ -269,7 +279,7 @@ namespace HealthPortal.Helper
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
                 {
-                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "ausw xphf aobi nemd"),
+                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "vtgf qixd xvgf kdpo"),
                     EnableSsl = true
                 };
                 MailMessage mailMessage = new MailMessage
@@ -296,7 +306,7 @@ namespace HealthPortal.Helper
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
                 {
-                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "ausw xphf aobi nemd"),
+                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "vtgf qixd xvgf kdpo"),
                     EnableSsl = true
                 };
                 MailMessage mailMessage = new MailMessage
@@ -323,7 +333,7 @@ namespace HealthPortal.Helper
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
                 {
-                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "ausw xphf aobi nemd"),
+                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "vtgf qixd xvgf kdpo"),
                     EnableSsl = true
                 };
                 MailMessage mailMessage = new MailMessage
@@ -353,6 +363,7 @@ namespace HealthPortal.Helper
             CurrentUserData.RoleId = 0;
             CurrentUserData.TemporaryPassword = false;
             CurrentUserData.Email = string.Empty;
+            CurrentUserData.FullScreen = false;
         }
         public static void EnableFormDrag(Form frm, Control control)
         {
@@ -410,17 +421,6 @@ namespace HealthPortal.Helper
         public static void HandleError(string errorCode)
         {
             MessageBox.Show($"Un error ha ocurrido. Por favor, consulte el código {errorCode} en el manual técnico.", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        public static void HandleTextbox(CustomTextBox txt)
-        {
-            if (txt.Tag.ToString() == "sql")
-            {
-                txt.ContextMenuStrip = new ContextMenuStrip();
-            }
-            else if (txt.Tag.ToString() == "username")
-            {
-
-            }
         }
     }
 }

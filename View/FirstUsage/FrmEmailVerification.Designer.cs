@@ -65,8 +65,11 @@
             this.txtConfirmationCode.PasswordChar = false;
             this.txtConfirmationCode.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtConfirmationCode.PlaceholderText = "";
+            this.txtConfirmationCode.SelectionLength = 0;
+            this.txtConfirmationCode.SelectionStart = 0;
             this.txtConfirmationCode.Size = new System.Drawing.Size(468, 38);
             this.txtConfirmationCode.TabIndex = 9;
+            this.txtConfirmationCode.Tag = "confirmationCode";
             this.txtConfirmationCode.Texts = "Código de Confirmación";
             this.txtConfirmationCode.UnderlinedStyle = false;
             // 

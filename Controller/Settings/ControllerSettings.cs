@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace HealthPortal.Controller.Settings
 {
@@ -18,11 +18,13 @@ namespace HealthPortal.Controller.Settings
         FrmSettings frmSettings;
         Form currentForm;
         Button currentButton;
+        bool initialLoadInProgress = true;
         private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         public ControllerSettings(FrmSettings view)
         {
             frmSettings = view;
             frmSettings.Load += new EventHandler(InitialLoad);
+            frmSettings.Resize += new EventHandler(ResizeSidePanel);
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
             {
                 { "btnUserSettings", Tuple.Create(Resources.users, Resources.hoverUsers)},
@@ -32,7 +34,6 @@ namespace HealthPortal.Controller.Settings
             };
 
             frmSettings.Load += new EventHandler(OpenUserSettingsForm);
-            frmSettings.Resize += new EventHandler(ResizeControls);
             frmSettings.btnUserSettings.Click += new EventHandler(OpenUserSettingsForm);
             frmSettings.btnInstitutionSettings.Click += new EventHandler(OpenInstitutionSettingsForm);
             frmSettings.btnServerSettings.Click += new EventHandler(OpenServerSettingsForm);
@@ -47,6 +48,17 @@ namespace HealthPortal.Controller.Settings
             frmSettings.btnInstitutionSettings.MouseLeave += new EventHandler(MouseLeaveControl);
             frmSettings.btnServerSettings.MouseLeave += new EventHandler(MouseLeaveControl);
             frmSettings.btnProgramSettings.MouseLeave += new EventHandler(MouseLeaveControl);
+        }
+        private void ResizeSidePanel(object sender, EventArgs e)
+        {
+            if (!initialLoadInProgress)
+            {
+                frmSettings.tlpSettings.ColumnStyles[0].SizeType = SizeType.Percent;
+                frmSettings.tlpSettings.ColumnStyles[0].Width = CurrentUserData.IsSideBarExpanded ? 79.93f : 77.42f;
+                frmSettings.tlpSettings.ColumnStyles[1].SizeType = SizeType.Percent;
+                frmSettings.tlpSettings.ColumnStyles[1].Width = CurrentUserData.IsSideBarExpanded ? 20.07f : 22.58f;
+            }
+            initialLoadInProgress = false;
         }
         private void MouseEnterControl(object sender, EventArgs e)
         {
@@ -195,13 +207,12 @@ namespace HealthPortal.Controller.Settings
         }
         private void InitialLoad(object sender, EventArgs e)
         {
+            initialLoadInProgress = true;
             CheckUserAccessRole();
-            frmSettings.pnlSideBar.Width = CurrentUserData.MaxSidePanelWidth;
-        }
-        private void ResizeControls(object sender, EventArgs e)
-        {
-            frmSettings.Width = frmSettings.Parent.Width;
-            frmSettings.pnlSideBar.Width = CurrentUserData.MaxSidePanelWidth;
+            frmSettings.tlpSettings.ColumnStyles[0].SizeType = SizeType.Percent;
+            frmSettings.tlpSettings.ColumnStyles[0].Width = !CurrentUserData.IsSideBarExpanded ? 79.93f : 77.42f;
+            frmSettings.tlpSettings.ColumnStyles[1].SizeType = SizeType.Percent;
+            frmSettings.tlpSettings.ColumnStyles[1].Width = !CurrentUserData.IsSideBarExpanded ? 20.07f : 22.58f;
         }
         private void CheckUserAccessRole()
         {

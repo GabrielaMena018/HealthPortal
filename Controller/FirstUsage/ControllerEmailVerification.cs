@@ -18,10 +18,14 @@ namespace HealthPortal.Controller.FirstUsage
     {
         FrmEmailVerification frmEmailVerification;
         string confirmationCode;
-        public ControllerEmailVerification(FrmEmailVerification view, string confirmationCode)
+        int personID;
+        string username;
+        public ControllerEmailVerification(FrmEmailVerification view, string confirmationCode, int personID, string username)
         {
             frmEmailVerification = view;
             this.confirmationCode = confirmationCode;
+            this.personID = personID;
+            this.username = username;
             CommonMethods.EnableFormDrag(frmEmailVerification, frmEmailVerification);
             frmEmailVerification.txtConfirmationCode.Enter += new EventHandler(EnterTxtConfirmationCode);
             frmEmailVerification.txtConfirmationCode.Leave += new EventHandler(LeaveTxtConfirmationCode);
@@ -31,6 +35,7 @@ namespace HealthPortal.Controller.FirstUsage
             frmEmailVerification.btnConfirmEmail.MouseLeave += new EventHandler(MouseLeaveButton);
             frmEmailVerification.btnExit.Click += new EventHandler(ExitForm);
             frmEmailVerification.btnConfirmEmail.Click += new EventHandler(CompareConfirmationCode);
+            frmEmailVerification.txtConfirmationCode.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
         }
         private void EnterTxtConfirmationCode(object sender, EventArgs e)
         {
@@ -72,11 +77,13 @@ namespace HealthPortal.Controller.FirstUsage
         }
         private void ExitForm(object sender, EventArgs e)
         {
-            DAOFirstUsage daoFirstUsage = new DAOFirstUsage();
+            DAOFirstUsage dao = new DAOFirstUsage();
             DialogResult result = MessageBox.Show("¿Seguro que desea abandonar el proceso de creación del primer usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                daoFirstUsage.DeleteUser();
+                dao.PersonID = personID;
+                dao.Username = username;
+                dao.DeleteUser();
                 MessageBox.Show("Entendido. Registro de primer usuario eliminado.", "Registro eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Application.Exit();
             }

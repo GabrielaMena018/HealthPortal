@@ -26,7 +26,6 @@ namespace HealthPortal.Controller.PatientAdministration
         {
             frmPatientAdministration = view;
             frmPatientAdministration.Load += new EventHandler(InitialLoad);
-            frmPatientAdministration.Resize += new EventHandler(ResizeControls);
 
             frmPatientAdministration.btnNew.Click += new EventHandler(NewStudentPatient);
 
@@ -43,7 +42,6 @@ namespace HealthPortal.Controller.PatientAdministration
             frmPatientAdministration.cmbRole.SelectedIndexChanged += new EventHandler(SearchByRole);
 
             frmPatientAdministration.btnShowAll.Click += new EventHandler(LoadPatientData);
-            frmPatientAdministration.cmsShowAll.Click += new EventHandler(LoadPatientData);
 
             frmPatientAdministration.btnFilter.MouseEnter += new EventHandler(MouseEnterTextButton);
             frmPatientAdministration.btnNew.MouseEnter += new EventHandler(MouseEnterTextButton);
@@ -54,6 +52,8 @@ namespace HealthPortal.Controller.PatientAdministration
             frmPatientAdministration.btnNew.MouseLeave += new EventHandler(MouseLeaveTextButton);
             frmPatientAdministration.btnSearch.MouseLeave += new EventHandler(MouseLeaveTextButton);
             frmPatientAdministration.btnShowAll.MouseLeave += new EventHandler(MouseLeaveTextButton);
+
+            frmPatientAdministration.txtSearch.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
 
             //frmPatientAdministration.btnPDF.Click += new EventHandler(VisitReport);
             frmPatientAdministration.dtpVisitDate.Value = DateTime.Now;
@@ -69,23 +69,6 @@ namespace HealthPortal.Controller.PatientAdministration
             RJButton btn = sender as RJButton;
             btn.BackColor = Color.FromArgb(255, 183, 3);
             btn.ForeColor = Color.FromArgb(31, 43, 91);
-        }
-        private void ResizeControls(object sender, EventArgs e)
-        {
-            if (frmPatientAdministration.Width == expandedFormWidth)
-            {
-                frmPatientAdministration.panelCustom2.Width = 908;
-                frmPatientAdministration.btnShowAll.Visible = true;
-                frmPatientAdministration.cmsShowAll.Visible = false;
-            }
-            else if (frmPatientAdministration.Width == collapsedFormWidth)
-            {
-                frmPatientAdministration.panelCustom2.Width = 778;
-                frmPatientAdministration.btnShowAll.Visible = false;
-                frmPatientAdministration.cmsShowAll.Visible = true;
-            }
-            frmPatientAdministration.dgvPatientInfo.Dock = DockStyle.Fill;
-            frmPatientAdministration.Refresh();
         }
 
         //private void VisitReport(object sender, EventArgs e)

@@ -11,101 +11,148 @@ using System.Windows.Forms;
 using System.Net.Mail;
 using HealthPortal.Helper;
 using HealthPortal.Model.DTO;
+using HealthPortal.View.FirstUsage;
+using CustomControls;
+using System.Drawing;
+using HealthPortal.Properties;
 
 namespace HealthPortal.Controller.UserAdministration
 {
     internal class ControllerAddUpdateUser
     {
-        FrmAddUpdateUser objFrmAddUpdateUser;
+        FrmAddUpdateUser frmAddUpdateUser;
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         private int procedure;
         private string role;
-        private string personId;
+        private string personID;
         public ControllerAddUpdateUser(FrmAddUpdateUser view, int procedure)
         {
-            objFrmAddUpdateUser = view;
+            frmAddUpdateUser = view;
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) }
+            };
             this.procedure = procedure;
             VerifyProcedure();
-            objFrmAddUpdateUser.Load += new EventHandler(LoadComboBox);
-            objFrmAddUpdateUser.btnAddNewUser.Click += new EventHandler(NewUser);
+            frmAddUpdateUser.Load += new EventHandler(LoadComboBox);
+            frmAddUpdateUser.btnAddNewUser.Click += new EventHandler(NewUser);
+
+            // Extra
+            CommonMethods.EnableFormDrag(frmAddUpdateUser, frmAddUpdateUser);
+
+            frmAddUpdateUser.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateUser.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateUser.btnExit.Click += new EventHandler(CloseForm);
         }
-        public ControllerAddUpdateUser(FrmAddUpdateUser view, int procedure, int personId, string firstName, string lastName, string email, string phoneNumber, string username, string role)
+        public ControllerAddUpdateUser(FrmAddUpdateUser view, int procedure, int personID, string firstName, string lastName, string email, string phoneNumber, string username, string role)
         {
-            objFrmAddUpdateUser = view;
+            frmAddUpdateUser = view;
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) }
+            };
             this.procedure = procedure;
             this.role = role;
-            this.personId = personId.ToString();
+            this.personID = personID.ToString();
             VerifyProcedure();
-            objFrmAddUpdateUser.Load += new EventHandler(LoadComboBox);
-            LoadValues(personId, firstName, lastName, email, phoneNumber, username);
-            objFrmAddUpdateUser.btnUpdateUser.Click += new EventHandler(UpdateUserInfo);
+            frmAddUpdateUser.Load += new EventHandler(LoadComboBox);
+            LoadValues(personID, firstName, lastName, email, phoneNumber, username);
+            frmAddUpdateUser.btnUpdateUser.Click += new EventHandler(UpdateUserInfo);
+
+            // Extra
+            CommonMethods.EnableFormDrag(frmAddUpdateUser, frmAddUpdateUser);
+
+            frmAddUpdateUser.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateUser.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmAddUpdateUser.btnExit.Click += new EventHandler(CloseForm);
         }
-        public void VerifyProcedure()
+        private void CloseForm(object sender, EventArgs e)
+        {
+            frmAddUpdateUser.Dispose();
+        }
+        private void MouseEnterPictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item2;
+            }
+        }
+        private void MouseLeavePictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item1;
+            }
+        }
+        private void VerifyProcedure()
         {
             if (procedure == 1)
             {
-                objFrmAddUpdateUser.btnAddNewUser.Enabled = true;
-                objFrmAddUpdateUser.btnUpdateUser.Enabled = false;
+                frmAddUpdateUser.btnAddNewUser.Enabled = true;
+                frmAddUpdateUser.btnUpdateUser.Enabled = false;
             }
             else if (procedure == 2)
             {
-                objFrmAddUpdateUser.btnAddNewUser.Enabled = false;
-                objFrmAddUpdateUser.btnUpdateUser.Enabled = true;
-                objFrmAddUpdateUser.txtUserAdministrationUsername.Enabled = false;
+                frmAddUpdateUser.btnAddNewUser.Enabled = false;
+                frmAddUpdateUser.btnUpdateUser.Enabled = true;
+                frmAddUpdateUser.txtUserAdministrationUsername.Enabled = false;
             }
             else
             {
-                objFrmAddUpdateUser.btnAddNewUser.Enabled = false;
-                objFrmAddUpdateUser.btnUpdateUser.Enabled = false;
-                objFrmAddUpdateUser.txtUserAdministrationName.Enabled = false;
-                objFrmAddUpdateUser.txtUserAdministrationLastName.Enabled = false;
-                objFrmAddUpdateUser.txtUserAdministrationEmail.Enabled = false;
-                objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Enabled = false;
-                objFrmAddUpdateUser.txtUserAdministrationUsername.Enabled = false;
-                objFrmAddUpdateUser.cmbUserAdministrationRole.Enabled = false;
+                frmAddUpdateUser.btnAddNewUser.Enabled = false;
+                frmAddUpdateUser.btnUpdateUser.Enabled = false;
+                frmAddUpdateUser.txtUserAdministrationName.Enabled = false;
+                frmAddUpdateUser.txtUserAdministrationLastName.Enabled = false;
+                frmAddUpdateUser.txtUserAdministrationEmail.Enabled = false;
+                frmAddUpdateUser.txtUserAdministrationPhoneNumber.Enabled = false;
+                frmAddUpdateUser.txtUserAdministrationUsername.Enabled = false;
+                frmAddUpdateUser.cmbUserAdministrationRole.Enabled = false;
             }
         }
-        public void LoadComboBox(object sender, EventArgs e)
+        private void LoadComboBox(object sender, EventArgs e)
         {
-            DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
-            DataSet ds = daoUserAdministration.GetRoles();
-            objFrmAddUpdateUser.cmbUserAdministrationRole.DataSource = ds.Tables["tbRoles"];
-            objFrmAddUpdateUser.cmbUserAdministrationRole.ValueMember = "idRol";
-            objFrmAddUpdateUser.cmbUserAdministrationRole.DisplayMember = "nombreRol";
+            DAOUserAdministration dao = new DAOUserAdministration();
+            DataSet ds = dao.GetRoles();
+            frmAddUpdateUser.cmbUserAdministrationRole.DataSource = ds.Tables["tbRoles"];
+            frmAddUpdateUser.cmbUserAdministrationRole.ValueMember = "idRol";
+            frmAddUpdateUser.cmbUserAdministrationRole.DisplayMember = "nombreRol";
             if (procedure == 2)
             {
-                objFrmAddUpdateUser.cmbUserAdministrationRole.Text = role;
-                objFrmAddUpdateUser.txtUserAdministrationId.Texts = personId;
+                frmAddUpdateUser.cmbUserAdministrationRole.Text = role;
+                frmAddUpdateUser.txtUserAdministrationId.Texts = personID;
             }
         }
-        public void NewUser(object sender, EventArgs e)
+        private void NewUser(object sender, EventArgs e)
         {
-            DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
+            DAOUserAdministration dao = new DAOUserAdministration();
             string temporaryPassword;
             string email;
 
             // Persona
-            daoUserAdministration.PersonName = objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
-            daoUserAdministration.PersonLastName = objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
-            email = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
-            daoUserAdministration.Email = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
-            daoUserAdministration.PhoneNumber = objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
+            dao.PersonName = frmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
+            dao.PersonLastName = frmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
+            email = frmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
+            dao.Email = frmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
+            dao.PhoneNumber = frmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
 
             // Usuario
-            daoUserAdministration.Username = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
+            dao.Username = frmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
             temporaryPassword = CommonMethods.GenerateRandomPassword(8);
-            daoUserAdministration.Password = CommonMethods.ComputeSha256Hash(temporaryPassword);
-            daoUserAdministration.Token = CommonMethods.GenerateRandomPassword(69);
-            daoUserAdministration.UserStatus = true;
-            daoUserAdministration.UserAttempts = 0;
-            daoUserAdministration.TemporaryPassword = true;
-            daoUserAdministration.RoleId = int.Parse(objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue.ToString());
-            if (daoUserAdministration.RegisterUser() == 2)
+            dao.Password = CommonMethods.ComputeSha256Hash(temporaryPassword);
+            dao.Token = CommonMethods.GenerateRandomPassword(69);
+            dao.UserStatus = true;
+            dao.UserAttempts = 0;
+            dao.TemporaryPassword = true;
+            dao.RoleId = int.Parse(frmAddUpdateUser.cmbUserAdministrationRole.SelectedValue.ToString());
+            if (dao.RegisterUser() == 2)
             {
                 MessageBox.Show("Los datos han sido guardados de manera exitosa.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (CommonMethods.SendEmail(temporaryPassword, email) == false)
                 {
-                    daoUserAdministration.PersonId = daoUserAdministration.GetMaxID();
-                    daoUserAdministration.DeleteUser();
+                    dao.PersonId = dao.GetMaxID();
+                    dao.DeleteUser();
                 }
                 else
                 {
@@ -117,20 +164,20 @@ namespace HealthPortal.Controller.UserAdministration
                 MessageBox.Show("Los datos no han podido ser registrados.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void UpdateUserInfo(object sender, EventArgs e)
+        private void UpdateUserInfo(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim()) || string.IsNullOrEmpty(objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim()))
+            if (string.IsNullOrEmpty(frmAddUpdateUser.txtUserAdministrationName.Texts.Trim()) || string.IsNullOrEmpty(frmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim()) || string.IsNullOrEmpty(frmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim()) || string.IsNullOrEmpty(frmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim()))
             {
-                DAOUserAdministration daoUserAdministration = new DAOUserAdministration();
-                daoUserAdministration.PersonId = int.Parse(objFrmAddUpdateUser.txtUserAdministrationId.Texts.Trim());
-                daoUserAdministration.PersonName = objFrmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
-                daoUserAdministration.PersonLastName = objFrmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
-                daoUserAdministration.Email = objFrmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
-                daoUserAdministration.PhoneNumber = objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
-                daoUserAdministration.Username = objFrmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
-                daoUserAdministration.RoleId = (int)objFrmAddUpdateUser.cmbUserAdministrationRole.SelectedValue;
+                DAOUserAdministration dao = new DAOUserAdministration();
+                dao.PersonId = int.Parse(frmAddUpdateUser.txtUserAdministrationId.Texts.Trim());
+                dao.PersonName = frmAddUpdateUser.txtUserAdministrationName.Texts.Trim();
+                dao.PersonLastName = frmAddUpdateUser.txtUserAdministrationLastName.Texts.Trim();
+                dao.Email = frmAddUpdateUser.txtUserAdministrationEmail.Texts.Trim();
+                dao.PhoneNumber = frmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Trim();
+                dao.Username = frmAddUpdateUser.txtUserAdministrationUsername.Texts.Trim();
+                dao.RoleId = (int)frmAddUpdateUser.cmbUserAdministrationRole.SelectedValue;
 
-                int returnedValue = daoUserAdministration.UpdateUserInfo();
+                int returnedValue = dao.UpdateUserInfo();
                 if (returnedValue == 2)
                 {
                     MessageBox.Show("Los datos han sido actualizado exitosamente", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -149,14 +196,14 @@ namespace HealthPortal.Controller.UserAdministration
                 MessageBox.Show("Existen campos vacíos, complete cada uno de los apartados.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        public void LoadValues(int personId, string firstName, string lastName, string email, string phoneNumber, string username)
+        private void LoadValues(int personId, string firstName, string lastName, string email, string phoneNumber, string username)
         {
-            objFrmAddUpdateUser.txtUserAdministrationId.Texts = personId.ToString();
-            objFrmAddUpdateUser.txtUserAdministrationName.Texts = firstName;
-            objFrmAddUpdateUser.txtUserAdministrationLastName.Texts = lastName;
-            objFrmAddUpdateUser.txtUserAdministrationEmail.Texts = email;
-            objFrmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts = phoneNumber;
-            objFrmAddUpdateUser.txtUserAdministrationUsername.Texts = username;
+            frmAddUpdateUser.txtUserAdministrationId.Texts = personId.ToString();
+            frmAddUpdateUser.txtUserAdministrationName.Texts = firstName;
+            frmAddUpdateUser.txtUserAdministrationLastName.Texts = lastName;
+            frmAddUpdateUser.txtUserAdministrationEmail.Texts = email;
+            frmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts = phoneNumber;
+            frmAddUpdateUser.txtUserAdministrationUsername.Texts = username;
         }
     }
 }
