@@ -10,18 +10,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthPortal.Model.DAO;
+using HealthPortal.Model.DTO;
 using HealthPortal.View.FirstUsage;
 using HealthPortal.View.Login;
 using System.Drawing;
 using System.IO;
 using CustomPanel;
+using System.Xml;
+using HealthPortal.View.Settings;
+using System.Runtime.CompilerServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using HealthPortal.View.Dashboard;
 
 namespace HealthPortal.Helper
 {
     internal class CommonMethods
     {
-        static bool dragging = false;
-        static Point dragCursorPoint, dragFormPoint;
+        const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         public static extern IntPtr CreateRoundRectRgn
         (
@@ -32,9 +40,177 @@ namespace HealthPortal.Helper
             int nWidthEllipse, // width of ellipse
             int nHeightEllipse // height of ellipse
         );
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        public static void ReadXMLConnectionFile()
+        {
+            string path = Path.Combine(Directory.GetCurrentDirectory().ToString(), "config_server.xml");
+            if (File.Exists(path))
+            {
+                CurrentUserData.ServerSettingsOrigin = 2;
+                XmlDocument doc = new XmlDocument();
+                doc.Load(path);
+
+                XmlNode root = doc.DocumentElement;
+                XmlNode serverNode = root.SelectSingleNode("server/text()");
+                XmlNode databaseNode = root.SelectSingleNode("database/text()");
+                XmlNode sqlAuthNode = root.SelectSingleNode("sqlAuth/text()");
+                XmlNode sqlPassNode = root.SelectSingleNode("sqlPass/text()");
+
+                string codedServer = serverNode.Value;
+                string codedDatabase = databaseNode.Value;
+                DTOdbContext.Server = DecodeString(codedServer);
+                DTOdbContext.Database = DecodeString(codedDatabase);
+
+                if (sqlAuthNode != null && sqlPassNode != null)
+                {
+                    string codedUser = sqlAuthNode.Value;
+                    string codedPassword = sqlPassNode.Value;
+
+                    DTOdbContext.User = DecodeString(codedUser);
+                    DTOdbContext.Password = DecodeString(codedPassword);
+                }
+                else
+                {
+                    DTOdbContext.User = DecodeString(string.Empty);
+                    DTOdbContext.Password = DecodeString(string.Empty);
+                }
+            }
+            else
+            {
+                CurrentUserData.ServerSettingsOrigin = 1;
+                FrmServerSettings frmServerSettings = new FrmServerSettings();
+                frmServerSettings.ShowDialog();
+            }
+        }
+        public static string CodeString(string stringToCode)
+        {
+            try
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(stringToCode);
+                string base64String = Convert.ToBase64String(bytes);
+                return base64String;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
+        private static string DecodeString(string codedString)
+        {
+            try
+            {
+                byte[] decodedBytes = Convert.FromBase64String(codedString);
+                string decodedString = Encoding.UTF8.GetString(decodedBytes);
+                return decodedString.ToString();
+            }
+            catch (Exception ex)
+            {
+                return $"Error al descifrar: {ex.Message}";
+            }
+        }
+        public static void TextBoxKeyDown(object sender, KeyEventArgs e)
+        {
+            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            if (txt.Tag.ToString() != "sql")
+            {
+                if ((e.Control && e.KeyCode == Keys.C) || (e.Control && e.KeyCode == Keys.V))
+                {
+                    e.SuppressKeyPress = true;
+                }
+            }
+        }
+        public static void TextBoxKeyPress(object sender, KeyPressEventArgs e)
+        {
+            BorderRadiusTXT txt = sender as BorderRadiusTXT;
+            if (txt == null || txt.Tag == null)
+            {
+                return;
+            }
+            string tag = txt.Tag.ToString();
+            switch (tag)
+            {
+                case "name":
+                    ValidateNameTextBox(e);
+                    break;
+                case "email":
+                    ValidateEmailTextBox(e);
+                    break;
+                case "username":
+                    ValidateUsernameTextBox(e);
+                    break;
+                case "password":
+                    ValidatePasswordTextBox(e);
+                    break;
+                case "phoneNumber":
+                    ValidatePhoneNumberTextBox(txt, e);
+                    break;
+                case "confirmationCode":
+                    ValidateConfirmationCodeTextBox(e);
+                    break;
+                case "sql":
+                    // Nada xd
+                    break;
+                default:
+                    // Igual, nada xd
+                    break;
+            }
+        }
+        private static void ValidateNameTextBox(KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
+            {
+                e.Handled = true;
+            }
+        }
+        private static void ValidatePhoneNumberTextBox(BorderRadiusTXT txt, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
+            {
+                e.Handled = true;
+            }
+        }
+        private static void ValidateEmailTextBox(KeyPressEventArgs e)
+        {
+            if (!char.IsLower(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '@' && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
+            {
+                e.Handled = true;
+            }
+        }
+        private static void ValidateUsernameTextBox(KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
+            {
+                e.Handled = true;
+            }
+        }
+        private static void ValidatePasswordTextBox(KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !@"@$#_".Contains(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
+            {
+                e.Handled = true;
+            }
+        }
+        private static void ValidateConfirmationCodeTextBox(KeyPressEventArgs e)
+        {
+            if (Control.ModifierKeys == Keys.Control && (e.KeyChar == 3 || e.KeyChar == 22 || e.KeyChar == 24))
+            {
+                // El 3 es Ctrl + C, el 22 es Ctrl + V, y el 24 es Ctrl + X
+                return;
+            }
+            if (!char.IsLetterOrDigit(e.KeyChar) && !@"@$#_".Contains(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab)
+            {
+                e.Handled = true;
+            }
+        }
         public static void DetermineInitialForm()
         {
             DAOLogin daoLogin = new DAOLogin();
+            ReadXMLConnectionFile();
             if (daoLogin.GetAmountOfUsers() == 0)
             {
                 if (daoLogin.GetInstitutionInfo() == 0)
@@ -70,7 +246,7 @@ namespace HealthPortal.Helper
         }
         public static string GenerateRandomPassword(int length)
         {
-            const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?@#$%^&*";
+            const string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@$#_";
             StringBuilder password = new StringBuilder();
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
             byte[] data = new byte[length];
@@ -103,7 +279,7 @@ namespace HealthPortal.Helper
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
                 {
-                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "ausw xphf aobi nemd"),
+                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "vtgf qixd xvgf kdpo"),
                     EnableSsl = true
                 };
                 MailMessage mailMessage = new MailMessage
@@ -130,7 +306,7 @@ namespace HealthPortal.Helper
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
                 {
-                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "ausw xphf aobi nemd"),
+                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "vtgf qixd xvgf kdpo"),
                     EnableSsl = true
                 };
                 MailMessage mailMessage = new MailMessage
@@ -157,7 +333,7 @@ namespace HealthPortal.Helper
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
                 {
-                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "ausw xphf aobi nemd"),
+                    Credentials = new NetworkCredential($"healthportal.noreply@gmail.com", "vtgf qixd xvgf kdpo"),
                     EnableSsl = true
                 };
                 MailMessage mailMessage = new MailMessage
@@ -187,29 +363,20 @@ namespace HealthPortal.Helper
             CurrentUserData.RoleId = 0;
             CurrentUserData.TemporaryPassword = false;
             CurrentUserData.Email = string.Empty;
+            CurrentUserData.FullScreen = false;
         }
-        public static void FormMouseDown(object sender)
+        public static void EnableFormDrag(Form frm, Control control)
         {
-            Form frm = sender as Form;
-            dragging = true;
-            dragCursorPoint = Cursor.Position;
-            dragFormPoint = frm.Location;
-            frm.Cursor = Cursors.Hand;
-        }
-        public static void FormMouseMove(object sender)
-        {
-            Form frm = sender as Form;
-            if (dragging)
+            control.MouseDown += (sender, e) =>
             {
-                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                frm.Location = Point.Add(dragFormPoint, new Size(diff));
-            }
-        }
-        public static void FormMouseUp(object sender)
-        {
-            Form frm = sender as Form;
-            dragging = false;
-            frm.Cursor = Cursors.Default;
+                if (e.Button == MouseButtons.Left)
+                {
+                    control.Cursor = Cursors.Hand;
+                    ReleaseCapture();
+                    SendMessage(frm.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                    control.Cursor = Cursors.Default;
+                }
+            };
         }
         public static byte[] ImageToByteArray(Image img)
         {
@@ -227,17 +394,6 @@ namespace HealthPortal.Helper
             {
                 MemoryStream memoryStream = new MemoryStream(byteArray);
                 return Image.FromStream(memoryStream);
-            }
-            return null;
-        }
-        public static RJButton FindMainButton(Control frm)
-        {
-            foreach (Control control in frm.Controls)
-            {
-                if (control is RJButton btn && btn.Tag != null && btn.Tag.ToString() == "LastButton")
-                {
-                    return btn;
-                }
             }
             return null;
         }
@@ -265,6 +421,17 @@ namespace HealthPortal.Helper
         public static void HandleError(string errorCode)
         {
             MessageBox.Show($"Un error ha ocurrido. Por favor, consulte el código {errorCode} en el manual técnico.", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public static void HandleTextbox(BorderRadiusTXT txt)
+        {
+            if (txt.Tag.ToString() == "sql")
+            {
+                txt.ContextMenuStrip = new ContextMenuStrip();
+            }
+            else if (txt.Tag.ToString() == "username")
+            {
+
+            }
         }
     }
 }

@@ -30,9 +30,7 @@ namespace HealthPortal.Controller.PasswordManagement
                 { "btnAdminIntervention", Tuple.Create(Resources.adminIntervention, Resources.hoverAdminIntervention) },
                 { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) }
             };
-            frmRecoveryMethods.MouseDown += new MouseEventHandler(FormMouseDown);
-            frmRecoveryMethods.MouseMove += new MouseEventHandler(FormMouseMove);
-            frmRecoveryMethods.MouseUp += new MouseEventHandler(FormMouseUp);
+   
 
             frmRecoveryMethods.btnExit.Click += new EventHandler(GoBackToLogin);
 
@@ -51,18 +49,7 @@ namespace HealthPortal.Controller.PasswordManagement
             frmRecoveryMethods.btnEmailRecoveryMethod.Click += new EventHandler(EmailPasswordRecovery);
             frmRecoveryMethods.btnAdminIntervention.Click += new EventHandler(AdminInterventionRecovery);
         }
-        private void FormMouseDown(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseDown(sender);
-        }
-        private void FormMouseMove(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseMove(sender);
-        }
-        private void FormMouseUp(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseUp(sender);
-        }
+        
         private void GoBackToLogin(object sender, EventArgs e)
         {
             FrmLogin frmLogin = new FrmLogin();

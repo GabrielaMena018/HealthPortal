@@ -43,9 +43,7 @@ namespace HealthPortal.Controller.SectionAdministration
             frmAddUpdateSection.btnAddAcademicSection.Click += new EventHandler(NewAcademicSection);
             frmAddUpdateSection.btnAddGrade.Click += new EventHandler(NewGrade);
 
-            frmAddUpdateSection.MouseDown += new MouseEventHandler(FormMouseDown);
-            frmAddUpdateSection.MouseMove += new MouseEventHandler(FormMouseMove);
-            frmAddUpdateSection.MouseUp += new MouseEventHandler(FormMouseUp);
+     
 
             frmAddUpdateSection.btnExitS.Click += new EventHandler(CloseForm);
             frmAddUpdateSection.btnExitE.Click += new EventHandler(CloseForm);
@@ -111,9 +109,7 @@ namespace HealthPortal.Controller.SectionAdministration
             LoadSectionTab(technicalGroup);
             frmAddUpdateSection.btnUpdateSection.Click += new EventHandler(UpdateSection);
 
-            frmAddUpdateSection.MouseDown += new MouseEventHandler(FormMouseDown);
-            frmAddUpdateSection.MouseMove += new MouseEventHandler(FormMouseMove);
-            frmAddUpdateSection.MouseUp += new MouseEventHandler(FormMouseUp);
+      
 
             frmAddUpdateSection.btnExitS.Click += new EventHandler(CloseForm);
             frmAddUpdateSection.btnExitE.Click += new EventHandler(CloseForm);
@@ -173,9 +169,7 @@ namespace HealthPortal.Controller.SectionAdministration
                 { "btnExitG", Tuple.Create(Resources.quit, Resources.hoverQuit) }
             };
 
-            frmAddUpdateSection.MouseDown += new MouseEventHandler(FormMouseDown);
-            frmAddUpdateSection.MouseMove += new MouseEventHandler(FormMouseMove);
-            frmAddUpdateSection.MouseUp += new MouseEventHandler(FormMouseUp);
+       ;
 
             frmAddUpdateSection.btnExitS.Click += new EventHandler(CloseForm);
             frmAddUpdateSection.btnExitE.Click += new EventHandler(CloseForm);
@@ -245,18 +239,7 @@ namespace HealthPortal.Controller.SectionAdministration
                 frmAddUpdateSection.btnUpdateGrade.Click += new EventHandler(UpdateGrade);
             }
         }
-        private void FormMouseDown(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseDown(sender);
-        }
-        private void FormMouseMove(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseMove(sender);
-        }
-        private void FormMouseUp(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseUp(sender);
-        }
+     
         private void MouseEnterTextButton(object sender, EventArgs e)
         {
             RJButton btn = sender as RJButton;

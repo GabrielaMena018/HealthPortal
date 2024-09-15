@@ -17,13 +17,12 @@ namespace HealthPortal.Model.DAO
 {
     class DAOPatientAdministration : DTOPatientAdministration
     {
-        int respuesta;
-        int RespuestaUpdate;
-        int RespuestaDelete;
-        int respuestaSearch;
+        int returnedValue;
+        int updateReturn;
+        int deleteReturn;
+        int searchReturn;
         readonly SqlCommand command = new SqlCommand();
 
-        //Llenar los comboBox
         public DataSet FillCombo(string table, string schema)
         {
             try
@@ -70,29 +69,29 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 GetGradeIdSection();
                 //Insertar datos en la tabala de paciente
-                string queryPatient = "INSERT INTO [Pacientes].[tbPacientes] VALUES (@nombrePaciente, @apellidoPaciente, @codigo, @IdGradoSeccion, @IdTipoPersona)";
-                SqlCommand cmdInsertPatient = new SqlCommand(queryPatient, command.Connection);
+                string query = "INSERT INTO [Pacientes].[tbPacientes] VALUES (@nombrePaciente, @apellidoPaciente, @codigo, @IdGradoSeccion, @IdTipoPersona)";
+                SqlCommand cmdInsertPatient = new SqlCommand(query, command.Connection);
                 //Insertar o darle valor a los parametros
                 cmdInsertPatient.Parameters.AddWithValue("nombrePaciente", Name);
                 cmdInsertPatient.Parameters.AddWithValue("apellidoPaciente", LastName);
                 cmdInsertPatient.Parameters.AddWithValue("codigo", Code);
                 cmdInsertPatient.Parameters.AddWithValue("IdGradoSeccion", IdGradeSection);
                 cmdInsertPatient.Parameters.AddWithValue("IdTipoPersona", Role);
-                respuesta = cmdInsertPatient.ExecuteNonQuery();
-                if (respuesta == 1)
+                returnedValue = cmdInsertPatient.ExecuteNonQuery();
+                if (returnedValue == 1)
                 {
 
                     GetIdPatient();
-                    if (respuesta == 1)
+                    if (returnedValue == 1)
                     {
                         AddVisit();
-                        if (respuesta == 1)
+                        if (returnedValue == 1)
                         {
-                            if (respuesta == 1)
+                            if (returnedValue == 1)
                             {
-                                newInventary();
-                                UpdateInventary();
-                                if (RespuestaUpdate == 1)
+                                NewInventory();
+                                UpdateInventory();
+                                if (updateReturn == 1)
                                 {
                                     return 1;
                                 }
@@ -140,22 +139,22 @@ namespace HealthPortal.Model.DAO
             try
             {
                 GetIdPerson();
-                string queryVisita = "INSERT INTO [Visitas].[tbVisitas] Values(@idPaciente,@fechaVisita,@horaVisita,@idInventario,@observaciones, @idPersona)";
-                SqlCommand cmdVisita = new SqlCommand(queryVisita, command.Connection);
+                string query = "INSERT INTO [Visitas].[tbVisitas] Values(@idPaciente,@fechaVisita,@horaVisita,@idInventario,@observaciones, @idPersona)";
+                SqlCommand cmdVisita = new SqlCommand(query, command.Connection);
                 cmdVisita.Parameters.AddWithValue("idPaciente", IdPatient);
                 cmdVisita.Parameters.AddWithValue("fechaVisita", Date);
                 cmdVisita.Parameters.AddWithValue("horaVisita", Time);
                 cmdVisita.Parameters.AddWithValue("idInventario", Medicine);
                 cmdVisita.Parameters.AddWithValue("observaciones", Observation);
                 cmdVisita.Parameters.AddWithValue("idPersona", IdPersona);
-                respuesta = cmdVisita.ExecuteNonQuery();
-                return respuesta;
+                returnedValue = cmdVisita.ExecuteNonQuery();
+                return returnedValue;
             }
             catch (SqlException ex)
             {
                 //EC_002 = no se pudo agregar la visita
                 MessageBox.Show($"EC_002{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return respuesta = -1;
+                return returnedValue = -1;
             }
 
 
@@ -167,8 +166,8 @@ namespace HealthPortal.Model.DAO
         //Este metodo sirve para obtener el Id de Cada paciente
         public int GetIdPatient()
         {
-            string queryIdPatient = "Select MAX (idPaciente) FROM [Pacientes].[tbPacientes]";
-            SqlCommand cmdIdpatient = new SqlCommand(queryIdPatient, command.Connection);
+            string query = "Select MAX (idPaciente) FROM [Pacientes].[tbPacientes]";
+            SqlCommand cmdIdpatient = new SqlCommand(query, command.Connection);
             SqlDataReader consulta = cmdIdpatient.ExecuteReader();
 
             while (consulta.Read())
@@ -182,8 +181,8 @@ namespace HealthPortal.Model.DAO
 
         public int GetIdPerson()
         {
-            string QueryIdPerson = "SELECT IdPersona FROM [Usuarios].[tbPersonas] WHERE usuario = @param1";
-            SqlCommand cmdIdPerson = new SqlCommand(QueryIdPerson, command.Connection);
+            string query = "SELECT IdPersona FROM [Usuarios].[tbPersonas] WHERE usuario = @param1";
+            SqlCommand cmdIdPerson = new SqlCommand(query, command.Connection);
             cmdIdPerson.Parameters.AddWithValue("param1", Username);
             SqlDataReader consulta = cmdIdPerson.ExecuteReader();
 
@@ -201,8 +200,8 @@ namespace HealthPortal.Model.DAO
         {
             //buscar grados
             //Hacer una seleccion filtrada
-            string queryGradoSeccion = "SELECT idGradoSeccion FROM [Secciones].[tbGradoSeccion] WHERE grupoTecnico = @GrupoTecnico AND idGrado = @IdGrado AND idSeccionAcademica = @IdSeccionAcademica AND idEspecialidad = @IdEspecialidad";
-            SqlCommand cmdGradoSeccion = new SqlCommand(queryGradoSeccion, command.Connection);
+            string query = "SELECT idGradoSeccion FROM [Secciones].[tbGradoSeccion] WHERE grupoTecnico = @GrupoTecnico AND idGrado = @IdGrado AND idSeccionAcademica = @IdSeccionAcademica AND idEspecialidad = @IdEspecialidad";
+            SqlCommand cmdGradoSeccion = new SqlCommand(query, command.Connection);
             //Parametros
             cmdGradoSeccion.Parameters.AddWithValue("GrupoTecnico", TechnicalGroup);
             cmdGradoSeccion.Parameters.AddWithValue("IdGrado", Grade);
@@ -219,8 +218,8 @@ namespace HealthPortal.Model.DAO
 
         public int GetQuantityInventary()
         {
-            string QueryIdPerson = "SELECT cantidadInventario, cantidadEnvasesInventario FROM [Inventario].[tbEntradaSalidaInventario] WHERE idInventario = @param1";
-            SqlCommand cmdIdPerson = new SqlCommand(QueryIdPerson, command.Connection);
+            string query = "SELECT cantidadInventario, cantidadEnvasesInventario FROM [Inventario].[tbEntradaSalidaInventario] WHERE idInventario = @param1";
+            SqlCommand cmdIdPerson = new SqlCommand(query, command.Connection);
             cmdIdPerson.Parameters.AddWithValue("param1", Medicine);
             SqlDataReader consulta = cmdIdPerson.ExecuteReader();
 
@@ -238,8 +237,8 @@ namespace HealthPortal.Model.DAO
         public int GetIdVisit()
         {
             command.Connection = getConnection();
-            string queryIdVisit = "Select MAX (idVisita) FROM [Visitas].[tbVisitas]";
-            SqlCommand cmdIdVisit = new SqlCommand(queryIdVisit, command.Connection);
+            string query = "Select MAX (idVisita) FROM [Visitas].[tbVisitas]";
+            SqlCommand cmdIdVisit = new SqlCommand(query, command.Connection);
             SqlDataReader consulta = cmdIdVisit.ExecuteReader();
 
             while (consulta.Read())
@@ -250,19 +249,15 @@ namespace HealthPortal.Model.DAO
 
             return IdVisit;
         }
-
-        //Administrar o llenar Data Grid View
-
-        //Esta sirve para dministrar el registro o la grid view de los estudiantes
-        public DataSet AdminPatient()
+        public DataSet RetrieveDgvInfo()
         {
             try
             {
                 command.Connection = getConnection();
-                string queryAdminPatient = "SELECT * FROM [Vistas].[viewAdminPacientes]";
-                SqlCommand cmdAdminPatient = new SqlCommand(queryAdminPatient, command.Connection);
-                cmdAdminPatient.ExecuteNonQuery();
-                SqlDataAdapter adp = new SqlDataAdapter(cmdAdminPatient);
+                string query = "SELECT * FROM [Vistas].[viewAdminPacientes]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adp.Fill(ds, "viewAdminPacientes");
                 return ds;
@@ -290,7 +285,7 @@ namespace HealthPortal.Model.DAO
                 command.Connection = getConnection();
                 GetGradeIdSection();
                 // Update en tbPacientes
-                string queryUpdatePatient = "UPDATE [Pacientes].[tbPacientes] SET " +
+                string query = "UPDATE [Pacientes].[tbPacientes] SET " +
                                             "nombrePaciente = @param1, " +
                                             "apellidoPaciente = @param2, " +
                                             "codigo = @param3, " +
@@ -298,19 +293,19 @@ namespace HealthPortal.Model.DAO
                                             "idTipoPersona = @param5 " +
                                             "WHERE idPaciente = @param6"
                                             ;
-                SqlCommand cmdUpdatePatient = new SqlCommand(queryUpdatePatient, command.Connection);
+                SqlCommand cmdUpdatePatient = new SqlCommand(query, command.Connection);
                 cmdUpdatePatient.Parameters.AddWithValue("param1", Name);
                 cmdUpdatePatient.Parameters.AddWithValue("param2", LastName);
                 cmdUpdatePatient.Parameters.AddWithValue("param3", Code);
                 cmdUpdatePatient.Parameters.AddWithValue("param4", IdGradeSection);
                 cmdUpdatePatient.Parameters.AddWithValue("param5", Role);
                 cmdUpdatePatient.Parameters.AddWithValue("param6", IdPatient);
-                RespuestaUpdate = cmdUpdatePatient.ExecuteNonQuery();
+                updateReturn = cmdUpdatePatient.ExecuteNonQuery();
                 //Update en la tbEstudiantes o en la tbPersonalInstitucion dpeendiendo el rol que se le asigno al paciente
-                if (RespuestaUpdate >= 1)
+                if (updateReturn >= 1)
                 {
                     UpdateVisit();
-                    if (RespuestaUpdate == 1)
+                    if (updateReturn == 1)
                     {
                         return 2;
                     }
@@ -341,20 +336,20 @@ namespace HealthPortal.Model.DAO
         {
             try
             {
-                string queryUpdateVisita = "UPDATE [Visitas].[tbVisitas] SET " +
+                string query = "UPDATE [Visitas].[tbVisitas] SET " +
                                             "FechaVisita = @param1, " +
                                             "HoraVisita = @param2, " +
                                             "idInventario = @param3, " +
                                              "Observaciones = @param4 " +
                                             "WHERE idPaciente = @param5";
-                SqlCommand cmdUpdateVisita = new SqlCommand(queryUpdateVisita, command.Connection);
+                SqlCommand cmdUpdateVisita = new SqlCommand(query, command.Connection);
                 cmdUpdateVisita.Parameters.AddWithValue("param1", Date);
                 cmdUpdateVisita.Parameters.AddWithValue("param2", Time);
                 cmdUpdateVisita.Parameters.AddWithValue("param3", Medicine);
                 cmdUpdateVisita.Parameters.AddWithValue("param4", Observation);
                 cmdUpdateVisita.Parameters.AddWithValue("param5", IdPatient);
-                RespuestaUpdate = cmdUpdateVisita.ExecuteNonQuery();
-                return RespuestaUpdate;
+                updateReturn = cmdUpdateVisita.ExecuteNonQuery();
+                return updateReturn;
 
             }
             catch (SqlException ex)
@@ -370,23 +365,22 @@ namespace HealthPortal.Model.DAO
             }
 
         }
-
-        public int UpdateInventary()
+        public int UpdateInventory()
         {
             try
             {
-                string queryUpdateVisita = "UPDATE [Inventario].[tbEntradaSalidaInventario] SET " +
+                string query = "UPDATE [Inventario].[tbEntradaSalidaInventario] SET " +
                                             " cantidadInventario = @param1," +
                                             " cantidadEnvasesInventario = @param2 " +
                                             "Where idInventario = @param3";
 
-                SqlCommand cmdUpdateVisita = new SqlCommand(queryUpdateVisita, command.Connection);
+                SqlCommand cmdUpdateVisita = new SqlCommand(query, command.Connection);
                 cmdUpdateVisita.Parameters.AddWithValue("param1", NewQuantity);
                 cmdUpdateVisita.Parameters.AddWithValue("param2", Package1);
                 cmdUpdateVisita.Parameters.AddWithValue("param3", Medicine);
 
-                RespuestaUpdate = cmdUpdateVisita.ExecuteNonQuery();
-                return RespuestaUpdate;
+                updateReturn = cmdUpdateVisita.ExecuteNonQuery();
+                return updateReturn;
 
             }
             catch (SqlException ex)
@@ -414,8 +408,8 @@ namespace HealthPortal.Model.DAO
                 string query = "DELETE FROM [Pacientes].[tbPacientes] WHERE idPaciente = @param1";
                 SqlCommand cmdDelete = new SqlCommand(query, command.Connection);
                 cmdDelete.Parameters.AddWithValue("param1", IdPatient);
-                RespuestaDelete = cmdDelete.ExecuteNonQuery();
-                return RespuestaDelete;
+                deleteReturn = cmdDelete.ExecuteNonQuery();
+                return deleteReturn;
             }
             catch (SqlException ex)
             {
@@ -437,8 +431,8 @@ namespace HealthPortal.Model.DAO
                 string query = "DELETE FROM [Visitas].[tbVisitas] WHERE idVisita = @param1";
                 SqlCommand cmdDelete = new SqlCommand(query, command.Connection);
                 cmdDelete.Parameters.AddWithValue("param1", IdVisit);
-                RespuestaDelete = cmdDelete.ExecuteNonQuery();
-                return RespuestaDelete;
+                deleteReturn = cmdDelete.ExecuteNonQuery();
+                return deleteReturn;
             }
             catch (SqlException ex)
             {
@@ -461,10 +455,10 @@ namespace HealthPortal.Model.DAO
             try
             {
                 DeleteVisit();
-                if (RespuestaDelete == 1)
+                if (deleteReturn == 1)
                 {
                     DeletePatient();
-                    if (RespuestaDelete == 1)
+                    if (deleteReturn == 1)
                     {
                         return 1;
 
@@ -662,23 +656,23 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string queryExist = "SELECT COUNT(1) FROM [Vistas].[viewFiltrarCodigo] WHERE codigo = @param1";
-                SqlCommand cmd = new SqlCommand(queryExist, command.Connection);
+                string query = "SELECT COUNT(1) FROM [Vistas].[viewFiltrarCodigo] WHERE codigo = @param1";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("param1", Code);
                 SqlDataReader consulta = cmd.ExecuteReader();
 
                 while (consulta.Read())
                 {
-                    respuestaSearch = consulta.GetInt32(0);
+                    searchReturn = consulta.GetInt32(0);
                     // Suponiendo que IdGrado_Seccion está en el índice 0
                 }
                 consulta.Close();
 
-                if (respuestaSearch >= 1)
+                if (searchReturn >= 1)
                 {
                     return 1;
                 }
-                else if (respuestaSearch == 0)
+                else if (searchReturn == 0)
                 {
                     return 0;
                 }
@@ -711,8 +705,8 @@ namespace HealthPortal.Model.DAO
         {
             try
             {
-                int respuesta = existcode();
-                if (respuesta == 1)
+                int returnedValue = existcode();
+                if (returnedValue == 1)
                 {
                     string[] datos = new string[8];
                     command.Connection = getConnection();
@@ -780,8 +774,8 @@ namespace HealthPortal.Model.DAO
         public int GetCodeIdPatient()
         {
             command.Connection = getConnection();
-            string QueryIdPatient = "SELECT idPaciente FROM [Pacientes].[tbPacientes] WHERE codigo = @param1";
-            SqlCommand cmdIdPatient = new SqlCommand(QueryIdPatient, command.Connection);
+            string query = "SELECT idPaciente FROM [Pacientes].[tbPacientes] WHERE codigo = @param1";
+            SqlCommand cmdIdPatient = new SqlCommand(query, command.Connection);
             cmdIdPatient.Parameters.AddWithValue("param1", Code);
             SqlDataReader consulta = cmdIdPatient.ExecuteReader();
 
@@ -798,11 +792,11 @@ namespace HealthPortal.Model.DAO
         {
             GetCodeIdPatient();
             AddVisit();
-            if (respuesta == 1)
+            if (returnedValue == 1)
             {
-                newInventary();
-                UpdateInventary();
-                if (RespuestaUpdate == 1)
+                NewInventory();
+                UpdateInventory();
+                if (updateReturn == 1)
                 {
 
                     return 1;
@@ -815,7 +809,7 @@ namespace HealthPortal.Model.DAO
 
                 }
             }
-            else if (respuesta == 0)
+            else if (returnedValue == 0)
             {
                 return 0;
             }
@@ -826,9 +820,7 @@ namespace HealthPortal.Model.DAO
 
 
         }
-
-        //Inventario
-        public int newInventary()
+        public int NewInventory()
         {
             GetQuantityInventary();
             if (QuantityPackage > 0)
@@ -844,7 +836,5 @@ namespace HealthPortal.Model.DAO
             else { return 0; }
 
         }
-
     }
 }
-

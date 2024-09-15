@@ -35,10 +35,7 @@ namespace HealthPortal.Controller.FirstUsage
                 { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) }
             };
 
-            // Eventos para mover el formulario
-            frmInstitutionCreation.MouseDown += new MouseEventHandler(FormMouseDown);
-            frmInstitutionCreation.MouseMove += new MouseEventHandler(FormMouseMove);
-            frmInstitutionCreation.MouseUp += new MouseEventHandler(FormMouseUp);
+            
 
             // Eventos "por defecto"
             frmInstitutionCreation.Load += new EventHandler(LoadCombobox);
@@ -83,19 +80,7 @@ namespace HealthPortal.Controller.FirstUsage
             frmInstitutionCreation.cmbInstitutionType.ValueMember = "idCategoríaInstitución";
             frmInstitutionCreation.cmbInstitutionType.DisplayMember = "categoríaInstitución";
         }
-        private void FormMouseDown(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseDown(sender);
-        }
-        private void FormMouseMove(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseMove(sender);
-        }
-        private void FormMouseUp(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseUp(sender);
-        }
-
+    
         /// <summary>
         ///     Esta función hace un rectángulo alrededor del pictureBox, simulando un borde. Esto
         ///     porque quería que el borde fuera del color "AppWorkspace" pero no tenía ninguna propiedad

@@ -1,32 +1,37 @@
 ﻿using CustomPanel;
+using CustomPanel;
+using HealthPortal.Helper;
 using HealthPortal.Model;
+using HealthPortal.Model.DTO;
+using HealthPortal.Properties;
 using HealthPortal.View.Login;
 using HealthPortal.View.Settings;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace HealthPortal.Controller.Settings
 {
     internal class ControllerServerSettings
     {
         FrmServerSettings frmServerSettings;
-        int expandedFormWidth = 1090;
-        Size expandedGrpSize = new Size(571, 219);
-        Size collapsedGrpSize = new Size(467, 219);
-        Size expandedPnlSize = new Size(1034, 528);
-        Size collapsedPnlSize = new Size(930, 528);
-        Size expandedTxtSize = new Size(525, 68);
-        Size collapsedTxtSize = new Size(421, 68);
-        int expandedAuthTxtXLocation = 66;
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         public ControllerServerSettings(FrmServerSettings view)
         {
             frmServerSettings = view;
-            frmServerSettings.Resize += new EventHandler(ResizeControls);
+
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExit", Tuple.Create(new Bitmap(Resources.quit, 32, 32), new Bitmap(Resources.hoverQuit, 32, 32)) }
+            };
+
+            frmServerSettings.Resize += new EventHandler(ApplyRoundedCorners);
 
             frmServerSettings.txtServerURL.Enter += new EventHandler(EnterTextBox);
             frmServerSettings.txtDataBase.Enter += new EventHandler(EnterTextBox);
@@ -40,11 +45,66 @@ namespace HealthPortal.Controller.Settings
 
             frmServerSettings.rdoTrue.CheckedChanged += new EventHandler(rdTrueMarked);
             frmServerSettings.rdoFalse.CheckedChanged += new EventHandler(rdFalseMarked);
+            frmServerSettings.Load += new EventHandler(rdFalseMarked);
 
             frmServerSettings.btnSaveConfig.Click += new EventHandler(SaveDataBaseConfiguration);
 
             frmServerSettings.btnSaveConfig.MouseEnter += new EventHandler(MouseEnterTextButton);
             frmServerSettings.btnSaveConfig.MouseLeave += new EventHandler(MouseLeaveTextButton);
+
+            frmServerSettings.btnExit.Click += new EventHandler(CloseProgram);
+            frmServerSettings.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmServerSettings.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+
+            VerifyOrigin();
+        }
+        private void VerifyOrigin()
+        {
+            if (CurrentUserData.ServerSettingsOrigin == 1)
+            {
+                frmServerSettings.btnExit.Visible = true;
+                frmServerSettings.btnExit.Image = new Bitmap(Resources.quit, 32, 32);
+                CommonMethods.EnableFormDrag(frmServerSettings, frmServerSettings);
+                CommonMethods.EnableFormDrag(frmServerSettings, frmServerSettings.pnlTitle);
+            }
+            else
+            {
+                frmServerSettings.btnExit.Visible = false;
+                frmServerSettings.txtServerURL.Texts = DTOdbContext.Server;
+                frmServerSettings.txtDataBase.Texts = DTOdbContext.Database;
+                frmServerSettings.txtSQLAuth.Texts = DTOdbContext.User;
+                frmServerSettings.txtPassword.Texts = DTOdbContext.Password;
+                if (string.IsNullOrEmpty(DTOdbContext.User) && string.IsNullOrEmpty(DTOdbContext.Password)) frmServerSettings.rdoFalse.Checked = true;
+            }
+        }
+        private void ApplyRoundedCorners(object sender, EventArgs e)
+        {
+            if (CurrentUserData.ServerSettingsOrigin == 1)
+            {
+                frmServerSettings.Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, frmServerSettings.Width, frmServerSettings.Height, 20, 20));
+            }
+        }
+        private void CloseProgram(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+        private void MouseEnterPictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item2;
+                btn.ForeColor = Color.FromArgb(31, 43, 91);
+            }
+        }
+        private void MouseLeavePictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item1;
+                btn.ForeColor = Color.FromArgb(142, 202, 230);
+            }
         }
         private void MouseEnterTextButton(object sender, EventArgs e)
         {
@@ -55,65 +115,85 @@ namespace HealthPortal.Controller.Settings
         private void MouseLeaveTextButton(object sender, EventArgs e)
         {
             RJButton btn = sender as RJButton;
-            btn.BackColor = Color.White;
+            btn.BackColor = Color.FromArgb(255, 183, 3);
             btn.ForeColor = Color.FromArgb(31, 43, 91);
         }
-        private void rdFalseMarked(object sender, EventArgs e)
+        private void rdTrueMarked(object sender, EventArgs e)
         {
             if (frmServerSettings.rdoTrue.Checked == true)
             {
-                frmServerSettings.pnlAuth.Enabled = true;
+                frmServerSettings.tlpSQLAuth.Enabled = true;
                 frmServerSettings.txtSQLAuth.Texts = GetPlaceholderText(frmServerSettings.txtSQLAuth);
                 frmServerSettings.txtPassword.Texts = GetPlaceholderText(frmServerSettings.txtPassword);
             }
         }
 
-        private void rdTrueMarked(object sender, EventArgs e)
+        private void rdFalseMarked(object sender, EventArgs e)
         {
             if (frmServerSettings.rdoFalse.Checked == true)
             {
-                frmServerSettings.pnlAuth.Enabled = false;
+                frmServerSettings.tlpSQLAuth.Enabled = false;
                 frmServerSettings.txtSQLAuth.Clear();
                 frmServerSettings.txtPassword.Clear();
             }
         }
         private void SaveDataBaseConfiguration(object sender, EventArgs e)
         {
-            if ((!string.IsNullOrEmpty(frmServerSettings.txtServerURL.Texts.Trim()) || !string.IsNullOrEmpty(frmServerSettings.txtDataBase.Texts.Trim()) || !string.IsNullOrEmpty(frmServerSettings.txtSQLAuth.Texts.Trim()) || !string.IsNullOrEmpty(frmServerSettings.txtPassword.Texts.Trim()) || !(frmServerSettings.txtServerURL.Texts.Trim() == "URL del servidor") || !(frmServerSettings.txtDataBase.Texts.Trim() == "Nombre de la base de datos") || !(frmServerSettings.txtSQLAuth.Texts.Trim() == "Autenticación SQL") || !(frmServerSettings.txtPassword.Texts.Trim() == "Contraseña")) && MessageBox.Show("¿Seguro que desea cambiar la información de conexión? Esto podría, potencialmente, inhabilitar completamente el funcionamiento del programa. Asegúrese de haber ingresado información correcta.", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                dbContext dbContext = new dbContext();
-                dbContext.SetConnectionDetails(frmServerSettings.txtServerURL.Texts.Trim(), frmServerSettings.txtDataBase.Texts.Trim(), frmServerSettings.txtSQLAuth.Texts.Trim(), frmServerSettings.txtPassword.Texts.Trim());
+                XmlDocument doc = new XmlDocument();
+                XmlDeclaration decl = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+                doc.AppendChild(decl);
+                XmlElement root = doc.CreateElement("connection");
+                doc.AppendChild(root);
+                XmlElement server = doc.CreateElement("server");
+                string codedServer = CommonMethods.CodeString(frmServerSettings.txtServerURL.Texts.Trim());
+
+                server.InnerText = codedServer;
+                root.AppendChild(server);
+
+                XmlElement Database = doc.CreateElement("database");
+                string codedDatabase = CommonMethods.CodeString(frmServerSettings.txtDataBase.Texts.Trim());
+                Database.InnerText = codedDatabase;
+                root.AppendChild(Database);
+                XmlElement SqlAuth = doc.CreateElement("sqlAuth");
+                XmlElement SqlPassword = doc.CreateElement("sqlPassword");
+
+                if (frmServerSettings.rdoTrue.Checked == true)
+                {
+                    string codedSqlAuth = CommonMethods.CodeString(frmServerSettings.txtSQLAuth.Texts.Trim());
+                    SqlAuth.InnerText = codedSqlAuth;
+
+                    string codedSqlPassword = CommonMethods.CodeString(frmServerSettings.txtPassword.Texts.Trim());
+                    SqlPassword.InnerText = codedSqlPassword;
+                }
+                else
+                {
+                    SqlAuth.InnerText = string.Empty;
+
+                    SqlPassword.InnerText = string.Empty;
+                }
+
+                root.AppendChild(SqlAuth);
+                root.AppendChild(SqlPassword);
+
+                SqlConnection connection = dbContext.testConnection(frmServerSettings.txtServerURL.Texts.Trim(), frmServerSettings.txtDataBase.Texts.Trim(), frmServerSettings.txtSQLAuth.Texts.Trim(), frmServerSettings.txtPassword.Texts.Trim());
+
+                if (connection != null)
+                {
+                    doc.Save("config_server.xml");
+                    DTOdbContext.Server = frmServerSettings.txtServerURL.Texts.Trim();
+                    DTOdbContext.Database = frmServerSettings.txtDataBase.Texts.Trim();
+                    DTOdbContext.User = frmServerSettings.txtSQLAuth.Texts.Trim();
+                    DTOdbContext.Password = frmServerSettings.txtPassword.Texts.Trim();
+                    MessageBox.Show($"El archivo fue creado exitosamente.", "Archivo de configuración", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmServerSettings.Dispose();
+                }
             }
-            else
+            catch (XmlException)
             {
-                MessageBox.Show("Parece que algunos campos están vacíos. Asegúrese de llenar todos los campos e intente de nuevo.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pudo crear el archivo de configuración.", "Consulte el manual técnico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        private void ResizeControls(object sender, EventArgs e)
-        {
-            if (frmServerSettings.Width == expandedFormWidth)
-            {
-                // frmServerSettings.panel2.Location = new Point(48, 120);
-                frmServerSettings.panel2.Size = expandedPnlSize;
-                frmServerSettings.grpConnectionInfo.Size = expandedGrpSize;
-                frmServerSettings.grpLocalConfig.Size = expandedGrpSize;
-                frmServerSettings.txtSQLAuth.Location = new Point(expandedAuthTxtXLocation, frmServerSettings.txtSQLAuth.Location.Y);
-                frmServerSettings.txtPassword.Location = new Point(expandedAuthTxtXLocation, frmServerSettings.txtPassword.Location.Y);
-                frmServerSettings.txtServerURL.Size = expandedTxtSize;
-                frmServerSettings.txtDataBase.Size = expandedTxtSize;
-            }
-            else
-            {
-                // frmServerSettings.panel2.Location = new Point(0, 120);
-                frmServerSettings.panel2.Size = collapsedPnlSize;
-                frmServerSettings.grpConnectionInfo.Size = collapsedGrpSize;
-                frmServerSettings.grpLocalConfig.Size = collapsedGrpSize;
-                frmServerSettings.txtSQLAuth.Location = new Point(0, frmServerSettings.txtSQLAuth.Location.Y);
-                frmServerSettings.txtPassword.Location = new Point(0, frmServerSettings.txtPassword.Location.Y);
-                frmServerSettings.txtServerURL.Size = collapsedTxtSize;
-                frmServerSettings.txtDataBase.Size = collapsedTxtSize;
-            }
-            frmServerSettings.Refresh();
         }
         private void EnterTextBox(object sender, EventArgs e)
         {
@@ -143,8 +223,8 @@ namespace HealthPortal.Controller.Settings
         {
             if (txt == frmServerSettings.txtServerURL) return "URL del servidor";
             if (txt == frmServerSettings.txtDataBase) return "Nombre de la base de datos";
-            if (txt == frmServerSettings.txtSQLAuth) return "Autenticación SQL";
-            if (txt == frmServerSettings.txtPassword) return "Contraseña";
+            if (txt == frmServerSettings.txtSQLAuth) return "Autenticación de SQL";
+            if (txt == frmServerSettings.txtPassword) return "Contraseña de SQL";
             return string.Empty;
         }
     }

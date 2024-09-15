@@ -16,20 +16,18 @@ namespace CustomPanel
     [DefaultEvent("_TextChanged")]
     public partial class BorderRadiusTXT : UserControl
     {
-        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if ((e.Control && e.KeyCode == Keys.C) || (e.Control && e.KeyCode == Keys.V))
-            {
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        public event EventHandler _TextChanged;
+        public event EventHandler TextChangedEvent;
+        public event KeyPressEventHandler KeyPressEvent;
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (_TextChanged != null)
-                _TextChanged.Invoke(sender, e);
+            if (TextChangedEvent != null)
+                TextChangedEvent.Invoke(sender, e);
+        }
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.OnKeyPress(e);
+            KeyPressEvent?.Invoke(this, e);
         }
 
         //Fields
@@ -55,6 +53,20 @@ namespace CustomPanel
                 borderColor = value;
                 this.Invalidate();
             }
+        }
+
+        [Category("RJ Code Advance")]
+        public int SelectionStart
+        {
+            get { return textBox1.SelectionStart; }
+            set { textBox1.SelectionStart = value; }
+        }
+
+        [Category("RJ Code Advance")]
+        public int SelectionLength
+        {
+            get { return textBox1.SelectionLength; }
+            set { textBox1.SelectionLength = value; }
         }
 
         [Category("RJ Code Advance")]
@@ -210,9 +222,10 @@ namespace CustomPanel
         public BorderRadiusTXT()
         {
             InitializeComponent();
-            textBox1.KeyDown += TextBox1_KeyDown;
             textBox1.ContextMenuStrip = new ContextMenuStrip();
             textBox1.ContextMenuStrip.Items.Clear();
+            textBox1.KeyPress += new KeyPressEventHandler(textBox1_KeyPress);
+            textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
         }
 
         private void textBox1_Click(object sender, EventArgs e)
@@ -227,10 +240,7 @@ namespace CustomPanel
         {
             this.OnMouseLeave(e);
         }
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            this.OnKeyPress(e);
-        }
+       
 
         private void textBox1_Enter(object sender, EventArgs e)
         {

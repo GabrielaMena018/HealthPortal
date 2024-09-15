@@ -37,9 +37,7 @@ namespace HealthPortal.Controller.FirstUsage
             frmFirstUserCreation.Load += new EventHandler(ShowPassword);
 
             // Eventos para mover el formulario
-            frmFirstUserCreation.MouseDown += new MouseEventHandler(FormMouseDown);
-            frmFirstUserCreation.MouseMove += new MouseEventHandler(FormMouseMove);
-            frmFirstUserCreation.MouseUp += new MouseEventHandler(FormMouseUp);
+         
 
             // Eventos .Enter de los textbox; se verifica si la propiedad .Texts de los textbox corresponde a lo que viene siendo el texto "placeholder", y si sí lo es, se vacían
             frmFirstUserCreation.txtName.Enter += new EventHandler(EnterTextBox);
@@ -81,18 +79,7 @@ namespace HealthPortal.Controller.FirstUsage
             // Evento .Click que lo único que hace es cerrar el programa xd
             frmFirstUserCreation.btnExit.Click += new EventHandler(ExitApplication);
         }
-        private void FormMouseDown(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseDown(sender);
-        }
-        private void FormMouseMove(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseMove(sender);
-        }
-        private void FormMouseUp(object sender, EventArgs e)
-        {
-            CommonMethods.FormMouseUp(sender);
-        }
+   
 
         /// <summary>
         ///     La propiedad .PasswordChar de los textbox Password y ConfirmPassword pasa a ser FALSE,

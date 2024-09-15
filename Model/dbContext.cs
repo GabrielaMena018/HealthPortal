@@ -7,48 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HealthPortal.Model.DTO;
 
 namespace HealthPortal.Model
 {
     public class dbContext
     {
-        private SqlConnection connection;
-        private static bool connectionDetailsChanged = false;
-        private static string server;
-        private static string database;
-        private static string user;
-        private static string password;
-        public void SetConnectionDetails(string server, string database, string user = null, string password = null)
-        {
-            dbContext.server = server;
-            dbContext.database = database;
-            dbContext.user = user;
-            dbContext.password = password;
-            dbContext.connectionDetailsChanged = true;
-        }
-        public SqlConnection getConnection()
+        public static SqlConnection getConnection()
         {
             try
             {
-                if (connection == null || connection.State == ConnectionState.Closed)
+                SqlConnection connection;
+                if (string.IsNullOrEmpty(DTOdbContext.User) && string.IsNullOrEmpty(DTOdbContext.Password))
                 {
-                    string connectionString;
-                    if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(password) && connectionDetailsChanged)
-                    {
-                        connectionString = $"Server={server};Database={database};User Id={user};Password={password};";
-                    }
-                    else if (connectionDetailsChanged)
-                    {
-                        connectionString = $"Server={server};Database={database};Integrated Security=True;";
-                    }
-                    else
-                    {
-                        // ESTO CAMBIAN PARA PONER LA DE SUS COMPUTADORAS, NO LAS DE ARRIBA
-                        connectionString = $"Server=FAMILIAPORTILLO\\SQLEXPRESS;Database=HealthPortal;Integrated Security=True;";
-                    }
-                    connection = new SqlConnection(connectionString);
-                    connection.Open();
+                    connection = new SqlConnection($"Server = {DTOdbContext.Server}; DataBase = {DTOdbContext.Database}; Integrated Security = true");
                 }
+                else
+                {
+                    connection = new SqlConnection($"Server = {DTOdbContext.Server}; DataBase = {DTOdbContext.Database}; User Id = {DTOdbContext.User}; Password = {DTOdbContext.Password}");
+                }
+                connection.Open();
                 return connection;
             }
             catch (SqlException)
@@ -58,6 +36,28 @@ namespace HealthPortal.Model
             }
             catch (Exception)
             {
+                return null;
+            }
+        }
+        public static SqlConnection testConnection(string server, string database, string user, string password)
+        {
+            try
+            {
+                SqlConnection connection;
+                if (string.IsNullOrEmpty(user) && string.IsNullOrEmpty(password))
+                {
+                    connection = new SqlConnection($"Server = {server}; DataBase = {database}; Integrated Security = true");
+                }
+                else
+                {
+                    connection = new SqlConnection($"Server = {server}; DataBase = {database}; User Id = {user}; Password = {password}");
+                }
+                connection.Open();
+                return connection;
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_401");
                 return null;
             }
         }
