@@ -20,7 +20,7 @@ namespace HealthPortal.Controller.Dashboard
 {
     internal class ControllerDashboard
     {
-        FrmDashboard frmDashboard;
+        static FrmDashboard frmDashboard;
         Form currentForm;
         Button currentButton;
         private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
@@ -39,15 +39,12 @@ namespace HealthPortal.Controller.Dashboard
                 { "btnSettings", Tuple.Create(Resources.settings, Resources.hoverSettings) },
                 { "btnSections", Tuple.Create(Resources.sections, Resources.hoverSections) },
                 { "btnUsers", Tuple.Create(Resources.users, Resources.hoverUsers) },
-                { "btnLogout", Tuple.Create(Resources.logout, Resources.hoverLogout) },
-                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
-                { "btnMaximize", Tuple.Create(Resources.maximize, Resources.hoverMaximize) }
+                { "btnLogout", Tuple.Create(Resources.logout, Resources.hoverLogout) }
             };
 
             // Expandir / Colapsar la sidebar
             frmDashboard.Load += new EventHandler(InitialLoad);
             frmDashboard.btnMenu.Click += new EventHandler(MorphSideBar);
-            frmDashboard.btnMaximize.Click += new EventHandler(ToggleFullScreen);
 
             // Abrir Formularios
             frmDashboard.Load += new EventHandler(OpenMainPageForm);
@@ -67,7 +64,6 @@ namespace HealthPortal.Controller.Dashboard
             frmDashboard.btnSections.MouseEnter += new EventHandler(MouseEnterControl);
             frmDashboard.btnUsers.MouseEnter += new EventHandler(MouseEnterControl);
             frmDashboard.btnLogout.MouseEnter += new EventHandler(MouseEnterControl);
-            frmDashboard.btnMaximize.MouseEnter += new EventHandler(MouseEnterControl);
 
             // Cambios de imagen por MouseLeave
             frmDashboard.btnMenu.MouseLeave += new EventHandler(MouseLeaveControl);
@@ -78,13 +74,12 @@ namespace HealthPortal.Controller.Dashboard
             frmDashboard.btnSections.MouseLeave += new EventHandler(MouseLeaveControl);
             frmDashboard.btnUsers.MouseLeave += new EventHandler(MouseLeaveControl);
             frmDashboard.btnLogout.MouseLeave += new EventHandler(MouseLeaveControl);
-            frmDashboard.btnMaximize.MouseLeave += new EventHandler(MouseLeaveControl);
 
             // Cerrar Sesión
             frmDashboard.btnLogout.Click += new EventHandler(Logout);
             frmDashboard.FormClosing += new FormClosingEventHandler(CloseProgram);
         }
-        private void ToggleFullScreen(object sender, EventArgs e)
+        static public void ToggleFullScreen(object sender, EventArgs e)
         {
             if (CurrentUserData.FullScreen)
             {
@@ -125,7 +120,7 @@ namespace HealthPortal.Controller.Dashboard
             frmDashboard.pnlContainer.Invalidate();
             CurrentUserData.IsSideBarExpanded = !CurrentUserData.IsSideBarExpanded;
         }
-        private void ResizeControls(int procedure)
+        static private void ResizeControls(int procedure)
         {
             // Se actualizan todos los paneles para que tengan el mismo ancho del recién cambiado panel lateral
             foreach (Panel pnl in new Panel[] { frmDashboard.pnlMenu, frmDashboard.flpTabs, frmDashboard.pnlMainPage, frmDashboard.pnlVisits, frmDashboard.pnlInventory, frmDashboard.pnlSettings, frmDashboard.pnlSections, frmDashboard.pnlUsers, frmDashboard.pnlLogout })
@@ -445,7 +440,7 @@ namespace HealthPortal.Controller.Dashboard
                 frmDashboard.btnUsers.Visible = false;
             }
         }
-        private string GetButtonText(Button btn)
+        static private string GetButtonText(Button btn)
         {
             if (btn == frmDashboard.btnMainPage) return "Página Principal";
             if (btn == frmDashboard.btnVisits) return "Visitas";

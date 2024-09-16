@@ -49,6 +49,7 @@ namespace HealthPortal.Controller.PasswordManagement
 
             frmRecoveryMethods.btnEmailRecoveryMethod.Click += new EventHandler(EmailPasswordRecovery);
             frmRecoveryMethods.btnAdminIntervention.Click += new EventHandler(AdminInterventionRecovery);
+            frmRecoveryMethods.btnSecurityQuestions.Click += new EventHandler(SecurityQuestionsRecovery);
         }
         private void GoBackToLogin(object sender, EventArgs e)
         {
@@ -84,7 +85,7 @@ namespace HealthPortal.Controller.PasswordManagement
                 dao.Password = CommonMethods.ComputeSha256Hash(temporaryPassword);
                 dao.Username = username;
                 dao.TemporaryPasswordAssignation();
-                CommonMethods.SendRecoveryEmail(temporaryPassword, dao.VerifyEmail(username));
+                CommonMethods.SendRecoveryEmail(temporaryPassword, dao.VerifyEmail());
             }
         }
         private void AdminInterventionRecovery(object sender, EventArgs e)
@@ -92,7 +93,15 @@ namespace HealthPortal.Controller.PasswordManagement
             if (MessageBox.Show("¿Seguro que desea utilizar la recuperación por intervención de administrador? Necesitará que un administrador ingrese sus credenciales para confirmar el cambio de contraseña.", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 FrmAdminIntervention frmAdminIntervention = new FrmAdminIntervention(username);
-                frmAdminIntervention.Show();
+                frmAdminIntervention.ShowDialog();
+            }
+        }
+        private void SecurityQuestionsRecovery(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea utilizar la recuperación por preguntas de seguridad?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                FrmSecurityQuestions frmSecurityQuestions = new FrmSecurityQuestions(username);
+                frmSecurityQuestions.ShowDialog();
             }
         }
     }

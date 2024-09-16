@@ -1,6 +1,9 @@
-﻿using HealthPortal.Helper;
+﻿using HealthPortal.Controller.Dashboard;
+using HealthPortal.Helper;
 using HealthPortal.Properties;
 using HealthPortal.View.Dashboard;
+using HealthPortal.View.InventoryAdministration;
+using HealthPortal.View.MainPage;
 using HealthPortal.View.Settings;
 using System;
 using System.Collections.Generic;
@@ -30,7 +33,9 @@ namespace HealthPortal.Controller.Settings
                 { "btnUserSettings", Tuple.Create(Resources.users, Resources.hoverUsers)},
                 { "btnInstitutionSettings", Tuple.Create(Resources.school, Resources.hoverSchool) },
                 { "btnServerSettings", Tuple.Create(Resources.server, Resources.hoverServer) },
-                { "btnProgramSettings", Tuple.Create(Resources.healthPortal, Resources.hoverHealthPortal) }
+                { "btnProgramSettings", Tuple.Create(Resources.healthPortal, Resources.hoverHealthPortal) },
+                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnResize", Tuple.Create(Resources.resize, Resources.hoverResize) }
             };
 
             frmSettings.Load += new EventHandler(OpenUserSettingsForm);
@@ -48,6 +53,22 @@ namespace HealthPortal.Controller.Settings
             frmSettings.btnInstitutionSettings.MouseLeave += new EventHandler(MouseLeaveControl);
             frmSettings.btnServerSettings.MouseLeave += new EventHandler(MouseLeaveControl);
             frmSettings.btnProgramSettings.MouseLeave += new EventHandler(MouseLeaveControl);
+
+            frmSettings.btnExit.MouseEnter += new EventHandler(MouseEnterControl);
+            frmSettings.btnResize.MouseEnter += new EventHandler(MouseEnterControl);
+            frmSettings.btnExit.MouseLeave += new EventHandler(MouseLeaveControl);
+            frmSettings.btnResize.MouseLeave += new EventHandler(MouseLeaveControl);
+
+            frmSettings.btnExit.Click += new EventHandler(CloseForm);
+            frmSettings.btnResize.Click += new EventHandler(ControllerDashboard.ToggleFullScreen);
+        }
+        private void CloseForm(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cerrar el programa directamente? Considere que se cerrará la sesión de manera automática", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                CommonMethods.DisposeOfCurrentUserData();
+                Environment.Exit(0);
+            }
         }
         private void ResizeSidePanel(object sender, EventArgs e)
         {

@@ -293,16 +293,6 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hoverMaximize {
-            get {
-                object obj = ResourceManager.GetObject("hoverMaximize", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap hoverMenu {
             get {
                 object obj = ResourceManager.GetObject("hoverMenu", resourceCulture);
@@ -326,6 +316,16 @@ namespace HealthPortal.Properties {
         internal static System.Drawing.Bitmap hoverQuit {
             get {
                 object obj = ResourceManager.GetObject("hoverQuit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hoverResize {
+            get {
+                object obj = ResourceManager.GetObject("hoverResize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -513,16 +513,6 @@ namespace HealthPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap maximize {
-            get {
-                object obj = ResourceManager.GetObject("maximize", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap medico__2_ {
             get {
                 object obj = ResourceManager.GetObject("medico (2)", resourceCulture);
@@ -636,6 +626,16 @@ namespace HealthPortal.Properties {
         internal static System.Drawing.Bitmap quit {
             get {
                 object obj = ResourceManager.GetObject("quit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap resize {
+            get {
+                object obj = ResourceManager.GetObject("resize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -33,15 +33,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.grpLogo = new System.Windows.Forms.GroupBox();
+            this.btnAddLogo = new CustomControls.RJButton();
             this.grpInstitutionInfo = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbInstitutionType = new System.Windows.Forms.ComboBox();
-            this.btnExit = new System.Windows.Forms.Button();
             this.txtEmail = new CustomControls.CustomTextBox();
             this.txtPhoneNumber = new CustomControls.CustomTextBox();
             this.txtInstitutionName = new CustomControls.CustomTextBox();
             this.txtInstitutionAddress = new CustomControls.CustomTextBox();
-            this.btnAddLogo = new CustomControls.RJButton();
+            this.btnExit = new System.Windows.Forms.Button();
             this.btnRegisterInstitution = new CustomControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.grpLogo.SuspendLayout();
@@ -96,6 +96,28 @@
             this.grpLogo.TabStop = false;
             this.grpLogo.Text = "Logotipo de la Institución";
             // 
+            // btnAddLogo
+            // 
+            this.btnAddLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddLogo.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnAddLogo.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddLogo.BorderRadius = 20;
+            this.btnAddLogo.BorderSize = 0;
+            this.btnAddLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddLogo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddLogo.FlatAppearance.BorderSize = 0;
+            this.btnAddLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddLogo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddLogo.Location = new System.Drawing.Point(20, 294);
+            this.btnAddLogo.Margin = new System.Windows.Forms.Padding(7);
+            this.btnAddLogo.Name = "btnAddLogo";
+            this.btnAddLogo.Size = new System.Drawing.Size(258, 26);
+            this.btnAddLogo.TabIndex = 6;
+            this.btnAddLogo.Text = "Añadir Logo de la Institución";
+            this.btnAddLogo.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddLogo.UseVisualStyleBackColor = false;
+            // 
             // grpInstitutionInfo
             // 
             this.grpInstitutionInfo.Controls.Add(this.label3);
@@ -135,24 +157,6 @@
             this.cmbInstitutionType.Name = "cmbInstitutionType";
             this.cmbInstitutionType.Size = new System.Drawing.Size(258, 25);
             this.cmbInstitutionType.TabIndex = 5;
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
-            this.btnExit.Location = new System.Drawing.Point(622, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(34, 34);
-            this.btnExit.TabIndex = 19;
-            this.btnExit.TabStop = false;
-            this.btnExit.UseVisualStyleBackColor = false;
             // 
             // txtEmail
             // 
@@ -254,31 +258,27 @@
             this.txtInstitutionAddress.SelectionStart = 0;
             this.txtInstitutionAddress.Size = new System.Drawing.Size(258, 38);
             this.txtInstitutionAddress.TabIndex = 2;
-            this.txtInstitutionAddress.Tag = "name";
+            this.txtInstitutionAddress.Tag = "address";
             this.txtInstitutionAddress.Texts = "Dirección de la Institución";
             this.txtInstitutionAddress.UnderlinedStyle = false;
             // 
-            // btnAddLogo
+            // btnExit
             // 
-            this.btnAddLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnAddLogo.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnAddLogo.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAddLogo.BorderRadius = 20;
-            this.btnAddLogo.BorderSize = 0;
-            this.btnAddLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddLogo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnAddLogo.FlatAppearance.BorderSize = 0;
-            this.btnAddLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddLogo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnAddLogo.Location = new System.Drawing.Point(20, 294);
-            this.btnAddLogo.Margin = new System.Windows.Forms.Padding(7);
-            this.btnAddLogo.Name = "btnAddLogo";
-            this.btnAddLogo.Size = new System.Drawing.Size(258, 26);
-            this.btnAddLogo.TabIndex = 6;
-            this.btnAddLogo.Text = "Añadir Logo de la Institución";
-            this.btnAddLogo.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnAddLogo.UseVisualStyleBackColor = false;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.btnExit.Location = new System.Drawing.Point(622, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(34, 34);
+            this.btnExit.TabIndex = 19;
+            this.btnExit.TabStop = false;
+            this.btnExit.UseVisualStyleBackColor = false;
             // 
             // btnRegisterInstitution
             // 

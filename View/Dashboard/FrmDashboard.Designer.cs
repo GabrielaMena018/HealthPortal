@@ -38,8 +38,6 @@
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
             this.btnMenu = new System.Windows.Forms.Button();
-            this.flpControls = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnMaximize = new System.Windows.Forms.Button();
             this.flpTabs = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlMainPage = new System.Windows.Forms.Panel();
             this.tlpMainPage = new System.Windows.Forms.TableLayoutPanel();
@@ -67,7 +65,6 @@
             this.tlpLogout.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             this.tlpMenu.SuspendLayout();
-            this.flpControls.SuspendLayout();
             this.flpTabs.SuspendLayout();
             this.pnlMainPage.SuspendLayout();
             this.tlpMainPage.SuspendLayout();
@@ -198,7 +195,6 @@
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.29808F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.35096F));
             this.tlpMenu.Controls.Add(this.btnMenu, 1, 1);
-            this.tlpMenu.Controls.Add(this.flpControls, 0, 0);
             this.tlpMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMenu.Location = new System.Drawing.Point(0, 0);
             this.tlpMenu.Margin = new System.Windows.Forms.Padding(0);
@@ -231,37 +227,6 @@
             this.btnMenu.TabIndex = 0;
             this.btnMenu.TabStop = false;
             this.btnMenu.UseVisualStyleBackColor = false;
-            // 
-            // flpControls
-            // 
-            this.flpControls.Controls.Add(this.btnMaximize);
-            this.flpControls.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flpControls.Location = new System.Drawing.Point(0, 0);
-            this.flpControls.Margin = new System.Windows.Forms.Padding(0);
-            this.flpControls.Name = "flpControls";
-            this.flpControls.Size = new System.Drawing.Size(112, 42);
-            this.flpControls.TabIndex = 3;
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximize.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnMaximize.FlatAppearance.BorderSize = 0;
-            this.btnMaximize.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaximize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnMaximize.Image = global::HealthPortal.Properties.Resources.maximize;
-            this.btnMaximize.Location = new System.Drawing.Point(0, 4);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(32, 32);
-            this.btnMaximize.TabIndex = 1;
-            this.btnMaximize.TabStop = false;
-            this.btnMaximize.UseVisualStyleBackColor = false;
             // 
             // flpTabs
             // 
@@ -627,7 +592,6 @@
             this.tlpLogout.ResumeLayout(false);
             this.pnlMenu.ResumeLayout(false);
             this.tlpMenu.ResumeLayout(false);
-            this.flpControls.ResumeLayout(false);
             this.flpTabs.ResumeLayout(false);
             this.pnlMainPage.ResumeLayout(false);
             this.tlpMainPage.ResumeLayout(false);
@@ -675,7 +639,5 @@
         public System.Windows.Forms.Panel pnlContainer;
         public System.Windows.Forms.TableLayoutPanel tlpDashboard;
         public System.Windows.Forms.TableLayoutPanel tlpMenu;
-        public System.Windows.Forms.Button btnMaximize;
-        private System.Windows.Forms.FlowLayoutPanel flpControls;
     }
 }

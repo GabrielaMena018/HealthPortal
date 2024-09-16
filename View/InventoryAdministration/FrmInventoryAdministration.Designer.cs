@@ -29,20 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInventoryAdministration));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInventoryAdministration));
             this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsView = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpInventory = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTitle = new System.Windows.Forms.Panel();
+            this.tlpTitle = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpTitleSub = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnResize = new System.Windows.Forms.Button();
             this.pnlSide = new CustomControls.PanelCustom();
             this.tlpSide = new System.Windows.Forms.TableLayoutPanel();
             this.grpAddInventory = new System.Windows.Forms.GroupBox();
@@ -63,6 +68,9 @@
             this.cmsDataGrid.SuspendLayout();
             this.tlpInventory.SuspendLayout();
             this.pnlTitle.SuspendLayout();
+            this.tlpTitle.SuspendLayout();
+            this.tlpTitleSub.SuspendLayout();
+            this.tlpControls.SuspendLayout();
             this.pnlSide.SuspendLayout();
             this.tlpSide.SuspendLayout();
             this.grpAddInventory.SuspendLayout();
@@ -129,7 +137,7 @@
             this.pnlTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlTitle.BackColor = System.Drawing.Color.White;
             this.tlpInventory.SetColumnSpan(this.pnlTitle, 5);
-            this.pnlTitle.Controls.Add(this.lblTitle);
+            this.pnlTitle.Controls.Add(this.tlpTitle);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
@@ -137,17 +145,114 @@
             this.pnlTitle.Size = new System.Drawing.Size(1370, 117);
             this.pnlTitle.TabIndex = 1;
             // 
+            // tlpTitle
+            // 
+            this.tlpTitle.ColumnCount = 2;
+            this.tlpTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.9927F));
+            this.tlpTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.0073F));
+            this.tlpTitle.Controls.Add(this.tlpTitleSub, 0, 0);
+            this.tlpTitle.Controls.Add(this.tlpControls, 1, 0);
+            this.tlpTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpTitle.Location = new System.Drawing.Point(0, 0);
+            this.tlpTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpTitle.Name = "tlpTitle";
+            this.tlpTitle.RowCount = 1;
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tlpTitle.Size = new System.Drawing.Size(1370, 117);
+            this.tlpTitle.TabIndex = 0;
+            // 
+            // tlpTitleSub
+            // 
+            this.tlpTitleSub.ColumnCount = 3;
+            this.tlpTitleSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.002201F));
+            this.tlpTitleSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.99561F));
+            this.tlpTitleSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.002201F));
+            this.tlpTitleSub.Controls.Add(this.lblTitle, 1, 1);
+            this.tlpTitleSub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpTitleSub.Location = new System.Drawing.Point(0, 0);
+            this.tlpTitleSub.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpTitleSub.Name = "tlpTitleSub";
+            this.tlpTitleSub.RowCount = 3;
+            this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpTitleSub.Size = new System.Drawing.Size(1000, 117);
+            this.tlpTitleSub.TabIndex = 0;
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblTitle.Location = new System.Drawing.Point(32, 39);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
+            this.lblTitle.Location = new System.Drawing.Point(50, 40);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(186, 41);
-            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Size = new System.Drawing.Size(899, 46);
+            this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Inventario";
+            // 
+            // tlpControls
+            // 
+            this.tlpControls.ColumnCount = 5;
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.886792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.37736F));
+            this.tlpControls.Controls.Add(this.btnExit, 3, 1);
+            this.tlpControls.Controls.Add(this.btnResize, 1, 1);
+            this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpControls.Location = new System.Drawing.Point(1000, 0);
+            this.tlpControls.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpControls.Name = "tlpControls";
+            this.tlpControls.RowCount = 3;
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.Size = new System.Drawing.Size(370, 117);
+            this.tlpControls.TabIndex = 1;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.btnExit.Location = new System.Drawing.Point(260, 39);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(69, 39);
+            this.btnExit.TabIndex = 38;
+            this.btnExit.TabStop = false;
+            this.btnExit.UseVisualStyleBackColor = false;
+            // 
+            // btnResize
+            // 
+            this.btnResize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnResize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnResize.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnResize.FlatAppearance.BorderSize = 0;
+            this.btnResize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnResize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResize.ForeColor = System.Drawing.Color.White;
+            this.btnResize.Image = ((System.Drawing.Image)(resources.GetObject("btnResize.Image")));
+            this.btnResize.Location = new System.Drawing.Point(185, 39);
+            this.btnResize.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResize.Name = "btnResize";
+            this.btnResize.Size = new System.Drawing.Size(69, 39);
+            this.btnResize.TabIndex = 39;
+            this.btnResize.TabStop = false;
+            this.btnResize.UseVisualStyleBackColor = false;
             // 
             // pnlSide
             // 
@@ -529,7 +634,10 @@
             this.cmsDataGrid.ResumeLayout(false);
             this.tlpInventory.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
-            this.pnlTitle.PerformLayout();
+            this.tlpTitle.ResumeLayout(false);
+            this.tlpTitleSub.ResumeLayout(false);
+            this.tlpTitleSub.PerformLayout();
+            this.tlpControls.ResumeLayout(false);
             this.pnlSide.ResumeLayout(false);
             this.tlpSide.ResumeLayout(false);
             this.grpAddInventory.ResumeLayout(false);
@@ -551,7 +659,6 @@
         public System.Windows.Forms.ToolStripMenuItem cmsUpdate;
         private System.Windows.Forms.TableLayoutPanel tlpInventory;
         private System.Windows.Forms.Panel pnlTitle;
-        private System.Windows.Forms.Label lblTitle;
         public CustomControls.PanelCustom pnlSide;
         private System.Windows.Forms.GroupBox grpAddInventory;
         public CustomControls.PanelCustom pnlMain;
@@ -569,5 +676,11 @@
         public System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.Label lblSearch;
         public CustomControls.RJButton btnFilter;
+        private System.Windows.Forms.TableLayoutPanel tlpTitle;
+        private System.Windows.Forms.TableLayoutPanel tlpTitleSub;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.TableLayoutPanel tlpControls;
+        public System.Windows.Forms.Button btnExit;
+        public System.Windows.Forms.Button btnResize;
     }
 }

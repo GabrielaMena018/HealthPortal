@@ -8,21 +8,22 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Windows.Forms;
 using HealthPortal.Model.DTO;
 using HealthPortal.Helper;
+using System.Data;
 
 namespace HealthPortal.Model.DAO
 {
     internal class DAOPasswordManagement : DTOPasswordManagement
     {
         SqlCommand command = new SqlCommand();
-        public bool VerifyCurrentUserPassword(string password)
+        public bool VerifyCurrentUserPassword()
         {
             try
             {
                 command.Connection = getConnection();
                 string query = "SELECT * FROM [Vistas].[viewInformacionLogin] WHERE [usuario] = @param1 AND [contraseña] = @param2";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", CurrentUserData.Username);
-                cmd.Parameters.AddWithValue("param2", password);
+                cmd.Parameters.AddWithValue("param1", Username);
+                cmd.Parameters.AddWithValue("param2", Password);
                 if (cmd.ExecuteScalar() != null)
                 {
                     return true;
@@ -32,12 +33,39 @@ namespace HealthPortal.Model.DAO
                     return false;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_201");
+                return false;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public bool VerifyAnswer()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "EXEC [ProcedimientosAlmacenados].[spValidarRespuestaDeSeguridad] @username, @questionID, @answer";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("username", Username);
+                cmd.Parameters.AddWithValue("questionID", QuestionID);
+                cmd.Parameters.AddWithValue("answer", Answer);
+                return cmd.ExecuteScalar() != null;
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_201");
+                return false;
+            }
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return false;
@@ -81,14 +109,14 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
-        public string VerifyEmail(string username)
+        public string VerifyEmail()
         {
             try
             {
                 command.Connection = getConnection();
                 string query = "SELECT [correoPersona] FROM [Vistas].[viewInformacionLogin] WHERE [usuario] = @param1";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", username);
+                cmd.Parameters.AddWithValue("param1", Username);
                 return cmd.ExecuteScalar().ToString();
 
             }
@@ -129,6 +157,36 @@ namespace HealthPortal.Model.DAO
             {
                 CommonMethods.HandleError("EC_301");
                 return false;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public DataSet RetrieveUserSecurityQuestions()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "EXEC [ProcedimientosAlmacenados].[spPreguntasDeSeguridadDeUsuario] @username";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("username", Username);
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "tbPreguntas");
+                return ds;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                CommonMethods.HandleError("EC_201");
+                return null;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_201");
+                return null;
             }
             finally
             {

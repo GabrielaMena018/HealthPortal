@@ -29,41 +29,50 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUserAdministration));
             this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsDeleteUser = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsViewUserInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsUpdateUserInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsReestablishPassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.tlpInventory = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlTitle = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlMain = new CustomControls.PanelCustom();
+            this.dgvUserDisplay = new System.Windows.Forms.DataGridView();
             this.pnlSide = new CustomControls.PanelCustom();
             this.tlpSide = new System.Windows.Forms.TableLayoutPanel();
+            this.grpFilterSearchUsers = new System.Windows.Forms.GroupBox();
+            this.tlpSub2 = new System.Windows.Forms.TableLayoutPanel();
+            this.rdoShowInactiveUsers = new System.Windows.Forms.RadioButton();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.txtUserAdministrationSearch = new CustomControls.CustomTextBox();
+            this.btnSearchForUser = new CustomControls.RJButton();
             this.grpNewUser = new System.Windows.Forms.GroupBox();
             this.tlpSub1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddNewUser = new CustomControls.RJButton();
-            this.grpFilterSearchUsers = new System.Windows.Forms.GroupBox();
-            this.tlpSub2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSearchForUser = new CustomControls.RJButton();
-            this.txtUserAdministrationSearch = new CustomControls.CustomTextBox();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.rdoShowInactiveUsers = new System.Windows.Forms.RadioButton();
-            this.pnlMain = new CustomControls.PanelCustom();
-            this.dgvUserDisplay = new System.Windows.Forms.DataGridView();
+            this.pnlTitle = new System.Windows.Forms.Panel();
+            this.tlpTitle = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
+            this.btnResize = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.tlpTitleSub = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.tlpInventory = new System.Windows.Forms.TableLayoutPanel();
             this.cmsDataGrid.SuspendLayout();
-            this.tlpInventory.SuspendLayout();
-            this.pnlTitle.SuspendLayout();
-            this.pnlSide.SuspendLayout();
-            this.tlpSide.SuspendLayout();
-            this.grpNewUser.SuspendLayout();
-            this.tlpSub1.SuspendLayout();
-            this.grpFilterSearchUsers.SuspendLayout();
-            this.tlpSub2.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserDisplay)).BeginInit();
+            this.pnlSide.SuspendLayout();
+            this.tlpSide.SuspendLayout();
+            this.grpFilterSearchUsers.SuspendLayout();
+            this.tlpSub2.SuspendLayout();
+            this.grpNewUser.SuspendLayout();
+            this.tlpSub1.SuspendLayout();
+            this.pnlTitle.SuspendLayout();
+            this.tlpTitle.SuspendLayout();
+            this.tlpControls.SuspendLayout();
+            this.tlpTitleSub.SuspendLayout();
+            this.tlpInventory.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmsDataGrid
@@ -101,52 +110,79 @@
             this.cmsReestablishPassword.Size = new System.Drawing.Size(277, 22);
             this.cmsReestablishPassword.Text = "Reestablecer contraseña";
             // 
-            // tlpInventory
+            // pnlMain
             // 
-            this.tlpInventory.ColumnCount = 5;
-            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.830345F));
-            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.45971F));
-            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.830345F));
-            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.04926F));
-            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.830345F));
-            this.tlpInventory.Controls.Add(this.pnlTitle, 0, 0);
-            this.tlpInventory.Controls.Add(this.pnlSide, 1, 2);
-            this.tlpInventory.Controls.Add(this.pnlMain, 3, 2);
-            this.tlpInventory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpInventory.Location = new System.Drawing.Point(0, 0);
-            this.tlpInventory.Name = "tlpInventory";
-            this.tlpInventory.RowCount = 4;
-            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
-            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.4532F));
-            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
-            this.tlpInventory.Size = new System.Drawing.Size(1370, 825);
-            this.tlpInventory.TabIndex = 1;
+            this.pnlMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlMain.BackColor = System.Drawing.Color.White;
+            this.pnlMain.BorderRadius = 30;
+            this.pnlMain.Controls.Add(this.dgvUserDisplay);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.ForeColor = System.Drawing.Color.Black;
+            this.pnlMain.GradientAngle = 90F;
+            this.pnlMain.GradientBottomColor = System.Drawing.Color.White;
+            this.pnlMain.GradientTopColor = System.Drawing.Color.White;
+            this.pnlMain.Location = new System.Drawing.Point(424, 155);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(904, 630);
+            this.pnlMain.TabIndex = 3;
             // 
-            // pnlTitle
+            // dgvUserDisplay
             // 
-            this.pnlTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlTitle.BackColor = System.Drawing.Color.White;
-            this.tlpInventory.SetColumnSpan(this.pnlTitle, 5);
-            this.pnlTitle.Controls.Add(this.lblTitle);
-            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
-            this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1370, 117);
-            this.pnlTitle.TabIndex = 1;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblTitle.Location = new System.Drawing.Point(32, 39);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(471, 41);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Administración de Usuarios";
+            this.dgvUserDisplay.AllowUserToAddRows = false;
+            this.dgvUserDisplay.AllowUserToDeleteRows = false;
+            this.dgvUserDisplay.AllowUserToResizeColumns = false;
+            this.dgvUserDisplay.AllowUserToResizeRows = false;
+            this.dgvUserDisplay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUserDisplay.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUserDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUserDisplay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvUserDisplay.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvUserDisplay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle1.NullValue = "-----";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUserDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserDisplay.ContextMenuStrip = this.cmsDataGrid;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.NullValue = "-----";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserDisplay.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUserDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvUserDisplay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.dgvUserDisplay.Location = new System.Drawing.Point(0, 0);
+            this.dgvUserDisplay.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvUserDisplay.MultiSelect = false;
+            this.dgvUserDisplay.Name = "dgvUserDisplay";
+            this.dgvUserDisplay.ReadOnly = true;
+            this.dgvUserDisplay.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle3.NullValue = "-----";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserDisplay.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUserDisplay.RowHeadersVisible = false;
+            this.dgvUserDisplay.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvUserDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvUserDisplay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvUserDisplay.Size = new System.Drawing.Size(904, 630);
+            this.dgvUserDisplay.TabIndex = 0;
+            this.dgvUserDisplay.TabStop = false;
             // 
             // pnlSide
             // 
@@ -184,6 +220,128 @@
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.007008F));
             this.tlpSide.Size = new System.Drawing.Size(348, 630);
             this.tlpSide.TabIndex = 0;
+            // 
+            // grpFilterSearchUsers
+            // 
+            this.grpFilterSearchUsers.Controls.Add(this.tlpSub2);
+            this.grpFilterSearchUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpFilterSearchUsers.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
+            this.grpFilterSearchUsers.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.grpFilterSearchUsers.Location = new System.Drawing.Point(47, 47);
+            this.grpFilterSearchUsers.Name = "grpFilterSearchUsers";
+            this.grpFilterSearchUsers.Size = new System.Drawing.Size(252, 405);
+            this.grpFilterSearchUsers.TabIndex = 2;
+            this.grpFilterSearchUsers.TabStop = false;
+            this.grpFilterSearchUsers.Text = "Filtrar / Buscar usuarios";
+            // 
+            // tlpSub2
+            // 
+            this.tlpSub2.ColumnCount = 4;
+            this.tlpSub2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.331947F));
+            this.tlpSub2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66805F));
+            this.tlpSub2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66805F));
+            this.tlpSub2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.331947F));
+            this.tlpSub2.Controls.Add(this.btnSearchForUser, 2, 5);
+            this.tlpSub2.Controls.Add(this.txtUserAdministrationSearch, 1, 3);
+            this.tlpSub2.Controls.Add(this.lblSearch, 1, 1);
+            this.tlpSub2.Controls.Add(this.rdoShowInactiveUsers, 1, 7);
+            this.tlpSub2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpSub2.Location = new System.Drawing.Point(3, 17);
+            this.tlpSub2.Name = "tlpSub2";
+            this.tlpSub2.RowCount = 14;
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.935065F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.012987F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.831169F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.857143F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.311688F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.896104F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.935065F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.155844F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.233766F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.863127F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.935065F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.31169F));
+            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
+            this.tlpSub2.Size = new System.Drawing.Size(246, 385);
+            this.tlpSub2.TabIndex = 3;
+            // 
+            // rdoShowInactiveUsers
+            // 
+            this.rdoShowInactiveUsers.AutoSize = true;
+            this.tlpSub2.SetColumnSpan(this.rdoShowInactiveUsers, 2);
+            this.rdoShowInactiveUsers.Location = new System.Drawing.Point(20, 161);
+            this.rdoShowInactiveUsers.Margin = new System.Windows.Forms.Padding(0);
+            this.rdoShowInactiveUsers.Name = "rdoShowInactiveUsers";
+            this.rdoShowInactiveUsers.Size = new System.Drawing.Size(164, 19);
+            this.rdoShowInactiveUsers.TabIndex = 36;
+            this.rdoShowInactiveUsers.TabStop = true;
+            this.rdoShowInactiveUsers.Text = "Mostrar usuarios inactivos";
+            this.rdoShowInactiveUsers.UseVisualStyleBackColor = true;
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.tlpSub2.SetColumnSpan(this.lblSearch, 2);
+            this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.lblSearch.Location = new System.Drawing.Point(23, 23);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(198, 19);
+            this.lblSearch.TabIndex = 33;
+            this.lblSearch.Text = "Buscar usuarios";
+            // 
+            // txtUserAdministrationSearch
+            // 
+            this.txtUserAdministrationSearch.BackColor = System.Drawing.Color.White;
+            this.txtUserAdministrationSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtUserAdministrationSearch.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtUserAdministrationSearch.BorderRadius = 15;
+            this.txtUserAdministrationSearch.BorderSize = 2;
+            this.tlpSub2.SetColumnSpan(this.txtUserAdministrationSearch, 2);
+            this.txtUserAdministrationSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUserAdministrationSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.txtUserAdministrationSearch.Location = new System.Drawing.Point(20, 69);
+            this.txtUserAdministrationSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.txtUserAdministrationSearch.MaxLength = 60;
+            this.txtUserAdministrationSearch.Multiline = false;
+            this.txtUserAdministrationSearch.Name = "txtUserAdministrationSearch";
+            this.txtUserAdministrationSearch.Padding = new System.Windows.Forms.Padding(20, 9, 20, 9);
+            this.txtUserAdministrationSearch.PasswordChar = false;
+            this.txtUserAdministrationSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtUserAdministrationSearch.PlaceholderText = "";
+            this.txtUserAdministrationSearch.SelectionLength = 0;
+            this.txtUserAdministrationSearch.SelectionStart = 0;
+            this.txtUserAdministrationSearch.Size = new System.Drawing.Size(204, 34);
+            this.txtUserAdministrationSearch.TabIndex = 34;
+            this.txtUserAdministrationSearch.TabStop = false;
+            this.txtUserAdministrationSearch.Tag = "name";
+            this.txtUserAdministrationSearch.Texts = "";
+            this.txtUserAdministrationSearch.UnderlinedStyle = false;
+            // 
+            // btnSearchForUser
+            // 
+            this.btnSearchForUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnSearchForUser.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnSearchForUser.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSearchForUser.BorderRadius = 30;
+            this.btnSearchForUser.BorderSize = 0;
+            this.btnSearchForUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchForUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSearchForUser.FlatAppearance.BorderSize = 0;
+            this.btnSearchForUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchForUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchForUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnSearchForUser.Location = new System.Drawing.Point(122, 114);
+            this.btnSearchForUser.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSearchForUser.Name = "btnSearchForUser";
+            this.btnSearchForUser.Size = new System.Drawing.Size(102, 32);
+            this.btnSearchForUser.TabIndex = 35;
+            this.btnSearchForUser.TabStop = false;
+            this.btnSearchForUser.Text = "Buscar";
+            this.btnSearchForUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnSearchForUser.UseVisualStyleBackColor = false;
             // 
             // grpNewUser
             // 
@@ -239,201 +397,149 @@
             this.btnAddNewUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnAddNewUser.UseVisualStyleBackColor = false;
             // 
-            // grpFilterSearchUsers
+            // pnlTitle
             // 
-            this.grpFilterSearchUsers.Controls.Add(this.tlpSub2);
-            this.grpFilterSearchUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpFilterSearchUsers.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
-            this.grpFilterSearchUsers.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.grpFilterSearchUsers.Location = new System.Drawing.Point(47, 47);
-            this.grpFilterSearchUsers.Name = "grpFilterSearchUsers";
-            this.grpFilterSearchUsers.Size = new System.Drawing.Size(252, 405);
-            this.grpFilterSearchUsers.TabIndex = 2;
-            this.grpFilterSearchUsers.TabStop = false;
-            this.grpFilterSearchUsers.Text = "Filtrar / Buscar usuarios";
+            this.pnlTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlTitle.BackColor = System.Drawing.Color.White;
+            this.tlpInventory.SetColumnSpan(this.pnlTitle, 5);
+            this.pnlTitle.Controls.Add(this.tlpTitle);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlTitle.Name = "pnlTitle";
+            this.pnlTitle.Size = new System.Drawing.Size(1370, 117);
+            this.pnlTitle.TabIndex = 1;
             // 
-            // tlpSub2
+            // tlpTitle
             // 
-            this.tlpSub2.ColumnCount = 4;
-            this.tlpSub2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.331947F));
-            this.tlpSub2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66805F));
-            this.tlpSub2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66805F));
-            this.tlpSub2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.331947F));
-            this.tlpSub2.Controls.Add(this.btnSearchForUser, 2, 5);
-            this.tlpSub2.Controls.Add(this.txtUserAdministrationSearch, 1, 3);
-            this.tlpSub2.Controls.Add(this.lblSearch, 1, 1);
-            this.tlpSub2.Controls.Add(this.rdoShowInactiveUsers, 1, 7);
-            this.tlpSub2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSub2.Location = new System.Drawing.Point(3, 17);
-            this.tlpSub2.Name = "tlpSub2";
-            this.tlpSub2.RowCount = 14;
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.935065F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.012987F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.831169F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.857143F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.311688F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.896104F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.935065F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.155844F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.233766F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.863127F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.935065F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.31169F));
-            this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
-            this.tlpSub2.Size = new System.Drawing.Size(246, 385);
-            this.tlpSub2.TabIndex = 3;
+            this.tlpTitle.ColumnCount = 2;
+            this.tlpTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.9927F));
+            this.tlpTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.0073F));
+            this.tlpTitle.Controls.Add(this.tlpTitleSub, 0, 0);
+            this.tlpTitle.Controls.Add(this.tlpControls, 1, 0);
+            this.tlpTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpTitle.Location = new System.Drawing.Point(0, 0);
+            this.tlpTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpTitle.Name = "tlpTitle";
+            this.tlpTitle.RowCount = 1;
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tlpTitle.Size = new System.Drawing.Size(1370, 117);
+            this.tlpTitle.TabIndex = 1;
             // 
-            // btnSearchForUser
+            // tlpControls
             // 
-            this.btnSearchForUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnSearchForUser.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnSearchForUser.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSearchForUser.BorderRadius = 30;
-            this.btnSearchForUser.BorderSize = 0;
-            this.btnSearchForUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearchForUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearchForUser.FlatAppearance.BorderSize = 0;
-            this.btnSearchForUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchForUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchForUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSearchForUser.Location = new System.Drawing.Point(122, 114);
-            this.btnSearchForUser.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSearchForUser.Name = "btnSearchForUser";
-            this.btnSearchForUser.Size = new System.Drawing.Size(102, 32);
-            this.btnSearchForUser.TabIndex = 35;
-            this.btnSearchForUser.TabStop = false;
-            this.btnSearchForUser.Text = "Buscar";
-            this.btnSearchForUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSearchForUser.UseVisualStyleBackColor = false;
+            this.tlpControls.ColumnCount = 5;
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.886792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.37736F));
+            this.tlpControls.Controls.Add(this.btnExit, 3, 1);
+            this.tlpControls.Controls.Add(this.btnResize, 1, 1);
+            this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpControls.Location = new System.Drawing.Point(1000, 0);
+            this.tlpControls.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpControls.Name = "tlpControls";
+            this.tlpControls.RowCount = 3;
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.Size = new System.Drawing.Size(370, 117);
+            this.tlpControls.TabIndex = 1;
             // 
-            // txtUserAdministrationSearch
+            // btnResize
             // 
-            this.txtUserAdministrationSearch.BackColor = System.Drawing.Color.White;
-            this.txtUserAdministrationSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtUserAdministrationSearch.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtUserAdministrationSearch.BorderRadius = 15;
-            this.txtUserAdministrationSearch.BorderSize = 2;
-            this.tlpSub2.SetColumnSpan(this.txtUserAdministrationSearch, 2);
-            this.txtUserAdministrationSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUserAdministrationSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.txtUserAdministrationSearch.Location = new System.Drawing.Point(20, 69);
-            this.txtUserAdministrationSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.txtUserAdministrationSearch.MaxLength = 60;
-            this.txtUserAdministrationSearch.Multiline = false;
-            this.txtUserAdministrationSearch.Name = "txtUserAdministrationSearch";
-            this.txtUserAdministrationSearch.Padding = new System.Windows.Forms.Padding(20, 9, 20, 9);
-            this.txtUserAdministrationSearch.PasswordChar = false;
-            this.txtUserAdministrationSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtUserAdministrationSearch.PlaceholderText = "";
-            this.txtUserAdministrationSearch.SelectionLength = 0;
-            this.txtUserAdministrationSearch.SelectionStart = 0;
-            this.txtUserAdministrationSearch.Size = new System.Drawing.Size(204, 34);
-            this.txtUserAdministrationSearch.TabIndex = 34;
-            this.txtUserAdministrationSearch.TabStop = false;
-            this.txtUserAdministrationSearch.Tag = "name";
-            this.txtUserAdministrationSearch.Texts = "";
-            this.txtUserAdministrationSearch.UnderlinedStyle = false;
+            this.btnResize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnResize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnResize.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnResize.FlatAppearance.BorderSize = 0;
+            this.btnResize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnResize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResize.ForeColor = System.Drawing.Color.White;
+            this.btnResize.Image = ((System.Drawing.Image)(resources.GetObject("btnResize.Image")));
+            this.btnResize.Location = new System.Drawing.Point(185, 39);
+            this.btnResize.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResize.Name = "btnResize";
+            this.btnResize.Size = new System.Drawing.Size(69, 39);
+            this.btnResize.TabIndex = 39;
+            this.btnResize.TabStop = false;
+            this.btnResize.UseVisualStyleBackColor = false;
             // 
-            // lblSearch
+            // btnExit
             // 
-            this.lblSearch.AutoSize = true;
-            this.tlpSub2.SetColumnSpan(this.lblSearch, 2);
-            this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblSearch.Location = new System.Drawing.Point(23, 23);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(198, 19);
-            this.lblSearch.TabIndex = 33;
-            this.lblSearch.Text = "Buscar usuarios";
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.btnExit.Location = new System.Drawing.Point(260, 39);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(69, 39);
+            this.btnExit.TabIndex = 38;
+            this.btnExit.TabStop = false;
+            this.btnExit.UseVisualStyleBackColor = false;
             // 
-            // rdoShowInactiveUsers
+            // tlpTitleSub
             // 
-            this.rdoShowInactiveUsers.AutoSize = true;
-            this.tlpSub2.SetColumnSpan(this.rdoShowInactiveUsers, 2);
-            this.rdoShowInactiveUsers.Location = new System.Drawing.Point(20, 161);
-            this.rdoShowInactiveUsers.Margin = new System.Windows.Forms.Padding(0);
-            this.rdoShowInactiveUsers.Name = "rdoShowInactiveUsers";
-            this.rdoShowInactiveUsers.Size = new System.Drawing.Size(164, 19);
-            this.rdoShowInactiveUsers.TabIndex = 36;
-            this.rdoShowInactiveUsers.TabStop = true;
-            this.rdoShowInactiveUsers.Text = "Mostrar usuarios inactivos";
-            this.rdoShowInactiveUsers.UseVisualStyleBackColor = true;
+            this.tlpTitleSub.ColumnCount = 3;
+            this.tlpTitleSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.0022F));
+            this.tlpTitleSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.9956F));
+            this.tlpTitleSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.0022F));
+            this.tlpTitleSub.Controls.Add(this.lblTitle, 1, 1);
+            this.tlpTitleSub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpTitleSub.Location = new System.Drawing.Point(0, 0);
+            this.tlpTitleSub.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpTitleSub.Name = "tlpTitleSub";
+            this.tlpTitleSub.RowCount = 3;
+            this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpTitleSub.Size = new System.Drawing.Size(1000, 117);
+            this.tlpTitleSub.TabIndex = 0;
             // 
-            // pnlMain
+            // lblTitle
             // 
-            this.pnlMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlMain.BackColor = System.Drawing.Color.White;
-            this.pnlMain.BorderRadius = 30;
-            this.pnlMain.Controls.Add(this.dgvUserDisplay);
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.ForeColor = System.Drawing.Color.Black;
-            this.pnlMain.GradientAngle = 90F;
-            this.pnlMain.GradientBottomColor = System.Drawing.Color.White;
-            this.pnlMain.GradientTopColor = System.Drawing.Color.White;
-            this.pnlMain.Location = new System.Drawing.Point(424, 155);
-            this.pnlMain.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(904, 630);
-            this.pnlMain.TabIndex = 3;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.lblTitle.Location = new System.Drawing.Point(50, 40);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(899, 46);
+            this.lblTitle.TabIndex = 2;
+            this.lblTitle.Text = "Administración de Usuarios";
             // 
-            // dgvUserDisplay
+            // tlpInventory
             // 
-            this.dgvUserDisplay.AllowUserToAddRows = false;
-            this.dgvUserDisplay.AllowUserToDeleteRows = false;
-            this.dgvUserDisplay.AllowUserToResizeColumns = false;
-            this.dgvUserDisplay.AllowUserToResizeRows = false;
-            this.dgvUserDisplay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUserDisplay.BackgroundColor = System.Drawing.Color.White;
-            this.dgvUserDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvUserDisplay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvUserDisplay.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dgvUserDisplay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle4.NullValue = "-----";
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUserDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvUserDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUserDisplay.ContextMenuStrip = this.cmsDataGrid;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.NullValue = "-----";
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserDisplay.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvUserDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUserDisplay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.dgvUserDisplay.Location = new System.Drawing.Point(0, 0);
-            this.dgvUserDisplay.Margin = new System.Windows.Forms.Padding(0);
-            this.dgvUserDisplay.MultiSelect = false;
-            this.dgvUserDisplay.Name = "dgvUserDisplay";
-            this.dgvUserDisplay.ReadOnly = true;
-            this.dgvUserDisplay.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle6.NullValue = "-----";
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUserDisplay.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvUserDisplay.RowHeadersVisible = false;
-            this.dgvUserDisplay.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvUserDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvUserDisplay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvUserDisplay.Size = new System.Drawing.Size(904, 630);
-            this.dgvUserDisplay.TabIndex = 0;
-            this.dgvUserDisplay.TabStop = false;
+            this.tlpInventory.ColumnCount = 5;
+            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.830345F));
+            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.45971F));
+            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.830345F));
+            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.04926F));
+            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.830345F));
+            this.tlpInventory.Controls.Add(this.pnlTitle, 0, 0);
+            this.tlpInventory.Controls.Add(this.pnlSide, 1, 2);
+            this.tlpInventory.Controls.Add(this.pnlMain, 3, 2);
+            this.tlpInventory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpInventory.Location = new System.Drawing.Point(0, 0);
+            this.tlpInventory.Name = "tlpInventory";
+            this.tlpInventory.RowCount = 4;
+            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
+            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.4532F));
+            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
+            this.tlpInventory.Size = new System.Drawing.Size(1370, 825);
+            this.tlpInventory.TabIndex = 1;
             // 
             // FrmUserAdministration
             // 
@@ -447,18 +553,21 @@
             this.Name = "FrmUserAdministration";
             this.Text = "HealthPortal | Inventario";
             this.cmsDataGrid.ResumeLayout(false);
-            this.tlpInventory.ResumeLayout(false);
-            this.pnlTitle.ResumeLayout(false);
-            this.pnlTitle.PerformLayout();
+            this.pnlMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserDisplay)).EndInit();
             this.pnlSide.ResumeLayout(false);
             this.tlpSide.ResumeLayout(false);
-            this.grpNewUser.ResumeLayout(false);
-            this.tlpSub1.ResumeLayout(false);
             this.grpFilterSearchUsers.ResumeLayout(false);
             this.tlpSub2.ResumeLayout(false);
             this.tlpSub2.PerformLayout();
-            this.pnlMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserDisplay)).EndInit();
+            this.grpNewUser.ResumeLayout(false);
+            this.tlpSub1.ResumeLayout(false);
+            this.pnlTitle.ResumeLayout(false);
+            this.tlpTitle.ResumeLayout(false);
+            this.tlpControls.ResumeLayout(false);
+            this.tlpTitleSub.ResumeLayout(false);
+            this.tlpTitleSub.PerformLayout();
+            this.tlpInventory.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -468,14 +577,12 @@
         public System.Windows.Forms.ToolStripMenuItem cmsDeleteUser;
         public System.Windows.Forms.ToolStripMenuItem cmsViewUserInfo;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdateUserInfo;
-        private System.Windows.Forms.TableLayoutPanel tlpInventory;
-        private System.Windows.Forms.Panel pnlTitle;
-        private System.Windows.Forms.Label lblTitle;
-        public CustomControls.PanelCustom pnlSide;
-        private System.Windows.Forms.GroupBox grpNewUser;
+        public System.Windows.Forms.ToolStripMenuItem cmsReestablishPassword;
         public CustomControls.PanelCustom pnlMain;
         public System.Windows.Forms.DataGridView dgvUserDisplay;
+        public CustomControls.PanelCustom pnlSide;
         private System.Windows.Forms.TableLayoutPanel tlpSide;
+        private System.Windows.Forms.GroupBox grpNewUser;
         private System.Windows.Forms.TableLayoutPanel tlpSub1;
         public CustomControls.RJButton btnAddNewUser;
         private System.Windows.Forms.GroupBox grpFilterSearchUsers;
@@ -484,6 +591,13 @@
         public CustomControls.CustomTextBox txtUserAdministrationSearch;
         private System.Windows.Forms.Label lblSearch;
         public System.Windows.Forms.RadioButton rdoShowInactiveUsers;
-        public System.Windows.Forms.ToolStripMenuItem cmsReestablishPassword;
+        private System.Windows.Forms.Panel pnlTitle;
+        private System.Windows.Forms.TableLayoutPanel tlpInventory;
+        private System.Windows.Forms.TableLayoutPanel tlpTitle;
+        private System.Windows.Forms.TableLayoutPanel tlpTitleSub;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.TableLayoutPanel tlpControls;
+        public System.Windows.Forms.Button btnExit;
+        public System.Windows.Forms.Button btnResize;
     }
 }

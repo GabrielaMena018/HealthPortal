@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddUpdateUser));
             this.grpLoginInfo = new System.Windows.Forms.GroupBox();
+            this.lblFilter = new System.Windows.Forms.Label();
+            this.cmbUserAdministrationRole = new System.Windows.Forms.ComboBox();
             this.txtUserAdministrationUsername = new CustomControls.CustomTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
@@ -39,8 +41,6 @@
             this.txtUserAdministrationLastName = new CustomControls.CustomTextBox();
             this.txtUserAdministrationName = new CustomControls.CustomTextBox();
             this.btnUpdateUser = new CustomControls.RJButton();
-            this.cmbUserAdministrationRole = new System.Windows.Forms.ComboBox();
-            this.lblFilter = new System.Windows.Forms.Label();
             this.txtUserAdministrationId = new CustomControls.CustomTextBox();
             this.grpLoginInfo.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,30 @@
             this.grpLoginInfo.TabIndex = 5;
             this.grpLoginInfo.TabStop = false;
             this.grpLoginInfo.Text = "Información de usuario";
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.lblFilter.Location = new System.Drawing.Point(319, 28);
+            this.lblFilter.Margin = new System.Windows.Forms.Padding(0);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(84, 15);
+            this.lblFilter.TabIndex = 31;
+            this.lblFilter.Text = "Rol de acceso";
+            // 
+            // cmbUserAdministrationRole
+            // 
+            this.cmbUserAdministrationRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUserAdministrationRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.cmbUserAdministrationRole.FormattingEnabled = true;
+            this.cmbUserAdministrationRole.Location = new System.Drawing.Point(322, 48);
+            this.cmbUserAdministrationRole.Margin = new System.Windows.Forms.Padding(20);
+            this.cmbUserAdministrationRole.Name = "cmbUserAdministrationRole";
+            this.cmbUserAdministrationRole.Size = new System.Drawing.Size(275, 25);
+            this.cmbUserAdministrationRole.TabIndex = 30;
+            this.cmbUserAdministrationRole.TabStop = false;
             // 
             // txtUserAdministrationUsername
             // 
@@ -266,30 +290,6 @@
             this.btnUpdateUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnUpdateUser.UseVisualStyleBackColor = false;
             // 
-            // cmbUserAdministrationRole
-            // 
-            this.cmbUserAdministrationRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbUserAdministrationRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.cmbUserAdministrationRole.FormattingEnabled = true;
-            this.cmbUserAdministrationRole.Location = new System.Drawing.Point(322, 48);
-            this.cmbUserAdministrationRole.Margin = new System.Windows.Forms.Padding(20);
-            this.cmbUserAdministrationRole.Name = "cmbUserAdministrationRole";
-            this.cmbUserAdministrationRole.Size = new System.Drawing.Size(275, 25);
-            this.cmbUserAdministrationRole.TabIndex = 30;
-            this.cmbUserAdministrationRole.TabStop = false;
-            // 
-            // lblFilter
-            // 
-            this.lblFilter.AutoSize = true;
-            this.lblFilter.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblFilter.Location = new System.Drawing.Point(319, 28);
-            this.lblFilter.Margin = new System.Windows.Forms.Padding(0);
-            this.lblFilter.Name = "lblFilter";
-            this.lblFilter.Size = new System.Drawing.Size(84, 15);
-            this.lblFilter.TabIndex = 31;
-            this.lblFilter.Text = "Rol de acceso";
-            // 
             // txtUserAdministrationId
             // 
             this.txtUserAdministrationId.BackColor = System.Drawing.Color.White;
@@ -337,7 +337,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAddUpdateUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Añadir / Actualizar usuarios";
+            this.Text = "Añadir / Actualizar usuario";
             this.grpLoginInfo.ResumeLayout(false);
             this.grpLoginInfo.PerformLayout();
             this.ResumeLayout(false);

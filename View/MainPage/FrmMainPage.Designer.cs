@@ -29,43 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainPage));
             this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsDeleteUser = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsReestablishPassword = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsViewUser = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsUpdateUser = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblTime = new System.Windows.Forms.Label();
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
+            this.tlpInventory = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlTitle = new System.Windows.Forms.Panel();
+            this.tlpTitle = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpTitleSub = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnResize = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cmsDataGrid.SuspendLayout();
+            this.tlpInventory.SuspendLayout();
+            this.pnlTitle.SuspendLayout();
+            this.tlpTitle.SuspendLayout();
+            this.tlpTitleSub.SuspendLayout();
+            this.tlpControls.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1370, 120);
-            this.panel1.TabIndex = 0;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblTitle.Location = new System.Drawing.Point(32, 39);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(290, 41);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Página Principal";
             // 
             // cmsDataGrid
             // 
@@ -102,33 +91,193 @@
             this.cmsUpdateUser.Size = new System.Drawing.Size(278, 22);
             this.cmsUpdateUser.Text = "Actualizar Información del Usuario";
             // 
+            // timerDateTime
+            // 
+            this.timerDateTime.Enabled = true;
+            // 
+            // tlpInventory
+            // 
+            this.tlpInventory.ColumnCount = 5;
+            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.830345F));
+            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.49635F));
+            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.79562F));
+            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.94161F));
+            this.tlpInventory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.830345F));
+            this.tlpInventory.Controls.Add(this.pnlTitle, 0, 0);
+            this.tlpInventory.Controls.Add(this.tableLayoutPanel1, 1, 2);
+            this.tlpInventory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpInventory.Location = new System.Drawing.Point(0, 0);
+            this.tlpInventory.Name = "tlpInventory";
+            this.tlpInventory.RowCount = 4;
+            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
+            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.4532F));
+            this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
+            this.tlpInventory.Size = new System.Drawing.Size(1370, 825);
+            this.tlpInventory.TabIndex = 2;
+            // 
+            // pnlTitle
+            // 
+            this.pnlTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlTitle.BackColor = System.Drawing.Color.White;
+            this.tlpInventory.SetColumnSpan(this.pnlTitle, 5);
+            this.pnlTitle.Controls.Add(this.tlpTitle);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlTitle.Name = "pnlTitle";
+            this.pnlTitle.Size = new System.Drawing.Size(1370, 117);
+            this.pnlTitle.TabIndex = 3;
+            // 
+            // tlpTitle
+            // 
+            this.tlpTitle.ColumnCount = 2;
+            this.tlpTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.9927F));
+            this.tlpTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.0073F));
+            this.tlpTitle.Controls.Add(this.tlpTitleSub, 0, 0);
+            this.tlpTitle.Controls.Add(this.tlpControls, 1, 0);
+            this.tlpTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpTitle.Location = new System.Drawing.Point(0, 0);
+            this.tlpTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpTitle.Name = "tlpTitle";
+            this.tlpTitle.RowCount = 1;
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tlpTitle.Size = new System.Drawing.Size(1370, 117);
+            this.tlpTitle.TabIndex = 0;
+            // 
+            // tlpTitleSub
+            // 
+            this.tlpTitleSub.ColumnCount = 3;
+            this.tlpTitleSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.002201F));
+            this.tlpTitleSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.2F));
+            this.tlpTitleSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.8F));
+            this.tlpTitleSub.Controls.Add(this.lblTitle, 1, 1);
+            this.tlpTitleSub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpTitleSub.Location = new System.Drawing.Point(0, 0);
+            this.tlpTitleSub.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpTitleSub.Name = "tlpTitleSub";
+            this.tlpTitleSub.RowCount = 3;
+            this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpTitleSub.Size = new System.Drawing.Size(1000, 117);
+            this.tlpTitleSub.TabIndex = 0;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.lblTitle.Location = new System.Drawing.Point(50, 40);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(941, 46);
+            this.lblTitle.TabIndex = 2;
+            this.lblTitle.Text = "Página Principal";
+            // 
             // lblTime
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblTime.Location = new System.Drawing.Point(69, 205);
-            this.lblTime.Margin = new System.Windows.Forms.Padding(60);
+            this.lblTime.Location = new System.Drawing.Point(0, 20);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(0);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(174, 77);
             this.lblTime.TabIndex = 1;
             this.lblTime.Text = "hora";
-            // 
-            // timerDateTime
-            // 
-            this.timerDateTime.Enabled = true;
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblDate.Location = new System.Drawing.Point(75, 180);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(60);
+            this.lblDate.Location = new System.Drawing.Point(20, 0);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(54, 19);
             this.lblDate.TabIndex = 2;
             this.lblDate.Text = "fecha";
+            // 
+            // tlpControls
+            // 
+            this.tlpControls.ColumnCount = 5;
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.886792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.37736F));
+            this.tlpControls.Controls.Add(this.btnExit, 3, 1);
+            this.tlpControls.Controls.Add(this.btnResize, 1, 1);
+            this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpControls.Location = new System.Drawing.Point(1000, 0);
+            this.tlpControls.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpControls.Name = "tlpControls";
+            this.tlpControls.RowCount = 3;
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.Size = new System.Drawing.Size(370, 117);
+            this.tlpControls.TabIndex = 1;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.btnExit.Location = new System.Drawing.Point(260, 39);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(69, 39);
+            this.btnExit.TabIndex = 38;
+            this.btnExit.TabStop = false;
+            this.btnExit.UseVisualStyleBackColor = false;
+            // 
+            // btnResize
+            // 
+            this.btnResize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnResize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnResize.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnResize.FlatAppearance.BorderSize = 0;
+            this.btnResize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnResize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResize.ForeColor = System.Drawing.Color.White;
+            this.btnResize.Image = ((System.Drawing.Image)(resources.GetObject("btnResize.Image")));
+            this.btnResize.Location = new System.Drawing.Point(185, 39);
+            this.btnResize.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResize.Name = "btnResize";
+            this.btnResize.Size = new System.Drawing.Size(69, 39);
+            this.btnResize.TabIndex = 39;
+            this.btnResize.TabStop = false;
+            this.btnResize.UseVisualStyleBackColor = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.lblDate, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblTime, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(38, 155);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.174603F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.82539F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(911, 630);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // FrmMainPage
             // 
@@ -137,32 +286,40 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1370, 825);
-            this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.lblTime);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tlpInventory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1240, 825);
             this.Name = "FrmMainPage";
             this.Text = "FrmUserAdministration";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.cmsDataGrid.ResumeLayout(false);
+            this.tlpInventory.ResumeLayout(false);
+            this.pnlTitle.ResumeLayout(false);
+            this.tlpTitle.ResumeLayout(false);
+            this.tlpTitleSub.ResumeLayout(false);
+            this.tlpTitleSub.PerformLayout();
+            this.tlpControls.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.ContextMenuStrip cmsDataGrid;
         public System.Windows.Forms.ToolStripMenuItem cmsDeleteUser;
         public System.Windows.Forms.ToolStripMenuItem cmsReestablishPassword;
         public System.Windows.Forms.ToolStripMenuItem cmsViewUser;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdateUser;
-        public System.Windows.Forms.Label lblTitle;
         public System.Windows.Forms.Timer timerDateTime;
+        private System.Windows.Forms.TableLayoutPanel tlpInventory;
+        private System.Windows.Forms.Panel pnlTitle;
+        private System.Windows.Forms.TableLayoutPanel tlpTitle;
+        private System.Windows.Forms.TableLayoutPanel tlpTitleSub;
+        private System.Windows.Forms.TableLayoutPanel tlpControls;
+        public System.Windows.Forms.Button btnExit;
+        public System.Windows.Forms.Button btnResize;
         public System.Windows.Forms.Label lblTime;
         public System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        public System.Windows.Forms.Label lblTitle;
     }
 }

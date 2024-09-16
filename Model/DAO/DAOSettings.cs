@@ -96,13 +96,13 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "UPDATE [Institución].[tbRespuestas] SET pregunta = @question WHERE idPregunta = @questionID";
+                string query = "UPDATE [Institución].[tbRespuestas] SET respuesta = @answer WHERE idRespuesta = @answerID";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("question", Question);
-                cmd.Parameters.AddWithValue("questionID", QuestionID);
+                cmd.Parameters.AddWithValue("answer", Answer);
+                cmd.Parameters.AddWithValue("answerID", AnswerID);
                 return cmd.ExecuteNonQuery() == 1 ? true : false;
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
                 CommonMethods.HandleError("EC_003");
                 return false;
@@ -172,11 +172,6 @@ namespace HealthPortal.Model.DAO
                 string query = "SELECT COUNT(*) FROM [Institución].[tbPreguntas]";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 return (int)cmd.ExecuteScalar() > 0 ? true : false;
-            }
-            catch (SqlException)
-            {
-                CommonMethods.HandleError("EC_005");
-                return false;
             }
             catch (SqlException)
             {
@@ -284,30 +279,6 @@ namespace HealthPortal.Model.DAO
                 string query = "SELECT pregunta FROM [Institución].[tbPreguntas] WHERE idPregunta = @questionID";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("questionID", QuestionID);
-                return (string)cmd.ExecuteScalar();
-            }
-            catch (SqlException)
-            {
-                CommonMethods.HandleError("EC_005");
-                return null;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-            finally
-            {
-                command.Connection.Close();
-            }
-        }
-        public string GetSecurityAnswer()
-        {
-            try
-            {
-                command.Connection = getConnection();
-                string query = "SELECT respuesta FROM [Institución].[tbRespuestas] WHERE idRespuesta = @answerID";
-                SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("answerID", AnswerID);
                 return (string)cmd.ExecuteScalar();
             }
             catch (SqlException)

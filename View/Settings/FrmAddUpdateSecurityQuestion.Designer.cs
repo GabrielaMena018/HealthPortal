@@ -149,7 +149,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAddUpdateSecurityQuestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmEmailVerification";
+            this.Text = "Añadir / Actualizar preguntas de seguridad";
             this.ResumeLayout(false);
             this.PerformLayout();
 

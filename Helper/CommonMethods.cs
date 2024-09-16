@@ -152,6 +152,12 @@ namespace HealthPortal.Helper
                 case "confirmationCode":
                     ValidateConfirmationCodeTextBox(e);
                     break;
+                case "securityAnswer":
+                    ValidateSecurityAnswerTextBox(e);
+                    break;
+                case "address":
+                    ValidateAddressTextBox(e);
+                    break;
                 case "sql":
                     // Nada xd
                     break;
@@ -207,24 +213,47 @@ namespace HealthPortal.Helper
                 e.Handled = true;
             }
         }
+        private static void ValidateSecurityAnswerTextBox(KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+        private static void ValidateAddressTextBox(KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Tab && e.KeyChar != ' ' && e.KeyChar != '-' && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
         public static void DetermineInitialForm()
         {
             DAOLogin daoLogin = new DAOLogin();
             ReadXMLConnectionFile();
+            Form initialForm = null;
             if (daoLogin.GetAmountOfUsers() == 0)
             {
                 if (daoLogin.GetInstitutionInfo() == 0)
                 {
-                    Application.Run(new FrmInstitutionCreation());
+                    initialForm = new FrmInstitutionCreation();
                 }
                 else
                 {
-                    Application.Run(new FrmFirstUserCreation());
+                    initialForm = new FrmFirstUserCreation();
                 }
             }
             else
             {
-                Application.Run(new FrmLogin());
+                initialForm = new FrmLogin();
+            }
+
+            if (initialForm != null)
+            {
+                initialForm.WindowState = FormWindowState.Normal;
+                initialForm.TopMost = true;
+                initialForm.Activate();
+                Application.Run(initialForm);
             }
         }
         public static string ComputeSha256Hash(string rawData)

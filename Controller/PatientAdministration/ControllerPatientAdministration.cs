@@ -14,14 +14,17 @@ using HealthPortal.Helper;
 using HealthPortal.View.SectionAdministration;
 using CustomControls;
 using System.Drawing;
+using HealthPortal.Properties;
+using HealthPortal.View.InventoryAdministration;
+using HealthPortal.Controller.Dashboard;
+using HealthPortal.View.MainPage;
 
 namespace HealthPortal.Controller.PatientAdministration
 {
     internal class ControllerPatientAdministration
     {
         FrmPatientAdministration frmPatientAdministration;
-        int expandedFormWidth = 1370;
-        int collapsedFormWidth = 1240;
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         public ControllerPatientAdministration(FrmPatientAdministration view)
         {
             frmPatientAdministration = view;
@@ -57,6 +60,44 @@ namespace HealthPortal.Controller.PatientAdministration
 
             //frmPatientAdministration.btnPDF.Click += new EventHandler(VisitReport);
             frmPatientAdministration.dtpVisitDate.Value = DateTime.Now;
+
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnResize", Tuple.Create(Resources.resize, Resources.hoverResize) }
+            };
+            frmPatientAdministration.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmPatientAdministration.btnResize.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmPatientAdministration.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmPatientAdministration.btnResize.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmPatientAdministration.btnExit.Click += new EventHandler(CloseForm);
+            frmPatientAdministration.btnResize.Click += new EventHandler(ControllerDashboard.ToggleFullScreen);
+        }
+        private void CloseForm(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cerrar el programa directamente? Considere que se cerrará la sesión de manera automática", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                CommonMethods.DisposeOfCurrentUserData();
+                Environment.Exit(0);
+            }
+        }
+        private void MouseEnterPictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item2;
+                btn.ForeColor = Color.FromArgb(31, 43, 91);
+            }
+        }
+        private void MouseLeavePictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item1;
+                btn.ForeColor = Color.FromArgb(142, 202, 230);
+            }
         }
         private void MouseEnterTextButton(object sender, EventArgs e)
         {

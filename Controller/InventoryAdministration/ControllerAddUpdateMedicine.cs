@@ -10,6 +10,9 @@ using HealthPortal.View.InventoryAdministration;
 using System.Collections.Specialized;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms.DataVisualization.Charting;
+using HealthPortal.Helper;
+using HealthPortal.Properties;
 
 namespace HealthPortal.Controller.InventoryAdministration
 {
@@ -18,14 +21,21 @@ namespace HealthPortal.Controller.InventoryAdministration
         FrmAddUpdateMedicine frmAddUpdateMedicine;
         private int action;
         private string medicineCategory;
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         /// <summary>
         /// Constructor para la inserción de medicamentos
         /// </summary>
-        /// <param name="vista"></param>
+        /// <param name="view"></param>
         /// <param name="accion"></param>
-        public ControllerAddUpdateMedicine(FrmAddUpdateMedicine vista, int action)
+        public ControllerAddUpdateMedicine(FrmAddUpdateMedicine view, int action)
         {
-            frmAddUpdateMedicine = vista;
+            frmAddUpdateMedicine = view;
+
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) }
+            };
+
             this.action = action;
             frmAddUpdateMedicine.Load += new EventHandler(InitialLoad);
 
@@ -35,11 +45,25 @@ namespace HealthPortal.Controller.InventoryAdministration
             //Metodos que se ejecutan al ocurrir eventos
             frmAddUpdateMedicine.btnAddInventory.Click += new EventHandler(RegisterNewMedicine);
             frmAddUpdateMedicine.btnAddImage.Click += new EventHandler(AddImage);
+
+            frmAddUpdateMedicine.txtMedicineName.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateMedicine.txtDescription.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+
+            frmAddUpdateMedicine.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateMedicine.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+
+            frmAddUpdateMedicine.btnExit.Click += new EventHandler(CloseForm);
         }
-        public ControllerAddUpdateMedicine(FrmAddUpdateMedicine vista, int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
+        public ControllerAddUpdateMedicine(FrmAddUpdateMedicine view, int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
         {
             //Acciones iniciales
-            frmAddUpdateMedicine = vista;
+            frmAddUpdateMedicine = view;
+
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) }
+            };
+
             this.action = action;
             this.medicineCategory = medicineCategory;
             //Metodos iniciales ejecutados cuando el formulario esta cargando
@@ -50,24 +74,55 @@ namespace HealthPortal.Controller.InventoryAdministration
             //Metodos que se ejecutan al ocurrir eventos
             frmAddUpdateMedicine.btnUpdateInventory.Click += new EventHandler(UpdateInventory);
             frmAddUpdateMedicine.btnAddImage.Click += new EventHandler(AddImage);
+
+            frmAddUpdateMedicine.txtMedicineName.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateMedicine.txtDescription.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+
+            frmAddUpdateMedicine.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmAddUpdateMedicine.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+
+            frmAddUpdateMedicine.btnExit.Click += new EventHandler(CloseForm);
+        }
+        private void CloseForm(object sender, EventArgs e)
+        {
+            frmAddUpdateMedicine.Dispose();
+        }
+        private void MouseEnterPictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item2;
+                btn.ForeColor = Color.FromArgb(31, 43, 91);
+            }
+        }
+        private void MouseLeavePictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item1;
+                btn.ForeColor = Color.FromArgb(142, 202, 230);
+            }
         }
         private void AddImage(object sender, EventArgs e)
         {
-            OpenFileDialog openImage = new OpenFileDialog();
-            openImage.Filter = "archivos de imagenes (*. png; *.jpg)| *.png ; *jpg";
-            if (openImage.ShowDialog() == DialogResult.OK)
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "archivos de imagenes (*. png; *.jpg)| *.png ; *jpg";
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                frmAddUpdateMedicine.picImage.Image = Image.FromFile(openImage.FileName);
+                frmAddUpdateMedicine.picImage.Image = Image.FromFile(ofd.FileName);
                 frmAddUpdateMedicine.picImage.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
         public void InitialLoad(object sender, EventArgs e)
         {
+            CommonMethods.EnableFormDrag(frmAddUpdateMedicine, frmAddUpdateMedicine);
             //Objeto de la clase DAOAdminInventory
-            DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
+            DAOInventoryAdministration dao = new DAOInventoryAdministration();
 
             //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombosInventario
-            DataSet ds = daoInventoryAdministration.FillCombo();
+            DataSet ds = dao.FillCombo();
             //Llenar comboBox de la tabla tbCategoriaMedicamento
             frmAddUpdateMedicine.cmbCategory.DataSource = ds.Tables["tbCategoriaMedicamento"];
             frmAddUpdateMedicine.cmbCategory.ValueMember = "idCategoriaMedicamento";
@@ -79,21 +134,20 @@ namespace HealthPortal.Controller.InventoryAdministration
                 frmAddUpdateMedicine.cmbCategory.Text = medicineCategory;
             }
         }
-
         public void RegisterNewMedicine(object sender, EventArgs e)
         {
             DateTime fecha = DateTime.Today;
             DateTime vencimiento = fecha.AddDays(31);
-            DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
+            DAOInventoryAdministration dao = new DAOInventoryAdministration();
             //Datos para la creacion de un nuevo inventario
-            daoInventoryAdministration.NombreMedicamento = frmAddUpdateMedicine.txtMedicineName.Texts.Trim();
-            daoInventoryAdministration.Descripcion = frmAddUpdateMedicine.txtDescription.Texts.Trim();
-            daoInventoryAdministration.IdCategoria = int.Parse(frmAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
-            daoInventoryAdministration.FechaVencimiento = frmAddUpdateMedicine.dtpExpirationDate.Value.Date;
-            daoInventoryAdministration.Existencia = int.Parse(frmAddUpdateMedicine.numStock.Text.Trim());
-            daoInventoryAdministration.Envases = 1;
-            daoInventoryAdministration.Ingreso = frmAddUpdateMedicine.dtpEntryDate.Value.Date;
-            daoInventoryAdministration.Salida = frmAddUpdateMedicine.dtpEntryTime.Value.ToString("HH:mm");
+            dao.NombreMedicamento = frmAddUpdateMedicine.txtMedicineName.Texts.Trim();
+            dao.Descripcion = frmAddUpdateMedicine.txtDescription.Texts.Trim();
+            dao.IdCategoria = int.Parse(frmAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
+            dao.FechaVencimiento = frmAddUpdateMedicine.dtpExpirationDate.Value.Date;
+            dao.Existencia = int.Parse(frmAddUpdateMedicine.numStock.Text.Trim());
+            dao.Envases = 1;
+            dao.Ingreso = frmAddUpdateMedicine.dtpEntryDate.Value.Date;
+            dao.Salida = frmAddUpdateMedicine.dtpEntryTime.Value.ToString("HH:mm");
             MemoryStream memoryStream = new MemoryStream();
             Image img = frmAddUpdateMedicine.picImage.Image;
             if (frmAddUpdateMedicine.txtMedicineName.Texts == "" || frmAddUpdateMedicine.dtpExpirationDate.Value.Date <= vencimiento || int.Parse(frmAddUpdateMedicine.numStock.Text) == 0 || frmAddUpdateMedicine.picImage.Image == null)
@@ -103,8 +157,8 @@ namespace HealthPortal.Controller.InventoryAdministration
             else
             {
                 img.Save(memoryStream, img.RawFormat);
-                daoInventoryAdministration.Imagen = memoryStream.ToArray();
-                int returnedValue = daoInventoryAdministration.RegisterMedicine();
+                dao.Imagen = memoryStream.ToArray();
+                int returnedValue = dao.RegisterMedicine();
                 if (returnedValue == 2)
                 {
                     MessageBox.Show("Los datos han sido registrados exitosamente",
@@ -133,17 +187,17 @@ namespace HealthPortal.Controller.InventoryAdministration
         }
         public void UpdateInventory(object sender, EventArgs e)
         {
-            DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
-            daoInventoryAdministration.IdMedicamento = int.Parse(frmAddUpdateMedicine.txtID.Text.Trim());
-            daoInventoryAdministration.NombreMedicamento = frmAddUpdateMedicine.txtMedicineName.Texts.Trim();
-            daoInventoryAdministration.IdCategoria = int.Parse(frmAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
-            daoInventoryAdministration.FechaVencimiento = frmAddUpdateMedicine.dtpExpirationDate.Value.Date;
-            daoInventoryAdministration.Existencia = int.Parse(frmAddUpdateMedicine.numStock.Text.Trim());
-            daoInventoryAdministration.Ingreso = frmAddUpdateMedicine.dtpEntryDate.Value.Date;
-            daoInventoryAdministration.Salida = frmAddUpdateMedicine.dtpEntryTime.Value.ToString("HH:mm");
-            daoInventoryAdministration.Descripcion = frmAddUpdateMedicine.txtDescription.Texts.Trim();
+            DAOInventoryAdministration dao = new DAOInventoryAdministration();
+            dao.IdMedicamento = int.Parse(frmAddUpdateMedicine.txtID.Text.Trim());
+            dao.NombreMedicamento = frmAddUpdateMedicine.txtMedicineName.Texts.Trim();
+            dao.IdCategoria = int.Parse(frmAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
+            dao.FechaVencimiento = frmAddUpdateMedicine.dtpExpirationDate.Value.Date;
+            dao.Existencia = int.Parse(frmAddUpdateMedicine.numStock.Text.Trim());
+            dao.Ingreso = frmAddUpdateMedicine.dtpEntryDate.Value.Date;
+            dao.Salida = frmAddUpdateMedicine.dtpEntryTime.Value.ToString("HH:mm");
+            dao.Descripcion = frmAddUpdateMedicine.txtDescription.Texts.Trim();
 
-            int returnedValue = daoInventoryAdministration.UpdateInventory();
+            int returnedValue = dao.UpdateInventory();
             if (returnedValue == 2)
             {
                 MessageBox.Show("Los datos han sido actualizado exitosamente",
@@ -170,9 +224,9 @@ namespace HealthPortal.Controller.InventoryAdministration
 
         public void ChargeValues(int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
         {
-            DAOInventoryAdministration daoInventoryAdministration = new DAOInventoryAdministration();
-            daoInventoryAdministration.IdMedicamento = id;
-            MemoryStream memoryStream = new MemoryStream(daoInventoryAdministration.GetImageBytes());
+            DAOInventoryAdministration dao = new DAOInventoryAdministration();
+            dao.IdMedicamento = id;
+            MemoryStream memoryStream = new MemoryStream(dao.GetImageBytes());
             frmAddUpdateMedicine.txtID.Text = id.ToString();
             frmAddUpdateMedicine.txtMedicineName.Texts = medicineName;
             frmAddUpdateMedicine.cmbCategory.Text = medicineCategory;

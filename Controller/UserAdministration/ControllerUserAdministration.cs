@@ -1,6 +1,10 @@
 ﻿using CustomControls;
+using HealthPortal.Controller.Dashboard;
 using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
+using HealthPortal.Properties;
+using HealthPortal.View.InventoryAdministration;
+using HealthPortal.View.MainPage;
 using HealthPortal.View.PasswordManagement;
 using HealthPortal.View.UserAdministration;
 using System;
@@ -18,6 +22,7 @@ namespace HealthPortal.Controller.UserAdministration
     internal class ControllerUserAdministration
     {
         FrmUserAdministration frmUserAdministration;
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         public ControllerUserAdministration(FrmUserAdministration view)
         {
             frmUserAdministration = view;
@@ -41,6 +46,45 @@ namespace HealthPortal.Controller.UserAdministration
             frmUserAdministration.btnSearchForUser.MouseLeave += new EventHandler(MouseLeaveTextButton);
 
             frmUserAdministration.txtUserAdministrationSearch.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnResize", Tuple.Create(Resources.resize, Resources.hoverResize) }
+            };
+
+            frmUserAdministration.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmUserAdministration.btnResize.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmUserAdministration.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmUserAdministration.btnResize.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmUserAdministration.btnExit.Click += new EventHandler(CloseForm);
+            frmUserAdministration.btnResize.Click += new EventHandler(ControllerDashboard.ToggleFullScreen);
+        }
+        private void CloseForm(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cerrar el programa directamente? Considere que se cerrará la sesión de manera automática", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                CommonMethods.DisposeOfCurrentUserData();
+                Environment.Exit(0);
+            }
+        }
+        private void MouseEnterPictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item2;
+                btn.ForeColor = Color.FromArgb(31, 43, 91);
+            }
+        }
+        private void MouseLeavePictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item1;
+                btn.ForeColor = Color.FromArgb(142, 202, 230);
+            }
         }
         private void MouseEnterTextButton(object sender, EventArgs e)
         {

@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using CustomControls;
+using HealthPortal.Controller.Dashboard;
+using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
+using HealthPortal.Properties;
+using HealthPortal.View.MainPage;
 using HealthPortal.View.SectionAdministration;
 using HealthPortal.View.UserAdministration;
 
@@ -17,6 +21,7 @@ namespace HealthPortal.Controller.SectionAdministration
     internal class ControllerSectionAdministration
     {
         FrmSectionAdministration frmSectionAdministration;
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
         public ControllerSectionAdministration(FrmSectionAdministration view)
         {
             frmSectionAdministration = view;
@@ -38,6 +43,44 @@ namespace HealthPortal.Controller.SectionAdministration
             frmSectionAdministration.cmsDeleteSection.Click += new EventHandler(DeleteSection);
 
             frmSectionAdministration.tabAcademicLevel.SelectedIndexChanged += new EventHandler(TabControlSelectedIndexChanged);
+
+            imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
+            {
+                { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
+                { "btnResize", Tuple.Create(Resources.resize, Resources.hoverResize) }
+            };
+            frmSectionAdministration.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmSectionAdministration.btnResize.MouseEnter += new EventHandler(MouseEnterPictureButton);
+            frmSectionAdministration.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmSectionAdministration.btnResize.MouseLeave += new EventHandler(MouseLeavePictureButton);
+            frmSectionAdministration.btnExit.Click += new EventHandler(CloseForm);
+            frmSectionAdministration.btnResize.Click += new EventHandler(ControllerDashboard.ToggleFullScreen);
+        }
+        private void CloseForm(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cerrar el programa directamente? Considere que se cerrará la sesión de manera automática", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                CommonMethods.DisposeOfCurrentUserData();
+                Environment.Exit(0);
+            }
+        }
+        private void MouseEnterPictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item2;
+                btn.ForeColor = Color.FromArgb(31, 43, 91);
+            }
+        }
+        private void MouseLeavePictureButton(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && imageMapping.ContainsKey(btn.Name))
+            {
+                btn.Image = imageMapping[btn.Name].Item1;
+                btn.ForeColor = Color.FromArgb(142, 202, 230);
+            }
         }
         private void TabControlSelectedIndexChanged(object sender, EventArgs e)
         {

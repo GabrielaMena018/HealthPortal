@@ -1,4 +1,5 @@
 ﻿using CustomControls;
+using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
 using HealthPortal.Properties;
 using HealthPortal.View.Settings;
@@ -16,7 +17,7 @@ namespace HealthPortal.Controller.Settings
     internal class ControllerAddUpdateSecurityAnswer
     {
         FrmAddUpdateSecurityAnswer frmAddUpdateSecurityAnswer;
-        int origin, questionID, answerID;
+        int origin, answerID;
         string username;
         public ControllerAddUpdateSecurityAnswer(FrmAddUpdateSecurityAnswer view, int origin, string username)
         {
@@ -40,15 +41,17 @@ namespace HealthPortal.Controller.Settings
             frmAddUpdateSecurityAnswer.btnAddAnswer.Click += new EventHandler(AddAnswer);
 
             frmAddUpdateSecurityAnswer.btnExit.Click += new EventHandler(CloseForm);
+            frmAddUpdateSecurityAnswer.txtAnswer.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
 
             VerifyOrigin();
+
+            CommonMethods.EnableFormDrag(frmAddUpdateSecurityAnswer, frmAddUpdateSecurityAnswer);
         }
-        public ControllerAddUpdateSecurityAnswer(FrmAddUpdateSecurityAnswer view, int origin, string username, int questionID, int answerID)
+        public ControllerAddUpdateSecurityAnswer(FrmAddUpdateSecurityAnswer view, int origin, string username, int answerID)
         {
             frmAddUpdateSecurityAnswer = view;
             this.origin = origin;
             this.username = username;
-            this.questionID = questionID;
             this.answerID = answerID;
 
             frmAddUpdateSecurityAnswer.Load += new EventHandler(InitialLoad);
@@ -67,17 +70,19 @@ namespace HealthPortal.Controller.Settings
             frmAddUpdateSecurityAnswer.btnUpdateAnswer.Click += new EventHandler(UpdateAnswer);
 
             frmAddUpdateSecurityAnswer.btnExit.Click += new EventHandler(CloseForm);
+            frmAddUpdateSecurityAnswer.txtAnswer.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
 
             VerifyOrigin();
+
+            CommonMethods.EnableFormDrag(frmAddUpdateSecurityAnswer, frmAddUpdateSecurityAnswer);
         }
         private void UpdateAnswer(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim()) || frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim() == "Pregunta")
+            if (!string.IsNullOrEmpty(frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim()) || frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim() == "Respuesta")
             {
                 DAOSettings dao = new DAOSettings();
-                dao.QuestionID = questionID;
                 dao.AnswerID = answerID;
-                dao.Username = username;
+                dao.Answer = frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim();
 
                 if (dao.UpdateAnswer())
                 {
@@ -89,11 +94,11 @@ namespace HealthPortal.Controller.Settings
         }
         private void AddAnswer(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim()) || frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim() == "Pregunta")
+            if (!string.IsNullOrEmpty(frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim()) || frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim() == "Respuesta")
             {
                 DAOSettings dao = new DAOSettings();
                 dao.QuestionID = (int)frmAddUpdateSecurityAnswer.cmbQuestions.SelectedValue;
-                dao.Answer = frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim();
+                dao.Answer = CommonMethods.ComputeSha256Hash(frmAddUpdateSecurityAnswer.txtAnswer.Texts.Trim());
                 dao.Username = username;
                 if (dao.RegisterAnswer())
                 {
@@ -160,15 +165,16 @@ namespace HealthPortal.Controller.Settings
                 frmAddUpdateSecurityAnswer.lblTitle.Text = "Añadir Pregunta de Seguridad";
                 frmAddUpdateSecurityAnswer.btnAddAnswer.Enabled = true;
                 frmAddUpdateSecurityAnswer.btnUpdateAnswer.Enabled = false;
+                frmAddUpdateSecurityAnswer.cmbQuestions.Enabled = true;
             }
             else
             {
                 DAOSettings dao = new DAOSettings();
                 dao.AnswerID = answerID;
                 frmAddUpdateSecurityAnswer.lblTitle.Text = "Actualizar Pregunta de Seguridad";
-                frmAddUpdateSecurityAnswer.txtAnswer.Texts = dao.GetSecurityAnswer();
                 frmAddUpdateSecurityAnswer.btnAddAnswer.Enabled = false;
                 frmAddUpdateSecurityAnswer.btnUpdateAnswer.Enabled = true;
+                frmAddUpdateSecurityAnswer.cmbQuestions.Enabled = false;
             }
         }
     }

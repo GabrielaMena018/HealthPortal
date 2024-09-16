@@ -38,9 +38,8 @@ namespace HealthPortal.Controller.Settings
             if (frmUserSettings.dgvSecurityQuestions.CurrentRow != null && !frmUserSettings.dgvSecurityQuestions.CurrentRow.IsNewRow)
             {
                 int position = frmUserSettings.dgvSecurityQuestions.CurrentRow.Index;
-                int questionID = (int)frmUserSettings.dgvSecurityQuestions[4, position].Value;
                 int answerID = (int)frmUserSettings.dgvSecurityQuestions[0, position].Value;
-                FrmAddUpdateSecurityAnswer frmAddUpdateSecurityAnswer = new FrmAddUpdateSecurityAnswer(2, CurrentUserData.Username, questionID, answerID);
+                FrmAddUpdateSecurityAnswer frmAddUpdateSecurityAnswer = new FrmAddUpdateSecurityAnswer(2, CurrentUserData.Username, answerID);
                 frmAddUpdateSecurityAnswer.ShowDialog();
                 FillQuestionsDgv();
             }

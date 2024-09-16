@@ -89,9 +89,18 @@ namespace HealthPortal.Controller.Login
                     if (MessageBox.Show($"Se encontró información de inicio de sesión en esta computadora. ¿Desea iniciar sesión como '{dao.Username}'?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         dao.TokenLogin();
-                        FrmDashboard frmDashboard = new FrmDashboard();
-                        frmDashboard.Show();
                         frmLogin.Hide();
+                        if (CurrentUserData.TemporaryPassword)
+                        {
+                            FrmPasswordChange frmPasswordChange = new FrmPasswordChange(1);
+                            frmPasswordChange.Show();
+                        }
+                        else
+                        {
+                            if (frmLogin.rdoRememberMe.Checked == true) SaveTokenLocally();
+                            FrmDashboard frmDashboard = new FrmDashboard();
+                            frmDashboard.Show();
+                        }
                     }
                     else
                     {
@@ -160,7 +169,6 @@ namespace HealthPortal.Controller.Login
         }
         private void TestConnection(object sender, EventArgs e)
         {
-            dbContext dbContext = new dbContext();
             if (dbContext.getConnection() == null)
             {
                 MessageBox.Show("No fue posible realizar la conexión al servidor y/o la base de datos.", "Conexión fallida", MessageBoxButtons.OK, MessageBoxIcon.Error);

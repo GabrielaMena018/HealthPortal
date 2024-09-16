@@ -109,8 +109,11 @@ namespace HealthPortal.View.PasswordManagement
             this.txtPassword.PasswordChar = false;
             this.txtPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPassword.PlaceholderText = "";
+            this.txtPassword.SelectionLength = 0;
+            this.txtPassword.SelectionStart = 0;
             this.txtPassword.Size = new System.Drawing.Size(326, 38);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.Tag = "password";
             this.txtPassword.Texts = "Contraseña";
             this.txtPassword.UnderlinedStyle = false;
             // 
@@ -132,8 +135,11 @@ namespace HealthPortal.View.PasswordManagement
             this.txtUsername.PasswordChar = false;
             this.txtUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtUsername.PlaceholderText = "";
+            this.txtUsername.SelectionLength = 0;
+            this.txtUsername.SelectionStart = 0;
             this.txtUsername.Size = new System.Drawing.Size(326, 38);
             this.txtUsername.TabIndex = 1;
+            this.txtUsername.Tag = "username";
             this.txtUsername.Texts = "Usuario";
             this.txtUsername.UnderlinedStyle = false;
             // 

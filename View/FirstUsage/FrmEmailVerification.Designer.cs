@@ -58,7 +58,7 @@
             this.txtConfirmationCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.txtConfirmationCode.Location = new System.Drawing.Point(26, 102);
             this.txtConfirmationCode.Margin = new System.Windows.Forms.Padding(20);
-            this.txtConfirmationCode.MaxLength = 32767;
+            this.txtConfirmationCode.MaxLength = 8;
             this.txtConfirmationCode.Multiline = false;
             this.txtConfirmationCode.Name = "txtConfirmationCode";
             this.txtConfirmationCode.Padding = new System.Windows.Forms.Padding(20, 10, 10, 10);

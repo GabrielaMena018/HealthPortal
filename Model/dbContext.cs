@@ -31,7 +31,7 @@ namespace HealthPortal.Model
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_401");
+                CommonMethods.HandleError("EC_001");
                 return null;
             }
             catch (Exception)
@@ -57,7 +57,7 @@ namespace HealthPortal.Model
             }
             catch (SqlException)
             {
-                CommonMethods.HandleError("EC_401");
+                CommonMethods.HandleError("EC_001");
                 return null;
             }
         }

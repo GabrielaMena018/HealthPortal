@@ -47,6 +47,9 @@ namespace HealthPortal.Controller.PasswordManagement
             frmAdminIntervention.btnExit.Click += new EventHandler(CloseForm);
             frmAdminIntervention.btnHidePassword.Click += new EventHandler(ShowPassword);
             frmAdminIntervention.btnShowPassword.Click += new EventHandler(HidePassword);
+            frmAdminIntervention.txtUsername.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAdminIntervention.txtPassword.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            CommonMethods.EnableFormDrag(frmAdminIntervention, frmAdminIntervention);
         }
         private void CloseForm(object sender, EventArgs e)
         {
@@ -126,19 +129,20 @@ namespace HealthPortal.Controller.PasswordManagement
         {
             if (!string.IsNullOrEmpty(frmAdminIntervention.txtUsername.Texts.Trim()) || !string.IsNullOrEmpty(frmAdminIntervention.txtPassword.Texts.Trim()) || frmAdminIntervention.txtUsername.Texts.Trim() == "Usuario" || frmAdminIntervention.txtPassword.Texts.Trim() == "Contraseña")
             {
-                MessageBox.Show("ninguno vacío");
                 DAOPasswordManagement dao = new DAOPasswordManagement();
                 dao.Username = frmAdminIntervention.txtUsername.Texts.Trim();
                 dao.Password = CommonMethods.ComputeSha256Hash(frmAdminIntervention.txtPassword.Texts.Trim());
                 if (dao.VerifyCredentials())
                 {
                     string temporaryPassword = CommonMethods.GenerateRandomPassword(8);
-                    CommonMethods.SendRecoveryEmail(temporaryPassword, dao.VerifyEmail(userUsername));
+                    dao.Username = CurrentUserData.Username;
+                    CommonMethods.SendRecoveryEmail(temporaryPassword, dao.VerifyEmail());
                     dao.Username = userUsername;
                     dao.Password = CommonMethods.ComputeSha256Hash(temporaryPassword);
                     if (dao.TemporaryPasswordAssignation())
                     {
                         MessageBox.Show("Contraseña cambiada con éxito.", "Proceso finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmAdminIntervention.Dispose();
                     }
                 }
                 else

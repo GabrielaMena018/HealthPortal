@@ -10,7 +10,11 @@ namespace HealthPortal.Model.DTO
     {
         private string username;
         private string password;
+        private int questionID;
+        private string answer;
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
+        public int QuestionID { get => questionID; set => questionID = value; }
+        public string Answer { get => answer; set => answer = value; }
     }
 }
