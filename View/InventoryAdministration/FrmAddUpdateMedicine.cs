@@ -20,11 +20,11 @@ namespace HealthPortal.View.InventoryAdministration
             Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             ControllerAddUpdateMedicine control = new ControllerAddUpdateMedicine(this, action);
         }
-        public FrmAddUpdateMedicine(int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, DateTime entryDate, DateTime exit, string description)
+        public FrmAddUpdateMedicine(int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, string stockPack, DateTime entryDate, DateTime exit, string description)
         {
             InitializeComponent();
             Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            ControllerAddUpdateMedicine control = new ControllerAddUpdateMedicine(this, action, id, medicineName, medicineCategory, expirationDate, stock, entryDate, exit, description);
+            ControllerAddUpdateMedicine control = new ControllerAddUpdateMedicine(this, action, id, medicineName, medicineCategory, expirationDate, stock, stockPack, entryDate, exit, description);
         }
     }
 }

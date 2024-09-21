@@ -28,12 +28,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "tbCategoríaInstitución");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_101");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_101");
                 return null;
@@ -72,12 +72,11 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "INSERT INTO [Institución].[tbInstitución] VALUES (@institutionName, @institutionAddress, @institutionLogo, @securityQuestions, @institutionEmail, @institutionDomain, @institutionPhone, @institutionCategoryID)";
+                string query = "INSERT INTO [Institución].[tbInstitución] VALUES (@institutionName, @institutionAddress, @institutionLogo, @institutionEmail, @institutionDomain, @institutionPhone, @institutionCategoryID)";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("institutionName", InstitutionName);
                 cmd.Parameters.AddWithValue("institutionAddress", InstitutionAddress);
                 cmd.Parameters.AddWithValue("institutionLogo", InstitutionLogo);
-                cmd.Parameters.AddWithValue("securityQuestions", false);
                 cmd.Parameters.AddWithValue("institutionEmail", InstitutionEmail);
                 cmd.Parameters.AddWithValue("institutionDomain", InstitutionEmail.Substring(InstitutionEmail.LastIndexOf('@') + 1));
                 cmd.Parameters.AddWithValue("institutionPhone", InstitutionPhone);
@@ -86,6 +85,7 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
                 CommonMethods.HandleError("EC_101");
                 return -1;
             }

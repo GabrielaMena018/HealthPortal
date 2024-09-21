@@ -90,25 +90,25 @@
             this.cmsView,
             this.cmsUpdate});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(279, 70);
+            this.cmsDataGrid.Size = new System.Drawing.Size(321, 70);
             // 
             // cmsDelete
             // 
             this.cmsDelete.Name = "cmsDelete";
-            this.cmsDelete.Size = new System.Drawing.Size(278, 22);
-            this.cmsDelete.Text = "Eliminar Usuario";
+            this.cmsDelete.Size = new System.Drawing.Size(320, 22);
+            this.cmsDelete.Text = "Eliminar medicamento";
             // 
             // cmsView
             // 
             this.cmsView.Name = "cmsView";
-            this.cmsView.Size = new System.Drawing.Size(278, 22);
-            this.cmsView.Text = "Ver Información del Usuario";
+            this.cmsView.Size = new System.Drawing.Size(320, 22);
+            this.cmsView.Text = "Ver ficha del medicamento";
             // 
             // cmsUpdate
             // 
             this.cmsUpdate.Name = "cmsUpdate";
-            this.cmsUpdate.Size = new System.Drawing.Size(278, 22);
-            this.cmsUpdate.Text = "Actualizar Información del Usuario";
+            this.cmsUpdate.Size = new System.Drawing.Size(320, 22);
+            this.cmsUpdate.Text = "Actualizar información del medicamento";
             // 
             // tlpInventory
             // 

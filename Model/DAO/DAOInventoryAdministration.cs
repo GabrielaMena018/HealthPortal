@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using HealthPortal.Controller.Dashboard;
 using HealthPortal.Helper;
 using HealthPortal.Model.DTO;
-using HealthPortal.Helper;
 
 namespace HealthPortal.Model.DAO
 {
@@ -30,12 +29,12 @@ namespace HealthPortal.Model.DAO
                 adpInventory.Fill(ds, "tbCategoriaMedicamento");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
@@ -55,12 +54,12 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("param1", IdMedicamento);
                 return cmd.ExecuteScalar() as byte[];
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
@@ -98,12 +97,12 @@ namespace HealthPortal.Model.DAO
                 int returnedValue = cmd.ExecuteNonQuery();
                 return returnedValue;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_111");
                 return -1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_111");
                 return -1;
@@ -132,12 +131,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewInventario");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
@@ -158,25 +157,27 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = "EXEC [ProcedimientosAlmacenados].[spActualizarMedicamento] @param1, @param2, @param3, @param4, @param5, @param6, @param7, param8";
+                string query = "EXEC [ProcedimientosAlmacenados].[spActualizarMedicamento] @medicineName, @description, @expirationDate, @image, @medicineID, @entryDate, @entryTime, @packages, @stock";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
-                cmd.Parameters.AddWithValue("param1", NombreMedicamento);
-                cmd.Parameters.AddWithValue("param2", Descripcion);
-                cmd.Parameters.AddWithValue("param3", FechaVencimiento);
-                cmd.Parameters.AddWithValue("param4", IdMedicamento);
-                cmd.Parameters.AddWithValue("param5", Ingreso);
-                cmd.Parameters.AddWithValue("param6", Salida);
-                cmd.Parameters.AddWithValue("param7", Envases);
-                cmd.Parameters.AddWithValue("param8", Existencia);
+                cmd.Parameters.AddWithValue("medicineName", NombreMedicamento);
+                cmd.Parameters.AddWithValue("description", Descripcion);
+                cmd.Parameters.AddWithValue("expirationDate", FechaVencimiento);
+                cmd.Parameters.AddWithValue("image", Imagen);
+                cmd.Parameters.AddWithValue("medicineID", IdMedicamento);
+                cmd.Parameters.AddWithValue("entryDate", Ingreso);
+                cmd.Parameters.AddWithValue("entryTime", Salida);
+                cmd.Parameters.AddWithValue("packages", Envases);
+                cmd.Parameters.AddWithValue("stock", Existencia);
                 int returnedValue = cmd.ExecuteNonQuery();
                 return returnedValue;
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
                 CommonMethods.HandleError("EC_311");
                 return -1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_311");
                 return -1;
@@ -203,13 +204,13 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("param2", IdMedicamento);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
 
                 CommonMethods.HandleError("EC_411");
                 return -1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 CommonMethods.HandleError("EC_411");
@@ -225,7 +226,7 @@ namespace HealthPortal.Model.DAO
             try
             {
                 command.Connection = getConnection();
-                string query = $"SELECT * FROM [Vistas].[viewInventario] WHERE [Nombre del Medicamento] LIKE '%{search}%' OR [Categoría del Medicamento] LIKE '%{search}%'";
+                string query = $"SELECT * FROM [Vistas].[viewInventario] WHERE [Nombre del Producto] LIKE '%{search}%' OR [Categoría del Producto] LIKE '%{search}%'";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -234,10 +235,11 @@ namespace HealthPortal.Model.DAO
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
                 CommonMethods.HandleError("EC_507");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_507");
                 return null;

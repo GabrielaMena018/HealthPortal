@@ -92,10 +92,15 @@ namespace HealthPortal.Controller.Dashboard
             else
             {
                 frmDashboard.FormBorderStyle = FormBorderStyle.None;
-                frmDashboard.WindowState = FormWindowState.Maximized;
-                frmDashboard.Location = new Point(0, 0);
+                frmDashboard.WindowState = FormWindowState.Normal;
+
+                Rectangle screenArea = Screen.PrimaryScreen.WorkingArea;
+                frmDashboard.Size = new Size(screenArea.Width, screenArea.Height);
+                frmDashboard.Location = new Point(screenArea.Left, screenArea.Top);
+
                 frmDashboard.Region = new Region(new Rectangle(0, 0, frmDashboard.Width, frmDashboard.Height));
             }
+
             ResizeControls(2);
             CurrentUserData.FullScreen = !CurrentUserData.FullScreen;
             frmDashboard.Invalidate();
