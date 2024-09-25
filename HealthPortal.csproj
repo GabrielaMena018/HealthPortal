@@ -61,6 +61,7 @@
     <Compile Include="Controller\PasswordManagement\ControllerSecurityQuestions.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerAddUpdatePatient.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
+    <Compile Include="Controller\PatientAdministration\ControllerViewPatientInfo.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerSectionAdministration.cs" />
     <Compile Include="Controller\Settings\ControllerAddUpdateSecurityAnswer.cs" />
@@ -152,6 +153,12 @@
     </Compile>
     <Compile Include="View\PasswordManagement\FrmSecurityQuestions.Designer.cs">
       <DependentUpon>FrmSecurityQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientAdministration\FrmViewPatientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientAdministration\FrmViewPatientInfo.Designer.cs">
+      <DependentUpon>FrmViewPatientInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SectionAdministration\FrmAddUpdateSection.cs">
       <SubType>Form</SubType>
@@ -292,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\PasswordManagement\FrmSecurityQuestions.resx">
       <DependentUpon>FrmSecurityQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientAdministration\FrmViewPatientInfo.resx">
+      <DependentUpon>FrmViewPatientInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SectionAdministration\FrmAddUpdateSection.resx">
       <DependentUpon>FrmAddUpdateSection.cs</DependentUpon>

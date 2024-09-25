@@ -27,6 +27,8 @@ namespace HealthPortal.View.PatientAdministration
             ControllerAddUpdatePatient control = new ControllerAddUpdatePatient(this, accion, IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, Especialidad, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
         }
 
+        
 
+        
     }
 }

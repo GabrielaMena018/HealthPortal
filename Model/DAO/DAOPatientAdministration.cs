@@ -62,6 +62,38 @@ namespace HealthPortal.Model.DAO
 
         //INSERT
 
+        public int PatientInsert()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                GetGradeIdSection();
+                //Insertar datos en la tabala de paciente
+                string query = "INSERT INTO [Pacientes].[tbPacientes] VALUES (@nombrePaciente, @apellidoPaciente, @codigo, @IdGradoSeccion, @IdTipoPersona)";
+                SqlCommand cmdInsertPatient = new SqlCommand(query, command.Connection);
+                //Insertar o darle valor a los parametros
+                cmdInsertPatient.Parameters.AddWithValue("nombrePaciente", Name);
+                cmdInsertPatient.Parameters.AddWithValue("apellidoPaciente", LastName);
+                cmdInsertPatient.Parameters.AddWithValue("codigo", Code);
+                cmdInsertPatient.Parameters.AddWithValue("IdGradoSeccion", IdGradeSection);
+                cmdInsertPatient.Parameters.AddWithValue("IdTipoPersona", Role);
+                returnedValue = cmdInsertPatient.ExecuteNonQuery();
+                return returnedValue;
+            }
+            catch (Exception)
+            {
+
+                RollBack();
+                //Codificación de errores: esta sale del catch EC = error critico, EC_001 = no se pudo ingresar al paciente
+                CommonMethods.HandleError("EC_108");
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+
         //Registrar Paciente
         public int PatientRegistration()
         {
@@ -183,7 +215,7 @@ namespace HealthPortal.Model.DAO
 
         public int GetIdPerson()
         {
-            string query = "SELECT IdPersona FROM [Usuarios].[tbPersonas] WHERE usuario = @param1";
+            string query = "SELECT IdPersona FROM [Institución].[tbPersonas] WHERE usuario = @param1";
             SqlCommand cmdIdPerson = new SqlCommand(query, command.Connection);
             cmdIdPerson.Parameters.AddWithValue("param1", Username);
             SqlDataReader consulta = cmdIdPerson.ExecuteReader();
@@ -276,6 +308,31 @@ namespace HealthPortal.Model.DAO
             }
 
         }
+        public DataSet RetrieveDgvInfoPatient()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT * FROM [Vistas].[viewInfoPacientes]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "viewInfoPacientes");
+                return ds;
+            }
+            catch (SqlException ex)
+            {
+                //EC_004 = no se puso seleccionar la vista UpdateEstudiantes
+                CommonMethods.HandleError("EC_201");
+                return null;
+            }
+            finally
+            {
+                getConnection().Close();
+            }
+
+        }
 
         //UPDATE
 
@@ -304,21 +361,9 @@ namespace HealthPortal.Model.DAO
                 cmdUpdatePatient.Parameters.AddWithValue("param6", IdPatient);
                 updateReturn = cmdUpdatePatient.ExecuteNonQuery();
                 //Update en la tbEstudiantes o en la tbPersonalInstitucion dpeendiendo el rol que se le asigno al paciente
-                if (updateReturn >= 1)
-                {
-                    UpdateVisit();
-                    if (updateReturn == 1)
-                    {
-                        return 2;
-                    }
-                    else
-                    {
-                        return -1;
-                    }
+              
 
-                }
-
-                return 0;
+                return updateReturn;
             }
             catch (SqlException Ex)
             {
@@ -407,6 +452,7 @@ namespace HealthPortal.Model.DAO
         {
             try
             {
+                DeletePatientVisit();
                 command.Connection = getConnection();
                 string query = "DELETE FROM [Pacientes].[tbPacientes] WHERE idPaciente = @param1";
                 SqlCommand cmdDelete = new SqlCommand(query, command.Connection);
@@ -423,7 +469,25 @@ namespace HealthPortal.Model.DAO
 
         }
 
+        public int DeletePatientVisit()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "DELETE FROM [Visitas].[tbVisitas] WHERE idPaciente = @param1";
+                SqlCommand cmdDelete = new SqlCommand(query, command.Connection);
+                cmdDelete.Parameters.AddWithValue("param1", IdPatient);
+                deleteReturn = cmdDelete.ExecuteNonQuery();
+                return deleteReturn;
+            }
+            catch (SqlException ex)
+            {
+                CommonMethods.HandleError("EC_408");
+                return -1;
+            }
+            finally { command.Connection.Close(); }
 
+        }
 
         //Eliminar registro de la tabla visita
         public int DeleteVisit()
@@ -499,9 +563,7 @@ namespace HealthPortal.Model.DAO
                                $"OR apellidoPaciente LIKE '%{search}%' " +
                                $"OR tipoPersona LIKE '%{search}%' " +
                                $"OR codigo LIKE '%{search}%'" +
-                               $"OR grupoTecnico LIKE '%{search}%' " +
                                $"OR grado LIKE '%{search}%'" +
-                               $"OR seccionAcademica LIKE '%{search}%' " +
                                $"OR especialidad LIKE '%{search}%' " +
                                $"OR horaVisita LIKE '%{search}%'";
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
@@ -509,6 +571,45 @@ namespace HealthPortal.Model.DAO
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adp.Fill(ds, "viewAdminPacientes");
+                return ds;
+            }
+            catch (SqlException sqlEx)
+            {
+                CommonMethods.HandleError("EC_506");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                CommonMethods.HandleError("EC_506");
+                return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+
+        public DataSet SearchPatientInfo(string search)
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = $"SELECT * FROM [Vistas].[viewInfoPacientes]" +
+                               $"WHERE idPaciente LIKE '%{search}%' " +
+                               $"OR nombrePaciente LIKE '%{search}%' " +
+                               $"OR apellidoPaciente LIKE '%{search}%' " +
+                               $"OR tipoPersona LIKE '%{search}%' " +
+                               $"OR codigo LIKE '%{search}%'" +
+                               $"OR grado LIKE '%{search}%'" +
+                               $"OR [Sección Académica]LIKE '%{search}%'" +
+                               $"OR [Grupo Técnico] LIKE '%{search}%'" +
+                               $"OR especialidad LIKE '%{search}%' ";
+                             
+                SqlCommand cmdPatient = new SqlCommand(query, command.Connection);
+                cmdPatient.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmdPatient);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "viewInfoPacientes");
                 return ds;
             }
             catch (SqlException sqlEx)
@@ -591,6 +692,8 @@ namespace HealthPortal.Model.DAO
             }
         }
 
+        
+
         //Buscar por grade
         public DataSet SearchPatientGrade(string search)
         {
@@ -622,6 +725,8 @@ namespace HealthPortal.Model.DAO
             }
         }
 
+       
+
         //Buscar por tipo de persona
         public DataSet SearchPatientRole(string search)
         {
@@ -652,6 +757,8 @@ namespace HealthPortal.Model.DAO
                 command.Connection.Close();
             }
         }
+
+      
 
         //Este metodo funciona para saber si ya existe un paciente ingresado con ese code
         public int existcode()
@@ -788,7 +895,6 @@ namespace HealthPortal.Model.DAO
             }
             consulta.Close();
 
-            CommonMethods.HandleError("EC_201");
             return IdPatient;
         }
 
