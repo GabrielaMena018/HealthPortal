@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CategoryAdministration\ControllerAddUpdateCategory.cs" />
+    <Compile Include="Controller\CategoryAdministration\ControllerCategoryAdministration.cs" />
     <Compile Include="Controller\Dashboard\ControllerDashboard.cs" />
     <Compile Include="Controller\FirstUsage\ControllerEmailVerification.cs" />
     <Compile Include="Controller\FirstUsage\ControllerFirstUserCreation.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Controller\UserAdministration\ControllerUserAdministration.cs" />
     <Compile Include="Helper\CommonMethods.cs" />
     <Compile Include="Helper\CurrentUserData.cs" />
+    <Compile Include="Model\DAO\DAOCategoryAdministration.cs" />
     <Compile Include="Model\DAO\DAOFirstUsage.cs" />
     <Compile Include="Model\DAO\DAOMainPage.cs" />
     <Compile Include="Model\DAO\DAOPasswordManagement.cs" />
@@ -84,6 +87,7 @@
     <Compile Include="Model\DAO\DAOSettings.cs" />
     <Compile Include="Model\DAO\DAOUserAdministration.cs" />
     <Compile Include="Model\dbContext.cs" />
+    <Compile Include="Model\DTO\DTOCategoryAdministration.cs" />
     <Compile Include="Model\DTO\DTOdbContext.cs" />
     <Compile Include="Model\DTO\DTOFirstUsage.cs" />
     <Compile Include="Model\DTO\DTOLogin.cs" />
@@ -98,6 +102,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\CategoryAdministration\FrmAddUpdateCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CategoryAdministration\FrmAddUpdateCategory.Designer.cs">
+      <DependentUpon>FrmAddUpdateCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CategoryAdministration\FrmCategoryAdministration.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Dashboard\FrmDashboard.cs">
       <SubType>Form</SubType>
@@ -263,6 +276,12 @@
     <Compile Include="View\UserAdministration\FrmUserAdministration.Designer.cs">
       <DependentUpon>FrmUserAdministration.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CategoryAdministration\FrmAddUpdateCategory.resx">
+      <DependentUpon>FrmAddUpdateCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CategoryAdministration\FrmCategoryAdministration.resx">
+      <DependentUpon>FrmCategoryAdministration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard\FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>

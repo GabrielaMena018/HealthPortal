@@ -52,6 +52,7 @@
             this.tlpSide = new System.Windows.Forms.TableLayoutPanel();
             this.grpAddInventory = new System.Windows.Forms.GroupBox();
             this.tlpSub1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnViewCategoryAdministration = new CustomControls.RJButton();
             this.btnNew = new CustomControls.RJButton();
             this.grpMedicineInfo = new System.Windows.Forms.GroupBox();
             this.tlpSub2 = new System.Windows.Forms.TableLayoutPanel();
@@ -85,29 +86,30 @@
             // cmsDataGrid
             // 
             this.cmsDataGrid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsDataGrid.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cmsDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsDelete,
             this.cmsView,
             this.cmsUpdate});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(321, 70);
+            this.cmsDataGrid.Size = new System.Drawing.Size(442, 88);
             // 
             // cmsDelete
             // 
             this.cmsDelete.Name = "cmsDelete";
-            this.cmsDelete.Size = new System.Drawing.Size(320, 22);
+            this.cmsDelete.Size = new System.Drawing.Size(441, 28);
             this.cmsDelete.Text = "Eliminar medicamento";
             // 
             // cmsView
             // 
             this.cmsView.Name = "cmsView";
-            this.cmsView.Size = new System.Drawing.Size(320, 22);
+            this.cmsView.Size = new System.Drawing.Size(441, 28);
             this.cmsView.Text = "Ver ficha del medicamento";
             // 
             // cmsUpdate
             // 
             this.cmsUpdate.Name = "cmsUpdate";
-            this.cmsUpdate.Size = new System.Drawing.Size(320, 22);
+            this.cmsUpdate.Size = new System.Drawing.Size(441, 28);
             this.cmsUpdate.Text = "Actualizar información del medicamento";
             // 
             // tlpInventory
@@ -123,13 +125,14 @@
             this.tlpInventory.Controls.Add(this.pnlMain, 3, 2);
             this.tlpInventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpInventory.Location = new System.Drawing.Point(0, 0);
+            this.tlpInventory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tlpInventory.Name = "tlpInventory";
             this.tlpInventory.RowCount = 4;
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.4532F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
-            this.tlpInventory.Size = new System.Drawing.Size(1370, 825);
+            this.tlpInventory.Size = new System.Drawing.Size(2055, 1269);
             this.tlpInventory.TabIndex = 1;
             // 
             // pnlTitle
@@ -142,7 +145,7 @@
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1370, 117);
+            this.pnlTitle.Size = new System.Drawing.Size(2055, 181);
             this.pnlTitle.TabIndex = 1;
             // 
             // tlpTitle
@@ -158,8 +161,8 @@
             this.tlpTitle.Name = "tlpTitle";
             this.tlpTitle.RowCount = 1;
             this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 117F));
-            this.tlpTitle.Size = new System.Drawing.Size(1370, 117);
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 181F));
+            this.tlpTitle.Size = new System.Drawing.Size(2055, 181);
             this.tlpTitle.TabIndex = 0;
             // 
             // tlpTitleSub
@@ -177,7 +180,7 @@
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpTitleSub.Size = new System.Drawing.Size(1000, 117);
+            this.tlpTitleSub.Size = new System.Drawing.Size(1500, 181);
             this.tlpTitleSub.TabIndex = 0;
             // 
             // lblTitle
@@ -186,10 +189,10 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblTitle.Location = new System.Drawing.Point(50, 40);
+            this.lblTitle.Location = new System.Drawing.Point(75, 63);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(899, 46);
+            this.lblTitle.Size = new System.Drawing.Size(1349, 72);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Inventario";
             // 
@@ -204,14 +207,14 @@
             this.tlpControls.Controls.Add(this.btnExit, 3, 1);
             this.tlpControls.Controls.Add(this.btnResize, 1, 1);
             this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpControls.Location = new System.Drawing.Point(1000, 0);
+            this.tlpControls.Location = new System.Drawing.Point(1500, 0);
             this.tlpControls.Margin = new System.Windows.Forms.Padding(0);
             this.tlpControls.Name = "tlpControls";
             this.tlpControls.RowCount = 3;
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpControls.Size = new System.Drawing.Size(370, 117);
+            this.tlpControls.Size = new System.Drawing.Size(555, 181);
             this.tlpControls.TabIndex = 1;
             // 
             // btnExit
@@ -226,10 +229,10 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
-            this.btnExit.Location = new System.Drawing.Point(260, 39);
+            this.btnExit.Location = new System.Drawing.Point(391, 60);
             this.btnExit.Margin = new System.Windows.Forms.Padding(0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(69, 39);
+            this.btnExit.Size = new System.Drawing.Size(104, 60);
             this.btnExit.TabIndex = 38;
             this.btnExit.TabStop = false;
             this.btnExit.UseVisualStyleBackColor = false;
@@ -246,10 +249,10 @@
             this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResize.ForeColor = System.Drawing.Color.White;
             this.btnResize.Image = ((System.Drawing.Image)(resources.GetObject("btnResize.Image")));
-            this.btnResize.Location = new System.Drawing.Point(185, 39);
+            this.btnResize.Location = new System.Drawing.Point(277, 60);
             this.btnResize.Margin = new System.Windows.Forms.Padding(0);
             this.btnResize.Name = "btnResize";
-            this.btnResize.Size = new System.Drawing.Size(69, 39);
+            this.btnResize.Size = new System.Drawing.Size(104, 60);
             this.btnResize.TabIndex = 39;
             this.btnResize.TabStop = false;
             this.btnResize.UseVisualStyleBackColor = false;
@@ -265,10 +268,10 @@
             this.pnlSide.GradientAngle = 90F;
             this.pnlSide.GradientBottomColor = System.Drawing.Color.White;
             this.pnlSide.GradientTopColor = System.Drawing.Color.White;
-            this.pnlSide.Location = new System.Drawing.Point(38, 155);
+            this.pnlSide.Location = new System.Drawing.Point(58, 239);
             this.pnlSide.Margin = new System.Windows.Forms.Padding(0);
             this.pnlSide.Name = "pnlSide";
-            this.pnlSide.Size = new System.Drawing.Size(348, 630);
+            this.pnlSide.Size = new System.Drawing.Size(523, 970);
             this.pnlSide.TabIndex = 2;
             // 
             // tlpSide
@@ -281,6 +284,7 @@
             this.tlpSide.Controls.Add(this.grpMedicineInfo, 1, 1);
             this.tlpSide.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpSide.Location = new System.Drawing.Point(0, 0);
+            this.tlpSide.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tlpSide.Name = "tlpSide";
             this.tlpSide.RowCount = 5;
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.007008F));
@@ -288,7 +292,7 @@
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.105105F));
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.61562F));
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.007008F));
-            this.tlpSide.Size = new System.Drawing.Size(348, 630);
+            this.tlpSide.Size = new System.Drawing.Size(523, 970);
             this.tlpSide.TabIndex = 0;
             // 
             // grpAddInventory
@@ -298,10 +302,11 @@
             this.grpAddInventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpAddInventory.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpAddInventory.ForeColor = System.Drawing.Color.DarkGray;
-            this.grpAddInventory.Location = new System.Drawing.Point(44, 487);
+            this.grpAddInventory.Location = new System.Drawing.Point(67, 749);
             this.grpAddInventory.Margin = new System.Windows.Forms.Padding(0);
             this.grpAddInventory.Name = "grpAddInventory";
-            this.grpAddInventory.Size = new System.Drawing.Size(258, 98);
+            this.grpAddInventory.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpAddInventory.Size = new System.Drawing.Size(388, 151);
             this.grpAddInventory.TabIndex = 1;
             this.grpAddInventory.TabStop = false;
             this.grpAddInventory.Text = "Añadir Medicamentos";
@@ -312,16 +317,40 @@
             this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.33F));
             this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.34F));
             this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.33F));
+            this.tlpSub1.Controls.Add(this.btnViewCategoryAdministration, 1, 2);
             this.tlpSub1.Controls.Add(this.btnNew, 1, 1);
             this.tlpSub1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSub1.Location = new System.Drawing.Point(3, 17);
+            this.tlpSub1.Location = new System.Drawing.Point(4, 26);
+            this.tlpSub1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tlpSub1.Name = "tlpSub1";
             this.tlpSub1.RowCount = 3;
             this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.92F));
             this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.16F));
             this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.92F));
-            this.tlpSub1.Size = new System.Drawing.Size(252, 78);
+            this.tlpSub1.Size = new System.Drawing.Size(380, 120);
             this.tlpSub1.TabIndex = 0;
+            // 
+            // btnViewCategoryAdministration
+            // 
+            this.btnViewCategoryAdministration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnViewCategoryAdministration.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnViewCategoryAdministration.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnViewCategoryAdministration.BorderRadius = 30;
+            this.btnViewCategoryAdministration.BorderSize = 0;
+            this.btnViewCategoryAdministration.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewCategoryAdministration.FlatAppearance.BorderSize = 0;
+            this.btnViewCategoryAdministration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewCategoryAdministration.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewCategoryAdministration.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnViewCategoryAdministration.Location = new System.Drawing.Point(31, 87);
+            this.btnViewCategoryAdministration.Margin = new System.Windows.Forms.Padding(0);
+            this.btnViewCategoryAdministration.Name = "btnViewCategoryAdministration";
+            this.btnViewCategoryAdministration.Size = new System.Drawing.Size(315, 33);
+            this.btnViewCategoryAdministration.TabIndex = 2;
+            this.btnViewCategoryAdministration.TabStop = false;
+            this.btnViewCategoryAdministration.Text = "Ver Categorias";
+            this.btnViewCategoryAdministration.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnViewCategoryAdministration.UseVisualStyleBackColor = false;
             // 
             // btnNew
             // 
@@ -335,10 +364,10 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnNew.Location = new System.Drawing.Point(20, 20);
+            this.btnNew.Location = new System.Drawing.Point(31, 32);
             this.btnNew.Margin = new System.Windows.Forms.Padding(0);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(210, 36);
+            this.btnNew.Size = new System.Drawing.Size(315, 49);
             this.btnNew.TabIndex = 1;
             this.btnNew.TabStop = false;
             this.btnNew.Text = "Agregar Medicamento";
@@ -351,9 +380,11 @@
             this.grpMedicineInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpMedicineInfo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
             this.grpMedicineInfo.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.grpMedicineInfo.Location = new System.Drawing.Point(47, 47);
+            this.grpMedicineInfo.Location = new System.Drawing.Point(71, 72);
+            this.grpMedicineInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grpMedicineInfo.Name = "grpMedicineInfo";
-            this.grpMedicineInfo.Size = new System.Drawing.Size(252, 405);
+            this.grpMedicineInfo.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpMedicineInfo.Size = new System.Drawing.Size(380, 623);
             this.grpMedicineInfo.TabIndex = 2;
             this.grpMedicineInfo.TabStop = false;
             this.grpMedicineInfo.Text = "Información de inventario";
@@ -374,7 +405,8 @@
             this.tlpSub2.Controls.Add(this.lblSearch, 1, 6);
             this.tlpSub2.Controls.Add(this.btnFilter, 2, 4);
             this.tlpSub2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSub2.Location = new System.Drawing.Point(3, 17);
+            this.tlpSub2.Location = new System.Drawing.Point(4, 26);
+            this.tlpSub2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tlpSub2.Name = "tlpSub2";
             this.tlpSub2.RowCount = 14;
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
@@ -391,7 +423,7 @@
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.935065F));
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.31169F));
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
-            this.tlpSub2.Size = new System.Drawing.Size(246, 385);
+            this.tlpSub2.Size = new System.Drawing.Size(372, 592);
             this.tlpSub2.TabIndex = 3;
             // 
             // chart1
@@ -402,8 +434,8 @@
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(25, 255);
-            this.chart1.Margin = new System.Windows.Forms.Padding(5);
+            this.chart1.Location = new System.Drawing.Point(38, 391);
+            this.chart1.Margin = new System.Windows.Forms.Padding(8);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series1.ChartArea = "ChartArea1";
@@ -413,7 +445,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(194, 99);
+            this.chart1.Size = new System.Drawing.Size(294, 151);
             this.chart1.SuppressExceptions = true;
             this.chart1.TabIndex = 32;
             this.chart1.TabStop = false;
@@ -432,10 +464,10 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSearch.Location = new System.Drawing.Point(122, 188);
+            this.btnSearch.Location = new System.Drawing.Point(185, 289);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(102, 32);
+            this.btnSearch.Size = new System.Drawing.Size(155, 49);
             this.btnSearch.TabIndex = 35;
             this.btnSearch.TabStop = false;
             this.btnSearch.Text = "Buscar";
@@ -448,9 +480,10 @@
             this.lblUsageIndex.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblUsageIndex.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsageIndex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblUsageIndex.Location = new System.Drawing.Point(23, 231);
+            this.lblUsageIndex.Location = new System.Drawing.Point(34, 354);
+            this.lblUsageIndex.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsageIndex.Name = "lblUsageIndex";
-            this.lblUsageIndex.Size = new System.Drawing.Size(96, 19);
+            this.lblUsageIndex.Size = new System.Drawing.Size(147, 29);
             this.lblUsageIndex.TabIndex = 31;
             this.lblUsageIndex.Text = "Índice de uso";
             // 
@@ -461,10 +494,10 @@
             this.lblFilter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFilter.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblFilter.Location = new System.Drawing.Point(20, 23);
+            this.lblFilter.Location = new System.Drawing.Point(30, 35);
             this.lblFilter.Margin = new System.Windows.Forms.Padding(0);
             this.lblFilter.Name = "lblFilter";
-            this.lblFilter.Size = new System.Drawing.Size(204, 19);
+            this.lblFilter.Size = new System.Drawing.Size(310, 29);
             this.lblFilter.TabIndex = 28;
             this.lblFilter.Text = "Filtrar inventario por categoría";
             // 
@@ -478,18 +511,18 @@
             this.tlpSub2.SetColumnSpan(this.txtSearch, 2);
             this.txtSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.txtSearch.Location = new System.Drawing.Point(20, 143);
+            this.txtSearch.Location = new System.Drawing.Point(30, 219);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.Multiline = false;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Padding = new System.Windows.Forms.Padding(20, 9, 20, 9);
+            this.txtSearch.Padding = new System.Windows.Forms.Padding(30, 14, 30, 14);
             this.txtSearch.PasswordChar = false;
             this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSearch.PlaceholderText = "";
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
-            this.txtSearch.Size = new System.Drawing.Size(204, 34);
+            this.txtSearch.Size = new System.Drawing.Size(310, 53);
             this.txtSearch.TabIndex = 34;
             this.txtSearch.TabStop = false;
             this.txtSearch.Texts = "";
@@ -502,10 +535,10 @@
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(20, 42);
+            this.cmbCategory.Location = new System.Drawing.Point(30, 64);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(0);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(204, 23);
+            this.cmbCategory.Size = new System.Drawing.Size(310, 27);
             this.cmbCategory.TabIndex = 29;
             this.cmbCategory.TabStop = false;
             // 
@@ -516,9 +549,10 @@
             this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblSearch.Location = new System.Drawing.Point(23, 124);
+            this.lblSearch.Location = new System.Drawing.Point(34, 190);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(198, 19);
+            this.lblSearch.Size = new System.Drawing.Size(302, 29);
             this.lblSearch.TabIndex = 33;
             this.lblSearch.Text = "Buscar producto";
             // 
@@ -535,10 +569,10 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnFilter.Location = new System.Drawing.Point(122, 80);
+            this.btnFilter.Location = new System.Drawing.Point(185, 122);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(0);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(102, 32);
+            this.btnFilter.Size = new System.Drawing.Size(155, 50);
             this.btnFilter.TabIndex = 30;
             this.btnFilter.TabStop = false;
             this.btnFilter.Text = "Filtrar";
@@ -556,10 +590,10 @@
             this.pnlMain.GradientAngle = 90F;
             this.pnlMain.GradientBottomColor = System.Drawing.Color.White;
             this.pnlMain.GradientTopColor = System.Drawing.Color.White;
-            this.pnlMain.Location = new System.Drawing.Point(424, 155);
+            this.pnlMain.Location = new System.Drawing.Point(639, 239);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(904, 630);
+            this.pnlMain.Size = new System.Drawing.Size(1357, 970);
             this.pnlMain.TabIndex = 3;
             // 
             // dgvInventory
@@ -612,23 +646,25 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvInventory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInventory.RowHeadersVisible = false;
+            this.dgvInventory.RowHeadersWidth = 62;
             this.dgvInventory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvInventory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvInventory.Size = new System.Drawing.Size(904, 630);
+            this.dgvInventory.Size = new System.Drawing.Size(1357, 970);
             this.dgvInventory.TabIndex = 0;
             this.dgvInventory.TabStop = false;
             // 
             // FrmInventoryAdministration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1370, 825);
+            this.ClientSize = new System.Drawing.Size(2055, 1269);
             this.Controls.Add(this.tlpInventory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmInventoryAdministration";
             this.Text = "HealthPortal | Inventario";
             this.cmsDataGrid.ResumeLayout(false);
@@ -682,5 +718,6 @@
         private System.Windows.Forms.TableLayoutPanel tlpControls;
         public System.Windows.Forms.Button btnExit;
         public System.Windows.Forms.Button btnResize;
+        public CustomControls.RJButton btnViewCategoryAdministration;
     }
 }

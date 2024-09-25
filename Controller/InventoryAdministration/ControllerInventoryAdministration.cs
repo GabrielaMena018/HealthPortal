@@ -13,6 +13,7 @@ using HealthPortal.Helper;
 using HealthPortal.Model.DAO;
 using HealthPortal.Model.DTO;
 using HealthPortal.Properties;
+using HealthPortal.View.CategoryAdministration;
 using HealthPortal.View.InventoryAdministration;
 using HealthPortal.View.MainPage;
 using HealthPortal.View.PatientAdministration;
@@ -59,7 +60,14 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmInventoryAdministration.btnFilter.MouseLeave += new EventHandler(MouseLeaveTextButton);
             frmInventoryAdministration.btnNew.MouseLeave += new EventHandler(MouseLeaveTextButton);
             frmInventoryAdministration.btnSearch.MouseLeave += new EventHandler(MouseLeaveTextButton);
+            frmInventoryAdministration.btnViewCategoryAdministration.Click += new EventHandler(ViewCategoryAdministration);
         }
+
+        private void BtnViewCategoryAdministration_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         private void MouseEnterTextButton(object sender, EventArgs e)
         {
             RJButton btn = sender as RJButton;
@@ -124,55 +132,22 @@ namespace HealthPortal.Controller.InventoryAdministration
             DataSet ds = dao.GetInventory();
             //Llenar DataGridView
             frmInventoryAdministration.dgvInventory.DataSource = ds.Tables["viewInventario"];
-            frmInventoryAdministration.dgvInventory.Columns[0].Width = 80;
-            frmInventoryAdministration.dgvInventory.Columns[1].Width = 80;
-            frmInventoryAdministration.dgvInventory.Columns[2].Width = 80;
-            frmInventoryAdministration.dgvInventory.Columns[3].Width = 80;
-            frmInventoryAdministration.dgvInventory.Columns[4].Width = 80;
-            frmInventoryAdministration.dgvInventory.Columns[5].Width = 80;
-            frmInventoryAdministration.dgvInventory.Columns[6].Width = 80;
-            frmInventoryAdministration.dgvInventory.Columns[7].Width = 80;
-            frmInventoryAdministration.dgvInventory.Columns[8].Width = 80;
+            frmInventoryAdministration.dgvInventory.Columns[0].Width = 60;
+            frmInventoryAdministration.dgvInventory.Columns[1].Width = 60;
+            frmInventoryAdministration.dgvInventory.Columns[2].Width = 60;
+            frmInventoryAdministration.dgvInventory.Columns[3].Width = 60;
+            frmInventoryAdministration.dgvInventory.Columns[4].Width = 60;
+            frmInventoryAdministration.dgvInventory.Columns[5].Width = 60;
+            frmInventoryAdministration.dgvInventory.Columns[6].Width = 60;
+            frmInventoryAdministration.dgvInventory.Columns[7].Width = 60;
+            frmInventoryAdministration.dgvInventory.Columns[8].Width = 60;
             frmInventoryAdministration.dgvInventory.Columns[9].Visible = false;
         }
-
-        #region Código para generar columnas de editar y eliminar
-        //public void GenerarColumnaEliminarDataGrid()
-        //{
-        //    DataGridViewButtonColumn btnClmDel = new DataGridViewButtonColumn();
-        //    btnClmDel.Name = "Eliminar";
-        //    ObjAdminUser.dgvIventory.Columns.Add(btnClmDel);
-        //}
-        //public void GenerarColumnaEditarDataGrid()
-        //{
-        //    DataGridViewButtonColumn btnClmEdit = new DataGridViewButtonColumn();
-        //    btnClmEdit.Name = "Editar";
-        //    ObjAdminUser.dgvPersonas.Columns.Add(btnClmEdit);
-        //}
-        //public void FormatoColumnaGrid(Object sender, DataGridViewCellPaintingEventArgs e)
-        //{
-        //    if (e.ColumnIndex >= 0 && ObjAdminUser.dgvPersonas.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
-        //    {
-        //        e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-        //        DataGridViewButtonCell celboton = ObjAdminUser.dgvPersonas.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
-        //        Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"../../../Resources/Trash.ico");
-        //        e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
-        //        ObjAdminUser.dgvPersonas.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
-        //        ObjAdminUser.dgvPersonas.Columns[e.ColumnIndex].Width = icoAtomico.Width + 8;
-        //        e.Handled = true;
-        //    }
-        //    else if (e.ColumnIndex >= 0 && ObjAdminUser.dgvPersonas.Columns[e.ColumnIndex].Name == "Editar" && e.RowIndex >= 0)
-        //    {
-        //        e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-        //        DataGridViewButtonCell celboton = ObjAdminUser.dgvPersonas.Rows[e.RowIndex].Cells["Editar"] as DataGridViewButtonCell;
-        //        Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"../../../Resources/Refresh.ico");
-        //        e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
-        //        ObjAdminUser.dgvPersonas.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
-        //        ObjAdminUser.dgvPersonas.Columns[e.ColumnIndex].Width = icoAtomico.Width + 8;
-        //        e.Handled = true;
-        //    }
-        //}
-        #endregion
+        private void ViewCategoryAdministration(object sender, EventArgs e)
+        {
+            FrmCategoryAdministration openForm = new FrmCategoryAdministration();
+            openForm.ShowDialog();
+        }
 
         private void NewMedicineInventory(object sender, EventArgs e)
         {
