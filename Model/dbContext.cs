@@ -29,8 +29,9 @@ namespace HealthPortal.Model
                 connection.Open();
                 return connection;
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
                 CommonMethods.HandleError("EC_001");
                 return null;
             }
@@ -55,7 +56,7 @@ namespace HealthPortal.Model
                 connection.Open();
                 return connection;
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
                 CommonMethods.HandleError("EC_001");
                 return null;

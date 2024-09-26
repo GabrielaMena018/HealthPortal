@@ -59,14 +59,14 @@ namespace HealthPortal.Helper
                 XmlNode serverNode = root.SelectSingleNode("server/text()");
                 XmlNode databaseNode = root.SelectSingleNode("database/text()");
                 XmlNode sqlAuthNode = root.SelectSingleNode("sqlAuth/text()");
-                XmlNode sqlPassNode = root.SelectSingleNode("sqlPass/text()");
+                XmlNode sqlPassNode = root.SelectSingleNode("sqlPassword/text()");
 
                 string codedServer = serverNode.Value;
                 string codedDatabase = databaseNode.Value;
                 DTOdbContext.Server = DecodeString(codedServer);
                 DTOdbContext.Database = DecodeString(codedDatabase);
 
-                if (sqlAuthNode != null && sqlPassNode != null)
+                if (!string.IsNullOrEmpty(sqlAuthNode.Value) && !string.IsNullOrEmpty(sqlPassNode.Value))
                 {
                     string codedUser = sqlAuthNode.Value;
                     string codedPassword = sqlPassNode.Value;
