@@ -21,8 +21,8 @@ namespace HealthPortal.Controller.Settings
 
         private void Manuals(object sender, EventArgs e)
         {
-            string url = "https://healthportalexpo2024.netlify.app/programa.html";
-            Process.Start(new ProcessStartInfo("https://healthportalexpo2024.netlify.app/programa.html"));
+            string url = "https://healthportal2024.netlify.app/";
+            Process.Start(new ProcessStartInfo("https://healthportal2024.netlify.app/"));
         }
     }
 }
