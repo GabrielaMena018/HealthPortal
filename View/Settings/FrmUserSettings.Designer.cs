@@ -71,7 +71,7 @@
             this.tlpServerSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02F));
             this.tlpServerSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.18F));
             this.tlpServerSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.8F));
-            this.tlpServerSettings.Size = new System.Drawing.Size(1090, 705);
+            this.tlpServerSettings.Size = new System.Drawing.Size(1453, 868);
             this.tlpServerSettings.TabIndex = 0;
             // 
             // pnlTitle
@@ -84,7 +84,7 @@
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1090, 119);
+            this.pnlTitle.Size = new System.Drawing.Size(1453, 147);
             this.pnlTitle.TabIndex = 2;
             // 
             // lblTitle
@@ -92,10 +92,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(41, 39);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(32, 39, 32, 32);
+            this.lblTitle.Location = new System.Drawing.Point(55, 48);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(43, 48, 43, 39);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(452, 41);
+            this.lblTitle.Size = new System.Drawing.Size(571, 51);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Configuración del Usuario";
             // 
@@ -109,10 +109,10 @@
             this.panelCustom1.GradientAngle = 90F;
             this.panelCustom1.GradientBottomColor = System.Drawing.Color.White;
             this.panelCustom1.GradientTopColor = System.Drawing.Color.White;
-            this.panelCustom1.Location = new System.Drawing.Point(47, 119);
+            this.panelCustom1.Location = new System.Drawing.Point(63, 147);
             this.panelCustom1.Margin = new System.Windows.Forms.Padding(0);
             this.panelCustom1.Name = "panelCustom1";
-            this.panelCustom1.Size = new System.Drawing.Size(994, 537);
+            this.panelCustom1.Size = new System.Drawing.Size(1325, 661);
             this.panelCustom1.TabIndex = 7;
             // 
             // tlpSub
@@ -132,7 +132,7 @@
             this.tlpSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.58F));
             this.tlpSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.63F));
             this.tlpSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.58F));
-            this.tlpSub.Size = new System.Drawing.Size(994, 537);
+            this.tlpSub.Size = new System.Drawing.Size(1325, 661);
             this.tlpSub.TabIndex = 2;
             // 
             // grpSecurityQuestions
@@ -141,10 +141,11 @@
             this.grpSecurityQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpSecurityQuestions.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpSecurityQuestions.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.grpSecurityQuestions.Location = new System.Drawing.Point(29, 29);
+            this.grpSecurityQuestions.Location = new System.Drawing.Point(39, 36);
             this.grpSecurityQuestions.Margin = new System.Windows.Forms.Padding(0);
             this.grpSecurityQuestions.Name = "grpSecurityQuestions";
-            this.grpSecurityQuestions.Size = new System.Drawing.Size(934, 223);
+            this.grpSecurityQuestions.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpSecurityQuestions.Size = new System.Drawing.Size(1245, 275);
             this.grpSecurityQuestions.TabIndex = 6;
             this.grpSecurityQuestions.TabStop = false;
             this.grpSecurityQuestions.Text = "Preguntas de seguridad";
@@ -161,7 +162,7 @@
             this.tlpSecurityQuestions.Controls.Add(this.btnAddSecurityQuestion, 3, 1);
             this.tlpSecurityQuestions.Controls.Add(this.lblInfo, 1, 1);
             this.tlpSecurityQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSecurityQuestions.Location = new System.Drawing.Point(3, 19);
+            this.tlpSecurityQuestions.Location = new System.Drawing.Point(4, 24);
             this.tlpSecurityQuestions.Margin = new System.Windows.Forms.Padding(0);
             this.tlpSecurityQuestions.Name = "tlpSecurityQuestions";
             this.tlpSecurityQuestions.RowCount = 5;
@@ -170,7 +171,7 @@
             this.tlpSecurityQuestions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.492183F));
             this.tlpSecurityQuestions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.06947F));
             this.tlpSecurityQuestions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.492183F));
-            this.tlpSecurityQuestions.Size = new System.Drawing.Size(928, 201);
+            this.tlpSecurityQuestions.Size = new System.Drawing.Size(1237, 247);
             this.tlpSecurityQuestions.TabIndex = 0;
             // 
             // dgvSecurityQuestions
@@ -200,7 +201,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             dataGridViewCellStyle2.NullValue = "-----";
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
@@ -208,7 +209,7 @@
             this.dgvSecurityQuestions.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSecurityQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSecurityQuestions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.dgvSecurityQuestions.Location = new System.Drawing.Point(10, 57);
+            this.dgvSecurityQuestions.Location = new System.Drawing.Point(13, 70);
             this.dgvSecurityQuestions.Margin = new System.Windows.Forms.Padding(0);
             this.dgvSecurityQuestions.MultiSelect = false;
             this.dgvSecurityQuestions.Name = "dgvSecurityQuestions";
@@ -224,32 +225,36 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSecurityQuestions.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSecurityQuestions.RowHeadersVisible = false;
+            this.dgvSecurityQuestions.RowHeadersWidth = 51;
             this.dgvSecurityQuestions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvSecurityQuestions.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvSecurityQuestions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvSecurityQuestions.Size = new System.Drawing.Size(907, 130);
+            this.dgvSecurityQuestions.Size = new System.Drawing.Size(1208, 160);
             this.dgvSecurityQuestions.TabIndex = 7;
             this.dgvSecurityQuestions.TabStop = false;
             // 
             // cmsDataGrid
             // 
             this.cmsDataGrid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsDataGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsDelete,
             this.cmsUpdate});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(279, 48);
+            this.cmsDataGrid.Size = new System.Drawing.Size(331, 84);
             // 
             // cmsDelete
             // 
+            this.cmsDelete.Image = global::HealthPortal.Properties.Resources.papelera_xmark;
             this.cmsDelete.Name = "cmsDelete";
-            this.cmsDelete.Size = new System.Drawing.Size(278, 22);
+            this.cmsDelete.Size = new System.Drawing.Size(330, 26);
             this.cmsDelete.Text = "Eliminar respuesta de seguridad";
             // 
             // cmsUpdate
             // 
+            this.cmsUpdate.Image = global::HealthPortal.Properties.Resources.actualizar__1_;
             this.cmsUpdate.Name = "cmsUpdate";
-            this.cmsUpdate.Size = new System.Drawing.Size(278, 22);
+            this.cmsUpdate.Size = new System.Drawing.Size(330, 26);
             this.cmsUpdate.Text = "Actualizar respuesta de seguridad";
             // 
             // btnAddSecurityQuestion
@@ -265,10 +270,10 @@
             this.btnAddSecurityQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSecurityQuestion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSecurityQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnAddSecurityQuestion.Location = new System.Drawing.Point(621, 13);
+            this.btnAddSecurityQuestion.Location = new System.Drawing.Point(827, 16);
             this.btnAddSecurityQuestion.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddSecurityQuestion.Name = "btnAddSecurityQuestion";
-            this.btnAddSecurityQuestion.Size = new System.Drawing.Size(296, 31);
+            this.btnAddSecurityQuestion.Size = new System.Drawing.Size(394, 38);
             this.btnAddSecurityQuestion.TabIndex = 10;
             this.btnAddSecurityQuestion.Text = "Añadir respuesta a preguntas";
             this.btnAddSecurityQuestion.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
@@ -280,22 +285,24 @@
             this.lblInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblInfo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblInfo.Location = new System.Drawing.Point(13, 13);
+            this.lblInfo.Location = new System.Drawing.Point(17, 16);
+            this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(594, 31);
+            this.lblInfo.Size = new System.Drawing.Size(792, 38);
             this.lblInfo.TabIndex = 2;
             this.lblInfo.Text = "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que" +
     " todo aquel que en él cree, no se pierda, mas tenga vida eterna.";
             // 
             // FrmUserSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1090, 705);
+            this.ClientSize = new System.Drawing.Size(1453, 868);
             this.Controls.Add(this.tlpServerSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MinimizeBox = false;
             this.Name = "FrmUserSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -33,6 +33,12 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsView = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,24 +121,27 @@
             this.cmsView,
             this.cmsUpdate});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(324, 76);
+            this.cmsDataGrid.Size = new System.Drawing.Size(328, 82);
             // 
             // cmsDelete
             // 
+            this.cmsDelete.Image = global::HealthPortal.Properties.Resources.papelera_xmark;
             this.cmsDelete.Name = "cmsDelete";
-            this.cmsDelete.Size = new System.Drawing.Size(323, 24);
+            this.cmsDelete.Size = new System.Drawing.Size(327, 26);
             this.cmsDelete.Text = "Eliminar visita";
             // 
             // cmsView
             // 
+            this.cmsView.Image = global::HealthPortal.Properties.Resources.descripcion_general;
             this.cmsView.Name = "cmsView";
-            this.cmsView.Size = new System.Drawing.Size(323, 24);
+            this.cmsView.Size = new System.Drawing.Size(327, 26);
             this.cmsView.Text = "Ver Información de la visita";
             // 
             // cmsUpdate
             // 
+            this.cmsUpdate.Image = global::HealthPortal.Properties.Resources.actualizar__1_;
             this.cmsUpdate.Name = "cmsUpdate";
-            this.cmsUpdate.Size = new System.Drawing.Size(323, 24);
+            this.cmsUpdate.Size = new System.Drawing.Size(327, 26);
             this.cmsUpdate.Text = "Actualizar información de la visita";
             // 
             // tlpInventory
@@ -533,7 +542,7 @@
             this.tabControl1.ContextMenuStrip = this.cmsDataGrid;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.tabControl1.Location = new System.Drawing.Point(570, 194);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -544,24 +553,71 @@
             // 
             this.tabPage1.Controls.Add(this.dgvVisitInfo);
             this.tabPage1.Controls.Add(this.tlpMainSub1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1192, 741);
+            this.tabPage1.Size = new System.Drawing.Size(1192, 736);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Visitas";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dgvVisitInfo
             // 
+            this.dgvVisitInfo.AllowUserToAddRows = false;
+            this.dgvVisitInfo.AllowUserToDeleteRows = false;
+            this.dgvVisitInfo.AllowUserToResizeColumns = false;
+            this.dgvVisitInfo.AllowUserToResizeRows = false;
+            this.dgvVisitInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVisitInfo.BackgroundColor = System.Drawing.Color.White;
+            this.dgvVisitInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVisitInfo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvVisitInfo.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvVisitInfo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle1.NullValue = "-----";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVisitInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVisitInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVisitInfo.ContextMenuStrip = this.cmsDataGrid;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.NullValue = "-----";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVisitInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvVisitInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvVisitInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.dgvVisitInfo.Location = new System.Drawing.Point(3, 126);
+            this.dgvVisitInfo.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvVisitInfo.MultiSelect = false;
             this.dgvVisitInfo.Name = "dgvVisitInfo";
-            this.dgvVisitInfo.RowHeadersWidth = 51;
-            this.dgvVisitInfo.RowTemplate.Height = 24;
-            this.dgvVisitInfo.Size = new System.Drawing.Size(1186, 612);
-            this.dgvVisitInfo.TabIndex = 2;
+            this.dgvVisitInfo.ReadOnly = true;
+            this.dgvVisitInfo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle3.NullValue = "-----";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVisitInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvVisitInfo.RowHeadersVisible = false;
+            this.dgvVisitInfo.RowHeadersWidth = 62;
+            this.dgvVisitInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvVisitInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvVisitInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvVisitInfo.Size = new System.Drawing.Size(1186, 607);
+            this.dgvVisitInfo.TabIndex = 41;
+            this.dgvVisitInfo.TabStop = false;
             // 
             // tlpMainSub1
             // 
@@ -634,7 +690,7 @@
             this.cmbRole.Location = new System.Drawing.Point(763, 67);
             this.cmbRole.Margin = new System.Windows.Forms.Padding(0);
             this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(157, 24);
+            this.cmbRole.Size = new System.Drawing.Size(157, 29);
             this.cmbRole.TabIndex = 39;
             this.cmbRole.TabStop = false;
             // 
@@ -660,7 +716,7 @@
             this.cmbGrade.Location = new System.Drawing.Point(572, 67);
             this.cmbGrade.Margin = new System.Windows.Forms.Padding(0);
             this.cmbGrade.Name = "cmbGrade";
-            this.cmbGrade.Size = new System.Drawing.Size(157, 24);
+            this.cmbGrade.Size = new System.Drawing.Size(157, 29);
             this.cmbGrade.TabIndex = 37;
             this.cmbGrade.TabStop = false;
             // 
@@ -686,7 +742,7 @@
             this.cmbSpecialty.Location = new System.Drawing.Point(381, 67);
             this.cmbSpecialty.Margin = new System.Windows.Forms.Padding(0);
             this.cmbSpecialty.Name = "cmbSpecialty";
-            this.cmbSpecialty.Size = new System.Drawing.Size(157, 24);
+            this.cmbSpecialty.Size = new System.Drawing.Size(157, 29);
             this.cmbSpecialty.TabIndex = 35;
             this.cmbSpecialty.TabStop = false;
             // 
@@ -745,35 +801,81 @@
             this.dtpVisitDate.CalendarFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpVisitDate.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dtpVisitDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVisitDate.Location = new System.Drawing.Point(190, 69);
+            this.dtpVisitDate.Location = new System.Drawing.Point(190, 64);
             this.dtpVisitDate.Margin = new System.Windows.Forms.Padding(0);
             this.dtpVisitDate.Name = "dtpVisitDate";
-            this.dtpVisitDate.Size = new System.Drawing.Size(157, 22);
+            this.dtpVisitDate.Size = new System.Drawing.Size(157, 27);
             this.dtpVisitDate.TabIndex = 33;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvPacientInfo);
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1192, 741);
+            this.tabPage2.Size = new System.Drawing.Size(1192, 736);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pacientes";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dgvPacientInfo
             // 
+            this.dgvPacientInfo.AllowUserToAddRows = false;
+            this.dgvPacientInfo.AllowUserToDeleteRows = false;
+            this.dgvPacientInfo.AllowUserToResizeColumns = false;
+            this.dgvPacientInfo.AllowUserToResizeRows = false;
+            this.dgvPacientInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPacientInfo.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPacientInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPacientInfo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvPacientInfo.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvPacientInfo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle4.NullValue = "-----";
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPacientInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPacientInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientInfo.ContextMenuStrip = this.cmsDataGridPatient;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.NullValue = "-----";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPacientInfo.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPacientInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPacientInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.dgvPacientInfo.Location = new System.Drawing.Point(3, 126);
+            this.dgvPacientInfo.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvPacientInfo.MultiSelect = false;
             this.dgvPacientInfo.Name = "dgvPacientInfo";
-            this.dgvPacientInfo.RowHeadersWidth = 51;
-            this.dgvPacientInfo.RowTemplate.Height = 24;
-            this.dgvPacientInfo.Size = new System.Drawing.Size(1186, 612);
-            this.dgvPacientInfo.TabIndex = 3;
+            this.dgvPacientInfo.ReadOnly = true;
+            this.dgvPacientInfo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle6.NullValue = "-----";
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPacientInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvPacientInfo.RowHeadersVisible = false;
+            this.dgvPacientInfo.RowHeadersWidth = 62;
+            this.dgvPacientInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvPacientInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvPacientInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvPacientInfo.Size = new System.Drawing.Size(1186, 607);
+            this.dgvPacientInfo.TabIndex = 44;
+            this.dgvPacientInfo.TabStop = false;
             // 
             // cmsDataGridPatient
             // 
@@ -785,30 +887,34 @@
             this.ViewPatient,
             this.UpdatePatient});
             this.cmsDataGridPatient.Name = "cmsDataGrid";
-            this.cmsDataGridPatient.Size = new System.Drawing.Size(340, 100);
+            this.cmsDataGridPatient.Size = new System.Drawing.Size(344, 136);
             // 
             // cmsInsertPatient
             // 
+            this.cmsInsertPatient.Image = global::HealthPortal.Properties.Resources.agregar_usuario__1_;
             this.cmsInsertPatient.Name = "cmsInsertPatient";
-            this.cmsInsertPatient.Size = new System.Drawing.Size(339, 24);
+            this.cmsInsertPatient.Size = new System.Drawing.Size(343, 26);
             this.cmsInsertPatient.Text = "Agregar Paciente";
             // 
             // PatientDelete
             // 
+            this.PatientDelete.Image = global::HealthPortal.Properties.Resources.borrar_usuario;
             this.PatientDelete.Name = "PatientDelete";
-            this.PatientDelete.Size = new System.Drawing.Size(339, 24);
+            this.PatientDelete.Size = new System.Drawing.Size(343, 26);
             this.PatientDelete.Text = "Eliminar paciente";
             // 
             // ViewPatient
             // 
+            this.ViewPatient.Image = global::HealthPortal.Properties.Resources.agregar_documento;
             this.ViewPatient.Name = "ViewPatient";
-            this.ViewPatient.Size = new System.Drawing.Size(339, 24);
+            this.ViewPatient.Size = new System.Drawing.Size(343, 26);
             this.ViewPatient.Text = "Ver Información del paciente";
             // 
             // UpdatePatient
             // 
+            this.UpdatePatient.Image = global::HealthPortal.Properties.Resources.actualizar__1_;
             this.UpdatePatient.Name = "UpdatePatient";
-            this.UpdatePatient.Size = new System.Drawing.Size(339, 24);
+            this.UpdatePatient.Size = new System.Drawing.Size(343, 26);
             this.UpdatePatient.Text = "Actualizar información del paciente";
             // 
             // tableLayoutPanel1
@@ -1008,12 +1114,10 @@
         private System.Windows.Forms.Label lblFilterByDate;
         public System.Windows.Forms.DateTimePicker dtpVisitDate;
         private System.Windows.Forms.TabPage tabPage2;
-        public System.Windows.Forms.DataGridView dgvVisitInfo;
         public System.Windows.Forms.ContextMenuStrip cmsDataGridPatient;
         public System.Windows.Forms.ToolStripMenuItem PatientDelete;
         public System.Windows.Forms.ToolStripMenuItem ViewPatient;
         public System.Windows.Forms.ToolStripMenuItem UpdatePatient;
-        public System.Windows.Forms.DataGridView dgvPacientInfo;
         public System.Windows.Forms.ToolStripMenuItem cmsInsertPatient;
         public System.Windows.Forms.TabControl tabControl1;
         public System.Windows.Forms.GroupBox grpAddVisit;
@@ -1024,5 +1128,7 @@
         public CustomControls.RJButton btnSearchPatientInfo;
         public CustomControls.CustomTextBox txtSearchPatientInfo;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.DataGridView dgvVisitInfo;
+        public System.Windows.Forms.DataGridView dgvPacientInfo;
     }
 }

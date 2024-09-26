@@ -48,16 +48,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.txtIdPerson = new System.Windows.Forms.ToolStripTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnUpdate = new CustomControls.RJButton();
             this.txtPatientLastName = new CustomControls.CustomTextBox();
             this.txtPatientName = new CustomControls.CustomTextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnAddPatient = new CustomControls.RJButton();
             this.groupStudent.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // groupStudent
@@ -275,7 +271,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(158)))), ((int)(((byte)(188)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
             this.label1.Location = new System.Drawing.Point(23, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(169, 50);
@@ -308,17 +304,6 @@
             this.txtIdPerson.Name = "txtIdPerson";
             this.txtIdPerson.Size = new System.Drawing.Size(132, 27);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(566, 398);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
@@ -336,7 +321,6 @@
             this.btnUpdate.Size = new System.Drawing.Size(156, 42);
             this.btnUpdate.TabIndex = 31;
             this.btnUpdate.Text = "Actualizar";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.TextColor = System.Drawing.Color.Black;
             this.btnUpdate.UseVisualStyleBackColor = false;
             // 
@@ -388,17 +372,6 @@
             this.txtPatientName.Texts = "";
             this.txtPatientName.UnderlinedStyle = false;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(720, 397);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox4.TabIndex = 34;
-            this.pictureBox4.TabStop = false;
-            // 
             // btnAddPatient
             // 
             this.btnAddPatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
@@ -417,7 +390,6 @@
             this.btnAddPatient.Size = new System.Drawing.Size(148, 44);
             this.btnAddPatient.TabIndex = 33;
             this.btnAddPatient.Text = "Agregar";
-            this.btnAddPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddPatient.TextColor = System.Drawing.Color.Black;
             this.btnAddPatient.UseVisualStyleBackColor = false;
             // 
@@ -425,10 +397,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 453);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.btnAddPatient);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
@@ -439,15 +410,15 @@
             this.Controls.Add(this.txtPatientName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmViewPatientInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de pacientes";
             this.groupStudent.ResumeLayout(false);
             this.groupStudent.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,9 +447,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         public System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         public System.Windows.Forms.ToolStripTextBox txtIdPerson;
-        public System.Windows.Forms.PictureBox pictureBox1;
         public CustomControls.RJButton btnUpdate;
-        public System.Windows.Forms.PictureBox pictureBox4;
         public CustomControls.RJButton btnAddPatient;
     }
 }

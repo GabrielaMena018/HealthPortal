@@ -53,7 +53,7 @@ namespace HealthPortal.View.InventoryAdministration
             this.label1.Location = new System.Drawing.Point(24, 24);
             this.label1.Margin = new System.Windows.Forms.Padding(15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(599, 56);
+            this.label1.Size = new System.Drawing.Size(498, 45);
             this.label1.TabIndex = 18;
             this.label1.Text = "Categorías del Inventario";
             // 
@@ -120,12 +120,13 @@ namespace HealthPortal.View.InventoryAdministration
             this.cmsCategoryAdministration.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsUpdateCategory});
             this.cmsCategoryAdministration.Name = "cmsCategoryAdministration";
-            this.cmsCategoryAdministration.Size = new System.Drawing.Size(242, 36);
+            this.cmsCategoryAdministration.Size = new System.Drawing.Size(222, 62);
             // 
             // cmsUpdateCategory
             // 
+            this.cmsUpdateCategory.Image = global::HealthPortal.Properties.Resources.actualizar__1_;
             this.cmsUpdateCategory.Name = "cmsUpdateCategory";
-            this.cmsUpdateCategory.Size = new System.Drawing.Size(241, 32);
+            this.cmsUpdateCategory.Size = new System.Drawing.Size(221, 30);
             this.cmsUpdateCategory.Text = "Actualizar Categoría";
             // 
             // btnAddCategory

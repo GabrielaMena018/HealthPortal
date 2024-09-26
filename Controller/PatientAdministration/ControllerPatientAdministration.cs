@@ -244,7 +244,7 @@ namespace HealthPortal.Controller.PatientAdministration
             DataSet ds = dao.RetrieveDgvInfoPatient();
             frmPatientAdministration.dgvPacientInfo.DataSource = ds.Tables["viewInfoPacientes"];
             frmPatientAdministration.dgvPacientInfo.Columns[0].HeaderText = "ID";
-            frmPatientAdministration.dgvPacientInfo.Columns[0].Width = 32;
+          
             frmPatientAdministration.dgvPacientInfo.Columns[1].HeaderText = "Nombre";
             frmPatientAdministration.dgvPacientInfo.Columns[2].HeaderText = "Apellidos";
             frmPatientAdministration.dgvPacientInfo.Columns[3].HeaderText = "Tipo Persona";

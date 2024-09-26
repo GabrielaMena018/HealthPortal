@@ -320,6 +320,9 @@
     <EmbeddedResource Include="View\PasswordManagement\FrmSecurityQuestions.resx">
       <DependentUpon>FrmSecurityQuestions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientAdministration\FrmViewPatientInfo.resx">
+      <DependentUpon>FrmViewPatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\SectionAdministration\FrmAddUpdateSection.resx">
       <DependentUpon>FrmAddUpdateSection.cs</DependentUpon>
     </EmbeddedResource>
@@ -697,6 +700,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrar-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar-usuario %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar-documento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\papelera-xmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\descripcion-general.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiple.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

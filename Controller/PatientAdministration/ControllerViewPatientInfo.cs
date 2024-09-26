@@ -129,7 +129,7 @@ namespace HealthPortal.Controller.PatientAdministration
             {
                 frmViewPatientInfo.label1.Text = "Actualizar información del Paciente";
                 frmViewPatientInfo.btnUpdate.Enabled = true;
-                frmViewPatientInfo.btnAddPatient.Enabled = true;
+                frmViewPatientInfo.btnAddPatient.Enabled = false;
 
 
             }
@@ -138,7 +138,7 @@ namespace HealthPortal.Controller.PatientAdministration
 
                 frmViewPatientInfo.btnUpdate.Enabled = false;
                 frmViewPatientInfo.btnUpdate.BackColor = Color.Silver;
-                frmViewPatientInfo.pictureBox1.BackColor = Color.Silver;
+                
                 frmViewPatientInfo.txtPatientName.Enabled = false;
                 frmViewPatientInfo.txtPatientName.BackColor = Color.WhiteSmoke;
                 frmViewPatientInfo.txtPatientLastName.Enabled = false;

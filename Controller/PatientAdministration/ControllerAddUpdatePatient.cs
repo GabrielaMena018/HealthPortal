@@ -153,22 +153,17 @@ namespace HealthPortal.Controller.PatientAdministration
             {
                 objAddUpdatePatient.btnAddPatient.Enabled = true;
                 objAddUpdatePatient.btnUpdate.Enabled = false;
-                objAddUpdatePatient.btnPDF.Enabled = false;
-                objAddUpdatePatient.btnPDF.BackColor = Color.Silver;
-                objAddUpdatePatient.pic2.BackColor = Color.Silver;
                 objAddUpdatePatient.btnUpdate.BackColor = Color.Silver;
-                objAddUpdatePatient.pictureBox1.BackColor = Color.Silver;
+                
             }
             else if (action == 2)
             {
                 objAddUpdatePatient.label1.Text = "Actualizar Visita";
                 objAddUpdatePatient.btnAddPatient.Enabled = false;
                 objAddUpdatePatient.btnUpdate.Enabled = true;
-                objAddUpdatePatient.btnPDF.Enabled = false;
-                objAddUpdatePatient.btnPDF.BackColor = Color.Silver;
-                objAddUpdatePatient.pic2.BackColor = Color.Silver;
+              
                 objAddUpdatePatient.btnAddPatient.BackColor = Color.Silver;
-                objAddUpdatePatient.pictureBox4.BackColor = Color.Silver;
+               
                 objAddUpdatePatient.txtPatientName.Enabled = false;
                 objAddUpdatePatient.txtPatientName.BackColor = Color.WhiteSmoke;
                 objAddUpdatePatient.txtPatientLastName.Enabled = false;
@@ -189,9 +184,7 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.btnAddPatient.BackColor = Color.Silver;
                 objAddUpdatePatient.btnUpdate.Enabled = false;
                 objAddUpdatePatient.btnUpdate.BackColor = Color.Silver;
-                objAddUpdatePatient.pictureBox1.BackColor = Color.Silver;
-                objAddUpdatePatient.pictureBox4.BackColor = Color.Silver;
-                objAddUpdatePatient.btnPDF.Enabled = true;
+               
                 objAddUpdatePatient.txtPatientName.Enabled = false;
                 objAddUpdatePatient.txtPatientName.BackColor = Color.WhiteSmoke;
                 objAddUpdatePatient.txtPatientLastName.Enabled = false;

@@ -42,72 +42,77 @@
             this.dgvUserDisplay = new System.Windows.Forms.DataGridView();
             this.pnlSide = new CustomControls.PanelCustom();
             this.tlpSide = new System.Windows.Forms.TableLayoutPanel();
-            this.grpFilterSearchUsers = new System.Windows.Forms.GroupBox();
-            this.tlpSub2 = new System.Windows.Forms.TableLayoutPanel();
-            this.rdoShowInactiveUsers = new System.Windows.Forms.RadioButton();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.txtUserAdministrationSearch = new CustomControls.CustomTextBox();
-            this.btnSearchForUser = new CustomControls.RJButton();
             this.grpNewUser = new System.Windows.Forms.GroupBox();
             this.tlpSub1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddNewUser = new CustomControls.RJButton();
+            this.grpFilterSearchUsers = new System.Windows.Forms.GroupBox();
+            this.tlpSub2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSearchForUser = new CustomControls.RJButton();
+            this.txtUserAdministrationSearch = new CustomControls.CustomTextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.rdoShowInactiveUsers = new System.Windows.Forms.RadioButton();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.tlpTitle = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
-            this.btnResize = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.tlpTitleSub = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnResize = new System.Windows.Forms.Button();
             this.tlpInventory = new System.Windows.Forms.TableLayoutPanel();
             this.cmsDataGrid.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserDisplay)).BeginInit();
             this.pnlSide.SuspendLayout();
             this.tlpSide.SuspendLayout();
-            this.grpFilterSearchUsers.SuspendLayout();
-            this.tlpSub2.SuspendLayout();
             this.grpNewUser.SuspendLayout();
             this.tlpSub1.SuspendLayout();
+            this.grpFilterSearchUsers.SuspendLayout();
+            this.tlpSub2.SuspendLayout();
             this.pnlTitle.SuspendLayout();
             this.tlpTitle.SuspendLayout();
-            this.tlpControls.SuspendLayout();
             this.tlpTitleSub.SuspendLayout();
+            this.tlpControls.SuspendLayout();
             this.tlpInventory.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmsDataGrid
             // 
             this.cmsDataGrid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsDataGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsDeleteUser,
             this.cmsViewUserInfo,
             this.cmsUpdateUserInfo,
             this.cmsReestablishPassword});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(278, 92);
+            this.cmsDataGrid.Size = new System.Drawing.Size(329, 108);
             // 
             // cmsDeleteUser
             // 
+            this.cmsDeleteUser.Image = global::HealthPortal.Properties.Resources.borrar_usuario;
             this.cmsDeleteUser.Name = "cmsDeleteUser";
-            this.cmsDeleteUser.Size = new System.Drawing.Size(277, 22);
+            this.cmsDeleteUser.Size = new System.Drawing.Size(328, 26);
             this.cmsDeleteUser.Text = "Eliminar usuario";
             // 
             // cmsViewUserInfo
             // 
+            this.cmsViewUserInfo.Image = global::HealthPortal.Properties.Resources.agregar_documento;
             this.cmsViewUserInfo.Name = "cmsViewUserInfo";
-            this.cmsViewUserInfo.Size = new System.Drawing.Size(277, 22);
+            this.cmsViewUserInfo.Size = new System.Drawing.Size(328, 26);
             this.cmsViewUserInfo.Text = "Ver información del usuario";
             // 
             // cmsUpdateUserInfo
             // 
+            this.cmsUpdateUserInfo.Image = global::HealthPortal.Properties.Resources.actualizar__1_;
             this.cmsUpdateUserInfo.Name = "cmsUpdateUserInfo";
-            this.cmsUpdateUserInfo.Size = new System.Drawing.Size(277, 22);
+            this.cmsUpdateUserInfo.Size = new System.Drawing.Size(328, 26);
             this.cmsUpdateUserInfo.Text = "Actualizar información del usuario";
             // 
             // cmsReestablishPassword
             // 
+            this.cmsReestablishPassword.Image = global::HealthPortal.Properties.Resources.clave;
             this.cmsReestablishPassword.Name = "cmsReestablishPassword";
-            this.cmsReestablishPassword.Size = new System.Drawing.Size(277, 22);
+            this.cmsReestablishPassword.Size = new System.Drawing.Size(328, 26);
             this.cmsReestablishPassword.Text = "Reestablecer contraseña";
             // 
             // pnlMain
@@ -121,10 +126,10 @@
             this.pnlMain.GradientAngle = 90F;
             this.pnlMain.GradientBottomColor = System.Drawing.Color.White;
             this.pnlMain.GradientTopColor = System.Drawing.Color.White;
-            this.pnlMain.Location = new System.Drawing.Point(424, 155);
+            this.pnlMain.Location = new System.Drawing.Point(567, 191);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(904, 630);
+            this.pnlMain.Size = new System.Drawing.Size(1206, 776);
             this.pnlMain.TabIndex = 3;
             // 
             // dgvUserDisplay
@@ -177,10 +182,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUserDisplay.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUserDisplay.RowHeadersVisible = false;
+            this.dgvUserDisplay.RowHeadersWidth = 51;
             this.dgvUserDisplay.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvUserDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvUserDisplay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvUserDisplay.Size = new System.Drawing.Size(904, 630);
+            this.dgvUserDisplay.Size = new System.Drawing.Size(1206, 776);
             this.dgvUserDisplay.TabIndex = 0;
             this.dgvUserDisplay.TabStop = false;
             // 
@@ -195,10 +201,10 @@
             this.pnlSide.GradientAngle = 90F;
             this.pnlSide.GradientBottomColor = System.Drawing.Color.White;
             this.pnlSide.GradientTopColor = System.Drawing.Color.White;
-            this.pnlSide.Location = new System.Drawing.Point(38, 155);
+            this.pnlSide.Location = new System.Drawing.Point(51, 191);
             this.pnlSide.Margin = new System.Windows.Forms.Padding(0);
             this.pnlSide.Name = "pnlSide";
-            this.pnlSide.Size = new System.Drawing.Size(348, 630);
+            this.pnlSide.Size = new System.Drawing.Size(465, 776);
             this.pnlSide.TabIndex = 2;
             // 
             // tlpSide
@@ -211,6 +217,7 @@
             this.tlpSide.Controls.Add(this.grpFilterSearchUsers, 1, 1);
             this.tlpSide.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpSide.Location = new System.Drawing.Point(0, 0);
+            this.tlpSide.Margin = new System.Windows.Forms.Padding(4);
             this.tlpSide.Name = "tlpSide";
             this.tlpSide.RowCount = 5;
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.007008F));
@@ -218,8 +225,64 @@
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.105105F));
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.61562F));
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.007008F));
-            this.tlpSide.Size = new System.Drawing.Size(348, 630);
+            this.tlpSide.Size = new System.Drawing.Size(465, 776);
             this.tlpSide.TabIndex = 0;
+            // 
+            // grpNewUser
+            // 
+            this.grpNewUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.grpNewUser.Controls.Add(this.tlpSub1);
+            this.grpNewUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpNewUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpNewUser.ForeColor = System.Drawing.Color.DarkGray;
+            this.grpNewUser.Location = new System.Drawing.Point(59, 599);
+            this.grpNewUser.Margin = new System.Windows.Forms.Padding(0);
+            this.grpNewUser.Name = "grpNewUser";
+            this.grpNewUser.Padding = new System.Windows.Forms.Padding(4);
+            this.grpNewUser.Size = new System.Drawing.Size(345, 121);
+            this.grpNewUser.TabIndex = 1;
+            this.grpNewUser.TabStop = false;
+            this.grpNewUser.Text = "Añadir usuarios";
+            // 
+            // tlpSub1
+            // 
+            this.tlpSub1.ColumnCount = 3;
+            this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.33F));
+            this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.34F));
+            this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.33F));
+            this.tlpSub1.Controls.Add(this.btnAddNewUser, 1, 1);
+            this.tlpSub1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpSub1.Location = new System.Drawing.Point(4, 21);
+            this.tlpSub1.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpSub1.Name = "tlpSub1";
+            this.tlpSub1.RowCount = 3;
+            this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.92F));
+            this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.16F));
+            this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.92F));
+            this.tlpSub1.Size = new System.Drawing.Size(337, 96);
+            this.tlpSub1.TabIndex = 0;
+            // 
+            // btnAddNewUser
+            // 
+            this.btnAddNewUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnAddNewUser.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnAddNewUser.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddNewUser.BorderRadius = 30;
+            this.btnAddNewUser.BorderSize = 0;
+            this.btnAddNewUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNewUser.FlatAppearance.BorderSize = 0;
+            this.btnAddNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddNewUser.Location = new System.Drawing.Point(28, 25);
+            this.btnAddNewUser.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAddNewUser.Name = "btnAddNewUser";
+            this.btnAddNewUser.Size = new System.Drawing.Size(280, 42);
+            this.btnAddNewUser.TabIndex = 1;
+            this.btnAddNewUser.TabStop = false;
+            this.btnAddNewUser.Text = "Nuevo Usuario";
+            this.btnAddNewUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnAddNewUser.UseVisualStyleBackColor = false;
             // 
             // grpFilterSearchUsers
             // 
@@ -227,9 +290,11 @@
             this.grpFilterSearchUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpFilterSearchUsers.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
             this.grpFilterSearchUsers.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.grpFilterSearchUsers.Location = new System.Drawing.Point(47, 47);
+            this.grpFilterSearchUsers.Location = new System.Drawing.Point(63, 58);
+            this.grpFilterSearchUsers.Margin = new System.Windows.Forms.Padding(4);
             this.grpFilterSearchUsers.Name = "grpFilterSearchUsers";
-            this.grpFilterSearchUsers.Size = new System.Drawing.Size(252, 405);
+            this.grpFilterSearchUsers.Padding = new System.Windows.Forms.Padding(4);
+            this.grpFilterSearchUsers.Size = new System.Drawing.Size(337, 498);
             this.grpFilterSearchUsers.TabIndex = 2;
             this.grpFilterSearchUsers.TabStop = false;
             this.grpFilterSearchUsers.Text = "Filtrar / Buscar usuarios";
@@ -246,7 +311,8 @@
             this.tlpSub2.Controls.Add(this.lblSearch, 1, 1);
             this.tlpSub2.Controls.Add(this.rdoShowInactiveUsers, 1, 7);
             this.tlpSub2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSub2.Location = new System.Drawing.Point(3, 17);
+            this.tlpSub2.Location = new System.Drawing.Point(4, 21);
+            this.tlpSub2.Margin = new System.Windows.Forms.Padding(4);
             this.tlpSub2.Name = "tlpSub2";
             this.tlpSub2.RowCount = 14;
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
@@ -263,62 +329,8 @@
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.935065F));
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.31169F));
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
-            this.tlpSub2.Size = new System.Drawing.Size(246, 385);
+            this.tlpSub2.Size = new System.Drawing.Size(329, 473);
             this.tlpSub2.TabIndex = 3;
-            // 
-            // rdoShowInactiveUsers
-            // 
-            this.rdoShowInactiveUsers.AutoSize = true;
-            this.tlpSub2.SetColumnSpan(this.rdoShowInactiveUsers, 2);
-            this.rdoShowInactiveUsers.Location = new System.Drawing.Point(20, 161);
-            this.rdoShowInactiveUsers.Margin = new System.Windows.Forms.Padding(0);
-            this.rdoShowInactiveUsers.Name = "rdoShowInactiveUsers";
-            this.rdoShowInactiveUsers.Size = new System.Drawing.Size(164, 19);
-            this.rdoShowInactiveUsers.TabIndex = 36;
-            this.rdoShowInactiveUsers.TabStop = true;
-            this.rdoShowInactiveUsers.Text = "Mostrar usuarios inactivos";
-            this.rdoShowInactiveUsers.UseVisualStyleBackColor = true;
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.tlpSub2.SetColumnSpan(this.lblSearch, 2);
-            this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblSearch.Location = new System.Drawing.Point(23, 23);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(198, 19);
-            this.lblSearch.TabIndex = 33;
-            this.lblSearch.Text = "Buscar usuarios";
-            // 
-            // txtUserAdministrationSearch
-            // 
-            this.txtUserAdministrationSearch.BackColor = System.Drawing.Color.White;
-            this.txtUserAdministrationSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtUserAdministrationSearch.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtUserAdministrationSearch.BorderRadius = 15;
-            this.txtUserAdministrationSearch.BorderSize = 2;
-            this.tlpSub2.SetColumnSpan(this.txtUserAdministrationSearch, 2);
-            this.txtUserAdministrationSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUserAdministrationSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.txtUserAdministrationSearch.Location = new System.Drawing.Point(20, 69);
-            this.txtUserAdministrationSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.txtUserAdministrationSearch.MaxLength = 60;
-            this.txtUserAdministrationSearch.Multiline = false;
-            this.txtUserAdministrationSearch.Name = "txtUserAdministrationSearch";
-            this.txtUserAdministrationSearch.Padding = new System.Windows.Forms.Padding(20, 9, 20, 9);
-            this.txtUserAdministrationSearch.PasswordChar = false;
-            this.txtUserAdministrationSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtUserAdministrationSearch.PlaceholderText = "";
-            this.txtUserAdministrationSearch.SelectionLength = 0;
-            this.txtUserAdministrationSearch.SelectionStart = 0;
-            this.txtUserAdministrationSearch.Size = new System.Drawing.Size(204, 34);
-            this.txtUserAdministrationSearch.TabIndex = 34;
-            this.txtUserAdministrationSearch.TabStop = false;
-            this.txtUserAdministrationSearch.Tag = "name";
-            this.txtUserAdministrationSearch.Texts = "";
-            this.txtUserAdministrationSearch.UnderlinedStyle = false;
             // 
             // btnSearchForUser
             // 
@@ -333,69 +345,70 @@
             this.btnSearchForUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchForUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchForUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSearchForUser.Location = new System.Drawing.Point(122, 114);
+            this.btnSearchForUser.Location = new System.Drawing.Point(164, 139);
             this.btnSearchForUser.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearchForUser.Name = "btnSearchForUser";
-            this.btnSearchForUser.Size = new System.Drawing.Size(102, 32);
+            this.btnSearchForUser.Size = new System.Drawing.Size(137, 39);
             this.btnSearchForUser.TabIndex = 35;
             this.btnSearchForUser.TabStop = false;
             this.btnSearchForUser.Text = "Buscar";
             this.btnSearchForUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnSearchForUser.UseVisualStyleBackColor = false;
             // 
-            // grpNewUser
+            // txtUserAdministrationSearch
             // 
-            this.grpNewUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.grpNewUser.Controls.Add(this.tlpSub1);
-            this.grpNewUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpNewUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpNewUser.ForeColor = System.Drawing.Color.DarkGray;
-            this.grpNewUser.Location = new System.Drawing.Point(44, 487);
-            this.grpNewUser.Margin = new System.Windows.Forms.Padding(0);
-            this.grpNewUser.Name = "grpNewUser";
-            this.grpNewUser.Size = new System.Drawing.Size(258, 98);
-            this.grpNewUser.TabIndex = 1;
-            this.grpNewUser.TabStop = false;
-            this.grpNewUser.Text = "Añadir usuarios";
+            this.txtUserAdministrationSearch.BackColor = System.Drawing.Color.White;
+            this.txtUserAdministrationSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtUserAdministrationSearch.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtUserAdministrationSearch.BorderRadius = 15;
+            this.txtUserAdministrationSearch.BorderSize = 2;
+            this.tlpSub2.SetColumnSpan(this.txtUserAdministrationSearch, 2);
+            this.txtUserAdministrationSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUserAdministrationSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.txtUserAdministrationSearch.Location = new System.Drawing.Point(27, 84);
+            this.txtUserAdministrationSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.txtUserAdministrationSearch.MaxLength = 60;
+            this.txtUserAdministrationSearch.Multiline = false;
+            this.txtUserAdministrationSearch.Name = "txtUserAdministrationSearch";
+            this.txtUserAdministrationSearch.Padding = new System.Windows.Forms.Padding(27, 11, 27, 11);
+            this.txtUserAdministrationSearch.PasswordChar = false;
+            this.txtUserAdministrationSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtUserAdministrationSearch.PlaceholderText = "";
+            this.txtUserAdministrationSearch.SelectionLength = 0;
+            this.txtUserAdministrationSearch.SelectionStart = 0;
+            this.txtUserAdministrationSearch.Size = new System.Drawing.Size(274, 42);
+            this.txtUserAdministrationSearch.TabIndex = 34;
+            this.txtUserAdministrationSearch.TabStop = false;
+            this.txtUserAdministrationSearch.Tag = "name";
+            this.txtUserAdministrationSearch.Texts = "";
+            this.txtUserAdministrationSearch.UnderlinedStyle = false;
             // 
-            // tlpSub1
+            // lblSearch
             // 
-            this.tlpSub1.ColumnCount = 3;
-            this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.33F));
-            this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.34F));
-            this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.33F));
-            this.tlpSub1.Controls.Add(this.btnAddNewUser, 1, 1);
-            this.tlpSub1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSub1.Location = new System.Drawing.Point(3, 17);
-            this.tlpSub1.Name = "tlpSub1";
-            this.tlpSub1.RowCount = 3;
-            this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.92F));
-            this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.16F));
-            this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.92F));
-            this.tlpSub1.Size = new System.Drawing.Size(252, 78);
-            this.tlpSub1.TabIndex = 0;
+            this.lblSearch.AutoSize = true;
+            this.tlpSub2.SetColumnSpan(this.lblSearch, 2);
+            this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.lblSearch.Location = new System.Drawing.Point(31, 28);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(266, 23);
+            this.lblSearch.TabIndex = 33;
+            this.lblSearch.Text = "Buscar usuarios";
             // 
-            // btnAddNewUser
+            // rdoShowInactiveUsers
             // 
-            this.btnAddNewUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAddNewUser.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnAddNewUser.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAddNewUser.BorderRadius = 30;
-            this.btnAddNewUser.BorderSize = 0;
-            this.btnAddNewUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddNewUser.FlatAppearance.BorderSize = 0;
-            this.btnAddNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNewUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNewUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnAddNewUser.Location = new System.Drawing.Point(20, 20);
-            this.btnAddNewUser.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAddNewUser.Name = "btnAddNewUser";
-            this.btnAddNewUser.Size = new System.Drawing.Size(210, 36);
-            this.btnAddNewUser.TabIndex = 1;
-            this.btnAddNewUser.TabStop = false;
-            this.btnAddNewUser.Text = "Nuevo Usuario";
-            this.btnAddNewUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnAddNewUser.UseVisualStyleBackColor = false;
+            this.rdoShowInactiveUsers.AutoSize = true;
+            this.tlpSub2.SetColumnSpan(this.rdoShowInactiveUsers, 2);
+            this.rdoShowInactiveUsers.Location = new System.Drawing.Point(27, 196);
+            this.rdoShowInactiveUsers.Margin = new System.Windows.Forms.Padding(0);
+            this.rdoShowInactiveUsers.Name = "rdoShowInactiveUsers";
+            this.rdoShowInactiveUsers.Size = new System.Drawing.Size(200, 21);
+            this.rdoShowInactiveUsers.TabIndex = 36;
+            this.rdoShowInactiveUsers.TabStop = true;
+            this.rdoShowInactiveUsers.Text = "Mostrar usuarios inactivos";
+            this.rdoShowInactiveUsers.UseVisualStyleBackColor = true;
             // 
             // pnlTitle
             // 
@@ -407,7 +420,7 @@
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1370, 117);
+            this.pnlTitle.Size = new System.Drawing.Size(1827, 144);
             this.pnlTitle.TabIndex = 1;
             // 
             // tlpTitle
@@ -423,70 +436,9 @@
             this.tlpTitle.Name = "tlpTitle";
             this.tlpTitle.RowCount = 1;
             this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 117F));
-            this.tlpTitle.Size = new System.Drawing.Size(1370, 117);
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tlpTitle.Size = new System.Drawing.Size(1827, 144);
             this.tlpTitle.TabIndex = 1;
-            // 
-            // tlpControls
-            // 
-            this.tlpControls.ColumnCount = 5;
-            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
-            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.886792F));
-            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
-            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.37736F));
-            this.tlpControls.Controls.Add(this.btnExit, 3, 1);
-            this.tlpControls.Controls.Add(this.btnResize, 1, 1);
-            this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpControls.Location = new System.Drawing.Point(1000, 0);
-            this.tlpControls.Margin = new System.Windows.Forms.Padding(0);
-            this.tlpControls.Name = "tlpControls";
-            this.tlpControls.RowCount = 3;
-            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpControls.Size = new System.Drawing.Size(370, 117);
-            this.tlpControls.TabIndex = 1;
-            // 
-            // btnResize
-            // 
-            this.btnResize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnResize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResize.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnResize.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnResize.FlatAppearance.BorderSize = 0;
-            this.btnResize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnResize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResize.ForeColor = System.Drawing.Color.White;
-            this.btnResize.Image = ((System.Drawing.Image)(resources.GetObject("btnResize.Image")));
-            this.btnResize.Location = new System.Drawing.Point(185, 39);
-            this.btnResize.Margin = new System.Windows.Forms.Padding(0);
-            this.btnResize.Name = "btnResize";
-            this.btnResize.Size = new System.Drawing.Size(69, 39);
-            this.btnResize.TabIndex = 39;
-            this.btnResize.TabStop = false;
-            this.btnResize.UseVisualStyleBackColor = false;
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
-            this.btnExit.Location = new System.Drawing.Point(260, 39);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(69, 39);
-            this.btnExit.TabIndex = 38;
-            this.btnExit.TabStop = false;
-            this.btnExit.UseVisualStyleBackColor = false;
             // 
             // tlpTitleSub
             // 
@@ -503,7 +455,7 @@
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpTitleSub.Size = new System.Drawing.Size(1000, 117);
+            this.tlpTitleSub.Size = new System.Drawing.Size(1333, 144);
             this.tlpTitleSub.TabIndex = 0;
             // 
             // lblTitle
@@ -512,12 +464,73 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblTitle.Location = new System.Drawing.Point(50, 40);
+            this.lblTitle.Location = new System.Drawing.Point(66, 50);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(899, 46);
+            this.lblTitle.Size = new System.Drawing.Size(1199, 57);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Administración de Usuarios";
+            // 
+            // tlpControls
+            // 
+            this.tlpControls.ColumnCount = 5;
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.886792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.37736F));
+            this.tlpControls.Controls.Add(this.btnExit, 3, 1);
+            this.tlpControls.Controls.Add(this.btnResize, 1, 1);
+            this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpControls.Location = new System.Drawing.Point(1333, 0);
+            this.tlpControls.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpControls.Name = "tlpControls";
+            this.tlpControls.RowCount = 3;
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpControls.Size = new System.Drawing.Size(494, 144);
+            this.tlpControls.TabIndex = 1;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
+            this.btnExit.Location = new System.Drawing.Point(349, 47);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(93, 47);
+            this.btnExit.TabIndex = 38;
+            this.btnExit.TabStop = false;
+            this.btnExit.UseVisualStyleBackColor = false;
+            // 
+            // btnResize
+            // 
+            this.btnResize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnResize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnResize.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnResize.FlatAppearance.BorderSize = 0;
+            this.btnResize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnResize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResize.ForeColor = System.Drawing.Color.White;
+            this.btnResize.Image = ((System.Drawing.Image)(resources.GetObject("btnResize.Image")));
+            this.btnResize.Location = new System.Drawing.Point(247, 47);
+            this.btnResize.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResize.Name = "btnResize";
+            this.btnResize.Size = new System.Drawing.Size(93, 47);
+            this.btnResize.TabIndex = 39;
+            this.btnResize.TabStop = false;
+            this.btnResize.UseVisualStyleBackColor = false;
             // 
             // tlpInventory
             // 
@@ -532,24 +545,26 @@
             this.tlpInventory.Controls.Add(this.pnlMain, 3, 2);
             this.tlpInventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpInventory.Location = new System.Drawing.Point(0, 0);
+            this.tlpInventory.Margin = new System.Windows.Forms.Padding(4);
             this.tlpInventory.Name = "tlpInventory";
             this.tlpInventory.RowCount = 4;
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.4532F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
-            this.tlpInventory.Size = new System.Drawing.Size(1370, 825);
+            this.tlpInventory.Size = new System.Drawing.Size(1827, 1015);
             this.tlpInventory.TabIndex = 1;
             // 
             // FrmUserAdministration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1370, 825);
+            this.ClientSize = new System.Drawing.Size(1827, 1015);
             this.Controls.Add(this.tlpInventory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmUserAdministration";
             this.Text = "HealthPortal | Inventario";
             this.cmsDataGrid.ResumeLayout(false);
@@ -557,16 +572,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserDisplay)).EndInit();
             this.pnlSide.ResumeLayout(false);
             this.tlpSide.ResumeLayout(false);
+            this.grpNewUser.ResumeLayout(false);
+            this.tlpSub1.ResumeLayout(false);
             this.grpFilterSearchUsers.ResumeLayout(false);
             this.tlpSub2.ResumeLayout(false);
             this.tlpSub2.PerformLayout();
-            this.grpNewUser.ResumeLayout(false);
-            this.tlpSub1.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
             this.tlpTitle.ResumeLayout(false);
-            this.tlpControls.ResumeLayout(false);
             this.tlpTitleSub.ResumeLayout(false);
             this.tlpTitleSub.PerformLayout();
+            this.tlpControls.ResumeLayout(false);
             this.tlpInventory.ResumeLayout(false);
             this.ResumeLayout(false);
 
