@@ -28,7 +28,7 @@ namespace HealthPortal.Controller.PatientAdministration
         FrmAddUpdatePatient objAddUpdatePatient;
 
         int action, respuesta;
-        private string typeperson, Grade, specialty, AcademicSection, namemedication, TypeArea;
+        private string typeperson, Grade, specialty, AcademicSection, namemedication;
 
         public ControllerAddUpdatePatient(FrmAddUpdatePatient view, int action)
         {
@@ -56,7 +56,7 @@ namespace HealthPortal.Controller.PatientAdministration
             objAddUpdatePatient.Load += new EventHandler(InitialLoad);
             VerifyAction();
             ChargeValues(IdPatient, PatientName, PatientLastName, codigo, grupoTecnico, VisitDate, TimeVisit, Observaciones);
-            objAddUpdatePatient.btnUpdate.Click += new EventHandler(UpdatePatient);
+            objAddUpdatePatient.btnUpdate.Click += new EventHandler(UpdateVisit);
 
         }
 
@@ -116,29 +116,18 @@ namespace HealthPortal.Controller.PatientAdministration
         }
 
         //Metodo para actuzlaizar paciente
-        public void UpdatePatient(object sender, EventArgs e)
+        public void UpdateVisit(object sender, EventArgs e)
         {
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
             daoPatientAdministration.IdPatient = int.Parse(objAddUpdatePatient.txtIdPerson.Text.Trim());
-            daoPatientAdministration.Name = objAddUpdatePatient.txtPatientName.Texts.Trim();
-            daoPatientAdministration.LastName = objAddUpdatePatient.txtPatientLastName.Texts.Trim();
-            daoPatientAdministration.Role = (int)objAddUpdatePatient.cmbRole.SelectedValue;
             daoPatientAdministration.Date = objAddUpdatePatient.dtpRegisterDate.Value;
             daoPatientAdministration.Time = objAddUpdatePatient.dtpRegisterTime.Value.ToString("HH:mm");
             daoPatientAdministration.Medicine = (int)objAddUpdatePatient.cmbMedicamentoRegistro.SelectedValue;
             daoPatientAdministration.Observation = objAddUpdatePatient.txtObservations.Texts.Trim();
 
-            //Actuzalizar Tabla Grade
-            daoPatientAdministration.Specialty = (int)objAddUpdatePatient.cmbRegisterSpecialty.SelectedValue;
-            daoPatientAdministration.TechnicalGroup = objAddUpdatePatient.txtGrupo.Texts;
-            daoPatientAdministration.Grade = (int)objAddUpdatePatient.CmBGradoRegistro.SelectedValue;
-            daoPatientAdministration.AcademicSection = (int)objAddUpdatePatient.cmbSection.SelectedValue;
-
-            //Insercion de datos tbEstudiantes
-            daoPatientAdministration.Code = objAddUpdatePatient.txtPatientCode.Texts;
 
 
-            int valorRetornado = daoPatientAdministration.UpdatePatient();
+            int valorRetornado = daoPatientAdministration.UpdateVisit();
 
             if (valorRetornado == 2)
             {
@@ -147,13 +136,7 @@ namespace HealthPortal.Controller.PatientAdministration
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
             }
-            else if (valorRetornado == 1)
-            {
-                MessageBox.Show("Los datos no pudieron ser actualizados completamente",
-                                "Proceso interrumpido",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-            }
+
             else
             {
                 MessageBox.Show("Los datos no pudieron ser actualizados debido a un error inesperado",
@@ -186,6 +169,17 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.pic2.BackColor = Color.Silver;
                 objAddUpdatePatient.btnAddPatient.BackColor = Color.Silver;
                 objAddUpdatePatient.pictureBox4.BackColor = Color.Silver;
+                objAddUpdatePatient.txtPatientName.Enabled = false;
+                objAddUpdatePatient.txtPatientName.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.txtPatientLastName.Enabled = false;
+                objAddUpdatePatient.txtPatientLastName.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.cmbRole.Enabled = false;
+                objAddUpdatePatient.txtPatientCode.Enabled = false;
+                objAddUpdatePatient.txtPatientCode.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.cmbRegisterSpecialty.Enabled = false;
+                objAddUpdatePatient.txtGrupo.Enabled = false;
+                objAddUpdatePatient.txtGrupo.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.CmBGradoRegistro.Enabled = false;
 
             }
             else if (action == 3)

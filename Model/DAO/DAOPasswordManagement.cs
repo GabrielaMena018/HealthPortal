@@ -94,12 +94,12 @@ namespace HealthPortal.Model.DAO
                     return false;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_302");
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_302");
                 return false;
@@ -120,12 +120,12 @@ namespace HealthPortal.Model.DAO
                 return cmd.ExecuteScalar().ToString();
 
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_202");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_202");
                 return null;
@@ -148,12 +148,12 @@ namespace HealthPortal.Model.DAO
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_301");
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_301");
                 return false;
@@ -177,9 +177,9 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "tbPreguntas");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show(ex.Message);
+                
                 CommonMethods.HandleError("EC_201");
                 return null;
             }
@@ -218,12 +218,12 @@ namespace HealthPortal.Model.DAO
                 }
                 return dr.HasRows;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_203");
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_203");
                 return false;

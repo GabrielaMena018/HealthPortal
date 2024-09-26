@@ -38,12 +38,12 @@ namespace HealthPortal.Model.DAO
                 }
                 return dr.HasRows;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return false;
@@ -77,11 +77,11 @@ namespace HealthPortal.Model.DAO
                     CurrentUserData.ServerSettingsOrigin = 2;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
             }
@@ -100,12 +100,12 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("token", Token);
                 return (string)cmd.ExecuteScalar();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
@@ -125,12 +125,12 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("username", Username);
                 return cmd.ExecuteReader().HasRows;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return false;
@@ -173,12 +173,12 @@ namespace HealthPortal.Model.DAO
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 return (int)cmd.ExecuteScalar();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return 0;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return 0;
@@ -198,12 +198,12 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("username", Username);
                 return (bool)cmd.ExecuteScalar();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
 
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return false;

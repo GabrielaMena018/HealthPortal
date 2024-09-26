@@ -171,9 +171,9 @@ namespace HealthPortal.Model.DAO
                 int returnedValue = cmd.ExecuteNonQuery();
                 return returnedValue;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show(ex.Message);
+                
                 CommonMethods.HandleError("EC_311");
                 return -1;
             }
@@ -233,15 +233,99 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewInventario");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show(ex.Message);
+                
                 CommonMethods.HandleError("EC_507");
                 return null;
             }
             catch (Exception)
             {
                 CommonMethods.HandleError("EC_507");
+                return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public int RegisterCategory()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "INSERT INTO [Inventario].[tbCategoriaMedicamento] VALUES (@param1)";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", CategoriaMedicamento);
+                int returnedValue = cmd.ExecuteNonQuery();
+                return returnedValue;
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_111");
+                return -1;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_111");
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public int UpdateCategory()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "UPDATE [Inventario].[tbCategoriaMedicamento] SET [categoriaMedicamento] = (@param1) WHERE [idCategoriaMedicamento] = @param2 ";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", CategoriaMedicamento);
+                cmd.Parameters.AddWithValue("param2", IdCategoria);
+                int returnedValue = cmd.ExecuteNonQuery();
+                return returnedValue;
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_311");
+                return -1;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_311");
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public DataSet GetCategory()
+        {
+            try
+            {
+
+                //Se crea una conexion para garantizar que haya conexion con la base
+                command.Connection = getConnection();
+                string query = "SELECT * FROM [Inventario].[tbCategoriaMedicamento]";
+                SqlCommand cmdCategory = new SqlCommand(query, command.Connection);
+                cmdCategory.ExecuteNonQuery();
+                SqlDataAdapter adpCategory = new SqlDataAdapter(cmdCategory);
+                DataSet ds = new DataSet();
+                adpCategory.Fill(ds, "tbCategoriaMedicamento");
+                return ds;
+
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_201");
+                return null;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_201");
                 return null;
             }
             finally

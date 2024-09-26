@@ -23,12 +23,12 @@ namespace HealthPortal.Model.DAO
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 return (string)cmd.ExecuteScalar();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;

@@ -76,9 +76,9 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("answer", Answer);
                 return cmd.ExecuteNonQuery() == 1 ? true : false;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show(ex.Message);
+                
                 CommonMethods.HandleError("EC_002");
                 return false;
             }
@@ -102,7 +102,7 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("answerID", AnswerID);
                 return cmd.ExecuteNonQuery() == 1 ? true : false;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_003");
                 return false;

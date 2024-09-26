@@ -32,12 +32,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewPersonas");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
@@ -60,12 +60,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewPersonas");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
@@ -89,12 +89,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewPersonas");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
@@ -117,12 +117,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "tbRoles");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
@@ -154,12 +154,12 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("phoneNumber", PhoneNumber);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_103");
                 return -1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_103");
                 return -1;
@@ -193,12 +193,12 @@ namespace HealthPortal.Model.DAO
                 }
                 return result;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_303");
                 return -1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_303");
                 return -1;
@@ -219,12 +219,12 @@ namespace HealthPortal.Model.DAO
                 cmd.Parameters.AddWithValue("param2", Username);
                 return cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_403");
                 return -1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_403");
                 return -1;
@@ -243,12 +243,12 @@ namespace HealthPortal.Model.DAO
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return -1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return -1;
@@ -277,12 +277,12 @@ namespace HealthPortal.Model.DAO
                     return false;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_302");
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_302");
                 return false;

@@ -51,7 +51,9 @@
     <Compile Include="Controller\FirstUsage\ControllerEmailVerification.cs" />
     <Compile Include="Controller\FirstUsage\ControllerFirstUserCreation.cs" />
     <Compile Include="Controller\FirstUsage\ControllerInstitutionCreation.cs" />
+    <Compile Include="Controller\InventoryAdministration\ControllerAddUpdateCategory.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerAddUpdateMedicine.cs" />
+    <Compile Include="Controller\InventoryAdministration\ControllerCategoryAdministration.cs" />
     <Compile Include="Controller\InventoryAdministration\ControllerInventoryAdministration.cs" />
     <Compile Include="Controller\Login\ControllerLogin.cs" />
     <Compile Include="Controller\MainPage\ControllerMainPage.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Controller\PasswordManagement\ControllerSecurityQuestions.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerAddUpdatePatient.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
+    <Compile Include="Controller\PatientAdministration\ControllerViewPatientInfo.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerSectionAdministration.cs" />
     <Compile Include="Controller\Settings\ControllerAddUpdateSecurityAnswer.cs" />
@@ -123,6 +126,18 @@
     <Compile Include="View\FirstUsage\FrmInstitutionCreation.Designer.cs">
       <DependentUpon>FrmInstitutionCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\InventoryAdministration\FrmAddUpdateCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\InventoryAdministration\FrmAddUpdateCategory.Designer.cs">
+      <DependentUpon>FrmAddUpdateCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\InventoryAdministration\FrmCategoryAdministration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\InventoryAdministration\FrmCategoryAdministration.Designer.cs">
+      <DependentUpon>FrmCategoryAdministration.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainPage\FrmMainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +167,12 @@
     </Compile>
     <Compile Include="View\PasswordManagement\FrmSecurityQuestions.Designer.cs">
       <DependentUpon>FrmSecurityQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientAdministration\FrmViewPatientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientAdministration\FrmViewPatientInfo.Designer.cs">
+      <DependentUpon>FrmViewPatientInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SectionAdministration\FrmAddUpdateSection.cs">
       <SubType>Form</SubType>
@@ -277,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\InventoryAdministration\FrmAddUpdateMedicine.resx">
       <DependentUpon>FrmAddUpdateMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InventoryAdministration\FrmCategoryAdministration.resx">
+      <DependentUpon>FrmCategoryAdministration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainPage\FrmMainPage.resx">
       <DependentUpon>FrmMainPage.cs</DependentUpon>
