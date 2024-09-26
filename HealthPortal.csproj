@@ -69,6 +69,7 @@
     <Compile Include="Controller\Settings\ControllerAddUpdateSecurityAnswer.cs" />
     <Compile Include="Controller\Settings\ControllerAddUpdateSecurityQuestion.cs" />
     <Compile Include="Controller\Settings\ControllerInstitutionSettings.cs" />
+    <Compile Include="Controller\Settings\ControllerManuals.cs" />
     <Compile Include="Controller\Settings\ControllerProgramSettings.cs" />
     <Compile Include="Controller\Settings\ControllerServerSettings.cs" />
     <Compile Include="Controller\Settings\ControllerSettings.cs" />
@@ -248,6 +249,12 @@
     <Compile Include="View\Settings\FrmInstitutionSettings.Designer.cs">
       <DependentUpon>FrmInstitutionSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Settings\FrmManuals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings\FrmManuals.Designer.cs">
+      <DependentUpon>FrmManuals.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Settings\FrmProgramSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Settings\FrmInstitutionSettings.resx">
       <DependentUpon>FrmInstitutionSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings\FrmManuals.resx">
+      <DependentUpon>FrmManuals.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Settings\FrmProgramSettings.resx">
       <DependentUpon>FrmProgramSettings.cs</DependentUpon>
