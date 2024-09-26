@@ -17,7 +17,6 @@ namespace HealthPortal.View.Settings
         {
             InitializeComponent();
             ControllerManuals control = new ControllerManuals(this);
-            
         }
     }
 }
