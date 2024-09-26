@@ -33,7 +33,16 @@ namespace HealthPortal.Controller.Settings
             frmProgramSettings.btnAddSecurityQuestion.Click += new EventHandler(AddSecurityQuestion);
             frmProgramSettings.cmsUpdate.Click += new EventHandler(UpdateSecurityQuestion);
             frmProgramSettings.cmsDelete.Click += new EventHandler(DeleteSecurityQuestion);
+            frmProgramSettings.btManuals.Click += new EventHandler(Dowland);
         }
+
+        private void Dowland(object sender, EventArgs e)
+        {
+            FrmManuals frmManuals = new FrmManuals();
+            frmManuals.ShowDialog();
+           
+        }
+
         private void DeleteSecurityQuestion(object sender, EventArgs e)
         {
             int position = frmProgramSettings.dgvSecurityQuestions.CurrentRow.Index;

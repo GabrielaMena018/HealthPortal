@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpServerSettings = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -45,6 +45,7 @@
             this.cmsUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddSecurityQuestion = new CustomControls.RJButton();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.btManuals = new CustomControls.RJButton();
             this.tlpServerSettings.SuspendLayout();
             this.pnlTitle.SuspendLayout();
             this.panelCustom1.SuspendLayout();
@@ -122,6 +123,7 @@
             this.tlpSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94F));
             this.tlpSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tlpSub.Controls.Add(this.grpSecurityQuestions, 1, 1);
+            this.tlpSub.Controls.Add(this.btManuals, 1, 3);
             this.tlpSub.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpSub.Location = new System.Drawing.Point(0, 0);
             this.tlpSub.Margin = new System.Windows.Forms.Padding(0);
@@ -144,7 +146,7 @@
             this.grpSecurityQuestions.Location = new System.Drawing.Point(39, 36);
             this.grpSecurityQuestions.Margin = new System.Windows.Forms.Padding(0);
             this.grpSecurityQuestions.Name = "grpSecurityQuestions";
-            this.grpSecurityQuestions.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpSecurityQuestions.Padding = new System.Windows.Forms.Padding(4);
             this.grpSecurityQuestions.Size = new System.Drawing.Size(1245, 275);
             this.grpSecurityQuestions.TabIndex = 6;
             this.grpSecurityQuestions.TabStop = false;
@@ -186,27 +188,27 @@
             this.dgvSecurityQuestions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvSecurityQuestions.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvSecurityQuestions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle1.NullValue = "-----";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSecurityQuestions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle4.NullValue = "-----";
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSecurityQuestions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSecurityQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tlpSecurityQuestions.SetColumnSpan(this.dgvSecurityQuestions, 3);
             this.dgvSecurityQuestions.ContextMenuStrip = this.cmsDataGrid;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            dataGridViewCellStyle2.NullValue = "-----";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSecurityQuestions.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle5.NullValue = "-----";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSecurityQuestions.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSecurityQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSecurityQuestions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.dgvSecurityQuestions.Location = new System.Drawing.Point(13, 70);
@@ -215,15 +217,15 @@
             this.dgvSecurityQuestions.Name = "dgvSecurityQuestions";
             this.dgvSecurityQuestions.ReadOnly = true;
             this.dgvSecurityQuestions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle3.NullValue = "-----";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSecurityQuestions.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle6.NullValue = "-----";
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSecurityQuestions.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvSecurityQuestions.RowHeadersVisible = false;
             this.dgvSecurityQuestions.RowHeadersWidth = 51;
             this.dgvSecurityQuestions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -241,7 +243,7 @@
             this.cmsDelete,
             this.cmsUpdate});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(328, 84);
+            this.cmsDataGrid.Size = new System.Drawing.Size(328, 56);
             // 
             // cmsDelete
             // 
@@ -293,6 +295,26 @@
             this.lblInfo.Text = "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que" +
     " todo aquel que en él cree, no se pierda, mas tenga vida eterna.";
             // 
+            // btManuals
+            // 
+            this.btManuals.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btManuals.BackColor = System.Drawing.Color.LightBlue;
+            this.btManuals.BackGroundColor = System.Drawing.Color.LightBlue;
+            this.btManuals.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btManuals.BorderRadius = 40;
+            this.btManuals.BorderSize = 0;
+            this.btManuals.FlatAppearance.BorderSize = 0;
+            this.btManuals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btManuals.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btManuals.ForeColor = System.Drawing.Color.Black;
+            this.btManuals.Location = new System.Drawing.Point(1032, 579);
+            this.btManuals.Name = "btManuals";
+            this.btManuals.Size = new System.Drawing.Size(249, 40);
+            this.btManuals.TabIndex = 9;
+            this.btManuals.Text = "Manuales del sistema";
+            this.btManuals.TextColor = System.Drawing.Color.Black;
+            this.btManuals.UseVisualStyleBackColor = false;
+            // 
             // FrmProgramSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -302,7 +324,7 @@
             this.ClientSize = new System.Drawing.Size(1453, 868);
             this.Controls.Add(this.tlpServerSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBox = false;
             this.Name = "FrmProgramSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -336,5 +358,6 @@
         public System.Windows.Forms.ContextMenuStrip cmsDataGrid;
         public System.Windows.Forms.ToolStripMenuItem cmsDelete;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdate;
+        public CustomControls.RJButton btManuals;
     }
 }

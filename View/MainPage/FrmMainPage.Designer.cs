@@ -41,12 +41,12 @@
             this.tlpTitle = new System.Windows.Forms.TableLayoutPanel();
             this.tlpTitleSub = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
             this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnResize = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.cmsDataGrid.SuspendLayout();
             this.tlpInventory.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -59,36 +59,37 @@
             // cmsDataGrid
             // 
             this.cmsDataGrid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsDataGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsDeleteUser,
             this.cmsReestablishPassword,
             this.cmsViewUser,
             this.cmsUpdateUser});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(279, 92);
+            this.cmsDataGrid.Size = new System.Drawing.Size(329, 100);
             // 
             // cmsDeleteUser
             // 
             this.cmsDeleteUser.Name = "cmsDeleteUser";
-            this.cmsDeleteUser.Size = new System.Drawing.Size(278, 22);
+            this.cmsDeleteUser.Size = new System.Drawing.Size(328, 24);
             this.cmsDeleteUser.Text = "Eliminar Usuario";
             // 
             // cmsReestablishPassword
             // 
             this.cmsReestablishPassword.Name = "cmsReestablishPassword";
-            this.cmsReestablishPassword.Size = new System.Drawing.Size(278, 22);
+            this.cmsReestablishPassword.Size = new System.Drawing.Size(328, 24);
             this.cmsReestablishPassword.Text = "Reestablecer Contraseña";
             // 
             // cmsViewUser
             // 
             this.cmsViewUser.Name = "cmsViewUser";
-            this.cmsViewUser.Size = new System.Drawing.Size(278, 22);
+            this.cmsViewUser.Size = new System.Drawing.Size(328, 24);
             this.cmsViewUser.Text = "Ver Información del Usuario";
             // 
             // cmsUpdateUser
             // 
             this.cmsUpdateUser.Name = "cmsUpdateUser";
-            this.cmsUpdateUser.Size = new System.Drawing.Size(278, 22);
+            this.cmsUpdateUser.Size = new System.Drawing.Size(328, 24);
             this.cmsUpdateUser.Text = "Actualizar Información del Usuario";
             // 
             // timerDateTime
@@ -107,13 +108,14 @@
             this.tlpInventory.Controls.Add(this.tableLayoutPanel1, 1, 2);
             this.tlpInventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpInventory.Location = new System.Drawing.Point(0, 0);
+            this.tlpInventory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpInventory.Name = "tlpInventory";
             this.tlpInventory.RowCount = 4;
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.4532F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
-            this.tlpInventory.Size = new System.Drawing.Size(1370, 825);
+            this.tlpInventory.Size = new System.Drawing.Size(1827, 1015);
             this.tlpInventory.TabIndex = 2;
             // 
             // pnlTitle
@@ -126,7 +128,7 @@
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1370, 117);
+            this.pnlTitle.Size = new System.Drawing.Size(1827, 144);
             this.pnlTitle.TabIndex = 3;
             // 
             // tlpTitle
@@ -142,8 +144,8 @@
             this.tlpTitle.Name = "tlpTitle";
             this.tlpTitle.RowCount = 1;
             this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 117F));
-            this.tlpTitle.Size = new System.Drawing.Size(1370, 117);
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tlpTitle.Size = new System.Drawing.Size(1827, 144);
             this.tlpTitle.TabIndex = 0;
             // 
             // tlpTitleSub
@@ -161,7 +163,7 @@
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpTitleSub.Size = new System.Drawing.Size(1000, 117);
+            this.tlpTitleSub.Size = new System.Drawing.Size(1333, 144);
             this.tlpTitleSub.TabIndex = 0;
             // 
             // lblTitle
@@ -170,36 +172,12 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblTitle.Location = new System.Drawing.Point(50, 40);
+            this.lblTitle.Location = new System.Drawing.Point(66, 50);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(941, 46);
+            this.lblTitle.Size = new System.Drawing.Size(1255, 57);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Página Principal";
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblTime.Location = new System.Drawing.Point(0, 20);
-            this.lblTime.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(174, 77);
-            this.lblTime.TabIndex = 1;
-            this.lblTime.Text = "hora";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblDate.Location = new System.Drawing.Point(20, 0);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(54, 19);
-            this.lblDate.TabIndex = 2;
-            this.lblDate.Text = "fecha";
             // 
             // tlpControls
             // 
@@ -212,14 +190,14 @@
             this.tlpControls.Controls.Add(this.btnExit, 3, 1);
             this.tlpControls.Controls.Add(this.btnResize, 1, 1);
             this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpControls.Location = new System.Drawing.Point(1000, 0);
+            this.tlpControls.Location = new System.Drawing.Point(1333, 0);
             this.tlpControls.Margin = new System.Windows.Forms.Padding(0);
             this.tlpControls.Name = "tlpControls";
             this.tlpControls.RowCount = 3;
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpControls.Size = new System.Drawing.Size(370, 117);
+            this.tlpControls.Size = new System.Drawing.Size(494, 144);
             this.tlpControls.TabIndex = 1;
             // 
             // btnExit
@@ -234,10 +212,10 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
-            this.btnExit.Location = new System.Drawing.Point(260, 39);
+            this.btnExit.Location = new System.Drawing.Point(349, 47);
             this.btnExit.Margin = new System.Windows.Forms.Padding(0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(69, 39);
+            this.btnExit.Size = new System.Drawing.Size(93, 47);
             this.btnExit.TabIndex = 38;
             this.btnExit.TabStop = false;
             this.btnExit.UseVisualStyleBackColor = false;
@@ -254,10 +232,10 @@
             this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResize.ForeColor = System.Drawing.Color.White;
             this.btnResize.Image = ((System.Drawing.Image)(resources.GetObject("btnResize.Image")));
-            this.btnResize.Location = new System.Drawing.Point(185, 39);
+            this.btnResize.Location = new System.Drawing.Point(247, 47);
             this.btnResize.Margin = new System.Windows.Forms.Padding(0);
             this.btnResize.Name = "btnResize";
-            this.btnResize.Size = new System.Drawing.Size(69, 39);
+            this.btnResize.Size = new System.Drawing.Size(93, 47);
             this.btnResize.TabIndex = 39;
             this.btnResize.TabStop = false;
             this.btnResize.UseVisualStyleBackColor = false;
@@ -266,28 +244,53 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.Controls.Add(this.lblDate, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblTime, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(38, 155);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(51, 191);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.174603F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.82539F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(911, 630);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1216, 776);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.lblDate.Location = new System.Drawing.Point(27, 0);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(67, 23);
+            this.lblDate.TabIndex = 2;
+            this.lblDate.Text = "fecha";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.lblTime.Location = new System.Drawing.Point(0, 24);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(218, 93);
+            this.lblTime.TabIndex = 1;
+            this.lblTime.Text = "hora";
             // 
             // FrmMainPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1370, 825);
+            this.ClientSize = new System.Drawing.Size(1827, 1015);
             this.Controls.Add(this.tlpInventory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmMainPage";
             this.Text = "FrmUserAdministration";
             this.cmsDataGrid.ResumeLayout(false);
