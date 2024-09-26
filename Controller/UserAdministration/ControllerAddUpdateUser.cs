@@ -43,6 +43,13 @@ namespace HealthPortal.Controller.UserAdministration
             frmAddUpdateUser.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmAddUpdateUser.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmAddUpdateUser.btnExit.Click += new EventHandler(CloseForm);
+
+            frmAddUpdateUser.txtUserAdministrationEmail.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateUser.txtUserAdministrationId.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateUser.txtUserAdministrationLastName.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateUser.txtUserAdministrationName.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateUser.txtUserAdministrationPhoneNumber.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateUser.txtUserAdministrationUsername.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
         }
         public ControllerAddUpdateUser(FrmAddUpdateUser view, int procedure, int personID, string firstName, string lastName, string email, string phoneNumber, string username, string role)
         {
@@ -65,6 +72,26 @@ namespace HealthPortal.Controller.UserAdministration
             frmAddUpdateUser.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmAddUpdateUser.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmAddUpdateUser.btnExit.Click += new EventHandler(CloseForm);
+        }
+
+        /// <summary>
+        ///     Se llama al método "AutoInsertDash", que cumple la función
+        ///     de colocar automáticamente un '-' cuando el usuario ha ingresado 4 dígitos, y,
+        ///     posteriormente, mover el cursor para que el usuario pueda seguir escribiendo sin problema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxTextChanged(object sender, EventArgs e)
+        {
+            AutoInsertDash();
+        }
+        private void AutoInsertDash()
+        {
+            if (frmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Length == 4 && !frmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Contains("-"))
+            {
+                frmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts += "-";
+                frmAddUpdateUser.txtUserAdministrationPhoneNumber.SelectionStart = frmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Length;
+            }
         }
         private void CloseForm(object sender, EventArgs e)
         {
