@@ -160,17 +160,19 @@ namespace HealthPortal.Controller.Settings
 
                 if (frmServerSettings.rdoTrue.Checked == true)
                 {
+                    SqlAuth.InnerText = string.Empty;
+
+                    SqlPassword.InnerText = string.Empty;
+                }
+                else
+                {
+
                     string codedSqlAuth = CommonMethods.CodeString(frmServerSettings.txtSQLAuth.Texts.Trim());
                     SqlAuth.InnerText = codedSqlAuth;
 
                     string codedSqlPassword = CommonMethods.CodeString(frmServerSettings.txtPassword.Texts.Trim());
                     SqlPassword.InnerText = codedSqlPassword;
-                }
-                else
-                {
-                    SqlAuth.InnerText = string.Empty;
-
-                    SqlPassword.InnerText = string.Empty;
+                   
                 }
 
                 root.AppendChild(SqlAuth);

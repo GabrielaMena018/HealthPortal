@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmManuals));
             this.label1 = new System.Windows.Forms.Label();
             this.btnDowland2 = new CustomControls.RJButton();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             this.btnDowland2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDowland2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDowland2.ForeColor = System.Drawing.Color.Black;
-            this.btnDowland2.Location = new System.Drawing.Point(49, 33);
+            this.btnDowland2.Location = new System.Drawing.Point(68, 33);
             this.btnDowland2.Name = "btnDowland2";
             this.btnDowland2.Size = new System.Drawing.Size(175, 40);
             this.btnDowland2.TabIndex = 16;
@@ -67,9 +68,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(265, 101);
+            this.ClientSize = new System.Drawing.Size(302, 101);
             this.Controls.Add(this.btnDowland2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManuals";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manuales del sistema";

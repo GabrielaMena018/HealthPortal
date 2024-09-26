@@ -256,6 +256,8 @@
             this.txtSQLAuth.PasswordChar = false;
             this.txtSQLAuth.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSQLAuth.PlaceholderText = "";
+            this.txtSQLAuth.SelectionLength = 0;
+            this.txtSQLAuth.SelectionStart = 0;
             this.txtSQLAuth.Size = new System.Drawing.Size(443, 52);
             this.txtSQLAuth.TabIndex = 7;
             this.txtSQLAuth.Tag = "sql";
@@ -281,6 +283,8 @@
             this.txtPassword.PasswordChar = false;
             this.txtPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPassword.PlaceholderText = "";
+            this.txtPassword.SelectionLength = 0;
+            this.txtPassword.SelectionStart = 0;
             this.txtPassword.Size = new System.Drawing.Size(443, 52);
             this.txtPassword.TabIndex = 8;
             this.txtPassword.Tag = "sql";
@@ -327,24 +331,24 @@
             // 
             this.rdoTrue.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.rdoTrue.AutoSize = true;
+            this.rdoTrue.Checked = true;
             this.rdoTrue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rdoTrue.Location = new System.Drawing.Point(40, 64);
             this.rdoTrue.Name = "rdoTrue";
             this.rdoTrue.Size = new System.Drawing.Size(400, 34);
             this.rdoTrue.TabIndex = 2;
+            this.rdoTrue.TabStop = true;
             this.rdoTrue.Text = "Habilitar autenticación de Windows";
             this.rdoTrue.UseVisualStyleBackColor = true;
             // 
             // rdoFalse
             // 
             this.rdoFalse.AutoSize = true;
-            this.rdoFalse.Checked = true;
             this.rdoFalse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rdoFalse.Location = new System.Drawing.Point(40, 113);
             this.rdoFalse.Name = "rdoFalse";
             this.rdoFalse.Size = new System.Drawing.Size(400, 34);
             this.rdoFalse.TabIndex = 3;
-            this.rdoFalse.TabStop = true;
             this.rdoFalse.Text = "Deshabilitar autenticación de Windows";
             this.rdoFalse.UseVisualStyleBackColor = true;
             // 
@@ -402,6 +406,8 @@
             this.txtServerURL.PasswordChar = false;
             this.txtServerURL.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtServerURL.PlaceholderText = "";
+            this.txtServerURL.SelectionLength = 0;
+            this.txtServerURL.SelectionStart = 0;
             this.txtServerURL.Size = new System.Drawing.Size(887, 52);
             this.txtServerURL.TabIndex = 7;
             this.txtServerURL.Tag = "sql";
@@ -427,6 +433,8 @@
             this.txtDataBase.PasswordChar = false;
             this.txtDataBase.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDataBase.PlaceholderText = "";
+            this.txtDataBase.SelectionLength = 0;
+            this.txtDataBase.SelectionStart = 0;
             this.txtDataBase.Size = new System.Drawing.Size(887, 52);
             this.txtDataBase.TabIndex = 8;
             this.txtDataBase.Tag = "sql";
