@@ -37,8 +37,8 @@ namespace HealthPortal.Controller.InventoryAdministration
         public void AddNewCategory(object sender, EventArgs e)
         {
             DAOInventoryAdministration dao = new DAOInventoryAdministration();
-            dao.CategoriaMedicamento = frmAddUpdateCategory.txtCategoriaMedicamento.Texts.Trim();
-            if (string.IsNullOrEmpty(frmAddUpdateCategory.txtCategoriaMedicamento.Texts))
+            dao.CategoriaMedicamento = frmAddUpdateCategory.txtMedicineCategory.Texts.Trim();
+            if (string.IsNullOrEmpty(frmAddUpdateCategory.txtMedicineCategory.Texts))
             {
                 MessageBox.Show("Favor rellenar el campo vacio", "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -73,10 +73,10 @@ namespace HealthPortal.Controller.InventoryAdministration
         private void UpdateCategory(object sender, EventArgs e)
         {
             DAOInventoryAdministration dao = new DAOInventoryAdministration();
-            dao.CategoriaMedicamento = frmAddUpdateCategory.txtCategoriaMedicamento.Texts.Trim();
+            dao.CategoriaMedicamento = frmAddUpdateCategory.txtMedicineCategory.Texts.Trim();
             dao.IdCategoria = int.Parse(frmAddUpdateCategory.txtID.Text.Trim());
             MessageBox.Show($"{frmAddUpdateCategory.txtID.Text}");
-            if (string.IsNullOrEmpty(frmAddUpdateCategory.txtCategoriaMedicamento.Texts))
+            if (string.IsNullOrEmpty(frmAddUpdateCategory.txtMedicineCategory.Texts))
             {
                 MessageBox.Show("Favor rellenar el campo vacio", "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -104,7 +104,7 @@ namespace HealthPortal.Controller.InventoryAdministration
         private void ChargeValues(int id, string medicineCategory)
         {
             frmAddUpdateCategory.txtID.Text = id.ToString();
-            frmAddUpdateCategory.txtCategoriaMedicamento.Texts = medicineCategory;
+            frmAddUpdateCategory.txtMedicineCategory.Texts = medicineCategory;
         }
 
         public void Checkaction()

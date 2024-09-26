@@ -296,6 +296,9 @@
     <EmbeddedResource Include="View\FirstUsage\FrmInstitutionCreation.resx">
       <DependentUpon>FrmInstitutionCreation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\InventoryAdministration\FrmAddUpdateCategory.resx">
+      <DependentUpon>FrmAddUpdateCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\InventoryAdministration\FrmAddUpdateMedicine.resx">
       <DependentUpon>FrmAddUpdateMedicine.cs</DependentUpon>
     </EmbeddedResource>

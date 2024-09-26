@@ -59,6 +59,8 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmInventoryAdministration.btnFilter.MouseLeave += new EventHandler(MouseLeaveTextButton);
             frmInventoryAdministration.btnNew.MouseLeave += new EventHandler(MouseLeaveTextButton);
             frmInventoryAdministration.btnSearch.MouseLeave += new EventHandler(MouseLeaveTextButton);
+
+            frmInventoryAdministration.txtSearch.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
         }
         private void MouseEnterTextButton(object sender, EventArgs e)
         {

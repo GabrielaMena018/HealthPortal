@@ -34,7 +34,7 @@
             this.btnExitAddUpdateCategory = new System.Windows.Forms.Button();
             this.btnUpdate = new CustomControls.RJButton();
             this.btnAdd = new CustomControls.RJButton();
-            this.txtCategoriaMedicamento = new CustomControls.CustomTextBox();
+            this.txtMedicineCategory = new CustomControls.CustomTextBox();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -94,25 +94,25 @@
             this.btnAdd.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
-            // txtCategoriaMedicamento
+            // txtMedicineCategory
             // 
-            this.txtCategoriaMedicamento.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCategoriaMedicamento.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtCategoriaMedicamento.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtCategoriaMedicamento.BorderRadius = 15;
-            this.txtCategoriaMedicamento.BorderSize = 1;
-            resources.ApplyResources(this.txtCategoriaMedicamento, "txtCategoriaMedicamento");
-            this.txtCategoriaMedicamento.MaxLength = 50;
-            this.txtCategoriaMedicamento.Multiline = false;
-            this.txtCategoriaMedicamento.Name = "txtCategoriaMedicamento";
-            this.txtCategoriaMedicamento.PasswordChar = false;
-            this.txtCategoriaMedicamento.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtCategoriaMedicamento.PlaceholderText = "";
-            this.txtCategoriaMedicamento.SelectionLength = 0;
-            this.txtCategoriaMedicamento.SelectionStart = 0;
-            this.txtCategoriaMedicamento.Tag = "name";
-            this.txtCategoriaMedicamento.Texts = "";
-            this.txtCategoriaMedicamento.UnderlinedStyle = false;
+            this.txtMedicineCategory.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMedicineCategory.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtMedicineCategory.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtMedicineCategory.BorderRadius = 15;
+            this.txtMedicineCategory.BorderSize = 1;
+            resources.ApplyResources(this.txtMedicineCategory, "txtMedicineCategory");
+            this.txtMedicineCategory.MaxLength = 50;
+            this.txtMedicineCategory.Multiline = false;
+            this.txtMedicineCategory.Name = "txtMedicineCategory";
+            this.txtMedicineCategory.PasswordChar = false;
+            this.txtMedicineCategory.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtMedicineCategory.PlaceholderText = "";
+            this.txtMedicineCategory.SelectionLength = 0;
+            this.txtMedicineCategory.SelectionStart = 0;
+            this.txtMedicineCategory.Tag = "name";
+            this.txtMedicineCategory.Texts = "";
+            this.txtMedicineCategory.UnderlinedStyle = false;
             // 
             // FrmAddUpdateCategory
             // 
@@ -123,7 +123,7 @@
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtCategoriaMedicamento);
+            this.Controls.Add(this.txtMedicineCategory);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAddUpdateCategory";
@@ -133,7 +133,7 @@
         }
 
         #endregion
-        public CustomControls.CustomTextBox txtCategoriaMedicamento;
+        public CustomControls.CustomTextBox txtMedicineCategory;
         public CustomControls.RJButton btnAdd;
         public CustomControls.RJButton btnUpdate;
         public System.Windows.Forms.Label lblTitle;

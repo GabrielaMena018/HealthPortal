@@ -492,6 +492,7 @@
             this.txtSearch.Size = new System.Drawing.Size(204, 34);
             this.txtSearch.TabIndex = 34;
             this.txtSearch.TabStop = false;
+            this.txtSearch.Tag = "name";
             this.txtSearch.Texts = "";
             this.txtSearch.UnderlinedStyle = false;
             // 

@@ -55,6 +55,11 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmAddUpdateMedicine.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
 
             frmAddUpdateMedicine.btnExit.Click += new EventHandler(CloseForm);
+
+            frmAddUpdateMedicine.btnAddCategory.Click += new EventHandler(AddCategory);
+
+            frmAddUpdateMedicine.numStock.KeyPress += new KeyPressEventHandler(NumUpDownKeyPress);
+            frmAddUpdateMedicine.numStockPack.KeyPress += new KeyPressEventHandler(NumUpDownKeyPress);
         }
         public ControllerAddUpdateMedicine(FrmAddUpdateMedicine view, int action, int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, string stockPack, DateTime entryDate, DateTime exit, string description)
         {
@@ -84,6 +89,13 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmAddUpdateMedicine.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
 
             frmAddUpdateMedicine.btnExit.Click += new EventHandler(CloseForm);
+
+            frmAddUpdateMedicine.numStock.KeyPress += new KeyPressEventHandler(NumUpDownKeyPress);
+            frmAddUpdateMedicine.numStockPack.KeyPress += new KeyPressEventHandler(NumUpDownKeyPress);
+        }
+        private void NumUpDownKeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
         private void CloseForm(object sender, EventArgs e)
         {
@@ -130,11 +142,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmAddUpdateMedicine.cmbCategory.ValueMember = "idCategoriaMedicamento";
             frmAddUpdateMedicine.cmbCategory.DisplayMember = "categoriaMedicamento";
             frmAddUpdateMedicine.cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            //La condición sirve para que al actualizar un registro, el valor del registro aparezca seleccionado.
-            if (action == 2)
-            {
-                frmAddUpdateMedicine.cmbCategory.Text = medicineCategory;
-            }
+
         }
         public void RegisterNewMedicine(object sender, EventArgs e)
         {
@@ -146,6 +154,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             dao.NombreMedicamento = frmAddUpdateMedicine.txtMedicineName.Texts.Trim();
             dao.Descripcion = frmAddUpdateMedicine.txtDescription.Texts.Trim();
             dao.IdCategoria = int.Parse(frmAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
+            MessageBox.Show($"{dao.IdCategoria}");
             dao.FechaVencimiento = frmAddUpdateMedicine.dtpExpirationDate.Value.Date;
             dao.Existencia = int.Parse(frmAddUpdateMedicine.numStock.Text.Trim());
             dao.Envases = int.Parse(frmAddUpdateMedicine.numStockPack.Text.Trim());
@@ -184,6 +193,23 @@ namespace HealthPortal.Controller.InventoryAdministration
             }
 
         }
+        public void AddCategory(object sender, EventArgs e)
+        {
+            FrmCategoryAdministration openForm = new FrmCategoryAdministration();
+            openForm.ShowDialog();
+            FillComboBox();
+        }
+
+        public void FillComboBox()
+        {
+            DAOInventoryAdministration dao = new DAOInventoryAdministration();
+            DataSet ds = dao.FillCombo();
+            //Llenar comboBox de la tabla tbCategoriaMedicamento
+            frmAddUpdateMedicine.cmbCategory.DataSource = ds.Tables["tbCategoriaMedicamento"];
+            frmAddUpdateMedicine.cmbCategory.ValueMember = "idCategoriaMedicamento";
+            frmAddUpdateMedicine.cmbCategory.DisplayMember = "categoriaMedicamento";
+            frmAddUpdateMedicine.cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
         public void UpdateInventory(object sender, EventArgs e)
         {
             DateTime date = DateTime.Today;
@@ -191,6 +217,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             DateTime expirationEntry = date.AddDays(-31);
             DAOInventoryAdministration dao = new DAOInventoryAdministration();
             dao.IdMedicamento = int.Parse(frmAddUpdateMedicine.txtID.Text.Trim());
+            MessageBox.Show($"{frmAddUpdateMedicine.txtID.Text}");
             dao.NombreMedicamento = frmAddUpdateMedicine.txtMedicineName.Texts.Trim();
             dao.IdCategoria = int.Parse(frmAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
             dao.FechaVencimiento = frmAddUpdateMedicine.dtpExpirationDate.Value.Date;
@@ -201,7 +228,8 @@ namespace HealthPortal.Controller.InventoryAdministration
             dao.Descripcion = frmAddUpdateMedicine.txtDescription.Texts.Trim();
             MemoryStream memoryStream = new MemoryStream();
             Image img = frmAddUpdateMedicine.picImage.Image;
-            
+
+
             if (string.IsNullOrEmpty(frmAddUpdateMedicine.txtMedicineName.Texts) || frmAddUpdateMedicine.dtpExpirationDate.Value.Date <= expiration || frmAddUpdateMedicine.dtpEntryDate.Value < expirationEntry || int.Parse(frmAddUpdateMedicine.numStock.Text) <= 0 || frmAddUpdateMedicine.picImage.Image == null || int.Parse(frmAddUpdateMedicine.numStock.Text) <= 0 || frmAddUpdateMedicine.dtpEntryDate.Value > DateTime.Now)
             {
                 MessageBox.Show("La fecha de vencimiento debe de ser de 31 días despues de la fecha actual, la cantidad de medicamentos ingresados no es válida o hay campos vacíos dentro del formulario, favor revisar de nuevo el ingreso de datos para continuar la actualización", "Error de actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -236,6 +264,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             }
 
         }
+
         public void ChargeValues(int id, string medicineName, string medicineCategory, DateTime expirationDate, string stock, string stockPack, DateTime entryDate, DateTime exit, string description)
         {
             DAOInventoryAdministration dao = new DAOInventoryAdministration();
@@ -266,6 +295,8 @@ namespace HealthPortal.Controller.InventoryAdministration
                 frmAddUpdateMedicine.lblTitle.Text = "Actualización de Inventario";
                 frmAddUpdateMedicine.btnAddInventory.Enabled = false;
                 frmAddUpdateMedicine.btnUpdateInventory.Enabled = true;
+                frmAddUpdateMedicine.btnAddCategory.Visible = false;
+                frmAddUpdateMedicine.cmbCategory.Width = 335;
                 frmAddUpdateMedicine.btnAddImage.Text = "Actualizar";
                 frmAddUpdateMedicine.cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             }
@@ -274,6 +305,7 @@ namespace HealthPortal.Controller.InventoryAdministration
                 frmAddUpdateMedicine.lblTitle.Text = "Ficha de Inventario";
                 frmAddUpdateMedicine.btnAddInventory.Visible = false;
                 frmAddUpdateMedicine.btnUpdateInventory.Visible = false;
+                frmAddUpdateMedicine.btnAddCategory.Visible = false;
                 frmAddUpdateMedicine.txtID.Visible = false;
                 frmAddUpdateMedicine.txtMedicineName.Enabled = false;
                 frmAddUpdateMedicine.txtMedicineName.BackColor = Color.White;
@@ -292,6 +324,7 @@ namespace HealthPortal.Controller.InventoryAdministration
                 frmAddUpdateMedicine.btnAddImage.Visible = false;
                 frmAddUpdateMedicine.cmbCategory.Enabled = false;
                 frmAddUpdateMedicine.cmbCategory.BackColor = Color.White;
+                frmAddUpdateMedicine.cmbCategory.Width = 335;
             }
         }
     }
