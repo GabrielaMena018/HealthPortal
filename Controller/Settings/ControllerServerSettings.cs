@@ -119,7 +119,7 @@ namespace HealthPortal.Controller.Settings
         }
         private void rdTrueMarked(object sender, EventArgs e)
         {
-            if (frmServerSettings.rdoTrue.Checked == true)
+            if (frmServerSettings.rdoFalse.Checked == true)
             {
                 frmServerSettings.tlpSQLAuth.Enabled = true;
                 frmServerSettings.txtSQLAuth.Texts = GetPlaceholderText(frmServerSettings.txtSQLAuth);
@@ -129,7 +129,7 @@ namespace HealthPortal.Controller.Settings
 
         private void rdFalseMarked(object sender, EventArgs e)
         {
-            if (frmServerSettings.rdoFalse.Checked == true)
+            if (frmServerSettings.rdoTrue.Checked == true)
             {
                 frmServerSettings.tlpSQLAuth.Enabled = false;
                 frmServerSettings.txtSQLAuth.Clear();
