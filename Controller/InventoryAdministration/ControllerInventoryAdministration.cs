@@ -38,6 +38,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmInventoryAdministration.cmsDelete.Click += new EventHandler(DeleteMedicineInventory);
             frmInventoryAdministration.cmsView.Click += new EventHandler(ViewMedicineInventory);
             frmInventoryAdministration.btnSearch.Click += new EventHandler(SearchMedicineInventory);
+            frmInventoryAdministration.btnOpenCategoryAdministration.Click += new EventHandler(openCategoryAdministration);
             //frmInventoryAdministration.btnPrintReport.Click += new EventHandler(ReportInventary);
 
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
@@ -276,6 +277,12 @@ namespace HealthPortal.Controller.InventoryAdministration
                 openForm.ShowDialog();
                 RefreshData();
             }
+        }
+
+        private void openCategoryAdministration(object sender, EventArgs e)
+        {
+            FrmCategoryAdministration open = new FrmCategoryAdministration();
+            open.ShowDialog();
         }
 
         //private void printPDF(object sender, EventArgs e)

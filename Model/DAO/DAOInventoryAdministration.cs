@@ -85,8 +85,8 @@ namespace HealthPortal.Model.DAO
                 SqlCommand cmd = new SqlCommand(query, command.Connection);
                 cmd.Parameters.AddWithValue("param1", NombreMedicamento);
                 cmd.Parameters.AddWithValue("param2", Descripcion);
-                cmd.Parameters.AddWithValue("param3", IdCategoria);
-                cmd.Parameters.AddWithValue("param4", 1);
+                cmd.Parameters.AddWithValue("param3", 1);
+                cmd.Parameters.AddWithValue("param4", IdCategoria);
                 cmd.Parameters.AddWithValue("param5", FechaVencimiento);
                 cmd.Parameters.AddWithValue("param6", Imagen);
                 cmd.Parameters.AddWithValue("param7", Ingreso);

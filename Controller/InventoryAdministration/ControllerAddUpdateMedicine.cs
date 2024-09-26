@@ -154,7 +154,6 @@ namespace HealthPortal.Controller.InventoryAdministration
             dao.NombreMedicamento = frmAddUpdateMedicine.txtMedicineName.Texts.Trim();
             dao.Descripcion = frmAddUpdateMedicine.txtDescription.Texts.Trim();
             dao.IdCategoria = int.Parse(frmAddUpdateMedicine.cmbCategory.SelectedValue.ToString());
-            MessageBox.Show($"{dao.IdCategoria}");
             dao.FechaVencimiento = frmAddUpdateMedicine.dtpExpirationDate.Value.Date;
             dao.Existencia = int.Parse(frmAddUpdateMedicine.numStock.Text.Trim());
             dao.Envases = int.Parse(frmAddUpdateMedicine.numStockPack.Text.Trim());

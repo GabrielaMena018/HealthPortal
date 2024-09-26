@@ -75,7 +75,6 @@ namespace HealthPortal.Controller.InventoryAdministration
             DAOInventoryAdministration dao = new DAOInventoryAdministration();
             dao.CategoriaMedicamento = frmAddUpdateCategory.txtMedicineCategory.Texts.Trim();
             dao.IdCategoria = int.Parse(frmAddUpdateCategory.txtID.Text.Trim());
-            MessageBox.Show($"{frmAddUpdateCategory.txtID.Text}");
             if (string.IsNullOrEmpty(frmAddUpdateCategory.txtMedicineCategory.Texts))
             {
                 MessageBox.Show("Favor rellenar el campo vacio", "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
