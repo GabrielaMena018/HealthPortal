@@ -20,13 +20,13 @@ namespace HealthPortal.Controller.SectionAdministration
     public class ControllerAddUpdateSection
     {
         FrmAddUpdateSection frmAddUpdateSection;
-        int action, tabPage, id;
+        int action, id, option;
         private string specialty, academicSection, grade;
         private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
-        public ControllerAddUpdateSection(FrmAddUpdateSection view, int action, int tabPage)
+        public ControllerAddUpdateSection(FrmAddUpdateSection view, int action, int option)
         {
             this.action = action;
-            this.tabPage = tabPage;
+            this.option = option;
             frmAddUpdateSection = view;
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
             {
@@ -158,6 +158,7 @@ namespace HealthPortal.Controller.SectionAdministration
         {
             this.action = action;
             this.id = id;
+            this.option = option;
             frmAddUpdateSection = view;
             VerifyTab();
             VerifyAction();
@@ -308,28 +309,28 @@ namespace HealthPortal.Controller.SectionAdministration
         }
         private void VerifyTab()
         {
-            if (tabPage == 0)
+            if (option == 0)
             {
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSpecialty);
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageAcademicSection);
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageGrade);
                 frmAddUpdateSection.tabAcademicLevel.SelectedIndex = 0;
             }
-            else if (tabPage == 1)
+            else if (option == 1)
             {
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSection);
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageAcademicSection);
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageGrade);
                 frmAddUpdateSection.tabAcademicLevel.SelectedIndex = 1;
             }
-            else if (tabPage == 2)
+            else if (option == 2)
             {
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSection);
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSpecialty);
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageGrade);
                 frmAddUpdateSection.tabAcademicLevel.SelectedIndex = 2;
             }
-            else if (tabPage == 3)
+            else if (option == 3)
             {
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSection);
                 frmAddUpdateSection.tabAcademicLevel.TabPages.Remove(frmAddUpdateSection.tabPageSpecialty);
