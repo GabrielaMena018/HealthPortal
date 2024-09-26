@@ -121,7 +121,7 @@
   <data name="btnExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAi5JREFUWEftV9FxwjAMZYSOwCZlk7IBI9A/PtrEI7Sb5JOL6R0j5KNNwh8jUMko
+        DQAACw0B7QfALAAAAi5JREFUWEftV9FxwjAMZYSOwCZlk7IBI9A/PtrEI7Sb5JOL6R0j5KNNwh8jUMko
         iazIJg588u50cLIsPSxZFosnUmGO1Ys5tCtj2zV8blFye9o4HayR2ePhAhzaIrfNJSbOpmzfaNv9mBp4
         JGVTmX21JDfzkJX1u+rcNsfM1l9AzKUAv6NO2DhBH+QuDUrwM+i220ied/t2mZWNQVu+N5mEErzYJRwn
         EsE93MdkEua6edgIx0tLyfgs62/u62P/u6KlMMCwYpsKUs8G+pjsL7N/a2Z8lsfu1iNXTFundPQ1ET0F
@@ -131,22 +131,6 @@
         iVEjci9kRyDcjv001Gc5UGitlkNbp18/PM+R/Q5gNP3xmAA4ycEfTEmkDkMU413PsSzayTMF5phvBClS
         5js8du+Xg2h1E8WYBNQEFFOMCFY37MNpSo5kacE7KCfhxECfwMaCN8UJfg8PpfOCd6CBgk9JUwVSoDSc
         uaA+4OU1II8NLIFjOQagv2PXv2bwvKIuNrI/oWOx+Ac2cJYFE5AStgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnSecurityPIN.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAj5JREFUeF7tmN1twkAQhCkhFcDlLUAeKIESeEwgUiiBDpIOUgIlUAIlUAIlUIKz
-        QzaIHHteA/JhnPmkefHtLMdYXv90CCGEEEIIIYQQQgghhBBCCCGEEELIXdEbzoortQ3D2TIMpiNtWQmp
-        nxu99nrsT3ta5iL129iPY2E0f9CSUmQfH4a/0GUfy3ypuoPpp7Z1qTnAojeYrrSklEYFCFUNsfYARaH/
-        utCyJI0LEApPL2NtnyRHgKKdXMpBS00aGWB3OPvS9kkyBQhtyuZhIwOU+bPR9kkyBljITS55QusMcI3m
-        ZZKa1ADfavsk4s8WIJQaK/o/Tup12ccyQ2isJUnkzK4tbxMDFOHR5mQeMsDqAUJrtR1ggOcFePJoU1+A
-        MnhlboRS3WGAkPz24a2ptgCv0o3vwtJ7hZMYHz/S4VWvqQG6r1E1B7h/N4+PHwtXGPyNDFA2967tk9Qd
-        INZkH4t47VgyDyfNC7DC5QtyBAiSc/pHO1lfGsdvFKDMHdxctHUp2QKUWefMQ1Nq97HMF2jXlUshhEml
-        b3AgV4AgPL+N4xpPavWxzHvJjQCzzJUM63OC+yVngEBCNGddSmrzscyQbMJ9kL6G3AECOeFl8/CP1OJj
-        maFWBijzWdZ3cb0ltfhYZqiNAYKq81DLfSwz1NYAAT74xp5YWupjmaE2BwikbhP7jqVlPpYZanuA3jzU
-        Mh/LDLU9QFC2By3xsczQfwgQpOahLhNCCCGEEEIIIYQQQgghhBBCCCGEkHug0/kGYn1dX/0ncFcAAAAA
-        SUVORK5CYII=
 </value>
   </data>
   <data name="btnSecurityQuestions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

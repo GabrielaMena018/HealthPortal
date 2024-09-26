@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.grpRecoveryMethods = new System.Windows.Forms.GroupBox();
-            this.btnSecurityPIN = new CustomControls.RJButton();
             this.btnSecurityQuestions = new CustomControls.RJButton();
             this.btnAdminIntervention = new CustomControls.RJButton();
             this.btnEmailRecoveryMethod = new CustomControls.RJButton();
@@ -69,7 +68,6 @@
             // 
             // grpRecoveryMethods
             // 
-            this.grpRecoveryMethods.Controls.Add(this.btnSecurityPIN);
             this.grpRecoveryMethods.Controls.Add(this.btnSecurityQuestions);
             this.grpRecoveryMethods.Controls.Add(this.btnAdminIntervention);
             this.grpRecoveryMethods.Controls.Add(this.btnEmailRecoveryMethod);
@@ -82,27 +80,6 @@
             this.grpRecoveryMethods.TabIndex = 30;
             this.grpRecoveryMethods.TabStop = false;
             this.grpRecoveryMethods.Text = "Escoja un método de recuperación";
-            // 
-            // btnSecurityPIN
-            // 
-            this.btnSecurityPIN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnSecurityPIN.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnSecurityPIN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnSecurityPIN.BorderRadius = 30;
-            this.btnSecurityPIN.BorderSize = 0;
-            this.btnSecurityPIN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSecurityPIN.FlatAppearance.BorderSize = 0;
-            this.btnSecurityPIN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSecurityPIN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSecurityPIN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSecurityPIN.Image = ((System.Drawing.Image)(resources.GetObject("btnSecurityPIN.Image")));
-            this.btnSecurityPIN.Location = new System.Drawing.Point(290, 29);
-            this.btnSecurityPIN.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.btnSecurityPIN.Name = "btnSecurityPIN";
-            this.btnSecurityPIN.Size = new System.Drawing.Size(123, 151);
-            this.btnSecurityPIN.TabIndex = 34;
-            this.btnSecurityPIN.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSecurityPIN.UseVisualStyleBackColor = false;
             // 
             // btnSecurityQuestions
             // 
@@ -117,10 +94,10 @@
             this.btnSecurityQuestions.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSecurityQuestions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnSecurityQuestions.Image = ((System.Drawing.Image)(resources.GetObject("btnSecurityQuestions.Image")));
-            this.btnSecurityQuestions.Location = new System.Drawing.Point(156, 29);
-            this.btnSecurityQuestions.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSecurityQuestions.Location = new System.Drawing.Point(201, 30);
+            this.btnSecurityQuestions.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnSecurityQuestions.Name = "btnSecurityQuestions";
-            this.btnSecurityQuestions.Size = new System.Drawing.Size(123, 151);
+            this.btnSecurityQuestions.Size = new System.Drawing.Size(164, 151);
             this.btnSecurityQuestions.TabIndex = 33;
             this.btnSecurityQuestions.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnSecurityQuestions.UseVisualStyleBackColor = false;
@@ -138,10 +115,10 @@
             this.btnAdminIntervention.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdminIntervention.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnAdminIntervention.Image = ((System.Drawing.Image)(resources.GetObject("btnAdminIntervention.Image")));
-            this.btnAdminIntervention.Location = new System.Drawing.Point(423, 29);
-            this.btnAdminIntervention.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
+            this.btnAdminIntervention.Location = new System.Drawing.Point(382, 30);
+            this.btnAdminIntervention.Margin = new System.Windows.Forms.Padding(15, 10, 20, 10);
             this.btnAdminIntervention.Name = "btnAdminIntervention";
-            this.btnAdminIntervention.Size = new System.Drawing.Size(123, 151);
+            this.btnAdminIntervention.Size = new System.Drawing.Size(164, 151);
             this.btnAdminIntervention.TabIndex = 32;
             this.btnAdminIntervention.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnAdminIntervention.UseVisualStyleBackColor = false;
@@ -159,10 +136,10 @@
             this.btnEmailRecoveryMethod.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmailRecoveryMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnEmailRecoveryMethod.Image = ((System.Drawing.Image)(resources.GetObject("btnEmailRecoveryMethod.Image")));
-            this.btnEmailRecoveryMethod.Location = new System.Drawing.Point(23, 29);
-            this.btnEmailRecoveryMethod.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.btnEmailRecoveryMethod.Location = new System.Drawing.Point(18, 29);
+            this.btnEmailRecoveryMethod.Margin = new System.Windows.Forms.Padding(15, 10, 0, 20);
             this.btnEmailRecoveryMethod.Name = "btnEmailRecoveryMethod";
-            this.btnEmailRecoveryMethod.Size = new System.Drawing.Size(123, 152);
+            this.btnEmailRecoveryMethod.Size = new System.Drawing.Size(164, 152);
             this.btnEmailRecoveryMethod.TabIndex = 31;
             this.btnEmailRecoveryMethod.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnEmailRecoveryMethod.UseVisualStyleBackColor = false;
@@ -191,7 +168,6 @@
         public System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.GroupBox grpRecoveryMethods;
         public CustomControls.RJButton btnEmailRecoveryMethod;
-        public CustomControls.RJButton btnSecurityPIN;
         public CustomControls.RJButton btnSecurityQuestions;
         public CustomControls.RJButton btnAdminIntervention;
     }
