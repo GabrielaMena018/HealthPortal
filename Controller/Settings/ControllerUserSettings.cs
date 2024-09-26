@@ -26,6 +26,13 @@ namespace HealthPortal.Controller.Settings
             frmUserSettings.btnAddSecurityQuestion.Click += new EventHandler(NewAnswer);
             frmUserSettings.cmsUpdate.Click += new EventHandler(UpdateAnswer);
             frmUserSettings.cmsDelete.Click += new EventHandler(DeleteAnswer);
+           frmUserSettings.btManuals.Click += new EventHandler(Dowland);
+        }
+        private void Dowland(object sender, EventArgs e)
+        {
+            FrmManuals frmManuals = new FrmManuals();
+            frmManuals.ShowDialog();
+
         }
         private void NewAnswer(object sender, EventArgs e)
         {
