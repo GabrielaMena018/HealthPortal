@@ -1,4 +1,5 @@
-﻿using HealthPortal.Model.DAO;
+﻿using HealthPortal.Helper;
+using HealthPortal.Model.DAO;
 using HealthPortal.View.InventoryAdministration;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             Checkaction();
             frmAddUpdateCategory.btnAdd.Click += new EventHandler(AddNewCategory);
             frmAddUpdateCategory.btnExitAddUpdateCategory.Click += new EventHandler(CloseForm);
-
+            frmAddUpdateCategory.txtMedicineCategory.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
         }
 
         public ControllerAddUpdateCategory(FrmAddUpdateCategory view, int action, int id, string medicineCategory)
@@ -32,6 +33,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             ChargeValues(id, medicineCategory);
             frmAddUpdateCategory.btnUpdate.Click += new EventHandler(UpdateCategory);
             frmAddUpdateCategory.btnExitAddUpdateCategory.Click += new EventHandler(CloseForm);
+            frmAddUpdateCategory.txtMedicineCategory.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
         }
 
         public void AddNewCategory(object sender, EventArgs e)

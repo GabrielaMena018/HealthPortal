@@ -116,7 +116,21 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmInventoryAdministration.cmbCategory.DataSource = ds.Tables["tbCategoriaMedicamento"];
             frmInventoryAdministration.cmbCategory.ValueMember = "idCategoriaMedicamento";
             frmInventoryAdministration.cmbCategory.DisplayMember = "categoriaMedicamento";
-            RefreshData();
+            ChargeValuesFromDataGrid();
+            RefreshData();  
+        }
+
+        private void ChargeValuesFromDataGrid()
+        {
+            if(frmInventoryAdministration.dgvInventory.Rows.Count >= 1)
+            {
+                frmInventoryAdministration.cmsDataGrid.Enabled = true;
+            }
+            else
+            {
+                frmInventoryAdministration.cmsDataGrid.Enabled = false;
+            }
+            
         }
 
         public void RefreshData()
@@ -230,7 +244,7 @@ namespace HealthPortal.Controller.InventoryAdministration
                     dao.IdMedicamento = int.Parse(frmInventoryAdministration.dgvInventory[0, pos].Value.ToString());
                     dao.IdEntradaSalida = int.Parse(frmInventoryAdministration.dgvInventory[9, pos].Value.ToString());
                     int returnedValue = dao.DeleteInventory();
-                    if (returnedValue == 2)
+                    if (returnedValue > 0)
                     {
                         MessageBox.Show("Registro eliminado", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
