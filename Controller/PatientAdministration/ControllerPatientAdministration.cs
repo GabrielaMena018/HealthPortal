@@ -300,11 +300,11 @@ namespace HealthPortal.Controller.PatientAdministration
         {
 
             int pos = frmPatientAdministration.dgvVisitInfo.CurrentRow.Index;
-            int IdPaciente;
+            int IdVisit;
             string nombrePaciente, apellidoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, Especialidad, horaVisita, nombreMedicamento, Observaciones;
             DateTime FechaVisita;
 
-            IdPaciente = int.Parse(frmPatientAdministration.dgvVisitInfo[0, pos].Value.ToString());
+            IdVisit = int.Parse(frmPatientAdministration.dgvVisitInfo[0, pos].Value.ToString());
             nombrePaciente = frmPatientAdministration.dgvVisitInfo[1, pos].Value.ToString();
             apellidoPaciente = frmPatientAdministration.dgvVisitInfo[2, pos].Value.ToString();
             TipoPersona = frmPatientAdministration.dgvVisitInfo[3, pos].Value.ToString();
@@ -318,7 +318,7 @@ namespace HealthPortal.Controller.PatientAdministration
             nombreMedicamento = frmPatientAdministration.dgvVisitInfo[11, pos].Value.ToString();
             Observaciones = frmPatientAdministration.dgvVisitInfo[12, pos].Value.ToString();
 
-            FrmAddUpdatePatient openFrom = new FrmAddUpdatePatient(2, IdPaciente, nombrePaciente, apellidoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, Especialidad, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
+            FrmAddUpdatePatient openFrom = new FrmAddUpdatePatient(2, IdVisit, nombrePaciente, apellidoPaciente, TipoPersona, codigo, grupoTecnico, grado, seccionAcademica, Especialidad, FechaVisita, horaVisita, nombreMedicamento, Observaciones);
             openFrom.ShowDialog();
             RefreshPatientData();
 

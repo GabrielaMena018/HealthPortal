@@ -43,6 +43,7 @@ namespace HealthPortal.Controller.PatientAdministration
             objAddUpdatePatient.dtpRegisterDate.Value = DateTime.Now;
             objAddUpdatePatient.dtpRegisterTime.Value = DateTime.Now;
             objAddUpdatePatient.txtPatientCode.Leave += new EventHandler(Code);
+            
         }
         public ControllerAddUpdatePatient(FrmAddUpdatePatient View, int Action, int IdPatient, string PatientName, string PatientLastName, string TypePerson, string codigo, string grupoTecnico, string grade, string seccionAcademica, string Especialidad, DateTime VisitDate, string TimeVisit, string nombreMedicamento, string Observaciones)
         {
@@ -83,9 +84,12 @@ namespace HealthPortal.Controller.PatientAdministration
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
             daoPatientAdministration.Code = objAddUpdatePatient.txtPatientCode.Texts;
             string[] datos = new string[8];
+           
             datos = daoPatientAdministration.SearchCode();
             if (datos != null)
             {
+                action = 4;
+                VerifyAction();
                 objAddUpdatePatient.txtPatientName.Texts = datos[0];
                 objAddUpdatePatient.txtPatientLastName.Texts = datos[1];
                 objAddUpdatePatient.txtPatientCode.Texts = datos[2];
@@ -94,6 +98,7 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.cmbRegisterSpecialty.Text = datos[5];
                 objAddUpdatePatient.cmbSection.Text = datos[6];
                 objAddUpdatePatient.cmbRole.Text = datos[7];
+               
                 return respuesta = 1;
 
             }
@@ -102,11 +107,12 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.txtPatientName.Texts = objAddUpdatePatient.txtPatientName.Texts;
                 objAddUpdatePatient.txtPatientLastName.Texts = objAddUpdatePatient.txtPatientLastName.Texts;
                 objAddUpdatePatient.txtPatientCode.Texts = objAddUpdatePatient.txtPatientCode.Texts;
-                objAddUpdatePatient.txtGrupo.Texts = objAddUpdatePatient.txtGrupo.Texts;
+                objAddUpdatePatient.txtGrupo.Texts = objAddUpdatePatient.txtGrupo.Texts;   
                 objAddUpdatePatient.CmBGradoRegistro.Text = objAddUpdatePatient.CmBGradoRegistro.Text;
                 objAddUpdatePatient.cmbRegisterSpecialty.Text = objAddUpdatePatient.cmbRegisterSpecialty.Text;
                 objAddUpdatePatient.cmbSection.Text = objAddUpdatePatient.cmbSection.Text;
                 objAddUpdatePatient.cmbRole.Text = objAddUpdatePatient.cmbRole.Text;
+                
                 MessageBox.Show("El paciente no tiene un registro de visitas existentes, ingresar los datos", "Registro paciente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return 2;
 
@@ -119,7 +125,7 @@ namespace HealthPortal.Controller.PatientAdministration
         public void UpdateVisit(object sender, EventArgs e)
         {
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
-            daoPatientAdministration.IdPatient = int.Parse(objAddUpdatePatient.txtIdPerson.Text.Trim());
+            daoPatientAdministration.IdVisit= int.Parse(objAddUpdatePatient.txtIdPerson.Text.Trim());
             daoPatientAdministration.Date = objAddUpdatePatient.dtpRegisterDate.Value;
             daoPatientAdministration.Time = objAddUpdatePatient.dtpRegisterTime.Value.ToString("HH:mm");
             daoPatientAdministration.Medicine = (int)objAddUpdatePatient.cmbMedicamentoRegistro.SelectedValue;
@@ -202,6 +208,23 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.dtpRegisterDate.Enabled = false;
                 objAddUpdatePatient.dtpRegisterTime.Enabled = false;
                 objAddUpdatePatient.cmbSection.Enabled = false;
+            }
+            else if (action == 4) 
+            {
+                objAddUpdatePatient.txtPatientName.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.txtPatientLastName.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.txtPatientCode.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.txtGrupo.BackColor = Color.WhiteSmoke;
+                objAddUpdatePatient.cmbRole.Enabled = false;
+                objAddUpdatePatient.txtPatientName.Enabled = false;
+                objAddUpdatePatient.txtPatientLastName.Enabled = false;
+                objAddUpdatePatient.cmbSection.Enabled = false;
+                objAddUpdatePatient.cmbRegisterSpecialty.Enabled = false;
+                objAddUpdatePatient.CmBGradoRegistro.Enabled = false;
+                objAddUpdatePatient.txtGrupo.Enabled = false;
+                objAddUpdatePatient.txtPatientCode.Enabled = false;
+                objAddUpdatePatient.dtpRegisterTime.Enabled = false;
+                objAddUpdatePatient.dtpRegisterDate.Enabled = false;
             }
         }
 
