@@ -26,30 +26,40 @@ namespace HealthPortal.Controller.PasswordManagement
             {
                 { "btnEmailRecoveryMethod", Tuple.Create(Resources.emailRecovery, Resources.hoverEmailRecovery) },
                 { "btnSecurityQuestions", Tuple.Create(Resources.securityQuestions, Resources.hoverSecurityQuestions) },
-                { "btnSecurityPIN", Tuple.Create(Resources.PIN, Resources.hoverPIN) },
                 { "btnAdminIntervention", Tuple.Create(Resources.adminIntervention, Resources.hoverAdminIntervention) },
                 { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) }
             };
 
             CommonMethods.EnableFormDrag(frmRecoveryMethods, frmRecoveryMethods);
+            CheckSecurityQuestions();
 
             frmRecoveryMethods.btnExit.Click += new EventHandler(GoBackToLogin);
 
             frmRecoveryMethods.btnEmailRecoveryMethod.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmRecoveryMethods.btnSecurityQuestions.MouseEnter += new EventHandler(MouseEnterPictureButton);
-            frmRecoveryMethods.btnSecurityPIN.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmRecoveryMethods.btnAdminIntervention.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmRecoveryMethods.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
 
             frmRecoveryMethods.btnEmailRecoveryMethod.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmRecoveryMethods.btnSecurityQuestions.MouseLeave += new EventHandler(MouseLeavePictureButton);
-            frmRecoveryMethods.btnSecurityPIN.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmRecoveryMethods.btnAdminIntervention.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmRecoveryMethods.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
 
             frmRecoveryMethods.btnEmailRecoveryMethod.Click += new EventHandler(EmailPasswordRecovery);
             frmRecoveryMethods.btnAdminIntervention.Click += new EventHandler(AdminInterventionRecovery);
             frmRecoveryMethods.btnSecurityQuestions.Click += new EventHandler(SecurityQuestionsRecovery);
+        }
+        private void CheckSecurityQuestions()
+        {
+            DAOPasswordManagement dao = new DAOPasswordManagement();
+            if (dao.AmountOfSecurityQuestions() >= 1)
+            {
+                frmRecoveryMethods.btnSecurityQuestions.Enabled = true;
+            }
+            else
+            {
+                frmRecoveryMethods.btnSecurityQuestions.Enabled = false;
+            }
         }
         private void GoBackToLogin(object sender, EventArgs e)
         {

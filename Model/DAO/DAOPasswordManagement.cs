@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Windows.Forms;
 using HealthPortal.Model.DTO;
 using HealthPortal.Helper;
@@ -15,6 +14,30 @@ namespace HealthPortal.Model.DAO
     internal class DAOPasswordManagement : DTOPasswordManagement
     {
         SqlCommand command = new SqlCommand();
+        public int AmountOfSecurityQuestions()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT COUNT(*) FROM [Institución].[tbPreguntas]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                return (int)cmd.ExecuteScalar();
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_201");
+                return -1;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_201");
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
         public bool VerifyCurrentUserPassword()
         {
             try
