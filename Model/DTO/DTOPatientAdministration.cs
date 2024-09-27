@@ -16,6 +16,8 @@ namespace HealthPortal.Model.DTO
         private string name;
         private string lastName;
         private int role;
+        private string addRole;
+
 
 
         //Estudiante
@@ -68,5 +70,6 @@ namespace HealthPortal.Model.DTO
         public int NewQuantity { get => newQuantity; set => newQuantity = value; }
         public int IdVisit { get => idVisit; set => idVisit = value; }
         public int Package1 { get => Package; set => Package = value; }
+        public string AddRole { get => addRole; set => addRole = value; }
     }
 }

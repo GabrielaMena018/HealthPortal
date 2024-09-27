@@ -18,5 +18,11 @@ namespace HealthPortal.View.PatientAdministration
             InitializeComponent();
             ControllerAddRole control = new ControllerAddRole(this, action);
         }
+
+        public FrmAddRole(int action, int id, string role)
+        {
+            InitializeComponent();
+            ControllerAddRole control = new ControllerAddRole(this, action, id, role);
+        }
     }
 }

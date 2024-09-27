@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.btnExitE = new System.Windows.Forms.Button();
-            this.txtSpecialty = new CustomControls.CustomTextBox();
-            this.lblSpecialty = new System.Windows.Forms.Label();
-            this.btnUpdateSpecialty = new CustomControls.RJButton();
-            this.btnAddRole = new CustomControls.RJButton();
+            this.lblRole = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtRole = new CustomControls.CustomTextBox();
+            this.btnUpdateRole = new CustomControls.RJButton();
+            this.btnAddRole = new CustomControls.RJButton();
             this.SuspendLayout();
             // 
             // btnExitE
@@ -54,64 +55,84 @@
             this.btnExitE.TabStop = false;
             this.btnExitE.UseVisualStyleBackColor = false;
             // 
-            // txtSpecialty
+            // lblRole
             // 
-            this.txtSpecialty.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSpecialty.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtSpecialty.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtSpecialty.BorderRadius = 18;
-            this.txtSpecialty.BorderSize = 2;
-            this.txtSpecialty.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.txtSpecialty.Location = new System.Drawing.Point(45, 100);
-            this.txtSpecialty.Margin = new System.Windows.Forms.Padding(20, 10, 20, 20);
-            this.txtSpecialty.MaxLength = 60;
-            this.txtSpecialty.Multiline = false;
-            this.txtSpecialty.Name = "txtSpecialty";
-            this.txtSpecialty.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.txtSpecialty.PasswordChar = false;
-            this.txtSpecialty.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtSpecialty.PlaceholderText = "";
-            this.txtSpecialty.SelectionLength = 0;
-            this.txtSpecialty.SelectionStart = 0;
-            this.txtSpecialty.Size = new System.Drawing.Size(522, 58);
-            this.txtSpecialty.TabIndex = 19;
-            this.txtSpecialty.Texts = "";
-            this.txtSpecialty.UnderlinedStyle = false;
+            this.lblRole.AutoSize = true;
+            this.lblRole.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.lblRole.Location = new System.Drawing.Point(19, 19);
+            this.lblRole.Margin = new System.Windows.Forms.Padding(10);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(214, 37);
+            this.lblRole.TabIndex = 49;
+            this.lblRole.Text = "Agregar Role";
             // 
-            // lblSpecialty
+            // label6
             // 
-            this.lblSpecialty.AutoSize = true;
-            this.lblSpecialty.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblSpecialty.Location = new System.Drawing.Point(19, 19);
-            this.lblSpecialty.Margin = new System.Windows.Forms.Padding(10);
-            this.lblSpecialty.Name = "lblSpecialty";
-            this.lblSpecialty.Size = new System.Drawing.Size(214, 37);
-            this.lblSpecialty.TabIndex = 49;
-            this.lblSpecialty.Text = "Agregar Role";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.label6.Location = new System.Drawing.Point(59, 79);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 21);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "Role";
             // 
-            // btnUpdateSpecialty
+            // txtID
             // 
-            this.btnUpdateSpecialty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnUpdateSpecialty.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.btnUpdateSpecialty.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.btnUpdateSpecialty.BorderRadius = 30;
-            this.btnUpdateSpecialty.BorderSize = 0;
-            this.btnUpdateSpecialty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdateSpecialty.FlatAppearance.BorderSize = 0;
-            this.btnUpdateSpecialty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateSpecialty.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnUpdateSpecialty.Location = new System.Drawing.Point(277, 178);
-            this.btnUpdateSpecialty.Margin = new System.Windows.Forms.Padding(10);
-            this.btnUpdateSpecialty.Name = "btnUpdateSpecialty";
-            this.btnUpdateSpecialty.Size = new System.Drawing.Size(141, 39);
-            this.btnUpdateSpecialty.TabIndex = 52;
-            this.btnUpdateSpecialty.TabStop = false;
-            this.btnUpdateSpecialty.Text = "Actualizar";
-            this.btnUpdateSpecialty.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnUpdateSpecialty.UseVisualStyleBackColor = false;
+            this.txtID.Location = new System.Drawing.Point(0, 0);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(68, 20);
+            this.txtID.TabIndex = 64;
+            this.txtID.Visible = false;
+            // 
+            // txtRole
+            // 
+            this.txtRole.BackColor = System.Drawing.SystemColors.Window;
+            this.txtRole.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtRole.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtRole.BorderRadius = 18;
+            this.txtRole.BorderSize = 2;
+            this.txtRole.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.txtRole.Location = new System.Drawing.Point(45, 100);
+            this.txtRole.Margin = new System.Windows.Forms.Padding(20, 10, 20, 20);
+            this.txtRole.MaxLength = 60;
+            this.txtRole.Multiline = false;
+            this.txtRole.Name = "txtRole";
+            this.txtRole.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.txtRole.PasswordChar = false;
+            this.txtRole.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtRole.PlaceholderText = "";
+            this.txtRole.SelectionLength = 0;
+            this.txtRole.SelectionStart = 0;
+            this.txtRole.Size = new System.Drawing.Size(522, 58);
+            this.txtRole.TabIndex = 19;
+            this.txtRole.Texts = "";
+            this.txtRole.UnderlinedStyle = false;
+            // 
+            // btnUpdateRole
+            // 
+            this.btnUpdateRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnUpdateRole.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            this.btnUpdateRole.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpdateRole.BorderRadius = 30;
+            this.btnUpdateRole.BorderSize = 0;
+            this.btnUpdateRole.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateRole.FlatAppearance.BorderSize = 0;
+            this.btnUpdateRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateRole.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnUpdateRole.Location = new System.Drawing.Point(277, 178);
+            this.btnUpdateRole.Margin = new System.Windows.Forms.Padding(10);
+            this.btnUpdateRole.Name = "btnUpdateRole";
+            this.btnUpdateRole.Size = new System.Drawing.Size(141, 39);
+            this.btnUpdateRole.TabIndex = 52;
+            this.btnUpdateRole.TabStop = false;
+            this.btnUpdateRole.Text = "Actualizar";
+            this.btnUpdateRole.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnUpdateRole.UseVisualStyleBackColor = false;
             // 
             // btnAddRole
             // 
@@ -135,31 +156,22 @@
             this.btnAddRole.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnAddRole.UseVisualStyleBackColor = false;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.label6.Location = new System.Drawing.Point(51, 79);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 21);
-            this.label6.TabIndex = 54;
-            this.label6.Text = "Role";
-            // 
             // FrmAddRole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(612, 263);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtSpecialty);
+            this.Controls.Add(this.txtRole);
             this.Controls.Add(this.btnExitE);
-            this.Controls.Add(this.lblSpecialty);
-            this.Controls.Add(this.btnUpdateSpecialty);
+            this.Controls.Add(this.lblRole);
+            this.Controls.Add(this.btnUpdateRole);
             this.Controls.Add(this.btnAddRole);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAddRole";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAddRole";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,10 +181,11 @@
         #endregion
 
         public System.Windows.Forms.Button btnExitE;
-        public CustomControls.CustomTextBox txtSpecialty;
-        public System.Windows.Forms.Label lblSpecialty;
-        public CustomControls.RJButton btnUpdateSpecialty;
+        public CustomControls.CustomTextBox txtRole;
+        public System.Windows.Forms.Label lblRole;
+        public CustomControls.RJButton btnUpdateRole;
         public CustomControls.RJButton btnAddRole;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox txtID;
     }
 }

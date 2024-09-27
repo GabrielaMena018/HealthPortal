@@ -394,7 +394,7 @@ namespace HealthPortal.Model.DAO
                 cmdUpdateVisita.Parameters.AddWithValue("param2", Time);
                 cmdUpdateVisita.Parameters.AddWithValue("param3", Medicine);
                 cmdUpdateVisita.Parameters.AddWithValue("param4", Observation);
-                cmdUpdateVisita.Parameters.AddWithValue("param5",IdVisit);
+                cmdUpdateVisita.Parameters.AddWithValue("param5", IdVisit);
                 updateReturn = cmdUpdateVisita.ExecuteNonQuery();
                 return updateReturn;
 
@@ -964,7 +964,7 @@ namespace HealthPortal.Model.DAO
             {
 
                 //Se crea una conexion para garantizar que haya conexion con la base
-                command.Connection = getConnection();   
+                command.Connection = getConnection();
                 string query = "SELECT * FROM [Pacientes].[tbTipoPersona]";
                 SqlCommand cmdRole = new SqlCommand(query, command.Connection);
                 cmdRole.ExecuteNonQuery();
@@ -983,6 +983,59 @@ namespace HealthPortal.Model.DAO
             {
                 CommonMethods.HandleError("EC_201");
                 return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public int RegisterRole()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "INSERT INTO [Pacientes].[tbTipoPersona] VALUES (@param1)";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", AddRole);
+                int returnedValue = cmd.ExecuteNonQuery();
+                return returnedValue;
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_111");
+                return -1;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_111");
+                return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public int UpdateRole()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "UPDATE [Pacientes].[tbTipoPersona] SET [tipoPersona] = (@param1) WHERE [idTipoPersona]\t = @param2 ";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("param1", AddRole);
+                cmd.Parameters.AddWithValue("param2", Role);
+                int returnedValue = cmd.ExecuteNonQuery();
+                return returnedValue;
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_311");
+                return -1;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_311");
+                return -1;
             }
             finally
             {
