@@ -64,7 +64,9 @@
     <Compile Include="Controller\PasswordManagement\ControllerPasswordChange.cs" />
     <Compile Include="Controller\PasswordManagement\ControllerRecoveryMethods.cs" />
     <Compile Include="Controller\PasswordManagement\ControllerSecurityQuestions.cs" />
+    <Compile Include="Controller\PatientAdministration\ControllerAddRole.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerAddUpdatePatient.cs" />
+    <Compile Include="Controller\PatientAdministration\ControllerAdminRol.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerViewPatientInfo.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
@@ -171,6 +173,18 @@
     </Compile>
     <Compile Include="View\PasswordManagement\FrmSecurityQuestions.Designer.cs">
       <DependentUpon>FrmSecurityQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientAdministration\FrmAddRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientAdministration\FrmAddRole.Designer.cs">
+      <DependentUpon>FrmAddRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientAdministration\FrmAdminRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientAdministration\FrmAdminRol.Designer.cs">
+      <DependentUpon>FrmAdminRol.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PatientAdministration\FrmViewPatientInfo.cs">
       <SubType>Form</SubType>
@@ -329,6 +343,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\PasswordManagement\FrmSecurityQuestions.resx">
       <DependentUpon>FrmSecurityQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientAdministration\FrmAddRole.resx">
+      <DependentUpon>FrmAddRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientAdministration\FrmAdminRol.resx">
+      <DependentUpon>FrmAdminRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PatientAdministration\FrmViewPatientInfo.resx">
       <DependentUpon>FrmViewPatientInfo.cs</DependentUpon>

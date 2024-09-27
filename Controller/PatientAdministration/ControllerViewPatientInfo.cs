@@ -27,6 +27,13 @@ namespace HealthPortal.Controller.PatientAdministration
             frmViewPatientInfo.Load += new EventHandler(InitialLoad);
             //agregar un nuevo paciente
             frmViewPatientInfo.btnAddPatient.Click += new EventHandler(NewPatient);
+            frmViewPatientInfo.btnInsertRol.Click += new EventHandler(AddRole);
+        }
+
+        private void AddRole(object sender, EventArgs e)
+        {
+            FrmAdminRol openform = new FrmAdminRol();
+            openform.ShowDialog();
         }
 
         private void NewPatient(object sender, EventArgs e)

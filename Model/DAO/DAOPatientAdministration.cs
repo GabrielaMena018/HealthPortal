@@ -349,8 +349,7 @@ namespace HealthPortal.Model.DAO
                                             "codigo = @param3, " +
                                             "idGradoSeccion = @param4, " +
                                             "idTipoPersona = @param5 " +
-                                            "WHERE idPaciente = @param6"
-                                            ;
+                                            "WHERE idPaciente = @param6";
                 SqlCommand cmdUpdatePatient = new SqlCommand(query, command.Connection);
                 cmdUpdatePatient.Parameters.AddWithValue("param1", Name);
                 cmdUpdatePatient.Parameters.AddWithValue("param2", LastName);
@@ -383,18 +382,19 @@ namespace HealthPortal.Model.DAO
         {
             try
             {
+                command.Connection = getConnection();
                 string query = "UPDATE [Visitas].[tbVisitas] SET " +
                                             "FechaVisita = @param1, " +
                                             "HoraVisita = @param2, " +
                                             "idInventario = @param3, " +
                                              "Observaciones = @param4 " +
-                                            "WHERE idPaciente = @param5";
+                                            "WHERE idVisita = @param5";
                 SqlCommand cmdUpdateVisita = new SqlCommand(query, command.Connection);
                 cmdUpdateVisita.Parameters.AddWithValue("param1", Date);
                 cmdUpdateVisita.Parameters.AddWithValue("param2", Time);
                 cmdUpdateVisita.Parameters.AddWithValue("param3", Medicine);
                 cmdUpdateVisita.Parameters.AddWithValue("param4", Observation);
-                cmdUpdateVisita.Parameters.AddWithValue("param5", IdPatient);
+                cmdUpdateVisita.Parameters.AddWithValue("param5",IdVisit);
                 updateReturn = cmdUpdateVisita.ExecuteNonQuery();
                 return updateReturn;
 
@@ -957,6 +957,37 @@ namespace HealthPortal.Model.DAO
             }
             else { return 0; }
 
+        }
+        public DataSet GetRole()
+        {
+            try
+            {
+
+                //Se crea una conexion para garantizar que haya conexion con la base
+                command.Connection = getConnection();   
+                string query = "SELECT * FROM [Pacientes].[tbTipoPersona]";
+                SqlCommand cmdRole = new SqlCommand(query, command.Connection);
+                cmdRole.ExecuteNonQuery();
+                SqlDataAdapter adpCategory = new SqlDataAdapter(cmdRole);
+                DataSet ds = new DataSet();
+                adpCategory.Fill(ds, "tbTipoPersona");
+                return ds;
+
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_201");
+                return null;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_201");
+                return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
         }
     }
 }

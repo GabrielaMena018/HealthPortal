@@ -121,27 +121,27 @@
             this.cmsView,
             this.cmsUpdate});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(328, 82);
+            this.cmsDataGrid.Size = new System.Drawing.Size(283, 82);
             // 
             // cmsDelete
             // 
             this.cmsDelete.Image = global::HealthPortal.Properties.Resources.papelera_xmark;
             this.cmsDelete.Name = "cmsDelete";
-            this.cmsDelete.Size = new System.Drawing.Size(327, 26);
+            this.cmsDelete.Size = new System.Drawing.Size(282, 26);
             this.cmsDelete.Text = "Eliminar visita";
             // 
             // cmsView
             // 
             this.cmsView.Image = global::HealthPortal.Properties.Resources.descripcion_general;
             this.cmsView.Name = "cmsView";
-            this.cmsView.Size = new System.Drawing.Size(327, 26);
+            this.cmsView.Size = new System.Drawing.Size(282, 26);
             this.cmsView.Text = "Ver Información de la visita";
             // 
             // cmsUpdate
             // 
             this.cmsUpdate.Image = global::HealthPortal.Properties.Resources.actualizar__1_;
             this.cmsUpdate.Name = "cmsUpdate";
-            this.cmsUpdate.Size = new System.Drawing.Size(327, 26);
+            this.cmsUpdate.Size = new System.Drawing.Size(282, 26);
             this.cmsUpdate.Text = "Actualizar información de la visita";
             // 
             // tlpInventory
@@ -157,14 +157,13 @@
             this.tlpInventory.Controls.Add(this.tabControl1, 3, 2);
             this.tlpInventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpInventory.Location = new System.Drawing.Point(0, 0);
-            this.tlpInventory.Margin = new System.Windows.Forms.Padding(4);
             this.tlpInventory.Name = "tlpInventory";
             this.tlpInventory.RowCount = 4;
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.4532F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
-            this.tlpInventory.Size = new System.Drawing.Size(1827, 1015);
+            this.tlpInventory.Size = new System.Drawing.Size(1370, 825);
             this.tlpInventory.TabIndex = 1;
             // 
             // pnlTitle
@@ -177,7 +176,7 @@
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1827, 144);
+            this.pnlTitle.Size = new System.Drawing.Size(1370, 117);
             this.pnlTitle.TabIndex = 1;
             // 
             // tlpTitle
@@ -193,8 +192,8 @@
             this.tlpTitle.Name = "tlpTitle";
             this.tlpTitle.RowCount = 1;
             this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 144F));
-            this.tlpTitle.Size = new System.Drawing.Size(1827, 144);
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tlpTitle.Size = new System.Drawing.Size(1370, 117);
             this.tlpTitle.TabIndex = 1;
             // 
             // tlpTitleSub
@@ -212,7 +211,7 @@
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpTitleSub.Size = new System.Drawing.Size(1333, 144);
+            this.tlpTitleSub.Size = new System.Drawing.Size(1000, 117);
             this.tlpTitleSub.TabIndex = 0;
             // 
             // lblTitle
@@ -221,10 +220,10 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblTitle.Location = new System.Drawing.Point(66, 50);
+            this.lblTitle.Location = new System.Drawing.Point(50, 40);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1199, 57);
+            this.lblTitle.Size = new System.Drawing.Size(899, 46);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Visitas";
             // 
@@ -239,14 +238,14 @@
             this.tlpControls.Controls.Add(this.btnExit, 3, 1);
             this.tlpControls.Controls.Add(this.btnResize, 1, 1);
             this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpControls.Location = new System.Drawing.Point(1333, 0);
+            this.tlpControls.Location = new System.Drawing.Point(1000, 0);
             this.tlpControls.Margin = new System.Windows.Forms.Padding(0);
             this.tlpControls.Name = "tlpControls";
             this.tlpControls.RowCount = 3;
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpControls.Size = new System.Drawing.Size(494, 144);
+            this.tlpControls.Size = new System.Drawing.Size(370, 117);
             this.tlpControls.TabIndex = 1;
             // 
             // btnExit
@@ -261,10 +260,10 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
-            this.btnExit.Location = new System.Drawing.Point(349, 47);
+            this.btnExit.Location = new System.Drawing.Point(260, 39);
             this.btnExit.Margin = new System.Windows.Forms.Padding(0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(93, 47);
+            this.btnExit.Size = new System.Drawing.Size(69, 39);
             this.btnExit.TabIndex = 38;
             this.btnExit.TabStop = false;
             this.btnExit.UseVisualStyleBackColor = false;
@@ -281,10 +280,10 @@
             this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResize.ForeColor = System.Drawing.Color.White;
             this.btnResize.Image = ((System.Drawing.Image)(resources.GetObject("btnResize.Image")));
-            this.btnResize.Location = new System.Drawing.Point(247, 47);
+            this.btnResize.Location = new System.Drawing.Point(185, 39);
             this.btnResize.Margin = new System.Windows.Forms.Padding(0);
             this.btnResize.Name = "btnResize";
-            this.btnResize.Size = new System.Drawing.Size(93, 47);
+            this.btnResize.Size = new System.Drawing.Size(69, 39);
             this.btnResize.TabIndex = 39;
             this.btnResize.TabStop = false;
             this.btnResize.UseVisualStyleBackColor = false;
@@ -300,10 +299,10 @@
             this.pnlSide.GradientAngle = 90F;
             this.pnlSide.GradientBottomColor = System.Drawing.Color.White;
             this.pnlSide.GradientTopColor = System.Drawing.Color.White;
-            this.pnlSide.Location = new System.Drawing.Point(51, 191);
+            this.pnlSide.Location = new System.Drawing.Point(38, 155);
             this.pnlSide.Margin = new System.Windows.Forms.Padding(0);
             this.pnlSide.Name = "pnlSide";
-            this.pnlSide.Size = new System.Drawing.Size(465, 776);
+            this.pnlSide.Size = new System.Drawing.Size(348, 630);
             this.pnlSide.TabIndex = 2;
             // 
             // tlpSide
@@ -316,7 +315,6 @@
             this.tlpSide.Controls.Add(this.grpPatientInfo, 1, 1);
             this.tlpSide.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpSide.Location = new System.Drawing.Point(0, 0);
-            this.tlpSide.Margin = new System.Windows.Forms.Padding(4);
             this.tlpSide.Name = "tlpSide";
             this.tlpSide.RowCount = 5;
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.007008F));
@@ -324,7 +322,7 @@
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.105105F));
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.61562F));
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.007008F));
-            this.tlpSide.Size = new System.Drawing.Size(465, 776);
+            this.tlpSide.Size = new System.Drawing.Size(348, 630);
             this.tlpSide.TabIndex = 0;
             // 
             // grpAddVisit
@@ -334,11 +332,10 @@
             this.grpAddVisit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpAddVisit.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpAddVisit.ForeColor = System.Drawing.Color.DarkGray;
-            this.grpAddVisit.Location = new System.Drawing.Point(59, 599);
+            this.grpAddVisit.Location = new System.Drawing.Point(44, 487);
             this.grpAddVisit.Margin = new System.Windows.Forms.Padding(0);
             this.grpAddVisit.Name = "grpAddVisit";
-            this.grpAddVisit.Padding = new System.Windows.Forms.Padding(4);
-            this.grpAddVisit.Size = new System.Drawing.Size(345, 121);
+            this.grpAddVisit.Size = new System.Drawing.Size(258, 98);
             this.grpAddVisit.TabIndex = 1;
             this.grpAddVisit.TabStop = false;
             this.grpAddVisit.Text = "Añadir visitas";
@@ -351,14 +348,13 @@
             this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.33F));
             this.tlpSub1.Controls.Add(this.btnNew, 1, 1);
             this.tlpSub1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSub1.Location = new System.Drawing.Point(4, 21);
-            this.tlpSub1.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpSub1.Location = new System.Drawing.Point(3, 17);
             this.tlpSub1.Name = "tlpSub1";
             this.tlpSub1.RowCount = 3;
             this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.92F));
             this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.16F));
             this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.92F));
-            this.tlpSub1.Size = new System.Drawing.Size(337, 96);
+            this.tlpSub1.Size = new System.Drawing.Size(252, 78);
             this.tlpSub1.TabIndex = 0;
             // 
             // btnNew
@@ -373,10 +369,10 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnNew.Location = new System.Drawing.Point(28, 25);
+            this.btnNew.Location = new System.Drawing.Point(20, 20);
             this.btnNew.Margin = new System.Windows.Forms.Padding(0);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(280, 42);
+            this.btnNew.Size = new System.Drawing.Size(210, 34);
             this.btnNew.TabIndex = 1;
             this.btnNew.TabStop = false;
             this.btnNew.Text = "Nueva Visita";
@@ -389,11 +385,9 @@
             this.grpPatientInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpPatientInfo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
             this.grpPatientInfo.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.grpPatientInfo.Location = new System.Drawing.Point(63, 58);
-            this.grpPatientInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.grpPatientInfo.Location = new System.Drawing.Point(47, 47);
             this.grpPatientInfo.Name = "grpPatientInfo";
-            this.grpPatientInfo.Padding = new System.Windows.Forms.Padding(4);
-            this.grpPatientInfo.Size = new System.Drawing.Size(337, 498);
+            this.grpPatientInfo.Size = new System.Drawing.Size(252, 405);
             this.grpPatientInfo.TabIndex = 2;
             this.grpPatientInfo.TabStop = false;
             this.grpPatientInfo.Text = "Información de pacientes";
@@ -411,8 +405,7 @@
             this.tlpSub2.Controls.Add(this.txtSearch, 1, 2);
             this.tlpSub2.Controls.Add(this.lblSearch, 1, 1);
             this.tlpSub2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSub2.Location = new System.Drawing.Point(4, 21);
-            this.tlpSub2.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpSub2.Location = new System.Drawing.Point(3, 17);
             this.tlpSub2.Name = "tlpSub2";
             this.tlpSub2.RowCount = 14;
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
@@ -429,7 +422,7 @@
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.935065F));
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.31169F));
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
-            this.tlpSub2.Size = new System.Drawing.Size(329, 473);
+            this.tlpSub2.Size = new System.Drawing.Size(246, 385);
             this.tlpSub2.TabIndex = 3;
             // 
             // chart1
@@ -440,8 +433,8 @@
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(34, 187);
-            this.chart1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.chart1.Location = new System.Drawing.Point(25, 154);
+            this.chart1.Margin = new System.Windows.Forms.Padding(5);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             this.tlpSub2.SetRowSpan(this.chart1, 6);
@@ -452,7 +445,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(260, 244);
+            this.chart1.Size = new System.Drawing.Size(194, 200);
             this.chart1.SuppressExceptions = true;
             this.chart1.TabIndex = 32;
             this.chart1.TabStop = false;
@@ -471,10 +464,10 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSearch.Location = new System.Drawing.Point(164, 105);
+            this.btnSearch.Location = new System.Drawing.Point(122, 86);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(137, 39);
+            this.btnSearch.Size = new System.Drawing.Size(102, 32);
             this.btnSearch.TabIndex = 35;
             this.btnSearch.TabStop = false;
             this.btnSearch.Text = "Buscar";
@@ -488,10 +481,9 @@
             this.lblPatientsAttended.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPatientsAttended.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPatientsAttended.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblPatientsAttended.Location = new System.Drawing.Point(31, 158);
-            this.lblPatientsAttended.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPatientsAttended.Location = new System.Drawing.Point(23, 130);
             this.lblPatientsAttended.Name = "lblPatientsAttended";
-            this.lblPatientsAttended.Size = new System.Drawing.Size(266, 23);
+            this.lblPatientsAttended.Size = new System.Drawing.Size(198, 19);
             this.lblPatientsAttended.TabIndex = 31;
             this.lblPatientsAttended.Text = "Pacientes atendidos";
             // 
@@ -505,18 +497,18 @@
             this.tlpSub2.SetColumnSpan(this.txtSearch, 2);
             this.txtSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.txtSearch.Location = new System.Drawing.Point(27, 51);
+            this.txtSearch.Location = new System.Drawing.Point(20, 42);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearch.MaxLength = 60;
             this.txtSearch.Multiline = false;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Padding = new System.Windows.Forms.Padding(27, 11, 27, 11);
+            this.txtSearch.Padding = new System.Windows.Forms.Padding(20, 9, 20, 9);
             this.txtSearch.PasswordChar = false;
             this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSearch.PlaceholderText = "";
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
-            this.txtSearch.Size = new System.Drawing.Size(274, 42);
+            this.txtSearch.Size = new System.Drawing.Size(204, 34);
             this.txtSearch.TabIndex = 34;
             this.txtSearch.TabStop = false;
             this.txtSearch.Tag = "name";
@@ -530,10 +522,9 @@
             this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblSearch.Location = new System.Drawing.Point(31, 28);
-            this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearch.Location = new System.Drawing.Point(23, 23);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(266, 23);
+            this.lblSearch.Size = new System.Drawing.Size(198, 19);
             this.lblSearch.TabIndex = 33;
             this.lblSearch.Text = "Buscar visita de paciente";
             // 
@@ -542,21 +533,24 @@
             this.tabControl1.ContextMenuStrip = this.cmsDataGrid;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.tabControl1.Location = new System.Drawing.Point(570, 194);
+            this.tabControl1.Location = new System.Drawing.Point(426, 157);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1200, 770);
+            this.tabControl1.Size = new System.Drawing.Size(900, 626);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dgvVisitInfo);
             this.tabPage1.Controls.Add(this.tlpMainSub1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 30);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1192, 736);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(892, 596);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Visitas";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -595,7 +589,7 @@
             this.dgvVisitInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvVisitInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVisitInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.dgvVisitInfo.Location = new System.Drawing.Point(3, 126);
+            this.dgvVisitInfo.Location = new System.Drawing.Point(2, 102);
             this.dgvVisitInfo.Margin = new System.Windows.Forms.Padding(0);
             this.dgvVisitInfo.MultiSelect = false;
             this.dgvVisitInfo.Name = "dgvVisitInfo";
@@ -615,7 +609,7 @@
             this.dgvVisitInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvVisitInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvVisitInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvVisitInfo.Size = new System.Drawing.Size(1186, 607);
+            this.dgvVisitInfo.Size = new System.Drawing.Size(888, 492);
             this.dgvVisitInfo.TabIndex = 41;
             this.dgvVisitInfo.TabStop = false;
             // 
@@ -646,7 +640,7 @@
             this.tlpMainSub1.Controls.Add(this.lblFilterByDate, 3, 1);
             this.tlpMainSub1.Controls.Add(this.dtpVisitDate, 3, 2);
             this.tlpMainSub1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpMainSub1.Location = new System.Drawing.Point(3, 3);
+            this.tlpMainSub1.Location = new System.Drawing.Point(2, 2);
             this.tlpMainSub1.Margin = new System.Windows.Forms.Padding(0);
             this.tlpMainSub1.Name = "tlpMainSub1";
             this.tlpMainSub1.RowCount = 4;
@@ -654,7 +648,7 @@
             this.tlpMainSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19F));
             this.tlpMainSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31F));
             this.tlpMainSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpMainSub1.Size = new System.Drawing.Size(1186, 123);
+            this.tlpMainSub1.Size = new System.Drawing.Size(888, 100);
             this.tlpMainSub1.TabIndex = 1;
             // 
             // btnShowAll
@@ -670,11 +664,11 @@
             this.btnShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowAll.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnShowAll.Location = new System.Drawing.Point(954, 30);
+            this.btnShowAll.Location = new System.Drawing.Point(713, 25);
             this.btnShowAll.Margin = new System.Windows.Forms.Padding(0);
             this.btnShowAll.Name = "btnShowAll";
             this.tlpMainSub1.SetRowSpan(this.btnShowAll, 2);
-            this.btnShowAll.Size = new System.Drawing.Size(193, 61);
+            this.btnShowAll.Size = new System.Drawing.Size(144, 50);
             this.btnShowAll.TabIndex = 40;
             this.btnShowAll.TabStop = false;
             this.btnShowAll.Text = "Mostrar todos";
@@ -687,10 +681,10 @@
             this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(763, 67);
+            this.cmbRole.Location = new System.Drawing.Point(570, 54);
             this.cmbRole.Margin = new System.Windows.Forms.Padding(0);
             this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(157, 29);
+            this.cmbRole.Size = new System.Drawing.Size(118, 25);
             this.cmbRole.TabIndex = 39;
             this.cmbRole.TabStop = false;
             // 
@@ -700,10 +694,10 @@
             this.lblPersonType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPersonType.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPersonType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblPersonType.Location = new System.Drawing.Point(763, 30);
+            this.lblPersonType.Location = new System.Drawing.Point(570, 25);
             this.lblPersonType.Margin = new System.Windows.Forms.Padding(0);
             this.lblPersonType.Name = "lblPersonType";
-            this.lblPersonType.Size = new System.Drawing.Size(157, 23);
+            this.lblPersonType.Size = new System.Drawing.Size(118, 19);
             this.lblPersonType.TabIndex = 38;
             this.lblPersonType.Text = "Tipo de persona";
             // 
@@ -713,10 +707,10 @@
             this.cmbGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGrade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.cmbGrade.FormattingEnabled = true;
-            this.cmbGrade.Location = new System.Drawing.Point(572, 67);
+            this.cmbGrade.Location = new System.Drawing.Point(427, 54);
             this.cmbGrade.Margin = new System.Windows.Forms.Padding(0);
             this.cmbGrade.Name = "cmbGrade";
-            this.cmbGrade.Size = new System.Drawing.Size(157, 29);
+            this.cmbGrade.Size = new System.Drawing.Size(118, 25);
             this.cmbGrade.TabIndex = 37;
             this.cmbGrade.TabStop = false;
             // 
@@ -726,10 +720,10 @@
             this.lblGrade.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblGrade.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGrade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblGrade.Location = new System.Drawing.Point(572, 30);
+            this.lblGrade.Location = new System.Drawing.Point(427, 25);
             this.lblGrade.Margin = new System.Windows.Forms.Padding(0);
             this.lblGrade.Name = "lblGrade";
-            this.lblGrade.Size = new System.Drawing.Size(157, 23);
+            this.lblGrade.Size = new System.Drawing.Size(118, 19);
             this.lblGrade.TabIndex = 36;
             this.lblGrade.Text = "Grado";
             // 
@@ -739,10 +733,10 @@
             this.cmbSpecialty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.cmbSpecialty.FormattingEnabled = true;
-            this.cmbSpecialty.Location = new System.Drawing.Point(381, 67);
+            this.cmbSpecialty.Location = new System.Drawing.Point(284, 54);
             this.cmbSpecialty.Margin = new System.Windows.Forms.Padding(0);
             this.cmbSpecialty.Name = "cmbSpecialty";
-            this.cmbSpecialty.Size = new System.Drawing.Size(157, 29);
+            this.cmbSpecialty.Size = new System.Drawing.Size(118, 25);
             this.cmbSpecialty.TabIndex = 35;
             this.cmbSpecialty.TabStop = false;
             // 
@@ -752,10 +746,10 @@
             this.lblSpecialty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpecialty.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblSpecialty.Location = new System.Drawing.Point(381, 30);
+            this.lblSpecialty.Location = new System.Drawing.Point(284, 25);
             this.lblSpecialty.Margin = new System.Windows.Forms.Padding(0);
             this.lblSpecialty.Name = "lblSpecialty";
-            this.lblSpecialty.Size = new System.Drawing.Size(157, 23);
+            this.lblSpecialty.Size = new System.Drawing.Size(118, 19);
             this.lblSpecialty.TabIndex = 34;
             this.lblSpecialty.Text = "Especialidad";
             // 
@@ -772,11 +766,11 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnFilter.Location = new System.Drawing.Point(34, 30);
+            this.btnFilter.Location = new System.Drawing.Point(25, 25);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(0);
             this.btnFilter.Name = "btnFilter";
             this.tlpMainSub1.SetRowSpan(this.btnFilter, 2);
-            this.btnFilter.Size = new System.Drawing.Size(122, 61);
+            this.btnFilter.Size = new System.Drawing.Size(91, 50);
             this.btnFilter.TabIndex = 2;
             this.btnFilter.TabStop = false;
             this.btnFilter.Text = "Filtrar";
@@ -789,10 +783,10 @@
             this.lblFilterByDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFilterByDate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFilterByDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblFilterByDate.Location = new System.Drawing.Point(190, 30);
+            this.lblFilterByDate.Location = new System.Drawing.Point(141, 25);
             this.lblFilterByDate.Margin = new System.Windows.Forms.Padding(0);
             this.lblFilterByDate.Name = "lblFilterByDate";
-            this.lblFilterByDate.Size = new System.Drawing.Size(157, 23);
+            this.lblFilterByDate.Size = new System.Drawing.Size(118, 19);
             this.lblFilterByDate.TabIndex = 32;
             this.lblFilterByDate.Text = "Fecha de la visita";
             // 
@@ -801,20 +795,21 @@
             this.dtpVisitDate.CalendarFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpVisitDate.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dtpVisitDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVisitDate.Location = new System.Drawing.Point(190, 64);
+            this.dtpVisitDate.Location = new System.Drawing.Point(141, 52);
             this.dtpVisitDate.Margin = new System.Windows.Forms.Padding(0);
             this.dtpVisitDate.Name = "dtpVisitDate";
-            this.dtpVisitDate.Size = new System.Drawing.Size(157, 27);
+            this.dtpVisitDate.Size = new System.Drawing.Size(118, 23);
             this.dtpVisitDate.TabIndex = 33;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvPacientInfo);
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 30);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1192, 736);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(892, 596);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pacientes";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -853,7 +848,7 @@
             this.dgvPacientInfo.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPacientInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPacientInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.dgvPacientInfo.Location = new System.Drawing.Point(3, 126);
+            this.dgvPacientInfo.Location = new System.Drawing.Point(2, 102);
             this.dgvPacientInfo.Margin = new System.Windows.Forms.Padding(0);
             this.dgvPacientInfo.MultiSelect = false;
             this.dgvPacientInfo.Name = "dgvPacientInfo";
@@ -873,7 +868,7 @@
             this.dgvPacientInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvPacientInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvPacientInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvPacientInfo.Size = new System.Drawing.Size(1186, 607);
+            this.dgvPacientInfo.Size = new System.Drawing.Size(888, 492);
             this.dgvPacientInfo.TabIndex = 44;
             this.dgvPacientInfo.TabStop = false;
             // 
@@ -887,34 +882,34 @@
             this.ViewPatient,
             this.UpdatePatient});
             this.cmsDataGridPatient.Name = "cmsDataGrid";
-            this.cmsDataGridPatient.Size = new System.Drawing.Size(344, 136);
+            this.cmsDataGridPatient.Size = new System.Drawing.Size(295, 108);
             // 
             // cmsInsertPatient
             // 
             this.cmsInsertPatient.Image = global::HealthPortal.Properties.Resources.agregar_usuario__1_;
             this.cmsInsertPatient.Name = "cmsInsertPatient";
-            this.cmsInsertPatient.Size = new System.Drawing.Size(343, 26);
+            this.cmsInsertPatient.Size = new System.Drawing.Size(294, 26);
             this.cmsInsertPatient.Text = "Agregar Paciente";
             // 
             // PatientDelete
             // 
             this.PatientDelete.Image = global::HealthPortal.Properties.Resources.borrar_usuario;
             this.PatientDelete.Name = "PatientDelete";
-            this.PatientDelete.Size = new System.Drawing.Size(343, 26);
+            this.PatientDelete.Size = new System.Drawing.Size(294, 26);
             this.PatientDelete.Text = "Eliminar paciente";
             // 
             // ViewPatient
             // 
             this.ViewPatient.Image = global::HealthPortal.Properties.Resources.agregar_documento;
             this.ViewPatient.Name = "ViewPatient";
-            this.ViewPatient.Size = new System.Drawing.Size(343, 26);
+            this.ViewPatient.Size = new System.Drawing.Size(294, 26);
             this.ViewPatient.Text = "Ver Información del paciente";
             // 
             // UpdatePatient
             // 
             this.UpdatePatient.Image = global::HealthPortal.Properties.Resources.actualizar__1_;
             this.UpdatePatient.Name = "UpdatePatient";
-            this.UpdatePatient.Size = new System.Drawing.Size(343, 26);
+            this.UpdatePatient.Size = new System.Drawing.Size(294, 26);
             this.UpdatePatient.Text = "Actualizar información del paciente";
             // 
             // tableLayoutPanel1
@@ -938,7 +933,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnSearchPatientInfo, 4, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -946,7 +941,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1186, 123);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(888, 100);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // btnRefreshPatient
@@ -962,11 +957,11 @@
             this.btnRefreshPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefreshPatient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefreshPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnRefreshPatient.Location = new System.Drawing.Point(956, 30);
+            this.btnRefreshPatient.Location = new System.Drawing.Point(713, 25);
             this.btnRefreshPatient.Margin = new System.Windows.Forms.Padding(0);
             this.btnRefreshPatient.Name = "btnRefreshPatient";
             this.tableLayoutPanel1.SetRowSpan(this.btnRefreshPatient, 2);
-            this.btnRefreshPatient.Size = new System.Drawing.Size(193, 61);
+            this.btnRefreshPatient.Size = new System.Drawing.Size(145, 50);
             this.btnRefreshPatient.TabIndex = 40;
             this.btnRefreshPatient.TabStop = false;
             this.btnRefreshPatient.Text = "Mostrar todos";
@@ -983,18 +978,18 @@
             this.tableLayoutPanel1.SetColumnSpan(this.txtSearchPatientInfo, 2);
             this.txtSearchPatientInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSearchPatientInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.txtSearchPatientInfo.Location = new System.Drawing.Point(34, 53);
+            this.txtSearchPatientInfo.Location = new System.Drawing.Point(25, 44);
             this.txtSearchPatientInfo.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearchPatientInfo.MaxLength = 60;
             this.txtSearchPatientInfo.Multiline = false;
             this.txtSearchPatientInfo.Name = "txtSearchPatientInfo";
-            this.txtSearchPatientInfo.Padding = new System.Windows.Forms.Padding(27, 11, 27, 11);
+            this.txtSearchPatientInfo.Padding = new System.Windows.Forms.Padding(20, 9, 20, 9);
             this.txtSearchPatientInfo.PasswordChar = false;
             this.txtSearchPatientInfo.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSearchPatientInfo.PlaceholderText = "";
             this.txtSearchPatientInfo.SelectionLength = 0;
             this.txtSearchPatientInfo.SelectionStart = 0;
-            this.txtSearchPatientInfo.Size = new System.Drawing.Size(548, 38);
+            this.txtSearchPatientInfo.Size = new System.Drawing.Size(410, 31);
             this.txtSearchPatientInfo.TabIndex = 41;
             this.txtSearchPatientInfo.TabStop = false;
             this.txtSearchPatientInfo.Tag = "name";
@@ -1008,10 +1003,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.label1.Location = new System.Drawing.Point(38, 30);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(28, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(540, 23);
+            this.label1.Size = new System.Drawing.Size(404, 19);
             this.label1.TabIndex = 43;
             this.label1.Text = "Buscar pacientes";
             // 
@@ -1028,10 +1022,10 @@
             this.btnSearchPatientInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchPatientInfo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchPatientInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSearchPatientInfo.Location = new System.Drawing.Point(623, 53);
+            this.btnSearchPatientInfo.Location = new System.Drawing.Point(465, 44);
             this.btnSearchPatientInfo.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearchPatientInfo.Name = "btnSearchPatientInfo";
-            this.btnSearchPatientInfo.Size = new System.Drawing.Size(148, 38);
+            this.btnSearchPatientInfo.Size = new System.Drawing.Size(111, 31);
             this.btnSearchPatientInfo.TabIndex = 42;
             this.btnSearchPatientInfo.TabStop = false;
             this.btnSearchPatientInfo.Text = "Buscar";
@@ -1040,14 +1034,13 @@
             // 
             // FrmPatientAdministration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1827, 1015);
+            this.ClientSize = new System.Drawing.Size(1370, 825);
             this.Controls.Add(this.tlpInventory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPatientAdministration";
             this.Text = "HealthPortal | Inventario";
             this.cmsDataGrid.ResumeLayout(false);
