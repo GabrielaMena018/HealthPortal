@@ -47,6 +47,11 @@ namespace HealthPortal.Model.DTO
         private int newQuantity;
         private int Package;
 
+        //Admin
+        private string usernameAdmin;
+        private string password;
+        private bool delete;
+
         //Metodos
         public string Name { get => name; set => name = value; }
         public string LastName { get => lastName; set => lastName = value; }
@@ -71,5 +76,8 @@ namespace HealthPortal.Model.DTO
         public int IdVisit { get => idVisit; set => idVisit = value; }
         public int Package1 { get => Package; set => Package = value; }
         public string AddRole { get => addRole; set => addRole = value; }
+        public string Password { get => password; set => password = value; }
+        public string UsernameAdmin { get => usernameAdmin; set => usernameAdmin = value; }
+        public bool Delete { get => delete; set => delete = value; }
     }
 }

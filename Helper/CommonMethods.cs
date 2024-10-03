@@ -49,6 +49,7 @@ namespace HealthPortal.Helper
         public static void ReadXMLConnectionFile()
         {
             string path = Path.Combine(Directory.GetCurrentDirectory().ToString(), "config_server.xml");
+            //MessageBox.Show(""+path);
             if (File.Exists(path))
             {
                 CurrentUserData.ServerSettingsOrigin = 2;
@@ -63,8 +64,17 @@ namespace HealthPortal.Helper
 
                 string codedServer = serverNode.Value;
                 string codedDatabase = databaseNode.Value;
+                string codedSqlAuth = sqlAuthNode.Value;
+                string codedSqlPass = sqlPassNode.Value;
+
                 DTOdbContext.Server = DecodeString(codedServer);
                 DTOdbContext.Database = DecodeString(codedDatabase);
+
+                if (codedSqlAuth.Equals("null") && codedSqlPass.Equals("null"))
+                {
+                    sqlAuthNode.Value = string.Empty;
+                    sqlPassNode.Value = string.Empty;
+                }
 
                 if (!string.IsNullOrEmpty(sqlAuthNode.Value) && !string.IsNullOrEmpty(sqlPassNode.Value))
                 {

@@ -67,6 +67,7 @@
     <Compile Include="Controller\PatientAdministration\ControllerAddRole.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerAddUpdatePatient.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerAdminRol.cs" />
+    <Compile Include="Controller\PatientAdministration\ControllerPAsswordPatientDelete.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerPatientAdministration.cs" />
     <Compile Include="Controller\PatientAdministration\ControllerViewPatientInfo.cs" />
     <Compile Include="Controller\SectionAdministration\ControllerAddUpdateSection.cs" />
@@ -185,6 +186,12 @@
     </Compile>
     <Compile Include="View\PatientAdministration\FrmAdminRol.Designer.cs">
       <DependentUpon>FrmAdminRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientAdministration\FrmPasswordPatientDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientAdministration\FrmPasswordPatientDelete.Designer.cs">
+      <DependentUpon>FrmPasswordPatientDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PatientAdministration\FrmViewPatientInfo.cs">
       <SubType>Form</SubType>
@@ -349,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\PatientAdministration\FrmAdminRol.resx">
       <DependentUpon>FrmAdminRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientAdministration\FrmPasswordPatientDelete.resx">
+      <DependentUpon>FrmPasswordPatientDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PatientAdministration\FrmViewPatientInfo.resx">
       <DependentUpon>FrmViewPatientInfo.cs</DependentUpon>

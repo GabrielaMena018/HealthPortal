@@ -384,15 +384,10 @@ namespace HealthPortal.Model.DAO
             {
                 command.Connection = getConnection();
                 string query = "UPDATE [Visitas].[tbVisitas] SET " +
-                                            "FechaVisita = @param1, " +
-                                            "HoraVisita = @param2, " +
-                                            "idInventario = @param3, " +
                                              "Observaciones = @param4 " +
                                             "WHERE idVisita = @param5";
                 SqlCommand cmdUpdateVisita = new SqlCommand(query, command.Connection);
-                cmdUpdateVisita.Parameters.AddWithValue("param1", Date);
-                cmdUpdateVisita.Parameters.AddWithValue("param2", Time);
-                cmdUpdateVisita.Parameters.AddWithValue("param3", Medicine);
+
                 cmdUpdateVisita.Parameters.AddWithValue("param4", Observation);
                 cmdUpdateVisita.Parameters.AddWithValue("param5", IdVisit);
                 updateReturn = cmdUpdateVisita.ExecuteNonQuery();
@@ -1036,6 +1031,48 @@ namespace HealthPortal.Model.DAO
             {
                 CommonMethods.HandleError("EC_311");
                 return -1;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+
+        public bool VerifyCredentials()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT * FROM [Vistas].[viewInformacionLogin] WHERE [usuario] = @username AND [contraseña] = @password AND [estadoUsuario] = @userStatus AND [idRol] = @roleID";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("username", Username);
+                cmd.Parameters.AddWithValue("password", Password);
+                cmd.Parameters.AddWithValue("userStatus", true);
+                cmd.Parameters.AddWithValue("roleID", 1);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    CurrentUserData.Username = dr.GetString(0);
+                    CurrentUserData.Password = dr.GetString(1);
+                    CurrentUserData.Token = dr.GetString(2);
+                    CurrentUserData.Status = dr.GetBoolean(3);
+                    CurrentUserData.RoleId = dr.GetInt32(4);
+                    CurrentUserData.FullName = dr.GetString(6);
+                    CurrentUserData.TemporaryPassword = dr.GetBoolean(7);
+                    CurrentUserData.Email = dr.GetString(8);
+                }
+                Delete = true;
+                return dr.HasRows;
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_203");
+                return false;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_203");
+                return false;
             }
             finally
             {

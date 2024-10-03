@@ -145,9 +145,9 @@ namespace HealthPortal.Controller.Settings
                 doc.AppendChild(decl);
                 XmlElement root = doc.CreateElement("connection");
                 doc.AppendChild(root);
+                
                 XmlElement server = doc.CreateElement("server");
                 string codedServer = CommonMethods.CodeString(frmServerSettings.txtServerURL.Texts.Trim());
-
                 server.InnerText = codedServer;
                 root.AppendChild(server);
 
@@ -155,28 +155,37 @@ namespace HealthPortal.Controller.Settings
                 string codedDatabase = CommonMethods.CodeString(frmServerSettings.txtDataBase.Texts.Trim());
                 Database.InnerText = codedDatabase;
                 root.AppendChild(Database);
+
                 XmlElement SqlAuth = doc.CreateElement("sqlAuth");
                 XmlElement SqlPassword = doc.CreateElement("sqlPassword");
 
+                string codedSqlAuth = "null";
+                string codedSqlPassword = "null";
+
                 if (frmServerSettings.rdoTrue.Checked == true)
                 {
-                    SqlAuth.InnerText = string.Empty;
+                    codedSqlAuth = "null";
+                    SqlAuth.InnerText = codedSqlAuth;
+                    root.AppendChild(SqlAuth);
 
-                    SqlPassword.InnerText = string.Empty;
+                    
+                    codedSqlPassword = "null";
+                    SqlPassword.InnerText = codedSqlPassword;
+                    root.AppendChild(SqlPassword);
                 }
                 else
                 {
-
-                    string codedSqlAuth = CommonMethods.CodeString(frmServerSettings.txtSQLAuth.Texts.Trim());
+                    
+                    codedSqlAuth = CommonMethods.CodeString(frmServerSettings.txtSQLAuth.Texts.Trim());
                     SqlAuth.InnerText = codedSqlAuth;
 
-                    string codedSqlPassword = CommonMethods.CodeString(frmServerSettings.txtPassword.Texts.Trim());
+                    codedSqlPassword = CommonMethods.CodeString(frmServerSettings.txtPassword.Texts.Trim());
                     SqlPassword.InnerText = codedSqlPassword;
                    
                 }
 
-                root.AppendChild(SqlAuth);
-                root.AppendChild(SqlPassword);
+                //root.AppendChild(SqlAuth);
+                //root.AppendChild(SqlPassword);
 
                 SqlConnection connection = dbContext.testConnection(frmServerSettings.txtServerURL.Texts.Trim(), frmServerSettings.txtDataBase.Texts.Trim(), frmServerSettings.txtSQLAuth.Texts.Trim(), frmServerSettings.txtPassword.Texts.Trim());
 

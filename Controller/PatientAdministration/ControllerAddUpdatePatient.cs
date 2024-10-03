@@ -43,8 +43,15 @@ namespace HealthPortal.Controller.PatientAdministration
             objAddUpdatePatient.dtpRegisterDate.Value = DateTime.Now;
             objAddUpdatePatient.dtpRegisterTime.Value = DateTime.Now;
             objAddUpdatePatient.txtPatientCode.Leave += new EventHandler(Code);
+            objAddUpdatePatient.btnExitE.Click += new EventHandler(CloseForm);
             
         }
+
+        private void CloseForm(object sender, EventArgs e)
+        {
+            objAddUpdatePatient.Dispose();
+        }
+
         public ControllerAddUpdatePatient(FrmAddUpdatePatient View, int Action, int IdPatient, string PatientName, string PatientLastName, string TypePerson, string codigo, string grupoTecnico, string grade, string seccionAcademica, string Especialidad, DateTime VisitDate, string TimeVisit, string nombreMedicamento, string Observaciones)
         {
             objAddUpdatePatient = View;
@@ -58,6 +65,7 @@ namespace HealthPortal.Controller.PatientAdministration
             VerifyAction();
             ChargeValues(IdPatient, PatientName, PatientLastName, codigo, grupoTecnico, VisitDate, TimeVisit, Observaciones);
             objAddUpdatePatient.btnUpdate.Click += new EventHandler(UpdateVisit);
+            objAddUpdatePatient.btnExitE.Click += new EventHandler(CloseForm);
 
         }
 
@@ -126,16 +134,14 @@ namespace HealthPortal.Controller.PatientAdministration
         {
             DAOPatientAdministration daoPatientAdministration = new DAOPatientAdministration();
             daoPatientAdministration.IdVisit= int.Parse(objAddUpdatePatient.txtIdPerson.Text.Trim());
-            daoPatientAdministration.Date = objAddUpdatePatient.dtpRegisterDate.Value;
-            daoPatientAdministration.Time = objAddUpdatePatient.dtpRegisterTime.Value.ToString("HH:mm");
-            daoPatientAdministration.Medicine = (int)objAddUpdatePatient.cmbMedicamentoRegistro.SelectedValue;
+            
             daoPatientAdministration.Observation = objAddUpdatePatient.txtObservations.Texts.Trim();
 
 
 
             int valorRetornado = daoPatientAdministration.UpdateVisit();
 
-            if (valorRetornado == 2)
+            if (valorRetornado >= 0)
             {
                 MessageBox.Show("Los datos han sido actualizado exitosamente",
                                 "Proceso completado",
@@ -150,6 +156,7 @@ namespace HealthPortal.Controller.PatientAdministration
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
+            
         }
 
         //Verifica que acción se va a realizar
@@ -181,6 +188,9 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.txtGrupo.Enabled = false;
                 objAddUpdatePatient.txtGrupo.BackColor = Color.WhiteSmoke;
                 objAddUpdatePatient.CmBGradoRegistro.Enabled = false;
+                objAddUpdatePatient.dtpRegisterTime.Enabled = false;
+                objAddUpdatePatient.dtpRegisterDate.Enabled = false;
+                objAddUpdatePatient.cmbMedicamentoRegistro.Enabled = false;
 
             }
             else if (action == 3)
@@ -208,6 +218,9 @@ namespace HealthPortal.Controller.PatientAdministration
                 objAddUpdatePatient.dtpRegisterDate.Enabled = false;
                 objAddUpdatePatient.dtpRegisterTime.Enabled = false;
                 objAddUpdatePatient.cmbSection.Enabled = false;
+                objAddUpdatePatient.dtpRegisterTime.Enabled = false;
+                objAddUpdatePatient.dtpRegisterDate.Enabled = false;
+                objAddUpdatePatient.cmbMedicamentoRegistro.Enabled = false;
             }
             else if (action == 4) 
             {

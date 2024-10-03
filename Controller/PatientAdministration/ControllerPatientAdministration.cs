@@ -39,7 +39,7 @@ namespace HealthPortal.Controller.PatientAdministration
             frmPatientAdministration.cmsView.Click += new EventHandler(ViewPatientFile);
             frmPatientAdministration.ViewPatient.Click += new EventHandler(ViewPatientInfo);
 
-            frmPatientAdministration.cmsDelete.Click += new EventHandler(DeletePatient);
+            frmPatientAdministration.cmsDelete.Click += new EventHandler(DeleteVisit);
 
             frmPatientAdministration.btnSearch.Click += new EventHandler(SearchPatient);
 
@@ -63,7 +63,7 @@ namespace HealthPortal.Controller.PatientAdministration
             frmPatientAdministration.btnNew.MouseLeave += new EventHandler(MouseLeaveTextButton);
             frmPatientAdministration.btnSearch.MouseLeave += new EventHandler(MouseLeaveTextButton);
             frmPatientAdministration.btnShowAll.MouseLeave += new EventHandler(MouseLeaveTextButton);
-            frmPatientAdministration.PatientDelete.Click += new EventHandler(DeletePatient);
+            frmPatientAdministration.PatientDelete.Click += new EventHandler(confirmDelete);
             frmPatientAdministration.txtSearch.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
 
             //frmPatientAdministration.btnPDF.Click += new EventHandler(VisitReport);
@@ -81,6 +81,8 @@ namespace HealthPortal.Controller.PatientAdministration
             frmPatientAdministration.btnExit.Click += new EventHandler(CloseForm);
             frmPatientAdministration.btnResize.Click += new EventHandler(ControllerDashboard.ToggleFullScreen);
         }
+
+   
 
         private void LoadPatientInfoData(object sender, EventArgs e)
         {
@@ -350,25 +352,34 @@ namespace HealthPortal.Controller.PatientAdministration
             }
         }
 
-        private void DeletePatient(object sender, EventArgs e)
+        private void confirmDelete(object sender, EventArgs e) 
+        {
+            int idPaciente = DeletePatient();
+            if (idPaciente != 0)
+            {
+                FrmPasswordPatientDelete openForm = new FrmPasswordPatientDelete(idPaciente);
+                openForm.ShowDialog();
+                RefreshPatientData();
+                RefreshPatientInfoData();
+            }
+            
+            
+            
+
+        }
+
+        private int DeletePatient()
         {
             int pos = frmPatientAdministration.dgvPacientInfo.CurrentRow.Index;
             if (MessageBox.Show($"¿Esta seguro que desea elimar a:\n {frmPatientAdministration.dgvPacientInfo[1, pos].Value.ToString()} {frmPatientAdministration.dgvPacientInfo[2, pos].Value.ToString()}.\nConsidere que para dicha acción se tienen que eliminar las visitas relacionadas con el paciente por lo tanto se perderan datos de visita, esta acción no es reversible", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 DAOPatientAdministration dao = new DAOPatientAdministration();
                 dao.IdPatient = int.Parse(frmPatientAdministration.dgvPacientInfo[0, pos].Value.ToString());
-                int ValorRetornado = dao.DeletePatient();
-                if (ValorRetornado == 1)
-                {
-                    MessageBox.Show("Registro eliminado", "Acción completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshPatientInfoData();
-                    RefreshPatientData();
-
-                }
-                else
-                {
-                    MessageBox.Show("Registro no pudo ser eliminado, verifique que el registro no tenga datos asociados.", "Acción interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                return dao.IdPatient;
+            }
+            else
+            {
+                return 0;
             }
         }
 
