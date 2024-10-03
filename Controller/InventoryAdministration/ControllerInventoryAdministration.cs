@@ -31,7 +31,7 @@ namespace HealthPortal.Controller.InventoryAdministration
         public ControllerInventoryAdministration(FrmInventoryAdministration vista)
         {
             frmInventoryAdministration = vista;
-            frmInventoryAdministration.Load += new EventHandler(LoadData);
+            frmInventoryAdministration.Load += new EventHandler(LoadDataGridView);
             //Evento click del boton
             frmInventoryAdministration.btnNew.Click += new EventHandler(NewMedicineInventory);
             frmInventoryAdministration.cmsUpdate.Click += new EventHandler(UpdateMedicineInventory);
@@ -106,7 +106,11 @@ namespace HealthPortal.Controller.InventoryAdministration
         //    FrmGeneralReportInventory openForm = new FrmGeneralReportInventory();
         //    openForm.ShowDialog();
         //}
-        public void LoadData(object sender, EventArgs e)
+        public void LoadDataGridView(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+        public void LoadData()
         {
             DAOInventoryAdministration dao = new DAOInventoryAdministration();
 
@@ -195,6 +199,7 @@ namespace HealthPortal.Controller.InventoryAdministration
         {
             FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(1);
             openForm.ShowDialog();
+            LoadData();
             RefreshData();
         }
 
@@ -297,6 +302,7 @@ namespace HealthPortal.Controller.InventoryAdministration
         {
             FrmCategoryAdministration open = new FrmCategoryAdministration();
             open.ShowDialog();
+            LoadData();
         }
 
         //private void printPDF(object sender, EventArgs e)
