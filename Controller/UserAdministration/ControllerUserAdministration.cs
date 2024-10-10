@@ -6,6 +6,7 @@ using HealthPortal.Properties;
 using HealthPortal.View.InventoryAdministration;
 using HealthPortal.View.MainPage;
 using HealthPortal.View.PasswordManagement;
+using HealthPortal.View.Reports.User;
 using HealthPortal.View.UserAdministration;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,7 @@ namespace HealthPortal.Controller.UserAdministration
             frmUserAdministration.cmsUpdateUserInfo.Click += new EventHandler(UpdateUser);
             frmUserAdministration.cmsDeleteUser.Click += new EventHandler(DeleteUser);
             frmUserAdministration.cmsViewUserInfo.Click += new EventHandler(ViewUser);
+            frmUserAdministration.btnReport.Click += new EventHandler(openReport);
 
             frmUserAdministration.cmsReestablishPassword.Click += new EventHandler(ChangeUserPassword);
 
@@ -119,6 +121,12 @@ namespace HealthPortal.Controller.UserAdministration
             {
                 frmUserAdministration.cmsReestablishPassword.Enabled = false;
             }
+        }
+
+        private void openReport(object sebder, EventArgs e)
+        {
+            FrmViewGeneralUsers open = new FrmViewGeneralUsers();
+            open.ShowDialog();
         }
         private void SearchDatabase(object sender, EventArgs e)
         {

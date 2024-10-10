@@ -14,9 +14,13 @@ using HealthPortal.Model.DAO;
 using HealthPortal.Model.DTO;
 using HealthPortal.Properties;
 using HealthPortal.View.InventoryAdministration;
+using HealthPortal.View.Reports.Inventory;
+using HealthPortal.View.Reports.Inventory.DataSetInfoInventoryTableAdapters;
+using HealthPortal.View.Reports.Inventory.DataSetInfoInstitutionTableAdapters;
 using HealthPortal.View.MainPage;
 using HealthPortal.View.PatientAdministration;
 using HealthPortal.View.SectionAdministration;
+using HealthPortal.View.PasswordManagement;
 //using iTextSharp.text.pdf;
 //using iTextSharp.tool.xml;
 //using System.IO;
@@ -39,6 +43,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmInventoryAdministration.cmsView.Click += new EventHandler(ViewMedicineInventory);
             frmInventoryAdministration.btnSearch.Click += new EventHandler(SearchMedicineInventory);
             frmInventoryAdministration.btnOpenCategoryAdministration.Click += new EventHandler(openCategoryAdministration);
+            frmInventoryAdministration.btnPrintGeneralReport.Click += new EventHandler(OpenReport);
             //frmInventoryAdministration.btnPrintReport.Click += new EventHandler(ReportInventary);
 
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
@@ -301,6 +306,13 @@ namespace HealthPortal.Controller.InventoryAdministration
         private void openCategoryAdministration(object sender, EventArgs e)
         {
             FrmCategoryAdministration open = new FrmCategoryAdministration();
+            open.ShowDialog();
+            LoadData();
+        }
+
+        private void OpenReport(object sender, EventArgs e)
+        {
+            FrmViewGeneralInventory open = new FrmViewGeneralInventory();
             open.ShowDialog();
             LoadData();
         }
