@@ -18,6 +18,7 @@ using HealthPortal.Properties;
 using HealthPortal.View.InventoryAdministration;
 using HealthPortal.Controller.Dashboard;
 using HealthPortal.View.MainPage;
+using HealthPortal.View.Reports.Patient;
 
 namespace HealthPortal.Controller.PatientAdministration
 {
@@ -64,6 +65,8 @@ namespace HealthPortal.Controller.PatientAdministration
             frmPatientAdministration.btnSearch.MouseLeave += new EventHandler(MouseLeaveTextButton);
             frmPatientAdministration.btnShowAll.MouseLeave += new EventHandler(MouseLeaveTextButton);
             frmPatientAdministration.PatientDelete.Click += new EventHandler(confirmDelete);
+            frmPatientAdministration.btnReport.Click += new EventHandler(openReport);
+            frmPatientAdministration.btnVisitReport.Click += new EventHandler(openVisitReport);
             frmPatientAdministration.txtSearch.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
 
             //frmPatientAdministration.btnPDF.Click += new EventHandler(VisitReport);
@@ -152,8 +155,18 @@ namespace HealthPortal.Controller.PatientAdministration
                 frmPatientAdministration.cmsUpdate.Enabled = false;
             }
         }
+        
+        private void openVisitReport(object sender, EventArgs e)
+        {
+            FrmViewGeneralVisit open = new FrmViewGeneralVisit();
+            open.ShowDialog();
+        }
 
-
+        private void openReport(object sender, EventArgs e)
+        {
+            FrmViewGeneralPatient open = new FrmViewGeneralPatient();
+            open.ShowDialog();
+        }
         private void SearchByGrade(object sender, EventArgs e)
         {
             DAOPatientAdministration dao = new DAOPatientAdministration();
@@ -432,5 +445,7 @@ namespace HealthPortal.Controller.PatientAdministration
 
 
         }
+
+        
     }
 }

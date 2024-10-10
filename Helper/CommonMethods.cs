@@ -49,7 +49,7 @@ namespace HealthPortal.Helper
         public static void ReadXMLConnectionFile()
         {
             string path = Path.Combine(Directory.GetCurrentDirectory().ToString(), "config_server.xml");
-            //MessageBox.Show(""+path);
+            MessageBox.Show("" + path);
             if (File.Exists(path))
             {
                 CurrentUserData.ServerSettingsOrigin = 2;

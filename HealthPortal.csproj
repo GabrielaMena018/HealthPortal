@@ -36,6 +36,24 @@
     <ApplicationIcon>Ícono.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -109,6 +127,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="View\Dashboard\FrmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +217,55 @@
     </Compile>
     <Compile Include="View\PatientAdministration\FrmViewPatientInfo.Designer.cs">
       <DependentUpon>FrmViewPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\Inventory\DataSetInfoInstitution.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInfoInstitution.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\Inventory\DataSetInfoInventory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInfoInventory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\Inventory\FrmViewGeneralInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Reports\Inventory\FrmViewGeneralInventory.Designer.cs">
+      <DependentUpon>FrmViewGeneralInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\Patient\DataSetInfoPatient.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInfoPatient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\Patient\DataSetInfoVisit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInfoVisit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\Patient\FrmViewGeneralPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Reports\Patient\FrmViewGeneralPatient.Designer.cs">
+      <DependentUpon>FrmViewGeneralPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\Patient\FrmViewGeneralVisit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Reports\Patient\FrmViewGeneralVisit.Designer.cs">
+      <DependentUpon>FrmViewGeneralVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\User\DataSetInfoUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInfoUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\User\FrmViewGeneralUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Reports\User\FrmViewGeneralUsers.Designer.cs">
+      <DependentUpon>FrmViewGeneralUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SectionAdministration\FrmAddUpdateSection.cs">
       <SubType>Form</SubType>
@@ -363,6 +431,22 @@
     <EmbeddedResource Include="View\PatientAdministration\FrmViewPatientInfo.resx">
       <DependentUpon>FrmViewPatientInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Reports\Inventory\FrmViewGeneralInventory.resx">
+      <DependentUpon>FrmViewGeneralInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Reports\Inventory\General_Inventory.rdlc" />
+    <EmbeddedResource Include="View\Reports\Patient\FrmViewGeneralPatient.resx">
+      <DependentUpon>FrmViewGeneralPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Reports\Patient\FrmViewGeneralVisit.resx">
+      <DependentUpon>FrmViewGeneralVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Reports\Patient\General_Patient.rdlc" />
+    <EmbeddedResource Include="View\Reports\Patient\General_Visit.rdlc" />
+    <EmbeddedResource Include="View\Reports\User\FrmViewGeneralUsers.resx">
+      <DependentUpon>FrmViewGeneralUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Reports\User\General_Users.rdlc" />
     <EmbeddedResource Include="View\SectionAdministration\FrmAddUpdateSection.resx">
       <DependentUpon>FrmAddUpdateSection.cs</DependentUpon>
     </EmbeddedResource>
@@ -419,6 +503,7 @@
     <EmbeddedResource Include="View\UserAdministration\FrmUserAdministration.resx">
       <DependentUpon>FrmUserAdministration.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -428,6 +513,61 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="View\Reports\Inventory\DataSetInfoInstitution.xsc">
+      <DependentUpon>DataSetInfoInstitution.xsd</DependentUpon>
+    </None>
+    <None Include="View\Reports\Inventory\DataSetInfoInstitution.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInfoInstitution.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\Reports\Inventory\DataSetInfoInstitution.xss">
+      <DependentUpon>DataSetInfoInstitution.xsd</DependentUpon>
+    </None>
+    <None Include="View\Reports\Inventory\DataSetInfoInventory.xsc">
+      <DependentUpon>DataSetInfoInventory.xsd</DependentUpon>
+    </None>
+    <None Include="View\Reports\Inventory\DataSetInfoInventory.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInfoInventory.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\Reports\Inventory\DataSetInfoInventory.xss">
+      <DependentUpon>DataSetInfoInventory.xsd</DependentUpon>
+    </None>
+    <None Include="View\Reports\Patient\DataSetInfoPatient.xsc">
+      <DependentUpon>DataSetInfoPatient.xsd</DependentUpon>
+    </None>
+    <None Include="View\Reports\Patient\DataSetInfoPatient.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInfoPatient.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\Reports\Patient\DataSetInfoPatient.xss">
+      <DependentUpon>DataSetInfoPatient.xsd</DependentUpon>
+    </None>
+    <None Include="View\Reports\Patient\DataSetInfoVisit.xsc">
+      <DependentUpon>DataSetInfoVisit.xsd</DependentUpon>
+    </None>
+    <None Include="View\Reports\Patient\DataSetInfoVisit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInfoVisit.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\Reports\Patient\DataSetInfoVisit.xss">
+      <DependentUpon>DataSetInfoVisit.xsd</DependentUpon>
+    </None>
+    <None Include="View\Reports\User\DataSetInfoUsers.xsc">
+      <DependentUpon>DataSetInfoUsers.xsd</DependentUpon>
+    </None>
+    <None Include="View\Reports\User\DataSetInfoUsers.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInfoUsers.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\Reports\User\DataSetInfoUsers.xss">
+      <DependentUpon>DataSetInfoUsers.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -769,7 +909,21 @@
     <None Include="Resources\multiple.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Ícono.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
