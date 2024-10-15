@@ -49,7 +49,6 @@ namespace HealthPortal.Helper
         public static void ReadXMLConnectionFile()
         {
             string path = Path.Combine(Directory.GetCurrentDirectory().ToString(), "config_server.xml");
-            MessageBox.Show("" + path);
             if (File.Exists(path))
             {
                 CurrentUserData.ServerSettingsOrigin = 2;
@@ -118,9 +117,9 @@ namespace HealthPortal.Helper
                 string decodedString = Encoding.UTF8.GetString(decodedBytes);
                 return decodedString.ToString();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return $"Error al descifrar: {ex.Message}";
+                return null;
             }
         }
         public static void TextBoxKeyDown(object sender, KeyEventArgs e)
@@ -333,9 +332,9 @@ namespace HealthPortal.Helper
                 MessageBox.Show($"Correo de confirmación de cuenta enviado exitosamente.", "Correo enviado exitosamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"Hubo un error al enviar el correo. Revise el correo ingresado y vuelva a intentar. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Hubo un error al enviar el correo. Revise el correo ingresado y vuelva a intentar.", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
         }
@@ -360,9 +359,9 @@ namespace HealthPortal.Helper
                 MessageBox.Show($"Contraseña temporal enviada al usuario a través de su correo electrónico de manera exitosa.", "Correo enviado exitosamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"Hubo un error al enviar el correo. Revise el correo ingresado y vuelva a intentar. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Hubo un error al enviar el correo. Revise el correo ingresado y vuelva a intentar.", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
         }
@@ -387,9 +386,9 @@ namespace HealthPortal.Helper
                 MessageBox.Show($"Contraseña temporal enviada al usuario a través de su correo electrónico de manera exitosa.", "Correo enviado exitosamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"Hubo un error al enviar el correo. Revise el correo ingresado y vuelva a intentar. Error: {ex.Message}", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Hubo un error al enviar el correo. Revise el correo ingresado y vuelva a intentar.", "Error al enviar el correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
         }

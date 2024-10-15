@@ -22,6 +22,8 @@ namespace HealthPortal.Model.DTO
         private int idEntradaSalida;
         private byte[] imagen;
         private string categoriaMedicamento;
+        private DateTime fechaInicio;
+        private DateTime fechaFin;
 
         public string NombreMedicamento { get => nombreMedicamento; set => nombreMedicamento = value; }
         public int Existencia { get => existencia; set => existencia = value; }
@@ -37,5 +39,7 @@ namespace HealthPortal.Model.DTO
         public int Envases { get => envases; set => envases = value; }
         public byte[] Imagen { get => imagen; set => imagen = value; }
         public string CategoriaMedicamento { get => categoriaMedicamento; set => categoriaMedicamento = value; }
+        public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
+        public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
     }
 }

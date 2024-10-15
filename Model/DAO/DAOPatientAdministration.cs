@@ -154,7 +154,7 @@ namespace HealthPortal.Model.DAO
                     return 0;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 RollBack();
                 //Codificación de errores: esta sale del catch EC = error critico, EC_001 = no se pudo ingresar al paciente
@@ -184,7 +184,7 @@ namespace HealthPortal.Model.DAO
                 returnedValue = cmdVisita.ExecuteNonQuery();
                 return returnedValue;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 //EC_002 = no se pudo agregar la visita
                 CommonMethods.HandleError("EC_109");
@@ -296,7 +296,7 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 //EC_004 = no se puso seleccionar la vista UpdateEstudiantes
                 CommonMethods.HandleError("EC_201");
@@ -363,7 +363,7 @@ namespace HealthPortal.Model.DAO
 
                 return updateReturn;
             }
-            catch (SqlException Ex)
+            catch (SqlException)
             {
                 //EC_006 No se pudo actuzalizar el registro del paciente
 
@@ -394,7 +394,7 @@ namespace HealthPortal.Model.DAO
                 return updateReturn;
 
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 //EC_003 = No se pudo actualizar la información del apartado o tabla visita
                 CommonMethods.HandleError("EC_309");
@@ -425,10 +425,9 @@ namespace HealthPortal.Model.DAO
                 return updateReturn;
 
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 //EC_003 = No se pudo actualizar la información del apartado o tabla visita
-                MessageBox.Show($"EC_003{ex.Message}", "Error critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
 
             }
@@ -454,7 +453,7 @@ namespace HealthPortal.Model.DAO
                 deleteReturn = cmdDelete.ExecuteNonQuery();
                 return deleteReturn;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_408");
                 return -1;
@@ -474,7 +473,7 @@ namespace HealthPortal.Model.DAO
                 deleteReturn = cmdDelete.ExecuteNonQuery();
                 return deleteReturn;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_408");
                 return -1;
@@ -495,7 +494,7 @@ namespace HealthPortal.Model.DAO
                 deleteReturn = cmdDelete.ExecuteNonQuery();
                 return deleteReturn;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 //EC_008 = No se pudo eleiminar la información de la visita que el paciente realizo
                 CommonMethods.HandleError("EC_409");
@@ -532,7 +531,7 @@ namespace HealthPortal.Model.DAO
                 else { return -1; }
 
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 //EC_009 = No se pudo eliminar la información del paciente
                 CommonMethods.HandleError("EC_410");
@@ -567,12 +566,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_506");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_506");
                 return null;
@@ -606,12 +605,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewInfoPacientes");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_506");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_506");
                 return null;
@@ -639,12 +638,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_505");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_505");
                 return null;
@@ -670,12 +669,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_504");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_504");
                 return null;
@@ -703,12 +702,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_503");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_503");
                 return null;
@@ -736,12 +735,12 @@ namespace HealthPortal.Model.DAO
                 adp.Fill(ds, "viewAdminPacientes");
                 return ds;
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_501");
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_501");
                 return null;
@@ -785,13 +784,13 @@ namespace HealthPortal.Model.DAO
                     return -1;
                 }
             }
-            catch (SqlException sqlex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_201");
                 return -1;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_201");
                 return -1;
@@ -839,13 +838,13 @@ namespace HealthPortal.Model.DAO
                 }
 
             }
-            catch (SqlException sqlex)
+            catch (SqlException)
             {
                 CommonMethods.HandleError("EC_502");
                 return null;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CommonMethods.HandleError("EC_502");
                 return null;

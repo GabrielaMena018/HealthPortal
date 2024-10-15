@@ -159,8 +159,8 @@ namespace HealthPortal.Controller.Settings
                 XmlElement SqlAuth = doc.CreateElement("sqlAuth");
                 XmlElement SqlPassword = doc.CreateElement("sqlPassword");
 
-                string codedSqlAuth = "null";
-                string codedSqlPassword = "null";
+                string codedSqlAuth;
+                string codedSqlPassword;
 
                 if (frmServerSettings.rdoTrue.Checked == true)
                 {
@@ -178,14 +178,13 @@ namespace HealthPortal.Controller.Settings
                     
                     codedSqlAuth = CommonMethods.CodeString(frmServerSettings.txtSQLAuth.Texts.Trim());
                     SqlAuth.InnerText = codedSqlAuth;
+                    root.AppendChild(SqlAuth);
 
                     codedSqlPassword = CommonMethods.CodeString(frmServerSettings.txtPassword.Texts.Trim());
                     SqlPassword.InnerText = codedSqlPassword;
-                   
-                }
+                    root.AppendChild(SqlPassword);
 
-                //root.AppendChild(SqlAuth);
-                //root.AppendChild(SqlPassword);
+                }
 
                 SqlConnection connection = dbContext.testConnection(frmServerSettings.txtServerURL.Texts.Trim(), frmServerSettings.txtDataBase.Texts.Trim(), frmServerSettings.txtSQLAuth.Texts.Trim(), frmServerSettings.txtPassword.Texts.Trim());
 

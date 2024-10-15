@@ -21,9 +21,7 @@ using HealthPortal.View.MainPage;
 using HealthPortal.View.PatientAdministration;
 using HealthPortal.View.SectionAdministration;
 using HealthPortal.View.PasswordManagement;
-//using iTextSharp.text.pdf;
-//using iTextSharp.tool.xml;
-//using System.IO;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace HealthPortal.Controller.InventoryAdministration
 {
@@ -51,6 +49,8 @@ namespace HealthPortal.Controller.InventoryAdministration
                 { "btnExit", Tuple.Create(Resources.quit, Resources.hoverQuit) },
                 { "btnResize", Tuple.Create(Resources.resize, Resources.hoverResize) }
             };
+
+            frmInventoryAdministration.llbUsageIndex.Click += new EventHandler(OpenUsageIndexForm);
             frmInventoryAdministration.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmInventoryAdministration.btnResize.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmInventoryAdministration.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
@@ -67,6 +67,11 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmInventoryAdministration.btnSearch.MouseLeave += new EventHandler(MouseLeaveTextButton);
 
             frmInventoryAdministration.txtSearch.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+        }
+        private void OpenUsageIndexForm(object sender, EventArgs e)
+        {
+            FrmUsageIndex frmUsageIndex = new FrmUsageIndex();
+            frmUsageIndex.ShowDialog();
         }
         private void MouseEnterTextButton(object sender, EventArgs e)
         {
@@ -106,16 +111,11 @@ namespace HealthPortal.Controller.InventoryAdministration
                 btn.ForeColor = Color.FromArgb(142, 202, 230);
             }
         }
-        //private void ReportInventary(object sender, EventArgs e)
-        //{
-        //    FrmGeneralReportInventory openForm = new FrmGeneralReportInventory();
-        //    openForm.ShowDialog();
-        //}
-        public void LoadDataGridView(object sender, EventArgs e)
+        private void LoadDataGridView(object sender, EventArgs e)
         {
             LoadData();
         }
-        public void LoadData()
+        private void LoadData()
         {
             DAOInventoryAdministration dao = new DAOInventoryAdministration();
 
@@ -126,9 +126,8 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmInventoryAdministration.cmbCategory.ValueMember = "idCategoriaMedicamento";
             frmInventoryAdministration.cmbCategory.DisplayMember = "categoriaMedicamento";
             ChargeValuesFromDataGrid();
-            RefreshData();  
+            RefreshData();
         }
-
         private void ChargeValuesFromDataGrid()
         {
             if(frmInventoryAdministration.dgvInventory.Rows.Count >= 1)
@@ -141,8 +140,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             }
             
         }
-
-        public void RefreshData()
+        private void RefreshData()
         {
             //Objeto de la clase DAOAdminInventory
             DAOInventoryAdministration dao = new DAOInventoryAdministration();
@@ -161,45 +159,6 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmInventoryAdministration.dgvInventory.Columns[8].Width = 80;
             frmInventoryAdministration.dgvInventory.Columns[9].Visible = false;
         }
-
-        #region Código para generar columnas de editar y eliminar
-        //public void GenerarColumnaEliminarDataGrid()
-        //{
-        //    DataGridViewButtonColumn btnClmDel = new DataGridViewButtonColumn();
-        //    btnClmDel.Name = "Eliminar";
-        //    ObjAdminUser.dgvIventory.Columns.Add(btnClmDel);
-        //}
-        //public void GenerarColumnaEditarDataGrid()
-        //{
-        //    DataGridViewButtonColumn btnClmEdit = new DataGridViewButtonColumn();
-        //    btnClmEdit.Name = "Editar";
-        //    ObjAdminUser.dgvPersonas.Columns.Add(btnClmEdit);
-        //}
-        //public void FormatoColumnaGrid(Object sender, DataGridViewCellPaintingEventArgs e)
-        //{
-        //    if (e.ColumnIndex >= 0 && ObjAdminUser.dgvPersonas.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
-        //    {
-        //        e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-        //        DataGridViewButtonCell celboton = ObjAdminUser.dgvPersonas.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
-        //        Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"../../../Resources/Trash.ico");
-        //        e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
-        //        ObjAdminUser.dgvPersonas.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
-        //        ObjAdminUser.dgvPersonas.Columns[e.ColumnIndex].Width = icoAtomico.Width + 8;
-        //        e.Handled = true;
-        //    }
-        //    else if (e.ColumnIndex >= 0 && ObjAdminUser.dgvPersonas.Columns[e.ColumnIndex].Name == "Editar" && e.RowIndex >= 0)
-        //    {
-        //        e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-        //        DataGridViewButtonCell celboton = ObjAdminUser.dgvPersonas.Rows[e.RowIndex].Cells["Editar"] as DataGridViewButtonCell;
-        //        Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"../../../Resources/Refresh.ico");
-        //        e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
-        //        ObjAdminUser.dgvPersonas.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
-        //        ObjAdminUser.dgvPersonas.Columns[e.ColumnIndex].Width = icoAtomico.Width + 8;
-        //        e.Handled = true;
-        //    }
-        //}
-        #endregion
-
         private void NewMedicineInventory(object sender, EventArgs e)
         {
             FrmAddUpdateMedicine openForm = new FrmAddUpdateMedicine(1);
@@ -236,9 +195,7 @@ namespace HealthPortal.Controller.InventoryAdministration
                 openForm.ShowDialog();
                 RefreshData();
             }
-
         }
-
         private void DeleteMedicineInventory(object sender, EventArgs e)
         {
             if (frmInventoryAdministration.dgvInventory.Rows.Count == 0)
@@ -273,7 +230,6 @@ namespace HealthPortal.Controller.InventoryAdministration
             DataSet ds = dao.SearchMedicineInventory(search);
             frmInventoryAdministration.dgvInventory.DataSource = ds.Tables["viewInventario"];
         }
-
         private void ViewMedicineInventory(object sender, EventArgs e)
         {
             if (frmInventoryAdministration.dgvInventory.Rows.Count == 0)
@@ -302,46 +258,17 @@ namespace HealthPortal.Controller.InventoryAdministration
                 RefreshData();
             }
         }
-
         private void openCategoryAdministration(object sender, EventArgs e)
         {
             FrmCategoryAdministration open = new FrmCategoryAdministration();
             open.ShowDialog();
             LoadData();
         }
-
         private void OpenReport(object sender, EventArgs e)
         {
             FrmViewGeneralInventory open = new FrmViewGeneralInventory();
             open.ShowDialog();
             LoadData();
         }
-
-        //private void printPDF(object sender, EventArgs e)
-        //{
-        //    SaveFileDialog save = new SaveFileDialog();
-        //    save.FileName = DateTime.Now.ToString("ddMMyyyy") + ".pdf";
-        //    save.ShowDialog();
-
-        //    string html = "<table border = 1> <tr> <td> HOLA </td> </tr> </table>";
-        //    if (save.ShowDialog() == DialogResult.OK)
-        //    {
-        //        using(FileStream stream = new FileStream(save.FileName, FileMode.Create))
-        //        {
-        //            Document pdf = new Document(PageSize.A4,25, 25, 25, 25);
-
-        //            PdfWriter writter = PdfWriter.GetInstance(pdf, stream);
-        //            pdf.Open();
-        //            pdf.Add(new Phrase(""));
-        //            using (StringReader sr = new StringReader(html))
-        //            {
-        //                XMLWorkerHelper.GetInstance().ParseXHtml(writter, pdf, sr);
-
-        //            }
-        //            pdf.Close();
-        //            stream.Close();
-        //        }
-        //    }
-        //}
     }
 }

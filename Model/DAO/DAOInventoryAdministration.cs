@@ -22,12 +22,41 @@ namespace HealthPortal.Model.DAO
                 //Se crea una conexion para garantizar que haya conexion con la base
                 command.Connection = getConnection();
                 string query = "SELECT * FROM [Inventario].[tbCategoriaMedicamento]";
-                SqlCommand cmdInventory = new SqlCommand(query, command.Connection);
-                cmdInventory.ExecuteNonQuery();
-                SqlDataAdapter adpInventory = new SqlDataAdapter(cmdInventory);
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter adpInventory = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adpInventory.Fill(ds, "tbCategoriaMedicamento");
                 return ds;
+            }
+            catch (SqlException)
+            {
+                CommonMethods.HandleError("EC_201");
+                return null;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_201");
+                return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
+        public DataTable RetrieveChartData()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "EXEC [ProcedimientosAlmacenados].[spIndiceUsoInventario] @fechaInicio, @fechaFin";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                cmd.Parameters.AddWithValue("fechaInicio", FechaInicio);
+                cmd.Parameters.AddWithValue("fechaFin", FechaFin);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                return dt;
             }
             catch (SqlException)
             {

@@ -24,7 +24,6 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmAddUpdateCategory.btnExitAddUpdateCategory.Click += new EventHandler(CloseForm);
             frmAddUpdateCategory.txtMedicineCategory.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
         }
-
         public ControllerAddUpdateCategory(FrmAddUpdateCategory view, int action, int id, string medicineCategory)
         {
             frmAddUpdateCategory = view;
@@ -67,11 +66,7 @@ namespace HealthPortal.Controller.InventoryAdministration
                     MessageBox.Show("No se pudieron ingresar los datos", "Procedimiento interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-
-
         }
-
         private void UpdateCategory(object sender, EventArgs e)
         {
             DAOInventoryAdministration dao = new DAOInventoryAdministration();

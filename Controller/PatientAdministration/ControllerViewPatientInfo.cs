@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace HealthPortal.Controller.PatientAdministration
 {
-    class ControllerViewPatientInfo : DAOPatientAdministration
+    class ControllerViewPatientInfo
     {
         FrmViewPatientInfo frmViewPatientInfo;
         int action;
