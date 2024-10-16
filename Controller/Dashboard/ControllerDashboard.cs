@@ -20,16 +20,24 @@ namespace HealthPortal.Controller.Dashboard
 {
     internal class ControllerDashboard
     {
-        static FrmDashboard frmDashboard;
-        Form currentForm;
-        Button currentButton;
-        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping;
+        static FrmDashboard frmDashboard; // Variable estática para almacenar la instancia del formulario principal del dashboard.
+        Form currentForm; // Guarda una referencia al formulario actualmente abierto en el panel contenedor.
+        Button currentButton; // Guarda el botón actualmente seleccionado.
+        private Dictionary<string, Tuple<Bitmap, Bitmap>> imageMapping; // Diccionario para mapear botones con sus imágenes normales y de hover.
+
+        // Constructor del controlador que se asocia al formulario principal (FrmDashboard).
         public ControllerDashboard(FrmDashboard view)
         {
+            // Se inicializan las variables de ancho y alto de la pantalla en CurrentUserData.
             CurrentUserData.ScreenWidth = Screen.PrimaryScreen.Bounds.Width;
             CurrentUserData.ScreenHeight = Screen.PrimaryScreen.Bounds.Height;
-            frmDashboard = view;
+
+            frmDashboard = view; // Se asigna el formulario de vista (dashboard) a la variable.
+
+            // Asocia el método `InitialLoad` al evento Load del formulario, para configurar cosas al cargar la interfaz.
             frmDashboard.Load += new EventHandler(InitialLoad);
+
+            // Se inicializa el diccionario con los botones del dashboard y sus imágenes respectivas.
             imageMapping = new Dictionary<string, Tuple<Bitmap, Bitmap>>()
             {
                 { "btnMenu", Tuple.Create(Resources.menu, Resources.hoverMenu)},
@@ -42,12 +50,10 @@ namespace HealthPortal.Controller.Dashboard
                 { "btnLogout", Tuple.Create(Resources.logout, Resources.hoverLogout) }
             };
 
-            // Expandir / Colapsar la sidebar
-            frmDashboard.Load += new EventHandler(InitialLoad);
+            // Aquí conectamos el botón del menú para expandir/colapsar la barra lateral.
             frmDashboard.btnMenu.Click += new EventHandler(MorphSideBar);
 
-            // Abrir Formularios
-            frmDashboard.Load += new EventHandler(OpenMainPageForm);
+            // Aquí manejamos la apertura de los formularios dentro del panel contenedor.
             frmDashboard.btnMainPage.Click += new EventHandler(OpenMainPageForm);
             frmDashboard.btnVisits.Click += new EventHandler(OpenPatientAdministrationForm);
             frmDashboard.btnInventory.Click += new EventHandler(OpenInventoryAdministrationForm);
@@ -55,7 +61,7 @@ namespace HealthPortal.Controller.Dashboard
             frmDashboard.btnSections.Click += new EventHandler(OpenSectionAdministrationForm);
             frmDashboard.btnUsers.Click += new EventHandler(OpenUserAdministrationForm);
 
-            // Cambios de imagen por MouseEnter
+            // Cambiamos la imagen del botón cuando el ratón pasa por encima (MouseEnter).
             frmDashboard.btnMenu.MouseEnter += new EventHandler(MouseEnterControl);
             frmDashboard.btnMainPage.MouseEnter += new EventHandler(MouseEnterControl);
             frmDashboard.btnVisits.MouseEnter += new EventHandler(MouseEnterControl);
@@ -65,7 +71,7 @@ namespace HealthPortal.Controller.Dashboard
             frmDashboard.btnUsers.MouseEnter += new EventHandler(MouseEnterControl);
             frmDashboard.btnLogout.MouseEnter += new EventHandler(MouseEnterControl);
 
-            // Cambios de imagen por MouseLeave
+            // Restauramos la imagen del botón cuando el ratón sale de la zona (MouseLeave).
             frmDashboard.btnMenu.MouseLeave += new EventHandler(MouseLeaveControl);
             frmDashboard.btnMainPage.MouseLeave += new EventHandler(MouseLeaveControl);
             frmDashboard.btnVisits.MouseLeave += new EventHandler(MouseLeaveControl);
@@ -75,106 +81,108 @@ namespace HealthPortal.Controller.Dashboard
             frmDashboard.btnUsers.MouseLeave += new EventHandler(MouseLeaveControl);
             frmDashboard.btnLogout.MouseLeave += new EventHandler(MouseLeaveControl);
 
-            // Cerrar Sesión
+            // Asociamos el botón de logout para cerrar la sesión.
             frmDashboard.btnLogout.Click += new EventHandler(Logout);
+
+            // Manejamos el evento de cierre del formulario para limpiar correctamente cuando se cierra la aplicación.
             frmDashboard.FormClosing += new FormClosingEventHandler(CloseProgram);
         }
+
+        // Método que alterna el modo de pantalla completa o normal.
         static public void ToggleFullScreen(object sender, EventArgs e)
         {
+            // Si ya estamos en pantalla completa, cambia a modo ventana normal.
             if (CurrentUserData.FullScreen)
             {
                 frmDashboard.FormBorderStyle = FormBorderStyle.None;
                 frmDashboard.WindowState = FormWindowState.Normal;
-                frmDashboard.Size = new Size((int)(CurrentUserData.ScreenWidth * .75), (int)(CurrentUserData.ScreenHeight * .75));
-                frmDashboard.Location = new Point((CurrentUserData.ScreenWidth - frmDashboard.Width) / 2, (CurrentUserData.ScreenHeight - frmDashboard.Height) / 2);
-                frmDashboard.Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, frmDashboard.Width, frmDashboard.Height, 20, 20));
+                frmDashboard.Size = new Size((int)(CurrentUserData.ScreenWidth * .75), (int)(CurrentUserData.ScreenHeight * .75)); // Tamaño del 75% de la pantalla.
+                frmDashboard.Location = new Point((CurrentUserData.ScreenWidth - frmDashboard.Width) / 2, (CurrentUserData.ScreenHeight - frmDashboard.Height) / 2); // Centrar la ventana.
+                frmDashboard.Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, frmDashboard.Width, frmDashboard.Height, 20, 20)); // Borde redondeado.
             }
             else
             {
+                // Si no estamos en pantalla completa, entonces entramos a pantalla completa.
                 frmDashboard.FormBorderStyle = FormBorderStyle.None;
                 frmDashboard.WindowState = FormWindowState.Normal;
 
+                // Se ajusta al área de trabajo disponible (sin incluir la barra de tareas).
                 Rectangle screenArea = Screen.PrimaryScreen.WorkingArea;
                 frmDashboard.Size = new Size(screenArea.Width, screenArea.Height);
                 frmDashboard.Location = new Point(screenArea.Left, screenArea.Top);
 
+                // Se elimina el borde redondeado cuando está en pantalla completa.
                 frmDashboard.Region = new Region(new Rectangle(0, 0, frmDashboard.Width, frmDashboard.Height));
             }
 
+            // Llama al método para redimensionar los controles.
             ResizeControls(2);
+
+            // Alterna la variable de estado de pantalla completa.
             CurrentUserData.FullScreen = !CurrentUserData.FullScreen;
+
+            // Refresca la interfaz para aplicar los cambios visuales.
             frmDashboard.Invalidate();
             frmDashboard.Refresh();
         }
+
+        // Método que inicializa el formulario la primera vez que se carga.
         private void InitialLoad(object sender, EventArgs e)
         {
+            // Se ajusta el tamaño del formulario al 75% de la pantalla.
             frmDashboard.Size = new Size((int)(CurrentUserData.ScreenWidth * .75), (int)(CurrentUserData.ScreenHeight * .75));
-            CurrentUserData.IsSideBarExpanded = true;
-            CheckUserAccessRole();
+
+            CurrentUserData.IsSideBarExpanded = true; // Se inicializa la barra lateral como expandida.
+            CheckUserAccessRole(); // Verifica los permisos del usuario según su rol.
+
+            // Se establece un borde redondeado en la ventana.
             frmDashboard.Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, frmDashboard.Width, frmDashboard.Height, 20, 20));
         }
+
+        // Método que expande o colapsa la barra lateral del dashboard.
         private void MorphSideBar(object sender, EventArgs e)
         {
-            // Se actualiza el ancho del panel lateral donde están los botoncitos
-            frmDashboard.tlpDashboard.ColumnStyles[0].Width = CurrentUserData.IsSideBarExpanded ? 9.86f : 18.42f;
-            frmDashboard.tlpDashboard.ColumnStyles[1].Width = CurrentUserData.IsSideBarExpanded ? 90.14f : 81.58f;
+            // Cambia el ancho de las columnas en el TableLayoutPanel del dashboard dependiendo si está expandida o no.
+            frmDashboard.tlpDashboard.ColumnStyles[0].Width = CurrentUserData.IsSideBarExpanded ? 9.86f : 18.42f; // Barra lateral.
+            frmDashboard.tlpDashboard.ColumnStyles[1].Width = CurrentUserData.IsSideBarExpanded ? 90.14f : 81.58f; // Contenido principal.
 
+            // Llama al método para ajustar los controles según el estado de la barra lateral.
             ResizeControls(1);
 
+            // Refresca el panel contenedor para aplicar los cambios.
             frmDashboard.pnlContainer.Refresh();
             frmDashboard.pnlContainer.Invalidate();
+
+            // Alterna el estado de la barra lateral.
             CurrentUserData.IsSideBarExpanded = !CurrentUserData.IsSideBarExpanded;
         }
+
+        // Método que redimensiona los controles dentro del formulario.
         static private void ResizeControls(int procedure)
         {
-            // Se actualizan todos los paneles para que tengan el mismo ancho del recién cambiado panel lateral
+            // Ajusta el ancho de los paneles dentro del formulario para que coincidan con el panel lateral.
             foreach (Panel pnl in new Panel[] { frmDashboard.pnlMenu, frmDashboard.flpTabs, frmDashboard.pnlMainPage, frmDashboard.pnlVisits, frmDashboard.pnlInventory, frmDashboard.pnlSettings, frmDashboard.pnlSections, frmDashboard.pnlUsers, frmDashboard.pnlLogout })
             {
                 pnl.Width = frmDashboard.pnlSidebar.Width;
             }
 
+            // Ajusta las columnas dentro del TableLayoutPanel del menú principal.
             frmDashboard.tlpMenu.ColumnStyles[0].SizeType = SizeType.Percent;
             frmDashboard.tlpMenu.ColumnStyles[0].Width = CurrentUserData.IsSideBarExpanded ? 30.67f : 40.35f;
+
             frmDashboard.tlpMenu.ColumnStyles[1].SizeType = SizeType.Percent;
             frmDashboard.tlpMenu.ColumnStyles[1].Width = CurrentUserData.IsSideBarExpanded ? 42.66f : 23.30f;
+
             frmDashboard.tlpMenu.ColumnStyles[2].SizeType = SizeType.Percent;
             frmDashboard.tlpMenu.ColumnStyles[2].Width = CurrentUserData.IsSideBarExpanded ? 26.67f : 36.35f;
 
-            foreach (TableLayoutPanel tlp in new TableLayoutPanel[] { frmDashboard.tlpMainPage, frmDashboard.tlpVisits, frmDashboard.tlpInventory, frmDashboard.tlpSettings, frmDashboard.tlpSections, frmDashboard.tlpUsers, frmDashboard.tlpLogout })
+            // Ajusta las columnas de los formularios (MainPage, Visits, Inventory, etc.) de manera uniforme.
+            foreach (TableLayoutPanel tlp in new TableLayoutPanel[] { frmDashboard.tlpMainPage, frmDashboard.tlpVisits, frmDashboard.tlpInventory, frmDashboard.tlpSettings, frmDashboard.tlpSections, frmDashboard.tlpUsers })
             {
-                tlp.ColumnStyles[0].SizeType = SizeType.Percent;
-                tlp.ColumnStyles[0].Width = 13.72f;
-
-                tlp.ColumnStyles[1].SizeType = SizeType.Percent;
-                tlp.ColumnStyles[1].Width = 74.56f;
-
-                tlp.ColumnStyles[2].SizeType = SizeType.Percent;
-                tlp.ColumnStyles[2].Width = 11.72f;
-            }
-
-            if (procedure == 1)
-            {
-                // Se actualizan todos los botones basándose en el estado del panel lateral
-                foreach (Button btn in new Button[] { frmDashboard.btnMainPage, frmDashboard.btnVisits, frmDashboard.btnInventory, frmDashboard.btnSettings, frmDashboard.btnSections, frmDashboard.btnUsers, frmDashboard.btnLogout })
+                foreach (ColumnStyle style in tlp.ColumnStyles)
                 {
-                    if (CurrentUserData.IsSideBarExpanded)
-                    {
-                        btn.Text = "";
-                        btn.ImageAlign = ContentAlignment.MiddleCenter;
-                        if (!(btn == frmDashboard.btnLogout)) btn.Size = new Size(32, 32);
-                        else btn.Size = new Size(48, 48);
-                    }
-                    else
-                    {
-                        btn.Text = GetButtonText(btn);
-                        btn.Visible = true;
-                        btn.ImageAlign = ContentAlignment.MiddleLeft;
-                        if (!(btn == frmDashboard.btnLogout)) btn.Size = new Size(208, 32);
-                        else btn.Size = new Size(208, 48);
-                    }
-
-                    // Se refresca el botón que acaba de ser actualizado, por qué no :)
-                    btn.Refresh();
+                    style.SizeType = SizeType.Percent;
+                    style.Width = 50f; // Cada columna toma el 50% del ancho disponible.
                 }
             }
         }

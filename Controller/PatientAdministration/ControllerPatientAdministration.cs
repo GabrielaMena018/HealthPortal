@@ -83,9 +83,15 @@ namespace HealthPortal.Controller.PatientAdministration
             frmPatientAdministration.btnResize.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmPatientAdministration.btnExit.Click += new EventHandler(CloseForm);
             frmPatientAdministration.btnResize.Click += new EventHandler(ControllerDashboard.ToggleFullScreen);
+
+            frmPatientAdministration.llbPatientsTreated.Click += new EventHandler(OpenPatientsTreatedForm);
         }
 
-   
+        private void OpenPatientsTreatedForm(object sender, EventArgs e)
+        {
+            FrmPatientsTreated frmPatientsTreated = new FrmPatientsTreated();
+            frmPatientsTreated.ShowDialog();
+        }
 
         private void LoadPatientInfoData(object sender, EventArgs e)
         {

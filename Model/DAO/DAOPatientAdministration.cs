@@ -23,7 +23,28 @@ namespace HealthPortal.Model.DAO
         int deleteReturn;
         int searchReturn;
         readonly SqlCommand command = new SqlCommand();
-
+        public DataTable RetrieveChartData()
+        {
+            try
+            {
+                command.Connection = getConnection();
+                string query = "SELECT * FROM [Vistas].[viewPorcentajeEstudiantesPorSeccion]";
+                SqlCommand cmd = new SqlCommand(query, command.Connection);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                CommonMethods.HandleError("EC_108");
+                return null;
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
+        }
         public DataSet FillCombo(string table, string schema)
         {
             try
