@@ -14,7 +14,7 @@
 -Gestión de visitas
 -Gestión de pacientes
 -Gestión de inventario
--Gestión de accesos
+-Gestión de acceso
 -Reportes generales como generales de usuarios
 -Reportes generales como generales de pacientes y parametrizados
 -Reportes generales como reportes generales de visita
