@@ -895,7 +895,7 @@
         <Top>0.61383cm</Top>
         <Left>0.6952cm</Left>
         <Height>0.5in</Height>
-        <Width>9.04648in</Width>
+        <Width>9.04651in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -979,7 +979,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Reporte de registro de visitas</Value>
+                  <Value>Reporte de registro de pacientes</Value>
                   <Style>
                     <FontFamily>georgia</FontFamily>
                     <FontSize>13pt</FontSize>

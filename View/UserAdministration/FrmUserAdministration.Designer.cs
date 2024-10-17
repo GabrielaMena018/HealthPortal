@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUserAdministration));
             this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsDeleteUser = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +58,6 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnResize = new System.Windows.Forms.Button();
             this.tlpInventory = new System.Windows.Forms.TableLayoutPanel();
-            this.btnReport = new CustomControls.RJButton();
             this.cmsDataGrid.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserDisplay)).BeginInit();
@@ -85,34 +84,34 @@
             this.cmsUpdateUserInfo,
             this.cmsReestablishPassword});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(380, 116);
+            this.cmsDataGrid.Size = new System.Drawing.Size(329, 108);
             // 
             // cmsDeleteUser
             // 
             this.cmsDeleteUser.Image = global::HealthPortal.Properties.Resources.borrar_usuario;
             this.cmsDeleteUser.Name = "cmsDeleteUser";
-            this.cmsDeleteUser.Size = new System.Drawing.Size(379, 28);
+            this.cmsDeleteUser.Size = new System.Drawing.Size(328, 26);
             this.cmsDeleteUser.Text = "Eliminar usuario";
             // 
             // cmsViewUserInfo
             // 
             this.cmsViewUserInfo.Image = global::HealthPortal.Properties.Resources.agregar_documento;
             this.cmsViewUserInfo.Name = "cmsViewUserInfo";
-            this.cmsViewUserInfo.Size = new System.Drawing.Size(379, 28);
+            this.cmsViewUserInfo.Size = new System.Drawing.Size(328, 26);
             this.cmsViewUserInfo.Text = "Ver información del usuario";
             // 
             // cmsUpdateUserInfo
             // 
             this.cmsUpdateUserInfo.Image = global::HealthPortal.Properties.Resources.actualizar__1_;
             this.cmsUpdateUserInfo.Name = "cmsUpdateUserInfo";
-            this.cmsUpdateUserInfo.Size = new System.Drawing.Size(379, 28);
+            this.cmsUpdateUserInfo.Size = new System.Drawing.Size(328, 26);
             this.cmsUpdateUserInfo.Text = "Actualizar información del usuario";
             // 
             // cmsReestablishPassword
             // 
             this.cmsReestablishPassword.Image = global::HealthPortal.Properties.Resources.clave;
             this.cmsReestablishPassword.Name = "cmsReestablishPassword";
-            this.cmsReestablishPassword.Size = new System.Drawing.Size(379, 28);
+            this.cmsReestablishPassword.Size = new System.Drawing.Size(328, 26);
             this.cmsReestablishPassword.Text = "Reestablecer contraseña";
             // 
             // pnlMain
@@ -126,10 +125,10 @@
             this.pnlMain.GradientAngle = 90F;
             this.pnlMain.GradientBottomColor = System.Drawing.Color.White;
             this.pnlMain.GradientTopColor = System.Drawing.Color.White;
-            this.pnlMain.Location = new System.Drawing.Point(639, 239);
+            this.pnlMain.Location = new System.Drawing.Point(535, 165);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1357, 970);
+            this.pnlMain.Size = new System.Drawing.Size(1140, 674);
             this.pnlMain.TabIndex = 3;
             // 
             // dgvUserDisplay
@@ -144,26 +143,26 @@
             this.dgvUserDisplay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvUserDisplay.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvUserDisplay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle4.NullValue = "-----";
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUserDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle1.NullValue = "-----";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUserDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUserDisplay.ContextMenuStrip = this.cmsDataGrid;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.NullValue = "-----";
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserDisplay.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.NullValue = "-----";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserDisplay.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUserDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUserDisplay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.dgvUserDisplay.Location = new System.Drawing.Point(0, 0);
@@ -172,21 +171,21 @@
             this.dgvUserDisplay.Name = "dgvUserDisplay";
             this.dgvUserDisplay.ReadOnly = true;
             this.dgvUserDisplay.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle6.NullValue = "-----";
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUserDisplay.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle3.NullValue = "-----";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserDisplay.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUserDisplay.RowHeadersVisible = false;
             this.dgvUserDisplay.RowHeadersWidth = 51;
             this.dgvUserDisplay.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvUserDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvUserDisplay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvUserDisplay.Size = new System.Drawing.Size(1357, 970);
+            this.dgvUserDisplay.Size = new System.Drawing.Size(1140, 674);
             this.dgvUserDisplay.TabIndex = 0;
             this.dgvUserDisplay.TabStop = false;
             // 
@@ -201,10 +200,10 @@
             this.pnlSide.GradientAngle = 90F;
             this.pnlSide.GradientBottomColor = System.Drawing.Color.White;
             this.pnlSide.GradientTopColor = System.Drawing.Color.White;
-            this.pnlSide.Location = new System.Drawing.Point(58, 239);
+            this.pnlSide.Location = new System.Drawing.Point(48, 165);
             this.pnlSide.Margin = new System.Windows.Forms.Padding(0);
             this.pnlSide.Name = "pnlSide";
-            this.pnlSide.Size = new System.Drawing.Size(523, 970);
+            this.pnlSide.Size = new System.Drawing.Size(439, 674);
             this.pnlSide.TabIndex = 2;
             // 
             // tlpSide
@@ -217,7 +216,7 @@
             this.tlpSide.Controls.Add(this.grpFilterSearchUsers, 1, 1);
             this.tlpSide.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpSide.Location = new System.Drawing.Point(0, 0);
-            this.tlpSide.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tlpSide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpSide.Name = "tlpSide";
             this.tlpSide.RowCount = 5;
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.007008F));
@@ -225,7 +224,7 @@
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.105105F));
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.61562F));
             this.tlpSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.007008F));
-            this.tlpSide.Size = new System.Drawing.Size(523, 970);
+            this.tlpSide.Size = new System.Drawing.Size(439, 674);
             this.tlpSide.TabIndex = 0;
             // 
             // grpNewUser
@@ -235,11 +234,11 @@
             this.grpNewUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpNewUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpNewUser.ForeColor = System.Drawing.Color.DarkGray;
-            this.grpNewUser.Location = new System.Drawing.Point(67, 749);
+            this.grpNewUser.Location = new System.Drawing.Point(56, 520);
             this.grpNewUser.Margin = new System.Windows.Forms.Padding(0);
             this.grpNewUser.Name = "grpNewUser";
-            this.grpNewUser.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpNewUser.Size = new System.Drawing.Size(388, 151);
+            this.grpNewUser.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpNewUser.Size = new System.Drawing.Size(326, 105);
             this.grpNewUser.TabIndex = 1;
             this.grpNewUser.TabStop = false;
             this.grpNewUser.Text = "Añadir usuarios";
@@ -252,14 +251,14 @@
             this.tlpSub1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.33F));
             this.tlpSub1.Controls.Add(this.btnAddNewUser, 1, 1);
             this.tlpSub1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSub1.Location = new System.Drawing.Point(4, 26);
-            this.tlpSub1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tlpSub1.Location = new System.Drawing.Point(4, 21);
+            this.tlpSub1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpSub1.Name = "tlpSub1";
             this.tlpSub1.RowCount = 3;
             this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.92F));
             this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.16F));
             this.tlpSub1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.92F));
-            this.tlpSub1.Size = new System.Drawing.Size(380, 120);
+            this.tlpSub1.Size = new System.Drawing.Size(318, 80);
             this.tlpSub1.TabIndex = 0;
             // 
             // btnAddNewUser
@@ -274,10 +273,10 @@
             this.btnAddNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNewUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnAddNewUser.Location = new System.Drawing.Point(31, 32);
+            this.btnAddNewUser.Location = new System.Drawing.Point(26, 21);
             this.btnAddNewUser.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddNewUser.Name = "btnAddNewUser";
-            this.btnAddNewUser.Size = new System.Drawing.Size(315, 49);
+            this.btnAddNewUser.Size = new System.Drawing.Size(265, 36);
             this.btnAddNewUser.TabIndex = 1;
             this.btnAddNewUser.TabStop = false;
             this.btnAddNewUser.Text = "Nuevo Usuario";
@@ -290,11 +289,11 @@
             this.grpFilterSearchUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpFilterSearchUsers.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
             this.grpFilterSearchUsers.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.grpFilterSearchUsers.Location = new System.Drawing.Point(71, 72);
-            this.grpFilterSearchUsers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpFilterSearchUsers.Location = new System.Drawing.Point(60, 51);
+            this.grpFilterSearchUsers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpFilterSearchUsers.Name = "grpFilterSearchUsers";
-            this.grpFilterSearchUsers.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpFilterSearchUsers.Size = new System.Drawing.Size(380, 623);
+            this.grpFilterSearchUsers.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpFilterSearchUsers.Size = new System.Drawing.Size(318, 431);
             this.grpFilterSearchUsers.TabIndex = 2;
             this.grpFilterSearchUsers.TabStop = false;
             this.grpFilterSearchUsers.Text = "Filtrar / Buscar usuarios";
@@ -309,10 +308,9 @@
             this.tlpSub2.Controls.Add(this.btnSearchForUser, 2, 5);
             this.tlpSub2.Controls.Add(this.txtUserAdministrationSearch, 1, 3);
             this.tlpSub2.Controls.Add(this.lblSearch, 1, 1);
-            this.tlpSub2.Controls.Add(this.btnReport, 2, 13);
             this.tlpSub2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSub2.Location = new System.Drawing.Point(4, 26);
-            this.tlpSub2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tlpSub2.Location = new System.Drawing.Point(4, 21);
+            this.tlpSub2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpSub2.Name = "tlpSub2";
             this.tlpSub2.RowCount = 14;
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
@@ -329,7 +327,7 @@
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.935065F));
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.31169F));
             this.tlpSub2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.989553F));
-            this.tlpSub2.Size = new System.Drawing.Size(372, 592);
+            this.tlpSub2.Size = new System.Drawing.Size(310, 406);
             this.tlpSub2.TabIndex = 3;
             // 
             // btnSearchForUser
@@ -345,10 +343,10 @@
             this.btnSearchForUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchForUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchForUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnSearchForUser.Location = new System.Drawing.Point(185, 174);
+            this.btnSearchForUser.Location = new System.Drawing.Point(154, 119);
             this.btnSearchForUser.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearchForUser.Name = "btnSearchForUser";
-            this.btnSearchForUser.Size = new System.Drawing.Size(155, 49);
+            this.btnSearchForUser.Size = new System.Drawing.Size(129, 33);
             this.btnSearchForUser.TabIndex = 35;
             this.btnSearchForUser.TabStop = false;
             this.btnSearchForUser.Text = "Buscar";
@@ -365,18 +363,18 @@
             this.tlpSub2.SetColumnSpan(this.txtUserAdministrationSearch, 2);
             this.txtUserAdministrationSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUserAdministrationSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.txtUserAdministrationSearch.Location = new System.Drawing.Point(30, 105);
+            this.txtUserAdministrationSearch.Location = new System.Drawing.Point(25, 72);
             this.txtUserAdministrationSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtUserAdministrationSearch.MaxLength = 60;
             this.txtUserAdministrationSearch.Multiline = false;
             this.txtUserAdministrationSearch.Name = "txtUserAdministrationSearch";
-            this.txtUserAdministrationSearch.Padding = new System.Windows.Forms.Padding(30, 14, 30, 14);
+            this.txtUserAdministrationSearch.Padding = new System.Windows.Forms.Padding(27, 11, 27, 11);
             this.txtUserAdministrationSearch.PasswordChar = false;
             this.txtUserAdministrationSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtUserAdministrationSearch.PlaceholderText = "";
             this.txtUserAdministrationSearch.SelectionLength = 0;
             this.txtUserAdministrationSearch.SelectionStart = 0;
-            this.txtUserAdministrationSearch.Size = new System.Drawing.Size(310, 52);
+            this.txtUserAdministrationSearch.Size = new System.Drawing.Size(258, 36);
             this.txtUserAdministrationSearch.TabIndex = 34;
             this.txtUserAdministrationSearch.TabStop = false;
             this.txtUserAdministrationSearch.Tag = "name";
@@ -390,10 +388,10 @@
             this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.lblSearch.Location = new System.Drawing.Point(34, 35);
+            this.lblSearch.Location = new System.Drawing.Point(29, 24);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(302, 29);
+            this.lblSearch.Size = new System.Drawing.Size(250, 20);
             this.lblSearch.TabIndex = 33;
             this.lblSearch.Text = "Buscar usuarios";
             // 
@@ -407,7 +405,7 @@
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(2055, 181);
+            this.pnlTitle.Size = new System.Drawing.Size(1726, 125);
             this.pnlTitle.TabIndex = 1;
             // 
             // tlpTitle
@@ -423,8 +421,8 @@
             this.tlpTitle.Name = "tlpTitle";
             this.tlpTitle.RowCount = 1;
             this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 180F));
-            this.tlpTitle.Size = new System.Drawing.Size(2055, 181);
+            this.tlpTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tlpTitle.Size = new System.Drawing.Size(1726, 125);
             this.tlpTitle.TabIndex = 1;
             // 
             // tlpTitleSub
@@ -442,7 +440,7 @@
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tlpTitleSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpTitleSub.Size = new System.Drawing.Size(1500, 181);
+            this.tlpTitleSub.Size = new System.Drawing.Size(1259, 125);
             this.tlpTitleSub.TabIndex = 0;
             // 
             // lblTitle
@@ -451,10 +449,10 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.lblTitle.Location = new System.Drawing.Point(75, 63);
+            this.lblTitle.Location = new System.Drawing.Point(62, 43);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1349, 72);
+            this.lblTitle.Size = new System.Drawing.Size(1133, 50);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Administración de Usuarios";
             // 
@@ -469,14 +467,14 @@
             this.tlpControls.Controls.Add(this.btnExit, 3, 1);
             this.tlpControls.Controls.Add(this.btnResize, 1, 1);
             this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpControls.Location = new System.Drawing.Point(1500, 0);
+            this.tlpControls.Location = new System.Drawing.Point(1259, 0);
             this.tlpControls.Margin = new System.Windows.Forms.Padding(0);
             this.tlpControls.Name = "tlpControls";
             this.tlpControls.RowCount = 3;
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpControls.Size = new System.Drawing.Size(555, 181);
+            this.tlpControls.Size = new System.Drawing.Size(467, 125);
             this.tlpControls.TabIndex = 1;
             // 
             // btnExit
@@ -491,10 +489,10 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = global::HealthPortal.Properties.Resources.quit;
-            this.btnExit.Location = new System.Drawing.Point(391, 60);
+            this.btnExit.Location = new System.Drawing.Point(329, 41);
             this.btnExit.Margin = new System.Windows.Forms.Padding(0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(104, 60);
+            this.btnExit.Size = new System.Drawing.Size(88, 41);
             this.btnExit.TabIndex = 38;
             this.btnExit.TabStop = false;
             this.btnExit.UseVisualStyleBackColor = false;
@@ -511,10 +509,10 @@
             this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResize.ForeColor = System.Drawing.Color.White;
             this.btnResize.Image = ((System.Drawing.Image)(resources.GetObject("btnResize.Image")));
-            this.btnResize.Location = new System.Drawing.Point(277, 60);
+            this.btnResize.Location = new System.Drawing.Point(233, 41);
             this.btnResize.Margin = new System.Windows.Forms.Padding(0);
             this.btnResize.Name = "btnResize";
-            this.btnResize.Size = new System.Drawing.Size(104, 60);
+            this.btnResize.Size = new System.Drawing.Size(88, 41);
             this.btnResize.TabIndex = 39;
             this.btnResize.TabStop = false;
             this.btnResize.UseVisualStyleBackColor = false;
@@ -532,44 +530,26 @@
             this.tlpInventory.Controls.Add(this.pnlMain, 3, 2);
             this.tlpInventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpInventory.Location = new System.Drawing.Point(0, 0);
-            this.tlpInventory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tlpInventory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpInventory.Name = "tlpInventory";
             this.tlpInventory.RowCount = 4;
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.4532F));
             this.tlpInventory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.630542F));
-            this.tlpInventory.Size = new System.Drawing.Size(2055, 1269);
+            this.tlpInventory.Size = new System.Drawing.Size(1726, 882);
             this.tlpInventory.TabIndex = 1;
-            // 
-            // btnReport
-            // 
-            this.btnReport.BackColor = System.Drawing.Color.BlueViolet;
-            this.btnReport.BackGroundColor = System.Drawing.Color.BlueViolet;
-            this.btnReport.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.btnReport.BorderRadius = 40;
-            this.btnReport.BorderSize = 0;
-            this.btnReport.FlatAppearance.BorderSize = 0;
-            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(188, 553);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(149, 36);
-            this.btnReport.TabIndex = 36;
-            this.btnReport.Text = "rjButton1";
-            this.btnReport.TextColor = System.Drawing.Color.White;
-            this.btnReport.UseVisualStyleBackColor = false;
             // 
             // FrmUserAdministration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(202)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(2055, 1269);
+            this.ClientSize = new System.Drawing.Size(1726, 882);
             this.Controls.Add(this.tlpInventory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmUserAdministration";
             this.Text = "HealthPortal | Inventario";
             this.cmsDataGrid.ResumeLayout(false);
@@ -618,6 +598,5 @@
         private System.Windows.Forms.TableLayoutPanel tlpControls;
         public System.Windows.Forms.Button btnExit;
         public System.Windows.Forms.Button btnResize;
-        public CustomControls.RJButton btnReport;
     }
 }

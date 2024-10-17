@@ -37,7 +37,7 @@ namespace HealthPortal.Controller.UserAdministration
             frmUserAdministration.cmsUpdateUserInfo.Click += new EventHandler(UpdateUser);
             frmUserAdministration.cmsDeleteUser.Click += new EventHandler(DeleteUser);
             frmUserAdministration.cmsViewUserInfo.Click += new EventHandler(ViewUser);
-            frmUserAdministration.btnReport.Click += new EventHandler(openReport);
+            //frmUserAdministration.btnReport.Click += new EventHandler(openReport);
 
             frmUserAdministration.cmsReestablishPassword.Click += new EventHandler(ChangeUserPassword);
 

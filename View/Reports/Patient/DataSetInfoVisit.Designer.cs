@@ -1015,7 +1015,7 @@ namespace HealthPortal.View.Reports.Patient.DataSetInfoVisitTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT a.nombrePaciente, a.apellidoPaciente, b.tipoPersona, a.codigo, d.grupoTecnico, g.grado, h.seccionAcademica, i.especialidad, c.fechaVisita, c.horaVisita, e.nombreInventario
@@ -1045,6 +1045,24 @@ WHERE  (c.fechaVisita BETWEEN @param1 AND @param2)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@param1", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fechaVisita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@param2", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fechaVisita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT a.nombrePaciente, a.apellidoPaciente, b.tipoPersona, a.codigo, d.grupoTecnico, g.grado, h.seccionAcademica, i.especialidad, c.fechaVisita, c.horaVisita, e.nombreInventario
+FROM     Pacientes.tbPacientes AS a INNER JOIN
+                  Pacientes.tbTipoPersona AS b ON b.idTipoPersona = a.idTipoPersona INNER JOIN
+                  Visitas.tbVisitas AS c ON c.idPaciente = a.idPaciente INNER JOIN
+                  Secciones.tbGradoSeccion AS d ON d.idGradoSeccion = a.idGradoSeccion INNER JOIN
+                  Secciones.tbGrados AS g ON g.idGrado = a.idGradoSeccion INNER JOIN
+                  Secciones.tbSeccionAcademica AS h ON h.idSeccionAcademica = a.idGradoSeccion INNER JOIN
+                  Secciones.tbEspecialidades AS i ON i.idEspecialidad = a.idGradoSeccion INNER JOIN
+                  Inventario.tbInventario AS e ON e.idInventario = c.idInventario INNER JOIN
+                  Institución.tbPersonas AS f ON f.idPersona = c.idPersona
+WHERE  (a.nombrePaciente = @Param1) OR
+                  (a.apellidoPaciente = @Param1) OR
+                  (a.codigo = @Param1) OR
+                  (i.especialidad = @Param1)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "nombrePaciente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1113,6 +1131,42 @@ WHERE  (c.fechaVisita BETWEEN @param1 AND @param2)";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(param2));
+            }
+            DataSetInfoVisit.tbVisitasDataTable dataTable = new DataSetInfoVisit.tbVisitasDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int PatientSearch(DataSetInfoVisit.tbVisitasDataTable dataTable, string Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Param1 == null)) {
+                throw new global::System.ArgumentNullException("Param1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetInfoVisit.tbVisitasDataTable GetDataBy1(string Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Param1 == null)) {
+                throw new global::System.ArgumentNullException("Param1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
             }
             DataSetInfoVisit.tbVisitasDataTable dataTable = new DataSetInfoVisit.tbVisitasDataTable();
             this.Adapter.Fill(dataTable);

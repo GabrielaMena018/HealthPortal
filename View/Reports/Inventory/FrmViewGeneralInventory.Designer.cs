@@ -31,30 +31,51 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmViewGeneralInventory));
+            this.tbInventoryBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetInfoInventory1 = new HealthPortal.View.Reports.Inventory.DataSetInfoInventory();
+            this.tbInstitutionBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetInfoInstitution = new HealthPortal.View.Reports.Inventory.DataSetInfoInstitution();
             this.tbInventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetInfoInventory = new HealthPortal.View.Reports.Inventory.DataSetInfoInventory();
             this.tbInstitutionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetInfoInstitution = new HealthPortal.View.Reports.Inventory.DataSetInfoInstitution();
             this.tbInventoryTableAdapter = new HealthPortal.View.Reports.Inventory.DataSetInfoInventoryTableAdapters.tbInventoryTableAdapter();
             this.tbInstitutionTableAdapter = new HealthPortal.View.Reports.Inventory.DataSetInfoInstitutionTableAdapters.tbInstitutionTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tbInventoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetInfoInventory1 = new HealthPortal.View.Reports.Inventory.DataSetInfoInventory();
             this.tbInventoryBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.tbInventoryBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.tbInstitutionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tbInstitutionBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.tbInventoryBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInventory1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInstitution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbInventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInstitution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbInventoryBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInventory1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbInventoryBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbInventoryBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tbInventoryBindingSource3
+            // 
+            this.tbInventoryBindingSource3.DataMember = "tbInventory";
+            this.tbInventoryBindingSource3.DataSource = this.dataSetInfoInventory1;
+            // 
+            // dataSetInfoInventory1
+            // 
+            this.dataSetInfoInventory1.DataSetName = "DataSetInfoInventory";
+            this.dataSetInfoInventory1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tbInstitutionBindingSource2
+            // 
+            this.tbInstitutionBindingSource2.DataMember = "tbInstitution";
+            this.tbInstitutionBindingSource2.DataSource = this.dataSetInfoInstitution;
+            // 
+            // dataSetInfoInstitution
+            // 
+            this.dataSetInfoInstitution.DataSetName = "DataSetInfoInstitution";
+            this.dataSetInfoInstitution.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbInventoryBindingSource
             // 
@@ -70,11 +91,6 @@
             // 
             this.tbInstitutionBindingSource.DataMember = "tbInstitution";
             this.tbInstitutionBindingSource.DataSource = this.dataSetInfoInstitution;
-            // 
-            // dataSetInfoInstitution
-            // 
-            this.dataSetInfoInstitution.DataSetName = "DataSetInfoInstitution";
-            this.dataSetInfoInstitution.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbInventoryTableAdapter
             // 
@@ -95,9 +111,10 @@
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "HealthPortal.View.Reports.Inventory.General_Inventory.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(807, 821);
+            this.reportViewer1.Size = new System.Drawing.Size(717, 657);
             this.reportViewer1.TabIndex = 0;
             // 
             // tbInventoryBindingSource1
@@ -105,52 +122,39 @@
             this.tbInventoryBindingSource1.DataMember = "tbInventory";
             this.tbInventoryBindingSource1.DataSource = this.dataSetInfoInventory;
             // 
-            // dataSetInfoInventory1
-            // 
-            this.dataSetInfoInventory1.DataSetName = "DataSetInfoInventory";
-            this.dataSetInfoInventory1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tbInventoryBindingSource2
             // 
             this.tbInventoryBindingSource2.DataMember = "tbInventory";
             this.tbInventoryBindingSource2.DataSource = this.dataSetInfoInventory1;
-            // 
-            // tbInventoryBindingSource3
-            // 
-            this.tbInventoryBindingSource3.DataMember = "tbInventory";
-            this.tbInventoryBindingSource3.DataSource = this.dataSetInfoInventory1;
             // 
             // tbInstitutionBindingSource1
             // 
             this.tbInstitutionBindingSource1.DataMember = "tbInstitution";
             this.tbInstitutionBindingSource1.DataSource = this.dataSetInfoInstitution;
             // 
-            // tbInstitutionBindingSource2
-            // 
-            this.tbInstitutionBindingSource2.DataMember = "tbInstitution";
-            this.tbInstitutionBindingSource2.DataSource = this.dataSetInfoInstitution;
-            // 
             // FrmViewGeneralInventory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 821);
+            this.ClientSize = new System.Drawing.Size(717, 657);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmViewGeneralInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmViewGeneralInventory";
+            this.Text = "Reporte de Inventario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmViewGeneralInventory_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.tbInventoryBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInventory1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInstitution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbInventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInstitution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbInventoryBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInventory1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbInventoryBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbInventoryBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }

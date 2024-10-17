@@ -19,10 +19,11 @@ namespace HealthPortal.View.Reports.User
 
         private void FrmViewGeneralUsers_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'dataSetInfoUsers1.tbUsers' Puede moverla o quitarla según sea necesario.
-            this.tbUsersTableAdapter.FillInfoUsers(this.dataSetInfoUsers1.tbUsers);
+            // TODO: esta línea de código carga datos en la tabla 'dataSetInfoInstitution.tbInstitution' Puede moverla o quitarla según sea necesario.
+            this.tbInstitutionTableAdapter.FillInfoInstitution(this.dataSetInfoInstitution.tbInstitution);
             // TODO: esta línea de código carga datos en la tabla 'dataSetInfoUsers.tbUsers' Puede moverla o quitarla según sea necesario.
             this.tbUsersTableAdapter.FillInfoUsers(this.dataSetInfoUsers.tbUsers);
+
 
             this.reportViewer1.RefreshReport();
         }

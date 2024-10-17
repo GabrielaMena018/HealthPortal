@@ -43,6 +43,14 @@ namespace HealthPortal.View.Reports.Patient
             this.reportViewer1.RefreshReport();
         }
 
-       
+        private void btnNew_Click_1(object sender, EventArgs e)
+        {
+            string Param1;
+            this.tbVisitasTableAdapter.PatientSearch(this.dataSetInfoVisit.tbVisitas, Param1 = txtSearchPatient.Text);
+
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.viewAdminPacientes' Puede moverla o quitarla según sea 
+            this.reportViewer1.RefreshReport();
+        }
+
     }
 }

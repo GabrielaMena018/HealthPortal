@@ -31,39 +31,50 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.dataSetInfoInstitution = new HealthPortal.View.Reports.Inventory.DataSetInfoInstitution();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmViewGeneralVisit));
+            this.tbVisitasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetInfoVisit = new HealthPortal.View.Reports.Patient.DataSetInfoVisit();
             this.tbInstitutionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetInfoInstitution = new HealthPortal.View.Reports.Inventory.DataSetInfoInstitution();
             this.tbInstitutionTableAdapter = new HealthPortal.View.Reports.Inventory.DataSetInfoInstitutionTableAdapters.tbInstitutionTableAdapter();
             this.panelTop = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.txtSearchPatient = new System.Windows.Forms.TextBox();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.tbVisitasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetInfoVisit = new HealthPortal.View.Reports.Patient.DataSetInfoVisit();
-            this.tbVisitasTableAdapter = new HealthPortal.View.Reports.Patient.DataSetInfoVisitTableAdapters.tbVisitasTableAdapter();
             this.btnNew = new CustomControls.RJButton();
             this.rjButton1 = new CustomControls.RJButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.btnFiltrar = new CustomControls.RJButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInstitution)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource)).BeginInit();
-            this.panelTop.SuspendLayout();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tbVisitasTableAdapter = new HealthPortal.View.Reports.Patient.DataSetInfoVisitTableAdapters.tbVisitasTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.tbVisitasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoVisit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInstitution)).BeginInit();
+            this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataSetInfoInstitution
+            // tbVisitasBindingSource
             // 
-            this.dataSetInfoInstitution.DataSetName = "DataSetInfoInstitution";
-            this.dataSetInfoInstitution.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tbVisitasBindingSource.DataMember = "tbVisitas";
+            this.tbVisitasBindingSource.DataSource = this.dataSetInfoVisit;
+            // 
+            // dataSetInfoVisit
+            // 
+            this.dataSetInfoVisit.DataSetName = "DataSetInfoVisit";
+            this.dataSetInfoVisit.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbInstitutionBindingSource
             // 
             this.tbInstitutionBindingSource.DataMember = "tbInstitution";
             this.tbInstitutionBindingSource.DataSource = this.dataSetInfoInstitution;
+            // 
+            // dataSetInfoInstitution
+            // 
+            this.dataSetInfoInstitution.DataSetName = "DataSetInfoInstitution";
+            this.dataSetInfoInstitution.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbInstitutionTableAdapter
             // 
@@ -98,52 +109,6 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Buscar paciente:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(966, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 17, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 23);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Desde:";
-            // 
-            // dtpDesde
-            // 
-            this.dtpDesde.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dtpDesde.CustomFormat = "yyyy-MM-dd";
-            this.dtpDesde.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDesde.Location = new System.Drawing.Point(828, 15);
-            this.dtpDesde.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(132, 30);
-            this.dtpDesde.TabIndex = 15;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(765, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 17, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 23);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Hasta:";
-            // 
-            // dtpHasta
-            // 
-            this.dtpHasta.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dtpHasta.CustomFormat = "yyyy-MM-dd";
-            this.dtpHasta.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpHasta.Location = new System.Drawing.Point(1033, 15);
-            this.dtpHasta.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(132, 30);
-            this.dtpHasta.TabIndex = 16;
-            // 
             // txtSearchPatient
             // 
             this.txtSearchPatient.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -152,37 +117,6 @@
             this.txtSearchPatient.Name = "txtSearchPatient";
             this.txtSearchPatient.Size = new System.Drawing.Size(276, 30);
             this.txtSearchPatient.TabIndex = 17;
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.tbVisitasBindingSource;
-            reportDataSource2.Name = "DataSet2";
-            reportDataSource2.Value = this.tbInstitutionBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HealthPortal.View.Reports.Patient.General_Visit.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 68);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1278, 292);
-            this.reportViewer1.TabIndex = 2;
-            // 
-            // tbVisitasBindingSource
-            // 
-            this.tbVisitasBindingSource.DataMember = "tbVisitas";
-            this.tbVisitasBindingSource.DataSource = this.dataSetInfoVisit;
-            // 
-            // dataSetInfoVisit
-            // 
-            this.dataSetInfoVisit.DataSetName = "DataSetInfoVisit";
-            this.dataSetInfoVisit.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tbVisitasTableAdapter
-            // 
-            this.tbVisitasTableAdapter.ClearBeforeFill = true;
             // 
             // btnNew
             // 
@@ -203,6 +137,7 @@
             this.btnNew.Text = "Generar Reporte";
             this.btnNew.TextColor = System.Drawing.Color.Black;
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click_1);
             // 
             // rjButton1
             // 
@@ -225,6 +160,52 @@
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click_1);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(765, 17);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 17, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 23);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Hasta:";
+            // 
+            // dtpDesde
+            // 
+            this.dtpDesde.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dtpDesde.CustomFormat = "yyyy-MM-dd";
+            this.dtpDesde.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDesde.Location = new System.Drawing.Point(828, 15);
+            this.dtpDesde.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(132, 30);
+            this.dtpDesde.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(966, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 17, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 23);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Desde:";
+            // 
+            // dtpHasta
+            // 
+            this.dtpHasta.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dtpHasta.CustomFormat = "yyyy-MM-dd";
+            this.dtpHasta.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHasta.Location = new System.Drawing.Point(1033, 15);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(132, 30);
+            this.dtpHasta.TabIndex = 16;
+            // 
             // btnFiltrar
             // 
             this.btnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
@@ -246,6 +227,27 @@
             this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click_1);
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.tbVisitasBindingSource;
+            reportDataSource2.Name = "DataSet2";
+            reportDataSource2.Value = this.tbInstitutionBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HealthPortal.View.Reports.Patient.General_Visit.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 68);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1278, 292);
+            this.reportViewer1.TabIndex = 2;
+            // 
+            // tbVisitasTableAdapter
+            // 
+            this.tbVisitasTableAdapter.ClearBeforeFill = true;
+            // 
             // FrmViewGeneralVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -253,16 +255,17 @@
             this.ClientSize = new System.Drawing.Size(1278, 360);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panelTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmViewGeneralVisit";
             this.Text = "Reporte de Visitas";
             this.Load += new System.EventHandler(this.FrmViewGeneralVisit_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInstitution)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource)).EndInit();
-            this.panelTop.ResumeLayout(false);
-            this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbVisitasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoVisit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbInstitutionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInfoInstitution)).EndInit();
+            this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
             this.ResumeLayout(false);
 
         }
