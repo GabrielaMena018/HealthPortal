@@ -48,7 +48,7 @@ namespace HealthPortal.Controller.PasswordManagement
                 DAOPasswordManagement dao = new DAOPasswordManagement();
                 dao.Username = username;
                 dao.QuestionID = (int)frmSecurityQuestions.cmbQuestions.SelectedValue;
-                dao.Answer = frmSecurityQuestions.txtAnswer.Texts.Trim();
+                dao.Answer = CommonMethods.ComputeSha256Hash(frmSecurityQuestions.txtAnswer.Texts.Trim());
                 if (dao.VerifyAnswer())
                 {
                     string temporaryPassword = CommonMethods.GenerateRandomPassword(8);

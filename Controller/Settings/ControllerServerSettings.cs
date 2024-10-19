@@ -196,7 +196,9 @@ namespace HealthPortal.Controller.Settings
                     DTOdbContext.User = frmServerSettings.txtSQLAuth.Texts.Trim();
                     DTOdbContext.Password = frmServerSettings.txtPassword.Texts.Trim();
                     MessageBox.Show($"El archivo fue creado exitosamente.", "Archivo de configuración", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmServerSettings.Dispose();
+                    MessageBox.Show("El programa se cerrará. Deberá volver a abrirlo e iniciar sesión con las credenciales correspondientes.", "Proceso compeltado exitosamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CommonMethods.DisposeOfCurrentUserData();
+                    Environment.Exit(0);
                 }
             }
             catch (XmlException)

@@ -34,7 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmsDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsView = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpInventory = new System.Windows.Forms.TableLayoutPanel();
@@ -63,6 +62,7 @@
             this.llbUsageIndex = new System.Windows.Forms.LinkLabel();
             this.pnlMain = new CustomControls.PanelCustom();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
+            this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsDataGrid.SuspendLayout();
             this.tlpInventory.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -88,14 +88,7 @@
             this.cmsView,
             this.cmsUpdate});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(329, 94);
-            // 
-            // cmsDelete
-            // 
-            this.cmsDelete.Image = global::HealthPortal.Properties.Resources.papelera_xmark;
-            this.cmsDelete.Name = "cmsDelete";
-            this.cmsDelete.Size = new System.Drawing.Size(328, 30);
-            this.cmsDelete.Text = "Eliminar medicamento";
+            this.cmsDataGrid.Size = new System.Drawing.Size(329, 116);
             // 
             // cmsView
             // 
@@ -103,6 +96,7 @@
             this.cmsView.Name = "cmsView";
             this.cmsView.Size = new System.Drawing.Size(328, 30);
             this.cmsView.Text = "Ver ficha del medicamento";
+
             // 
             // cmsUpdate
             // 
@@ -649,6 +643,13 @@
             this.dgvInventory.TabIndex = 0;
             this.dgvInventory.TabStop = false;
             // 
+            // cmsDelete
+            // 
+            this.cmsDelete.Image = global::HealthPortal.Properties.Resources.papelera_xmark;
+            this.cmsDelete.Name = "cmsDelete";
+            this.cmsDelete.Size = new System.Drawing.Size(328, 30);
+            this.cmsDelete.Text = "Eliminar medicamento";
+            // 
             // FrmInventoryAdministration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,7 +684,6 @@
 
         #endregion
         public System.Windows.Forms.ContextMenuStrip cmsDataGrid;
-        public System.Windows.Forms.ToolStripMenuItem cmsDelete;
         public System.Windows.Forms.ToolStripMenuItem cmsView;
         public System.Windows.Forms.ToolStripMenuItem cmsUpdate;
         private System.Windows.Forms.TableLayoutPanel tlpInventory;
@@ -712,5 +712,6 @@
         public CustomControls.RJButton btnOpenCategoryAdministration;
         public CustomControls.RJButton btnPrintGeneralReport;
         public System.Windows.Forms.LinkLabel llbUsageIndex;
+        public System.Windows.Forms.ToolStripMenuItem cmsDelete;
     }
 }

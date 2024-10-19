@@ -125,12 +125,11 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmInventoryAdministration.cmbCategory.DataSource = ds.Tables["tbCategoriaMedicamento"];
             frmInventoryAdministration.cmbCategory.ValueMember = "idCategoriaMedicamento";
             frmInventoryAdministration.cmbCategory.DisplayMember = "categoriaMedicamento";
-            ChargeValuesFromDataGrid();
             RefreshData();
         }
         private void ChargeValuesFromDataGrid()
         {
-            if(frmInventoryAdministration.dgvInventory.Rows.Count >= 1)
+            if (frmInventoryAdministration.dgvInventory.Rows.Count > 0)
             {
                 frmInventoryAdministration.cmsDataGrid.Enabled = true;
             }
@@ -158,6 +157,7 @@ namespace HealthPortal.Controller.InventoryAdministration
             frmInventoryAdministration.dgvInventory.Columns[7].Width = 80;
             frmInventoryAdministration.dgvInventory.Columns[8].Width = 80;
             frmInventoryAdministration.dgvInventory.Columns[9].Visible = false;
+            ChargeValuesFromDataGrid();
         }
         private void NewMedicineInventory(object sender, EventArgs e)
         {

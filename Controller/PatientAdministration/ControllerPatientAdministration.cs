@@ -43,6 +43,7 @@ namespace HealthPortal.Controller.PatientAdministration
             frmPatientAdministration.cmsDelete.Click += new EventHandler(DeleteVisit);
 
             frmPatientAdministration.btnSearch.Click += new EventHandler(SearchPatient);
+           
 
             frmPatientAdministration.btnSearchPatientInfo.Click += new EventHandler(SearchPatientInfo);
 
@@ -86,6 +87,13 @@ namespace HealthPortal.Controller.PatientAdministration
 
             frmPatientAdministration.llbPatientsTreated.Click += new EventHandler(OpenPatientsTreatedForm);
         }
+
+        //private void ReportVisit(object sender, EventArgs e)
+        //{
+        //    int pos = frmPatientAdministration.dgvVisitInfo.CurrentRow.Index;
+        //    int IdPatient = int.Parse(frmPatientAdministration.dgvVisitInfo[0, pos].Value.ToString());
+        //    FrmViewSpecificPatient specificPatient = new FrmViewSpecificPatient(IdPatient);
+        //}
 
         private void OpenPatientsTreatedForm(object sender, EventArgs e)
         {

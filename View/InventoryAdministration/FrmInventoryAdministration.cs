@@ -19,5 +19,7 @@ namespace HealthPortal.View.InventoryAdministration
             InitializeComponent();
             ControllerInventoryAdministration control = new ControllerInventoryAdministration(this);
         }
+
+       
     }
 }

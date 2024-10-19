@@ -85,7 +85,7 @@ namespace HealthPortal.Controller.Dashboard
             {
                 frmDashboard.FormBorderStyle = FormBorderStyle.None;
                 frmDashboard.WindowState = FormWindowState.Normal;
-                frmDashboard.Size = new Size((int)(CurrentUserData.ScreenWidth * .75), (int)(CurrentUserData.ScreenHeight * .75));
+                frmDashboard.Size = new Size((int)(CurrentUserData.ScreenWidth * .90), (int)(CurrentUserData.ScreenHeight * .90));
                 frmDashboard.Location = new Point((CurrentUserData.ScreenWidth - frmDashboard.Width) / 2, (CurrentUserData.ScreenHeight - frmDashboard.Height) / 2);
                 frmDashboard.Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, frmDashboard.Width, frmDashboard.Height, 20, 20));
             }
@@ -108,7 +108,7 @@ namespace HealthPortal.Controller.Dashboard
         }
         private void InitialLoad(object sender, EventArgs e)
         {
-            frmDashboard.Size = new Size((int)(CurrentUserData.ScreenWidth * .75), (int)(CurrentUserData.ScreenHeight * .75));
+            frmDashboard.Size = new Size((int)(CurrentUserData.ScreenWidth * .90), (int)(CurrentUserData.ScreenHeight * .90));
             CurrentUserData.IsSideBarExpanded = true;
             CheckUserAccessRole();
             frmDashboard.Region = Region.FromHrgn(CommonMethods.CreateRoundRectRgn(0, 0, frmDashboard.Width, frmDashboard.Height, 20, 20));

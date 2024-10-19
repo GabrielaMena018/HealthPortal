@@ -50,6 +50,20 @@ namespace HealthPortal.Controller.UserAdministration
             frmAddUpdateUser.txtUserAdministrationName.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
             frmAddUpdateUser.txtUserAdministrationPhoneNumber.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
             frmAddUpdateUser.txtUserAdministrationUsername.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+
+            frmAddUpdateUser.txtUserAdministrationUsername.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateUser.txtUserAdministrationEmail.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateUser.txtUserAdministrationLastName.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateUser.txtUserAdministrationName.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateUser.txtUserAdministrationPhoneNumber.Enter += new EventHandler(EnterTextBox);
+
+            frmAddUpdateUser.txtUserAdministrationUsername.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateUser.txtUserAdministrationEmail.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateUser.txtUserAdministrationLastName.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateUser.txtUserAdministrationName.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateUser.txtUserAdministrationPhoneNumber.Leave += new EventHandler(LeaveTextBox);
+
+            frmAddUpdateUser.txtUserAdministrationPhoneNumber.TextChangedEvent += new EventHandler(TextBoxTextChanged);
         }
         public ControllerAddUpdateUser(FrmAddUpdateUser view, int procedure, int personID, string firstName, string lastName, string email, string phoneNumber, string username, string role)
         {
@@ -65,6 +79,7 @@ namespace HealthPortal.Controller.UserAdministration
             frmAddUpdateUser.Load += new EventHandler(LoadComboBox);
             LoadValues(personID, firstName, lastName, email, phoneNumber, username);
             frmAddUpdateUser.btnUpdateUser.Click += new EventHandler(UpdateUserInfo);
+            frmAddUpdateUser.txtUserAdministrationPhoneNumber.TextChangedEvent += new EventHandler(TextBoxTextChanged);
 
             // Extra
             CommonMethods.EnableFormDrag(frmAddUpdateUser, frmAddUpdateUser);
@@ -72,6 +87,27 @@ namespace HealthPortal.Controller.UserAdministration
             frmAddUpdateUser.btnExit.MouseEnter += new EventHandler(MouseEnterPictureButton);
             frmAddUpdateUser.btnExit.MouseLeave += new EventHandler(MouseLeavePictureButton);
             frmAddUpdateUser.btnExit.Click += new EventHandler(CloseForm);
+
+            frmAddUpdateUser.txtUserAdministrationEmail.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateUser.txtUserAdministrationId.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateUser.txtUserAdministrationLastName.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateUser.txtUserAdministrationName.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateUser.txtUserAdministrationPhoneNumber.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+            frmAddUpdateUser.txtUserAdministrationUsername.KeyPress += new KeyPressEventHandler(CommonMethods.TextBoxKeyPress);
+
+            frmAddUpdateUser.txtUserAdministrationUsername.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateUser.txtUserAdministrationEmail.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateUser.txtUserAdministrationLastName.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateUser.txtUserAdministrationName.Enter += new EventHandler(EnterTextBox);
+            frmAddUpdateUser.txtUserAdministrationPhoneNumber.Enter += new EventHandler(EnterTextBox);
+
+            frmAddUpdateUser.txtUserAdministrationUsername.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateUser.txtUserAdministrationEmail.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateUser.txtUserAdministrationLastName.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateUser.txtUserAdministrationName.Leave += new EventHandler(LeaveTextBox);
+            frmAddUpdateUser.txtUserAdministrationPhoneNumber.Leave += new EventHandler(LeaveTextBox);
+
+            frmAddUpdateUser.txtUserAdministrationPhoneNumber.TextChangedEvent += new EventHandler(TextBoxTextChanged);
         }
 
         /// <summary>
@@ -92,6 +128,39 @@ namespace HealthPortal.Controller.UserAdministration
                 frmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts += "-";
                 frmAddUpdateUser.txtUserAdministrationPhoneNumber.SelectionStart = frmAddUpdateUser.txtUserAdministrationPhoneNumber.Texts.Length;
             }
+        }
+        private void EnterTextBox(object sender, EventArgs e)
+        {
+            CustomTextBox txt = sender as CustomTextBox;
+            if (txt != null)
+            {
+                if (txt.Texts.Trim() == GetPlaceholderText(txt))
+                {
+                    txt.Clear();
+                    txt.ForeColor = Color.FromArgb(31, 43, 91);
+                }
+            }
+        }
+        private void LeaveTextBox(object sender, EventArgs e)
+        {
+            CustomTextBox txt = sender as CustomTextBox;
+            if (txt != null)
+            {
+                if (string.IsNullOrEmpty(txt.Texts))
+                {
+                    txt.Texts = GetPlaceholderText(txt);
+                    txt.ForeColor = Color.FromArgb(142, 202, 230);
+                }
+            }
+        }
+        string GetPlaceholderText(CustomTextBox txt)
+        {
+            if (txt == frmAddUpdateUser.txtUserAdministrationName) return "Nombres";
+            if (txt == frmAddUpdateUser.txtUserAdministrationLastName) return "Apellidos";
+            if (txt == frmAddUpdateUser.txtUserAdministrationEmail) return "Correo Electrónico";
+            if (txt == frmAddUpdateUser.txtUserAdministrationPhoneNumber) return "Número de Teléfono";
+            if (txt == frmAddUpdateUser.txtUserAdministrationUsername) return "Usuario";
+            return string.Empty;
         }
         private void CloseForm(object sender, EventArgs e)
         {

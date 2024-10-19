@@ -40,6 +40,7 @@
             this.cmsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsView = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeVisitaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpInventory = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.tlpTitle = new System.Windows.Forms.TableLayoutPanel();
@@ -60,6 +61,7 @@
             this.txtSearch = new CustomControls.CustomTextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnVisitReport = new CustomControls.RJButton();
+            this.btnReport = new CustomControls.RJButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvVisitInfo = new System.Windows.Forms.DataGridView();
@@ -86,7 +88,6 @@
             this.txtSearchPatientInfo = new CustomControls.CustomTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearchPatientInfo = new CustomControls.RJButton();
-            this.btnReport = new CustomControls.RJButton();
             this.cmsDataGrid.SuspendLayout();
             this.tlpInventory.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -116,9 +117,10 @@
             this.cmsDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsDelete,
             this.cmsView,
-            this.cmsUpdate});
+            this.cmsUpdate,
+            this.reporteDeVisitaToolStripMenuItem});
             this.cmsDataGrid.Name = "cmsDataGrid";
-            this.cmsDataGrid.Size = new System.Drawing.Size(328, 82);
+            this.cmsDataGrid.Size = new System.Drawing.Size(328, 108);
             // 
             // cmsDelete
             // 
@@ -140,6 +142,12 @@
             this.cmsUpdate.Name = "cmsUpdate";
             this.cmsUpdate.Size = new System.Drawing.Size(327, 26);
             this.cmsUpdate.Text = "Actualizar información de la visita";
+            // 
+            // reporteDeVisitaToolStripMenuItem
+            // 
+            this.reporteDeVisitaToolStripMenuItem.Name = "reporteDeVisitaToolStripMenuItem";
+            this.reporteDeVisitaToolStripMenuItem.Size = new System.Drawing.Size(327, 26);
+            this.reporteDeVisitaToolStripMenuItem.Text = "Reporte de visita";
             // 
             // tlpInventory
             // 
@@ -528,11 +536,31 @@
             this.btnVisitReport.Location = new System.Drawing.Point(30, 233);
             this.btnVisitReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitReport.Name = "btnVisitReport";
-            this.btnVisitReport.Size = new System.Drawing.Size(268, 35);
+            this.btnVisitReport.Size = new System.Drawing.Size(267, 34);
             this.btnVisitReport.TabIndex = 41;
             this.btnVisitReport.Text = "Generar Reporte Visitas";
             this.btnVisitReport.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnVisitReport.UseVisualStyleBackColor = false;
+            // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnReport.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.btnReport.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnReport.BorderRadius = 40;
+            this.btnReport.BorderSize = 0;
+            this.tlpSub2.SetColumnSpan(this.btnReport, 2);
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnReport.Location = new System.Drawing.Point(30, 277);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(267, 32);
+            this.btnReport.TabIndex = 42;
+            this.btnReport.Text = "Generar Reporte Paciente";
+            this.btnReport.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
+            this.btnReport.UseVisualStyleBackColor = false;
             // 
             // tabControl1
             // 
@@ -687,7 +715,7 @@
             this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(763, 67);
+            this.cmbRole.Location = new System.Drawing.Point(763, 68);
             this.cmbRole.Margin = new System.Windows.Forms.Padding(0);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(157, 29);
@@ -713,7 +741,7 @@
             this.cmbGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGrade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.cmbGrade.FormattingEnabled = true;
-            this.cmbGrade.Location = new System.Drawing.Point(572, 67);
+            this.cmbGrade.Location = new System.Drawing.Point(572, 68);
             this.cmbGrade.Margin = new System.Windows.Forms.Padding(0);
             this.cmbGrade.Name = "cmbGrade";
             this.cmbGrade.Size = new System.Drawing.Size(157, 29);
@@ -739,7 +767,7 @@
             this.cmbSpecialty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.cmbSpecialty.FormattingEnabled = true;
-            this.cmbSpecialty.Location = new System.Drawing.Point(381, 67);
+            this.cmbSpecialty.Location = new System.Drawing.Point(381, 68);
             this.cmbSpecialty.Margin = new System.Windows.Forms.Padding(0);
             this.cmbSpecialty.Name = "cmbSpecialty";
             this.cmbSpecialty.Size = new System.Drawing.Size(157, 29);
@@ -1039,26 +1067,6 @@
             this.btnSearchPatientInfo.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
             this.btnSearchPatientInfo.UseVisualStyleBackColor = false;
             // 
-            // btnReport
-            // 
-            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnReport.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
-            this.btnReport.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.btnReport.BorderRadius = 40;
-            this.btnReport.BorderSize = 0;
-            this.tlpSub2.SetColumnSpan(this.btnReport, 2);
-            this.btnReport.FlatAppearance.BorderSize = 0;
-            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnReport.Location = new System.Drawing.Point(30, 277);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(267, 34);
-            this.btnReport.TabIndex = 42;
-            this.btnReport.Text = "Generar Reporte Paciente";
-            this.btnReport.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(43)))), ((int)(((byte)(91)))));
-            this.btnReport.UseVisualStyleBackColor = false;
-            // 
             // FrmPatientAdministration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1151,5 +1159,6 @@
         public CustomControls.RJButton btnVisitReport;
         public System.Windows.Forms.LinkLabel llbPatientsTreated;
         public CustomControls.RJButton btnReport;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeVisitaToolStripMenuItem;
     }
 }

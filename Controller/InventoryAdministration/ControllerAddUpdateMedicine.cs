@@ -138,10 +138,17 @@ namespace HealthPortal.Controller.InventoryAdministration
             //Declarando nuevo DataSet para que obtenga los datos del metodo LlenarCombosInventario
             DataSet ds = dao.FillCombo();
             //Llenar comboBox de la tabla tbCategoriaMedicamento
+            DateTime januaryFirst = new DateTime(DateTime.Now.Year, 1, 1);
             frmAddUpdateMedicine.cmbCategory.DataSource = ds.Tables["tbCategoriaMedicamento"];
             frmAddUpdateMedicine.cmbCategory.ValueMember = "idCategoriaMedicamento";
             frmAddUpdateMedicine.cmbCategory.DisplayMember = "categoriaMedicamento";
             frmAddUpdateMedicine.cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            frmAddUpdateMedicine.dtpEntryDate.MinDate = januaryFirst;
+            frmAddUpdateMedicine.dtpEntryDate.MaxDate = DateTime.Now;
+            frmAddUpdateMedicine.dtpExpirationDate.Value = DateTime.Now.AddDays(31);
+            frmAddUpdateMedicine.dtpExpirationDate.MinDate = DateTime.Now.AddDays(31);
+            frmAddUpdateMedicine.dtpExpirationDate.MaxDate = DateTime.Now.AddYears(1);
+            frmAddUpdateMedicine.dtpEntryTime.Enabled = false;
 
         }
         public void RegisterNewMedicine(object sender, EventArgs e)

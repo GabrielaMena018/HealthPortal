@@ -80,6 +80,8 @@ namespace HealthPortal.Controller.PatientAdministration
             VerifyAction();
             ChargeValues(IdPatient, PatientName, PatientLastName, codigo, grupoTecnico);
             frmViewPatientInfo.btnUpdate.Click += new EventHandler(UpdatePatient);
+            frmViewPatientInfo.btnInsertRol.Click += new EventHandler(AddRole);
+            frmViewPatientInfo.btnExitE.Click += new EventHandler(CloseFrom);
         }
         public void InitialLoad(object sender, EventArgs e)
         {
